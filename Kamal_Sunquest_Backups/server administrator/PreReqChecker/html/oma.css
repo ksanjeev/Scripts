@@ -1,0 +1,629 @@
+/**************************************************************************
+ *
+ *          DELL COMPUTER CORPORATION PROPRIETARY INFORMATION
+ *
+ *  This software is supplied under the terms of a license agreement or
+ *  nondisclosure agreement with Dell Computer Corporation and may not
+ *  be copied or disclosed except in accordance with the terms of that
+ *  agreement.
+ *
+ *  Copyright (c) 1995-2001 Dell Computer Corp. All Rights Reserved.
+ * 
+ *  Abstract/Purpose:
+ *    This file provides the cascading stylesheet used by OMA and its
+ *    integrating applications to provide common styling of HTML elements.
+ *
+ *  Environment:
+ *    OS Independent.
+ *
+ *  Created/Version:
+ *    2001 Apr 10 / $Revision: 2 $
+ *
+ *  Author: 
+ *    Javier Jimenez
+ *************************************************************************/
+A {
+	font-size:10pt;
+	font-family:Verdana,Arial;
+	font-weight:normal;
+	color:black;
+}
+A.component-tree-item {
+	font-size:10pt;
+	font-family:Arial;
+	font-weight:normal;
+	color:black;
+	text-decoration:none;
+}
+A.component-tree-selection {
+   font-size:10pt;
+	font-family:Arial;
+	font-weight:bold;
+	color:#0066CC;
+	text-decoration:none;
+}
+A.data-area-button {
+	font-family:Arial;
+	font-size:10pt;
+}
+A.data-area-jump-bar {
+	font-size:10pt;
+	font-family:Arial;
+	font-weight:normal;
+	color:black;
+}
+A.data-area-jump-bar-selection {
+	font-size:10pt;
+	font-family:Arial;
+	font-weight:bold;
+	color:#0066CC;
+}
+A.global-nav-bar-item {
+	color:white;
+	font-weight:bold;
+	font-family:Arial;
+	font-size:10pt;
+   text-decoration:none;
+}
+
+A.server-name {
+	color:black;
+	font-family:Arial;
+	font-size: 12pt;
+	font-weight:bold;
+	text-decoration:none;
+}
+A.snb-item {
+	text-decoration: none;
+	color: black;
+	font-family: Arial;
+	font-size: 10pt;
+	font-weight: normal;
+}
+A.snb-selection {
+	color: #0066CC;
+	font-weight: Bold;
+}
+A.lsnb-item {
+	text-decoration: none;
+	color: black;
+	font-family: Arial;
+	font-size: 10pt;
+	font-weight: normal;
+}
+A.lsnb-selection {
+	color: #0066CC;
+	font-weight: Bold;
+}
+
+A.data-area-link {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10 pt;
+    COLOR: #0066CC;
+    FONT-FAMILY: Arial;
+	font-weight: bold;
+	text-decoration : none;
+}
+
+A.select-os-link {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10 pt;
+    COLOR: #0066CC;
+    FONT-FAMILY: Arial;
+	 font-weight: bold;
+	 text-decoration : none;
+}
+
+A.data-area-popup-link {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10 pt;
+    COLOR: #0066CC;
+    FONT-FAMILY: Arial;
+	 font-weight: bold;
+    cursor: help;
+	 text-decoration : none;
+}
+
+A.help-menu-link {
+    FONT-SIZE: 9 pt;
+    COLOR: #0066CC;
+    FONT-FAMILY: Arial;
+	font-weight: bold;
+	text-decoration : none;
+}
+
+A.docpage-link {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10 pt;
+    COLOR: #0000FF;
+    FONT-FAMILY: Arial;
+	text-decoration : none;
+}
+
+A.helppage-link {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10 pt;
+    COLOR: #0000FF;
+    FONT-FAMILY: Arial;
+	text-decoration : none;
+}
+
+A.home-page-bold-link {
+    FONT-SIZE: 12 pt;
+    COLOR: black;
+    FONT-FAMILY: Arial;
+	 font-weight: bold;
+    text-decoration : none;
+}
+
+A.home-page-link {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11 pt;
+    COLOR: black;
+    FONT-FAMILY: Arial;
+    text-decoration : none;
+}
+
+A.systemtools-page-link {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10 pt;
+    COLOR: black;
+    FONT-FAMILY: Arial;
+    text-decoration : none;
+}
+
+A.interviewpage-more-info-link {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10 pt;
+    COLOR: #0066CC;
+    FONT-FAMILY: Arial;
+	font-weight: bold;
+	text-decoration : none;
+}
+
+A.launch-button {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 14 pt;
+    COLOR: #0066CC;
+    FONT-FAMILY: Arial;
+	font-weight: bold;
+	text-decoration : none;
+}
+
+A.interviewpage-more-info-link:hover { color : #FF3300; text-decoration : underline; }
+A.data-area-link:hover { color : #FF3300; text-decoration : underline; }
+A.help-menu-link:hover { color : #FF3300; text-decoration : underline; }
+A.docpage-link:hover { color : #FF3300; text-decoration : underline; }
+A.helppage-link:hover { color : #FF3300; text-decoration : underline; }
+A.launch-button:hover { color : #0066CC; text-decoration : underline; }
+
+BODY {
+}
+BODY.component-tree {
+	background-color:#D8EBFC;
+}
+BODY.bottom-frame {
+	background-color:#FFFFFF;
+}
+BODY.main-frame {
+	background-color:#FFFFFF;
+}
+BODY.server-name {
+	background-color:#FF9933;
+}
+BODY.snb {
+	background-color:#FF9933;
+}
+BODY.lsnb {
+	background-color:#FFCC99;
+}
+BODY.global-nav-bar-background {
+	background-color:#00339A
+}
+
+DIV {
+}
+DIV.loading {
+	font-size:0.8em;
+	font-style:bold;
+	font-weight:normal;
+	margin-left:16px;
+	margin-right:16px;
+	margin-top:2px;
+	margin-bottom:2px;
+	vertical-align:middle;
+}
+DIV.component-selection {
+	color: blue;
+	font-family: Verdana;
+	font-size: 11pt;
+	font-weight: bold;
+}
+
+IMG {
+	border-top:medium none;
+	border-bottom:medium none;
+	border-left:medium none;
+	border-right:medium none;
+}
+
+TABLE.global-nav-bar-background {
+	background-color:#00339A
+}
+
+
+TR {
+}
+
+TD {
+	font-weight: normal;
+	font-size: 10pt;
+	COLOR:black;
+	font-family: Arial;
+	
+}
+TD.component-tree-item {
+	background-color:#D8EBFC;
+}
+TD.component-tree-selection {
+	background-color:#99CCFF;
+}
+
+TD.data-area-background {
+	background-color:#f2e5c8
+}
+TD.data-area-button {
+	background-color:#ADAEAD;
+}
+TD.data-area-big-button {
+	background-color:#ADAEAD;
+        cursor:hand;
+}
+TD.data-area-big-button-image {
+        cursor:hand;
+}
+TD.data-area-canvas {
+	background-color:#ADBEE7
+}
+TD.data-area-canvas-odd {
+	background-color:#BADCFC
+}
+TD.data-area-jump-bar {
+	background-color:#FF9933;
+}
+TD.data-area-separator {
+	background-color:black
+}
+TD.data-area-title {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 14pt;
+    COLOR: blue;
+    FONT-FAMILY: Verdana, Arial
+}
+TD.data-area-shadow {
+    BACKGROUND-COLOR: #666666
+}
+TD.global-nav-bar-background {
+	background-color:#00339A
+}
+TD.global-nav-bar-separator {
+	background-color:#000000
+}
+TD.lsnb-separator {
+	background-color:#FFB04B
+}
+TD.server-name-button {
+	background-color:#99B9E1;
+}
+TD.snb-data {
+	background-color:#FF9933
+}
+TD.snb-background {
+	background-color:#FFFFFF
+}
+
+TD.snb-item {
+	background-color:#FFCC99
+}
+
+TD.top-separator {
+	background-color:#FFFFCE;
+	color: black;
+	font-family: Verdana;
+	font-size: 11pt;
+	font-weight: bold;
+}
+
+TD.bottom-separator {
+	background-color:#ADAEAD;
+	color: black;
+	font-family: Verdana;
+	font-size: 11pt;
+	font-weight: bold;
+}
+
+TD.gnavbar-menu-item {
+}
+
+TD.installcomponent-unselected {
+	background-color:#FFFFFF
+}
+
+TD.installcomponent-selected {
+	background-color:#C6C3C6
+}
+
+
+TH {
+    font-weight: normal;
+    font-size: 11pt;
+    color: black;
+    font-family: Arial
+}
+TH.data-area-header {
+	font-weight:bold;
+}
+TH.data-area-canvas {
+	background-color:#ADBEE7
+}
+
+TR {
+}
+
+SPAN {
+}
+SPAN.data-area-alert-text {
+    FONT-WEIGHT: bold;
+}
+SPAN.data-area-page-title {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 14pt;
+    COLOR: #0066CC;
+    FONT-FAMILY: Arial
+}
+SPAN.data-area-pass {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Verdana, Arial
+}
+SPAN.data-area-prompt-text {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10 pt;
+    COLOR: black;
+    FONT-FAMILY: Arial
+}
+SPAN.os-interview-field {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10 pt;
+    COLOR: black;
+    FONT-FAMILY: Arial
+}
+SPAN.os-bold-interview-field {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10 pt;
+    COLOR: black;
+    FONT-FAMILY: Arial
+}
+SPAN.notLink {
+   color:gray; 
+   font-size: 10pt;
+   font-family:Arial;
+   font-weight: normal; 
+   text-decoration:none
+}
+SPAN.data-area-table-header {
+    FONT-SIZE: 11 pt;
+    COLOR: white;
+	 FONT-WEIGHT : bold;
+    FONT-FAMILY: Arial
+}
+SPAN.data-area-bold-prompt-text {
+    FONT-SIZE: 10 pt;
+    COLOR: black;
+    FONT-FAMILY: Arial;
+	 font-weight: bold;
+}
+
+SPAN.help-screen-top-header {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 16 pt;
+    COLOR: #0066CC;
+    FONT-FAMILY: Arial;
+	font-weight: bold;
+}
+SPAN.home-area-prompt-text {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11 pt;
+    COLOR: black;
+    FONT-FAMILY: Arial;
+	font-weight: bold;
+}
+SPAN.data-area-sub-header {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11pt;
+    COLOR: black;
+    FONT-FAMILY: Arial
+}
+SPAN.data-area-summary-section-header {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 13pt;
+    COLOR: black;
+    FONT-FAMILY: Arial
+}
+SPAN.serversetup-toc-unchecked {
+	font-size:10pt;
+	font-family:Arial;
+   font-weight:normal;
+	color:black;
+}
+SPAN.serversetup-toc-current {
+	font-weight:bold;
+	color:#0066CC;
+	text-decoration:none;
+}
+SPAN.serversetup-toc-completed {
+	font-size:10pt;
+	font-family:Arial;
+   font-weight:normal;
+	color:black;
+}
+SPAN.component-tree-item {
+	font-size:10pt;
+	font-family:Arial;
+	font-weight:normal;
+	color:black;
+}
+SPAN.home-page-bold-link-text {
+    FONT-SIZE: 12 pt;
+    COLOR: black;
+    FONT-FAMILY: Arial;
+	 font-weight: bold;
+    text-decoration : none;
+}
+
+SPAN.home-page-link-text {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11 pt;
+    COLOR: black;
+    FONT-FAMILY: Arial;
+    text-decoration : none;
+}
+
+SPAN.systemtools-page-link-text {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10 pt;
+    COLOR: black;
+    FONT-FAMILY: Arial;
+    text-decoration : none;
+}
+
+SPAN.top-title {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12 pt;
+    COLOR: blue;
+    FONT-FAMILY: Arial;
+}
+
+SPAN.global-nav-bar-item-notactive {
+	color:#8A8A8A;
+	font-weight:bold;
+	font-family:Arial;
+	font-size:10pt;
+   text-decoration:none;
+}
+
+SPAN.license-font {
+	color:#000000;
+	font-weight:normal;
+	font-family:Times;
+	font-size:11pt;
+}
+
+SPAN.gathering-info-text {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 18 pt;
+    COLOR: blue;
+    FONT-FAMILY: 'Times New Roman';
+}
+
+SPAN.gathering-info-percent {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8 pt;
+    COLOR: "#63659C";
+    FONT-FAMILY: Arial;
+}
+
+SPAN.gathering-info-percent-white {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8 pt;
+    COLOR: "#FFFFFF";
+    FONT-FAMILY: Arial;
+}
+
+SPAN.installsummary-text {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 9 pt;
+    COLOR: "#000000";
+    FONT-FAMILY: Arial;
+}
+
+SPAN.customSelection-text {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10 pt;
+    COLOR: #0066CC;
+    FONT-FAMILY: Arial;
+}
+
+SPAN.customSelection-greytext {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10 pt;
+    COLOR: "#9f9B9B";
+    FONT-FAMILY: Arial;
+}
+
+
+SPAN.installcomponent-selected {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10 pt;
+    COLOR: "#848684";
+    FONT-FAMILY: Arial;
+}
+
+SPAN.installcomponent-unselected {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10 pt;
+    COLOR: "#B5B2B5";
+    FONT-FAMILY: Arial;
+}
+
+SPAN.installation-text {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10 pt;
+    COLOR: blue;
+    FONT-FAMILY: Arial;
+}
+
+SPAN.reboot-text {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9 pt;
+    COLOR: black;
+    FONT-FAMILY: Arial;
+}
+
+SPAN.custom-mn-text {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9 pt;
+    COLOR: black;
+    FONT-FAMILY: Arial;
+}
+
+SPAN.custom-mn-text-grey {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9 pt;
+    COLOR: "#B5B2B5";
+    FONT-FAMILY: Arial;
+}
+
+SPAN.uninstall-text-grey {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9 pt;
+    COLOR: "#B5B2B5";
+    FONT-FAMILY: Arial;
+}
+
+SPAN.uninstall-text {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9 pt;
+    COLOR: blue;
+    FONT-FAMILY: Arial;
+}
+
+SPAN.data-area-link {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10 pt;
+    COLOR: #0066CC;
+    FONT-FAMILY: Arial;
+	font-weight: bold;
+	text-decoration : none;
+}

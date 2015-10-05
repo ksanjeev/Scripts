@@ -1,0 +1,3725 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0059)http://members.cox.net/ejostrander/clearteam/ucm_howto.html -->
+<HTML><HEAD><TITLE>Eric J. Ostrander's ClearCase / ClearQuest page.</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<SCRIPT language=JavaScript 
+src="Eric J_ Ostrander's ClearCase - ClearQuest page_files/search_script.js"></SCRIPT>
+
+<META content="MSHTML 6.00.2600.0" name=GENERATOR></HEAD>
+<BODY vLink=red link=blue 
+background="Eric J_ Ostrander's ClearCase - ClearQuest page_files/parchment.jpg">
+<CENTER><B><FONT size=+2>Eric J. Ostrander's <BR><A 
+href="http://members.cox.net/ejostrander/clearteam/index.html">ClearCase / 
+ClearQuest</A> pages. </FONT></B></CENTER><PRE>
+</PRE>
+<HR>
+<BR><A name=INDEX></A>
+<P>
+<CENTER><U><B><FONT size=+3><!>Unified Change Management (UCM), how do I ...<!> 
+</FONT></B></U></CENTER><PRE>
+</PRE>
+<CENTER><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Activities</A> 
+&nbsp; | &nbsp; <A 
+href="http://members.cox.net/ejostrander/clearteam/cc_howto.html">Base 
+ClearCase</A> &nbsp; | &nbsp; <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Baselines</A> 
+&nbsp; | &nbsp; <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CC-CQ">ClearQuest 
+integration</A> &nbsp; | &nbsp; <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMPONENTS">Components</A> 
+&nbsp; | &nbsp; <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#FOLDERS">Folders</A> 
+&nbsp; | &nbsp; <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#MISC">Misc</A> 
+&nbsp; | &nbsp; <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#MULTISITE">MultiSite</A> 
+&nbsp; | &nbsp; <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Projects</A> 
+&nbsp; | &nbsp; <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Streams</A> 
+&nbsp; | &nbsp; <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#VIEWS">Views</A> 
+</CENTER><PRE>
+
+</PRE>Simple, case-insensitive search: <BR>
+<FORM><INPUT size=30 name=query> <INPUT onclick=search(query.value); type=button value=Search form <> 
+<P>
+<DD><B>NOTE:</B> The following notes are for my edification only. Any examples 
+given should be verified in the online documentation or with Rational Tech 
+Support before being attempted. 
+<DD><B>NOTE:</B> For Help in most of the Windows CC &amp; UCM GUI dialogs 
+(wizards), simply press F1. For example, when in the "Join Project" wizard, 
+simply press F1 to get "Help for ClearCase" on that specific subject. 
+<DD><B>NOTE:</B> The following discussions are specific to UCM. That is, there 
+are many more things that can be done in ClearCase that are common to Base 
+ClearCase and UCM, such as how to recover a removed element. See the other pages 
+in this website. 
+<P><PRE> <HR><BR><A name=ACTIVITIES></A>
+
+</PRE>
+<DL>
+  <DT><FONT size=+1>Activities </FONT><BR><FONT size=-1><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#INDEX"><I>Back 
+  to the TOP</I></A></FONT> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT01">Create 
+  an activity.</A> (mkactivity) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT02">Set 
+  an activity.</A> (setactivity) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT03">Unset 
+  an activity.</A> (setactivity) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT04">Remove 
+  an activity.</A> (rmactivity) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT05">List 
+  activities.</A> (lsactivity) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT06">Modify 
+  an activity's parameters.</A> (chactivity) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT07">Rename 
+  an activity.</A> (rename) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT08">Lock 
+  an activity.</A> (lock) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT09">Move 
+  an activity between streams or projects.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM10">View 
+  a stream's currently set activity.</A> (lsactivity) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM04">Deliver 
+  an activity.</A> (deliver) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT10">Determine/find 
+  undelivered activities.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM13">Find 
+  what activities are posted for deliver.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT12">Set a 
+  CQ activity in a non-GUI environment.</A> <! SQUID_USER SQUID_PASSWORD >
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT13">Deliver 
+  an activity to a non-default target.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT14">Share 
+  an activity.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT15">List 
+  all activities associated with an element.</A> (lshistory) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE05">Determine/find 
+  activities between two baselines.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT16">Find 
+  the activities delivered as part of a deliver opertation.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT17">Compare 
+  a version with its change set predecessor.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT18">Clean 
+  out old activities. Obsolete an activity.</A> <! lock >
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT19">Finish 
+  an activity.</A> </DD></DL><PRE> <HR><BR><A name=BASELINES></A>
+
+</PRE>
+<DL>
+  <DT><FONT size=+1>Baselines </FONT><BR><FONT size=-1><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#INDEX"><I>Back 
+  to the TOP</I></A></FONT> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE01">Create 
+  a baseline.</A> (mkbl) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE02">Remove 
+  a baseline.</A> (rmbl) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE03">List 
+  baselines.</A> (lsbl) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE04">Modify 
+  a baseline's parameters.</A> (chbl) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE05">Diff 
+  baselines.</A> (diffbl,cleardiffbl) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE06">Rebase 
+  to a baseline.</A> (rebase) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM04">Deliver 
+  a baseline.</A> (deliver) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE07">Import 
+  a label on which to baseline.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE08">Customize 
+  baseline promotion levels.</A> (setplevel) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE09">Rename 
+  a baseline.</A> (rename) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE10">Lock 
+  a baseline.</A> (lock) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE11">Determine 
+  which streams are referencing a baseline.</A> (lsbl) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE12">Promote 
+  a baseline.</A> (chbl) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE13">Determine/set 
+  a project's recommended baseline promotion level.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE14">Determine 
+  a stream's latest baseline.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE15">Create 
+  a composite baseline.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE16">Recommend 
+  a baseline.</A> (chstream) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE17">Change 
+  a project's foundation baseline for a component.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE18">Browse 
+  component baselines.</A> (clearcomptree) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ03">Set 
+  a baseline naming template.</A> (chproject) </DD></DL>
+<HR>
+<BR><A name=CC-CQ></A><PRE>
+</PRE>
+<DL>
+  <DT><FONT size=+1>ClearQuest integration </FONT><BR><FONT size=-1><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#INDEX"><I>Back 
+  to the TOP</I></A></FONT> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/cq_howto.html#SECURITY12">Reset 
+  the CC/CQ integration CQ login.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CQ03">General 
+  UCM integration.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CQ04">Remove 
+  the CC-UCM/CQ integration.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CQ05">Set 
+  CC-UCM/CQ integration policies.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CQ06">Ensure 
+  UCM activities are linked to CQ records.</A> (squid_patch) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CQ08">UCM 
+  enable a CQ schema.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CQ09">Ensure 
+  all UCM activities are unlinked from CQ.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT12">Set 
+  the CQ login in a non-GUI environment.</A> (SQUID_USER SQUID_PASSWORD) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CQ10">Connect 
+  a UCM project to a CQ db in a different master db.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CQ11">Use a 
+  record type other than UCMUtilityActivity when connecting an existing UCM 
+  project to CQ.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CQ12">Refresh 
+  a CQ UCM_Project record that is linked to a CC project.</A> (squid_patch) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CQ13">Display 
+  link information.</A> (pvarutil,squid_patch) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CQ14">Repair 
+  links.</A> (pvarutil,squid_patch) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CQ15">Remove 
+  links.</A> (pvarutil,squid_patch) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/cc_howto.html#VOB10">Check 
+  PVOB/CQ db consistency.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CQ16">Connect 
+  a UCM Project to multiple CQ databases.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/cq_howto.html#SCHEMA18">Delete 
+  a UCM-enabled record type.</A> </DD></DL><PRE> <HR><BR><A name=COMPONENTS></A>
+
+</PRE>
+<DL>
+  <DT><FONT size=+1>Components </FONT><BR><FONT size=-1><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#INDEX"><I>Back 
+  to the TOP</I></A></FONT> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMP01">Create 
+  a VOB-level or sub-VOB component.</A> (mkcomp) <! multiple component VOB >
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMP02">Remove 
+  a component.</A> (rmcomp) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMP03">List 
+  components.</A> (lscomp) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMP04">Make 
+  a UCM component from an existing CC VOB.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ10">Make 
+  a component modifiable/non-modifiable.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ11">Add 
+  a component to a project.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMP05">Rename 
+  a component.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE17">Change 
+  a project's foundation baseline for a component.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ17">Remove 
+  a component from a project.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMP06">Share 
+  a component between PVOBs.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMP07">Create 
+  a component without a VOB (rootless).</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/cc_howto.html#VOB10">Check 
+  PVOB/component consistency.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMP08">Split 
+  a VOB-level component into separate components.</A> </DD></DL><PRE> <HR><BR><A name=FOLDERS></A>
+
+</PRE>
+<DL>
+  <DT><FONT size=+1>Folders </FONT><BR><FONT size=-1><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#INDEX"><I>Back 
+  to the TOP</I></A></FONT> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#FOLD01">List 
+  folders.</A> (lsfolder) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#FOLD02">Create 
+  a project folder.</A> (mkfolder) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#FOLD03">Remove 
+  a folder.</A> (rmfolder) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#FOLD04">Modify 
+  a folder's parameters.</A> (chfolder) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#FOLD05">Rename 
+  a folder.</A> (rename) </DD></DL><PRE> <HR><BR><A name=MISC></A>
+
+</PRE>
+<DL>
+  <DT><FONT size=+1>Misc </FONT><BR><FONT size=-1><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#INDEX"><I>Back 
+  to the TOP</I></A></FONT> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#MISC01">Set 
+  up UCM from scratch.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#MISC02">Change 
+  protections on UCM objects.</A> (protect) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/cc_howto.html#MISC32">Get 
+  help.</A> (man hyperhelp apropos) <! support >
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/cc_howto.html#MISC49">Add/remove 
+  a view shortcut page to/from the CC Explorer.</A> </DD></DL><PRE> <HR><BR><A name=MULTISITE></A>
+
+</PRE>
+<DL>
+  <DT><FONT size=+1>MultiSite </FONT><BR><FONT size=-1><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#INDEX"><I>Back 
+  to the TOP</I></A></FONT> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CCMS01"></A>Nothing 
+  yet. </DD></DL><PRE> <HR><BR><A name=PROJECTS></A>
+
+</PRE>
+<DL>
+  <DT><FONT size=+1>Projects </FONT><BR><FONT size=-1><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#INDEX"><I>Back 
+  to the TOP</I></A></FONT> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ01">Create 
+  a project VOB (PVOB).</A> (mkvob) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#FOLD02">Create 
+  a project folder.</A> (mkfolder) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ02">Create 
+  a project.</A> (mkproject) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ03">Modify 
+  project parameters.</A> (chproject) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ04">Rename 
+  a project.</A> (rename) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ05">Remove 
+  a project.</A> (rmproject) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ06">List 
+  projects.</A> (lsproject) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ07">Join 
+  a project.</A> (clearjoinproj clearprojexp) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ08">Set 
+  a default view type.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ09">Interproject 
+  rebase.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ13">Interproject 
+  deliver.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ10">Make 
+  a component modifiable/non-modifiable.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE13">Determine/set 
+  a project's recommended baseline promotion level.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ11">Add 
+  a component to a project.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ12">Rename 
+  a project's Integration stream/branch.</A> (rename chstream setcs) <!                             PROJ13  moved next to PROJ09>
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ14">Set 
+  project policies.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ15">Lock 
+  a project.</A> (lock) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ16">Retire 
+  a project.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE17">Change 
+  a project's foundation baseline for a component.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ17">Remove 
+  a component from a project.</A> (rmcomp) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ18">Determine 
+  a project's integration stream name.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ19">List 
+  a project's modifiable components.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ20">Create 
+  a single-stream project.</A> </DD></DL><PRE> <HR><BR><A name=STREAMS></A>
+
+</PRE>
+<DL>
+  <DT><FONT size=+1>Streams </FONT><BR><FONT size=-1><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#INDEX"><I>Back 
+  to the TOP</I></A></FONT> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM01">Create 
+  a stream.</A> (mkstream) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM02">List 
+  streams.</A> (lsstream) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM03">Remove 
+  a stream.</A> (rmstream) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE06">Rebase.</A> 
+  (rebase) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM04">Deliver.</A> 
+  (deliver) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM05">Import 
+  a label onto an integration stream.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE11">Determine 
+  which streams are referencing a baseline.</A> (lsbl) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM06">Rename 
+  a stream.</A> (rename) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ12">Rename 
+  a project's Integration stream/branch.</A> (rename) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE14">Determine 
+  a stream's latest baseline.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM07">Set 
+  up development stream hierarchies.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM08">Set 
+  stream policies.</A> (chstream) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM09">Set 
+  the default deliver stream.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM10">View 
+  a stream's currently set activity.</A> (lsactivity) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM11">Deliver 
+  to a read-only component.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM12">Rebase 
+  to a baseline other than the recommended.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM13">Find 
+  what activities are posted for deliver.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM14">Change 
+  the default deliver target of a stream.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM15">Share 
+  ownership of a stream.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM16">Undo 
+  a completed deliver or rebase.</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM17">Change 
+  stream mastership.</A> (chmaster) 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM18">Create 
+  a read-only stream.</A> </DD></DL><PRE> <HR><BR><A name=VIEWS></A>
+
+</PRE>
+<DL>
+  <DT><FONT size=+1>Views </FONT><BR><FONT size=-1><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#INDEX"><I>Back 
+  to the TOP</I></A></FONT> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#VIEW01">UCM 
+  views</A> 
+  <DD><A 
+  href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#VIEW02">Emulate 
+  a UCM view with a base CC view.</A> </DD></DL>
+<P><! END_SEARCH ><!----------------------------------------------------->
+<HR>
+<BR><A name=ACT01></A><PRE>
+
+</PRE><B>Create an activity. </B><BR>
+<DD>There can be only one set (active) activity per view. There can be more than 
+one associated with it, but only one active at a time. An activity records 
+everything that happens in that development view while that activity is set. If 
+only one activity is specified during creation, it is automatically the one set 
+in that view context. If more than one activity is created using one command, no 
+activity is set. In that case, or when needing to set to an activity, use <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT01">setactivity</A>. 
+The mkactivity command is not applicable if in a project that is CQ enabled. In 
+that case, use setactivity and specify the <I>CQ-record-ID</I> as the 
+activity-name. 
+<DD>From the Project Explorer, not possible. 
+<DD>From the CLI: <PRE>  # ct mkact <I>activity-name</I>
+</PRE>The <I>activity-name</I> is not mandatory, but it's recommended that you 
+give the activity a nice mnemonic name, otherwise CC will choose a difficult 
+name, such as activity000622.202648. <BR>Some useful options: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>-hea.line &nbsp; <I>Descriptive title.</I> 
+    <TD>Give the activity a title other than its name as the default. 
+  <TR>
+    <TD>-in &nbsp; <I>stream-name</I> 
+    <TD>Specify the stream name, if not in the development view you wish to 
+      associate with the activity. 
+  <TR>
+    <TD>-nset 
+    <TD>Do not set to the new activity. 
+  <TR>
+    <TD>-force 
+    <TD>If no acitivity-name is given, CC won't ask for confirmation before 
+      generating its own. </TR></TBODY></TABLE>
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT02></A><PRE>
+
+</PRE><B>Set an activity. </B><BR>
+<DD>A stream can have no more than one activity set at a time. Even if two views 
+are configured for one UCM stream, only one view can set a given activity. Only 
+one stream can use a given activity forever. That is activities cannopt be 
+migrated between streams, even if it's a CQ ticket that needs to be worked by 
+two different developers. Each element that gets checked out in that view is 
+recorded in the activity's change set. If elements are checked out to one 
+activity while setting to a new one, CC will issue a warning. Integration 
+activities cannot be reset if in use by a deliver or rebase, nor can you clear 
+the activity with -none. The setactivity assumes you've completed the <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT01">mkactivity</A>. 
+The mkactivity command will automatically perform a setactivity unless -nset was 
+used. 
+<DD>From the Project Explorer, not possible. 
+<DD>From the CLI: <PRE>  # ct lsact -cview
+  # ct setact <I>activity-name</I>
+</PRE>
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT03></A><PRE>
+
+</PRE><B>Unset an activity. </B><BR>
+<DD>You can't set and unset activities from the Project Explorer. From the CLI, 
+a currently set activity can be unset via one the following. 
+<DD>1) Deliver the activity to the integration stream. 
+<DD>2) Set to a different activity. 
+<DD>3) <PRE>  # ct setact -none
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT04></A><PRE>
+
+</PRE><B>Remove an activity. </B><BR>
+<DD>In order for an activity to be removed, it cannot have any versions in its 
+change set. If versions exist in the activity's change set, they can removed or 
+moved to another activity via <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT06">chactivity</A>. 
+Also, it cannot be set as the current activity for a view. If associated with a 
+view that is CQ enabled, the activity is unlinked from CQ, but nothing in CQ is 
+deleted. 
+<DD>From the Project Explorer, double-click on the stream that owns that 
+activity. Right-click on the activity and select Properties. 
+<DD>From the CLI: <PRE>  # ct rmact <I>activity-name</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT05></A><PRE>
+
+</PRE><B>List activities. </B><BR>
+<DD>From the Project Explorer, not possible. 
+<DD>From the CLI. Without options, lsact will return nothing unless inside the 
+PVOB. The default is to list activities in the project VOB of the current 
+directory. <PRE>  # ct lsact [ <I>option(s)</I> ] [ <I>activity</I> ]
+</PRE>Options: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>-s.hort 
+    <TD>List only the activity names. 
+  <TR>
+    <TD>-l.ong 
+    <TD>Display a detailed description of each activity. 
+  <TR>
+    <TD>-fmt &nbsp; <I>format-string</I> 
+    <TD>Format the output to taste. See the fmt_ccase reference page. 
+  <TR>
+    <TD>-anc.estor &nbsp; [ -dep.th <I>integer</I> ] 
+    <TD>Display the stream, project, folder tree to an optional depth of 
+      <I>integer</I>. 
+  <TR>
+    <TD>-inv.ob &nbsp; vob:<I>vob-tag</I> 
+    <TD>Specify a PVOB other than the default one. 
+  <TR>
+    <TD>-in &nbsp; <I>stream</I> 
+    <TD>List activities associated with <I>stream</I>. 
+  <TR>
+    <TD>-cac.t 
+    <TD>List the currently set activity. 
+  <TR>
+    <TD>-vie.w &nbsp; <I>view-tag</I> 
+    <TD>List the activities associated with the specified view. 
+  <TR>
+    <TD>-cvi.ew 
+    <TD>List the activities associated with the current view. 
+  <TR>
+    <TD>-obs.olete 
+    <TD>New in CC 4.2, also list those activities that have been locked and 
+      obsoleted. 
+  <TR>
+    <TD>-contrib 
+    <TD>New in CC 5.0/2002, list the activities that contributed to an 
+      integration's deliver activity. 
+  <TR>
+    <TD>-me 
+    <TD>New in CC 2003.06.00. Display activities owned by the current user. 
+  <TR>
+    <TD>-user &nbsp; <I>username</I> 
+    <TD>New in CC 2003.06.00. Display activities owned by the designated user. 
+  </TR></TBODY></TABLE>
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT06></A><PRE>
+
+</PRE><B>Modify an activity's parameters. </B><BR>
+<DD>From the Project Explorer, highlight a stream and go to its Properties 
+Configuration tab. Select an activity and click on its Properties. 
+<DD>From the CLI: <PRE>  # ct chactivity <I>option(s)</I>
+</PRE>Options: <BR>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>-hea.dline &nbsp; <I>headline &nbsp; activity</I> 
+    <TD>Modify the headline. Does not affect the activity's ID name. 
+  <TR>
+    <TD>-fcs.et &nbsp; <I>from-activity</I> &nbsp; -tcs.et <I>to-activity 
+      &nbsp; version(s)</I>[,...] 
+    <TD>Move <I>version(s)</I> from <I>from-activity</I> to <I>to-activity</I> 
+      in the same stream. 
+  <TR>
+    <TD>-vie.w &nbsp; <I>viewtag</I> 
+    <TD>New in CC 2003.06.00. Change the activity in the specified view. 
+  <TR>
+    <TD>-cqact.ion { -cac.t | <I>activity-selector</I> } 
+    <TD>New in CC 2003.06.00. Check in all versions and close CQ ticket if 
+      policy is set. See note below. </TR></TBODY></TABLE>
+<DD><B>NOTE:</B> The operation will fail if your project is not enabled for CQ, 
+is not a single-stream project and your stream is not in an integration stream 
+of a multiple-stream project. If none of the relevant CQ policies have been set, 
+specifying the option just checks in versions in the change set. The –cqaction 
+option makes it possible for a single-stream project to close the current 
+(-cact) or specified activity without having to deliver it. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT07></A><PRE>
+
+</PRE><B>Rename an activity. </B><BR>
+<DD>From the Project Explorer, highlight a stream and go to its Properties 
+Configuration tab. Select an activity and click on its Properties. The Headline 
+(often called the Title) is merely a mnemonic that shows up in GUI interfaces. 
+The ID (Name) and Headline (Title) can also be changed from the CLI. For the 
+both Windows and Unix, the Name (not Headline) must adhere to the standard Unix 
+naming convention. <PRE>  # ct rename activity:<I>old-name new-name</I>
+  # ct chactivity -headline "<I>new headline</I>" <I>new-name</I>  
+</PRE>
+<P></P>
+<DD><B><FONT color=red>WARNING:</B></FONT> If UCM is integrated with CQ, even 
+though CC will allow you to rename an activity, do not, as it will end the link 
+to the CQ record. Note that there is a difference between an activity's "Name" 
+and its "Headline". If you simply change the headline of an activity, the 
+corresponding headline in the CQ ticket will be changed as well, and vice versa 
+(nice feature). In short, don't change the activity's official "Name" if 
+integrated with CQ. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT08></A><PRE>
+
+</PRE><B>Lock an activity. </B><BR>
+<DD>Activities are normally unlocked. If an activity is no longer used, lock it. 
+If you want the activity locked and not have it show in any listings, lock and 
+obsolete it. It is still there and funtional, it just doesn't clutter up the 
+activities list. 
+<DD>From the Project Explorer, highlight a stream and go to its Properties 
+Configuration tab. Select an activity and click on its Properties Lock tab. 
+<DD>From the CLI: <PRE>  # ct lock activity:<I>activity-name</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT09></A><PRE>
+
+</PRE><B>Move an activity between streams or projects. </B><BR>
+<DD>It isn't possible to directly move an activity between streams or projects. 
+At best, you can move an activity's changes. 1) Include the changes in a UCM 
+baseline and perform an inter-project rebase. 2) Use base CC to merge changes 
+between streams in a project or between project integration streams. 
+<DD>However, if CQ is integrated and you <I>must</I> use the original CQ ticket 
+in the new stream, the following workaround can be employed. This can be needed 
+if a user unwittingly does work in the "wrong" project. This procedure assumes 
+that the activity/ticket to be moved to the other stream has not been delivered 
+yet. If it has, the procedure is still valid to get the ticket moved, but you 
+still need to decide what to do with the incorrect changes that are now in the 
+integration stream. The best way to get those changes out is to simply do a base 
+CC merge around the errant version(s). The procedure also assumes that there is 
+only the one activity in the source dev stream. If there is more than one 
+activity, during the base CC merge you will need to be very selective about 
+which files get merged over. 
+<DD>1) You need to create a temporary place-holder/home for the change-set 
+during the transfer. Create a dummy activity in the destination stream. Simply 
+checkout a directory (any directory) in the destination stream. Associate the 
+checkout with a new CQ ticket that you clearly label as "temporary". Then 
+uncheckout that directory. That dummy ticket will be used as the activity during 
+the base CC merge to the destination stream. 
+<DD>2) You need to perform a base CC merge using <A 
+href="http://members.cox.net/ejostrander/clearteam/cc_howto.html#ELEM10">findmerge</A> 
+on the CLI or the Merge Manager GUI. Merge from the stream in the wrong project, 
+to the stream containing the dummy activity created in step(1). Checkin all 
+files when done. 
+<DD>3) You need to clean out the original CQ ticket that is to be moved. The CQ 
+ticket must have an empty change-set before it's associated CC acitvity can be 
+deleted and the CQ ticket used in a different stream. The easiest way to do this 
+is to perfrom a <A 
+href="http://members.cox.net/ejostrander/clearteam/cc_howto.html#ELEM15">rmver</A> 
+on the versions that were created using that ticket. The change-set in question 
+is listed under the UCM tab on the CQ ticket. 
+<DD>4) Remove the CC activity associated with the CQ ticket to be moved. Once 
+the "real" CQ ticket is empty (has no change-set), remove the activity using <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT04">rmact</A>. 
+
+<DD>5) In the destination stream, go to the properties sheet of the dummy 
+activity created in step(1). Highlight the entire change-set, right-click and 
+move them to the "real" activity. 
+<DD>6) Once the dummy activity/ticket is empty (has no change-set), perform a 
+rmact on the associated CC activity and simply delete the temporary ticket from 
+CQ. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT10></A><PRE>
+
+</PRE><B>Determine/find undelivered activities. </B><BR>
+<DD>From the CLI: <PRE>  # ct deliver -preview -s
+</PRE>
+<DD>In the ClearCase Report Builder, run a combination of the "Continued 
+Activities in Streams" and "New Activities in Streams". New ones are those that 
+have never been delivered. Continued ones are those that were at once delivered, 
+but now contain additional undelivered work. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT12></A><PRE>
+
+</PRE><B>Set a CQ activity in a non-GUI environment. </B><BR>
+<DD>Normally when a user checks an element out, the integration with CQ prompts 
+the user for an activity in a GUI dialog. The very first time a user checks a 
+file out, CQ will prompt for the login and password as well. If there is the 
+need, the login and password for the integration can be set on the CLI. The user 
+will simply have to know what CQ record to assign to the checkout. On the 
+machine requesting the activity assignment, set the environment variables 
+SQUID_USER and SQUID_PASSWORD to the user's CQ login. As of CC 5.0/2002, there 
+is no way for the integration to present a text prompt for the login. The set 
+activity would then look something like: <PRE>  # ct setact datab00000678
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT13></A><PRE>
+
+</PRE><B>Deliver an activity to a non-default target. </B><BR>
+<DD>As of CC 5.0/2002, users have the option of using "deliver" to move changes 
+between development branches without going through the project's integration 
+branch. Integration branches can also deliver to integration branches in other 
+projects as well. 
+<DD>The default deliver target for a development stream is always the project's 
+integration stream. The default deliver target for and integration stream can 
+optionally be set during creation of the project or by accessing the project's 
+properties afterward. 
+<DD>During deliver the user is simply supplied with two choices; deliver to the 
+default target or designate an alternate target stream. 
+<DD>However, be aware that if the stream being merged to is not based on the 
+same foundation baseline, the deliver may contain files not specifically changed 
+in the activity being delivered, or perhaps entire components that are not being 
+referenced by the target stream. So, these issues can significantly confuse the 
+deliver and perhaps have undesired consequences for the target stream. For this 
+reason Rational does not currently support a deliver to a non-default target if 
+there are changes in the foundation baseline. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT14></A><PRE>
+
+</PRE><B>Share an activity. </B><BR>
+<DD>With or without CQ, there is no way to truly share an activity. However, 
+there are some decent workarounds. 
+<DD>A) In UCM it's possible for two developers to share a single stream. 
+However, they can't share an activity. Each developer still needs to set their 
+own activity. Fortunately, when a deliver is done from that common dev stream, 
+<I>all</I> activities can be delivered at once by one person. 
+<DD>B) If you don't want developers to work on the same stream, perhaps to avoid 
+coding collisions, but you still want them to work as a team and deliver their 
+combined effort as one deliver session/activity, you can have them each on their 
+own stream. In this scenario each developer would deliver to a stream designated 
+to hold the combined code (other than the standard integration stream). Once the 
+code from each developer is collected/merged onto one stream, and possibly 
+tested, that stream can then deliver to the integration stream. 
+<DD>C) If CQ is integrated and more than one developer needs to use a ticket as 
+a UCM activity, a parent-child environment will need to be set up. In CQ the 
+"real" activity would be the parent. Any developer that needs to use that ticket 
+for development would create and use a child of that parent. This scenario can 
+be used in combination with either (A) or (B) above. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT15></A><PRE>
+
+</PRE><B>List all activities associated with an element. </B><BR>
+<DD>The following command will produce a unique, sorted list of all activities 
+associated with an element. If you play with the quoting a bit, it'll work on 
+UNIX or Windows. <PRE>  # ct lshistory -fmt "%[activity]p\n" <I>element</I> | ccperl -e "foreach $activity (<STDIN>) {$index{$activity}++;}; print STDOUT sort keys (%index);"
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT16></A><PRE>
+
+</PRE><B>Find the activities delivered as part of a deliver opertation. </B><BR>
+<DD>Each deliver operation sets and uses a special acitivity in the integration 
+stream of the general form "deliver.projectname...". That activity has a change 
+set of element versions that can be viewed in its Properties sheet or with the 
+describe command. To determine the original activities, follow the Merge 
+hyperlink back to the source element version and look at the activity associated 
+with that version. This could be scripted if necessary. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT17></A><PRE>
+
+</PRE><B>Compare a version with its change set predecessor. </B><BR>
+<DD>In most GUIs you can compare an element version with its predecessor. In an 
+activity's Properties sheet you can compare a version in the activity's change 
+set with the latest version prior to the start of the activity. So, no matter 
+how ofter that element has been modified as part of that activity, you can 
+compare it to what it looked like just prior to the start of that activity. In 
+the activity's change set, right-click on the version. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT18></A><PRE>
+
+</PRE><B>Clean out old activities. Obsolete an activity. </B>
+<DD>As time goes by, the list of activities associated with a given stream can 
+become quite long. A long list of activities can get in the way when un/setting 
+or delivering an activity. The list of activities that a user sees can be 
+reduced. 
+<DD>UCM projects are more closely related to a single release of the software 
+than the entire life of the product. For example, if you are creating a Widget, 
+you wouldn't want to have a single UCM project called Widget that lasts for the 
+entire life of the product. In addition to usability concerns, extremely long 
+lists of things can cause performance issues in the long run as well. So, in 
+this example you would want to have UCM projects called Widget_1.0, Widget_2.0, 
+etc.. that correspond to the major releases of the product. That way, when a 
+user joins another project to work on it, there isn't a long list of activities 
+that were related to the creation of the previous release. 
+<DD>However, if a new project isn't feasible, a user can always finish the 
+current round of work in the current dev stream, deliver that work, create and 
+recommend a new baseline, and then rejoin the same project to create a fresh 
+stream. 
+<DD>Also, if a new project isn't feasible, in the existing stream, you can lock 
+and obsolete any unneeded activities. This will make them disappear from the 
+list. You can obsolete the activity from the GUI properties sheet, or from the 
+CLI. <PRE>  # ct lock -obsolete activity:<I>activity-name</I>@<I>pvobtag</I>
+
+Ex: ct lock -obsolete activity:add_gui_button@/vobs/widget_pvob
+</PRE>
+<DD>Activities can always be unobsoleted, but only from the CLI, as they are no 
+longer seen in any GUI. Never attempt to delete an activity. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=ACT19></A><PRE>
+
+</PRE><B>Finish an activity. </B>Updated: 09/16/06 
+<DD>Right-click on the activity and select "Finish". Finishing an activity will 
+merge the branch contents to the integration branch. 
+<P></P>
+<DD><B>NOTE:</B> As of CC 7.0, when an activity is "finished", CC will 
+automatically unset that activity as the default. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACTIVITIES">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=BASE01></A><PRE>
+
+</PRE><B>Create a baseline. </B><BR>
+<DD>Only integration streams have the option to baseline from the GUI. However, 
+either an integration stream or development stream can baseline from the CLI. 
+Baselines are limited to one component. That is, they are essentially one 
+version of a component. Baselines can have one of the following predefined 
+levels (in order of precedent): INITIAL, REJECTED, BUILT, TESTED, or RELEASED. 
+However, one has the option to <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE08">customize 
+baseline promotion levels</A>. 
+<DD>From the Project Explorer, right-click on an integration stream and Make 
+Baseline. 
+<DD>From the CLI: <PRE>  # ct mkbl <I>baseline-name</I>
+</PRE>Options: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>-vie.w &nbsp; <I>view-tag</I> 
+    <TD>Make the baseline in the stream associated with <I>view-tag</I>. 
+  <TR>
+    <TD>-com.ponent &nbsp; <I>component-name</I>[,...] 
+    <TD>Baseline the specified component(s). 
+  <TR>
+    <TD>-all 
+    <TD>Baseline all components that have changed since the Full baseline. 
+  <TR>
+    <TD>-ide.ntical 
+    <TD>Baseline all components in the project even if they haven't changed. 
+  <TR>
+    <TD>-act.ivities &nbsp; <I>activity(s)</I>[,...] 
+    <TD>All activities are included in the baseline unless a subset is 
+      specified. 
+  <TR>
+    <TD>-nlabel 
+    <TD>Do not label the baseline. Cannot use as a foundation baseline, but 
+      can diffbl. 
+  <TR>
+    <TD>-inc.remental 
+    <TD>Label only the versions that have changed since the last Full 
+      baseline. 
+  <TR>
+    <TD>-fu.ll 
+    <TD>Label all versions visible in the view below the components root 
+      directory. 
+  <TR>
+    <TD>-imp.ort &nbsp; <I>label</I> 
+    <TD>Baseline based on versions marked by the specified label. 
+  <TR>
+    <TD>-ade.pends_on &nbsp; <I>dependent-component-selector</I> 
+    <TD>New in CC 5.0/2002, make -component a dependent of 
+      <I>dependent-component-selector</I> for composite baselines. 
+  <TR>
+    <TD>-dde.pends_on &nbsp; <I>dependent-component-selector</I> 
+    <TD>New in CC 5.0/2002, remove -component as a dependent of 
+      <I>dependent-component-selector</I> for composite baselines. 
+  <TR>
+    <TD>-nac.t 
+    <TD>New in CC 5.0/2002, make a baseline in -component. 
+  <TR>
+    <TD>-vie.w &nbsp; <I>viewtag</I> 
+    <TD>New in CC 2003.06.00. Specify the view from which to make the new 
+      baseline. </TR></TBODY></TABLE>
+<P></P>
+<DD><B><FONT color=red>WARNING:</FONT></B> Do not lock baselines immediatlely 
+after application. UCM creates hyperlinks from one baseline to the next. Locking 
+the baseline or its associated label type will get you into a state from which 
+it is difficult to recover. Instead, if baseline label type locking is needed, 
+write a trigger associated with the mklabel command to ask whether that label 
+belongs to a baseline. Obviously this would only apply if the -replace option 
+were used. This note is known to be applicable up to CC 5.0/2002. However, you 
+can lock the baseline if you simply remember to unlock the previous one prior to 
+application. For that operation you could trigger mkbl (CC 5.0/2002+) to unlock 
+the previous one automatically if necessary and lock both the previous and 
+current ones when done. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE02></A><PRE>
+
+</PRE><B>Remove a baseline. </B><BR>
+<DD>The baseline cannot be a foundation; referred to by a stream. The baseline 
+cannot be the INITIAL baseline of a component. There cannot be any streams that 
+have made changes based on the baseline. It cannot be in use if it's the basis 
+for an incremental baseline. 
+<DD>From the Project Explorer, not possible. 
+<DD>From the CLI: <PRE>  # ct rmbl <I>baseline</I>
+</PRE>
+<DD><B><FONT color=red>WARNING:</FONT></B> In CC 5.0/2002+, the recommendation 
+of a baseline is separate from the baseline itself. If a baseline is to be 
+removed, ensure it isn't a recommended baseline. The rmbl command will not 
+remove its recommended status. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE03></A><PRE>
+
+</PRE><B>List baselines. </B><BR>
+<DD>List baselines by stream, component, or promotion level. The default lists 
+baselines for the PVOB of the current directory. 
+<DD>From the Project Explorer, go to the Properties sheet of a stream. In its 
+Baselines tab, select a component. 
+<DD>From the CLI, must supply either the baseline name, a stream name, or a 
+component name. <PRE>  # ct lsbl <I>option(s)</I>
+</PRE>Options: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>-s.hort 
+    <TD>Limit the output to just the baseline names. 
+  <TR>
+    <TD>-l.ong 
+    <TD>Include detailed informtion on the output. 
+  <TR>
+    <TD>-fmt &nbsp; <I>format-string</I> 
+    <TD>Format the output to taste. See the fmt_ccase reference page. 
+  <TR>
+    <TD>-tre.e 
+    <TD>Show the order of succession for the baselines. 
+  <TR>
+    <TD>-lev.el | -ltl.evel | -gtl.evel &nbsp; <I>level</I> 
+    <TD>Limit the listing to those baselines at, less than, or greater than 
+      the specified promotion level. 
+  <TR>
+    <TD>-str.eam &nbsp; <I>stream</I> | -com.ponent &nbsp; <I>component</I> 
+    <TD>Specify the stream or component from which the listing will come. 
+  <TR>
+    <TD>-obs.olete 
+    <TD>New in CC 4.2, also list those baselines that have been locked and 
+      obsoleted. 
+  <TR>
+    <TD>-cvi.ew 
+    <TD>New in CC 5.0/2002, use the current view instead of specifying -stream 
+      or -component. 
+  <TR>
+    <TD>-mem.ber_of &nbsp; [ -r.ecurse ] 
+    <TD>New in CC 2003.06.00. Display composite baselines of which the 
+      baseline is a direct or indirect member. </TR></TBODY></TABLE>
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE04></A><PRE>
+
+</PRE><B>Modify a baseline's parameters. </B><BR>
+<DD>Change a baseline's labeling level or promotion status. To rename it, see <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE09">rename</A>. 
+To change baseline promotion levels available, see "<A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE08">Customize 
+baseline promotion levels</A>". 
+<DD>From the Project Explorer, in the Properties sheet of the integration stream 
+that owns the baseline, go to the Baselines tab and select a component. Select a 
+baseline and go to its Properties. If it's a Full baseline, you can change the 
+promotion level and alter its locked status. If it's an Incremental baseline, 
+you can set the promotion level, alter its lock status and additionally, by 
+clicking on Upgrade, change its title and contexts. 
+<DD>From the CLI: <PRE>  # ct chbl <I>option baseline-name</I>
+</PRE>Options: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>-inc.remental 
+    <TD>Change the baseline's labeling status so that only versions that have 
+      changed since the last baseline get an incremental label. 
+  <TR>
+    <TD>-fu.ll 
+    <TD>Change the baseline's labeling status so that all versions selected by 
+      the view get a new label. 
+  <TR>
+    <TD>-level &nbsp; <I>level</I> 
+    <TD>Set the baseline's promotion level to <I>level</I>. 
+  <TR>
+    <TD>-nre.curse 
+    <TD>New in CC 5.0/2002. Apply the change to the composite baseline only 
+      and not its members. </TR></TBODY></TABLE>
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE05></A><PRE>
+
+</PRE><B>Diff baselines. </B><BR>
+<DD>Use diffbl to compare baseline-baseline, baseline-stream, or stream-stream. 
+<DD>The GUI diffbl can be invoked from the CLI via cleardiffbl. 
+<DD>There are three ways to get a list of activities that are between two 
+baselines; each has is merits and demerits. 
+<DD>From the Project Explorer, right-click on a stream and select its Properties 
+sheet. In the Properties sheet, go to the Baselines tab and select a component. 
+Right-click on one of the component's baselines and choose to compare with 
+previous/another baseline. The resulting report will show all activities between 
+the two baselines. A yellow triangle indicates that the activity was part of 
+(worked in) both baselines. An "a" with a red triangle underneath indicates the 
+activity is new the latter baseline. The downside of this report is that there 
+doesn't seem to be any way to save the report, or any way to filter out the 
+undesired "deliver" activities that get reported as well. 
+<DD>From the Report Builder, a script can be written that runs a report similar 
+to the one above. A good thing about this that you can filter out undesired 
+activity results, such as "deliver" activities, and the report can be saved in a 
+slick html format. The downside of doing it this way is that the Report Builder 
+prompts the user for a baseline selector of the form "baseline:<BL>@\<PVOB>", 
+where they need to supply the information from somewhere else. It'd be nice if 
+you could force them to choose an integration stream first and then supply them 
+with a pre-defined list of valid baselines from which to choose, similar to the 
+Project Explorer interface. 
+<DD>From the CLI, run the diffbl command. The upside is that this can be called 
+from an automated (perhaps scheduled) script. <PRE>  # ct diffbl <I>object1 object2</I>
+</PRE>Options: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>-act.ivities 
+    <TD>Display differences in terms of activities. 
+  <TR>
+    <TD>-ver.sions 
+    <TD>Display differences in terms of versions. 
+  <TR>
+    <TD>-fir.st_only 
+    <TD>Only show the changes that appear in <I>object1</I> 
+  <TR>
+    <TD>-bas.elines 
+    <TD>New in CC 5.0/2002, display differences in terms of baselines when 
+      diffing composite baselines. 
+  <TR>
+    <TD>-nre.curse 
+    <TD>New in CC 5.0/2002, show differences between composite baselines 
+      themselves. 
+  <TR>
+    <TD>-nmerge 
+    <TD>New in CC 2003.06.00. When diffing baselines, reports only activity 
+      and version changes to the same stream. </TR></TBODY></TABLE>
+<DD><B>NOTE:</B> In the output of diffbl, activities will either be listed with 
+a "&lt;&lt;", "-&gt;", or a "&gt;&gt;" next to them. The "-&gt;" means that that 
+particular acitivity appears in both baselines being diffed, but the activity's 
+change set has changed between the two. The "&lt;&lt;" and "&gt;&gt;" mean that 
+the activity only apears in the former or latter baseline respectively. So, 
+diffbl will not only show you if there are differences in the list of activities 
+between two baselines, it will also show you if an activity's change set has 
+changed as well. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE06></A><PRE>
+
+</PRE><B>Rebase </B><BR>
+<DD>When selecting a baseline from which to rebase, the baseline must be part of 
+the project's integration stream. The baseline must be more recent than a 
+baseline currently in your development view, unless the component has not been 
+modified in your stream. The set of baselines must be mutually consistent. 
+<DD>When resetting the foundation baseline, your development stream can only 
+specify baselines in the project's integration stream or that are selected by 
+the project's integration stream. Integration streams can only specify baselines 
+in another project's integration stream. If a stream has made changes to a 
+component, it can only reset its foundation baseline to one that is a successor 
+of the one upon which those changes were based. 
+<DD>If multiple views are associated with the stream being rebased, the other 
+views must run the following command to update their config_spec. This command 
+does not affect snapshot view load rules. Unknown if this can be done from a 
+GUI. 
+<DD><B><FONT color=red>WARNING!</B></FONT> There is NO way to back out of a 
+completed rebase. Even though you can merge around (or rmver) the "bad" changes, 
+the stream will still be pointing to the incorrect baseline. That means that any 
+new views created for that stream or any streams created from that point will 
+have an incorrect configuration in the their config specs. The only exception to 
+this is if the stream that was just rebased has never had NEVER had any changes 
+made to it. In that case, you can switch baselines at will. However, once the 
+first change, of any type, is made to that stream, you can only rebase going 
+forward. You cannot revert to a previous baseline. 
+<P><PRE>  # ct setcs -stream
+</PRE>
+<DD>If the development view is a snapshot, CC will automatically start an update 
+as part of the rebase. 
+<DD>Baselines can be dropped from the development stream's configuration only if 
+the components have not been modified. 
+<DD>While one can choose which activities to deliver, a rebase gets all 
+activities that have been delivered by other developers. 
+<DD>A rebase does not necessarily pick up on the LATEST version on the 
+integration branch. It picks up on the versions associated with the latest 
+recommended baseline, regardless of whether there are later versions or not. 
+<DD>All elements in the development stream must be checked in prior to rebase. 
+<DD>From the Project Explorer, right-click on the development stream and select 
+Rebase Stream. 
+<DD>From the CLI: <PRE>Rebase graphically.
+  # ct rebase -graphical
+Cancel or get the status of a rebase.
+  # ct rebase { -cancel | -status }
+Begin a rebase (see options below).
+  # ct rebase
+Resume or complete a rebase.
+  # ct rebase { -complete | -resume [ -complete ] }
+</PRE>Rebase options: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>-vie.w &nbsp; <I>development-view-tag</I> 
+    <TD>Rebase the specified view. 
+  <TR>
+    <TD>-pre.view [ -l.ong | -s.hort ] 
+    <TD>Only display what would have happened in the rebase. 
+  <TR>
+    <TD>-rec.ommended 
+    <TD>Use the recommended baseline as the source to update your work area. 
+  <TR>
+    <TD>-bas.line &nbsp; <I>baseline-name(s)</I>[,...] 
+    <TD>Specify one or more baselines from which to rebase. 
+  <TR>
+    <TD>-dba.seline &nbsp; <I>baseline-name(s)</I>[,...] 
+    <TD>Specify one or more baselines to delete from the stream. 
+  <TR>
+    <TD>-f.orce 
+    <TD>Suppress the confirmation step. 
+  <TR>
+    <TD>-str.eam &nbsp; <I>stream-selector</I> 
+    <TD>New in CC 5.0/2002, specify the stream to be rebased. </TR></TBODY></TABLE>
+<P></P>
+<DD><B>NOTE:</B> As of CC 7.0, contrib files are no longer generated for a 
+rebase merge, except for in CCRC, which continues to create them. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE07></A><PRE>
+
+</PRE><B>Import a label on which to baseline. </B><BR>
+<DD>When importing an existing label to be used as a baseline, the label must be 
+applied to versions starting with the component's root directory on down. The 
+label type must be ordinary, as opposed to global. 
+<DD>From the Project Explorer, right-click on a PVOB and select Import Label. 
+Importing a label via the GUI merely makes it known to the PVOB as a UCM object. 
+To use it as a baseline source on an integration stream, you must <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM05">import 
+the label onto the integration stream</A>. Then right-click on the integration 
+stream and Make Baseline. 
+<DD>From the CLI: <PRE>  # ct mkbl -import <I>label baseline-name</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE08></A><PRE>
+
+</PRE><B>Customize baseline promotion levels. </B><BR>
+<DD>If a promotion level is deleted but is in use by a baseline, it will simply 
+be moved below the lowest priority level. After that, the only way to see 
+baselines with that level is "ct lsbl -level -stream <I>stream</I>". A deleted 
+level can be returned to service by merely re-adding it to the list. To see the 
+list of current levels, use "ct describe vob:<I>pvob-tag</I>. The predefined 
+levels are: REJECTED, INITIAL, BUILT, TESTED, and RELEASED. Rearranging 
+promotion levels does not show up in the PVOB history. The list of baseline 
+promotion levels is for the whole PVOB. 
+<DD>From the Project Explorer, right-click on a PVOB and select Define Promotion 
+Level. Once a level is defined, it can be moved up or down in the order or 
+deleted. 
+<DD>From the CLI. For any combination of levels, give the default level name 
+(mandatory) and the list of current levels in order of lowest priority to 
+highest. If a level is omitted from the list, it is considered deleted. If 
+necessary, a PVOB can be specified via the -invob option. <PRE>  # ct setplevel -default <I>default-level level-order</I>
+
+ex: ct setplevel -default BUILT  REJECTED INITIAL BUILT TESTED QAED RELEASED
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE09></A><PRE>
+
+</PRE><B>Rename a baseline. </B><BR>
+<DD>It's not easy or useful to rename a baseline. To fully rename a baseline 
+takes several "under-the-hood" actions. If not comfortable with the 
+inner-workings of UCM, you shouldn't attempt this without the help of Rational 
+Tech Support. The following CLI steps are conducted while sitting in the PVOB. 
+This must be done off hours. DO NOT let anyone make any modifications between 
+the rename of the baseline and the rename of the label or there will be 
+confusion. 
+<DD>1) Rename the baseline itself. This cannot be done from a GUI. As of CC 4.1 
+you can only change the "Name" and not the "Title". Unfortunately, it's the 
+Title that users see in any GUI. So, the rename isn't particularly useful. <PRE>  # ct rename baseline:<I>old-baseline-name new-baseline-name</I>
+</PRE>
+<DD>2) Rename the label associated with the baseline. The baseline's properties 
+will show what label is associated. It will be listed at the bottom and pointed 
+to by a hyperlink called BaselineLbtype. Simply rename the label type. <PRE>  # ct describe -l baseline:<I>new-baseline-name</I>
+  # ct rename lbtype:<I>old-label-name new-label-name</I>
+</PRE>
+<DD>3) Because any stream that is rebased to that baseline is now pointing to 
+the incorrect baseline, that needs to be reset too. From the CLI, do a long 
+description of the baseline. At the bottom you will see hyperlinks called 
+UseBaseline. Make a note of every stream rebased against the baseline. Remove 
+ALL the UseBaseline hyperlinks. <PRE>  # ct rmhlink UseBaseline@<I>OID</I>
+</PRE>
+<DD>4) Rebase any stream that was using the old baseline to the new baseline. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE10></A><PRE>
+
+</PRE><B>Lock a baseline. </B><BR>
+<DD>Obsoleting a baseline makes it so that it doesn't show up in any listings. 
+This is useful to clean up clutter of long running project. 
+<DD>From the Project Explorer, go to the Properties sheet of the integration 
+stream that owns the baseline. Go to its Baselines tab, select a component, 
+select a baseline, and go to its Properties sheet lock tab. 
+<DD>From the CLI: <PRE>  # ct lock -obsolete baseline:<I>baseline-name</I>
+</PRE>
+<P></P>
+<DD>However, locking a baseline just to secure it isn't necessary. Built into 
+the UCM process model is a lock on a baseline and its associated label type and 
+label instances. Out of the box, nobody can move a label around if it's part of 
+a UCM baseline. 
+<DD>In fact, if you lock a baseline immediately after its creation, you have to 
+unlock it get the next baseline created. Each baseline is connected to its label 
+by a hyperlink called "BaselineLbtype". That label type is hyperlinked to the 
+previous one by a hyperlink called "IncrementalLbtype", which is in turn 
+hyperlinked to its baseline. If the previous baseline is locked, this system of 
+hyperlinks will break and not complete properly, leaving you in a deranged 
+state. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE11></A><PRE>
+
+</PRE><B>Determine which streams are referencing a baseline. </B><BR><PRE>  # ct lsbl -tree <I>baseline</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE12></A><PRE>
+
+</PRE><B>Promote a baseline. </B><BR>
+<DD>In the Project Explorer, highlight the integration stream that contains the 
+baseline. Select File -&gt; Properties. In the Baselines tab, select the 
+component containing the baseline, select the baseline to be promoted and click 
+on Properties. 
+<DD><B>NOTE:</B> In CC 5.0/2002, baselines can be composite. However, even if a 
+composite baseline is promoted, its dependents are not. They need to be promoted 
+individually. 
+<DD>From the CLI, in the Integration view, in the PVOB: <PRE>  # cd \pvob
+  # ct lsproject -s
+  # ct lsstream -s -in <I>project</I>
+  # ct lsbl -s -stream <I>stream</I>
+  # ct chbl -level <I>new-level baseline</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE13></A><PRE>
+
+</PRE><B>Determine/set a project's recommended baseline promotion level. 
+</B><BR>
+<DD>Each baseline has a promotion level associated with it. Promotion levels are 
+in a hierarchy of baseline quality. The default promotion levels are REJECTED, 
+INITIAL, BUILT, TESTED, and RELEASED. The promotion levels can be customized. 
+One of the levels is designated as the project's recommended baseline promotion 
+level. When users rebase their development streams, they are rebasing against 
+the latest baseline that is at or above the recommended baseline promotion 
+level. 
+<DD>For example, if the team lead sets the project's recommended promotion level 
+to be TESTED, baselines that have just been applied (INITIAL or BUILT) will not 
+be seen be developers during rebase. Only when a baseline has made it to the 
+level of TESTED will developers be able to rebase against it. 
+<P><B>Determine the project's recommended promotion level. </B></P>
+<DD>In the Project Explorer, open the project's Properties sheet and go to the 
+Policy tab. 
+<DD>From the CLI: <PRE>  # ct lsproj -l <I>project-name</I>
+or more specifically
+  # ct describe -fmt "%[def_rebase_level]p\n" <I>project-name</I>
+</PRE><B>Set the project's recommended promotion level. </B>
+<DD>In the Project Explorer, open the project's Properties sheet and go to the 
+Policy tab. 
+<DD>From the CLI: <PRE>  # ct chproject -rebase_level <I>promotion-level project-name</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE14></A><PRE>
+
+</PRE><B>Determine a stream's latest baseline. </B><BR>
+<DD>Determining a stream's latest baseline does not imply finding the stream's 
+latest recommended baseline, but merely the latest baseline of any promotion 
+level. As of CC4.2, the "latest_bls" argument to the -fmt option is not 
+documented anywhere. 
+<DD>From the Project Explorer, enter the Properties sheet of the stream. Under 
+the Baselines tab, choose the component. Simply inspect the Created On dates. 
+The latest one should be top in the list. 
+<DD>From the CLI: <PRE>  # ct lsstream -fmt '%[latest_bls]p\n' <I>stream-name</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE15></A><PRE>
+
+</PRE><B>Create a composite baseline. </B><BR>
+<DD>Composite baselines are also known as project baselines. 
+<DD>In CC 5.0/2002+ baselines can be created that span several components. 
+<DD>In the Project Explorer, right-click on the stream that will contain the 
+composite baseline and select Edit Baseline Dependencies. Identify the component 
+that will house the composite baseline definition, then drag and drop the 
+components onto that component. When OK is clicked, the wizard will prompt to 
+apply a new baseline. 
+<DD>From this point forward, any Make Baseline done in the stream just 
+configured will automatically be a composite baseline. 
+<DD><B>NOTE:</B> Unfortunately, as of CC 5.0/2002, there is still no way from a 
+GUI to apply the associated label in components that haven't changed, such as 
+the -identical option can from the CLI. That is, even though one may apply a 
+composite baseline across several components, the label associated with the new 
+baseline will not get applied to components that haven't changed. 
+<DD><B>NOTE:</B> Even though composite baselines make a connection between the 
+baselines applied across several components, the baselines and associated labels 
+in each component do not share a single name. This makes it difficult, but not 
+impossible, to deploy a consistent set of code from several components. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE16></A><PRE>
+
+</PRE><B>Recommend a baseline. </B><BR>
+<DD>In CC 4.2-, any baseline whose promotion level was at or above the project's 
+recommended promotion level was automatically a recommended baseline. That is, 
+developers could rebase against it. In CC 2002.05.00, even if a baseline's level 
+is raised to or above the project's minimum recommended level, it still must be 
+explicitly recommended. The project still has a minimum recommended promotion 
+level in its Properties sheet whose purpose is to set a minimum level for 
+recommending baselines. If you attempt to recommend a baseline whose promotion 
+level is below the project's minimum, CC will yell at you. 
+<DD>Only the stream owner (or higher) can recommend a baseline. See "<A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM15">Share 
+ownership of a stream</A>" for workarounds. 
+<DD>If a component is read-only in a project, developers still rebase against 
+the baseline recommended by the other project. 
+<DD>There can be only one recommended baseline per stream. 
+<DD>The baseline to be recommended must be from the same project as the stream. 
+<DD>The baseline to be recommended must be contained in the stream or at least 
+the stream must be rebased to one of the baseline's decendents. You can clear 
+the list of recommended baselines and start a new hierarchy of baseline 
+dependencies. Ensure no stream attempts to rebase in the interim while there are 
+no recommended baselines. 
+<DD>The baseline must contain the currently recommended baseline. That is, the 
+newly recommended baseline must be a decendent of the currently recommended 
+baseline. 
+<DD>You do not have to recommend a baseline for every component in the stream's 
+configuration. 
+<DD>In the Project Explorer, right-click on the stream that contains the 
+baseline to be recommended and select Recommend Baselines. 
+<DD>From the CLI (within the PVOB): <PRE>  # ct chstream -recommended <I>baseline-name stream-selector</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE17></A><PRE>
+
+</PRE><B>Change a project's foundation baseline for a component. </B><BR>
+<DD>When a component is initially created, a baseline is automatically created 
+as the starting point of the UCM branching tree. If the VOB is empty, the 
+baseline (<I>component-name</I>_INITIAL) is applied to /main/0. Alternatively, 
+if the VOB already has data in it when it's componentized, after it's 
+componentized you can import an existing base CC label and reset the component's 
+starting point to that starting point instead. Projects created after that can 
+use that new baseline as their foundation. 
+<DD>The baseline upon which a project is based for a component is called the 
+foundation baseline. If a component is modifiable for a project, the foundation 
+baseline cannot be changed after you've established one as the starting point. 
+However, if the component is read-only for a project, the baseline in the 
+read-only component to which users in that project point can be changed at will 
+to pick up whatever version of the software is desired. 
+<DD>To change a component's foundation baseline for a project if that component 
+is read-only for the project, in the Project Explorer go to the Properties sheet 
+of the integration stream of the project in question. Go to the Configuration 
+tab and select the component whose foundation baseline is to be changed. Click 
+the Change button and select a new baseline among those listed. 
+<DD>Currently, this cannot be done from the CLI. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=BASE18></A><PRE>
+
+</PRE><B>Browse component baselines. </B><BR>
+<DD>Analagous to the Version Tree Browser, a components baselines can be browsed 
+in the Component Tree Browser. In the Project Explorer enter the folder called 
+"Components". Right-click on the component to be browsed and select Browse 
+Baselines. 
+<DD>The CLI doesn't have an analagous to "ct lsvtree", but you can invoke the 
+GUI: <PRE>  # clearcomptree
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASELINES">Back 
+to the INDEX. </A><!---------------------------------------------------------->
+<HR>
+<BR><A name=CQ03></A><PRE>
+
+</PRE><B>General UCM integration </B><BR>
+<DD>CC 4.2-, once any project in a particular PVOB is associated with a CQ 
+database, all projects in that PVOB must be associated with the same database. 
+Different PVOBs can be linked to the same CQ database as long as all projects in 
+both PVOBs are unique. If you want different CQ databases, you need different 
+PVOBs. 
+<DD>As of CC 5.0, different projects in a single PVOB can be associated with 
+different CQ user databases. 
+<DD>One can change a project's CQ database if no activities have occurred. If a 
+UCM project is associated with a CQ database after activities have occurred, 
+those activities are automatically linked to the UCMUtilityActivity record type. 
+The CQ database to be integrated w/ CC must be UCM enabled. See "Enabling 
+ClearQuest for Unified Change Management" in the AdministeringClearQuest.pdf 
+file that comes bundled with CQ. This all assumes that the CQ integration 
+functionality was installed along with CC. 
+<DD>On the CC NT side, in the Project Explorer, open the Properties sheet of the 
+project to be integrated. Select "Project is ClearQuest-enabled" in the 
+ClearQuest tab. The project's policies can be set from that same tab in CC or 
+from CQ. In the CQ Client (after integration), run the UCMProjects query and 
+Modify the appropriate stateless record type for that project. 
+<DD>As of CC 4.2 and CQ 2001, a new UCM package called AMStateTypes contains the 
+State Type functionality and must be installed in your schema. See <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CQ08">UCM 
+enable a CQ schema</A> for details. 
+<DD><B>NOTE:</B> As of CC 5.0, while UCM is now supported in the web interface, 
+you still cannot use the UCM / CQ integration in the web interface. 
+<DD><B>NOTE:</B> Up to CC 4.0 and CQ 2.0, CC and CQ cannot be integrated with 
+UCM in an interop environment. As of CC 4.1 and CQ 2000, UCM can be used in 
+interop. 
+<DD><B>NOTES:</B> If developers need to switch between CC projects that are 
+connected to CQ, keep the schemas in the same repository so that they don't have 
+to switch repositories in the CQ maintenance tool. 
+<P></P>
+<DD><B><FONT color=red>WARNING!</FONT></B> Opening multiple nested CQ records in 
+UCM will cause child forms to not function properly. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CC-CQ">Back to 
+the INDEX. </A><BR><!---------------------------------------------------------->
+<HR>
+<BR><A name=CQ04></A><PRE>
+
+</PRE><B>Remove the CC-UCM/CQ integration </B><BR>Updated: 09/19/06 
+<DD>A UCM project can be disconnected from CQ. If done, the project's activities 
+are no longer linked to CQ records. On the CC side, simply go to the project's 
+ClearQuest tab in its Properties sheet and deselect "Project is 
+ClearQuest-enabled". If no other project in the current PVOB is associated with 
+a CQ database, the recently disconnected project can be associated with a 
+different database. However, all existing activities are linked to records in 
+the UCMUtilityActivity record type. 
+<P></P>
+<DD>New in CC 7.0, the integration can be broken using a command-line tool: <PRE>	crmregister remove -database <I>db-logical-name</I>
+	crmregister remove -all
+</PRE>
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CC-CQ">Back to 
+the INDEX. </A><BR><!---------------------------------------------------------->
+<HR>
+<BR><A name=CQ05></A><PRE>
+
+</PRE><B>Set CC-UCM/CQ integration policies. </B><BR>
+<DD>Once CQ is integrated with CC via UCM, the project's policies can be changed 
+either from the CC or CQ side. On the CC side, open the Project Explorer and go 
+to the ClearQuest tab of the Properties sheet of the project to be worked. On 
+the CQ side, open the CQ Client, run the UCMProjects query and simply Modify the 
+parameters. 
+<DD>UCM has the following default policies. These policies are implemented as a 
+Basic or Perl script in the CQ-UCM schema inside the Global Scripts folder. 
+<P></P>
+<DD>There is a new set of UCM-CQ policies starting with CC 2003.06.00. See the 
+Managing Software Projects online manual for a section called "UCM-ClearQuest 
+Integration". 
+<P></P>
+<DD>The following applicable up to CC 2002.05.00. 
+<P></P>
+<DD><B>Check Assignment Before Work On </B>
+<DD>This policy simply states that the user associating an activity with a 
+particular record must be the Owner (assigned to) of that record. 
+<DD><B>Check Before ClearCase Delivery </B>
+<DD>As a default, this does nothing. It is merely a placeholder that runs when a 
+user delivers an activity. As an example, this could be modified to check for 
+the status of a Delivery_approved check-box on the activity's CQ record that 
+would need to be checked-off by a manager before allowing delivery. 
+<DD><B>Do ClearQuest Action After Delivery </B>
+<DD>This script runs for each activity attached to the delivery. It attempts to 
+transition the associated records to the Complete state type. If a record cannot 
+be transitioned, if there are missing field data for example, the activity is 
+delivered but the delivery cannot be completed until the error is corrected. Any 
+records that can be transitioned, will be, independent of errors in other 
+records. Records cannot be transitioned to their current state. If this script 
+is modified, be sure to adhere to these behaviours. 
+<DD><B>Check Mastership Before Deliver </B>
+<DD>This is new in CC 4.2, CQ UCM 3.0 package. UCM delivers in a CCMS/CQMS 
+environment are handled differently depending on whether the local replica 
+masters the integration stream or not. The "Do ClearQuest Action After Delivery" 
+transitions a ticket to a Complete state type on behalf of the deliverer. To do 
+this in a CQMS environment the ticket must be mastered by the site conducting 
+the actual deliver. If the integration stream is mastered locally and if any 
+ticket is not mastered locally, this policy will cause the deliver to fail. If 
+the integration stream is mastered remotely, this policy will change the 
+mastership of any locally mastered tickets to that remote site. When the 
+Integrator at the remote site completes the deliver, CCMS automatically 
+transfers mastership of the tickets back to the original site. If the 
+integration stream is mastered remotely and there is any ticket that is mastered 
+by a third site, the deliver fails. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CC-CQ">Back to 
+the INDEX. </A><BR><!---------------------------------------------------------->
+<HR>
+<BR><A name=CQ06></A><PRE>
+
+</PRE><B>Ensure UCM activities are linked to CQ records. </B><BR>
+<DD>If a UCM project with existing activities is CQ-enabled, it can happen that 
+some activities remain unlinked. This can happen if there was a network failure 
+during the enablement or because a CCMS PVOB added unlinked activities. Go to 
+the ClearQuest tab in the Properties sheet of the UCM project and select "Ensure 
+All Activities Are Linked". This button only appears if the UCM project is 
+successfully integrated with a CQ user database. 
+<DD>This can also be accomplished from the CLI using: <PRE>  # ct chproject -crmenable
+</PRE>To ensure a single activity is linked, use the undocumented squid_patch 
+command that lives in <I>cc-home</I>\etc\utils: <PRE>  # squid_patch <I>cq-db-name</I> -activity <I>cq-record-id</I> -refresh
+</PRE>See "<A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CQ09">Ensure 
+all activities are unlinked</A>" for the opposite case. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CC-CQ">Back to 
+the INDEX. </A><BR><!---------------------------------------------------------->
+<HR>
+<BR><A name=CQ08></A><PRE>
+
+</PRE><B>UCM enable a CQ schema. </B><BR>
+<DD>CQ comes with two UCM pre-enabled schemas: UnifiedChangeManagement and 
+Enterprise. However, one can UCM enable any schema. Not all record types in a 
+given schema need to be UCM enabled, but a record type must be UCM enabled to 
+associate a project with it. A record type to be associated with UCM must have a 
+Headline SHORT_STRING field of at least 120 characters, an Owner REFERENCE field 
+tied to the CQ users record. It cannot already have one of the reserved field 
+names: ucm_vob_object, ucm_stream, ucm_stream_object, nor ucm_view. 
+<DD>Apply the appropriate packages. In the Designer, Package -&gt; Package 
+Wizard. Add the UCMPolicyScripts. If it isn't listed, it needs to be installed 
+in the repository. In that case, go to More Packages -&gt; Install Packages. 
+Next, add the option BaseCMActivity package. That package gives the lightweight 
+record type and is not mandatory for UCM operations. Next, install the 
+UnifiedChangeManagement package. It isn't necessary to UCM enable all record 
+types in the current schema. Assign state types keeping the following two 
+paragraphs in mind. The state types and default actions MUST be squared away 
+before checking in the schema. 
+<DD>Once the schema is UCM enabled, the UCMUtilityActivity record type cannot be 
+modified. 
+<DD><B>NOTE:</B> Your schema must have a Submitted state for the UCM package to 
+install properly. As a workaround, you can rename your "submission" state to 
+Submitted, apply the package, and then rename it back :-). 
+<DD>The state transitions must have a direct path through the state types: 
+Waiting, Ready, Active, and Complete. That is, each state in a UCM enabled 
+record type has one of the four state types associated with it. No matter what 
+your state transition matrix looks like, there needs to be a direct path from at 
+least one Waiting state to at least one Ready state to at least one Active state 
+and to at least one Complete state. These state types tell UCM when it's 
+appropriate to perform/allow certain functions. For example, a record must be in 
+an Active state type before a developer can associate CC checkouts with it. 
+<DD>The following default action rules must be adhered to. A Waiting type must 
+have a default action that ends in a Waiting, Ready, or Active type. If a Ready 
+type has an action that transitions directory to a Waiting type, that Waiting 
+type must have a default action that ends in that Ready type. All Ready types 
+must have a default action that ends in another Ready type or an Active type. 
+All Ready types must have an action that transitions directly to a Waiting type. 
+For the BaseCMActivity, its initial state must be a Waiting type. The following 
+table is a basic guide to state types: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD><B>State Type</B> 
+    <TD><B>Description</A> </B>
+    <TD><B>State examples</B> 
+  <TR>
+    <TD>Waiting 
+    <TD>Not yet assigned. 
+    <TD>Submitted, Postponed 
+  <TR>
+    <TD>Ready 
+    <TD>Assigned but not being worked yet. 
+    <TD>Assigned 
+  <TR>
+    <TD>Active 
+    <TD>Work is ongoing. 
+    <TD>Opened 
+  <TR>
+    <TD>Complete 
+    <TD>Work is complete or ticket is abandoned. 
+    <TD>Resolved, Closed, Duplicate </TR></TBODY></TABLE>
+<DD>As of CC 4.2 and CQ 2001, a new UCM package called AMStateTypes that 
+replaces UnifiedChangeMangement. All the state type relationships need be redone 
+by hand with the schema checkedout. If installing AMStateTypes using CQ 2002+, 
+the Package Wizard will prompt to set the states accordingly. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CC-CQ">Back to 
+the INDEX. </A><BR><!---------------------------------------------------------->
+<HR>
+<BR><A name=CQ09></A><PRE>
+
+</PRE><B>Ensure all activities are unlinked. </B><BR>
+<DD>If a UCM project is not integrated with CQ, the ClearQuest tab in the 
+project's Properties sheet will have a button that ensures all UCM activities 
+are unlinked from CQ. UCM activities can inadvertently seem to be still 
+associated with CQ if the UCM project was once integrated. 
+<DD>This can also be accomplished from the CLI using: <PRE>  # ct chproject -ncrmenable
+</PRE>See "<A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CQ06">Ensure 
+UCM activities are linked to CQ records</A>" for the opposite case. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CC-CQ">Back to 
+the INDEX. </A><BR><!---------------------------------------------------------->
+<HR>
+<BR><A name=CQ10></A><PRE>
+
+</PRE><B>Connect a UCM project to a CQ db in a different master db. </B><BR>
+<DD>As of CC 5.0/2002, the UCM CC/CQ integration does not support multiple CQ 
+dbsets. That is, if you attempt to connect a CC UCM project to a CQ database 
+that is not part of the master db to which the Maintenance Tool is currently 
+pointing, you will not see the choices for the other master dbs. 
+<DD>A workaround is to create the following key in the NT registry: 
+HKEY_LOCAL_MACHINE\Atria\ClearCase\CurrentVersion\ClearCase Squid. Under this 
+key, create a value called "DBSet" containing the name of the master database 
+you want to use. 
+<DD>On UNIX, set and environment variable: <PRE>  # setenv SQUID_DBSET <I>dbset_name</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CC-CQ">Back to 
+the INDEX. </A><BR><!---------------------------------------------------------->
+<HR>
+<BR><A name=CQ11></A><PRE>
+
+</PRE><B>Use a record type other than UCMUtilityActivity when connecting an 
+existing UCM project to CQ. </B><BR>
+<DD>Windows ONLY. If you have an existing UCM project that already has 
+activities associated with it and are about to connect that project to CQ, you 
+can have CQ create the activity records in a record type other than 
+UCMUtilityActivity. In regedt32, go to 
+"HKEY_LOCAL_MACHINE/Software/Atria/ClearCase/CurrentVersion/ClearCase Squid". 
+Change "UtilityEntity" to the name of the desired record type. 
+<DD>Because CQ automatically transitions the tickets to an Active state type, 
+there cannot be any mandatory fields for the state transition. Also, when the 
+connection is complete, be sure to change the registry back. That value is also 
+used by the rebase and deliver acitivities. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CC-CQ">Back to 
+the INDEX. </A><BR><!---------------------------------------------------------->
+<HR>
+<BR><A name=CQ12></A><PRE>
+
+</PRE><B>Refresh a CQ UCM_Project record that is linked to a CC project. 
+</B><BR>
+<DD>CQ records "echo" data stored in a CC PVOB. If that information seems to be 
+out of date, the CQ UCM_Project record can be refreshed using the undocumented 
+squid_patch command that lives in <I>cc-home</I>\etc\utils. <PRE>  # squid_patch <I>cq-db-name</I> -project <I>project-name</I> -refresh
+</PRE>
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CC-CQ">Back to 
+the INDEX. </A><BR><!---------------------------------------------------------->
+<HR>
+<BR><A name=CQ13></A><PRE>
+
+</PRE><B>Display link information. </B><BR>
+<DD>No CQ login information is required for squid_patch. <PRE>CC project link to CQ UCM_Project  (if ok, will show "UCM_Project")
+  # pvarutil -pvob <I>pvob-tag</I> -object project:<I>project-name</I>@<I>pvob-tag</I> SQUID_PROJ_ENTITYDEF_NAME
+
+CQ UCM_Project link to CC project  (if ok, will show CC project oid, title, and name)
+  # squid_patch <I>cq-db-name</I> -project <I>project-name</I> ucm_vob_object
+
+CC activity link to CQ record  (if ok, will show CQ record type and record number)
+  # pvarutil -pvob <I>pvob-tag</I> -object activity:<I>activity-name</I>@<I>pvob-tag</I> SQUID_ACT_ENTITYDEF_NAME SQUID_ACT_DISPLAY_NAME
+
+CQ record link to CC activity  (if ok, will show activity title and name)
+  # squid_patch <I>cq-db-name</I> -activity <I>record-ID</I> ucm_vob_object
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CC-CQ">Back to 
+the INDEX. </A><BR><!---------------------------------------------------------->
+<HR>
+<BR><A name=CQ14></A><PRE>
+
+</PRE><B>Repair links. </B><BR>
+<DD>The following commands should not be run without Rational Tech Support 
+supervision. <PRE>CC project link to CQ UCM_Project
+  # pvarutil -pvob <I>pvob-tag</I> -object project:<I>project-name</I>@<I>pvob-tag</I> SQUID_PROJ_ENTITYDEF_NAME=UCM_Project
+
+CQ UCM_Project link to CC project
+  # squid_patch <I>cq-db-name</I> -project <I>project-name</I> ucm_vob_object project:<I>project-name</I>@<I>pvob-tag</I>
+
+CC activity link to CQ record
+  # pvarutil -pvob <I>pvob-tag</I> -object activity:<I>activity-name</I>@<I>pvob-tag</I> SQUID_ACT_ENTITYDEF_NAME=<I>record-type name</I> SQUID_ACT_DISPLAY_NAME=<I>record-ID</I>
+
+CQ record link to CC activity
+  # squid_patch <I>cq-db-name</I> -activity <I>record-ID</I> ucm_vob_object activity:<I>activity-name</I>@<I>pvob-tag</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CC-CQ">Back to 
+the INDEX. </A><BR><!---------------------------------------------------------->
+<HR>
+<BR><A name=CQ15></A><PRE>
+
+</PRE><B>Remove links. </B><BR>
+<DD>The following commands should not be run without Rational Tech Support 
+supervision. <PRE>CC project link to CQ UCM_Project
+  # pvarutil -pvob <I>pvob-tag</I> -object project:<I>project-name</I>@<I>pvob-tag</I> SQUID_PROJ_ENTITYDEF_NAME=
+
+CQ UCM_Project link to CC project
+  # squid_patch <I>cq-db-name</I> -project <I>project-name</I> ucm_vob_object ""
+
+CC activity link to CQ record
+  # pvarutil -pvob <I>pvob-tag</I> -object activity:<I>activity-name</I>@<I>pvob-tag</I> SQUID_ACT_ENTITYDEF_NAME= SQUID_ACT_DISPLAY_NAME=
+
+CQ record link to CC activity
+  # squid_patch <I>cq-db-name</I> -activity <I>record-ID</I> ucm_vob_object ""
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CC-CQ">Back to 
+the INDEX. </A><BR><!---------------------------------------------------------->
+<HR>
+<BR><A name=CQ16></A><PRE>
+
+</PRE><B>Connect a UCM Project to multiple CQ databases. </B><BR>Updated: 
+09/19/06 
+<DD>New in CC 7.0, a UCM Project can work with multiple CQ databases. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#CC-CQ">Back to 
+the INDEX. </A><BR><!---------------------------------------------------------->
+<HR>
+<BR><A name=COMP01></A><PRE>
+
+</PRE><B>Create a component. </B><BR>
+<DD>Components are groups of files and directories. The scope of a project is 
+defined by its components. A project must contain at least one component, but 
+usually contains many. Projects can share components. Component objects live in 
+a PVOB and point to directory elements, below which all files and subdirectories 
+are elements of the component. An initial baseline is created automatically by 
+designating /main/0 of the component's root directory as the starting point for 
+modifications. However, you can alternately use an existing base CC label as the 
+starting/foundation baseline of the component. Note that any base CC label used 
+for that purpose MUST be local and not globally defined. You must <A 
+href="http://members.cox.net/ejostrander/clearteam/cc_howto.html#VOB01">create a 
+VOB</A> to hold the component if one doesn't already exist. Once a component VOB 
+is associated with a PVOB, you can delete the component with <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMP02">rmcomp</A>, 
+but there is no way to move a component from one PVOB to another. 
+<DD><B>NOTE:</B> Initially make the component read-only. That way, the 
+foundation baseline can be changed at will if the true one is not known in 
+advance, which is not true for writable components. 
+<DD><B>NOTE:</B> As of CC 5.0/2002 it's possible to have a VOB house multiple 
+components. A component's root directory can be the root directory (vobtag) of 
+the VOB itself. However, if multiple components are housed in one VOB, each 
+component's root directory (<I>root-pname</I>) must be immediately below the the 
+VOB's root directory. Multiple component VOBS cannot already be components 
+themselves. That is, you can't register a component within an existing 
+component. 
+<DD>From clearvobadmin, not possible. 
+<DD>From NT GUI, select "Create VOB as a UCM component" during VOB creation. 
+Multiple component VOBs can only be created from the CLI. 
+<DD>From the Project Explorer, highlight a PVOB and select Tools -&gt; Import 
+VOB. 
+<DD>From the CLI: <PRE>  # ct mkcomp -root <I>root-pname component-name@PVOBtag</I>
+
+ex: single component VOB
+  # ct mkcomp -root /vobs/myvob mycomponent@/vobs/mypvob
+--or--
+ex: multiple component VOB
+  # cd /vobs/myvob
+  # ct mkcomp -root component1_rootdir component1_name@/vobs/mypvob
+  # ct mkcomp -root component2_rootdir component2_name@/vobs/mypvob
+</PRE>Optionally, you can use "-nroot" instead of "-root". The -nroot option 
+creates a component whose sole purpose is to house composite baselines (CC 
+5.0/2002+) and cannot contain any elements. 
+<P></P>
+<DD><B>NOTE:</B> The argument to -root (the actual directory that will be the 
+component's root) cannot contain any characters that do no conform to the 
+standard UNIX naming convention (even when working on Windows). Basically, the 
+root directory and the component name can only contain letters, numbers, dots, 
+and underscores. 
+<P></P>
+<DD><B>NOTE:</B> If creating a multicomponent VOB, the component root 
+directories do not have to already exist. In the example above, if 
+component2_rootdir didn't already exist, it would be created for you and be left 
+as a new element checkedin at /main/0. If the root directory does already exist, 
+it must be a CC element. You cannot create a component on top of a view-private 
+directory. 
+<P></P>
+<DD><B>NOTE:</B> If a component and its initial baseline are added to an 
+integration stream, any views rebasing to that stream get the config_specs 
+automatically updated. If the view is a snapshot, the view's load rules are not 
+modified automatically. 
+<P></P>
+<DD><B>NOTE:</B> As of CC 7.0, you must be the PVOB owner or have a privileged 
+identity to create a component. 
+<P></P>
+<DD><B><FONT color=red>WARNING:</FONT></B> Once you have source code in a UCM 
+component and you feel the VOB is growing too large, you CANNOT use <A 
+href="http://members.cox.net/ejostrander/clearteam/cc_howto.html#ELEM12">relocate</A> 
+to split it. The upshot here is that UCM should not be used for very large 
+projects, as UCM does not scale well. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMPONENTS">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=COMP02></A><PRE>
+
+</PRE><B>Remove a component. </B><BR>
+<DD>This is the same as saying "uncomponentize a VOB". It does not remove the 
+VOB itself. The component cannot be in use by a stream. There cannot be 
+baselines in the component other than the initial one. If there are streams and 
+baselines and you still want to rmcomp, they must be removed first. <PRE>  # ct rmcomp <I>component</I>
+</PRE>
+<P></P>
+<DD><B><FONT color=red>WARNING!</B></FONT> Even though the rmvob command will 
+allow you to remove a UCM component VOB, DO NOT DO IT unless <I>all</I> UCM 
+objects have been removed from the component VOB first. It MUST be an unused, 
+empty VOB or you will have problems if that component was part of a project that 
+will continue to exist with other components. 
+<P></P>
+<DD>You CANNOT REMOVE a component/VOB of a live UCM project without breaking the 
+project. If you don't want to use a component or its associated VOB anymore, 
+lock down the component and VOB. Don't remove anything or the rest of the UCM 
+project will be broken as well. 
+<DD>Each component is connected to its VOB root directory via a hyperlink called 
+ComponentRootDir. If a VOB is removed without first removing the component, that 
+link will be broken. You will be unable to perform UCM functions that involve 
+the project with the broken component. But, you can't remove a component that is 
+part of an active project. The removal of a VOB warns you that the VOB houses a 
+UCM component, but doesn't stop you from removing it. If you do remove the VOB 
+incorrectly, you'll have to clean up before UCM operations can proceed in that 
+project. 
+<DD>One way to recover is to restore the missing VOB from backup. Assuming you 
+haven't removed any other UCM objects, it should pick up where it left off. 
+<DD>If you are unable to restore the VOB for some reason, you will have to 
+create another project to house any changes that exist in the broken project. 
+That is, if a UCM project uses a component that is now broken, you will have to 
+create a new UCM project that doesn't use the broken component. Once the new 
+project has been created without the broken component, have each user join the 
+project and perform base CC merges from each old branch to each new branch to 
+essentially recreate the broken project without the component. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMPONENTS">Back 
+to the INDEX. 
+</A><!-----------------------------------------------------------><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMPONENTS">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=COMP03></A><PRE>
+
+</PRE><B>List components. </B><BR><PRE>  # ct lscomp
+If not in a PVOB:
+  # ct lscomp -invob <I>PVOB-tag</I>
+</PRE>Some useful options: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>-s.hort 
+    <TD>Limit the listing to component names only. 
+  <TR>
+    <TD>-l.ong 
+    <TD>Include owner and group and in the listing. 
+  <TR>
+    <TD>-fmt &nbsp; <I>format-string</I> 
+    <TD>Format the output to taste. See the fmt_ccase reference page. 
+  <TR>
+    <TD>-tre.e 
+    <TD>Recursively list baselines and streams in the components. 
+  <TR>
+    <TD>-obsolete 
+    <TD>Also list those components that have been locked and obsoleted. (new 
+      in 4.2) </TR></TBODY></TABLE>
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMPONENTS">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=COMP04></A><PRE>
+
+</PRE><B>Make a UCM component from an existing CC VOB. </B><BR>
+<DD>The following scenario assumes you have already turned the existing base CC 
+VOB into a <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMP01">component</A>. 
+
+<P><B>Add the component to a project as modifiable. </B><BR></P>
+<DD>Note that, once a component has been added to a project's modifiable 
+component list, it cannot be changed to read-only. The following assumes there 
+has been a label applied to all element versions in the VOB to be componentized 
+that has been imported as the initial baseline. 
+<DD>From the CLI inside the PVOB: <PRE>  # ct lscomp -s
+  # ct lsproj -s
+  # ct chproject -amodcomp <I>component project</I>
+</PRE>
+<DD>Now, ensure a label is applied to all versions of files and directories in 
+the component VOB that will be imported as the starting baseline. Import that 
+label type into the PVOB. In the Project Explorer, highlight the PVOB, run Tools 
+-&gt; Import Label, Add the component VOB and select a label from the drop down 
+list. 
+<DD>In short, turn the existing VOB into a component, apply labels to all 
+versions to be used in the initial baseline and import that label type into the 
+PVOB. As of CC 4.1, labels to be used for import into UCM cannot be globally 
+defined. To change its status, simply change the MetaData type definition in the 
+admin VOB to be local and the type definitions in the children will become local 
+as well. 
+<DD>Alternatively, one can right-click on the integration stream and go to its 
+properties sheet Configuration tab. In the Foundations Baselines window select 
+Add. Select the component to be added and the baseline. If the only baseline 
+that you see there is the INITIAL one created when the VOB was converted to a 
+component, go to the paragraph above that ensures a label of your choosing has 
+been properly imported. Once you click on OK and OK, it will start an automatic 
+rebase. The integration stream cannot be in the middle of any other rebase or 
+deliver operations. Once complete, the integration stream's view's config_spec 
+will contain the lines necessary to work in that VOB. 
+<P><B>Add the component to a project as read-only. </B><BR></P>
+<DD>Once a base CC VOB is recognized by a PVOB as being a component, it is 
+automatically available as a read-only component. However, if using that 
+component for reading, be sure to add appropriate lines to your view's 
+config_spec. That is, the only versions you will see -- in a component that is 
+not listed as modifiable by your project -- are governed by the config_spec 
+rule: <PRE>element * /main/0 -ucm -nocheckout
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMPONENTS">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=COMP05></A><PRE>
+
+</PRE><B>Rename a component. </B><BR>
+<DD>In the Project Explorer, enter the PVOB and go to the Components folder. 
+Right-click on the component to be renamed and enter its Properties sheet. 
+<DD>The following CLI command will rename a component. It assumes you are inside 
+the PVOB. A rebase of streams in projects that use that component is not 
+necessary, as the config_specs of the associated views only refer to the UUID of 
+the component and not its name. <PRE>  # ct rename component:<I>old-name new-name</I>
+</PRE>
+<DD>Under normal circumstances a component is only defined in one PVOB. However, 
+if the component appears in more than one PVOB, the rename of the component only 
+changes the name in that one PVOB. Also, note that changing a component's name 
+is not the same as changing the VOB's vobtag. To fully "rename" a component, one 
+has to retag the vobtag as well. See "<A 
+href="http://members.cox.net/ejostrander/clearteam/cc_howto.html#VOB03">Rename a 
+VOB</A>". 
+<DD>Up to CC 4.2 a component also had a "headline/title" that was a description 
+of the component. It was actually the title that was named when creating the 
+original component. The component's "name" was generated from that, turning 
+spaces into underscores and such. Starting with CC 5.0/2002, components only 
+have a "name", which is what you use on the CLI and in scripts. 
+<DD><B>NOTE:</B> Component names, even sub-vob components, must conform to the 
+standard Unix naming convention: letter, numbers, dashes, periods, and 
+underscores; even on Windows. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMPONENTS">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=COMP06></A><PRE>
+
+</PRE><B>Share a component between PVOBs. </B><BR>
+<DD>To bring a component from another PVOB into a project, go to the Properties 
+sheet of the integration stream (in the Project Explorer) of that project. Under 
+the Configuration tab, select Add. In the Component pull-down, choose "Select 
+components from alternate PVOB". The component will be brought in as 
+non-modifiable. An alternate PVOB's components can be added during project 
+creation as well. 
+<DD>As of CC 2002.05.00 you can only share a component between PVOBs in a 
+read-only mode. 
+<DD>As of CC 2003.06.00 you can share modifiable components between PVOBs. The 
+PVOBs need to be connected via an "AdminVOB" hyperlink. You can designate one of 
+your existing PVOBs as the administrative VOB, or you can create a new PVOB and 
+point all the existing PVOBs to it. To point a VOB at another VOB, use an 
+AdminVOB hyperlink between the VOB objects. If you're already familiar with 
+AdminVOB hyperlinks, UCM doesn't care about the directionality of the hyperlink. 
+That is, there is no "from" PVOB nor "to" PVOB. As long as they are linked 
+you've satisfied UCM. Use the following command to connect the PVOBs. <PRE>  # ct mkhlink AdminVOB vob:\pvob1-tag vob:\pvob2-tag
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMPONENTS">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=COMP07></A><PRE>
+
+</PRE><B>Create a component without a VOB (rootless). </B><BR>
+<DD>As of CC 5.0/2002, you can designate a component that has no connection to a 
+real VOB. Rootless components are used for <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE15">composite 
+baselines</A>. Composite baselines are also known as project baselines. You can 
+store the composite baselines for all projects in a single rootless component, 
+but there's no reason why each project can't have its own. 
+<DD>In the Project Explorer, right click on either the name of the PVOB or the 
+Components folder within the PVOB and select "Create Component without a VOB". 
+See the section in the Managing Software Projects manual called "Creating a 
+Component for Storing the Project Baseline" for more information. 
+<DD>As of CC 2003.06.00, a rootless component must be modifiable. A rootless 
+component can only be non-modifiable if the component is to hold only 
+non-modifiable members or no baseline is ever to be made in the component. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMPONENTS">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=COMP08></A><PRE>
+
+</PRE><B>Split a VOB-level component into separate components. </B><BR>
+<DD>This is a non-standard procedure. This is not an easy task to accomplish. 
+Basically, you'll need create new projects for any project currently using the 
+component to be split. 
+<DD>1) In the old project(s) that use the component to be split, check in ALL 
+code, deliver ALL activities to the integration stream and create a baseline. 
+One may argue that some activities may not be ready for delivery yet. The answer 
+is that this procedure should not be attempted unless the code is at a stable 
+enough point to create a baseline on the integration stream that represents ALL 
+code. Whether or not the code is completely tested or not isn't relevant. 
+However, the code needs to be gathered up on a single stream for each project so 
+that a single baseline can represent ALL code for that project. 
+<DD>2) Create the VOB(s) that will house the new components and make into 
+components during the creation. 
+<DD>3) Create a new project that corresponds to each project that was using the 
+component to be split. Don't base the project on existing project. Each new 
+project's component list will contain old components that aren't going to be 
+split and the new set of (currently empty) components. Be sure that the baseline 
+you point to for each component for the new project is the one applied in step 
+(1). If using CQ, don't integrate the new project with CQ until after the 
+transfers are complete. NOTE: When adding the components to the new project's 
+list, when in the "Add Baseline" dialog, when you've selected one of the new 
+empty components, be sure to hit the Change button and select "All Streams" to 
+see the list of baselines associated with the component. For a new empty 
+component there will only be one baseline called "<I>component</I>_INITIAL". 
+<DD>4) Create an integration view for each of the new projects. At this point 
+there's no need to go and join each project. You just need a view. 
+<P></P>
+<DD>Perform the next set of steps on every stream that needs to have code 
+transferred to a corresponding stream in the new correspoding project. To reduce 
+the number streams that need to transfer code, have all streams checkin and 
+deliver to a common stream, such as the project's integration stream. The bottom 
+line is that there needs to be a corresponding stream in the new projects for 
+every stream holding code to be transferred. 
+<P></P>
+<DD>5) Create and set to an activity in the destination stream. NOTE: The 
+easiest way to create and set an activity is to simply check out a directory, 
+designate the new activity, and then uncheckout the directory :-). 
+<DD>6) Run clearfsimport in the source view and point the output of 
+clearfsimport to the new stream in the new project. Obviously, you don't want to 
+run clearfsimport at the top level of the old component or you'll pick up ALL 
+the old files. The goal here was to split the old component. So, run 
+clearfsimport on a subdirectory in the old component that corresponds to the new 
+component. If distinct directory trees in the old component don't correspond to 
+the new components and you intend to re-architect as part of the migration, this 
+procedure won't work directly and you'll have run clearfsimport for each little 
+part to be transferred. 
+<P></P>
+<DD>At this point the new project contains the older components and the newly 
+split components. By using clearfsimport you will only be picking up the LATEST 
+version of a given branch/stream. The clearexport_ccase/clearimport pair picks 
+up file history, but cannot import directly into a UCM stream, not does it 
+transfer directory history anyway. 
+<P></P>
+<DD>7) In the new project(s), create and recommend a baseline that represents 
+the new configuration. NOTE: Be sure when recommending baselines that you choose 
+the new baseline just created for the new components. The default will still 
+have them pointing the <I>component</I>_INITIAL baselines. 
+<DD>8) Integrate the new projects with CQ if desired. Users can now join the 
+project(s) and continue to work. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMPONENTS">Back 
+to the INDEX. </A><!----------------------------------------------------------->
+<HR>
+<BR><A name=FOLD01></A><PRE>
+
+</PRE><B>List project folders. </B><BR>
+<DD>The only folder you'll see in a new PVOB is RootFolder, the folder under 
+which all project folders must reside. 
+<DD>From UNIX xclearcase, not possible. 
+<DD>From NT GUI, not possible. 
+<DD>From the CLI: <PRE>  # ct lsfolder
+</PRE>Some useful options: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>-s.hort 
+    <TD>Limit the output to just the folder names. 
+  <TR>
+    <TD>-l.ong 
+    <TD>Expand the listing as one had done a "describe folder". 
+  <TR>
+    <TD>-fmt &nbsp; <I>format-string</I> 
+    <TD>Format the output to taste. See the fmt_ccase reference page. 
+  <TR>
+    <TD>-tre.e [-dep.th] 
+    <TD>List the folder and its contents. 
+  <TR>
+    <TD>-anc.estor [-dep.th] 
+    <TD>List the folder and its parent tree. 
+  <TR>
+    <TD>-inv.ob &nbsp; <I>vob-tag</I> 
+    <TD>Specify a PVOB other than the current one. 
+  <TR>
+    <TD>-in &nbsp; <I>folder</I> ... 
+    <TD>List subfolders of <I>folder</I>(s). 
+  <TR>
+    <TD>-cvi.ew 
+    <TD>List the parent folder of the stream attached to the current view. 
+  <TR>
+    <TD>-vie.w &nbsp; <I>view-tag</I> 
+    <TD>List the parent folder of the stream attached to the specified view. 
+  </TR></TBODY></TABLE>
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#FOLDERS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=FOLD02></A><PRE>
+
+</PRE><B>Create a project folder. </B><BR>
+<DD>Unlike other CC objects, folder names can have embedded spaces. In the NT 
+Project Explorer, you can drag and drop projects and folders to rearrange the 
+heirarchy. 
+<DD>From UNIX xclearcase, <U>P</U>roject -&gt; Project Explorer... -&gt; 
+highlight the parent folder -&gt; File -&gt; New... -&gt; Folder. 
+<DD>From the Project Explorer, File -&gt; New -&gt; Folder. 
+<DD>From the CLI: 
+<DD>Project folders must be created in PVOBs under an existing folder specified 
+by the -in option. It isn't mandatory that the <I>folder-name</I> be given, as 
+CC will assign one, such as "folder000616.155919". However, for clarity, folders 
+should be named close to the project information they will contain. You cannot 
+name a projec folder and a project the same. Also, the title isn't mandatory, 
+but should be given as a descriptive name that will appear in graphical 
+interfaces. <PRE>  # ct mkfolder -in <I>parent-folder</I> -title "<I>title</I>" <I>folder-name</I>
+</PRE>
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#FOLDERS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=FOLD03></A><PRE>
+
+</PRE><B>Remove a folder. </B><BR>
+<DD>Cannot remove a folder if it contains any projects, other folders or is the 
+RootFolder. <PRE>  # ct rmfolder <I>folder-name</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#FOLDERS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=FOLD04></A><PRE>
+
+</PRE><B>Modify a folder's parameters. </B><BR>
+<DD>Must be owner or above of the folder. 
+<DD>From the Project Explorer, highlight the folder and go to File -&gt; 
+Properties... 
+<DD>From the CLI: <BR>
+<DD><B>Change the title. </B><PRE>  # ct chfolder -title "New title." <I>folder-name</I>
+</PRE>
+<DD><B>Change the folder's location in the tree. </B><BR>The new parent folder 
+must belong to the same PVOB. <PRE>  # ct chfolder -to <I>new-parent folder-name</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#FOLDERS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=FOLD05></A><PRE>
+
+</PRE><B>Rename a folder. </B><BR>
+<DD>Must be folder owner or higher. <PRE>  # ct rename folder:<I>oldname newname</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#FOLDERS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=MISC01></A><PRE>
+
+</PRE><B>Set up UCM from scratch. </B><BR>
+<DD>These steps assume you have a functioning FUll CC (not CCLT) install and are 
+familiar with its operation. 
+<DD>1) If not already, populate a VOB (perhaps via clearimport, clearfsimport, 
+relocate or other commands). Ensure a label is applied to all versions of files 
+and directories in the component VOB that will be imported as the starting 
+baseline. As of CC 4.1, labels to be used for import into UCM cannot be globally 
+defined. To change its status, simply change the MetaData type definition in the 
+admin VOB to be local and the type definitions in the children will become local 
+as well. 
+<DD>2) Create a brand new VOB as a project VOB (<A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ01">PVOB</A>). 
+
+<DD>3) <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMP01">Make a 
+component</A> out of an existing VOB (that has elements in it or not). In the 
+Project Explorer, highlight the new PVOB and run Tools-&gt;Import VOB. 
+<DD>4) Import the initial label type into the PVOB. In the Project Explorer, 
+highlight the PVOB, run Tools -&gt; Import Label, Add the component VOB and 
+select a label from the drop down list. 
+<DD>5) Create a <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#FOLD02">folder</A> 
+to contain the new project, its streams, and activities. 
+<DD>6) Create a <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ02">project</A>. 
+
+<DD>7) Add the component VOB to the project's modifiable component list. Once a 
+component has been added to a project's modifiable list, it cannot be changed to 
+read-only. From the CLI <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ03">modify 
+the project's parameters</A>. If the project was created from the Project 
+Explorer GUI, it would have already prompted you for the modifiable components. 
+From the CLI inside the PVOB: <PRE>  # ct lscomp -s
+  # ct lsproj -s
+  # ct chproject -amodcomp <I>component project</I>
+</PRE>
+<DD>8) Create an <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM01">integration 
+stream</A> and associated view. If the Project Explorer GUI was used to create 
+the project, the integration stream was created for you and automatically named 
+"Integration". If the project was created via the CLI mkproject, use <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM01">mkstream</A> 
+to create the integration stream. In either case, once the integration stream is 
+created, in the Project Explorer, right-click on the integration stream and 
+select Create View. Accept all the defaults. 
+<DD>9) In the Project Explorer, <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM05">import 
+a label onto the integration stream</A>. 
+<DD>10) Create a <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM01">development 
+stream</A> and associated view by joining a project. In the Project Explorer, 
+Tools-&gt;Join Project. The development view will be automatically initialized 
+with the baseline. 
+<DD>11) <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT01">Create 
+an activity</A> in which to work. Or, set to the development view and let it 
+prompt for an activity upon checkout. 
+<DD>You are now using UCM based on the versions selected by the label. 
+Initially, the integration and development branches do not exist on any 
+elements. It's only when the developer checks out an element that those branches 
+get automatically created and used. 
+<P></P>
+<DD>While the conversion can be done from GUIs, if necessary, a base CC VOB can 
+be converted to UCM using only the CLI. The following lines are written for 
+UNIX, but the procedure is identical for NT. It assumes you've already LABELed 
+the set of versions in the base CC VOB that you want to import into UCM. The 
+imported baseline LABEL must be ordinary, not globally defined. <PRE>  # ct setview <I>baseCC-view-tag</I>
+  # ct mkvob -ucmproject -tag /vobs/pvob -public /vobstore/pvob.vbs
+  # ct mount /vobs/pvob
+  # cd /vobs/pvob
+  # ct mkcomp -root /vobs/baseCC <I>component-name</I>
+  # ct mkfolder -in RootFolder projects
+  # ct mkproject -in projects -modcomp <I>component-name</I> <I>project-name</I>
+  # ct mkbl -import LABEL@/vobs/baseCC
+  # ct mkstream -in <I>project-name</I> -integration -baseline LABEL <I>int-stream-name</I>
+  # ct mkview -tag <I>int-view-tag</I> -stream <I>int-stream-name</I> /viewstore/<I>int-view-tag</I>.vws
+  # ct mkstream -in <I>project-name</I> -baseline LABEL <I>dev-stream-name</I>
+  # ct mkview -tag <I>dev-view-tag</I> -stream <I>dev-stream-name</I> /viewstore/<I>dev-view-tag</I>.vws
+</PRE>
+<DD><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ14">Project 
+properties</A> can be set for various operations. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#MISC">Back to 
+the INDEX. </A><!----------------------------------------------------->
+<HR>
+<BR><A name=MISC02></A><PRE>
+
+</PRE><B>Change protections on UCM objects. </B><BR>
+<DD>Protections on UCM objects can be changed in the same way protections can be 
+changed on base CC elements and objects, namely: <PRE>  # ct protect <I>option+arg object-selector</I>
+
+ex: ct protect -chown vobadm baseline:REL3.119
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#MISC">Back to 
+the INDEX. </A><!----------------------------------------------------->
+<HR>
+<BR><A name=PROJ01></A><PRE>
+
+</PRE><B>Create a project VOB (PVOB). </B><BR>
+<DD>Project VOBs are created using base CC commands, such as <A 
+href="http://members.cox.net/ejostrander/clearteam/cc_howto.html#VOB01">mkvob</A>. 
+VOBs created using CC 4.0 are automatically at feature level 2. VOBs created 
+before upgrading to CC 4.0 need to have their feature level upgraded via <A 
+href="http://members.cox.net/ejostrander/clearteam/cc_howto.html#VOB24">chflevel</A> 
+before being used as a PVOB. As of CC 4.0, having one PVOB be the <A 
+href="http://members.cox.net/ejostrander/clearteam/cc_howto.html#TYPE06">AdminVOB</A> 
+for another PVOB is not supported by Rational, but shouldn't cause any problems. 
+If after you've created your new PVOB and don't see it in the Project Expolorer, 
+make sure that View -&gt; Show All Project VOBs is selected. 
+<DD>From UNIX xclearcase, not possible. 
+<DD>From clearvobadmin (same as "lsvob -graphical"), not possible. However, in 
+Tutorial mode, when it prompts if you want to create a "process" VOB, it is 
+referring to ClearGuide, not UCM. 
+<DD>From NT CC Home Base, the very first page asks if you want to store 
+"<U>U</U>CM project data"; not to be confused with another prompt on the same 
+page that talks about <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMP01">UCM 
+components</A>. Select the "UCM com<U>p</U>onent" checkbox if you intend to 
+store ordinary CC versioned data there as well. 
+<DD>From the CLI: <PRE>  # ct mkvob -ucmproject -tag <I>vob-tag vob-storage-area</I>
+</PRE>
+<DD><B>NOTE:</B> While it's possible to share base CC, UCM components, and 
+project information in a PVOB, it's not possible to convert an existing base CC 
+VOB into a PVOB. You can only convert a base CC VOB into a component. 
+<DD><B>NOTE:</B> If in an interop environment, so that the UNIX components can 
+see the PVOB, make sure the PVOB lives on the UNIX side. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ02></A><PRE>
+
+</PRE><B>Create a project. </B><BR>
+<DD>Create a repository for project information/components inside a UCM project 
+folder. The <I>project-name</I> is not mandatory, as CC will assign one to you 
+if not supplied, such as project000616.161707. The project cannot use the name 
+of an existing project or project folder. However, for clarity, projects should 
+be given mnemonic names. When creating a project from the Project Explorer, it 
+will automatically create an integration stream for you called "Integration", 
+which can be renamed after. If using mkproject, you must follow it up with <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM01">mkstream</A> 
+to create the initial integration stream. 
+<DD>From the Project Explorer, File -&gt; New -&gt; Project... 
+<DD>From the CLI: 
+<DD>The -title option is not mandatory, but this useful description will appear 
+in graphical interfaces. Project parameters, such as modifiable components and 
+policies, can be set after the fact using the <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ03">chproject</A> 
+command. <PRE>  # ct mkproject -in <I>folder</I> -title "<I>Descriptive title.</I>" <I>project-name</I>
+</PRE>Other options: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>-mod.comp &nbsp; <I>component(s)</I> 
+    <TD>Specify the component(s) that can be modified in this project. See not 
+      below. 
+  <TR>
+    <TD>-crm.enable &nbsp; <I>CQ-database</I> 
+    <TD>Specify a UCM-enabled CQ user database with which to link. 
+  <TR>
+    <TD>-pol.icy | -npo.licy &nbsp; <I>policy-keyword</I>[,...] 
+    <TD>New in CC 5.0/2002, set or unset the specified policy(s). See the 
+      mkproject man page for a complete list. 
+  <TR>
+    <TD>-spo.licy &nbsp; <I>policy-keyword</I>[,...] 
+    <TD>New in CC 5.0/2002, allow the specified policy(s) to be 
+      enabled/disabled in individual streams. 
+  <TR>
+    <TD>-model &nbsp; { SIMPLE | DEFAULT } 
+    <TD>New in CC 2003.06.00. Create single-stream (SIMPLE) or multi-stream 
+      project. </TR></TBODY></TABLE>
+<P></P>
+<DD><B>NOTE:</B> Once a component has been added to a project's modifiable 
+component list, it cannot be changed to read-only. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ03></A><PRE>
+
+</PRE><B>Modify project parameters. </B><BR>
+<DD>The following are modifiable project parameters. Any developer can modify 
+project parameters with the exception of rename and delete. 
+<DD>From the Windows GUI, CC Home Base -&gt; Projects -&gt; Project Explorer 
+-&gt; right-click on a project and select Properties. 
+<DD>From Unix xclearcase, <U>P</U>roject -&gt; Project Explorer... -&gt; select 
+the project -&gt; File -&gt; Properties... 
+<DD>From the CLI: 
+<DD><B>Change a project's title. (obsolete as of CC 5.0/2002) </B><PRE>  # ct chproject -title <I>"new-title" project-name</I>
+</PRE>
+<DD><B>Add modifiable components to the project. </B><BR>The <I>component(s)</I> 
+are a comma-separated list. <PRE>  # ct chproject -amodcomp <I>component(s) project-name</I>
+</PRE>
+<DD><B>Remove modifiable component(s) from the project. </B><BR>New in CC 
+5.0/2002. The <I>component(s)</I> are a comma-separated list. <PRE>  # ct chproject -dmodcomp <I>component(s) project-name</I>
+</PRE>
+<DD><B>Move the project to a new folder. </B><BR>The old and new folders must be 
+in the same PVOB. <PRE>  # ct chproject -to <I>new-folder project-name</I>
+</PRE>
+<DD><B>Change the required baseline promotion level. </B><PRE>  # ct chproject -rebase_level <I>promotion-level project-name</I>
+</PRE>
+<DD><B>Activate or deactivate project policies. </B><BR>See the mkproject man 
+page for a complete list of project policies. The spolicy option, new in CC 
+5.0/2002, allows policies to be enabled or disabled by individual streams. In 
+general, policy changes only affect future work. They are not dynamic. <PRE>  # ct chproject { -policy | -npolicy | -spolicy } <I>policy-keyword project-name</I>[,...]
+</PRE>
+<DD><B>Activate or deactivate the link to CQ. </B>
+<DD>A project can be CQ enabled via the project's properties sheet in Project 
+Explorer or from the CLI. If a project is already crm enabled, running chproject 
+with the -crmenable option has the affect of checking to ensure that all 
+activities are linked, which is the same as the project Properties GUI button 
+called "Ensure All Activities Are Linked". The converse is true about the 
+-ncrmenable option. In a MultiSite environment, you must have mastership of the 
+CQ tickets and CC activities. 
+<DD><B>NOTE:</B> Up to CQ 2002, only CQ user databases created as type 
+Production can be CC UCM integrated. That is, you cannot use a Test CQ user 
+database for that integration. If you want to test schema changes using the 
+CC/CQ UCM integration, you must use a Production database. However, this 
+presents a problem in the Designer. There is no way to "test" (Database-&gt;Set 
+Test Database) schema changes using a Production database. So, to test schema 
+changes you must checkin the schema after each round of changes and use the 
+Database-&gt;Upgrade Database function to push the new schema to the CC/CQ UCM 
+integrated user database; tedious and inconvenient at best. An RFE has been 
+forwarded to Rational. <PRE>  # ct chproject -crmenable <I>CQ-user-database project-name</I>
+-or-
+  # ct chproject -ncrmenable <I>project-name</I>
+</PRE>
+<DD><B>Set a project's baseline template. </B>
+<DD>New in CC 2003.06.00. Sets or replaces the baseline template definition for 
+a project. Baseline identifiers are made up of two parts: a user-specifiable 
+root name and an automatically applied, unique numeric extension. Note that the 
+unique numeric extension is not applied in the first component to rcv the new 
+baseline. In other words, if there are several components in a project, the 
+first component will get the generated baseline name without a numeric 
+extension, the rest will. The template can contain any of the following comma 
+separate tokens. The commas are replaced by underscores when a baseline is 
+created. <BR>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD><B>Token</B> 
+    <TD><B>Note</B> 
+  <TR>
+    <TD>basename 
+    <TD>Arbitrary text string supplied by the user at baseline creation time. 
+  <TR>
+    <TD>project 
+    <TD>Automatically filled in by UCM. 
+  <TR>
+    <TD>stream 
+    <TD>Automatically filled in by UCM. 
+  <TR>
+    <TD>component 
+    <TD>Automatically filled in by UCM. 
+  <TR>
+    <TD>date 
+    <TD>Automatically assigns format of MMDDYY. 
+  <TR>
+    <TD>time 
+    <TD>Automatically assigns format of HHMMSS, where HH is in 24hr format. 
+  <TR>
+    <TD>user 
+    <TD>Automatically fills in login name of user. 
+  <TR>
+    <TD>host 
+    <TD>Automatically fills in hostname of current machine. </TR></TBODY></TABLE><PRE>Example:
+  # ct chproject -blname_template component,date,time,basename <I>project</I>@<I>PVOB</I>
+Note that "RELEASE1.1" is the user supplied basename.  The rest is filled in automatically.
+  # ct mkbl RELEASE1.1
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ04></A><PRE>
+
+</PRE><B>Rename a project. </B><BR>
+<DD>Must be project owner or higher to rename a project. 
+<DD>From the Project Explorer, select the project, go to File -&gt; 
+Properties... and simply rename it. 
+<DD>From the CLI: <PRE>  # ct rename project:<I>oldname newname</I>
+</PRE>
+<DD>As of CC 5.0/2002, integration streams are named the same as the projects. 
+You should probably consider <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ12">renaming 
+the project's integration stream/branch</A> as well. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ05></A><PRE>
+
+</PRE><B>Remove a project. </B><BR>
+<DD>Must be project owner or higher to delete a project. Cannot delete a project 
+that contains a stream. There is no way to delete a project from a GUI. 
+<DD>From the CLI: <PRE>  # ct rmproject <I>project-name</I>
+</PRE>See also "<A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ16">Retire 
+a project</A>". 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ06></A><PRE>
+
+</PRE><B>List projects. </B><BR>
+<DD>The listing of projects is limited to one PVOB. 
+<DD>In the Project Explorer, projects can be in any folder heirarchy. That is, 
+they can be shown at the top of the PVOB or somewhere in a subdirectory. 
+<DD>From the CLI: <PRE>  # ct lsproject
+</PRE>Options: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>-s.hort 
+    <TD>Limit the listing to just project names. 
+  <TR>
+    <TD>-l.ong 
+    <TD>Display detailed information similar to "describe -long". 
+  <TR>
+    <TD>-fmt &nbsp; <I>format-string</I> 
+    <TD>See the fmt_ccase man page for formatting details. 
+  <TR>
+    <TD>-tre.e &nbsp; [ -dep.th <I>depth</I> ] 
+    <TD>Show a heirarchy of stream and activities. Optionally limit it to 
+      <I>depth</I> levels. 
+  <TR>
+    <TD>-anc.estor &nbsp; [ -dep.th <I>depth</I> ] 
+    <TD>Display the projects and their parent folders. Optionally limit it to 
+      <I>depth</I> levels. 
+  <TR>
+    <TD>-inv.ob &nbsp; <I>vobtag</I> 
+    <TD>If not sitting in a VOB, specify the vobtag. 
+  <TR>
+    <TD>-in &nbsp; <I>folder</I> 
+    <TD>Limit the project listing to a single folder. 
+  <TR>
+    <TD>-vie.w &nbsp; <I>viewtag</I> 
+    <TD>Display information about the project containing the <I>viewtag</I>'s 
+      stream. 
+  <TR>
+    <TD>-cvi.ew 
+    <TD>Display information about the project containing the stream for the 
+      current view. 
+  <TR>
+    <TD>-obsolete 
+    <TD>Include obsoleted projects in the listing (new in 4.2). 
+</TR></TBODY></TABLE>
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ07></A><PRE>
+
+</PRE><B>Join a project. </B><BR>
+<DD>In xclearcase, Project -&gt; Join Project. 
+<DD>On Windows, via the Start menu, start the Project Explorer. Inside, 
+right-click on the desired project and Join Project. 
+<DD><B>NOTE:</B> As of CC 4.2, if UCM is CCMS and the project's integration 
+stream is not mastered locally, the Join Project wizard will still attempt to 
+create an integration view for you. If it appears the development stream was 
+created successfully, ignore the error message about the integration stream. 
+<DD>From the CLI: <PRE>Windows:
+  # clearviewtool
+Unix:
+  # clearjoinproj
+
+-or-
+Project Explorer:
+  # clearprojexp
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ08></A><PRE>
+
+</PRE><B>Set a default view type. </B><BR>
+<DD>In the Project Explorer, in a project's Properties sheet, under the Policy 
+tab. While it will be the default when developers join a project, they can still 
+choose the other type at that time. That is, there is no way to force the 
+choice. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ09></A><PRE>
+
+</PRE><B>Interproject rebase. </B><BR>
+<DD>In UCM, projects are often based on (branched from) a previous project's 
+baseline. If the "projects" are simply different releases of the same software 
+(recommended), when the previous release is patched, those changes need to be 
+merged into the next release. You can only rebase between projects if the 
+project rcving the changes is based on a previous baseline of the project from 
+which the changes are coming. 
+<DD>In CC 5.0/2002+, interproject rebases can be conducted from the Project 
+Explorer. As of CC 5.0/2002, a project ONLY has a "Name". "Titles" are no longer 
+used. 
+<DD>In CC 4.2-, there is no way to perform an interproject rebase from the GUI. 
+Unfortunately, UCM "Titles" cannot be used when referring to UCM objects on the 
+CLI. In the Project Explorer, open the properties sheet of the source 
+integration stream, go to the Baselines tab and select the component, select the 
+source baseline and go to its Properties sheet. You will need the "ID Name" for 
+the rebase command. If you have many components (each has a different baseline), 
+this could be scripted to loop through them all at once. <PRE>  # ct setview <I>destination-integration-view</I>
+  # cd <I>component-vob</I>
+  # ct rebase -baseline <I>source-baseline-ID-name</I> -gmerge
+  # ct rebase -resume -complete
+</PRE>
+<DD><B><FONT color=red>WARNING:</FONT></B> Each project that you base on a 
+previous project branches from the previous project's integration branch. Over 
+time, the version extended path to a checkout can become quite long, as in 
+"/main/Integration1/Integration2/Integration3/.../IntegrationN/LATEST. Windows 
+can only handle those strings up to 255 characters. So, an active team can reach 
+that limit in a reasonable amount of time. Simply shortening the names of the 
+Integration branches only delays the inevitable. 
+<DD>To avoid the cascading integration branches and still use the rebase 
+command, utilize a system (integration) project. Make the first project that you 
+create the one that has its integration branch directly off of main. Do not use 
+this one for development. Immediately start a new project based off of that one 
+that will be the first "development" project. Each development project bases 
+their foundation on the "system project"'s latest recommended baseline. Rebases 
+out to the development project use the above rebase command. Unfortunately, as 
+of CC 4.2 interproject delivers are not supported. However, base CC can be used 
+to merge the development project back to the system project. This is the UNIX 
+CLI solution, but this idea can partially be completed in the UNIX GUI and 
+completely using the Windows GUI. <PRE>  # ct setview <I>destination-integration-view</I>
+  # cd <I>component-vob</I>
+  # ct mkact <I>activity-name</I>
+  # ct findmerge . -nc -fver (BASELINE or /main/<I>source-integration-branch</I>/LATEST) -print
+Review the output log for correctness.
+  # ct findmerge . -nc -fver (BASELINE or /main/<I>source-integration-branch</I>/LATEST) -merge
+  # ct ci -nc `ct lsco -r -s -cview`
+  # ct setact -none
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ10></A><PRE>
+
+</PRE><B>Make a component non-/modifiable. </B><BR>
+<DD>The modifiable property of a project's component is set when the project is 
+created and can be viewed via the project's policies dialog. You can change a 
+non-modifiable component to be modifiable, but once a component is designated as 
+modifiable, it cannot be changed back, unless the component has never been 
+modified in that project. 
+<DD>If you change a component to be modifiable, you need to ensure the streams 
+and views pick up on the change. <BR>For each stream, including the integration 
+stream: <PRE>  # ct chstream -generate <I>stream-name</I>
+</PRE>For each view, including integration views: <PRE>  # ct setcs -tag <I>viewtag</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ11></A><PRE>
+
+</PRE><B>Add a component to a project. </B><BR>
+<DD>The following steps are to add an existing component to an existing project. 
+To create a component out of an existing VOB, see <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#COMP01">Create 
+a VOB-level or sub-VOB component.</A> 
+<DD>1) In the Project Explorer, open the properties sheet of the project's 
+integration stream. 
+<DD>2) Under the Configuration tab, click Add. 
+<DD>3) In the Component pull-down list, select the component to be added. 
+<DD>4) Select the component's baseline on which you want to base the project in 
+that component and click OK. Deselect "Allow project to modify the component" if 
+you want to add the component as non-modifiable. 
+<DD>5) Click OK to close the stream's properties. The dialog will automatically 
+launch a rebase to that new baseline for the project's integration stream. 
+Development views will have their config_specs automatically updated to see the 
+new component when they next rebase. 
+<DD><B>NOTE:</B> Even though a project may be based upon a previous project, 
+adding a component to that previous project does not automatically add the new 
+component to the follow-on project. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ12></A><PRE>
+
+</PRE><B>Rename a project's Integration stream/branch. </B><BR>
+<DD>If an integration stream needs to be renamed, perhaps because the project 
+was renamed as well, there are several steps to complete the process properly. 
+These steps are written as if you are sitting in the PVOB. <PRE>Rename the branch type:
+  # ct lsproj
+  # ct lsstream -in <I>project-name</I>
+  # ct describe stream:<I>stream-name</I>
+The stream is "Guarding" the branch type.
+  # ct rename brtype:<I>old-name new-name</I>
+
+Tell the stream about the branch name change:
+  # ct chstream -generate <I>stream-name</I>
+
+Rename the stream itself:
+  # ct rename stream:<I>old-stream-name new-stream-name</I>
+This step isn't needed for CC 5.0+.
+  # ct chstream -title "<I>new-title</I>" <I>new-stream-name</I>
+
+Update any existing views:
+  # ct setcs -stream -tag <I>integration-view-tag</I>
+
+********
+Example:
+  # ct rename brtype:Integration_2840 ProjA_Integration
+  # ct chstream -generate Integration_24840
+  # ct rename stream:Integration_2840 ProjA_Integration
+  # ct setcs -stream -tag ejo_proja_integration
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ13></A><PRE>
+
+</PRE><B>Interproject deliver. </B><BR>
+<DD>In the Project Explorer, simply right-click on the integration stream of the 
+"source" project and select Deliver Baselinses -&gt; To Default. The "To 
+Default" will only work if the project owning that integration stream is a 
+subproject of the "target" project. 
+<DD>From the CLI: <PRE>  # ct deliver -stream <I>source-integration-stream-selector</I> -to <I>target-viewtag</I> -baselines <I>source-baseline-selector</I>
+</PRE>If the deliver between projects is done regularly, use the -force and 
+-complete options to speed the process, with the knowledge that you are 
+completing the deliver without testing the merged/delivered elements. 
+<P></P>
+<DD>Prior to CC 5.0/2002, there was no "deliver" between projects or between 
+arbitrary streams. The following procedure can be used as a workaround and is 
+written for the case where one project needs to "deliver" to another project in 
+the same PVOB. 
+<DD>1) Apply a baseline to the integration stream of the "from" project. It 
+doesn't need to be a full baseline. 
+<DD>2) Create a stream, usually by joining a project. A never-before-used stream 
+is essential to get this to work properly. 
+<DD>3) Rebase the unused stream against the recommended baseline in the 
+integration stream. The dev stream's configuration is now pointing to and using 
+that baseline and any others. The configuration of the view associated with that 
+dev stream will be used as the "from" portion of a base CC merge. 
+<DD>4) Set an activity in the "to" stream. The "to" stream can be either the 
+integration stream or a development stream in the "to" project. The easiest way 
+to set an activity from a GUI is to simply checkout a directory (any directory), 
+which forces the creation of an activity, and then uncheckout the directory. 
+This is an especially useful way to set an activity if CQ is integrated. The 
+activity can also be set from the CLI using the <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT01">mkact</A> 
+or <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#ACT01">setact</A> 
+command. The idea here is that an activity already needs to be setworked in the 
+destination stream for the base CC merge to work. 
+<DD>5) Conduct a base CC merge <I>from</I> the stream/view rebased in step (3) 
+<I>to</I> the stream/view that contains the activity created in step (4). 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ14></A><PRE>
+
+</PRE><B>Set project policies. </B><BR>
+<DD>These policies are configurable whether or not you integrate with CQ. 
+<P></P>
+<DD><B>Recommended Baselines</B> 
+<DD>Recommended baselines are the stable branch points designated by the team 
+lead. Developers rebase/branch from these points. When joining a project their 
+streams are initialized from there. The baseline promotion level set to govern 
+which baselines becomes recommended. If a component does not contain a baseline 
+at or above the recommended promotion level for rebasing, the component's 
+initial/foundation baseline is used. See setting <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#BASE08">promotion 
+levels</A>. 
+<P></P>
+<DD><B>Modifiable Components</B> 
+<DD>When a component is initially added to the PVOB, it is available as 
+read-only to all projects in the PVOB. One must add a component to a project's 
+modifiable component list. See setting <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ03">project 
+parameters</A>. 
+<P></P>
+<DD><B>Default View Types</B> 
+<DD>When developers joins a project they use the Join Project Wizard. There is 
+no way to force which type of view is used. The recommended setup is to allow 
+snapshot or dynamic views for development streams and dynamic only for 
+integration streams. During project creation, you can set recommend view types. 
+When a user joins, they will see those recommended view types, but don't have to 
+accept them. Once a user has made a choice of view type, those choices will 
+override the projects recommended ones, if the user rejoins the project, say for 
+the purpose of creating a new stream. 
+<P></P>
+<DD><B>Policies</B> 
+<DD>In the Project Explorer, right-click on the project. In CC 4.2- the policies 
+are tab in the project's properties sheet. In CC 5.0/2002+ it is a separate menu 
+item. As of CC 5.0/2002, this policy list can be set on a stream-by-stream basis 
+as well. 
+<P></P>
+<DD>See the mkproject man page for a listing of policy keywords. From the CLI: <PRE>Set a policy:
+  # ct chproject -policy <I>policy-keyword</I>[,...] <I>project</I>
+Unset a policy:
+  # ct chproject -npolicy <I>policy-keyword</I>[,...] <I>project</I>
+Allow the policy to be enabled or disabled on a stream-by-stream basis:
+  # ct chproject -spolicy <I>policy-keyword</I>[,...] <I>project</I>
+</PRE>
+<DD>Policies can be set on a per-stream basis. For any given policy in the 
+Project Explorer there are three options: Disabled, Enabled, and Per Stream. If 
+the Per Stream option is selected, the policies on the stream itself dictate 
+behaviour. 
+<DD><B><FONT color=red>WARNING!</B></FONT> Playing with the Per Stream option of 
+a policy can have unexpected results. As an example, if the project has a 
+particular policy set to Per Stream, and a particular stream has Enabled that 
+policy, the policy will be enabled for any user of that stream, as expected. If 
+the project then shifts the policy to Disable, that policy will be disabled for 
+all users of that stream. So far as expected. However, if the project then 
+subsequently changes the policy back to Per Stream, even though the stream was 
+changed to Disable by the previous project setting, the stream's policy will 
+automatically revert back to the setting that was present before the project 
+disabled it. That is, in this example, the policy will automatically revert back 
+to Enable for that stream. To me that's unexpected behaviour. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ15></A><PRE>
+
+</PRE><B>Lock a project. </B><BR>
+<DD>Project objects can be locked. However, the lock on a project object does 
+not prevent users from joining the project. It stops anyone from modifying the 
+project's properties. As of CC 5.0(2002), there is no way to trigger joining a 
+project. At most, a trigger can put in place that prevents certain users from 
+modifying the project's integration branch. 
+<DD>In the Project Explorer, right-click on the project, enter its Properties 
+sheet, and enter the Lock tab. 
+<DD>From the CLI: prior to CC 5.0(2002), a project had a "name" and a "title". 
+For CC 5.0(2002)+, there is only a name. <PRE>  # ct lock project:<I>project-name</I>@\pvobtag
+</PRE>
+<P></P>
+<DD><B>Lock a project on a per-user basis.</B><BR>There is no way to prevent 
+read access to a specific project. If a user has access to the component VOB, 
+they will have read access to the data in all projects. The following methods 
+that can be employed to prevent write access to a given project. 
+<DD>a) Create a second project for the other developer(s). By default, those 
+developers will not be able to deliver to the project you want to protect. 
+<DD>b) Lock the project's integration stream and exclude certain users from the 
+lock. Other users will still be able to join the project, but won't be able to 
+deliver. 
+<DD>c) Create a preop checkout trigger. Have the trigger query a text file that 
+contains a list of those allowed to modify projects. For example, the text file 
+might have in it the project name, colon, username. Anyone not explicitly listed 
+will be prevented from modifying the project. <PRE>projectx@/vobs/pvob:ejostrander
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ16></A><PRE>
+
+</PRE><B>Retire a project. </B><BR>
+<DD>Retiring a project properly involves more than just locking a project. If 
+you simply lock the project, users won't be able to join the project, but users 
+that have already joined can still work in the project. Locking the project 
+merely locks the project object from being modified, which isn't modified during 
+checkouts in a project. The following steps are not written in the Rational 
+manuals. 
+<DD>1) Ensure all checkouts and delivers are resolved in all streams/views 
+associated with the project. This isn't absolutely necessary, but may cause 
+confusion later on. Also, if you remove the views in step (4), CC does an 
+uncheckout, which may result in lost data. 
+<DD>2) Go to the Type Explorer of the PVOB for the project. Lock and obsolete 
+all branch types (integration and development) that were associated with the 
+project. 
+<DD>3) Go to the Project Explorer. Lock and obsolete all streams associated with 
+the project. Lock the development streams before locking the integration stream. 
+Lock and obsolete the project. 
+<DD>4) Remove any views associated with the streams of the project. You may need 
+to have the users delete their own views. But, a more gentle way is to run rmtag 
+and unregister on each view without deleting its storage area. 
+<P>See also "<A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ05">Remove 
+a project</A>". 
+<P></P>
+<DD>Note that the steps don't include locking the activities associted with the 
+project. Activities can only be used in their respective streams, which are lock 
+by step (3). Also, note that baselines aren't locked either. UCM already 
+controls the modification of baselines. In addition, UCM connects all baselines 
+to previous ones via hyperlinks, even in different projects. So, locking the 
+older baselines may cause problems. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ17></A><PRE>
+
+</PRE><B>Remove a component from a project. </B><BR>
+<DD>The component must be a read-only component, or a modifiable component that 
+has never been modified in this project. 
+<DD>In the Project Explorer, in the Properties sheet of the project's 
+integration stream, go to the Configuration tab, highlight the component to be 
+removed and select remove. When you click OK, the tool immediately prompt you to 
+rebase the integration stream. Note that dev streams in the project won't 
+realize the component has been removed until they next rebase. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ18></A><PRE>
+
+</PRE><B>Determine a project's integration stream name. </B><BR>
+<DD>In the Project Explorer, expand the project the left-hand pane. The 
+integration steam will have a blue pyramid next to it. All dev streams have 
+yellow pyramids next to them. 
+<DD>From the CLI: <PRE>  # ct describe -fmt '%[istream]p\n' project:<I>project-name</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ19></A><PRE>
+
+</PRE><B>List a project's modifiable components. </B><BR>
+<DD>In the Project Explorer, right-click on the project and select Policies. 
+Under the the Components tab, modifiable components will have a checked box next 
+to them. 
+<DD>From the CLI: <PRE>  # ct describe -fmt '%[mod_comps]p\n' project:<I>project-name</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=PROJ20></A><PRE>
+
+</PRE><B>Create a single-stream project. </B><BR>
+<DD>New in CC 2003.06.00. 
+<DD>Projects can be created such that there is only the integration stream. 
+Development streams are not allowed at all. When creating a project with the 
+GUI, simply choose "Single stream development". If creating the project from the 
+CLI, use the "-model SIMPLE" option. 
+<DD>Note that you can create the affect of a single-stream project even when a 
+project is created the default way. To do this, instead of having users "join" 
+the project, simply have them go to the Project Explorer, find the integration 
+stream for the project, and "Create View" for that stream. If a user doesn't 
+actually "join" the project, the unneeded development streams and views won't 
+get created. By having the developer simply create view for the existing 
+integration stream in a normal project, you still have the option to create 
+sub-streams at any time. So, if contemplating a single-stream project, I 
+recommend creating a normal, default project and have users simply create views 
+for the integration stream instead of joining the project. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJECTS">Back 
+to the INDEX. </A><!--------------------------------------------------------->
+<HR>
+<BR><A name=STREAM01></A><PRE>
+
+</PRE><B>Create a stream. </B><BR>
+<DD>When creating a project from the Project Explorer, it will automatically 
+create an integration stream for you called "integration", which can be renamed 
+after. If <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ02">mkproject</A> 
+was used, one MUST use mkstream to create the integration stream. The default of 
+this command is to create a development stream. 
+<DD>From the Project Explorer, highlight the project and go to File -&gt; New... 
+-&gt; Stream. 
+<DD>From the CLI, the stream name is not mandatory, but should be given so that 
+CC doesn't automatically assign a name like stream000618.153157. <PRE>  # ct mkstream -title <I>Descriptive title.</I> -in <I>project stream-name</I>
+</PRE>Some useful options: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>-int.egration 
+    <TD>Make this the project's integration stream. Only one per project. 
+  <TR>
+    <TD>-bas.eline &nbsp; <I>baseline</I>[,...] 
+    <TD>Initialize the stream from the specified baseline(s). 
+  <TR>
+    <TD>-tar.get &nbsp; <I>stream-selector</I> 
+    <TD>New in CC 5.0/2002, set the default stream for delivers. 
+  <TR>
+    <TD>-pol.icy | -npo.licy &nbsp; <I>policy-keyword</I>[,...] 
+    <TD>New in CC 5.0/2002, set or unset the specified policy(s). See the 
+      mkproject man page for a complete list. 
+  <TR>
+    <TD>-in &nbsp; <I>stream-selector</I> 
+    <TD>New in CC 5.0/2002, specify the stream's parent stream. 
+  <TR>
+    <TD>-reado.nly 
+    <TD>New in CC 2003.06.00. Create a read-only development stream. See note 
+      below. </TR></TBODY></TABLE>
+<P></P>
+<DD><B>NOTE:</B> To provide some users with read-only access to a set of 
+baselines, you can create a special type of development stream with the option 
+–readonly. You cannot deliver to or from this stream, but you can rebase it. 
+Read-only streams are not restricted by the normal rebase rules. In the view 
+attached to a read-only stream, you can create DOs and other view-private files, 
+but you cannot make any changes to components. To create a read-only stream, 
+your UCM VOBs and PVOBs must be at feature level 3 or greater. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM02></A><PRE>
+
+</PRE><B>List streams. </B><BR>
+<DD>From the Project Explorer, not possible to list all available streams. 
+<DD>From the CLI: <PRE>  # ct lsstream
+</PRE>Some useful options: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>-s.hort 
+    <TD>List only the stream names. 
+  <TR>
+    <TD>-l.ong 
+    <TD>Include more information, such as owner, project and baselines in 
+      listing. 
+  <TR>
+    <TD>-fmt &nbsp; <I>format-string</I> 
+    <TD>Format the output to taste. See the fmt_ccase page. 
+  <TR>
+    <TD>-tre.e &nbsp; [-dep.th <I>integer</I> ] 
+    <TD>Display the heirarchy of streams and activities. 
+  <TR>
+    <TD>-anc.estor &nbsp; [-dep.th <I>integer</I> ] 
+    <TD>Include the parent folder and project heirarchy. 
+  <TR>
+    <TD>-inv.ob &nbsp; <I>vob-tag</I> 
+    <TD>Specigy a VOB other than the current one. 
+  <TR>
+    <TD>-in &nbsp; <I>project</I> 
+    <TD>Limit the listing to the specified project. 
+  <TR>
+    <TD>-vie.w &nbsp; <I>view-tag</I> 
+    <TD>Display information for the stream connected to the specified view. 
+  <TR>
+    <TD>-cvi.ew 
+    <TD>Display information for the stream connected to the current view. 
+  <TR>
+    <TD>-obsolete 
+    <TD>New in CC 4.2. Include obsoleted streams in the listing. 
+  <TR>
+    <TD>-in &nbsp; { <I>project</I> | <I>stream</I> } 
+    <TD>New in CC 2003.06.00. List all streams of the designated project or 
+      all child streams of the designated stream. </TR></TBODY></TABLE>
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM03></A><PRE>
+
+</PRE><B>Remove a stream. </B><BR>
+<DD>The stream cannot contain any activities. There can be no baselines other 
+than the initial set associated with it. There can be no views attached to it. A 
+project's integration stream cannot be removed if there are still other streams 
+in the project. I.E. the integration stream must be the last to go. <PRE>  # ct rmstream -f <I>stream-name</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM04></A><PRE>
+
+</PRE><B>Deliver. </B><BR>
+<DD>After completing the deliver merges, it's a good idea to test the delivered 
+code in the integration view before completing the process. If the delivery is 
+not complete and you need to "undo" the deliver, simply execute "ct deliver 
+-cancel". 
+<DD>If in a CCMS environment and the integration stream is mastered remotely, 
+the deliver will merely post the changes for integration. It's up to the remote 
+site to actually do the merge. At the remote site, the integrator does a 
+Tools-&gt;Find Posted Deliveries in the Project Explorer and completes the 
+deliver there. Also, one might note that the development stream that posted the 
+deliver had its mastership given to the site that masters the integration 
+stream. This is so the integrator at the remote site can update the stream 
+during the deliver_complete phase. However, this doesn't prevent the developer 
+from creating new activities and working in that stream. Unfortunately, even if 
+the syncronization packet has not gone out to the integration site yet, the 
+developer cannot cancel a posted deliver. The remote integrator must do that if 
+desired. 
+<DD>From the Project, Windows, or ClearCase Explorer, right-click on the 
+development stream and select Deliver from Stream. 
+<DD>As of CC 5.0/2002, it's possible to deliver to any stream, development or 
+integration, in any project (in the same PVOB). It's possible to deliver a 
+specified baseline instead of simply LATEST. It's possible to preview the 
+element versions to be delivered prior to actually merging them. 
+<DD>From the CLI: Executing deliver without options assumes that you are in the 
+development stream whose current activity-set is to be delivered. <PRE>  # ct deliver
+</PRE>Some options: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>-g.raphical 
+    <TD>Invoke a GUI to perform the deliver. 
+  <TR>
+    <TD>-str.eam &nbsp; <I>development-stream</I> 
+    <TD>Specify a development stream other than the one associated with the 
+      current view. 
+  <TR>
+    <TD>-to &nbsp; <I>view-tag</I> 
+    <TD>Specify an integration view. 
+  <TR>
+    <TD>-pre.view 
+    <TD>List activities to be delivered without actually delivering. 
+  <TR>
+    <TD>-sta.tus 
+    <TD>New in CC 5.0/2002, gives the status of a deliver operation. 
+  <TR>
+    <TD>-l.ong 
+    <TD>New in CC 5.0/2002, used with -preview or -status it displays version 
+      information as well as activities. 
+  <TR>
+    <TD>-pre.view &nbsp; [ -l.ong | -s.hort ] 
+    <TD>Modify the preview to display more or less information. 
+  <TR>
+    <TD>-act.ivities &nbsp; <I>activity(s)</I> 
+    <TD>All activities needing delivery are merged unless you specify a 
+      subset. See discussion below. 
+  <TR>
+    <TD>-com.plete 
+    <TD>Complete the deliver if previously halted to verify merge results or 
+      in a MultiSite environment. 
+  <TR>
+    <TD>-gm.erge | -ok 
+    <TD>Perform the merge graphically or simply pause to confirm each file 
+      before it merges. 
+  <TR>
+    <TD>-q.uery | -abo.rt | -qal.l 
+    <TD>Turn off automated merging for non-trivial merges, cancel the merge if 
+      not completely automatic, or query for all merges regardless. See NOTE 
+      below. 
+  <TR>
+    <TD>-ser.ial 
+    <TD>Format the output in a line-by-line format (such as diff), instead of 
+      side-by-side. 
+  <TR>
+    <TD>-f.orce 
+    <TD>Suppress the confirmation steps. 
+  <TR>
+    <TD>-can.cel | -sta.tus [ -l.ong ] 
+    <TD>Cancel, get the status of, or get a verbose status of the deliver 
+      operation. 
+  <TR>
+    <TD>-res.ume [ -com.plete ] | -com.plete 
+    <TD>Resume a halted deliver, resume and automatically complete the 
+      deliver, or simply complete it. 
+  <TR>
+    <TD>-tar.get &nbsp; <I>stream-selector</I> 
+    <TD>New in CC 5.0/2002, designate the target in stream in any project 
+      (that uses the same PVOB). 
+  <TR>
+    <TD>-bas.elines &nbsp; <I>baseline-selector,...</I> 
+    <TD>New in CC 5.0/2002, specify a comma separated list of baselines to 
+      deliver. Very useful in interproject delivers between integration 
+      branches. 
+  <TR>
+    <TD>-reset -to &nbsp; <I>integration-viewtag</I> 
+    <TD>New in CC 2003.06.00. Reset a new integration view if the original was 
+      lost during deliver. See the note at the end. 
+    <TD>-cac.t 
+    <TD>New in CC 2003.06.00. Only deliver the currently set activity. 
+  </TR></TBODY></TABLE>
+<DD>If delivering to a non-default target, the following restrictions apply. If 
+the full set of activities in the stream violates one of the policy settings, 
+you will not be allowed to proceed with the selected activity deliver, even if 
+the selected subset of activities would not violate the policies. If the target 
+stream cannot see any element in any of the activities being delivered, the 
+delivery of any of those activities will not be allowed. If an element is inside 
+a non-modifiable component in the target project, the deliver will not be 
+allowed unless the target stream AND project policies allow that sort of 
+deliver, in which case the modifications to the non-modifiable component will 
+simply be ignored. 
+<DD>As of CC 5.0/2002, it's possible to deliver to a stream other than the 
+development stream's parent. This new type of deliver does not count as an 
+"official" deliver. That is, even thought a set of activities is delivered to 
+another development stream, those activities are still marked as undelivered to 
+the integration stream. 
+<DD>When delivering a baseline, note that the delivered changes may only be a 
+partial activity for a couple reasons. 1) When a baseline is specified for 
+deliver, only the component owning the baseline will be delivered. If an 
+activity has entries in its change set spanning multiple components, only a 
+portion of those changes will be delivered. 2) A user may have continued to use 
+the activity beyond when the baseline was applied. Only changes up to the 
+baseline will be delivered. 
+<DD>If delivering a composite baseline and the composite contains non-modifiable 
+components, it depends on what type of deliver is being performed whether the 
+changes from the non-modifiable components get delivered. If the deliver is to 
+any stream within the same project, the non-modifiable component changes will 
+not get delivered. If it's an interproject deliver, it depends on the policies 
+of the target stream. 
+<DD>If the integration view to which you are delivering is a snapshot view, the 
+view is automatically updated for that element. If more than one snapshot view 
+is associated with an integration stream, only the one to which you are 
+delivering gets updated. 
+<DD>The default is to deliver all activities that need delivering. One can 
+specify a subset of those activities via the -activities option. However, the 
+selected activities must be self-consistent. That is, they cannot depend on the 
+changes associated with another activity that is being excluded from the 
+selection set. For instance, if activityA modified version 3 and activityB 
+modified version4, you would not be able to select activityB for delivery by 
+itself. Base CC allows for selective merges, UCM does not. If the deliver 
+operation detects a dependency problem, it halts and lists the required 
+activities. 
+<DD>If in a CCMS environment and the integration stream is remotely mastered, 
+the developer cannot complete the deliver him/herself. The deliver is merely 
+"posted". An integrator at the remote site that masters the integration stream 
+must enter the Project Explorer, select the integration stream and select 
+Tools-&gt;Find Posted Deliveries. 
+<DD>Managers can set the project policy that forces developers to checkin all 
+work prior to deliver. If this policy is not set, the checkedout versions are 
+not delivered. The element gets delivered, just not the actual checkedout 
+version. However, if the checkedout version is the only one on that branch, the 
+element is not delivered at all. So, unless there is an express need not to, it 
+is a very good idea that the project manager disallow deliveries from streams 
+with pending checkouts. However, doing so blocks the case where the checkedout 
+version is not in the change set of an activity being delivered. So, if the 
+policy is set to force checkins before deliver, you may force a developer to 
+checkin a version that wasn't going to be delivered anyway. It's safer that way, 
+but potentially an inconvenience. 
+<P></P>
+<DD><B>NOTE:</B> There appears to be a bug in deliver. The merge option -qall 
+seemingly has no affect. Use of the -qall option should invoke the graphical 
+merge tool to confirm every change no matter how trivial, but it doesn't. The 
+merge occurs properly, just not manually as is expected in this case. 
+<P></P>
+<DD><B>NOTE:</B> You must not remove the integration view when a deliver 
+operation is in progress. But, if the integration view is lost during a deliver 
+operation, you can use the -reset -to option to reset a new integration view so 
+you would be able to cancel the operation. You can also use this option with 
+-resume and -complete. Before you can reset a new integration view, the 
+view-related records of the old integration view must be removed. UCM checks to 
+see if the old view has any checkouts and if it has none, unsets the integration 
+activity set in the view. If the old view has checkouts, you must remove them 
+with rmview -uuid before proceeding. Make sure you run rmview -uuid only on lost 
+or corrupted views. 
+<P></P>
+<DD><B>NOTE:</B> As of CC 7.0, contrib files are no longer generated for a 
+deliver merge, except for in CCRC, which continues to create them. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM05></A><PRE>
+
+</PRE><B>Import a label onto an integration stream. </B><BR>
+<DD>In the Project Explorer, go to the Properties sheet for the project's 
+integration stream. In the Configuration tab, select Add, select a component and 
+then select the label to import. It will automatically start the rebase 
+operation. Follow the prompts to rebase the integration stream. When prompted, 
+"Complete" the process. It will automatically update the integration view's 
+config_spec to select the versions based on the label. As of CC 4.1, labels to 
+be used for import into UCM cannot be globally defined. To change its status, 
+simply change the MetaData type definition in the admin VOB to be local and the 
+type definitions in the children will become local as well. 
+<DD>From the CLI, unknown if it's possible. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM06></A><PRE>
+
+</PRE><B>Rename a stream. </B><BR>
+<DD>The name of the stream is encoded in the config_specs of views using the 
+stream. Changing the name of the stream, as opposed to its title, will result in 
+a dysfunctional view. If so, simply <A 
+href="http://members.cox.net/ejostrander/clearteam/cc_howto.html#VIEW03">edit 
+the config_specs</A> of the affected views. 
+<DD>From the Project Explorer, right-click on the stream and simply modify the 
+Name in the properties sheet. 
+<DD>From the CLI: <PRE>  # ct rename stream:<I>oldname newname</I>
+</PRE>
+<DD><FONT color=red><B>WARNING:</B></FONT> Renaming the branch that a stream 
+uses will not be picked up in the config_spec even if the view is created after 
+the rename. To completely rename a stream properly, see "<A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#PROJ12">Rename 
+a project's Integration stream/branch</A>". 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM07></A><PRE>
+
+</PRE><B>Set up development stream hierarchies. </B><BR>
+<DD>New in CC 5.0/2002, it's possible to set up an activity specific stream. 
+When developers that need to all work on the same activity join a project, they 
+have the option to branch their streams from a baseline on the activity specific 
+stream. Each developer will still work in and deliver their own activities, but 
+those are then "gathered" together on the pseudo integration stream and tested 
+as a unit prior to delivery to the real integration stream. 
+<DD>The dev stream being used as the "integration" stream is merely one that you 
+designate for that purpose. There is no special setup to make a dev stream act 
+like an integration stream. When developers join a project with the intent of 
+using that stream as their integration area, they simply need to specify that 
+stream when the Join Project wizard asks them for the name of the integration 
+stream. 
+<DD>If setting this up, make sure there is a recommended baseline on the dev 
+integration stream before the developers join and try to use it. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM08></A><PRE>
+
+</PRE><B>Set stream policies. </B><BR>
+<DD>As of CC 5.0/2002, a stream can have policies independent of the 
+project-wide policy set. 
+<DD>In the Project Explorer, right-click on the stream and select Policies. 
+<DD>From the CLI: <PRE>  # ct chstream -nc -policy <I>keyword(s)</I> <I>stream-selector</I>
+</PRE>The <I>stream-selector</I> takes the form of 
+stream:<I>stream-name</I>@<I>PVOBtag</I>. See the mkstream man page for policy 
+keywords. <BR>Other options: 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>-tar.get &nbsp; <I>stream-selector</I> 
+    <TD>Set the target an integration stream will deliver to in another 
+      project. 
+  <TR>
+    <TD>-nta.rget 
+    <TD>Clear the -target for the specified stream. 
+  <TR>
+    <TD>-gen.erate 
+    <TD>Update the stream's config-spec after renaming a baseline and/or 
+      branch in use. 
+  <TR>
+    <TD>( -pol.icy | -npo.licy ) &nbsp; <I>keyword(s)</I> 
+    <TD>Enable or disable the specified policy. Use a comma-separate list if 
+      more than one is specified. 
+  <TR>
+    <TD>-rec.ommended &nbsp; <I>baseline(s)</I> 
+    <TD>Set (reset) the recommanded baseline for the steam to the specified 
+      baseline(s). 
+  <TR>
+    <TD>-rec.ommended &nbsp; -def.ault 
+    <TD>Set (reset) the recommended baseline to the latest on the stream at or 
+      above the recommended promotion level. 
+  <TR>
+    <TD>-nre.commended 
+    <TD>Clear the list of previously set recommended baseline(s). 
+  <TR>
+    <TD>-cvi.ew 
+    <TD>New in CC 2003.06.00. Change the parametes for the stream associated 
+      with the current view. </TR></TBODY></TABLE>
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM09></A><PRE>
+
+</PRE><B>Set the default deliver stream. </B><BR>
+<DD>In CC 5.0/2002 it's possible to deliver to any stream in any project in the 
+same PVOB. Only one stream can designated as the default stream to which the 
+substream will deliver without specifying. The default can be chosen during the 
+streams creation from the Join Project dialog. After the stream is created, its 
+default stream can only be changed from the CLI and only if it's an integration 
+stream. That is, while development streams can deliver to any other stream, the 
+default is hard-wired at time of creation. Integration streams can have any 
+stream as their default deliver stream. <PRE>  # ct chstream -target <I>deliver-to-stream-name integration-stream-name</I>
+</PRE><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM10></A><PRE>
+
+</PRE><B>View a stream's currently set activity. </B><BR>
+<DD>In the CC Explorer, whatever view is currently selected has a folder 
+immediately under its name called My Activities. This is a list of activities 
+available to the stream associated with that view. The currently set activity 
+will have checked box next to it. 
+<DD>From the CLI (from within the view): <PRE>  # ct lsact -cact
+</PRE>
+<DD>Of course, you could always start the checkout of an element. The currently 
+set activity, if any, will already be set in the Activity window. Then simply 
+Cancel the checkout. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM11></A><PRE>
+
+</PRE><B>Deliver to a read-only component. </B><BR>
+<DD>Under normal conditions the read-only component will not have been modified 
+at all in the stream. However, in CC 5.0/2002+, a modifiable component can be 
+changed to read-only. If a stream containing changes in that component has not 
+yet delivered those changes, there are several choices to get out of the 
+situation. 
+<DD><B>1)</B> If the changes sets of various undelivered activities in the 
+source stream do not have dependencies (two activities working on the same 
+element), then you can simply choose not to deliver the activity that has 
+changes in the read-only component. If that activity has other changes in other 
+modifiable components that do still need to be delivered, move those element 
+versions to an alternate activity and still do not deliver the offending 
+activity. 
+<DD><B>2)</B> If the changes were actually suppose to go into the now read-only 
+component, have the CC Admin change the component's status back to modifiable 
+just long enough to complete the deliver. Or, deliver the changes to another 
+project that still has that component as modifiable and ignore the warning 
+message. 
+<DD><B>3)</B> Remove all the versions that are members of the offending 
+activity's change set that live in the now read-only component and then remove 
+the activity if empty. 
+<DD><B>4)</B> For interproject deliver, if the target project has the offending 
+component as non-modifiable, the target stream AND project's policies can be set 
+so that the deliver is allowed. The changes to its non-modifiable component are 
+simply ignored. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM12></A><PRE>
+
+</PRE><B>Rebase to a baseline other than the recommended. </B><BR>
+<DD>It's possible to rebase a stream to other than the recommended baseline. 
+When Rebase Stream is initiated, click on the Advanced button. In the Change 
+Rebase Configuration dialog, for each component in the project, you can choose 
+to rebase against a baseline other than the recommended. The chosen baseline 
+must be later than the recommended baseline. If a baseline earlier than the 
+recommended baseline is chosen, the stream in question cannot have made any 
+changes based on any baselines later than the chosen baseline. In addition, even 
+though the chosen baseline is not the recommended baseline, it still must have a 
+promotion level at or above the project's minimum promotion level. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM13></A><PRE>
+
+</PRE><B>Find posted delivers. </B><BR>
+<DD>In a CCMS environment, the project's integration stream is often mastered at 
+a site other than where development occurs. If this is the case, developers 
+cannot complete delivers themselves because they are not allowed to perform 
+checkouts in the integration stream. A deliver is merely "posted". An integrator 
+at the other site needs to periodically check for posted delivers and complete 
+the deliver process on behalf of the developer. Note that there is no automatic 
+communication to the integrator when a deliver is posted, nor is there an 
+automatic communication back to the developer when the deliver is complete. 
+Email can be used or triggers can be associated with the deliver_start and 
+deliver_complete operations. However, keep in mind that if the deliver_start 
+trigger immediately sends an email to the integrator, the actual synchronization 
+between the replicas may not happen until a later time. That is, the email 
+notification will probably be faster than the actual delivery post. 
+<DD>In the Project Explorer, select a project and go to Tools -&gt; Find Posted 
+Deliveries. Integrators must already have their own integration views. 
+<DD>This cannot be accomplished from the CLI. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM14></A><PRE>
+
+</PRE><B>Change the default deliver target of a stream. </B><BR>
+<DD>Currently it isn't possible to change the default deliver target of a 
+development stream after creation of the stream. However, the default target of 
+an integration stream <I>can</I> be changed by going to its properties sheet in 
+the Project Explorer. See the Change button on the General tab. 
+<DD>For development streams, as a short-term workaround, as of CC 5.0/2002 it's 
+possible to deliver to a target that isn't the development stream's default. As 
+a long-term workaround, simply create a new development stream whose default 
+deliver target is correct. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM15></A><PRE>
+
+</PRE><B>Share ownership of a stream. </B><BR>
+<DD>Unfortunately, there is no way to directly share ownership of a stream. You 
+can only have one stream owner at a time. The following choices can be used as 
+workarounds (in order of recommendation): 
+<DD>1) Set the stream policy called POLICY_CHSTREAM_UNRESTRICTED, which skips 
+permission checking to allow any user to modify an existing stream with chstream 
+command. This can only be done from the CLI. Project policies override 
+individual stream policies. So, for this to work, the same policy must be set at 
+the project level as well. <PRE>  # ct chproject -policy POLICY_CHSTREAM_UNRESTRICTED <I>project-selector</I>
+  # ct chstream  -policy POLICY_CHSTREAM_UNRESTRICTED <I>stream-selector</I>
+</PRE>If desired, use a trigger on the chstream command to allow only certain 
+people or groups of people to use the chstream command. 
+<DD>2) Or, create a non-human, project-specific user account for the project 
+whose password is only known by project management personnel. Have the user as 
+the owner of the stream. This account would be an administrative user account 
+akin to the CC Admin's vobadm (VOB Adminsitrator) account. 
+<DD>3) Or, have a CC Admin transfer ownership on an as needed basis using the 
+"ct protect" command on the stream. 
+<DD>4) Or, create a setuid script for the users that allows certain people to 
+perform project/stream related actions as another user. 
+<DD>5) Or, the owner of the stream can share their password with anyone else 
+that needs to recommend baselines. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM16></A><PRE>
+
+</PRE><B>Undo a completed deliver or rebase. </B><BR>
+<DD>Unfortunately, there are no undeliver or unrebase commands. It is possible 
+to undo a deliver, but you cannot undo a completed rebase if you've <I>ever</I> 
+made changes in the stream being rebased. As for undo deliver, rmver or merging 
+forward (subtractive merge) around the delivered changes is difficult. The 
+following steps could/should probably be scripted. However, instead of running 
+these commands, if the deliver changes weren't too large, you could simply, 
+manually edit out the changes by hand and go forward without removing any 
+history. <B>NOTE:</B> While you can undo a completed deliver with some work, 
+it’s impossible to properly undo a completed rebase. However, in the case of 
+rebase, if the stream being rebased has never been used to make <I>any</I> 
+changes, it’s possible to simply rebase back to a previous baseline. If the 
+stream being rebased has made <I>any</I> change, even if the change isn’t based 
+upon the baseline just rebased against, you cannot then rebase to an earlier 
+baseline. You’re stuck! Since you cannot rebase against an earlier baseline, 
+even if you haven’t made any changes based upon the current baseline, the stream 
+will be pointing to the wrong baseline. Even if you back out (by using rmver or 
+subtractive merge) any changes incurred as a result of the rebase, the stream 
+will still be pointing to the wrong baseline for elements that didn’t incur a 
+change in the stream, perhaps because they were brand new. Your current and 
+future views for the stream will be misconfigured. <PRE>Get a list of activities on the stream <B>to</B> which the deliver was done:
+  # ct describe -fmt "%[activities]p\n" stream:<I>destination-stream-name</I>@\<I>PVOB-tag</I>
+
+Find the deliver activity to be "undone".  It will start with "deliver.".
+Get the list of versions in the activity's change set:
+  # ct describe -fmt "%[versions]p\n" activity:<I>deliver-activity-name</I>@\<I>PVOB-tag</I>
+
+Remove the versions along with any hyperlinks attached to them, only if the version is LATEST:
+  # ct rmver -force -xhlink <I>version-extended-path</I>
+
+Remove the deliver activity:
+  # ct rmact -force <I>deliver-activity-name</I>@\<I>PVOB-tag</I>
+</PRE>
+<DD><B>IMPORTANT:</B> The rmver command in the following procedure assumes that 
+the version being removed is the LATEST version on the branch. If not, the 
+actual changes that were part of that version will still exist in follow-on 
+versions. That is, if you remove an intermediate version, you DO NOT remove the 
+changes that were introduced in that version. Those changes will still exist in 
+latter versions. If a version listed in the change set is not the LATEST version 
+on the branch, you must conduct a subtractive merge to get rid of the changes 
+introduced during the deliver. Set to a view associated with that stream. 
+Checkout the element. Merge to the element by name while deleting the "bad" 
+version. <PRE>  # ct co -nc <I>LATEST-version</I>
+
+  # ct merge -to <I>path-element_name</I> -delete -version <I>version</I>
+ex: ct merge -to M:\eostrand_ProjectX_Integration\MyVob\MyElement.txt -delete -version \main\projectx_integration\4
+
+  # ct ci -c "<I>comment</I>" <I>element</I>
+</PRE>However, it can be even more complicated. What if the "bad" version is not 
+the LATEST version on the branch and the LATEST version on the branch (which 
+also contains the bad code) is marked as a baseline and a developer has rebased 
+against the LATEST? The bad code will not only be on that original branch, but 
+could be propagated to other branches as well. So, in the case where work has 
+been done on the same stream subsequent to the deliver, it can be complicated to 
+remove the change. If so, your best bet might be to manually edit out the change 
+and redeliver. 
+<DD>Note that you should probably still remove the "bad" version even though 
+you've merged around it. You should do that to empty out the activity's change 
+set so that the activity can be removed. 
+<DD>In these cases, GOOD checkin comments are in order to explain what and why. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM17></A><PRE>
+
+</PRE><B>Change stream mastership. </B><BR>
+<DD>You may have the need to change the mastership of a stream in a MultiSite 
+environment. One site can give up mastership to another site using the <A 
+href="http://members.cox.net/ejostrander/clearteam/ccms_howto.html#OWNER01">chmaster</A> 
+command. If the -stream option is used, all of the streams associated objects 
+get their mastership transferred as well. 
+<DD>If you need to change mastership of a stream back and forth, such as an 
+integration stream, you can use the schedule command to automatically run the 
+"mt chmaster" command for you. 
+<DD>Another option to gain stream mastership other than having the mastering 
+site give it up, is to forefully take mastership. The same chmaster command can 
+take mastership of a stream without the remote site's permission. However, since 
+at that moment, two sites will master and be able to modify the same stream, 
+this should only be used as a last resort, such as when the other site is no 
+longer available to properly give up mastership. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=STREAM18></A><PRE>
+
+</PRE><B>Create a read-only stream. </B><BR>
+<DD>When a stream is first created, it merely points to a baseline in the 
+project. It's not until an artifact is modified using that stream does CC 
+actually create a branch. So, you can create a stream that points a particular 
+baseline for the purpose of building and testing older releases. In addition, if 
+that build and test is to be done by personnel that have no business making 
+modifications to the elements, you can create the stream as read-only. A 
+read-only stream does not prevent the creation of view-private files in a view 
+pointing to that stream. You cannot deliver to or from this stream, but you can 
+rebase it to a different baseline. Because they are read-only, these streams are 
+not restricted by the normal rebase rules. 
+<DD>To create a read-only stream, go to the Project Explorer, right-click on the 
+stream that is to be the parent of the read-only stream and choose "Create Child 
+Stream". In the resulting dialog be sure to check the box "Make Stream read 
+only". 
+<DD>If <A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAM01">creating 
+a stream</A> from the CLI, be sure to use the -readonly option. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#STREAMS">Back 
+to the INDEX. </A><!-------------------------------------------------------->
+<HR>
+<BR><A name=VIEW01></A><PRE>
+
+</PRE><B>UCM views </B><BR>
+<DD>UCM views are special, in that they are configured to only work in the UCM 
+components for which they were created. However, their config_specs can be 
+edited to suit. If a UCM view is used in a non-UCM VOB, no activity is required. 
+However, if CC is integrated with CQ, it will prompt for an activity that will 
+simply be ignored afterward. 
+<P><A 
+href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#VIEWS">Back to 
+the INDEX. </A><!------------------------------------------------------>
+<HR>
+<BR><A name=VIEW02></A><PRE>
+
+</PRE><B>Emulate a UCM view with a base CC view. </B><BR>
+<DD>The following is a non-supported solution. You won't find it in any manuals. 
+
+<DD>Even though the following config_spec will allow you to view a UCM baseline, 
+you still cannot perform the checkouts in a UCM stream with a base CC view. <PRE>  element * CHECKEDOUT
+  element * <I>baseline</I>
+  element * component:<I>component-name</I>@<I>PVOB</I>/<I>integration-stream</I>
+
+Ex:
+  element * CHECKEDOUT
+  element * PROJECTX_2004_01_14
+  element * component:source_code@/vobs/ucm_pvob/projectx_integration
+<PRE>  <DD> Note that you cannot simply point a base CC view's config_spec at a UCM
+baseline's associated label.  That baseline may be incremental, which means that
+the label won't appear on all elements.  You must use UCM's ability to trace each
+baseline backward (via hyperlinks) until it finds one that <I>is</I> applied to
+a particular element and show you that version.
+<P>
+<A href="http://members.cox.net/ejostrander/clearteam/ucm_howto.html#VIEWS"> Back to the INDEX. </A>
+
+<!------------------------------------------------------>
+
+<P>
+
+
+  <HR>
+  <P>
+  <CENTER>
+    <FONT size=-1> 
+<FONT size=-1><SCRIPT><!--
+function m(n,d,s) {document.write('<a safe href="mail'+'to:'+n+'@'+d+'.'+s+'">'+n+'@'+d+'.'+s+'</a>'); }
+m("ejostrander", "cox", "net"); //-->
+</SCRIPT></FONT><BR>
+<CENTER>Return to the <A href="http://members.cox.net/ejostrander/clearteam/index.html"> home page </A>.</CENTER><BR>
+This page last modified: 12/15/2008<BR>
+    </FONT><BR>
+    <P>
+    <P>
+  </CENTER>
+
+
+
+</P></DD></PRE></PRE></DD></FORM></BODY></HTML>

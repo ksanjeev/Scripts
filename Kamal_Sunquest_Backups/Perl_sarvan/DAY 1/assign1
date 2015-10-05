@@ -1,0 +1,56 @@
+Course : PERL
+Assignment : 1
+
+Topics : Scalars, Lists, Control structures and Arrays
+
+1. Given 3 sides of a triangle, find area.
+ 
+2. Given 3 sides of a triangle. Check whether it forms a triangle 
+   or not. if it forms a triangle, then check whether it is an  
+   equilateral or isosceles or scalene triangle.
+
+3. Write a program to delete a file
+   Input : Filename
+   Output : Error message if no such file exists or delete the file if exists
+   Give error message if deletion fails.
+   Use : if(-f "name") and unlink system call.
+
+4. Given a number, find
+   a. Sum of the digits
+   b. Digital root
+   c. Whether it is a perfect square
+   d. A perfect square > a given number
+
+5. Generate (Say n = 4)
+    a) 1 + 2 + 3 + 4 = 10
+    b) 1 = 1
+       1 + 2 = 3
+       1 + 2 + 3 = 6
+       1 + 2 + 3 + 4 = 10
+    c)             1 = 1
+               1 + 2 = 3
+           1 + 2 + 3 = 6
+       1 + 2 + 3 + 4 = 10
+    d) 1 0 0 0
+       0 1 0 0 
+       0 0 1 0
+       0 0 0 1
+
+6. Given a Date in the format dd/mm/yyyy or dd-mm-yyyy.
+   a) Validate date
+   b) Find next date
+   c) Find name of the month
+   d) Convert to Julian date
+
+7. Generate prime numbers using sieve method.
+
+8. Solve the prison problem.
+
+9. Use the output of ls command for the following
+    a) Display filename and directory names
+    b) count number of files and directories
+    c) Output name and size
+    d) Find total size of the directory
+    e) Find the biggest file
+    f) Output files in the order of size
+    g) Delete files greater than particular size after confirmation from the user

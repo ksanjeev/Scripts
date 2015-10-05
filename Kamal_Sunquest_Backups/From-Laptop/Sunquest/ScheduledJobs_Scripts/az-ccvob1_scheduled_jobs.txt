@@ -1,0 +1,608 @@
+Job.Begin
+    Job.Id: 1
+    Job.Name: "Daily VOB Pool Scrubbing"
+    Job.Description.Begin:
+Scrub the cleartext and derived object storage pools of all local VOBs.
+    Job.Description.End:
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 2006-03-30
+    Job.Schedule.FirstStartTime: 04:30:00
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 3
+    # Job.Task: "VOB Pool Scrubber"
+    Job.Args: 
+    Job.Created: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastModified: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.Predefined: TRUE
+    Job.NextRunTime: 2008-11-10T17:00:00+05:30
+    Job.LastCompletionInfo.ProcessId: 4844
+    Job.LastCompletionInfo.Started: 2008-11-09T17:00:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-09T17:02:13+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 2
+    Job.Name: "Daily VOB Snapshots"
+    Job.Description.Begin:
+Copy the VOB database for all local VOBs that enabled for snapshots.
+    Job.Description.End:
+    Job.Schedule.Sequential.FollowsJob: 1
+    # Job.Schedule.Sequential.FollowsJob: "Daily VOB Pool Scrubbing"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 5
+    # Job.Task: "VOB Snapshot"
+    Job.Args: 
+    Job.Created: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastModified: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.Predefined: TRUE
+    Job.LastCompletionInfo.ProcessId: 11092
+    Job.LastCompletionInfo.Started: 2008-11-09T17:02:13+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-09T17:03:33+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 3
+    Job.Name: "Daily Registry Backup"
+    Job.Description.Begin:
+Copy the ClearCase Registry.
+    Job.Description.End:
+    Job.Schedule.Sequential.FollowsJob: 2
+    # Job.Schedule.Sequential.FollowsJob: "Daily VOB Snapshots"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 6
+    # Job.Task: "Registry Backup"
+    Job.Args: 
+    Job.Created: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastModified: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.Predefined: TRUE
+    Job.LastCompletionInfo.ProcessId: 608
+    Job.LastCompletionInfo.Started: 2008-11-09T17:03:33+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-09T17:03:33+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 4
+    Job.Name: "Daily Local Tasks"
+    Job.Description.Begin:
+Run the daily local customizations.
+Note, custom jobs may be directly added to the schedule
+instead of / in addition to modifying the standard local task script.
+    Job.Description.End:
+    Job.Schedule.Sequential.FollowsJob: 3
+    # Job.Schedule.Sequential.FollowsJob: "Daily Registry Backup"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 100
+    # Job.Task: "Daily Local Tasks"
+    Job.Args: 
+    Job.Created: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastModified: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.Predefined: TRUE
+    Job.LastCompletionInfo.ProcessId: 
+    Job.LastCompletionInfo.Started: 2008-11-09T17:03:33+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-09T17:03:33+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+    Job.LastCompletionInfo.Messages.Begin:
+Job's task program ("ccase_local_day.bat") is not installed -- skipping scheduled execution.
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 5
+    Job.Name: "Daily View Space"
+    Job.Description.Begin:
+Determine the space consumed by all local views.
+    Job.Description.End:
+    Job.Schedule.Sequential.FollowsJob: 4
+    # Job.Schedule.Sequential.FollowsJob: "Daily Local Tasks"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 11
+    # Job.Task: "View Space"
+    Job.Args: 
+    Job.Created: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastModified: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.Predefined: TRUE
+    Job.LastCompletionInfo.ProcessId: 8128
+    Job.LastCompletionInfo.Started: 2008-11-09T17:03:33+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-09T17:12:53+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 6
+    Job.Name: "Daily VOB Space"
+    Job.Description.Begin:
+Determine the space consumed by all local VOBs.
+    Job.Description.End:
+    Job.Schedule.Sequential.FollowsJob: 5
+    # Job.Schedule.Sequential.FollowsJob: "Daily View Space"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 10
+    # Job.Task: "VOB Space"
+    Job.Args: 
+    Job.NotifyInfo.OnEvents: JobEndFail
+    Job.NotifyInfo.Using: email
+    Job.NotifyInfo.Recipients: CC-Task@misyshealthcare.com
+    Job.Created: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastModified: 2007-04-30T21:14:56+05:30 by ONEMISYS\vob_admin@AZ-CCVOB1
+    Job.Predefined: TRUE
+    Job.LastCompletionInfo.ProcessId: 9136
+    Job.LastCompletionInfo.Started: 2008-11-09T17:12:53+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-09T17:33:50+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+    Job.LastCompletionInfo.Messages.Begin:
+vobsvr_contact call failed: RPC: Unable to receive; errno = [WINSOCK] Connection reset by peer
+cleartool: Error: Unable to open file "C:\VOB_Storage\ucm_test_pvob.vbs": Invalid argument.
+vobsvr_contact call failed: RPC: Unable to receive; errno = [WINSOCK] Connection reset by peer
+cleartool: Error: Unable to open file "C:\VOB_Storage\ucm_component_vob.vbs": Invalid argument.
+vobsvr_contact call failed: RPC: Unable to receive; errno = [WINSOCK] Connection reset by peer
+cleartool: Error: Unable to open file 
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 7
+    Job.Name: "Weekly Log Scrubbing"
+    Job.Description.Begin:
+Scrub the ClearCase Logs.
+    Job.Description.End:
+    Job.Schedule.Weekly.Frequency: 1
+    Job.Schedule.Weekly.Days: Sun
+    Job.Schedule.StartDate: 2006-03-30
+    Job.Schedule.FirstStartTime: 00:30:00
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 7
+    # Job.Task: "Log Scrubber"
+    Job.Args: 
+    Job.Created: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastModified: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.Predefined: TRUE
+    Job.NextRunTime: 2008-11-16T13:00:00+05:30
+    Job.LastCompletionInfo.ProcessId: 13092
+    Job.LastCompletionInfo.Started: 2008-11-09T13:00:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-09T13:00:02+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+    Job.LastCompletionInfo.Messages.Begin:
+End of MultiSite log scrubbing: 46 files removed.
+Can not chdir into ..\IHS\logs : No such file or directory 
+RWP Log scrubber failed.
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 8
+    Job.Name: "Weekly VOB Database Scrubbing"
+    Job.Description.Begin:
+Scrub the VOB database of all local VOBs.
+    Job.Description.End:
+    Job.Schedule.Sequential.FollowsJob: 7
+    # Job.Schedule.Sequential.FollowsJob: "Weekly Log Scrubbing"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 4
+    # Job.Task: "VOB DB Scrubber"
+    Job.Args: 
+    Job.Created: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastModified: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.Predefined: TRUE
+    Job.LastCompletionInfo.ProcessId: 9156
+    Job.LastCompletionInfo.Started: 2008-11-09T13:00:02+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-09T13:20:48+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 9
+    Job.Name: "Weekly Local Tasks"
+    Job.Description.Begin:
+Run the weekly local customizations.
+Note, custom jobs may be directly added to the schedule
+instead of / in addition to modifying the standard local task script.
+    Job.Description.End:
+    Job.Schedule.Sequential.FollowsJob: 8
+    # Job.Schedule.Sequential.FollowsJob: "Weekly VOB Database Scrubbing"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 101
+    # Job.Task: "Weekly Local Tasks"
+    Job.Args: 
+    Job.Created: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastModified: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.Predefined: TRUE
+    Job.LastCompletionInfo.ProcessId: 
+    Job.LastCompletionInfo.Started: 2008-11-09T13:20:48+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-09T13:20:48+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+    Job.LastCompletionInfo.Messages.Begin:
+Job's task program ("ccase_local_wk.bat") is not installed -- skipping scheduled execution.
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 10
+    Job.Name: "Weekly VOB DO Space"
+    Job.Description.Begin:
+Determine the DO space consumed by all local VOBs.
+    Job.Description.End:
+    Job.Schedule.Sequential.FollowsJob: 9
+    # Job.Schedule.Sequential.FollowsJob: "Weekly Local Tasks"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 12
+    # Job.Task: "VOB DO Space"
+    Job.Args: 
+    Job.Created: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastModified: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.Predefined: TRUE
+    Job.LastCompletionInfo.ProcessId: 7248
+    Job.LastCompletionInfo.Started: 2008-11-09T13:20:48+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-09T13:21:03+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+    Job.LastCompletionInfo.Messages.Begin:
+vobsvr_contact call failed: RPC: Unable to receive; errno = [WINSOCK] Connection reset by peer
+cleartool: Error: Unable to open file "C:\VOB_Storage\ucm_test_pvob.vbs": No such file or directory.
+cleartool: Error: Problem starting vob_server for vob az-ccvob1:C:\VOB_Storage\ucm_test_pvob.vbs
+cleartool: Error: See albd or vob error logs on host az-ccvob1
+vobsvr_contact call failed: RPC: Unable to receive; errno = [WINSOCK] Connection reset by peer
+cleartool: Error: Unable to open file "C:\VOB_Storage\ucm_co
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 11
+    Job.Name: "Daily MultiSite Export"
+    Job.Description.Begin:
+For each replicated VOB on this host, create an update packet for that replica's siblings
+    Job.Description.End:
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 1994-06-08
+    Job.Schedule.LastDate: 1994-06-08
+    Job.Schedule.FirstStartTime: 00:00:00
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 13
+    # Job.Task: "MultiSite Sync Export"
+    Job.Args: -quiet 1 -all
+    Job.NotifyInfo.OnEvents: JobEndOKWithMsgs,JobEndFail
+    Job.NotifyInfo.Using: email
+    Job.NotifyInfo.Recipients: ms_admin
+    Job.Created: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastModified: 2007-12-13T10:56:39+05:30 by SUNQUESTINFO\VOB_Admin@AZ-CCVOB1
+    Job.NextRunTime: <schedule completed>
+    Job.LastCompletionInfo.ProcessId: 3536
+    Job.LastCompletionInfo.Started: 2008-11-07T10:11:20+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-07T10:15:57+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 12
+    Job.Name: "Daily MultiSite Shipping Poll"
+    Job.Description.Begin:
+Every three hours, send all pending shipping orders to their next host.
+    Job.Description.End:
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 1994-07-26
+    Job.Schedule.LastDate: 1994-07-26
+    Job.Schedule.FirstStartTime: 11:21:58
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 13
+    # Job.Task: "MultiSite Sync Export"
+    Job.Args: -quiet 1 -poll
+    Job.NotifyInfo.OnEvents: JobEndOKWithMsgs,JobEndFail
+    Job.NotifyInfo.Using: email
+    Job.NotifyInfo.Recipients: CC-Task@sunquestinfo.com
+    Job.Created: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastModified: 2008-05-08T23:51:58+05:30 by SUNQUESTINFO\vob_admin@AZ-CCVOB1
+    Job.NextRunTime: <schedule completed>
+    Job.LastCompletionInfo.ProcessId: 2768
+    Job.LastCompletionInfo.Started: 2008-08-13T13:58:16+05:30
+    Job.LastCompletionInfo.Ended: 2008-08-13T13:58:16+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 13
+    Job.Name: "Daily MultiSite Receive"
+    Job.Description.Begin:
+Apply all pending replica update packets
+    Job.Description.End:
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 1994-06-08
+    Job.Schedule.FirstStartTime: 00:00:00
+    Job.Schedule.StartTimeRestartFrequency: 01:00:00
+    Job.Schedule.LastStartTime: 23:59:59
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 14
+    # Job.Task: "MultiSite Sync Receive"
+    Job.Args: -quiet 1
+    Job.NotifyInfo.OnEvents: JobEndOKWithMsgs,JobEndFail
+    Job.NotifyInfo.Using: email
+    Job.NotifyInfo.Recipients: CC-Task@misyshealthcare.com
+    Job.Created: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastModified: 2008-01-20T04:12:24+05:30 by SUNQUESTINFO\vob_admin@AZ-CCVOB1
+    Job.NextRunTime: 2008-11-10T14:30:00+05:30
+    Job.LastCompletionInfo.ProcessId: 8704
+    Job.LastCompletionInfo.Started: 2008-11-10T13:30:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T13:30:00+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 26
+    Job.Name: "Daily MultiSite Sync Manager Export"
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 1994-12-01
+    Job.Schedule.LastDate: 1994-12-01
+    Job.Schedule.FirstStartTime: 00:00:00
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 18
+    # Job.Task: "MultiSite Sync Manager Export"
+    Job.Args: -quiet 1 -all -maxsize 2000k
+    Job.NotifyInfo.OnEvents: JobEndOKWithMsgs,JobEndFail
+    Job.NotifyInfo.Using: email
+    Job.NotifyInfo.Recipients: CC-Task@misyshealthcare.com
+    Job.Created: 2006-09-19T21:15:50+05:30 by ONEMISYS\vob_admin@AZ-CCVOB1
+    Job.LastModified: 2007-12-13T10:57:12+05:30 by SUNQUESTINFO\VOB_Admin@AZ-CCVOB1
+    Job.NextRunTime: <schedule completed>
+    Job.LastCompletionInfo.ProcessId: 3476
+    Job.LastCompletionInfo.Started: 2008-11-07T10:11:27+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-07T10:15:57+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 15
+    Job.Name: "Daily MultiSite Syncmgr DB Scrubber"
+    Job.Description.Begin:
+Scrubs old job data from the MultiSite syncmgr database.
+    Job.Description.End:
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 1994-07-26
+    Job.Schedule.LastDate: 1994-07-26
+    Job.Schedule.FirstStartTime: 03:00:00
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 17
+    # Job.Task: "MultiSite Syncmgr DB Scrubber"
+    Job.Args: -partial 14 -complete 90
+    Job.NotifyInfo.OnEvents: JobEndOKWithMsgs,JobEndFail
+    Job.NotifyInfo.Using: email
+    Job.NotifyInfo.Recipients: ms_admin
+    Job.Created: 2006-03-30T23:20:24+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastModified: 2007-12-13T10:57:31+05:30 by SUNQUESTINFO\VOB_Admin@AZ-CCVOB1
+    Job.NextRunTime: <schedule completed>
+    Job.LastCompletionInfo.ProcessId: 10412
+    Job.LastCompletionInfo.Started: 2007-12-13T10:33:43+05:30
+    Job.LastCompletionInfo.Ended: 2007-12-13T10:33:44+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+    Job.LastCompletionInfo.Messages.Begin:
+"C:\Program Files\Rational\ClearCase\bin\syncmgr_scrubber" -partial 14 -complete 90
+
+Successfully scrubbed requested jobs.
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 29
+    Job.Name: "MultiSite Shipping Poll"
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 2007-12-12
+    Job.Schedule.FirstStartTime: 22:45:00
+    Job.Schedule.StartTimeRestartFrequency: 01:00:00
+    Job.Schedule.LastStartTime: 23:59:59
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 13
+    # Job.Task: "MultiSite Sync Export"
+    Job.Args: -quiet 1 -poll
+    Job.Created: 2007-12-13T10:53:55+05:30 by SUNQUESTINFO\VOB_Admin@AZ-CCVOB1
+    Job.LastModified: 2008-01-21T16:54:17+05:30 by SUNQUESTINFO\VOB_Admin@AZ-CCVOB1
+    Job.NextRunTime: 2008-11-11T11:15:00+05:30
+    Job.LastCompletionInfo.ProcessId: 12208
+    Job.LastCompletionInfo.Started: 2008-11-10T12:15:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T12:15:00+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 28
+    Job.Name: "MultiSite Sync Export"
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 2007-12-12
+    Job.Schedule.FirstStartTime: 22:00:00
+    Job.Schedule.StartTimeRestartFrequency: 01:00:00
+    Job.Schedule.LastStartTime: 23:59:59
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 13
+    # Job.Task: "MultiSite Sync Export"
+    Job.Args: -quiet 1 -all
+    Job.Created: 2007-12-13T10:53:13+05:30 by SUNQUESTINFO\VOB_Admin@AZ-CCVOB1
+    Job.LastModified: 2008-01-21T16:53:17+05:30 by SUNQUESTINFO\VOB_Admin@AZ-CCVOB1
+    Job.NextRunTime: 2008-11-11T10:30:00+05:30
+    Job.LastCompletionInfo.ProcessId: 3888
+    Job.LastCompletionInfo.Started: 2008-11-10T11:30:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T11:31:58+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 18
+    Job.Name: "\scenario2.5_pvob - CC MultiSite Generate Family Health"
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 2006-07-26
+    Job.Schedule.FirstStartTime: 01:00:00
+    Job.Schedule.StartTimeRestartFrequency: 01:00:00
+    Job.Schedule.LastStartTime: 23:59:59
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 16
+    # Job.Task: "CC MultiSite Generate Family Health"
+    Job.Args: \scenario2.5_pvob
+    Job.Created: 2006-06-15T04:00:31+05:30 by ONEMISYS\vob_admin@azclearcase1
+    Job.LastModified: 2006-07-27T04:44:26+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.NextRunTime: 2008-11-10T14:30:00+05:30
+    Job.LastCompletionInfo.ProcessId: 8884
+    Job.LastCompletionInfo.Started: 2008-11-10T13:30:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T13:30:04+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 19
+    Job.Name: "\scenario2.5_gui - CC MultiSite Generate Family Health"
+    Job.Schedule.Sequential.FollowsJob: 18
+    # Job.Schedule.Sequential.FollowsJob: "\scenario2.5_pvob - CC MultiSite Generate Family Health"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 16
+    # Job.Task: "CC MultiSite Generate Family Health"
+    Job.Args: \scenario2.5_gui
+    Job.Created: 2006-06-15T04:01:06+05:30 by ONEMISYS\vob_admin@azclearcase1
+    Job.LastModified: 2006-07-27T04:44:38+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastCompletionInfo.ProcessId: 7200
+    Job.LastCompletionInfo.Started: 2008-11-10T13:30:04+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T13:30:07+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 20
+    Job.Name: "\scenario2.5_mumps - CC MultiSite Generate Family Health"
+    Job.Schedule.Sequential.FollowsJob: 19
+    # Job.Schedule.Sequential.FollowsJob: "\scenario2.5_gui - CC MultiSite Generate Family Health"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 16
+    # Job.Task: "CC MultiSite Generate Family Health"
+    Job.Args: \scenario2.5_mumps
+    Job.Created: 2006-06-15T04:01:42+05:30 by ONEMISYS\vob_admin@azclearcase1
+    Job.LastModified: 2006-07-27T04:44:55+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastCompletionInfo.ProcessId: 9852
+    Job.LastCompletionInfo.Started: 2008-11-10T13:30:07+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T13:30:11+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 21
+    Job.Name: "\scenario2.5_doc - CC MultiSite Generate Family Health"
+    Job.Schedule.Sequential.FollowsJob: 20
+    # Job.Schedule.Sequential.FollowsJob: "\scenario2.5_mumps - CC MultiSite Generate Family Health"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 16
+    # Job.Task: "CC MultiSite Generate Family Health"
+    Job.Args: \scenario2.5_doc
+    Job.Created: 2006-06-15T04:02:14+05:30 by ONEMISYS\vob_admin@azclearcase1
+    Job.LastModified: 2006-07-27T04:45:06+05:30 by ONEMISYS\clearcase_albd@azclearcase1
+    Job.LastCompletionInfo.ProcessId: 12612
+    Job.LastCompletionInfo.Started: 2008-11-10T13:30:11+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T13:30:14+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 27
+    Job.Name: "Daily MultiSite Sync Manager Receive"
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 1994-09-19
+    Job.Schedule.FirstStartTime: 00:00:00
+    Job.Schedule.StartTimeRestartFrequency: 01:00:00
+    Job.Schedule.LastStartTime: 23:59:59
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 19
+    # Job.Task: "MultiSite Sync Manager Receive"
+    Job.Args: -quiet 1
+    Job.NotifyInfo.OnEvents: JobEndOKWithMsgs,JobEndFail
+    Job.NotifyInfo.Using: email
+    Job.NotifyInfo.Recipients: CC-Task@misyshealthcare.com
+    Job.Created: 2006-09-19T21:18:22+05:30 by ONEMISYS\vob_admin@AZ-CCVOB1
+    Job.LastModified: 2008-01-20T04:13:14+05:30 by SUNQUESTINFO\vob_admin@AZ-CCVOB1
+    Job.NextRunTime: 2008-11-10T14:30:00+05:30
+    Job.LastCompletionInfo.ProcessId: 8784
+    Job.LastCompletionInfo.Started: 2008-11-10T13:30:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T13:30:00+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 30
+    Job.Name: "MultiSite Sync Receive"
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 2007-12-12
+    Job.Schedule.FirstStartTime: 22:24:07
+    Job.Schedule.StartTimeRestartFrequency: 01:00:00
+    Job.Schedule.LastStartTime: 23:59:59
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 14
+    # Job.Task: "MultiSite Sync Receive"
+    Job.Args: -quiet 1
+    Job.Created: 2007-12-13T10:54:24+05:30 by SUNQUESTINFO\VOB_Admin@AZ-CCVOB1
+    Job.LastModified: 2008-01-20T04:13:28+05:30 by SUNQUESTINFO\vob_admin@AZ-CCVOB1
+    Job.NextRunTime: 2008-11-11T10:54:07+05:30
+    Job.LastCompletionInfo.ProcessId: 11500
+    Job.LastCompletionInfo.Started: 2008-11-10T11:54:07+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T11:54:07+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 31
+    Job.Name: "MultiSite Sync Manager Export"
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 2007-12-12
+    Job.Schedule.FirstStartTime: 22:30:00
+    Job.Schedule.StartTimeRestartFrequency: 01:00:00
+    Job.Schedule.LastStartTime: 23:59:59
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 18
+    # Job.Task: "MultiSite Sync Manager Export"
+    Job.Args: -quiet 1 -all -maxsize 2000k
+    Job.Created: 2007-12-13T10:54:56+05:30 by SUNQUESTINFO\VOB_Admin@AZ-CCVOB1
+    Job.LastModified: 2008-01-21T16:53:39+05:30 by SUNQUESTINFO\VOB_Admin@AZ-CCVOB1
+    Job.NextRunTime: 2008-11-11T11:00:00+05:30
+    Job.LastCompletionInfo.ProcessId: 14320
+    Job.LastCompletionInfo.Started: 2008-11-10T12:00:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T12:01:17+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 32
+    Job.Name: "MultiSite Syncmgr DB Scrubber"
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 2007-12-12
+    Job.Schedule.FirstStartTime: 12:25:28
+    Job.Schedule.StartTimeRestartFrequency: 01:00:00
+    Job.Schedule.LastStartTime: 23:59:59
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 17
+    # Job.Task: "MultiSite Syncmgr DB Scrubber"
+    Job.Args: -partial 14 -complete 90
+    Job.Created: 2007-12-13T10:55:28+05:30 by SUNQUESTINFO\VOB_Admin@AZ-CCVOB1
+    Job.LastModified: 2007-12-13T10:57:51+05:30 by SUNQUESTINFO\VOB_Admin@AZ-CCVOB1
+    Job.NextRunTime: 2008-11-11T00:55:28+05:30
+    Job.LastCompletionInfo.ProcessId: 5876
+    Job.LastCompletionInfo.Started: 2008-11-10T11:55:28+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T11:55:28+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+    Job.LastCompletionInfo.Messages.Begin:
+"C:\Program Files\Rational\ClearCase\bin\syncmgr_scrubber" -partial 14 -complete 90
+
+Successfully scrubbed requested jobs.
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 33
+    Job.Name: "MultiSite Sync Manager Receive"
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 2007-12-12
+    Job.Schedule.FirstStartTime: 22:26:07
+    Job.Schedule.StartTimeRestartFrequency: 01:00:00
+    Job.Schedule.LastStartTime: 23:59:59
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 19
+    # Job.Task: "MultiSite Sync Manager Receive"
+    Job.Args: -quiet 1
+    Job.Created: 2007-12-13T10:56:21+05:30 by SUNQUESTINFO\VOB_Admin@AZ-CCVOB1
+    Job.LastModified: 2008-01-20T04:13:54+05:30 by SUNQUESTINFO\vob_admin@AZ-CCVOB1
+    Job.NextRunTime: 2008-11-11T10:56:07+05:30
+    Job.LastCompletionInfo.ProcessId: 8324
+    Job.LastCompletionInfo.Started: 2008-11-10T11:56:07+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T11:56:07+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End

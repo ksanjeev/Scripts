@@ -1,0 +1,2321 @@
+<?xml version="1.0"?>
+<project name="Photosmart Premier" default="psp.build">
+
+  <!--
+
+        Copyright 2005 Hewlett-Packard . All Rights Reserved.
+        This software is the confidential and proprietary information of
+        Hewlett-Packard. Use is subject to license terms.
+
+        NAnt version : 0.85 Release Candidate 3 (Build 0.85.1932.0 rc3 4/16/2005)
+        http://www.swoogan.com/nantgui.html  : NAnt-Gui-1.2.4-rc6.exe
+
+        NOTE : This script is not intended to be modified by anyone other than the build team.
+        Author: Gopinath M.R. (mgopinath@trianz.com)
+    -->
+  <property name="vendor.name" value="trianz" overwrite="false"/>
+
+  <include buildfile="s:/sdtajscripts/scripts/psp.properties" />
+  <include buildfile="${source.drive}/${vendor.buildvob}/scripts/${product.name.prefix}-${vendor.prefix}-init.build" />
+  <include buildfile="${source.drive}/${vendor.buildvob}/scripts/${product.name.prefix}-${vendor.prefix}-test.build" />
+
+  <target name="psp.deploy.dependencies">
+
+  </target>
+  <!-- globals targets start -->
+  <target name="psp.src.globals.share">
+    <!-- Copy bttaj globals to cue-compoentns -->
+    <property name="param.share.dir.src" value="s:/bttaj/globals" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.cue.bt.shared.include.dir}/globals" overwrite="true"/>
+    <call target="task.share.files"/>
+    <!-- Copy btapp globals to q:\btapp\SharedInc -->
+    <property name="param.share.dir.src" value="s:/btapp/globals" overwrite="true"/>
+    <property name="param.share.dir.target" value="q:/btapp/SharedInc/globals" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+  <!-- globals targets end -->
+ 
+ <!-- PSUtils targets start -->
+  <target name="psp.src.psutils.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\PSUtils" overwrite="true"/>
+    <property name="param.solution.name" value="PSUtils" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.psutils.deploy">
+    <property name="param.assembly.name" value="${hpq}psutils${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}/PSUtils/PSUtils" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.psutils.share">
+    <call target="psp.src.psutils.share.bin"/>
+    <call target="psp.src.psutils.share.lib"/>
+    <call target="psp.src.psutils.share.inc"/>
+  </target>
+
+  <target name="psp.src.psutils.share.bin">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/PSUtils/PSUtils/${solution.config}/${hpq}psutils${assembly.type}.dll"
+        todir="${psp.bt.taj.shared.bin.dir}"/>
+  </target>
+
+  <target name="psp.src.psutils.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/PSUtils/PSUtils/${solution.config}/${hpq}psutils${assembly.type}.lib"
+        todir="${psp.bt.taj.shared.lib.dir}"/>
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/PSUtils/PSUtils/${solution.config}/${hpq}psutils${assembly.type}.exp"
+        todir="${psp.bt.taj.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.psutils.share.inc">
+    <property name="param.share.dir.src" value="s:/bttaj/PSUtils/PSUtils" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.taj.shared.include.dir}/PSUtils" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+
+  <!-- PSUtils target ends-->
+
+
+  <!-- Platform targets start -->
+  <target name="psp.src.platform.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\Framework" overwrite="true"/>
+    <property name="param.solution.name" value="Framework" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.platform.deploy">
+    <property name="param.assembly.name" value="${hpq}platform${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}/Framework" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.platform.share">
+    <call target="psp.src.platform.share.bin"/>
+    <call target="psp.src.platform.share.lib"/>
+    <call target="psp.src.platform.share.inc"/>
+  </target>
+
+  <target name="psp.src.platform.share.bin">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/Framework/${solution.config}/${hpq}platform${assembly.type}.dll"
+        todir="${psp.cue.bt.shared.bin.dir}"/>
+  </target>
+
+  <target name="psp.src.platform.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/Framework/${solution.config}/${hpq}platform${assembly.type}.lib"
+        todir="${psp.cue.bt.shared.lib.dir}"/>
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/Framework/${solution.config}/${hpq}platform${assembly.type}.exp"
+        todir="${psp.cue.bt.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.platform.share.inc">
+    <property name="param.share.dir.src" value="s:/bttaj/Framework/Platform" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.cue.bt.shared.include.dir}/Platform" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+
+  <!-- Platform targets end-->
+
+  <!-- TrayEngine targets start-->
+  <target name="psp.src.tray.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\Tray" overwrite="true"/>
+    <property name="param.solution.name" value="Tray" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.tray.deploy">
+    <property name="param.assembly.name" value="${hpq}tray${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}/Tray" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.tray.share">
+    <call target="psp.src.tray.share.bin"/>
+    <call target="psp.src.tray.share.lib"/>
+    <call target="psp.src.tray.share.inc"/>
+  </target>
+
+  <target name="psp.src.tray.share.bin">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/Tray/${solution.config}/${hpq}tray${assembly.type}.dll"
+        todir="${psp.bt.taj.shared.bin.dir}"/>
+  </target>
+
+  <target name="psp.src.tray.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/Tray/${solution.config}/${hpq}tray${assembly.type}.lib"
+        todir="${psp.bt.taj.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.tray.share.inc">
+    <property name="param.share.dir.src" value="s:/bttaj/Tray/TrayEngine" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.taj.shared.include.dir}/Tray" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+
+  <!-- TrayEngine targets end-->
+
+
+  <!-- ImageManager targets start -->
+
+  <!-- Copy the hpqdkwdgp_en.dat file to the data folder-->  
+  <target name="psp.src.defaulttags.deploy">
+    <copy overwrite="true"
+      file="${psp.bt.taj.src.dir}/ImageManager/Default_Keywords/${hpq}dkwdgp_en.dat"
+      todir="${build.output.data.dir}"/>
+  </target>
+  
+	<!-- build HPDI_ImageDatabase -->
+
+	<target name="psp.src.hpdiimagedatabase.compile">
+		<property name="param.solution.dir" value="${psp.bt.taj.src.dir}/ImageManager" overwrite="true"/>
+		<property name="param.solution.name" value="HPDI_ImageDataBase" overwrite="true"/>
+		<call target="task.vcnet.compile"/>
+	</target>
+	<!-- build HPDI_ImageDatabase_MD -->
+	<target name="psp.src.hpdiimagedatabasemd.compile">
+		<property name="param.solution.dir" value="${psp.bt.taj.src.dir}/ImageManager" overwrite="true"/>
+		<property name="param.solution.name" value="HPDI_ImageDataBase_MD" overwrite="true"/>
+		<call target="task.vcnet.compile"/>
+	</target>
+
+	<!-- build ImageManager COM solution -->
+	<target name="psp.src.imgmgr.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}/ImageManager" overwrite="true"/>
+    <property name="param.solution.name" value="ImageManager" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.imgmgr.deploy">
+    <property name="param.assembly.name" value="${hpq}imgr2${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}/ImageManager/ImageManager" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.imgmgr.share">
+    <call target="psp.src.imgmgr.share.bin"/>
+    <call target="psp.src.imgmgr.share.lib"/>
+    <call target="psp.src.imgmgr.share.inc"/>
+  </target>
+
+  <target name="psp.src.imgmgr.share.bin">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ImageManager/ImageManager/${solution.config}/${hpq}imgr2${assembly.type}.dll"
+        todir="${psp.cue.bt.shared.bin.dir}"/>
+    <copy overwrite="true"
+       file="${psp.bt.taj.src.dir}/ImageManager/ImageManager/${solution.config}/${hpq}imgr2${assembly.type}.pdb"
+       todir="${psp.cue.bt.shared.bin.dir}"/>
+  </target>
+
+  <target name="psp.src.imgmgr.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ImageManager/ImageManager/${solution.config}/${hpq}imgr2${assembly.type}.lib"
+        todir="${psp.cue.bt.shared.lib.dir}"/>
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ImageManager/ImageManager/${solution.config}/${hpq}imgr2${assembly.type}.exp"
+        todir="${psp.cue.bt.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.imgmgr.share.inc">
+    <property name="param.share.dir.src" value="s:/bttaj/ImageManager/ImageManager" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.cue.bt.shared.include.dir}/ImageManager" overwrite="true"/>
+    <call target="task.share.files"/>
+
+    <property name="param.share.dir.src" value="s:/bttaj/ImageManager/Common" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.cue.bt.shared.include.dir}/ImageManager" overwrite="true"/>
+    <call target="task.share.files"/>
+
+    <property name="param.share.dir.src" value="s:/bttaj/ImageManager/Common/Database" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.cue.bt.shared.include.dir}/ImageManager" overwrite="true"/>
+
+    <call target="task.share.files"/>
+  </target>
+
+  <!-- build DBConversion-->
+	<target name="psp.src.dbconversion.compile">
+		<property name="param.solution.dir" value="${psp.bt.taj.src.dir}/ImageManager" overwrite="true"/>
+		<property name="param.solution.name" value="ConvDb" overwrite="true"/>
+		<call target="task.vcnet.compile"/>
+	</target>
+
+	<target name="psp.src.dbconversion.deploy">
+		<call target="psp.src.convdb.deploy"/>
+		<call target="psp.src.hpdij2cb.deploy"/>
+		<call target="psp.src.hpdiz2cb.deploy"/>
+	</target>
+	<target name="psp.src.convdb.deploy">
+		<property name="param.assembly.name" value="${hpq}convdb${assembly.type}" overwrite="true"/>
+		<property name="param.project.dir" value="${psp.bt.taj.src.dir}/ImageManager" overwrite="true"/>
+		<call target="task.project.deploy"/>
+	</target>
+	<target name="psp.src.hpdij2cb.deploy">
+		<property name="param.assembly.name" value="hpqj2cb${assembly.type}" overwrite="true"/>
+		<property name="param.project.dir" value="${psp.bt.taj.src.dir}/ImageManager" overwrite="true"/>
+		<call target="task.project.deploy"/>
+	</target>
+	<target name="psp.src.hpdiz2cb.deploy">
+		<property name="param.assembly.name" value="hpqz2cb${assembly.type}" overwrite="true"/>
+		<property name="param.project.dir" value="${psp.bt.taj.src.dir}/ImageManager" overwrite="true"/>
+		<call target="task.project.deploy"/>
+	</target>
+	
+	<target name="psp.src.dbconversion.share">
+		<call target="psp.src.dbconversion.share.bin"/>
+		<call target="psp.src.dbconversion.share.lib"/>
+		<call target="psp.src.dbconversion.share.inc"/>
+	</target>
+
+	<target name="psp.src.dbconversion.share.bin">
+		<copy overwrite="true"
+			file="${psp.bt.taj.src.dir}/ImageManager/${solution.config}/${hpq}convdb${assembly.type}.dll"
+			todir="${psp.cue.bt.shared.bin.dir}"/>
+		<copy overwrite="true"
+		   file="${psp.bt.taj.src.dir}/ImageManager/${solution.config}/${hpq}convdb${assembly.type}.pdb"
+		   todir="${psp.cue.bt.shared.bin.dir}"/>
+		
+		<copy overwrite="true"
+			file="${psp.bt.taj.src.dir}/ImageManager/${solution.config}/hpqj2cb${assembly.type}.dll"
+			todir="${psp.cue.bt.shared.bin.dir}"/>
+		<copy overwrite="true"
+			file="${psp.bt.taj.src.dir}/ImageManager/${solution.config}/hpqj2cb${assembly.type}.pdb"
+			todir="${psp.cue.bt.shared.bin.dir}"/>
+		
+		<copy overwrite="true"
+			file="${psp.bt.taj.src.dir}/ImageManager/${solution.config}/hpqz2cb${assembly.type}.dll"
+			todir="${psp.cue.bt.shared.bin.dir}"/>
+		<copy overwrite="true"
+		   file="${psp.bt.taj.src.dir}/ImageManager/${solution.config}/hpqz2cb${assembly.type}.pdb"
+		   todir="${psp.cue.bt.shared.bin.dir}"/>
+	</target>
+
+	<target name="psp.src.dbconversion.share.lib">
+		<copy overwrite="true"
+			file="${psp.bt.taj.src.dir}/ImageManager/${solution.config}/${hpq}convdb${assembly.type}.lib"
+			todir="${psp.cue.bt.shared.lib.dir}"/>
+		<copy overwrite="true"
+			file="${psp.bt.taj.src.dir}/ImageManager/${solution.config}/${hpq}convdb${assembly.type}.exp"
+			todir="${psp.cue.bt.shared.lib.dir}"/>
+
+		<copy overwrite="true"
+			file="${psp.bt.taj.src.dir}/ImageManager/${solution.config}/hpqj2cb${assembly.type}.lib"
+			todir="${psp.cue.bt.shared.lib.dir}"/>
+		<copy overwrite="true"
+			file="${psp.bt.taj.src.dir}/ImageManager/${solution.config}/hpqj2cb${assembly.type}.exp"
+			todir="${psp.cue.bt.shared.lib.dir}"/>
+
+		<copy overwrite="true"
+			file="${psp.bt.taj.src.dir}/ImageManager/${solution.config}/hpqz2cb${assembly.type}.lib"
+			todir="${psp.cue.bt.shared.lib.dir}"/>
+		<copy overwrite="true"
+			file="${psp.bt.taj.src.dir}/ImageManager/${solution.config}/hpqz2cb${assembly.type}.exp"
+			todir="${psp.cue.bt.shared.lib.dir}"/>
+	</target>
+
+	<target name="psp.src.dbconversion.share.inc">
+		<property name="param.share.dir.src" value="s:/bttaj/ImageManager/DBConversion" overwrite="true"/>
+		<property name="param.share.dir.target" value="${psp.cue.bt.shared.include.dir}/ImageManager/DBConversion" overwrite="true"/>
+		<call target="task.share.files"/>
+	</target>
+  <!-- ImageManager targets end-->
+	<!-- ImageManagerCallBack target start-->
+	<target name="psp.src.imgmgrcbk.compile">
+		<property name="param.solution.dir" value="${psp.bt.taj.src.dir}\ImageManager\ImageManagerCallback" overwrite="true"/>
+		<property name="param.solution.name" value="ImageManagerCallback" overwrite="true"/>
+		<call target="task.vcnet.compile"/>
+	</target>
+
+	<target name="psp.src.imgmgrcbk.deploy">
+		<property name="param.assembly.name" value="${hpq}imcbk${assembly.type}" overwrite="true"/>
+		<property name="param.project.dir" value="${psp.bt.taj.src.dir}/ImageManager/ImageManagerCallback" overwrite="true"/>
+		<call target="task.project.deploy"/>
+	</target>
+
+	<target name="psp.src.imgmgrcbk.share">
+		<call target="psp.src.imgmgrcbk.share.bin"/>
+		<call target="psp.src.imgmgrcbk.share.lib"/>
+		<call target="psp.src.imgmgrcbk.share.inc"/>
+	</target>
+
+	<target name="psp.src.imgmgrcbk.share.bin">
+		<copy overwrite="true"
+			file="${psp.bt.taj.src.dir}/ImageManager/ImageManagerCallback/${solution.config}/${hpq}imcbk${assembly.type}.dll"
+			todir="${psp.cue.bt.shared.bin.dir}"/>
+		
+	</target>
+
+	<target name="psp.src.imgmgrcbk.share.lib">
+		<copy overwrite="true"
+			file="${psp.bt.taj.src.dir}/ImageManager/ImageManagerCallback/${solution.config}/${hpq}imcbk${assembly.type}.lib"
+			todir="${psp.cue.bt.shared.lib.dir}"/>
+	</target>
+
+	<target name="psp.src.imgmgrcbk.share.inc">
+		<property name="param.share.dir.src" value="s:/bttaj/ImageManager/ImageManagerCallback/ImageManagerCallback" overwrite="true"/>
+		<property name="param.share.dir.target" value="${psp.cue.bt.shared.include.dir}/ImageManager/ImageManagerCallback" overwrite="true"/>
+		<call target="task.share.files"/>
+	</target>
+	<!-- ImageManagerCallback targets end-->
+
+
+  <!-- FileSystemWatcher target start-->
+  <target name="psp.src.fsyswchr.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\FileSystemWatcher" overwrite="true"/>
+    <property name="param.solution.name" value="FileSystemWatcher" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.fsyswchr.deploy">
+    <property name="param.assembly.name" value="${hpq}fsys${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}/FileSystemWatcher" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.fsyswchr.share">
+    <call target="psp.src.fsyswchr.share.bin"/>
+    <call target="psp.src.fsyswchr.share.lib"/>
+    <call target="psp.src.fsyswchr.share.inc"/>
+  </target>
+
+  <target name="psp.src.fsyswchr.share.bin">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/FileSystemWatcher/${solution.config}/${hpq}fsys${assembly.type}.dll"
+        todir="${psp.cue.bt.shared.bin.dir}"/>
+  </target>
+
+  <target name="psp.src.fsyswchr.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/FileSystemWatcher/${solution.config}/${hpq}fsys${assembly.type}.lib"
+        todir="${psp.cue.bt.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.fsyswchr.share.inc">
+    <property name="param.share.dir.src" value="s:/bttaj/FileSystemWatcher" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.cue.bt.shared.include.dir}/FileSystemWatcher" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+  <!-- FileSystemWatcher target ends here -->
+
+  <!-- ImageVault target start-->
+  <target name="psp.src.imgvlt.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\ImageVault" overwrite="true"/>
+    <property name="param.solution.name" value="ImageVault" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.imgvlt.deploy">
+    <property name="param.assembly.name" value="${hpq}imvlt${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}/ImageVault" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.imgvlt.share">
+    <call target="psp.src.imgvlt.share.bin"/>
+    <call target="psp.src.imgvlt.share.lib"/>
+    <call target="psp.src.imgvlt.share.inc"/>
+  </target>
+
+  <target name="psp.src.imgvlt.share.bin">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ImageVault/${solution.config}/${hpq}imvlt${assembly.type}.dll"
+        todir="${psp.cue.bt.shared.bin.dir}"/>
+  </target>
+
+  <target name="psp.src.imgvlt.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ImageVault/${solution.config}/${hpq}imvlt${assembly.type}.lib"
+        todir="${psp.cue.bt.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.imgvlt.share.inc">
+    <property name="param.share.dir.src" value="s:/bttaj/ImageVault" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.cue.bt.shared.include.dir}/ImageVault" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+  <!-- ImageVault target ends here -->
+
+  <!-- CBViewer target start-->
+  <target name="psp.src.cbviewer.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\ImageManager\CB_Viewer" overwrite="true"/>
+    <property name="param.solution.name" value="CB_Viewer" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <!-- CBViewer targets end-->
+
+  <!-- ProjectUIInterfaces target starts -->
+  
+  <target name="psp.src.projectuiinterfaces.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\ProjectEngine" overwrite="true"/>
+    <property name="param.solution.name" value="ProjectUIInterfaces" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+<!-- Not sure about this target
+  <target name="psp.src.projectuiinterfaces.deploy">
+    <property name="param.assembly.name" value="${hpq}prjuiint${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}/ProjectEngine/ProjectUIInterfaces" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+-->
+
+  <target name="psp.src.projectuiinterfaces.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ProjectEngine/ProjectUIInterfaces/${solution.config}/${hpq}prjuiint${assembly.type}.lib"
+        todir="${psp.bt.taj.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.projectuiinterfaces.share.inc">
+    <property name="param.share.dir.src" value="s:/bttaj/ProjectEngine/ProjectUIInterfaces" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.taj.shared.include.dir}/ProjectUIInterfaces" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+
+  <target name="psp.src.projectuiinterfaces.share">
+    <call target="psp.src.projectuiinterfaces.share.lib"/>
+    <call target="psp.src.projectuiinterfaces.share.inc"/>
+  </target>
+   <!-- ProjectUIInterfaces target ends -->
+
+ <!-- CDLabelInterfaces target starts -->
+
+ <target name="psp.src.cdlabelinterfaces.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\ProjectEngine\Plugin\CDLabel\CDLabelInterfaces" overwrite="true"/>
+    <property name="param.solution.name" value="CDLabelInterfaces" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+ <target name="psp.src.cdlabelinterfaces.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/CDLabel/CDLabelInterfaces/${solution.config}/CDLabelInterfaces${assembly.type}.lib"
+        todir="${psp.bt.taj.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.cdlabelinterfaces.share.inc">
+  <!--
+  <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/CDLabel/CDLabelInterfaces/IPrintableAreaController.h"
+        todir="${psp.bt.taj.shared.include.dir}/CDLabelInterfaces"/> -->
+    <property name="param.share.dir.src" value="s:/bttaj/ProjectEngine/Plugin/CDLabel/CDLabelInterfaces" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.taj.shared.include.dir}/CDLabelInterfaces" overwrite="true"/>
+    <call target="task.share.files"/> 
+  </target>
+
+  <target name="psp.src.cdlabelinterfaces.share">
+    <call target="psp.src.cdlabelinterfaces.share.lib"/>
+    <call target="psp.src.cdlabelinterfaces.share.inc"/>
+  </target>
+<!-- CDLabelInterfaces target ends -->
+
+<!-- CDLabelProjectManager target starts -->
+
+	<target name="psp.src.cdlabelprojectmanager.compile">
+		<property name="param.solution.dir" value="${psp.bt.taj.src.dir}\ProjectEngine\Plugin\CDLabel" overwrite="true"/>
+		<property name="param.solution.name" value="CDLabel" overwrite="true"/>
+		<call target="task.vcnet.compile"/>
+	</target>
+
+	<target name="psp.src.cdlabelprojectmanager.deploy">
+		<copy overwrite="true"
+		file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/CDLabel/CDLabelProjectManager/${hpq}cdlbeng.plg.config3"
+		todir="${build.output.plugins.dir}"/>
+		<property name="param.assembly.name" value="${hpq}cdlbeng${assembly.type}" overwrite="true"/>
+		<property name="param.project.dir" value="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/CDLabel/CDLabelProjectManager" overwrite="true"/>
+		<call target="task.project.deploy"/>
+	</target>
+	<target name="psp.src.cdlabelprojectmanager.share.bin">
+		<copy overwrite="true"
+		  file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/CDLabel/CDLabelProjectManager/${solution.config}/${hpq}cdlbeng${assembly.type}.dll"
+		  todir="${psp.cue.bt.shared.bin.dir}"/>
+	</target>
+	<!--
+	<target name="psp.src.cdlabelprojectmanager.share.inc">
+		<property name="param.share.dir.src" value="S:/bttaj/ProjectEngine/Plugin/CDLabel/CDLabelProjectManager" overwrite="true"/>
+		<property name="param.share.dir.target" value="${psp.bt.taj.shared.include.dir}/CDLabelProjectManager" overwrite="true"/>
+		<call target="task.share.files"/>
+	</target> -->
+	<target name="psp.src.cdlabelprojectmanager.share.lib">
+		<copy overwrite="true"
+			file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/CDLabel/CDLabelProjectManager/${solution.config}/${hpq}cdlbeng${assembly.type}.lib"
+			todir="${psp.bt.taj.shared.lib.dir}"/>
+	</target>
+	<target name="psp.src.cdlabelprojectmanager.share">
+		<call target="psp.src.cdlabelprojectmanager.share.bin"/>
+		<call target="psp.src.cdlabelprojectmanager.share.lib"/>
+	</target>
+
+<!-- CDLabelProjectManager target ends -->
+
+
+<!-- CDLabel target starts -->
+
+	<!-- <target name="psp.src.cdlabel.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\ProjectEngine\Plugin\CDLabel" overwrite="true"/>
+    <property name="param.solution.name" value="CDLabel" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target> -->
+  <!-- CDLabel target ends -->
+
+  <!-- CreativeProjects\CDLabel target starts -->
+
+   <target name="psp.src.creative.cdlabel.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CreativeProjects\CDLabel" overwrite="true"/>
+    <property name="param.solution.name" value="CDLabel" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+   <target name="psp.src.creative.cdlabel.deploy">
+    <copy overwrite="true"
+    file="${psp.bt.app.src.dir}/CreativeProjects/CDLabel/${hpq}cdlbl.plg.config3"
+    todir="${build.output.plugins.dir}"/>
+    <property name="param.assembly.name" value="${hpq}cdlbl${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/CreativeProjects/CDLabel" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+  <!-- CreativeProjects\CDLabel target ends -->
+
+
+  <!-- ProjectManagerBase target starts -->
+  
+  <target name="psp.src.projectmanagerbase.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\ProjectEngine\Plugin\ProjectManagerBase" overwrite="true"/>
+    <property name="param.solution.name" value="ProjectManagerBase" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+ <target name="psp.src.projectmanagerbase.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/ProjectManagerBase/ProjectManagerBase/${solution.config}/${hpq}prjbase${assembly.type}.lib"
+        todir="${psp.bt.taj.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.projectmanagerbase.share.inc">
+ <!-- <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/ProjectManagerBase/ProjectManagerBase/ProjectManagerBase.h"
+        todir="${psp.bt.taj.shared.include.dir}/ProjectManagerBase"/>
+ <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/ProjectManagerBase/ProjectManagerBase/projectmanagerbase_defines.h"
+      todir="${psp.bt.taj.shared.include.dir}/ProjectManagerBase"/>
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/ProjectManagerBase/ProjectManagerBase/projectmanagerbase_errors.h"
+        todir="${psp.bt.taj.shared.include.dir}/ProjectManagerBase"/> -->
+ 
+    <property name="param.share.dir.src" value="s:/bttaj/ProjectEngine/Plugin/ProjectManagerBase/ProjectManagerBase" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.taj.shared.include.dir}/ProjectManagerBase" overwrite="true"/>
+    <call target="task.share.files"/> -->
+  </target>
+
+  <target name="psp.src.projectmanagerbase.share">
+    <call target="psp.src.projectmanagerbase.share.lib"/>
+    <call target="psp.src.projectmanagerbase.share.inc"/>
+  </target>
+
+ <!-- ProjectManagerBase target starts -->
+
+ <!-- ProjectEngineInterfaces target starts -->
+  
+  <target name="psp.src.projectengineinterfaces.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\ProjectEngine" overwrite="true"/>
+    <property name="param.solution.name" value="projectengineinterfaces" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+<!-- Not sure about this target
+  <target name="psp.src.projectengineinterfaces.deploy">
+    <property name="param.assembly.name" value="${hpq}prjengint${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}/ProjectEngineInterfaces" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+-->
+ 
+ <target name="psp.src.projectengineinterfaces.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ProjectEngine/ProjectEngineInterfaces/${solution.config}/${hpq}prjengint${assembly.type}.lib"
+        todir="${psp.bt.taj.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.projectengineinterfaces.share.inc">
+    <property name="param.share.dir.src" value="s:/bttaj/ProjectEngine/ProjectEngineInterfaces" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.taj.shared.include.dir}/ProjectEngineInterfaces" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+
+  <target name="psp.src.projectengineinterfaces.share">
+    <call target="psp.src.projectengineinterfaces.share.lib"/>
+    <call target="psp.src.projectengineinterfaces.share.inc"/>
+  </target>
+  
+ <!-- ProjectEngineInterfaces target ends -->
+ 
+ <!-- ProjectEngine targets start -->
+
+  <target name="psp.src.projectengine.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\projectengine" overwrite="true"/>
+    <property name="param.solution.name" value="projectengine" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.projectengine.deploy">
+    <copy overwrite="true"
+    file="${psp.bt.taj.src.dir}/ProjectEngine/ProjectEngine/${hpq}prjeng.plg.config3"
+    todir="${build.output.plugins.dir}"/>
+    <property name="param.assembly.name" value="${hpq}prjeng${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}/ProjectEngine/ProjectEngine" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+  <target name="psp.src.projectengine.share.bin">
+    <copy overwrite="true"
+      file="${psp.bt.taj.src.dir}/ProjectEngine/ProjectEngine/${solution.config}/${hpq}prjeng${assembly.type}.dll"
+      todir="${psp.cue.bt.shared.bin.dir}"/>
+  </target>
+  <target name="psp.src.projectengine.share.inc">
+    <property name="param.share.dir.src" value="s:/bttaj/ProjectEngine/ProjectEngine" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.taj.shared.include.dir}/ProjectEngine" overwrite="true"/>
+    <call target="task.share.files"/>
+   </target>
+   <target name="psp.src.projectengine.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ProjectEngine/ProjectEngine/${solution.config}/${hpq}prjeng${assembly.type}.lib"
+        todir="${psp.bt.taj.shared.lib.dir}"/>
+  </target>
+  <target name="psp.src.projectengine.share">
+    <call target="psp.src.projectengine.share.bin"/>
+    <call target="psp.src.projectengine.share.inc"/>
+    <call target="psp.src.projectengine.share.lib"/>
+  </target>
+ <!-- ProjectEngine targets end -->
+ <!-- PhotobookEngineInterfaces target starts -->
+  
+  <target name="psp.src.photobookengineinterfaces.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\ProjectEngine\Plugin\Photobook" overwrite="true"/>
+    <property name="param.solution.name" value="PhotobookEngineInterfaces" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+  <target name="psp.src.photobookengineinterfaces.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/Photobook/PhotobookEngineInterfaces/${solution.config}/${hpq}phtbkengint${assembly.type}.lib"
+        todir="${psp.bt.taj.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.photobookengineinterfaces.share.inc">
+    <property name="param.share.dir.src" value="S:/bttaj/ProjectEngine/Plugin/Photobook/PhotobookEngineInterfaces" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.taj.shared.include.dir}/PhotobookEngineInterfaces" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+
+  <target name="psp.src.photobookengineinterfaces.share">
+    <call target="psp.src.photobookengineinterfaces.share.lib"/>
+    <call target="psp.src.photobookengineinterfaces.share.inc"/>
+  </target>
+  
+ <!-- PhotobookEngineInterfaces target ends -->
+
+<!-- PhotobookEngine targets start -->
+
+  <target name="psp.src.photobookengine.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\projectengine\Plugin\Photobook" overwrite="true"/>
+    <property name="param.solution.name" value="PhotoBookEngine" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.photobookengine.deploy">
+    <copy overwrite="true"
+    file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/Photobook/PhotoBookEngine/${hpq}phtbkeng.plg.config3"
+    todir="${build.output.plugins.dir}"/>
+    <property name="param.assembly.name" value="${hpq}phtbkeng${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/Photobook/PhotoBookEngine" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+  <target name="psp.src.photobookengine.share.bin">
+    <copy overwrite="true"
+      file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/Photobook/PhotoBookEngine/${solution.config}/${hpq}phtbkeng${assembly.type}.dll"
+      todir="${psp.cue.bt.shared.bin.dir}"/>
+  </target>
+  <target name="psp.src.photobookengine.share.inc">
+    <property name="param.share.dir.src" value="S:/bttaj/ProjectEngine/Plugin/Photobook/PhotoBookEngine" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.taj.shared.include.dir}/PhotoBookEngine" overwrite="true"/>
+    <call target="task.share.files"/>
+   </target>
+   <target name="psp.src.photobookengine.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/Photobook/PhotoBookEngine/${solution.config}/${hpq}phtbkeng${assembly.type}.lib"
+        todir="${psp.bt.taj.shared.lib.dir}"/>
+  </target>
+  <target name="psp.src.photobookengine.share">
+    <call target="psp.src.photobookengine.share.bin"/>
+    <call target="psp.src.photobookengine.share.inc"/>
+    <call target="psp.src.photobookengine.share.lib"/>
+  </target>
+ <!-- PhotobookEngine targets end -->
+
+
+
+  <!-- GenericProject targets start -->
+
+  <target name="psp.src.genericproject.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}/projectengine/Plugin/GenericProject" overwrite="true"/>
+    <property name="param.solution.name" value="GenericProject" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.genericproject.deploy">
+    <copy overwrite="true"
+    file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/GenericProject/${hpq}gpeng.plg.config3"
+    todir="${build.output.plugins.dir}"/>
+    <property name="param.assembly.name" value="${hpq}phtbkeng" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/GenericProject" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+  <target name="psp.src.genericproject.share.bin">
+    <copy overwrite="true"
+      file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/GenericProject/${solution.config}/${hpq}gpeng${assembly.type}.dll"
+      todir="${psp.bt.taj.shared.bin.dir}"/>
+  </target>
+  
+  <target name="psp.src.genericproject.share">
+    <call target="psp.src.genericproject.share.bin"/>   
+  </target>
+  <!-- GenericProject targets end -->
+
+  <!-- AlbumEngineInterfaces start -->
+  <target name="psp.src.albumengineinterfaces.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\ProjectEngine\Plugin\Album" overwrite="true"/>
+    <property name="param.solution.name" value="AlbumEngineInterfaces" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.albumengineinterfaces.deploy">
+    <property name="param.assembly.name" value="${hpq}albengint${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/Album/AlbumEngineInterfaces" overwrite="true"/>
+    <call target="task.project.deploy"/>
+
+  </target>
+
+  <target name="psp.src.albumengineinterfaces.share">
+    <call target="psp.src.albumengineinterfaces.share.lib"/>
+    <call target="psp.src.albumengineinterfaces.share.inc"/>
+  </target>
+
+  <target name="psp.src.albumengineinterfaces.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/Album/${solution.config}/${hpq}albengint${assembly.type}.lib"
+        todir="${psp.bt.taj.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.albumengineinterfaces.share.inc">
+    <property name="param.share.dir.src" value="s:/bttaj/ProjectEngine/Plugin/Album/AlbumEngineInterfaces" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.taj.shared.include.dir}/AlbumEngineInterfaces" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+
+  <!-- AlbumEngineInterfaces end-->
+
+
+  <!-- Album Engine targets start -->
+
+  <target name="psp.src.albumengine.compile">
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\projectengine\plugin\album" overwrite="true"/>
+    <property name="param.solution.name" value="albumengine" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.albumengine.deploy">
+    <copy overwrite="true"
+    file="${psp.bt.taj.src.dir}/ProjectEngine/plugin/Album/AlbumEngine/${hpq}albeng.plg.config3"
+    todir="${build.output.plugins.dir}"/>
+    <property name="param.assembly.name" value="${hpq}albeng${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/Album" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+  <target name="psp.src.albumengine.share.bin">
+    <copy overwrite="true"
+      file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/Album/${solution.config}/${hpq}albeng${assembly.type}.dll"
+      todir="${psp.cue.bt.shared.bin.dir}"/>
+  </target>
+  <target name="psp.src.albumengine.share.inc">
+    <property name="param.share.dir.src" value="s:/bttaj/ProjectEngine/Plugin/Album/AlbumEngine" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.taj.shared.include.dir}/AlbumEngine" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+  <target name="psp.src.albumengine.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/Album/${solution.config}/${hpq}albeng${assembly.type}.lib"
+        todir="${psp.bt.taj.shared.lib.dir}"/>
+  </target>
+  <target name="psp.src.albumengine.share">
+    <call target="psp.src.albumengine.share.bin"/>
+    <call target="psp.src.albumengine.share.inc"/>
+    <call target="psp.src.albumengine.share.lib"/>
+  </target>
+  <!-- ALbumEngine targets end -->
+
+
+  <!-- PSP Application targets start-->
+  <target name="psp.src.psp-app.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\PSPApp" overwrite="true"/>
+    <property name="param.solution.name" value="PSPApplication" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.psp-app.deploy">
+    <property name="param.assembly.name" value="${hpq}psapp${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/PSPApp" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+  
+  <target name="psp.src.psp-app.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/PSPApp/${solution.config}/${hpq}psapp${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+  
+  <target name="psp.src.psp-app.share">
+    <call target="psp.src.psp-app.share.lib"/>
+  </target>
+  <!-- PSP Application targets end-->
+
+  <!-- UI Framework targets start -->
+  <target name="psp.src.ui.framework.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\UIFramework" overwrite="true"/>
+    <property name="param.solution.name" value="UIFramework" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.ui.framework.deploy">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/UIFramework/UIFramework/${hpq}uifx.plg.config3"
+        todir="${build.output.plugins.dir}"/>
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/UIFramework/UIFramework/default_preferences.xml"
+        todir="${build.output.data.dir}"/>
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/UIFramework/UIFramework/default_sticky_preferences.xml"
+        todir="${build.output.data.dir}"/>
+
+    <property name="param.assembly.name" value="${hpq}uifx${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/UIFramework" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <copy overwrite="true"
+        file="${psp.cue.nd.shared.bin.dir}/${hpq}cutil.dll"
+        todir="${psp.deploy.bin.dir}"/>
+  </target>
+
+  <target name="psp.src.ui.framework.share">
+    <call target="psp.src.ui.framework.share.lib"/>
+    <call target="psp.src.ui.framework.share.inc"/>
+  </target>
+
+  <target name="psp.src.ui.framework.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/UIFramework/${solution.config}/${hpq}uifx${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+  <target name="psp.src.ui.framework.share.inc">
+    <property name="param.share.dir.src" value="S:\btapp\UIFramework\UIFramework" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/UIFramework" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+  <!-- UI Framework targets end-->
+
+  <!-- Common Controls targets start -->
+  <target name="psp.src.cc4.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4" overwrite="true"/>
+    <property name="param.solution.name" value="CC4" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.cc4.deploy">
+    <property name="param.assembly.name" value="${hpq}cc4${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/CC4" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.cc4.share">
+    <call target="psp.src.cc4.share.bin"/>
+    <call target="psp.src.cc4.share.lib"/>
+    <call target="psp.src.cc4.share.inc"/>
+  </target>
+
+  <target name="psp.src.cc4.share.bin">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/CC4/${solution.config}/${hpq}cc4${assembly.type}.dll"
+        todir="${psp.bt.app.shared.bin.dir}"/>
+  </target>
+
+  <target name="psp.src.cc4.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/CC4/${solution.config}/${hpq}cc4${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/CC4/${solution.config}/${hpq}cc4${assembly.type}.exp"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+  <target name="psp.src.cc4.share.inc">
+    <property name="param.share.dir.src" value="s:/btapp/cc4/cc4" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/cc4" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+  <!-- Common Controls targets end-->
+
+  <!-- SlideShow targets start -->
+  <target name="psp.src.slideshow.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\Slideshow" overwrite="true"/>
+    <property name="param.solution.name" value="Slideshow" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.slideshow.deploy">
+    <property name="param.assembly.name" value="${hpq}ss${assembly.type}." overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/Slideshow" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.slideshow.share">
+    <call target="psp.src.slideshow.share.lib"/>
+    <call target="psp.src.slideshow.share.inc"/>
+  </target>
+
+  <target name="psp.src.slideshow.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Slideshow/${solution.config}/${hpq}ss${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+  
+  <target name="psp.src.slideshow.share.inc">
+    <property name="param.share.dir.src" value="s:/btapp/Slideshow/Slideshow" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/Slideshow" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+  <!-- SlideShow targets end-->
+
+  <!-- OrderManagement targets start -->
+  <target name="psp.src.ordmgmt.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\Print\OrderManagement" overwrite="true"/>
+    <property name="param.solution.name" value="OrderManagement" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.ordmgmt.deploy">
+    <property name="param.assembly.name" value="${hpq}ordmgmt" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/Print/OrderManagement/OrderManagement" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.ordmgmt.share">
+    <call target="psp.src.ordmgmt.share.bin"/>
+    <call target="psp.src.ordmgmt.share.inc"/>
+  </target>
+
+  <target name="psp.src.ordmgmt.share.bin">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Print/OrderManagement/${solution.config}/${hpq}ordmgmt.dll"
+        todir="${psp.bt.app.shared.bin.dir}"/>
+  </target>
+
+  <target name="psp.src.ordmgmt.share.inc">
+    <property name="param.share.dir.src" value="s:/btapp/Print/OrderManagement/OrderManagement" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/OrderManagement" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+  <!-- OrderManagement targets end-->
+  
+  <!-- PSAppUtils targets start -->
+  <target name="psp.src.psapputils.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\PSAppUtils" overwrite="true"/>
+    <property name="param.solution.name" value="PSAppUtils" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+  
+  <target name="psp.src.psapputils.deploy">
+    <property name="param.assembly.name" value="${hpq}psapputils${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/PSAppUtils" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.psapputils.share">
+    <call target="psp.src.psapputils.share.bin"/>
+    <call target="psp.src.psapputils.share.lib"/>
+    <call target="psp.src.psapputils.share.inc"/>
+  </target>
+
+  <target name="psp.src.psapputils.share.bin">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/psapputils/${solution.config}/${hpq}psapputils${assembly.type}.dll"
+        todir="${psp.bt.app.shared.bin.dir}"/>
+  </target>
+
+  <target name="psp.src.psapputils.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/psapputils/${solution.config}/${hpq}psapputils${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/psapputils/${solution.config}/${hpq}psapputils${assembly.type}.exp"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+    <!--
+        -->
+  </target>
+
+  <target name="psp.src.psapputils.share.inc">
+    <property name="param.share.dir.src" value="s:\btapp\PSAppUtils\PSAppUtils" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/PSAppUtils" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+  <!-- PSAppUtils targets end-->
+
+  <!-- UIGraphics targets start -->
+  <target name="psp.src.uigfx.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\UIGraphics" overwrite="true"/>
+    <property name="param.solution.name" value="UIGraphics" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.uigfx.deploy">
+    <property name="param.assembly.name" value="${hpq}uig02${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/UIGraphics" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.uigfx.share">
+    <call target="psp.src.uigfx.share.lib"/>
+    <call target="psp.src.uigfx.share.inc"/>
+  </target>
+
+  <target name="psp.src.uigfx.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/UIGraphics/${solution.config}/${hpq}uig02${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+  <target name="psp.src.uigfx.share.inc">
+    <property name="param.share.dir.src" value="s:/btapp/UIGraphics/UIGraphics" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/UIGraphics" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+  <!-- UIGraphics targets end-->
+
+  <!-- ProjectInterfaces targets start -->
+  <target name="psp.src.creative.interfaces.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CreativeProjects" overwrite="true"/>
+    <property name="param.solution.name" value="ProjectInterfaces" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+  
+  <target name="psp.src.creative.interfaces.deploy">
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/CreativeProjects" overwrite="true"/>
+    <property name="param.assembly.name" value="${hpq}prjifc${assembly.type}" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+  
+  <target name="psp.src.creative.interfaces.share">
+    <call target="psp.src.creative.interfaces.share.lib"/>
+    <call target="psp.src.creative.interfaces.share.inc"/>
+  </target>
+  
+  <target name="psp.src.creative.interfaces.share.inc">
+    <property name="param.share.dir.src" value="S:/btapp/CreativeProjects/ProjectInterfaces" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/ProjectInterfaces" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+  
+  <target name="psp.src.creative.interfaces.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/CreativeProjects/${solution.config}/${hpq}prjifc${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+  
+  <!-- CreativeProjects targets start -->
+  <target name="psp.src.creative.projects.compile">
+
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CreativeProjects" overwrite="true"/>
+    <property name="param.solution.name" value="CreativeProjects" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+  
+  <target name="psp.src.creative.projects.deploy">
+
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/CreativeProjects/CreativeUIFramework/${hpq}prjfx.plg.config3"
+        todir="${build.output.plugins.dir}"/>
+
+    <!-- copy all the .pdb files -->
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/CreativeProjects" overwrite="true"/>
+    <property name="param.assembly.name" value="${hpq}prjfx${assembly.type}" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.creative.projects.share">
+    <call target="psp.src.creative.projects.share.lib"/>
+    <call target="psp.src.creative.projects.share.inc"/>
+  </target>
+  
+  <target name="psp.src.creative.projects.share.inc">
+    <property name="param.share.dir.src" value="S:/btapp/CreativeProjects/CreativeUIFramework" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/CreativeUIFramework" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+
+  <target name="psp.src.creative.projects.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/CreativeProjects/${solution.config}/${hpq}prjfx${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.creative.album.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CreativeProjects" overwrite="true"/>
+    <property name="param.solution.name" value="Albums" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.creative.album.deploy">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/CreativeProjects/Albums/${hpq}alb.plg.config3"
+        todir="${build.output.plugins.dir}"/>
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/CreativeProjects/Albums/album.wizard.config"
+        todir="${build.output.data.dir}"/>
+    
+    <property name="param.assembly.name" value="${hpq}album${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/CreativeProjects" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+  
+  <target name="psp.src.creative.album.share">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/CreativeProjects/${solution.config}/${hpq}album${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+  <!-- CreativeProject targets end-->
+
+<!-- ToolBarUtils targets start -->
+  <target name="psp.src.tbutils.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\ToolBarUtils" overwrite="true"/>
+    <property name="param.solution.name" value="ToolBarUtils" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.tbutils.deploy">
+    <property name="param.assembly.name" value="${hpq}tbutl${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/ToolBarUtils" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.tbutils.share">
+    <call target="psp.src.tbutils.share.lib"/>
+    <call target="psp.src.tbutils.share.inc"/>
+  </target>
+
+  <target name="psp.src.tbutils.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/ToolBarUtils/${solution.config}/${hpq}tbutl${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.tbutils.share.inc">
+    <property name="param.share.dir.src" value="s:/btapp/ToolBarUtils/ToolBarUtils" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/ToolBarUtils" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+
+  <!-- ToolBarUtils targets end-->
+
+  <!-- Edit targets start -->
+  <target name="psp.src.edit.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\Edit" overwrite="true"/>
+    <property name="param.solution.name" value="Edit" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.edit.deploy">
+    <property name="param.assembly.name" value="${hpq}edit${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/Edit" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Edit/${hpq}edit.plg.config3"
+        todir="${build.output.plugins.dir}"/>
+  </target>
+
+  <target name="psp.src.edit.share">
+    <call target="psp.src.edit.share.lib"/>
+    <call target="psp.src.edit.share.inc"/>
+  </target>
+
+  <target name="psp.src.edit.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Edit/${solution.config}/${hpq}edit${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.edit.share.inc">
+    <property name="param.share.dir.src" value="s:/btapp/Edit/EditFramework" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/EditFramework" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+
+  <!-- Edit targets end-->
+
+  <!-- ShareIMX targets start -->
+  <!--
+  <target name="psp.src.shareIMX.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\Share\ShareIMX" overwrite="true"/>
+    <property name="param.solution.name" value="ShareIMX" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.shareIMX.deploy">
+    <property name="param.assembly.name" value="${hpq}shareIMX${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/Share/ShareIMX" overwrite="true"/>
+    <call target="task.project.deploy"/>   
+  </target>
+
+  <target name="psp.src.shareIMX.share">
+    <call target="psp.src.shareIMX.share.lib"/>
+    <call target="psp.src.shareIMX.share.inc"/>
+  </target>
+
+  <target name="psp.src.shareIMX.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Share/ShareIMX/${solution.config}/${hpq}shareIMX${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.shareIMX.share.inc">
+    <property name="param.share.dir.src" value="s:/btapp/Share/ShareIMX" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/ShareIMX" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+   -->
+  <!-- ShareIMX targets end-->
+
+  <!-- AlbumSubSystem targets start -->
+  <target name="psp.src.albumsubsys.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CreativeProjects" overwrite="true"/>
+    <property name="param.solution.name" value="AlbumSubSystem" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.albumsubsys.deploy">
+    <property name="param.assembly.name" value="${hpq}albsubsys${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/CreativeProjects" overwrite="true"/>
+    <call target="task.project.deploy"/>   
+  </target>
+
+  <target name="psp.src.albumsubsys.share">
+    <call target="psp.src.albumsubsys.share.lib"/>
+    <call target="psp.src.albumsubsys.share.inc"/>
+  </target>
+
+  <target name="psp.src.albumsubsys.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/CreativeProjects/${solution.config}/${hpq}albsubsys${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.albumsubsys.share.inc">
+      <property name="param.share.dir.src" value="s:/btapp/CreativeProjects/AlbumSubSystem" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/AlbumSubSystem" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+  <!-- AlbumSubSystem targets end-->
+
+  <!-- Share targets start -->
+  <target name="psp.src.share.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\Share" overwrite="true"/>
+    <property name="param.solution.name" value="Share" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.share.deploy">
+    <property name="param.assembly.name" value="${hpq}share${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/Share" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Share/${hpq}share.plg.config3"
+        todir="${build.output.plugins.dir}"/>
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Share/modifyshare.wizard.config"
+        todir="${build.output.data.dir}"/>
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Share/share.wizard.config"
+        todir="${build.output.data.dir}"/>
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Share/email.wizard.config"
+        todir="${build.output.data.dir}"/>
+  </target>
+
+  <target name="psp.src.share.share">
+    <call target="psp.src.share.share.lib"/>
+    <call target="psp.src.share.share.inc"/>
+  </target>
+
+  <target name="psp.src.share.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Share/${solution.config}/${hpq}share${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.share.share.inc">
+    <property name="param.share.dir.src" value="s:/btapp/Share/ShareFramework" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/ShareFramework" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+
+  <!-- Share targets end-->
+
+  <!-- ImportUI targets start -->
+  <target name="psp.src.importui.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\ImportUI" overwrite="true"/>
+    <property name="param.solution.name" value="ImportUI" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.importui.deploy">
+    <property name="param.assembly.name" value="${hpq}impui${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/ImportUI" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/ImportUI/${hpq}impui.plg.config3"
+        todir="${build.output.plugins.dir}"/>
+  </target>
+
+  <target name="psp.src.importui.share">
+    <call target="psp.src.importui.share.lib"/>
+    <call target="psp.src.importui.share.inc"/>
+  </target>
+
+  <target name="psp.src.importui.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/ImportUI/${solution.config}/${hpq}impui${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.importui.share.inc">
+    <property name="param.share.dir.src" value="s:/btapp/ImportUI/ImportUI" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/ImportUI" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+
+  <!-- ImportUI targets end-->
+
+  <!-- Vaccum Screen targets start -->
+  <target name="psp.src.vaccumscr.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\VaccumScreen" overwrite="true"/>
+    <property name="param.solution.name" value="Vaccum" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.vaccumscr.deploy">
+    <property name="param.assembly.name" value="${hpq}vacscr${assembly.type}.lib" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/VaccumScreen" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.vaccumscr.share">
+    <call target="psp.src.vaccumscr.share.lib"/>
+    <call target="psp.src.vaccumscr.share.inc"/>
+  </target>
+
+  <target name="psp.src.vaccumscr.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/VaccumScreen/${solution.config}/${hpq}vacscr${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.vaccumscr.share.inc">
+    <property name="param.share.dir.src" value="s:/btapp/VaccumScreen/Vaccum" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/Vaccum" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+
+  <!-- Vaccum Screen targets end-->
+
+  <!-- CRMWidget targets start -->
+  <target name="psp.src.crmwidget.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CRM" overwrite="true"/>
+    <property name="param.solution.name" value="CRM" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.crmwidget.deploy">
+    <property name="param.assembly.name" value="${hpq}crm${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/CRM" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.crmwidget.share">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/CRM/${solution.config}/${hpq}crm${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+    <property name="param.share.dir.src" value="s:/btapp/CRM/CRMWidget" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/CRMWidget" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+
+  <!-- CRMWidget targets end-->
+  
+ <!-- Library targets start -->
+
+  <target name="psp.src.libraryinterfaces.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\Library" overwrite="true"/>
+    <property name="param.solution.name" value="LibraryInterfaces" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+    
+  <target name="psp.src.libraryinterfaces.share">
+    <call target="psp.src.libraryinterfaces.share.inc"/>
+    <call target="psp.src.libraryinterfaces.share.lib"/>
+  </target>
+
+  <target name="psp.src.libraryinterfaces.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Library/${solution.config}/${hpq}uilibifc${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+
+   <target name="psp.src.libraryinterfaces.share.inc">
+    <property name="param.share.dir.src" value="s:/btapp/Library/LibraryInterfaces" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/LibraryInterfaces" overwrite="true"/>
+    <call target="task.share.files"/>
+  </target>
+
+   
+  <target name="psp.src.library.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\Library" overwrite="true"/>
+    <property name="param.solution.name" value="Library" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.library.deploy">
+    <property name="param.assembly.name" value="${hpq}uilib${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/Library" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.library.share">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Library/${solution.config}/${hpq}uilib${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+
+
+  <!-- Library targets end-->
+
+  <!-- Print targets start -->
+  
+  <!-- PrintInterfaces targets start -->
+  <target name="psp.src.printinterfaces.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\Print" overwrite="true"/>
+    <property name="param.solution.name" value="printinterfaces" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.printinterfaces.deploy">
+    <property name="param.assembly.name" value="${hpq}prifc${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/Print" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.printinterfaces.share">
+  	<call target="psp.src.printinterfaces.share.lib"/>
+  	<call target="psp.src.printinterfaces.share.inc"/>
+  </target>
+
+  <target name="psp.src.printinterfaces.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Print/${solution.config}/${hpq}prifc${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+  <target name="psp.src.printinterfaces.share.inc">
+    <property name="param.share.dir.src" value="s:/btapp/Print/PrintInterfaces" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/Print/PrintInterfaces" overwrite="true"/>
+    <call target="task.share.files"/>  
+  </target>
+  <!-- PrintInterfaces targets end -->
+
+<!-- PrintUiFrameWork targets start -->
+  <target name="psp.src.printuiframework.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\Print" overwrite="true"/>
+    <property name="param.solution.name" value="printuiframework" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.printuiframework.deploy">
+    <property name="param.assembly.name" value="${hpq}prfx${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/Print" overwrite="true"/>
+    <call target="task.project.deploy"/>
+
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Print/PrintUiFramework/${hpq}prfx.plg.config3"
+        todir="${build.output.plugins.dir}"/>
+  </target>
+
+  <target name="psp.src.printuiframework.share">
+  	<call target="psp.src.printuiframework.share.lib"/>
+  	<call target="psp.src.printuiframework.share.inc"/>
+  </target>
+
+  <target name="psp.src.printuiframework.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Print/${solution.config}/${hpq}prfx${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+  <target name="psp.src.printuiframework.share.inc">
+    <property name="param.share.dir.src" value="s:/btapp/Print/PrintUiFramework" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/Print/PrintUiFramework" overwrite="true"/>
+    <call target="task.share.files"/>  
+  </target>
+  <!-- PrintUiFrameWork targets end -->
+
+<!-- PrintAppsCommon targets start -->
+  <target name="psp.src.printappscommon.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\Print" overwrite="true"/>
+    <property name="param.solution.name" value="printappscommon" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.printappscommon.deploy">
+    <property name="param.assembly.name" value="${hpq}prcmn${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/Print" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+
+  <target name="psp.src.printappscommon.share">
+  	<call target="psp.src.printappscommon.share.lib"/>
+  	<call target="psp.src.printappscommon.share.inc"/>
+  </target>
+
+  <target name="psp.src.printappscommon.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Print/${solution.config}/${hpq}prcmn${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+  <target name="psp.src.printappscommon.share.inc">
+    <property name="param.share.dir.src" value="s:/btapp/Print/PrintAppsCommon" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/Print/PrintAppsCommon" overwrite="true"/>
+    <call target="task.share.files"/>  
+  </target>
+  <!-- PrintAppsCommon targets end -->
+  
+<!-- QuickPrint targets start -->
+  <target name="psp.src.quickprint.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\Print" overwrite="true"/>
+    <property name="param.solution.name" value="quickprint" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.quickprint.deploy">
+    <property name="param.assembly.name" value="${hpq}qckprnt${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/Print" overwrite="true"/>
+    <call target="task.project.deploy"/>
+
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Print/QuickPrint/${hpq}qckprnt.plg.config3"
+        todir="${build.output.plugins.dir}"/>
+  </target>
+
+  <target name="psp.src.quickprint.share">
+  	<call target="psp.src.quickprint.share.lib"/>
+    <call target="psp.src.quickprint.data.xml"/>
+  </target>
+
+  <target name="psp.src.quickprint.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Print/${solution.config}/${hpq}qckprnt${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+  <target name="psp.src.quickprint.share.inc">
+    <property name="param.share.dir.src" value="s:/btapp/Print/QuickPrint" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/Print/QuickPrint" overwrite="true"/>
+    <call target="task.share.files"/>  
+  </target>
+
+  <target name="psp.src.quickprint.data.xml">
+       <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Print/QuickPrint/PrintUIPhotoSizePrirority.xml"
+        todir="${psp.bt.app.src.dir}/Hewlett-Packard/Digital Imaging/Data/PrintUIData"/>
+  </target>    
+    
+  <!-- QuickPrint targets end -->
+  
+<!-- PhotoTemplate targets start -->
+  <target name="psp.src.phototemplate.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\Print" overwrite="true"/>
+    <property name="param.solution.name" value="phototemplate" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+  </target>
+
+  <target name="psp.src.phototemplate.deploy">
+    <property name="param.assembly.name" value="${hpq}tmplprnt${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}/Print" overwrite="true"/>
+    <call target="task.project.deploy"/>
+
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Print/PhotoTemplate/${hpq}tmplprnt.plg.config3"
+        todir="${build.output.plugins.dir}"/>
+  </target>
+
+  <target name="psp.src.phototemplate.share">
+  	<call target="psp.src.phototemplate.share.lib"/>
+    <call target="psp.src.phototemplate.data.xml"/>
+  </target>
+
+  <target name="psp.src.phototemplate.share.lib">
+    <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Print/${solution.config}/${hpq}tmplprnt${assembly.type}.lib"
+        todir="${psp.bt.app.shared.lib.dir}"/>
+  </target>
+
+  <target name="psp.src.phototemplate.share.inc">
+    <property name="param.share.dir.src" value="s:/btapp/Print/PhotoTemplate" overwrite="true"/>
+    <property name="param.share.dir.target" value="${psp.bt.app.shared.include.dir}/Print/PhotoTemplate" overwrite="true"/>
+    <call target="task.share.files"/>  
+  </target>
+
+    <target name="psp.src.phototemplate.data.xml">
+       <copy overwrite="true"
+        file="${psp.bt.app.src.dir}/Print/PhotoTemplate/PrintUITemplatePriority.xml"
+        todir="${psp.bt.app.src.dir}/Hewlett-Packard/Digital Imaging/Data/PrintUIData"/>
+    </target>    
+
+  <!-- PhotoTemplate targets end -->
+  
+
+  <!-- Print targets end-->
+
+  <!-- TEST HARNESS TARGET STARTS -->
+  <target name="psp.testharness.compile">
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_ActivePreview_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="APCTestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_AutorepeatButton_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_AutorepeatButton_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Basic_Stack_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_Basic_Stack_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Button_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_Button_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Cancel Next Widget_Testharness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_Cancel Next Widget_Testharness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_CheckBox_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_CheckBox_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_CustomToolTip_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_CustomToolTip_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Dialog_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_Dialog_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_DirectoryTreeView_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_DirectoryTreeView_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Drop_Down_Menu_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_Drop_Down_Menu_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_FindWidget_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_FindWidget_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_FolderDialog_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_FolderDialog_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_HomePagePhotoStack_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_HomePagePhotoStack_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Menu_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_Menu_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_SaveAsDialog_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_SaveAsDialog_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Scroll Button_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_Scroll Button_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Scrollbar_TesHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_Scrollbar_TesHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Slider_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_Slider_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Status_Indicators_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_Status_Indicators_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Step_Toolbar_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_Step_Toolbar_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_SuperToolTip_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_SuperToolTip_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_TabCtrl_Testharness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_TabCtrl_Testharness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_TBW_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_TBW_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_TextBox_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_TextBox_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_TNV1_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="TNV1TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_TNV2_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="TNV2TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_TNVNUp_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_TNVNUp_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_TNVNUPEx_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_TNVNUPEx_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_ToolBar_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="CC4_ToolBar_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\CreativeProjects\AlbumsubSystem_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="AlbumTestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\Edit\Edit_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="Edit" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.app.src.dir}\ImportUI\ImportUI_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="ImportUI_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\FileSystemWatcher\FileSystemWatcher_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="FileSystemWatcher_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\Framework\Platform_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="Platform_TestHarness" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\ImageManager\ImageManager_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="TestHarness_App" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\PSUtils\PSUtils_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="Test_PSUtils" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <property name="param.solution.dir" value="${psp.bt.taj.src.dir}\Tray\TrayEngine_TestHarness" overwrite="true"/>
+    <property name="param.solution.name" value="Test_TrayEngine" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+ </target>
+
+  <target name="psp.testharness.deploy">
+    <property name="param.assembly.name" value="APCTestHarness.sln" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_ActivePreview_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_AutorepeatButton_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_AutorepeatButton_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_Basic_Stack_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Basic_Stack_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_Button_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Button_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_Cancel Next Widget_Testharness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Cancel Next Widget_Testharness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_CheckBox_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_CheckBox_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_CustomToolTip_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_CustomToolTip_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_Dialog_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Dialog_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_DirectoryTreeView_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_DirectoryTreeView_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_Drop_Down_Menu_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Drop_Down_Menu_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_FindWidget_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_FindWidget_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_FolderDialog_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_FolderDialog_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_HomePagePhotoStack_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_HomePagePhotoStack_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_Menu_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Menu_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_SaveAsDialog_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_SaveAsDialog_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_Scroll Button_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Scroll Button_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_Scrollbar_TesHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Scrollbar_TesHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_Slider_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Slider_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_Status_Indicators_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Status_Indicators_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_Step_Toolbar_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_Step_Toolbar_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_SuperToolTip_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_SuperToolTip_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_TabCtrl_Testharness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_TabCtrl_Testharness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_TBW_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_TBW_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_TextBox_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_TextBox_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="TNV1TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_TNV1_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="TNV2TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_TNV2_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_TNVNUp_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_TNVNUp_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_TNVNUPEx_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_TNVNUPEx_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="CC4_ToolBar_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CC4\CC4_TestHarness\CC4_ToolBar_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="AlbumTestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\CreativeProjects\AlbumsubSystem_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="Edit" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\Edit\Edit_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="ImportUI_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.app.src.dir}\ImportUI\ImportUI_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="FileSystemWatcher_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}\FileSystemWatcher\FileSystemWatcher_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="Platform_TestHarness" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}\Framework\Platform_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="TestHarness_App" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}\ImageManager\ImageManager_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="Test_PSUtils" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}\PSUtils\PSUtils_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+    <property name="param.assembly.name" value="Test_TrayEngine" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.bt.taj.src.dir}\Tray\TrayEngine_TestHarness" overwrite="true"/>
+    <call target="task.project.deploy"/>
+  </target>
+  
+  <target name="psp.vendor.src.build.compile" description=" Build the source owned by Trianz">
+    <property name="imgmgr.buildflag" value="true" overwrite="false"/>
+    <if test="${solution.config=='Release'}">
+        <property name="assembly.type" value="" overwrite="true"/>
+    </if>
+
+    <call target="psp.init"/>
+    <call target="psp.src.globals.share"/>
+
+    <call target="psp.src.psutils.compile"/>
+    <call target="psp.src.psutils.deploy"/>
+    <call target="psp.src.psutils.share"/>
+
+    <call target="psp.src.platform.compile"/>
+    <call target="psp.src.platform.deploy"/>
+    <call target="psp.src.platform.share"/>
+
+    <!-- Copying the hpqdkwdgp_en.dat to the data folder -->
+    <call target="psp.src.defaulttags.deploy"/>
+      
+    <if test="${imgmgr.buildflag}">
+        <call target="psp.src.hpdiimagedatabase.compile"/>
+
+        <call target="psp.src.imgmgr.compile"/>
+        <call target="psp.src.imgmgr.deploy"/>
+        <call target="psp.src.imgmgr.share"/>
+    </if>
+    <ifnot test="${imgmgr.buildflag}">
+        <copy overwrite="true"
+            file="q:/cue-components/bt/SharedBin/${hpq}imgr2${assembly.type}.dll"
+            todir="${psp.deploy.bin.dir}"/>
+    </ifnot>
+    
+    <call target="psp.src.imgmgrcbk.compile"/>
+    <call target="psp.src.imgmgrcbk.deploy"/>
+    <call target="psp.src.imgmgrcbk.share"/>
+
+    <call target="psp.src.fsyswchr.compile"/>
+    <call target="psp.src.fsyswchr.deploy"/>
+    <call target="psp.src.fsyswchr.share"/>
+
+    <if test="${imgmgr.buildflag}">
+		
+	    <call target="psp.src.hpdiimagedatabasemd.compile"/>
+	    <call target="psp.src.dbconversion.compile"/>
+	    <call target="psp.src.dbconversion.deploy"/>
+	    <call target="psp.src.dbconversion.share"/>
+	</if>
+
+    <ifnot test="${imgmgr.buildflag}">
+        <copy overwrite="true"
+            file="q:/cue-components/bt/SharedBin/${hpq}convdb${assembly.type}.dll"
+            todir="${psp.deploy.bin.dir}"/>
+        <copy overwrite="true"
+            file="q:/cue-components/bt/SharedBin/hpqj2cb${assembly.type}.dll"
+            todir="${psp.deploy.bin.dir}"/>
+        <copy overwrite="true"
+            file="q:/cue-components/bt/SharedBin/hpqz2cb${assembly.type}.dll"
+            todir="${psp.deploy.bin.dir}"/>
+    </ifnot>
+	
+  <!-- Register the hpqimgr2 dll -->
+  <exec program="${system.env.windir}/system32/regsvr32.exe" verbose="true" append="true" failonerror="false">
+    <arg value="/s"/>
+    <arg value="${psp.deploy.bin.dir}/hpqimgr2${assembly.type}.dll"/>
+  </exec>
+   
+    <call target="psp.src.tray.compile"/>
+    <call target="psp.src.tray.deploy"/>
+    <call target="psp.src.tray.share"/>
+
+    <call target="psp.src.projectuiinterfaces.compile"/>
+    <call target="psp.src.projectuiinterfaces.share"/>
+	  
+	<call target="psp.src.projectengineinterfaces.compile"/>
+	<call target="psp.src.projectengineinterfaces.share"/>
+
+	<call target="psp.src.projectengine.compile"/>
+	<call target="psp.src.projectengine.deploy"/>
+	<call target="psp.src.projectengine.share"/>
+
+    <call target="psp.src.projectmanagerbase.compile"/>
+	<call target="psp.src.projectmanagerbase.share"/>
+    <!--
+    <call target="psp.src.albumengineinterfaces.compile"/>
+    <call target="psp.src.albumengineinterfaces.deploy"/>
+    <call target="psp.src.albumengineinterfaces.share"/>
+
+    <call target="psp.src.albumengine.compile"/>
+    <call target="psp.src.albumengine.deploy"/>
+    <call target="psp.src.albumengine.share"/>
+    -->
+ 
+    <!-- btapp solutions  -->
+
+
+    <call target="psp.src.uigfx.compile"/>
+    <call target="psp.src.uigfx.deploy"/>
+    <call target="psp.src.uigfx.share"/>
+
+    <call target="psp.src.cc4.compile"/>
+    <call target="psp.src.cc4.deploy"/>
+    <call target="psp.src.cc4.share"/>
+
+    <call target="psp.src.psapputils.compile"/>
+    <call target="psp.src.psapputils.deploy"/>
+    <call target="psp.src.psapputils.share"/>
+
+    <call target="psp.src.ui.framework.compile"/>
+    <call target="psp.src.ui.framework.deploy"/>
+    <call target="psp.src.ui.framework.share"/>
+    
+    <call target="psp.src.tbutils.compile"/>
+    <call target="psp.src.tbutils.deploy"/>
+    <call target="psp.src.tbutils.share"/>
+
+    <call target="psp.src.vaccumscr.compile"/>
+    <call target="psp.src.vaccumscr.deploy"/>
+    
+    <call target="psp.src.slideshow.compile"/>
+    <call target="psp.src.slideshow.deploy"/>
+    <call target="psp.src.slideshow.share"/>
+    <call target="psp.src.vaccumscr.share"/>
+    
+    <call target="psp.src.edit.compile"/>
+    <call target="psp.src.edit.deploy"/>
+    <call target="psp.src.edit.share"/>
+    
+    <!--
+    <call target="psp.src.shareIMX.compile"/>
+    <call target="psp.src.shareIMX.deploy"/>
+    <call target="psp.src.shareIMX.share"/>
+    -->
+
+
+    <call target="psp.src.creative.interfaces.compile"/>
+    <call target="psp.src.creative.interfaces.deploy"/>
+    <call target="psp.src.creative.interfaces.share"/>
+
+    <call target="psp.src.creative.projects.compile"/>
+    <call target="psp.src.creative.projects.deploy"/>
+    <call target="psp.src.creative.projects.share"/>
+    
+    <call target="psp.src.albumsubsys.compile"/>
+    <call target="psp.src.albumsubsys.deploy"/>
+    <call target="psp.src.albumsubsys.share"/>
+    
+    <call target="psp.src.share.compile"/>
+    <call target="psp.src.share.deploy"/>
+    <call target="psp.src.share.share"/>
+
+    <call target="psp.src.libraryinterfaces.compile"/>
+    <call target="psp.src.libraryinterfaces.share"/>
+
+    <call target="psp.src.importui.compile"/>
+    <call target="psp.src.importui.deploy"/>
+    <call target="psp.src.importui.share"/>
+
+    <call target="psp.src.crmwidget.compile"/>
+    <call target="psp.src.crmwidget.deploy"/>
+    <call target="psp.src.crmwidget.share"/>
+
+    <call target="psp.src.printinterfaces.compile"/>
+    <call target="psp.src.printinterfaces.deploy"/>
+    <call target="psp.src.printinterfaces.share"/>
+    <call target="psp.src.printuiframework.compile"/>
+    <call target="psp.src.printuiframework.deploy"/>
+    <call target="psp.src.printuiframework.share"/>
+    <call target="psp.src.printappscommon.compile"/>
+    <call target="psp.src.printappscommon.deploy"/>
+    <call target="psp.src.printappscommon.share"/>
+    <call target="psp.src.quickprint.compile"/>
+    <call target="psp.src.quickprint.deploy"/>
+    <call target="psp.src.quickprint.share"/>
+    <call target="psp.src.phototemplate.compile"/>
+    <call target="psp.src.phototemplate.deploy"/>
+    <call target="psp.src.phototemplate.share"/>
+
+   <!-- <call target="psp.src.ordmgmt.compile"/>
+    <call target="psp.src.ordmgmt.deploy"/>
+    <call target="psp.src.ordmgmt.share"/> -->
+
+      
+    <call target="psp.src.library.compile"/>
+    <call target="psp.src.library.deploy"/>
+    <call target="psp.src.library.share"/>
+    
+    <call target="psp.src.creative.album.compile"/>
+    <call target="psp.src.creative.album.deploy"/>
+    <call target="psp.src.creative.album.share"/>
+
+    <call target="psp.src.psp-app.compile"/>
+    <call target="psp.src.psp-app.deploy"/>
+    <call target="psp.src.psp-app.share"/>
+
+    <call target="psp.src.photobookengineinterfaces.compile"/>
+    <call target="psp.src.photobookengineinterfaces.share"/>
+
+    <call target="psp.src.photobookengine.compile"/>
+    <call target="psp.src.photobookengine.deploy"/>
+    <call target="psp.src.photobookengine.share"/>
+
+
+	<call target="psp.src.cdlabelinterfaces.compile"/>
+	<call target="psp.src.cdlabelinterfaces.share"/>
+
+	<call target="psp.src.cdlabelprojectmanager.compile"/>
+	<call target="psp.src.cdlabelprojectmanager.deploy"/>
+	<call target="psp.src.cdlabelprojectmanager.share"/>
+
+
+	<!--<call target="psp.src.creative.cdlabel.compile"/>
+    <call target="psp.src.creative.cdlabel.deploy"/> -->
+
+  </target>
+
+  <target name="psp.vendor.src.build.share" description="Share the files built by Trianz">
+    <!-- build the dummy DLL-->
+    <property name="param.solution.dir" value="${source.drive}\btbuild\src\DummyProject" overwrite="true"/>
+    <property name="param.solution.name" value="DummyDllSolution" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <call target="psp.l10n.all"/>
+    <call target="psp.dummy.copy"/>
+    <call target="psp.rebase.dlls"/>
+  </target>
+
+  <target name="psp.dummy.copy">
+    <property name="srcFile" value="${source.drive}/btbuild/src/DummyProject/${solution.config}/${hpq}dummy.dll"
+        overwrite="true"/>
+     <foreach item="Line" in="${source.drive}/btbuild/src/DummyProject/dummy-components.list" property="componentName">
+        <if test="${string::contains(componentName, '#')}">
+            <property name="langComponentName" value="${string::replace(componentName, '#','')}" overwrite="true"/>
+              <foreach item="String" in="en,${l10n.languages.list},ar,he" delim="," property="lang">
+                <copy overwrite="true"
+                 file="${srcFile}"
+                 tofile="${source.drive}/btbuild/src/DummyProject/${solution.config}/${hpq}d_${langComponentName}_${lang}.dll"/>
+              </foreach>
+        </if>
+        <ifnot test="${string::contains(componentName, '#')}">
+            <copy overwrite="true"
+               file="${srcFile}"
+               tofile="${source.drive}/btbuild/src/DummyProject/${solution.config}/${hpq}d_${componentName}.dll"/>
+        </ifnot>
+    </foreach>
+  </target>
+
+    <target name="psp.rebase.dlls">
+      <!--<foreach item="Line" in="${source.drive}/btbuild/src/rebase-dlls.list" property="dllName">  -->
+       <call target="task.qdrive.dlls.rebase"/>
+       <call target="task.sdrive.dlls.rebase"/>
+    <!--  </foreach> -->
+    </target>
+
+    
+  <target name="psp.vendor.bt.src.clean" description=" Share the files built by Trianz">
+
+    <property name="old.buildflag" value="${vsnet.buildflag}" overwrite="true"/>
+    <property name="vsnet.buildflag" value="clean" overwrite="true"/>
+
+    <call target="psp.src.psutils.compile"/>
+    <call target="psp.src.platform.compile"/>
+	  <call target="psp.src.hpdiimagedatabase.compile"/>
+    <call target="psp.src.imgmgr.compile" failonerror="false"/>
+    <call target="psp.src.imgmgrcbk.compile"/>
+    
+    <call target="psp.src.hpdiimagedatabasemd.compile"/>
+    <call target="psp.src.dbconversion.compile"/>
+    <call target="psp.src.fsyswchr.compile"/>
+    
+	<call target="psp.src.tray.compile"/>
+
+    <call target="psp.src.projectuiinterfaces.compile"/>
+    <call target="psp.src.projectengineinterfaces.compile"/>
+    <call target="psp.src.projectengine.compile"/>
+   
+   <call target="psp.src.albumengineinterfaces.compile"/>
+    <call target="psp.src.albumengine.compile"/>
+    <call target="psp.src.photobookengineinterfaces.compile"/>
+    <call target="psp.src.photobookengine.compile"/>
+    <call target="psp.src.projectmanagerbase.compile"/>
+
+    <!-- btapp solutions  -->
+    <call target="psp.src.uigfx.compile"/>
+    <call target="psp.src.cc4.compile"/>
+   <!-- <call target="psp.src.ordmgmt.compile"/> -->
+    <call target="psp.src.slideshow.compile"/>
+    <call target="psp.src.psapputils.compile"/>
+    <call target="psp.src.vaccumscr.compile"/>
+    <call target="psp.src.ui.framework.compile"/>
+    <call target="psp.src.tbutils.compile"/>
+    <call target="psp.src.edit.compile"/>
+    <!--
+    <call target="psp.src.shareIMX.compile"/>
+    -->
+    <call target="psp.src.albumsubsys.compile"/>
+    <call target="psp.src.share.compile"/>
+    <call target="psp.src.libraryinterfaces.compile"/>
+    <call target="psp.src.importui.compile"/>
+    <call target="psp.src.crmwidget.compile"/>
+    <call target="psp.src.printinterfaces.compile"/>
+    <call target="psp.src.printuiframework.compile"/>
+    <call target="psp.src.printappscommon.compile"/>
+    <call target="psp.src.quickprint.compile"/>
+    <call target="psp.src.phototemplate.compile"/>
+    <call target="psp.src.creative.interfaces.compile"/>
+    <call target="psp.src.creative.projects.compile"/>
+    <call target="psp.src.library.compile"/>
+    <call target="psp.src.creative.album.compile"/>
+    <call target="psp.src.psp-app.compile"/>
+    <call target="psp.src.cdlabelinterfaces.compile"/>
+    <call target="psp.src.cdlabelprojectmanager.compile"/>
+   <!-- <call target="psp.src.creative.cdlabel.compile"/> -->
+
+      
+    <delete failonerror="false">
+      <fileset>
+        <include name="s:/btapp/**/BuildLog.htm"/>
+      </fileset>
+    </delete>
+    <delete failonerror="false">
+      <fileset>
+        <include name="s:/bttaj/**/BuildLog.htm"/>
+      </fileset>
+    </delete>
+    
+    <!-- clean build log folder and the deployment folder -->
+    <delete dir="${build.output.log.dir}" failonerror="false"/>
+    <delete dir="${psp.deploy.dir}" failonerror="false"/>
+
+
+    <property name="vsnet.buildflag" value="${old.buildflag}" overwrite="true"/>
+  </target>
+  <target name="psp.vendor.taj.src.build.compile" description=" Build the Taj components owned by Trianz">
+    
+    <mkdir dir="${source.drive}/btapp/!BuildLogs" failonerror="false"/>
+    
+    <!-- build the dummy DLL-->
+    <property name="param.solution.dir" value="${source.drive}/btbuild/src/DummyProject" overwrite="true"/>
+    <property name="param.solution.name" value="DummyDllSolution" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+    <call target="psp.dummy.copy"/>
+    
+    <property name="testharness.buildflag" value="true" overwrite="true"/>
+
+    <call target="psp.src.psutils.compile"/>
+    <call target="psp.src.psutils.deploy"/>
+    <call target="psp.src.psutils.share"/>
+    <if test="${testharness.buildflag}">
+        <call target="psp.src.test.psutils.compile"/>
+    </if>
+
+    <call target="psp.src.platform.compile"/>
+    <call target="psp.src.platform.deploy"/>
+    <call target="psp.src.platform.share"/>
+    <if test="${testharness.buildflag}">
+        <call target="psp.src.test.platform.compile"/>
+    </if>
+ 
+    <call target="psp.src.imgmgr.compile"/>
+    <call target="psp.src.imgmgr.deploy"/>
+    <call target="psp.src.imgmgr.share"/>
+	
+    <call target="psp.src.imgmgrcbk.compile"/>
+    <call target="psp.src.imgmgrcbk.deploy"/>
+    <call target="psp.src.imgmgrcbk.share"/>
+
+    <if test="${testharness.buildflag}">
+        <call target="psp.src.test.imgmgr.compile"/>
+    </if>
+    
+    <call target="psp.src.fsyswchr.compile"/>
+    <call target="psp.src.fsyswchr.deploy"/>
+    <call target="psp.src.fsyswchr.share"/>
+    <if test="${testharness.buildflag}">
+        <call target="psp.src.test.fsyswchr.compile"/>
+    </if>
+
+    <call target="psp.src.tray.compile"/>
+    <call target="psp.src.tray.deploy"/>
+    <call target="psp.src.tray.share"/>
+    <if test="${testharness.buildflag}">
+        <call target="psp.src.test.tray.compile"/>
+    </if>
+    
+    <call target="psp.src.projectuiinterfaces.compile"/>
+    <call target="psp.src.projectuiinterfaces.share"/>
+
+    <call target="psp.src.projectengineinterfaces.compile"/>
+    <call target="psp.src.projectengineinterfaces.share"/>
+
+    <call target="psp.src.projectengine.compile"/>
+    <call target="psp.src.projectengine.deploy"/>
+    <call target="psp.src.projectengine.share"/>
+    
+	<call target="psp.src.projectmanagerbase.compile"/>
+	<call target="psp.src.projectmanagerbase.share"/>
+    <call target="psp.src.genericproject.compile"/>
+    <call target="psp.src.genericproject.deploy"/>
+    <call target="psp.src.genericproject.share"/>
+
+    <if test="${testharness.buildflag}">
+        <call target="psp.src.test.projectengine.compile"/>
+    </if>
+
+  </target>
+</project>

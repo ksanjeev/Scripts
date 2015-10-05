@@ -1,0 +1,427 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+<title>常见问题：Dell OpenManage 5.0 版安装和安全性用户指南</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">返回目录页</a> </p>
+<a name="1055187"></a><h1> 常见问题 </h1>
+<p class="title">Dell OpenManage&#8482; 5.0 版安装和安全性用户指南</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1055411">常规
+</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1055947">Microsoft&#174; Windows&#174;
+</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1055753">Red Hat&#174; Enterprise Linux 或 SUSE&#174; Linux Enterprise Server</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1055411"></a><h2>常规</h2>
+
+
+<a name="1055979"></a><p><b><i>Dell&#8482; PowerEdge&#8482; Installation and Server Management </i></b><b>CD 是否是一个可引导的 CD？</b></p>
+<a name="1055194"></a><p>是，该 CD 可引导。 默认情况下，将会引导到 Dell OpenManage&#8482; Server Assistant 操作系统安装模式。 安装 Managed System Software 后，如果以前装有操作系统，您将可以选择从操作系统引导。 建议弹出 CD 以避免引导到 Server Assistant 安装模式。</p>
+<a name="1055197"></a><p><b>在哪里可以找到快速安装说明？</b></p>
+<a name="1055199"></a><p>随 CD 套件附带的<i>快速安装指南</i>小册子。 另外，也可以在 Dell 支持网站 <b>support.dell.com</b> 上和 <i>Dell&#160;PowerEdge Installation and Server Management </i>CD 的以下位置找到该指南：</p>
+<a name="1055200"></a><p><b>\srvadmin\docs\language\OpenManage_QIG\QUICK_INSTALL_GUIDE.htm</b></p>
+<a name="1055202"></a><p>其中 语言 是适合您的语言目录。</p>
+<a name="1055458"></a><p><b>如何安装只具有 CLI 功能的 Dell OpenManage Server Administrator？</b></p>
+<a name="1055455"></a><p>通过选择不安装 Server Administrator Web Server，将只得到 CLI 功能。</p>
+<a name="1055540"></a><p><b>Dell OpenManage 应用程序使用哪些端口？</b></p>
+<a name="1055543"></a><p>Server Administrator 使用的默认端口是 1311。 Dell OpenManage IT Assistant 使用的默认端口有 2606（用于连接服务）和 2607（用于网络监测服务）。 这些端口均可以配置。 请参阅本指南中的<a href="security.htm#1064529">表&#160;2-1</a> 了解更多详情。</p>
+<hr noshade size="1">
+<a name="1055947"></a><h2>Microsoft&#174; Windows&#174;</h2>
+
+
+<a name="1068853"></a><p><b>安装的 Server Administrator 存在问题如何解决？</b></p>
+<a name="1068854"></a><p>可以通过强制重新安装然后再卸载 Server Administrator 解决这一问题。强制重新安装：</p>
+<ul><li><a name="1068855"></a>确定以前安装的 Server Administrator 的版本。</li>
+<li><a name="1068856"></a>从 Dell 支持网站 <b>support.dell.com</b> 上下载该版本的安装软件包。</li>
+<li><a name="1068857"></a>从 <b>srvadmin\windows\SystemsManagement </b>目录中找到 <b>SysMgmt.msi</b>，然后在命令提示符下输入以下命令，以强制重新安装。</li>
+</ul><a name="1068858"></a>
+<p class="screenindent">msiexec /i SysMgmt.msi REINSTALL=ALL REINSTALLMODE=vomus</p>
+<ul><li><a name="1068859"></a>选择<b>“Custom Setup”（自定义设置）</b>，然后选择最初安装的所有功能。如果不清楚安装了哪些功能，请选择所有功能并执行安装。</li>
+</ul><a name="1068864"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>如果原来的 Server Administrator 安装在非默认目录中，请确保在<b>“Custom 
+Setup”（自定义设置）</b>中更改目录。</td>
+  </tr>
+</table>
+<a name="1056113"></a><p>安装应用程序后，即可从<b>“Add/Remove Programs”（添加/删除程序）</b>中卸载它。</p>
+<a name="1067948"></a><p><b>如何执行无提示（无人值守）升级，从 Dell OpenManage 4.</b><i>x</i><b>（其中</b><i> x </i><b>&gt;=3) 升级到 Dell&#160;OpenManage 5.0？</b></p>
+<a name="1067950"></a><p>对于 Management Station，请使用以命令：</p>
+<a name="1068303"></a>
+<p class="screenindent">msiexec /i MgmtSt.msi/qn (for fresh installs or major upgrades. For example, upgrading 
+from Dell OpenManage version 4.3 to version 5.0.)
+</p>
+<a name="1068304"></a>
+<p class="screenindent">msiexec /i MgmtSt.msi REINSTALL=ALL REINSTALLMODE=vomus /qn (for minor 
+upgrades. For example, upgrading from Dell OpenManage version 4.3 to version 4.4.)
+</p>
+<a name="1068305"></a><p>对于管理系统，请使用以下命令：</p>
+<a name="1067974"></a>
+<p class="screenindent">msiexec <span class="screen">/i SysMgmt.msi/qn </span>(for fresh installs or major upgrades. For example, upgrading 
+from Dell OpenManage version 4.3 to version 5.0.)</p>
+<a name="1068332"></a>
+<p class="screenindent">msiexec /i SysMgmt.msi REINSTALL=ALL REINSTALLMODE=vomus /qn (for minor 
+upgrades. For example, upgrading from Dell OpenManage version 4.3 to version 4.4.)
+</p><a name="1056881"></a><p><b>如何防止系统在无提示（无人值守）安装/卸载后重新引导？</b></p>
+<a name="1056882"></a><p>使用可选命令行开关：</p>
+<a name="1056883"></a>
+<p class="screenindent">	 <span class="screen">Reboot=ReallySuppress</span></p>
+<a name="1056884"></a><p>此处是用于管理站的示例：</p>
+<a name="1056885"></a>
+<p class="screenindent">msiexec /i SysMgmt.msi /qb Reboot=ReallySuppress<b></b>
+</p>
+<a name="1056863"></a><p><b>什么是 MSP Service Pack 文件？ </b><b>是否应该使用该 MSP 文件升级 Dell OpenManage 4.3 版本？</b></p>
+<a name="1067301"></a><p>Microsoft Service Pack (MSP) 文件只存储旧版本与新版本之间的差别。在大小上比升级文件要小得多。 既可以使用 MSP 文件也可以使用新的 MSI 文件来升级 Dell OpenManage 4.3。 使用 MSP 文件是不错的选择，因为效率更高。 </p>
+<a name="1067335"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>只能通过完全 MSI 安装从 Dell OpenManage 软件 4.3 版本升级到 5.0 版。不能使用 MSP service pack 文件升级。</td>
+  </tr>
+</table><a name="1056806"></a><p><b>在哪里可以找到 MSI 日志文件？ </b></p>
+<a name="1056807"></a><p>默认情况下，MSI 日志文件存储在 <b>%TEMP%</b> 环境变量定义的路径中。</p>
+<a name="1056823"></a><p><b>我从 Dell 支持站点下载了用于 Windows 的 Server Administrator 文件并将其复制到自己的 CD 上。</b><b>当尝试启动 SysMgmt.msi 文件时出现失败。 </b><b>哪里有问题？</b></p>
+<a name="1056114"></a><p>如果 MSI 文件没有位于 CD 的根目录，则 MSI 要求所有的安装程序指定 <b>MEDIAPACKAGEPATH</b> 属性。 </p>
+<a name="1056111"></a><p>对于 Managed System Software MSI 软件包，此属性设置为 <b>\srvadmin\windows\SystemsManagement</b>。 如果决定制作自己的 CD，则必须确保 CD 布局保持一致。 <b>SysMgmt.msi</b> 文件必须位于 CD 的 <b>\srvadmin\windows\SystemsManagement</b> 目录。 有关详细信息，请转到 <b>http://msdn.microsoft.com</b>，并搜索：MEDIAPACKAGEPATH Property。</p>
+<a name="1056580"></a><p><b>不卸载并丢失 Managed System Software 设置，无法从 Dell OpenManage 4.2 升级到最新版本的 Dell OpenManage。 </b><b>是否有方法升级到最新版本而同时保持 Managed System Software 设置？</b></p>
+<a name="1056124"></a><p>是，但是必须先从 Dell OpenManage 版本 4.2 升级到 4.3，然后才能升级到更新版本的 Dell OpenManage。 如果正在使用 Windows Server&#8482; 2003，则在完成 Dell OpenManage 升级前不要应用 Service Pack 1。</p>
+<a name="1055984"></a><p><b>如何使用 <b><i>Installation and Server Management</i></b><b> CD</b> 执行无人值守的操作系统安装？</b></p>
+<a name="1055962"></a><p>可以在多个系统上使用相同的设置安装 Windows 操作系统，从而在所有系统上保证一致的配置。 要使用此功能，需要在目标 Dell PowerEdge 系统上进行相同的配置，使之具有相同的硬件和操作系统组件。配置上的任何不一致都会使复制功能不可使用。</p>
+<a name="1056024"></a><p>要执行无人值守安装，应执行以下操作：</p>
+<ol type="1">
+
+<li value="1"><a name="1056012"></a>在设置的第一个系统上，应确保系统的 BIOS 设置为从 CD 引导。 插入 <i>Dell PowerEdge Installation and Server Management </i>CD 并重新引导系统。 遵照安装提示进行，包括设置日期和时间、配置 RAID 控制器、选择操作系统并指定其设置、配置硬盘驱动器、输入网络设置和配置 Windows。 如果省略了任何信息，无人值守安装仍会完成，不过系统将会提示输入丢失的信息。
+
+<br><br>
+<li value="2"><a name="1056015"></a>在<b>“Installation Summary”（安装摘要）</b>窗口中，选择<b>“Save Unattended Installation Script at 
+C:\unattended.txt, C:\txtsetup.oem”（将无人值守安装脚本保存在 C:\unattended.txt、C:\txtsetup.oem）</b>，并选择<b>“Save Profile for Replication at C:\replication”（将复制配置文件保存在 C:\replication）。</b>单击<b>“Continue”（继续）</b>按钮。
+
+<br><br>
+<li value="3"><a name="1056121"></a>插入相应的操作系统 CD 并按照说明完成安装。 
+重新引导系统以完成安装。
+
+<br><br>
+<li value="4"><a name="1056067"></a>在第一个服务器上完成安装后，将文件从 <b>C:\replication</b> 目录复制到软盘上。
+
+<br><br>
+<li value="5"><a name="1056076"></a>对于随后的每个无人值守安装，将包含复制文件的磁盘插入软盘驱动器并引导系统。 安装提示将自动完成。 接着，插入操作系统 CD 安装操作系统，然后重新引导系统完成安装。
+<br><br>
+</ol>
+<a name="1056585"></a><p><b>使用前提条件检查程序信息的最佳方式是什么？ </b></p>
+<a name="1055466"></a><p>前提条件检查程序可用于 Windows。 请参阅 <i>Dell PowerEdge Installation and Server Management </i>CD 上的自述文件 <b>\srvadmin\windows\PreReqChecker\readme.txt</b> 了解有关如何使用前提条件检查程序的详细信息。</p>
+<a name="1056998"></a><p><b>在前提条件检查程序屏幕中，得到信息“An error occurred while attempting to execute a Visual Basic Script. </b><b>Please confirm that Visual Basic files are installed correctly.”（尝试执行 Visual Basic 脚本时出现错误。请确认 Visual Basic 文件安装正确。）</b> <b>应该采取什么措施来解决此问题？</b></p>
+<a name="1057023"></a><p>当前提条件检查程序调用 Dell OpenManage 脚本 <b>vbstest.vbs</b>（visual basic 脚本）验证安装环境时出现此错误，并且脚本失败。 </p>
+<a name="1057095"></a><p>可能的原因有： </p>
+<ul><li><a name="1057102"></a>错误的 Internet Explorer 安全设置。<br><br></li>
+</ul><a name="1057031"></a><p class="indent">确保<b>“Tools”（工具）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> </b><b>“Internet Options”（Internet 选项）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> </b><b>“Security”（安全）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> </b><b>“Custom Level”（自定义级别）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> </b><b>“Scripting”（脚本）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> </b><b>“Active Scripting”（活动脚本）</b>设置为<b>“Enable”（启用）</b></p>
+<a name="1057033"></a><p class="indent">确保<b>“Tools”（工具）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> </b><b>“Internet Options”（Internet 选项）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> </b><b>“Security”（安全）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> </b><b>“Custom Level”（自定义级别）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> </b><b>“Scripting”（脚本）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> </b><b>“Scripting of Java Applets”（Java 小程序脚本）</b>设置为<b>“Enable”（启用）。</b></p>
+<ul><li><a name="1057328"></a>Windows Scripting Host (WSH) 已禁用 VBS 脚本的运行。 默认情况下，WSH 在操作系统安装期间安装。 可以将 WSH 配置为阻止具有 <b>.VBS</b> 扩展名的脚本运行。<br><br> </li>
+  <ol type="a">
+
+<li value="5"><a name="1057344"></a>右击桌面上的<b>“My Computer”（我的电脑）</b>并单击<b>“Open”（打开）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> </b><b>“Tools”（工具）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> </b><b>“Folder Options”（文件夹选项）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> 
+</b><b>“File Types”（文件类型）</b>。
+
+<br><br>
+ <li value="6"><a name="1057354"></a>寻找 <b>VBS</b> 文件扩展名并确保<b>“File Types”（文件类型）</b>设置为<b>“VBScript Script File”（VBScript 脚本文件）</b>。
+
+<br><br>
+ <li value="7"><a name="1057355"></a>如果没有，则单击<b>“Change”（更改）</b>并选择 <b>Microsoft Windows Based Script Host</b> 作为进行调用以运行脚本的应用程序。  
+<br><br>
+</ol>
+<li><a name="1057047"></a>WSH 是错误的版本，已损坏或未安装。 默认情况下，WSH 在操作系统安装期间安装。 转至以下位置下载最新的 WSH：<b>http://msdn.microsoft.com/downloads/list/webdev.asp</b><br><br></li>
+</ul><a name="1057396"></a><p><b>我可以不运行前提条件检查程序启动安装吗？ </b><b>如何做到？</b></p>
+<a name="1055988"></a><p>是，可以。 可以从 <b>\Windows\SystemsManagement</b> 文件夹直接运行 MSI。 一般来说，跳过前提条件检查信息不是个好主意，因为可能会有您并不知道的重要信息。</p>
+<a name="1056223"></a><p><b>如何得知系统上所装 Systems Management Software 的版本？</b></p>
+<a name="1056232"></a><p>转至<b>“Start”（开始）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span> <b>“Settings”（设置）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span> <b>“Control Panel”（控制面板）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span> <b>“Add/Remove programs”（添加/删除程序）</b>，并选择<b>“Dell OpenManage Server Administrator”</b>。选择<b> </b><b>“support information”</b><b>（支持信息）</b>链接。</p>
+<a name="1056178"></a><p><b>Windows 下所有 Dell OpenManage 功能的名称是什么？</b></p>
+<a name="1055773"></a><p>下表列出了所有 Dell OpenManage 功能的名称以及在 Windows 中的相应名称。</p>
+<a name="1055912"></a>
+<p><p class="FigureTableTitle"><a name="1058070"></a>表 10-1.  Windows 下的 Dell OpenManage 功能&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1055848"> </a>
+<p><b>功能</b></p>
+
+
+</th><th valign="top" align="left"><a name="1055850"> </a>
+<p><b>Windows 中的名称</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1055853"></a><b>Managed System Services</b></p></td><td valign="top" align="left"><p><a name="1055855"></a>&#160;</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1055857"></a>Server Administrator Instrumentation Service</p></td><td valign="top" align="left"><p><a name="1067392"></a>DSM SA 数据管理器</p><p><a name="1055860"></a>DSM SA 事件管理器</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1056911"></a>Server Administrator</p></td><td valign="top" align="left"><p><a name="1055864"></a>DSM SA 连接服务</p><p><a name="1055865"></a>DSM SA 共享服务</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1055872"></a>Server Administrator Storage Management Service</p></td><td valign="top" align="left"><p><a name="1055874"></a>Mr2kserv</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1055876"></a>Remote Access Controller Console (DRAC III)</p></td><td valign="top" align="left"><p><a name="1055878"></a>Remote Access Controller (RAC) Service</p><p><a name="1055879"></a>RAC Win VNC</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1055881"></a>Remote Access Controller Console (DRAC 4)</p></td><td valign="top" align="left"><p><a name="1055883"></a>Remote Access Controller 4 (DRAC 4)</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1055886"></a><b>Management Station Services</b></p></td><td valign="top" align="left"><p><a name="1055888"></a>&#160;</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1055890"></a>IT Assistant</p></td><td valign="top" align="left"><p><a name="1055892"></a>IT Assistant 网络监测服务</p><p><a name="1055893"></a>IT Assistant 连接服务</p><p><a name="1055894"></a>ITA OM Common 服务</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1055896"></a>底板管理控制器 (BMC)</p></td><td valign="top" align="left"><p><a name="1055898"></a>DSM BMU SOL 代理</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><hr noshade size="1">
+<a name="1055753"></a><h2>Red Hat&#174; Enterprise Linux 或 SUSE&#174; Linux Enterprise Server</h2>
+
+
+<a name="1056253"></a><p><b>如何使用 <b><i>Installation and Server Management</i> CD</b> <b>执行无人值守的操作系统安装？</b></b></p>
+<a name="1056239"></a><p>可以使用相同的设置在多个系统上安装 Red Hat Enterprise Linux 或 SUSE Linux Enterprise Server 操作系统，这称为 kickstart，从而保证在所有系统上保持一致的配置。要使用此功能，PowerEdge 系统的配置必须完全相同，安装有相同的硬件和操作系统。配置上的任何不一致都会使复制功能不可使用。</p>
+<a name="1056240"></a><p>要执行无人值守安装，应执行以下操作：</p>
+<ol type="1">
+
+<li value="1"><a name="1056241"></a>在设置的第一个服务器上，应确保服务器的 BIOS 设置为从 CD 引导。 插入 <i>Installation and Server Management </i>CD 并重新引导服务器。 按照安装提示进行操作，包括设置日期和时间、配置 RAID 控制器、选择操作系统并指定其设置、配置硬盘驱动器、输入网络设置和配置 Red Hat Enterprise Linux 或 SUSE Linux Enterprise Server。如果省略了任何信息，无人值守安装仍会完成，不过系统将会提示输入丢失的信息。
+
+<br><br>
+<li value="2"><a name="1056242"></a>在<b>“Installation Summary”（安装摘要）</b>窗口，选择<b>“Save Unattended Installation Script at 
+/root/install-ks.cfg”（将无人值守安装脚本保存在 /root/install-ks.cfg）</b>并选择<b>“Save Profile for Replication at /root/replication”（将复制配置文件保存在 /root/replication）</b>。 单击<b>“Continue”（继续）</b>按钮。
+
+<br><br>
+<li value="3"><a name="1056243"></a>插入 Red Hat Enterprise Linux 或 SUSE Linux Enterprise Server 安装 CD，按照说明完成安装。重新引导系统以完成安装。
+
+<br><br>
+<li value="4"><a name="1056244"></a>在第一个系统上完成安装后，将文件从 <b>/root/replication</b> 目录复制到软盘上。
+
+<br><br>
+<li value="5"><a name="1056245"></a>对于随后的每个无人值守安装，将包含复制文件的磁盘插入软盘驱动器并引导系统。 安装提示将自动完成。 接着，插入 Red Hat Enterprise Linux 或 SUSE Linux Enterprise Server 安装 CD 安装操作系统，然后重新引导系统完成安装。</ol>
+<a name="1063435"></a><p><b>手动安装 Red Hat Enterprise Linux 4 - x86_64 或 SUSE Linux Enterprise Server 9 x86_64 操作系统过程中，在尝试安装 Server Administrator 时出现 RPM 相关性提示。</b><b>能够在哪里找到这些相关 RPM 文件？</b></p>
+<a name="1055213"></a><p>对于 Red Hat Enterprise Linux，相关 RPM 文件位于 Red Hat Enterprise Linux 安装 CD 内。为了方便起见，这些文件位于对应某个所支持的 Red Hat Enterprise Linux 操作系统的目录中：</p>
+<a name="1055214"></a><p><b>/srvadmin/linux/RPMS/RH3_i386</b></p>
+<a name="1055215"></a><p><b>	 /srvadmin/linux/RPMS/RH3_x86_64</b></p>
+<a name="1055216"></a><p><b>	 /srvadmin/linux/RPMS/RH4_i386</b></p>
+<a name="1055217"></a><p><b>/srvadmin/linux/RPMS/RH4_x86_64</b></p>
+<a name="1063441"></a><p>对于 SUSE Linux Enterprise Server，相关 RPM 文件位于以下目录中：</p>
+<a name="1063439"></a><p><b>/srvadmin/linux/RPMS/SUSE9_x86_64</b></p>
+<a name="1055218"></a><p>例如，在 <b>RH4_x86_64</b> 子目录中，执行以下命令安装或更新所有相关的 RPM 文件：</p>
+<a name="1055219"></a>
+<p class="screenindent">	 rpm –Uvh /srvadmin/linux/RPMS/RH4_x86_64
+</p>
+<a name="1055220"></a><p>接着可以继续 Server Administrator 安装。</p>
+<a name="1055235"></a><p><b>为什么在安装期间得到一条关于 RPM 软件包密钥的警告？</b></p>
+<a name="1055236"></a><p>RPM 文件使用数字签名进行了签名。 要避免此警告，应安装 CD 或软件包，并使用如下的命令导入密钥： </p>
+<a name="1055237"></a>
+<p class="screenindent">	 rpm --import /mnt/cdrom/srvadmin/linux/RPM-GPG-KEY
+</p>
+<a name="1056279"></a><p><b>为什么在 Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 中前提条件检查程序不可用？</b></p>
+<a name="1056277"></a><p>前提条件检查程序构建在 <b>omilcore</b> RPM 软件包中。 检查程序组合使用了 RPM 相关性检查和 Dell 硬件检查。</p>
+<a name="1069496"></a><p><b>在 Red Hat Enterprise Linux 或 SUSE Linux Enterprise Server 中，所有 Dell OpenManage 功能的名称是什么？</b></p>
+<a name="1069497"></a><p>下表列出了在 Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 操作系统中所有 Dell OpenManage 功能的名称及其相应的初始化脚本名称 ：</p>
+<a name="1067855"></a>
+<p><p class="FigureTableTitle"><a name="1067771"></a>表 10-2.  Red Hat Enterprise Linux<br>和 SUSE Linux Enterprise Server 中的 Dell OpenManage 功能</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1067778"> </a>
+<p><b>功能</b></p>
+
+
+</th><th valign="top" align="left"><a name="1067780"> </a>
+<p><b>Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 中的名称</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1067782"></a><b>Managed System 服务功能</b></p></td><td valign="top" align="left"><p><a name="1067784"></a>功能初始化脚本名称</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067789"></a>DSM SA 设备驱动程序</p><p><a name="1070446"></a>DSM SA Data Engine Service</p></td><td valign="top" align="left"><p><a name="1067792"></a>instsvcdrv</p><p><a name="1067793"></a>dataeng</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067796"></a>DSM SA 共享服务</p><p><a name="1067797"></a>DSM SA 连接服务</p></td><td valign="top" align="left"><p><a name="1067799"></a>dsm_om_shrsvc</p><p><a name="1067800"></a>dsm_om_connsvc</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067803"></a>DSM SM LSI 管理器</p></td><td valign="top" align="left"><p><a name="1067805"></a>mptctl</p></td></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1067809"></a>Remote Access Controller (DRAC III)</p></td></tr>
+<tr><td valign="top" align="left"><p class="tableindent"><a name="1067813"></a>RAC3 事件服务</p></td><td valign="top" align="left"><p><a name="1067815"></a>racsrvc</p></td></tr>
+<tr><td valign="top" align="left"><p class="tableindent"><a name="1067818"></a>RAC3 ppp Daemon</p></td><td valign="top" align="left"><p><a name="1067820"></a>racser</p></td></tr>
+<tr><td valign="top" align="left"><p class="tableindent"><a name="1067823"></a>RAC3 VNC X Server</p></td><td valign="top" align="left"><p><a name="1067825"></a>racvnc</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067828"></a>Remote Access Controller (DRAC 4)</p></td><td valign="top" align="left"><p><a name="1067832"></a>racsvc</p></td></tr>
+<tr><td valign="top" align="left">Remote Access Controller (DRAC 5)</td><td valign="top" align="left">
+	无</td></tr>
+<tr><td valign="top" align="left"><p><a name="1067834"></a><b>Management Station Services</b></p></td><td valign="top" align="left"><p><a name="1067836"></a>功能初始化脚本名称</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067842"></a>底板管理控制器 (BMC)</p></td><td valign="top" align="left"><p><a name="1067845"></a>dsm_bmu_sol_proxy</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067847"></a><b>非 Dell OpenManage 功能</b></p></td><td valign="top" align="left"><p><a name="1067849"></a>功能初始化脚本名称</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067851"></a>OpenIPMI</p></td><td valign="top" align="left"><p><a name="1067895"></a>ipmi（如果不存在，则为 dsm_sa_ipmi）</p></td></tr>
+
+</table>
+
+
+
+
+
+	  </p><a name="1069152"></a><p><b>srvadmin/linux/custom 下的目录包含哪些内容？</b></p>
+<a name="1063731"></a><p>下表列出了 <b>srvadmin/linux/custom</b> 目录中目录的名称。</p>
+<a name="1066652"></a>
+<p><p class="FigureTableTitle"><a name="1066388"></a>表 10-3.  srvadmin/linux/custom 目录下目录的名称</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1066394"> </a>
+<p><b>RPM 名称</b></p>
+
+
+</th><th valign="top" align="left"><a name="1066396"> </a>
+<p><b>说明</b></p>
+
+
+</th><th valign="top" align="left"><a name="1066398"> </a>
+<p><b><b>需要的其它 Server Administrator RPM</b></b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1070109"></a><b>srvadmin-base — </b>这是 Server Administrator 的核心代码。它提供主板警报并包含用于监测和控制 Server Administrator 的 CLI，例如，<span class="screen">omconfig</span>、<span class="screen">omdiag、</span> 和 <span class="screen">omreport</span>。所有外围设备软件包（除独立 DRAC 支持之外）均要求安装此目录中的全部或大多数 RPM。</p><a name="1070052"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>可能需要安装 IPMI 驱动程序才能正常工作。</td>
+  </tr>
+</table></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066406"></a>instsvc-drivers</p></td><td valign="top" align="left"><p><a name="1066408"></a>Server Administrator Device Drivers — 系统管理软件包 <b>srvadmin-hapi</b> 现在提供设备驱程序和程序库。传统 Server Administrator 应用程序需要此 RPM。</p></td><td valign="top" align="left"><p><a name="1066410"></a>NA</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066412"></a>srvadmin-cm</p></td><td valign="top" align="left"><p><a name="1066414"></a>Server Administrator Inventory Collector — Systems Management 更改管理资源清册收集程序。</p></td><td valign="top" align="left"><p><a name="1066416"></a>srvadmin-omilcore、srvadmin-deng 和 srvadmin-omacore。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066418"></a>srvadmin-deng</p></td><td valign="top" align="left"><p><a name="1066420"></a>Server Administrator Data Engine — Systems Management 为系统管理软件提供数据管理框架。</p></td><td valign="top" align="left"><p><a name="1066422"></a>srvadmin-omilcore</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066424"></a>srvadmin-hapi</p></td><td valign="top" align="left"><p><a name="1066426"></a>Server Administrator Hardware Application Programming Interface — 此系统管理软件包提供系统管理软件访问支持的系统上硬件信息所需的设备驱动程序和程序库。</p></td><td valign="top" align="left"><p><a name="1066428"></a>srvadmin-omilcore 和 srvadmin-ipmi</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066430"></a>srvadmin-isvc</p></td><td valign="top" align="left"><p><a name="1066432"></a>Server Administrator Instrumentation Service — Server Administrator 提供一组用于保持网络上支持的系统正常运行的系统管理信息。Server Administrator Instrumentation Service 向管理应用程序提供故障管理信息、故障前兆信息以及资产和资源清册信息。Instrumentation Service 监测系统的运行状况，并支持快速访问支持的系统上硬件的详细故障和性能信息。Instrumentation Service 要求安装系统管理设备驱动程序。</p></td><td valign="top" align="left"><p><a name="1066434"></a> srvadmin-omilcore、srvadmin-deng 和 srvadmin-hapi</p><p><a name="1066435"></a></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066437"></a>srvadmin-jre</p></td><td valign="top" align="left"><p><a name="1066439"></a>Server Administrator Sun Java Runtime Environment — Systems Management 管理型节点 Java runtime。</p></td><td valign="top" align="left"><p><a name="1066441"></a>srvadmin-omilcore、srvadmin-deng 和 srvadmin-omacore</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066444"></a>srvadmin-odf</p></td><td valign="top" align="left"><p><a name="1066446"></a>Server Administrator Online Diagnostic Common Components — Systems Management 联机诊断程序框架。</p></td><td valign="top" align="left"><p><a name="1066448"></a>srvadmin-omilcore、srvadmin-deng 和 srvadmin-omacore</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066450"></a>srvadmin-omacore</p></td><td valign="top" align="left"><p><a name="1066452"></a>Server Administrator — Systems Management 管理型节点核心和 CLI. </p></td><td valign="top" align="left"><p><a name="1066454"></a>srvadmin-omilcore 和 srvadmin-deng</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066456"></a>srvadmin-omhip</p></td><td valign="top" align="left"><p><a name="1066458"></a>Server Administrator Instrumentation Service Integration Layer — 提供 Instrumentation CLI. </p></td><td valign="top" align="left"><p><a name="1066460"></a>srvadmin-omilcore、srvadmin-deng、srvadmin-hapi、srvadmin-isvc 和 srvadmin-omacore</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066462"></a>srvadmin-omilcore</p></td><td valign="top" align="left"><p><a name="1066464"></a>Server Administrator Install Core — 这是核心安装软件包，它提供其余的 Systems Management 安装软件包。所有 Server Administrator RPM 均需要此 RPM。</p></td><td valign="top" align="left"><p><a name="1066466"></a>&#160;</p></td></tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1066468"></a><b>add-diagnostics — 联机诊断程序软件</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066474"></a>srvadmin-old</p></td><td valign="top" align="left"><p><a name="1066476"></a>Server Administrator Diagnostic Service — 向 Server Administrator 提供联机诊断程序组件。</p></td><td valign="top" align="left"><p><a name="1066478"></a>srvadmin-omilcore、srvadmin-deng、srvadmin-omacore、srvadmin-odf 和 srvadmin-jre</p></td></tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1066481"></a><b>add-RAC3 — 第三代 Remote Access Controller 远程管理软件。<br></b><b>例如：DRAC III。</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066487"></a>srvadmin-rac3-components</p></td><td valign="top" align="left"><p><a name="1066489"></a>Remote Access Card Data Populator Remote Access Controller 组件。</p></td><td valign="top" align="left"><p><a name="1066491"></a>srvadmin-omilcore、srvadmin-deng、srvadmin-hapi 和 srvadmin-racser</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066494"></a>srvadmin-racdrsc3</p></td><td valign="top" align="left"><p><a name="1066496"></a>DRAC III Integration Layer — Server Administrator 远程访问 CLI 和 Web 插件。</p></td><td valign="top" align="left"><p><a name="1066498"></a>srvadmin-omilcore、srvadmin-deng、srvadmin-omacore 和 srvadmin-rac3 components</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066500"></a>srvadmin-racser</p></td><td valign="top" align="left"><p><a name="1066502"></a>Remote Access Card Managed Node — Remote Access Controller (RAC) 服务，用于服务器群集的中央管理和分布式资源的远程管理。</p></td><td valign="top" align="left"><p><a name="1066504"></a>srvadmin-omilcore</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066506"></a>srvadmin-racser-devel</p></td><td valign="top" align="left"><p><a name="1066508"></a>Remote Access Card Tools — 与 RAC 板接口所必需的工具和程序库。这包括管理型节点服务器守护程序、名为 racadm 的 CLI 工具和这些组件所需的共享程序库。</p></td><td valign="top" align="left"><p><a name="1066510"></a>srvadmin-omilcore 和 srvadmin-racser</p><p><a name="1066511"></a></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066513"></a>srvadmin-racvnc</p></td><td valign="top" align="left"><p><a name="1066515"></a>RAC VNC Remote Service 和 Remote Services Server Agent。</p></td><td valign="top" align="left"><p><a name="1066517"></a>srvadmin-omilcore 和 srvadmin-racser</p></td></tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1066519"></a><b>add-RAC4 — 第四代 Remote Access Controller 远程管理软件。</b><b>例如：DRAC 4。</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066525"></a>srvadmin-rac4-components </p></td><td valign="top" align="left"><p><a name="1066527"></a>Remote Access Card Data Populator — Remote Access Controller 组件。</p></td><td valign="top" align="left"><p><a name="1066529"></a>srvadmin-omilcore、srvadmin-deng、srvadmin-hapi 和 srvadmin-racsvc</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066531"></a>srvadmin-racadm4</p></td><td valign="top" align="left"><p><a name="1066533"></a>RAC Command Interface — Remote Access Controller (RAC) 命令行用户界面。</p></td><td valign="top" align="left"><p><a name="1066535"></a>srvadmin-omilcore</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066537"></a>srvadmin-racdrsc4</p></td><td valign="top" align="left"><p><a name="1066539"></a>DRAC 4 Integration Layer — Server Administrator  远程访问 CLI 和 Web 插件</p></td><td valign="top" align="left"><p><a name="1066541"></a>srvadmin-omilcore、srvadmin-deng、srvadmin-rac4 components 和 srvadmin-omacore</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066543"></a>srvadmin-racsvc</p></td><td valign="top" align="left"><p><a name="1066545"></a>Remote Access Card Managed Node — Remote Access Controller (RAC) 服务，用于支持服务群集的中央管理和分布式资源的远程管理。</p></td><td valign="top" align="left"><p><a name="1066547"></a>srvadmin-omilcore</p><p><a name="1066548"></a></p></td></tr>
+<tr><td valign="top" align="left" colspan=3><b>add-RAC5 — 第五代 Remote Access Controller 远程管理软件。</b><b>例如：DRAC 5。</b></td></tr>
+<tr>
+	<td valign="top" align="left">srvadmin-rac5-components</td><td valign="top" align="left">Remote Access Card Data Populator (DRAC 5) 和 Remote Access Controller 组件 (DRAC 5)。</td><td valign="top" align="left">srvadmin-omilcore、srvadmin-deng 和 srvadmin-hapi</td>
+</tr>
+<tr>
+	<td valign="top" align="left">srvadmin-racadm5</td><td valign="top" align="left">RAC Command Interface — Remote Access 
+Controller (RAC) 命令行用户界面。</td><td valign="top" align="left">srvadmin-omilcore 和 
+srvadmin-hapi</td>
+</tr>
+<tr>
+	<td valign="top" align="left">srvadmin-racdrsc5</td><td valign="top" align="left">DRAC 5 Integration Layer — Server 
+	Administrator 远程访问 CLI 和 Web 插件</td><td valign="top" align="left">srvadmin-omilcore、srvadmin-deng、srvadmin-omacore 和 srvadmin-rac5 components</td>
+</tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1066574"></a><b>add-storageservices — Storage Management RAID 配置公用程序和存储警报软件</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066580"></a>srvadmin-storage</p></td><td valign="top" align="left"><p><a name="1066582"></a>Storage Management — 提供 Provides Systems Management 存储服务。</p></td><td valign="top" align="left"><p><a name="1066584"></a>srvadmin-omilcore、srvadmin-deng、srvadmin-omacore 和 srvadmin-odf</p></td></tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1066586"></a><b>add-webserver — 支持从 Web 上管理服务器</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066592"></a>srvadmin-iws</p></td><td valign="top" align="left"><p><a name="1066594"></a>Secure Port Server — Systems Management Managed Node Web Server 软件包。</p></td><td valign="top" align="left"><p><a name="1066596"></a>srvadmin-omilcore、srvadmin-deng、srvadmin-omacore 和 srvadmin-jre</p></td></tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1066599"></a><b>add-openipmi-RHEL3 — 为 Red Hat Enterprise Linux（版本 3）提供 OpenIPMI 支持</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066605"></a>dkms</p></td><td valign="top" align="left"><p><a name="1066607"></a>Dynamic Kernel Module Support Framework — 此软件包最初由 Dell Computer Corporation 开发，其中包含用于安装模块 RPMS 的动态内核模块支持 (DKMS) 方法的框架。</p></td><td valign="top" align="left"><p><a name="1066609"></a>&#160;</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066611"></a>openipmi</p></td><td valign="top" align="left"><p><a name="1066613"></a>Openipmi XX.Y.RHEL3 dkms 软件包 — DKMS 包装程序中 openipmi XX.Y.RHEL3 的内核模块。</p></td><td valign="top" align="left"><p><a name="1066615"></a>dkms</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1070811"></a>srvadmin-ipmi</p></td><td valign="top" align="left"><p><a name="1070813"></a>此 RPM 强制规定 DKMS、openipmi XX.Y.RHEL3 和 <b>srvadmin-hapi</b> RPMS 的正确安装顺序。</p></td><td valign="top" align="left"><p><a name="1070815"></a>openipmi XX.Y.RHEL3</p></td></tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1066617"></a><b>add-openipmi-RHEL4 — 为 Red Hat</b> <b>Enterprise Linux（版本 4）提供 OpenIPMI 支持</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066623"></a>dkms</p></td><td valign="top" align="left"><p><a name="1066625"></a>Dynamic Kernel Module Support Framework — 此软件包最初由 Dell Computer Corporation 开发，其中包含用于安装模块 RPMS 的动态内核模块支持 (DKMS) 方法的框架。</p></td><td valign="top" align="left"><p><a name="1066627"></a>&#160;</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066629"></a>openipmi</p></td><td valign="top" align="left"><p><a name="1066631"></a>Openipmi XX.Y.RHEL4 dkms 软件包 — DKMS 包装程序中 openipmi XX.Y.RHEL4 内核模块。</p></td><td valign="top" align="left"><p><a name="1066633"></a>dkms</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1070856"></a>srvadmin-ipmi</p></td><td valign="top" align="left"><p><a name="1070858"></a>此 RPM 强制规定 DKMS、openipmi XX.Y.RHEL4 和 <b>srvadmin-hapi</b> RPMS 的正确安装顺序。</p></td><td valign="top" align="left"><p><a name="1070860"></a>openipmi XX.Y.RHEL4</p></td></tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1066635"></a><b>add-openipmi-SLES9 — 为 SUSE Linux Enterprise Server（版本 9 ）提供 OpenIPMI 支持</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066641"></a>dkms</p></td><td valign="top" align="left"><p><a name="1066643"></a>Dynamic Kernel Module Support Framework — 此软件包最初由 Dell Computer Corporation 开发，其中包含用于安装模块 RPMS 的动态内核模块支持 (DKMS) 方法的框架。</p></td><td valign="top" align="left"><p><a name="1066645"></a>&#160;</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066647"></a>openipmi</p></td><td valign="top" align="left"><p><a name="1066649"></a>Openipmi XX.Y.SLES9 dkms 软件包 — DKMS 包装程序中 openipmi XX.Y.SLES9 的内核模块。</p></td><td valign="top" align="left"><p><a name="1066651"></a>dkms</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1070895"></a>srvadmin-ipmi</p></td><td valign="top" align="left"><p><a name="1070923"></a>此 RPM 强制规定 DKMS、openipmi XX.Y.SLES9 和 <b>srvadmin-hapi</b> RPMS 的正确安装顺序。</p></td><td valign="top" align="left"><p><a name="1070937"></a>openipmi XX.Y.SLES9</p></td></tr>
+
+</table>
+
+
+
+
+
+ </p><a name="1066653"></a><p><b>Server Administrator 启动之后，Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 操作系统上运行哪些守护程序</b>？</p>
+<a name="1063888"></a><p>在 Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 操作系统上运行的守护程序取决于安装的内容和允许运行的守护程序。下表所示为在完全安装情况下一般运行的守护程序：</p>
+<a name="1063908"></a>
+<p><p class="FigureTableTitle"><a name="1063911"></a>表 10-4. Server Administrator 启动之后 Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 上运行的守护程序</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1063915"> </a>
+<p><b>守护程序名称</b></p>
+
+
+</th><th valign="top" align="left"><a name="1063917"> </a>
+<p><b>在 Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 中的名称</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1063919"></a><b>对于 srvadmin-base 目录中的 RPM</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1063923"></a>dsm_sa_datamgr32d</p></td><td valign="top" align="left"><p><a name="1063980"></a>DSM SA Data Manager — Server Administrator 数据管理器守护程序，由 DSM SA Data Engine 服务启动。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1063927"></a>dsm_sa_eventmgr32d</p></td><td valign="top" align="left"><p><a name="1064010"></a>DSM SA Event Manager — Server Administrator 事件和记录守护程序，由 DSM SA Data Engine 服务启动。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1063931"></a>dsm_sa_snmp32d</p></td><td valign="top" align="left"><p><a name="1064041"></a>DSM SA SNMP daemon — Server Administrator SNMP 守护程序。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1063935"></a>dsm_om_shrsvc32d</p></td><td valign="top" align="left"><p><a name="1064072"></a>DSM SA Shared Services — Server Administrator 核心守护程序。</p></td></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1063939"></a><b>对于 add-webserver 目录中的 RPM</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1063943"></a>dsm_om_connsvc32d</p></td><td valign="top" align="left"><p><a name="1064107"></a>DSM SA Connection Services — Server Administrator Web server 守护程序。</p></td></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1063947"></a><b>对于支持 DRAC 4: add-RAC4 的系统</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064138"></a>racsvc </p></td><td valign="top" align="left"><p><a name="1064157"></a>DRAC 4 Administrator daemon</p></td></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1063955"></a><b>对于支持 DRAC III: add-RAC3 的系统</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064168"></a>racser</p></td><td valign="top" align="left"><p><a name="1064170"></a>DRAC III Administrator daemon</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064176"></a>racvnc</p></td><td valign="top" align="left"><p><a name="1064178"></a>DRAC III virtual network daemon</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064172"></a>racsrvc</p></td><td valign="top" align="left"><p><a name="1064174"></a>DRAC III VNC X server</p></td></tr>
+
+</table>
+
+
+
+
+
+ </p><a name="1069156"></a><p><b>启动 Server Administrator 时载入什么内核模块？</b></p>
+<a name="1064250"></a><p>这取决于系统设备的类型。下表所示为在启动 Server Administrator 时载入的内核模块。</p>
+<a name="1064262"></a>
+<p><p class="FigureTableTitle"><a name="1064265"></a>表 10-5. 启动 Server Administrator 服务时载入的内核模块</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1064269"> </a>
+<p><b>驱动程序名称</b></p>
+
+
+</th><th valign="top" align="left"><a name="1064271"> </a>
+<p><b>说明</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1064273"></a><b>对于 IPMI 系统</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064277"></a>dell_rbu</p></td><td valign="top" align="left"><p><a name="1064279"></a>Dell BIOS 更新驱动程序</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064281"></a>ipmi_devintf</p></td><td valign="top" align="left"><p><a name="1067517"></a>IPMI 设备驱动程序</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067530"></a>ipmi_msghandler</p></td><td valign="top" align="left"><p><a name="1067532"></a>IPMI 设备驱动程序</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067526"></a>ipmi_si</p></td><td valign="top" align="left"><p><a name="1067528"></a>IPMI 设备驱动程序 — 针对运行 Red Hat Enterprise Linux（版本 4）或 SUSE Linux Enterprise Server（版本 9）</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067522"></a>ipmi_si_drv</p></td><td valign="top" align="left"><p><a name="1067524"></a>IPMI 驱动程序 — 针对运行 Red Hat Enterprise Linux（版本 3）</p></td></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1064285"></a><b>对于 TVM 系统</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064289"></a>dcdbas</p></td><td valign="top" align="left"><p><a name="1064291"></a>Dell Systems Management 基本驱动程序</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064293"></a>dell_rbu</p></td><td valign="top" align="left"><p><a name="1064295"></a>Dell BIOS 更新驱动程序</p></td></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1064297"></a><b>对于 ESM 系统</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067470"></a>dcdbas</p></td><td valign="top" align="left"><p><a name="1067472"></a>Dell Systems Management 基本驱动程序</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067474"></a>dell_rbu</p></td><td valign="top" align="left"><p><a name="1067476"></a>Dell BIOS 更新驱动程序</p></td></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1064309"></a><b>用于支持 Server Administrator 储存系统</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064417"></a>mptctl</p></td><td valign="top" align="left"><p><a name="1064419"></a>LSI RAID 设备驱动程序</p></td></tr>
+
+</table>
+
+
+
+
+
+</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">返回目录页</a></p>
+
+
+<p>&#160;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

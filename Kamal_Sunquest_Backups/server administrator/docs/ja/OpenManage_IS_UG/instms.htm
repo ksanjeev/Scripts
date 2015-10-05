@@ -1,0 +1,763 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;  charset=shift_jis">
+
+<title>Management Station Software のインストール：Dell OpenManage バージョン 5.0 のインストールとセキュリティユーザーズガイド</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">目次ページに戻る</a> </p>
+<a name="1043338"></a><h1> Management Station Software のインストール  </h1>
+<p class="title">Dell OpenManage&#8482; バージョン 5.0 インストールおよびセキュリティユーザーズガイド</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1054353">概要</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1054367">インストール要件</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1058223">対応する Windows オペレーティングシステムを実行しているシステムでの </a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#1058223">Management Station Software のインストール、アップグレード、アンインストール</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1064437">対応する Red Hat Enterprise Linux および SUSE Linux Enterprise Server オペレーティングシステム</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#1064437">を実行しているシステムでの Management Station Software のインストール、アップグレード、アンインストール</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1054353"></a><h2>概要</h2>
+
+
+<a name="1054354"></a><p>『Dell&#8482; Systems Management Consoles CD』には、お使いのシステムで Dell OpenManage&#8482; Management Station ソフトウェアをインストール、アップグレード、アンインストールするためのセットアッププログラムが入っています。</p>
+<a name="1054356"></a><p>『Dell Systems Management Consoles CD』のセットアッププログラムを使用すると、Microsoft&#174; Windows&#174; オペレーティングシステムを実行しているシステムで Management Station Software のインストールとアップグレードができます。 Dell OpenManage Management Station Software は『Dell Systems Management Consoles CD』からアンインストールできます。対応する Windows オペレーティングシステムを実行しているシステムの場合は、オペレーティングシステムからもアンインストールできます。</p>
+<a name="1081981"></a><p>Management Station Applications には、Dell OpenManage IT Assistant、RAC&#160;Management&#160;Station、BMC Console、および Microsoft Active Directory&#174; スナップインが含まれます。</p>
+<a name="1081984"></a><p>Management Station の一部のアプリケーションは、Red Hat&#174; Enterprise Linux および SUSE&#174; Linux Enterprise Server オペレーティングシステムでも実行します。 詳細については、「<a href="instms.htm#1064437">対応する Red Hat Enterprise Linux および SUSE Linux Enterprise Server オペレーティングシステムを実行しているシステムでの Management Station Software のインストール、アップグレード、アンインストール</a>」を参照してください。</p>
+<a name="1060730"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>セットアップと設定の詳細については、『Dell OpenManage IT Assistant ユーザーズガイド』を参照してください。
+</td>
+  </tr>
+</table><hr noshade size="1">
+<a name="1054367"></a><h2>インストール要件</h2>
+
+
+<a name="1054368"></a><p>以下は管理ステーションの一般的な必要条件です。 オペレーティングシステムに固有のインストール要件は、あとで説明する各アプリケーションのインストール手順に含まれています。 </p>
+<a name="1054373"></a><h4> 対応オペレーティングシステム</h4>
+<a name="1054374"></a><p>Management Station Software は、最少必要条件を満たしている次の各オペレーティングシステムで実行できます。 </p>
+<ul><li><a name="1079651"></a>Red Hat Enterprise Linux AS、ES、WS、（バージョン 3）x86 および Intel&#174; Extended Memory 64 Technology（EM64T）、アップデート 6（BMC 管理ユーティリティと RAC 管理ステーション)<br><br></li>
+<li><a name="1067423"></a>Intel x86 および Intel EM64T 用 Red Hat Enterprise Linux AS、ES、WS、（バージョン 4）、（BMC 管理ユーティリティと RAC 管理ステーション）<br><br></li>
+<li><a name="1079659"></a>Windows 2000 Server SP4（Server および Advanced Server を含む）<br><br></li>
+<li><a name="1079649"></a>Windows 2000 Professional SP4<br><br></li>
+<li><a name="1062907"></a>Windows Server&#8482; 2003 R2（Standard および Enterprise エディションを含む）<br><br></li>
+<li><a name="1071859"></a>Windows Server 2003 SP1（Web エディション）<br><br></li>
+<li><a name="1081578"></a>Windows SBS 2003 SP1（IT Assistant を除く）<br><br></li>
+<li><a name="1083302"></a>Windows Server 2003 Standard および Enterprise x64 R2（IT Assistant を除く）<br><br></li>
+<li><a name="1083303"></a>Windows Storage Server 2003 R2（Express、Standard、Workgroup、および Enterprise エディションを含む）<br><br></li>
+<li><a name="1083304"></a>Windows XP SP1 および SP2<br><br></li>
+<li><a name="1078374"></a>SUSE Linux Enterprise Server（バージョン 9）、SP3、（BMC 管理ユーティリティおよび RAC 管理ステーション）<br><br></li>
+</ul><a name="1069988"></a><p>アプリケーションに固有のオペレーティングシステムの要件については、そのアプリケーションのマニュアルを参照してください。</p>
+<a name="1054382"></a><h3> システム要件
+ </h3>
+<a name="1054383"></a><p>Windows システムでは、CD のセットアッププログラム（<b>setup.exe</b>）によって <b>必要条件チェッカー</b> が起動し、システム要件が満たされているかどうかが自動的に分析されます。 （「<a href="instms.htm#1079984">必要条件チェッカー</a>」を参照してください。）</p>
+<a name="1079912"></a><h3> 管理ステーションの要件
+</h3>
+<a name="1079937"></a><p>システムに Microsoft Software Installer（MSI）バージョン 3.0 以降が必要です。Dell OpenManage ソフトウェアがシステムの MSI のバージョンを検出します。バージョンが 3.1 より古い場合は、必要条件チェッカーが MSI バージョン 3.1 にアップグレードするように指示します。</p>
+<a name="1079939"></a><h3> IT Assistant での CIM 検出とセキュリティの有効化
+</h3>
+<a name="1054446"></a><p>IT Assistant などのアプリケーションは、Common Information Model (CIM) プロトコルを使用できます。CIM プロトコルを使用する場合は、これがインストールされ、有効になっていることを確認します。IT Assistant の CIM の設定については、『Dell OpenManage IT Assistant ユーザーズガイド』を参照してください。</p>
+<a name="1056706"></a><h3> SNMP のインストール
+</h3>
+<a name="1080364"></a><p>SNMP サービスがインストールされ IT Assistant システムで実行している必要があります。検出と管理を実行するシステムに SNMP（または CIM）もインストールされている必要があります。SNMP のないシステムに IT Assistant をインストールしようとすると、インストールプログラムが終了して SNMP のインストールを要求されます。また、SNMP サービスを停止すると、IT Assistant のサービスも停止します。</p>
+<a name="1060009"></a><p>IT Assistant 管理ステーションで SNMP をインストールする詳細については、『Dell OpenManage IT Assistant ユーザーズガイド』を参照してください。</p>
+<hr noshade size="1">
+<a name="1058223"></a><h2>対応する Windows オペレーティングシステムを実行しているシステムでの Management Station Software のインストール、アップグレード、アンインストール</h2>
+
+
+<a name="1056724"></a><p>ここでは、対応 Windows オペレーティングシステムを実行しているシステムで Management Station Software をインストール、アップグレード、アンインストールする方法について説明します。 システムの必要条件が満たされている場合にインストールされるデフォルトの機能は、IT Assistant と Remote Access Controller コンソールです。</p>
+<a name="1080295"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>BMC 管理ユーティリティがすでにシステムにインストールされている場合は、アップグレードされます。
+</td>
+  </tr>
+</table><a name="1079982"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>Dell OpenManage Array Manager コンソールは、以前に Management Station Software（Array Manager Console もあわせてインストール済み）が検出されない場合、Windows では利用できません。この機能はアップグレードのみ可能です。Array Manager コンソールは今後のリリースではサポートされなくなります。
+</td>
+  </tr>
+</table><a name="1079984"></a><h4> 必要条件チェッカー</h4>
+<a name="1072193"></a><p>セットアッププログラム（setup.exe）によって必要条件チェッカープログラムが開始します。 セットアッププログラムは、『Dell Systems Management Consoles CD』の <b>Windows</b> ディレクトリにあります。必要条件チェッカープログラムは、実際のインストールを起動せずにソフトウェアが機能するための必要条件を調べます。このプログラムは、ソフトウェア機能のインストールや動作に影響する可能性のあるハードウェアとソフトウェアの情報をステータスウィンドウに表示します。</p>
+<a name="1068442"></a><p>必要条件チェッカーには、情報、警告、エラーメッセージという 3 種類のメッセージが表示されます。</p>
+<ul><li><a name="1068443"></a>情報メッセージとは、管理者が認識しておくべき状況を説明したものです。機能がインストールできなくなることはありません。<br><br></li>
+<li><a name="1068444"></a>警告メッセージとは、<b>簡易</b> インストール中にソフトウェア機能をインストールできなくなる状況を説明したものです。 警告の原因を解明してから、ソフトウェアのインストールを進めることをお勧めします。 続行する場合は、<b>カスタム</b> インストールを使うとソフトウェアを選択的にインストールできます。<br><br></li>
+<li><a name="1068445"></a>エラーメッセージとは、ソフトウェア機能をインストールできない状況を説明したものです。エラーの原因を解明してから、そのソフトウェア機能のインストールを進める必要があります。 問題を解決しなければ、ソフトウェア機能はインストールされません。<br><br></li>
+</ul><a name="1068446"></a><p><span class="screen">RunPreReqChecks.exe /s</span> を実行すると、<b>&yen;windows&yen;PreReqChecker</b> ディレクトリから必要条件チェックをサイレントに実行できます。必要条件チェッカーのサイレント実行の詳細については、「<a href="prereqch.htm#1053126">必要条件チェッカー</a>」を参照してください。</p>
+<a name="1070573"></a><h3> Management Station Software のインストールとアップグレード
+</h3>
+<a name="1068209"></a><p>ここでは、Management Station Software のインストールとアップグレードの方法を説明します。このインストールのオプションは次のとおりです。</p>
+<ul><li><a name="1068210"></a>IT Assistant や他の Management Station Software をインストールまたはアップグレードするには、『Dell Systems Management Consoles CD』に入っているセットアッププログラムを使用します。<br><br></li>
+<li><a name="1058239"></a>Windows インストーラエンジンmsiexec.exe を使った無人インストールの方法で（下<a href="instms.htm#1068484">表&nbsp;5-1</a> 参照）、IT Assistant やその他の Management Station Software を複数のシステムにインストールします。<br><br> </li>
+</ul><a name="1058254"></a><h3> 簡易インストールとカスタムインストール
+</h3>
+<a name="1058259"></a><p>『Dell Systems Management Consoles CD』には、IT Assistant や他の Management Station Software をインストールするオプションとして <b>簡易セットアップ</b> と <b>カスタムセットアップ</b> があります。</p>
+<a name="1071914"></a><p>CD ドライブに『Dell Systems Management Consoles CD』を挿入して、セットアッププログラムからハードウェアおよびソフトウェアのシステム情報（インストールと操作の機能に影響するなど）がある必要条件チェッカーを実行します。</p>
+<a name="1073567"></a><p>次を行うことで、現在システムにインストール済みの Management Station Software 製品をすべてインストールできます。</p>
+<ol type="1">
+
+<li value="1"><a name="1075414"></a>Management Station のインストールを起動します。
+
+<br><br>
+ <li value="2"><a name="1075421"></a><b>Management Station のインストール、変更、修復、削除 </b>をクリックして、 <b>次へ</b> をクリックします。
+
+<br><br>
+<li value="3"><a name="1075540"></a><b>簡易セットアップ</b> オプションを選択します。
+<br><br>
+</ol>
+<a name="1075418"></a><p>必要条件が満たされていれば、デフォルトで IT&#160;Assistant、RAC Management Station がインストールされますが、Active Directory スナップインユーティリティと BMC コンソールは選択されません。これらは <b>カスタムセットアップ</b> オプションを使ってインストールできます。<b>簡易セットアップ</b> の実行方法については、『ソフトウェアクイックインストールガイド』を参照してください。このマニュアルには、セットアッププログラム内でタスクバーの <b>情報</b> をクリックするとアクセスできます。</p>
+<a name="1066381"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span><b>簡易</b>インストール中、個々の Management Station サービスはそのサービスのハードウェア要件とソフトウェア要件を満たしていない管理下システムにはインストールされません。 たとえば、Server Administrator Remote Access Service ソフトウェアモジュールは、管理下システムに Remote Access Controller がインストールされていなければ、 <b>簡易</b>インストール中にインストールされません。 ただし<b>カスタムセットアップ</b> で Remote Access Service ソフトウェアモジュールを選択するとインストールできます。
+</td>
+  </tr>
+</table><a name="1056759"></a><p><b>カスタムセットアップ</b> オプションを選択すると、セットアッププログラムでシステムに適切なインストールオプションとして識別されたソフトウェア機能の選択を解除できます。<b>簡易セットアップ</b> では、ハードウェア構成に適した機能はすべて事前に選択されているため、インストールする機能のリストに追加することはできません。</p>
+<a name="1058289"></a><p>カスタムセットアップ 以下に、オプションについて IT Assistant のインストールとアップグレードを例にとって説明します。他の Management Station Software も カスタムセットアップ オプションを使ってインストールできます。</p>
+<a name="1056766"></a><h3> カスタムインストール
+</h3>
+<a name="1068476"></a><p>カスタムインストールを使用すると、インストールしたい特定のソフトウェア機能を選択できます。</p>
+<a name="1078495"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>管理ステーションおよび管理下システムのサービスは、同じディレクトリか別のディレクトリにインストールできます。
+インストール先ディレクトリを選択できます。
+</td>
+  </tr>
+</table><a name="1078496"></a><h4> Management Station のインストール</h4>
+<ol type="1">
+
+<li value="1"><a name="1056769"></a>Management Station Software 機能をインストールするシステムに、システム管理者権限を使ってログインします。
+
+<br><br>
+ <li value="2"><a name="1056771"></a>開いているアプリケーションをすべて閉じます。
+
+<br><br>
+ <li value="3"><a name="1056773"></a>CD ドライブに『Dell Systems Management Consoles CD』を挿入します。
+<br><br>
+</ol>
+<a name="1063338"></a><p class="indent">インストーラが自動的に開始しない場合は、CD の <b>windows</b> フォルダを開いて <b>setup.exe</b> ファイルをダブルクリックします。</p>
+<a name="1063344"></a><p class="indent"><b>Dell OpenManage Management Station の必要条件ステータス</b> 画面が開き、Management Station の必要条件の確認作業が実行されます。 <b>必要条件ステータス</b> に関連する情報、警告、エラーなどのメッセージが表示されます。 メッセージを読み、必要に応じてインストール前に警告メッセージとエラーメッセージに対処します。</p>
+<ol type="1">
+
+<li value="4"><a name="1063340"></a><b>Management Station のインストール、変更、修復、削除 </b>オプションのいずれかをクリックします。
+<br><br>
+</ol>
+<a name="1056782"></a><p class="indent"><b>Dell OpenManage Management Station のインストールウィザードへようこそ</b> 画面が開きます。</p>
+<ol type="1">
+
+<li value="5"><a name="1056783"></a><b></b><b>次へ </b>をクリックします。
+<br><br>
+</ol>
+<a name="1056784"></a><p class="indent">Dell ソフトウェア製品ライセンス契約が表示されます。</p>
+<ol type="1">
+
+<li value="6"><a name="1056785"></a>受け入れるには、<b>同意する</b> をクリックします。
+<br><br>
+</ol>
+<a name="1056788"></a><p class="indent"><b>セットアップの種類</b> ダイアログボックスが開きます。 </p>
+<ol type="1">
+
+<li value="7"><a name="1056790"></a><b>カスタム</b> を選択して <b>次へ</b> をクリックします。
+<br><br>
+</ol>
+<a name="1056791"></a><p class="indent"><b>カスタムセットアップ</b> ダイアログボックスが開きます。</p>
+<a name="1056795"></a><p class="indent">特定の Management Station Software アプリケーションを選択するには、リストされた機能の横にあるドロップダウン矢印をクリックし、アプリケーションをインストールするかしないかを選択します。</p>
+<a name="1062227"></a><p class="indent">選択した機能の隣にハードドライブのアイコンが付きます。選択解除した機能の隣に赤の <b>X</b> が付きます。デフォルトでは、ハードウェアでサポートされていないソフトウェア機能が必要条件チェッカーで検出されると、選択が解除されます。</p>
+<a name="1080095"></a><p class="indent">デフォルトのディレクトリパスを受け入れて Management Station Software をインストールするには、<b>次へ</b> をクリックします。別の場所にインストールする場合は、<b>変更</b> をクリックして Management Station Software をインストールするディレクトリに移動してから <b>次へ</b> をクリックします。</p>
+<a name="1080096"></a><p class="indent"><b>Dell OpenManage IT Assistant は必ず選択してください。</b></p>
+<ol type="1">
+
+<li value="8"><a name="1056800"></a>選択したソフトウェア機能のインストールを受け入れるには、<b>次へ</b> をクリックします。
+<br><br>
+</ol>
+<a name="1056801"></a><p class="indent"><b>IT Assistant カスタム設定</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="9"><a name="1056802"></a>必要に応じて、<b>IT Assistant のカスタム設定</b> フィールドを変更します。
+
+<br><br>
+<li value="10"><a name="1056803"></a>IT Assistant のカスタム設定を受け入れるには、<b>次へ</b> をクリックします。
+<br><br>
+</ol>
+<a name="1056805"></a><p class="indent"><b>プログラムのインストール準備完了</b> ダイアログボックスが開きます。</p>
+<a name="1059468"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span><b>キャンセル</b> をクリックすると、インストール処理をキャンセルできます。インストールは加えた変更を元の状態に戻します。インストール処理の最後の方で <b>キャンセル</b> をクリックした場合は、元の状態に正しく戻らず、システムがインストール未完了のままになることがあります。詳細は、「<a href="instms.htm#1056882">失敗したインストールのシステム回復</a>」を参照してください。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="11"><a name="1059464"></a>選択したソフトウェア機能をインストールするには、<b>インストール</b> をクリックします。
+<br><br>
+ </ol>
+<a name="1058388"></a><p class="indent"><b>Dell OpenManage Management Station のインストール</b> 画面が開きます。</p>
+<a name="1056816"></a><p class="indent">選択した機能がインストールされると、<b>インストールウィザードの完了 </b>ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="12"><a name="1056818"></a><b>終了</b> をクリックして Management Station のインストールを終了します。
+<br><br>
+</ol>
+<a name="1056819"></a><h3> アップグレード
+</h3>
+<a name="1056821"></a><p>『Dell Systems Management Consoles CD』には IT Assistant や他の Management Station Software をアップグレードするための <b>アップグレード</b> オプションもあります。</p>
+<a name="1056823"></a><p>『Dell Systems Management Consoles CD』を CD ドライブに挿入すると、必要条件チェッカーというプログラムによってシステムがチェックされます。</p>
+<a name="1074708"></a><p>現在システムにインストールされている Management Station Software 製品のすべてをアップグレードするときは、<b>Management Station の</b><b>インストール、変更、修復、削除</b> をクリックしてから、<b>次へ</b> を選択します。</p>
+<a name="1074725"></a><p>アップグレード中、インストールする Management Station ソフトウェアの機能リストに追加することはできません。 システムに適切な機能はすべて、バージョン 4.3 からのアップグレード中に事前に選択されています。</p>
+<a name="1056829"></a><p>以下の手順は、IT Assistant や他の Management Station ソフトウェアをアップグレードする方法です。</p>
+<a name="1056831"></a><h4> カスタムアップグレード</h4>
+<ol type="1">
+
+<li value="1"><a name="1056833"></a>CD ドライブに『Dell Systems Management Consoles CD』を挿入します。
+<br><br>
+</ol>
+<a name="1056834"></a><p class="indent">インストーラが自動的に開始しない場合は、CD の <b>windows</b> フォルダを開いて <b>setup.exe</b> ファイルをダブルクリックします。</p>
+<a name="1063423"></a><p class="indent"><b>Dell OpenManage Management Station の必要条件ステータス</b> 画面が開き、Management Station の必要条件の確認作業が実行されます。<b>必要条件ステータス</b> に関連する情報、警告、エラーなどのメッセージが表示されます。メッセージを読んで、必要に応じてインストール前に問題を解決します。</p>
+<ol type="1">
+
+<li value="2"><a name="1056836"></a><b>Management Station のインストール、変更、修復、削除 </b>オプションのいずれかをクリックします。
+<br><br>
+</ol>
+<a name="1056837"></a><p class="indent"><b>Dell OpenManage Management Station のインストールウィザードへようこそ</b> 画面が開きます。</p>
+<ol type="1">
+
+<li value="3"><a name="1056838"></a>次へ をクリックします。
+<br><br>
+</ol>
+<a name="1056839"></a><p class="indent"><b>Dell OpenManage Management Station のインストール</b> 画面が開きます。インストールまたはアップグレード中のソフトウェア機能の状態と進行状況を示すメッセージが表示されます。</p>
+<a name="1067910"></a><p class="indent">選択した機能がインストールまたはアップグレードされると、インストールウィザードの完了 ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="4"><a name="1067912"></a><b>終了</b> をクリックして Management Station のインストールを終了します。
+<br><br>
+</ol>
+<a name="1067913"></a><h3> カスタム変更
+</h3>
+<ol type="1">
+
+<li value="1"><a name="1056852"></a><b>スタート</b> ボタンをクリックし、<b>設定</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol"> &#174;</font></span><b>コントロールパネル</b> の順にポイントします。 
+<br><br>
+
+<li value="2"><a name="1056853"></a><b>プログラムの追加と削除</b> をダブルクリックします。
+
+<br><br>
+ <li value="3"><a name="1056854"></a><b>Dell OpenManage Management Station</b> をクリックし、<b>変更</b> をクリックします。
+<br><br>
+</ol>
+<a name="1056855"></a><p class="indent"><b>Dell OpenManage Management Station インストールウィザードへようこそ</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="4"><a name="1056856"></a><b></b><b>次へ</b> をクリックします。
+<br><br>
+</ol>
+<a name="1056857"></a><p class="indent"><b>プログラムのメンテナンス</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="5"><a name="1056858"></a><b>変更</b> オプションを選択して <b>次へ</b> をクリックします。
+<br><br>
+</ol>
+<a name="1066734"></a><p class="indent"><b>カスタムセットアップ</b> ダイアログボックスが開きます。 </p>
+<ol type="1">
+
+<li value="6"><a name="1066735"></a>特定の Management Station Software アプリケーションを選択するには、リストされた機能の横にあるドロップダウン矢印をクリックし、アプリケーションをインストールするか、またはしないかを選択します。
+<br><br>
+</ol>
+<a name="1056861"></a><p class="indent">選択した機能の隣にハードドライブのアイコンが付きます。 選択解除した機能の隣に赤の X が付きます。デフォルトでは、ハードウェアでサポートされていないソフトウェア機能が必要条件チェッカーで検出されると、選択が解除されます。</p>
+<ol type="1">
+
+<li value="7"><a name="1056862"></a>選択したソフトウェア機能のインストールを受け入れるには、<b>次へ</b> をクリックします。
+<br><br>
+</ol>
+<a name="1056863"></a><p class="indent"><b>プログラムの変更準備完了</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="8"><a name="1056864"></a>選択したソフトウェア機能をインストールするには、<b>インストール</b> をクリックします。
+<br><br>
+</ol>
+<a name="1056865"></a><p class="indent"><b>Dell OpenManage Management Station のインストール</b> 画面が開きます。インストール中のソフトウェア機能の状態と進行状況を示すメッセージが表示されます。</p>
+<a name="1056866"></a><p class="indent">選択した機能がインストールされると、<b>インストールウィザードの完了</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="9"><a name="1056867"></a><b>終了</b> をクリックして Management Station のインストールを終了します。
+<br><br>
+</ol>
+<a name="1056868"></a><h3> カスタム修復
+</h3>
+<ol type="1">
+
+<li value="1"><a name="1056869"></a><b>スタート</b> ボタンをクリックし、<b>設定</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol"> &#174;</font></span><b>コントロールパネル</b> の順にポイントします。 
+<br><br>
+
+<li value="2"><a name="1056870"></a><b>プログラムの追加と削除</b> をダブルクリックします。
+
+<br><br>
+ <li value="3"><a name="1056871"></a><b>Dell OpenManage Management Station </b>をクリックし、<b>変更</b> をクリックします。
+<br><br>
+</ol>
+<a name="1056872"></a><p class="indent"><b>Dell OpenManage Management Station インストールウィザードへようこそ</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="4"><a name="1056873"></a><b></b><b>次へ</b> をクリックします。
+<br><br>
+</ol>
+<a name="1056874"></a><p class="indent"><b>プログラムのメンテナンス</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="5"><a name="1056875"></a><b>修復</b> オプションを選択して <b>次へ</b> をクリックします。
+<br><br>
+</ol>
+<a name="1056876"></a><p class="indent"><b>プログラムの修復準備完了</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="6"><a name="1056877"></a>選択したソフトウェア機能をインストールするには、<b>インストール</b> をクリックします。
+<br><br>
+</ol>
+<a name="1056878"></a><p class="indent"><b>Dell OpenManage Management Station のインストール</b> 画面が開きます。インストール中のソフトウェア機能の状態と進行状況を示すメッセージが表示されます。</p>
+<a name="1056879"></a><p class="indent">選択した機能がインストールされると、<b>インストールウィザードの完了</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="7"><a name="1056880"></a><b>終了</b> をクリックして Management Station のインストールを終了します。
+<br><br>
+</ol>
+<a name="1056882"></a><h3> 失敗したインストールのシステム回復
+</h3>
+<a name="1056883"></a><p>ソフトウェアのインストールユーティリティで、セットアップ中に致命的なエラーが発生した場合は、システムが不安定になる可能性があります。この問題に対処するため、Dell OpenManage インストーラには、サーバーをエラー発生前の正常な状態に戻す「ロールバック」という機能が備わっています。</p>
+<a name="1056884"></a><p>Windows インストーラサービスは、インストール、アンインストール、その他の設定変更中に実行するあらゆる操作を元に戻す処理を維持して、Dell OpenManage インストーラにロールバック機能を提供しています。インストールセッション中にエラーが発生した場合は、Windows インストーラサービスを使って、システムをエラー前の状態に戻すことができます。この機能には、削除や上書きが行われたファイルやレジストリキーや、その他のリソースが含まれます。インストールやアンインストールの過程で削除されたり上書きされたファイルは、一時的にバックアップの場所に保存されるため、必要に応じて復元することができるのです。インストールが正常に完了した後、バックアップ用の一時ファイルはすべて削除されます。</p>
+<a name="1071200"></a><p>インストールが正常に完了した後に、ロールバックすることはできません。処理したインストールは、特定のインストールセッション中にシステムを保護する安全ネットとしての役割を果たします。たとえば、インストールしたアプリケーションを削除したい場合は、単にそのアプリケーションをアンインストールしてください。</p>
+<a name="1071201"></a><p>Dell OpenManage ソフトウェアをバージョン 4.3 からバージョン 4.<i>x </i> へアップグレードすると、エラーとなり、システムはそれ以前の状態までロールバックされます。</p>
+<a name="1060068"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>インストーラのクリーンアップ中やインストール処理が完了してからシステム管理者がキャンセルしたインストール、アンインストール、アップグレードなどは、ロールバックされません。
+</td>
+  </tr>
+</table><a name="1056893"></a><h3> Management Station Software の無人インストールの実行
+ </h3>
+<a name="1056895"></a><p>『Dell Systems Management Consoles CD』には、無人インストールの手順として、<b>簡易セットアップ</b> オプションと <b>カスタムセットアップ</b> オプションがあります。</p>
+<a name="1056897"></a><p>無人インストールを使用すると、Management Station Software を複数のシステムに同時にインストールできます。ManagementStation の必要ファイルすべてを含めた無人インストールパッケージを作成して、無人インストールを実行します。 無人インストールオプションには、無人インストールの設定、確認、情報表示などができる機能もいくつかあります。</p>
+<a name="1056899"></a><p>無人インストールパッケージは、独立系ソフトウェアベンダー（ISV）のソフトウェア配布ツールを使用して、リモートシステムに配布されます。 パッケージが配布されると、インストールスクリプトによってソフトウェアがインストールされます。</p>
+<a name="1067277"></a><h4> 無人インストールの機能</h4>
+<a name="1067278"></a><p>無人インストールには次の機能があります。</p>
+<ul><li><a name="1067279"></a>無人インストールをカスタマイズするオプションのコマンドライン設定<br><br></li>
+<li><a name="1067280"></a>特定のソフトウェア機能のインストールを指定するカスタマイズパラメータ<br><br> </li>
+<li><a name="1067281"></a>実際のインストールを実行せずに、選択したソフトウェア機能の依存関係を調べる必要条件チェッカープログラム<br><br> </li>
+</ul><a name="1056901"></a><h4> 簡易無人インストールパッケージの作成と配布</h4>
+<a name="1056903"></a><p>無人インストールの <b>簡易セットアップ</b> オプションでは無人インストールパッケージとして『Dell Systems Management Consoles CD』を使用します。 <b>msiexec.exe /i MgmtSt.msi /qb</b>コマンドで『Dell Systems Management Consoles CD』にアクセスして、ソフトウェアライセンス契約に同意すると、選択したリモートシステムに Management Station のソフトウェア製品がすべてインストールされます。<b>msiexec.exe /i MgmtSt.msi /qb</b>コマンドは、システムのハードウェアとソフトウェアの設定に基づいて、Management Station のソフトウェアをインストールします。</p>
+<a name="1058431"></a><p>CD の全内容を配布するか、ターゲットシステムから CD イメージの場所にドライブをマッピングすると、リモートシステムで 『Dell Systems Management Consoles CD』イメージを使用できるようになります。</p>
+<a name="1056907"></a><h4> 簡易無人インストールパッケージとして動作させるためのドライブのマッピング</h4>
+<a name="1074815"></a><p>ドライブを簡易無人インストールパッケージとして動作させるようにマッピングするには、次を実行します。</p>
+<ol type="1">
+
+<li value="1"><a name="1056909"></a>Management Station をインストールする各リモートシステムで『Systems Management Consoles CD』のイメージを共有することができます。
+<br><br>
+</ol>
+<a name="1056911"></a><p class="indent">このタスクは、CD を直接共有するか、CD 全体をドライブにコピーしてコピーを共有することで達成できます。</p>
+<ol type="1">
+
+<li value="2"><a name="1056913"></a>手順 1 説明した共有ドライブにリモートシステムからドライブをマッピングするスクリプトを作成します。
+このスクリプトはドライブのマッピング後、以下のコマンドによって実行されます。
+<br><br>
+</ol>
+<a name="1064818"></a><p class="indent"><b>msiexec.exe /i</b> <b>マップされたドライブ&yen;windows&yen;ManagementStation&yen;MgmtSt.msi /qb</b> </p>
+<ol type="1">
+
+<li value="3"><a name="1056915"></a>手順 2 で作成したスクリプトを配布して実行するように ISV の配布ソフトウェアを設定します。
+
+<br><br>
+ <li value="4"><a name="1056917"></a>ISV ソフトウェア配布ツールを使用して、このスクリプトをターゲットシステムに配布します。
+<br><br>
+</ol>
+<a name="1056919"></a><p class="indent"><b>msiexec.exe /i</b> <b>Mapped Drive&yen;windows&yen;ManagementStation&yen;MgmtSt.msi /qb</b> コマンドによってリモートシステムのそれぞれに Management Station がインストールされます。</p>
+<a name="1056922"></a><h4> 簡易無人インストールパッケージとしての CD 全体の配布 </h4>
+<a name="1074821"></a><p>CD 全体を簡易無人インストールパッケージとして配布するときは、次を実行します。</p>
+<ol type="1">
+
+<li value="1"><a name="1056924"></a>『Systems Management Consoles CD』のイメージ全体をターゲットシステムに配布します。
+
+<br><br>
+ <li value="2"><a name="1056926"></a><b>msiexec.exe /i CD 
+Drive&yen;windows&yen;ManagementStation&yen;MgmtSt.msi /qb</b> コマンドを『Dell Systems Management 
+Consoles CD』イメージから実行するように ISV 配布ソフトウェアを設定します。
+<br><br>
+</ol>
+<a name="1056928"></a><p><b>msiexec.exe /i CD Drive&yen;windows&yen;ManagementStation&yen;MgmtSt.msi /qb</b> コマンドが CD から実行され、リモートシステムのそれぞれに Management Station がインストールされます。</p>
+<a name="1074805"></a><h4> カスタム無人インストールパッケージの作成と配布</h4>
+<a name="1056934"></a><p>配布用無人インストールパッケージを作成するには、CD の <b>windows</b> ディレクトリをシステムのハードドライブにコピーするだけです。</p>
+<a name="1056935"></a><p>Windows インストーラエンジン（<b>msiexe.exe</b>）を使ってインストールを実行するバッチスクリプトを作成します。 例：</p>
+<a name="1075736"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i MgmtSt.msi ADDLOCAL=ITA,RACMS,ADS /qb</span></p>
+<a name="1060123"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>カスタム無人インストールの場合は、必要な機能のそれぞれをコマンドラインインタフェース（CLI）のパラメータとして含める必要があります。
+</td>
+  </tr>
+</table><a name="1076475"></a><p>また、バッチスクリプトはシステムのハードドライブにある <b>windows</b> ディレクトリに入れてください。</p>
+<a name="1056943"></a><p>追加詳細および使用できる機能の ID については、「<a href="instms.htm#1057093">カスタムパラメータ</a>」を参照してください。</p>
+<a name="1056948"></a><h4> カスタム無人インストールパッケージの配布</h4>
+<a name="1071251"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>前の項で説明した無人インストールの <b>カスタムセットアップ</b> で使用される Management Station の <b>MgmtSt.msi</b> インストールパッケージは、<b>&yen;windows&yen;ManagementStation</b> ディレクトリに入っています。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1071252"></a>インストールパッケージの配布後にバッチスクリプトを実行するように ISV 配布ソフトウェアを設定します。
+
+<br><br>
+ <li value="2"><a name="1056960"></a>ISV 配布ソフトウェアを使用して、リモートシステムにカスタム無人インストールパッケージを配布します。
+<br><br>
+ </ol>
+<a name="1056962"></a><p>次のコマンドはスクリプトから実行され、各リモートシステムに指定された機能とともに Management Station をインストールします。</p>
+<a name="1075751"></a>
+<p class="screenindent">msiexec.exe /i システムドライブ&yen;windows&yen;ManagementStation&yen;MgmtSt.msi ADDLOCAL=ITA,RACMS,ADS /qb
+</p>
+<a name="1064740"></a><h4> ログファイルの場所の指定</h4>
+<a name="1064765"></a><p>ログファイルの場所を指定して無人インストールを実行するには、次のコマンドを実行します。</p>
+<a name="1064742"></a>
+<p class="screenindent">Msiexec.exe /i MgmtSt.msi /l*v &quot;C:&yen;openmanage&yen;logs&yen;MgmtSt.log&quot;
+</p>
+<a name="1056979"></a><h4> オプションのコマンドライン設定</h4>
+<a name="1060754"></a><p><a href="instms.htm#1068484">表 5-1</a> は、<b>MSIExec.exe</b> で使用できるオプションコマンドライン設定です。コマンドラインで <b>msiexec.exe </b> の後に各オプション設定をスペースで区切って入力します。</p>
+<a name="1068480"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>Microsoft Windows インストーラの全コマンドラインスイッチの詳細については、<b>support.microsoft.com </b>を参照してください。
+</td>
+  </tr>
+</table><a name="1068519"></a>
+<p><p class="FigureTableTitle"><a name="1068484"></a>表 5-1.  MSI インストーラのコマンドライン設定&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1068488"> </a>
+<p><b>設定</b></p>
+
+
+</th><th valign="top" align="left"><a name="1068490"> </a>
+<p><b>結果</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1068492"></a><span class="screen">/i &lt;パッケージ|製品コード&gt;</span></p></td><td valign="top" align="left"><p><a name="1068494"></a>製品をインストールまたは設定します。</p><p><a name="1068495"></a><span class="screen">/i MgmtSt.msi </span>&#8211; このコマンドは Server Administrator Software をインストールします。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1068497"></a><span class="screen">/x &lt;パッケージ|製品コード&gt;</span></p><p><a name="1068498"></a></p></td><td valign="top" align="left"><p><a name="1071469"></a>製品をアンインストールします。 </p><p><a name="1068501"></a><span class="screen">/i MgmtSt.msi </span>&#8211; このコマンドは Server Administrator Software をアンインストールします。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1068503"></a><span class="screen">/q&lt;n|b|r|f&gt;</span></p></td><td valign="top" align="left"><p><a name="1068505"></a>ユーザーインタフェース（UI）のレベルを設定します。 </p><p><a name="1068506"></a><b>/q</b> または <b>/qn</b> &#8211; UI なし。 このオプションは無人のサイレントインストールに使用されます。<br><b>/qb</b> &#8211; &#8211; 基本 UI。 このオプションはサイレントでない無人インストールに使用されます。<br><b>/qr</b> &#8211; 縮約 UI。 このオプションは無人インストールに使用されますが、インストールの進行状況を示すモーダルなダイアログボックスを表示します。<br><b>/qf</b><span class="screen"> </span>&#8211; full UI. このオプションは標準的な有人インストールに使用されます。 </p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1068508"></a><span class="screen">/f&lt;[p|o|e|d|c|a|u|m|s|v]</span>パッケージ|製品コード<span class="screen">&gt;</span></p></td><td valign="top" align="left"><p><a name="1077160"></a>製品を修復します。</p><p><a name="1077167"></a><b>/fp </b>&#8211; ファイルが足りない場合にのみ、製品を再インストールします。</p><p><a name="1077173"></a><b>/fo</b> &#8211; ファイルが足りない場合、またはファイルの古いバージョンがインストールされている場合に、製品を再インストールします。</p><p><a name="1068513"></a><b>/fe</b> &#8211; ファイルが足りない場合、またはファイルの古いバージョンや同じバージョンがインストールされている場合に、製品を再インストールします。</p><p><a name="1068514"></a><b>/fo</b> &#8211; ファイルが足りない場合、またはファイルの古いバージョンや違うバージョンがインストールされている場合に、製品を再インストールします。</p><p><a name="1068515"></a><b>/fc</b> &#8211; ファイルが足りない場合、または保存されているチェックサムの値が計算値と一致しない場合に、製品を再インストールします。</p><p><a name="1069825"></a><b>/fa</b> &#8211; このオプションで全ファイルを強制的に再インストールします。</p><p><a name="1069826"></a><b>/fu </b> &#8211; 必要なユーザー指定レジストリエントリのすべてを書き換えます。</p><p><a name="1068518"></a><b>/fm</b> &#8211; 必要なユーザー指定レジストリエントリのすべてを書き換えます。</p><p><a name="1078661"></a><b>/fs</b> &#8211; このオプションは既存のショートカットのすべてを上書きします。</p><p><a name="1078659"></a><b>/fv</b> &#8211; このオプションはソースから実行され、ローカルパッケージを再キャッシュします。アプリケーションや機能の初回インストールには <b>/fv</b> 再インストールオプションを使用しないでください。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1071605"></a>INSTALLDIR=&lt;パス&gt;</p></td><td valign="top" align="left"><p><a name="1072894"></a>指定した場所に製品をインストールします。このスイッチでインストールディレクトリを指定した場合、CLI インストールコマンドの実行前に手動で作成しておく必要があります。これを行わないと、実行は失敗し、その失敗の理由を示すエラーやメッセージも表示されません。</p><p><a name="1071634"></a><span class="screen">/i MgmtSt.msi INSTALLDIR=c:&yen;OpenManage /qn</span> &#8211; このコマンドはインストール先を <b>c:&yen;OpenManage</b> として特定の場所に製品をインストールします。</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1068520"></a><p>MSI を使ったコマンド例として <span class="screen">msiexec.exe /i MgmtSt.msi /qn</span> があります。このコマンドは、システムのハードウェアとソフトウェアの設定に基づいて、プロンプトなしでサイレントに Management Station の機能を各リモートシステムにインストールします。</p>
+<a name="1057029"></a><h3> Management Station Software のアンインストール
+</h3>
+<a name="1057030"></a><p>Management Station Software の機能をアンインストールするには、『Dell Systems Management Consoles CD』またはオペレーティングシステムを使います。また、複数のシステムで同時に無人アンインストールを実行することもできます。</p>
+<a name="1057032"></a><h4> 『Dell Systems Management Consoles CD』を使用した Management Station Software のアンインストール</h4>
+<a name="1074849"></a><p>『Dell Systems Management Consoles CD』を使って Management Station Software をアンインストールするときは、次を実行します。</p>
+<ol type="1">
+
+<li value="1"><a name="1057034"></a>CD ドライブに『Dell Systems Management Consoles CD』を挿入します。
+<br><br>
+</ol>
+<a name="1058884"></a><p class="indent">CD を挿入しても自動的にセットアッププログラムが開始されない場合は、システムのデスクトップから <b>マイコンピュータ</b> をダブルクリックし、<b>CD ドライブ</b> のアイコンをダブルクリックして <b>windows</b> フォルダを開き、<b>setup.exe ファイル</b>をダブルクリックします。</p>
+<a name="1063526"></a><p class="indent"><b>Dell OpenManage Management Station の必要条件ステータス</b> 画面が開き、Management Station の必要条件の確認作業が実行されます。<b>必要条件ステータス</b> に関連する情報、警告、エラーなどのメッセージが表示されます。</p>
+<ol type="1">
+
+<li value="2"><a name="1057037"></a><b>Management Station のインストール、変更、修復、削除 </b>オプションのいずれかをクリックします。
+<br><br>
+</ol>
+<a name="1057038"></a><p class="indent"><b>Dell OpenManage Management Station のインストールウィザードへようこそ</b> 画面が開きます。</p>
+<ol type="1">
+
+<li value="3"><a name="1057039"></a><b></b><b>次へ </b>をクリックします。
+<br><br>
+</ol>
+<a name="1057040"></a><p class="indent"><b>プログラムのメンテナンス</b> ダイアログボックスが開きます。 このダイアログで、プログラムの変更、修復、削除などができます。</p>
+<ol type="1">
+
+<li value="4"><a name="1057042"></a><b>削除</b> オプションを選択して <b>次へ</b> をクリックします。
+<br><br>
+</ol>
+<a name="1057043"></a><p class="indent"><b>プログラムの削除</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="5"><a name="1057044"></a><b>削除</b> をクリックします。
+<br><br>
+</ol>
+<a name="1057045"></a><p class="indent"><b>Dell OpenManage Management Station のアンインストール</b> 画面が開きます。 アンインストール中のソフトウェア機能の状態と進行状況を示すメッセージが表示されます。 </p>
+<a name="1057046"></a><p class="indent">選択した機能がアンインストールされると、<b>インストールウィザードの完了 </b>ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="6"><a name="1057047"></a><b>終了</b> をクリックして Management Station のアンインストールを終了します。
+<br><br>
+</ol>
+<a name="1057048"></a><p class="indent">Management Station の全機能がアンインストールされます。</p>
+<a name="1057049"></a><h4> Microsoft Windows オペレーティングシステム用 Management Station Software 機能のアンインストール</h4>
+<a name="1074852"></a><p>Windows で Management Station Software 機能をアンインストールするときは、次を実行します。</p>
+<ol type="1">
+
+<li value="1"><a name="1057051"></a><b>スタート</b> ボタンをクリックし、<b>設定</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol"> &#174;</font></span><b>コントロールパネル</b> の順にポイントします。 
+<br><br>
+
+<li value="2"><a name="1057053"></a><b>プログラムの追加と削除</b> をダブルクリックします。
+
+<br><br>
+ <li value="3"><a name="1057055"></a><b>Dell OpenManage </b>Management Station をクリックし、<b>削除</b> をクリックします。<br> 
+<b>プログラムの追加と削除</b> 確認ボックスが開きます。
+
+<br><br>
+<li value="4"><a name="1057059"></a><b>はい</b> をクリックして Management Station のアンインストールを承認します。
+<br><br>
+</ol>
+<a name="1060584"></a><p class="indent"><b>アンインストールの概要</b> 画面が開きます。 アンインストール中のソフトウェア機能の状態と進行状況を示すメッセージが表示されます。</p>
+<a name="1060576"></a><p class="indent">Management Station の全機能がアンインストールされます。</p>
+<a name="1057065"></a><h3> Management Station Software の無人アンインストールの実行
+</h3>
+<a name="1057067"></a><p>『Dell Systems Management Consoles CD』は、主に Management Station Software の無人アンインストールの手順を提供します。</p>
+<a name="1057069"></a><p>無人アンインストールを使用すると、Management Station Software を複数のシステムから同時にアンインストールできます。 無人アンインストールパッケージは、ISV ソフトウェア配布ツールを使用してリモートシステムに配布されます。 パッケージが配布されると、アンインストールスクリプトが実行されてソフトウェアがアンインストールされます。</p>
+<a name="1057071"></a><h4> 無人アンインストールパッケージの配布</h4>
+<a name="1057073"></a><p>『Dell Systems Management Consoles CD』は無人アンインストールパッケージとして機能するように事前設定されています。 パッケージを 1 つまたは複数のシステムに配布するには、次の手順に従います。</p>
+<ol type="1">
+
+<li value="1"><a name="1057075"></a>無人アンインストールパッケージの配布後、<b>msiexec.exe /x CD 
+ドライブ&yen;windows&yen;ManagementStation&yen;MgmtSt.msi /qb</b> コマンドが実行されるように ISV 配布ソフトウェアを設定します。
+
+<br><br>
+
+<li value="2"><a name="1057077"></a>ISV ソフトウェア配布ソフトウェアを使用して、リモートシステムに簡易無人アンインストールパッケージを配布します。
+
+<br><br>
+ <li value="3"><a name="1057079"></a><b>msiexec.exe /x CD Drive&yen;windows&yen;ManagementStation&yen;MgmtSt.msi /qb</b> コマンドが実行して、各リモートシステムから 
+IT Assistant とその他の管理ステーションソフトウェアがアンインストールされます。
+<br><br>
+</ol>
+<a name="1057081"></a><h4> 無人アンインストールのコマンドライン設定</h4>
+<a name="1058797"></a><p><a href="instms.htm#1068484">表 5 -1</a> は、無人アンインストールで使用できる無人アンインストールのコマンドラインを示します。 コマンドラインで <br><span class="screen">msiexec.exe /x MgmtSt.msi</span> の後にオプションの各設定をスペースで区切って入力します。</p>
+<a name="1057087"></a><p>たとえば、<span class="screen">msiexec.exe /x MgmtSt.msi /qb</span> を実行すると、無人アンインストールが実行され、実行中にその状態が表示されます。</p>
+<a name="1058604"></a><p><span class="screen">msiexec.exe /x MgmtSt.msi /qn</span> を実行すると無人アンインストールが実行されますが、サイレントモード（状態は非表示）で行われます。</p>
+<a name="1057093"></a><h4> カスタマイズパラメータ</h4>
+<a name="1057095"></a><p>CLI パラメータの ADDLOCAL、REINSTALL、REMOVE を使用すると、インストール、再インストール、アンインストールなどをサイレントまたは無人で実行するときに、特定のソフトウェア機能を指定できます。 カスタマイズパラメータでは、同じ無人インストールパッケージを使って異なるシステムでソフトウェア機能を選択的にインストール、再インストール、アンインストールできます。 たとえば、IT Assistant のインストールを選択できますが、システムの特定グループにある Remote Access Controller Management Station を選択することはできません。 また、特定のシステムグループから 1 つまたは複数の機能をアンインストールすることもできます。</p>
+<a name="1075282"></a>
+<p><p class="FigureTableTitle"><a name="1075259"></a>表 5-2.  管理ステーション用機能 ID</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1075263"> </a>
+<p><b>機能 ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="1075265"> </a>
+<p><b>説明</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1075267"></a>ADS</p></td><td valign="top" align="left"><p><a name="1075269"></a>Active Directory スナップインユーティリティ</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1075271"></a>BMU</p></td><td valign="top" align="left"><p><a name="1075273"></a>ベースボード管理コントローラ 管理ユーティリティ</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1075275"></a>ITA</p></td><td valign="top" align="left"><p><a name="1075277"></a>IT Assistant</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1075279"></a>RACMS</p></td><td valign="top" align="left"><p><a name="1075281"></a>Remote Access Controller Management Station</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1071432"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ: </span> ADDLOCAL、REINSTALL、REMOVE CLI パラメーター と大文字で入力しなければいけません。
+</td>
+  </tr>
+</table><a name="1075143"></a><p>コマンドラインに ADDLOCAL カスタマイズパラメータを含め、インストールするソフトウェア機能の ID を割り当てます。 例：</p>
+<a name="1071104"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i MgmtSt.msi ADDLOCAL=ITA /qb</span>
+</p>
+<a name="1057100"></a><p>このコマンドによって、Dell OpenManage Management Station のインストールが無人の冗長（メッセージで）モードで実行され、IT Assistant だけがインストールされます。</p>
+<a name="1057101"></a><p>コマンドラインに REINSTALL カスタマイズパラメータを含め、再インストールするソフトウェア機能の ID を割り当てます。 例：</p>
+<a name="1057102"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i MgmtSt.msi REINSTALL=RACMS /qb </span></p>
+<a name="1057103"></a><p>このコマンドによって Dell OpenManage Management Station のみのインストールが無人の冗長モードで実行され、Remote Access Controller Management Station が再インストールされます。</p>
+<a name="1057104"></a><p>コマンドラインに REMOVE カスタマイズパラメータを含め、アンインストールするソフトウェア機能の ID を割り当てます。 例：</p>
+<a name="1057105"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i MgmtSt.msi REMOVE=RACMS /qb </span></p>
+<a name="1057106"></a><p>このコマンドによって Dell OpenManage Management Station のみのアンインストールが無人の冗長モードで実行され、Remote Access Controller Management Station が再インストールされます。</p>
+<a name="1057107"></a><p><b>msiexec.exe</b> プログラムの 1 度の実行で、機能をインストール、再インストール、アンインストールすることもできます。 例：</p>
+<a name="1073158"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i MgmtSt.msi ADDLOCAL=ADS REINSTALL=ITA REMOVE=BMC /qb </span></p>
+<a name="1073159"></a><p>このコマンドによって Dell OpenManage Management Station のインストールが実行され、Active Directory スナップインユーティリティのインストールと IT Assistant の再インストールと ベースボード管理コントローラのアンインストールを同時に実行できます。 これは無人の冗長モードで実行されます。</p>
+<a name="1060369"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>Dell OpenManage のグローバル一意識別子（GUID）は 128 ビット長です。 製品 GUID はアプリケーションを固有に識別します。 この場合、Dell OpenManage Management Station の製品 GUID は {6453394A-5BBE-4325-
+A854-1FD483612B8D} です。
+</td>
+  </tr>
+</table><a name="1057197"></a><h3> サポートしている管理エージェントと警告エージェント
+ </h3>
+<a name="1057198"></a><p>Dell OpenManage ソフトウェアで<u>エージェント</u>とは、システム管理計装のソフトウェア機能に適用される一般的な用語です。 サポートの程度はエージェント間で異なります。 たとえば、IT Assistant は Server Administrator で管理しているシステムでは自動的に警告を検出、表示、受信して処置を実行できますが、特定のストレージデバイスのエージェントからしか警告を受け取ることができません。 IT Assistant がサポートするエージェントについては、『Dell OpenManage IT Assistant ユーザーズガイド』のリストを参照してください。</p>
+<a name="1057621"></a><h3> Windows Server 2003 移行後の IT Assistant のアップグレード
+</h3>
+<a name="1057622"></a><p>IT Assistant をインストールしたシステムを Windows Server 2003 に移行してから IT Assistant の新しいバージョンにアップグレードする場合、Windows Server 2003 と旧バージョンの Windows で暗号化が異なるため、問題が発生することがあります。</p>
+<a name="1057626"></a><p>Windows Server 2003 に移行したシステムをアップグレードすると、CIM プロトコルで設定されたシステムが検出されなくなる可能性があります。 この問題が発生した場合は、CIM ユーザーのパスワードをリセットしてください。 IT Assistant ユーザーインタフェースで、<b>検出およびモニタ</b> に移動し、<b>範囲 </b>を選択して <b>包括範囲 </b>を右クリックします。 <b>新しい包括範囲</b> をクリックすると新しい検出ウィザードを実行できます。このウィザードでは、<b>CIM 設定</b> ウィンドウで新しい CIM ユーザー名を指定できます。 詳細については、IT Assistant オンラインヘルプを参照してください。</p>
+<a name="1075585"></a><h3> Microsoft のインストールに関する既知の問題
+</h3>
+<ul><li><a name="1057630"></a>	 	 IT Assistant インストールプログラムで MSDE をインストールしてシステムを再起動した後、Windows 2000 イベントビューアで<b>エラー</b>イベントがログに記録されます。<b>ソース </b>の値が <b>サーバー</b>、<b>カテゴリ</b> の値が <b>なし</b>、<b>イベントの値</b> が <b>2506</b> で、エラーメッセージの内容は次のとおりです。<br><br></li>
+</ul><a name="1060388"></a><p class="indent">システムのレジストリキー <b>LanmanServer&yen;Parameters</b> の <b>MaxMpxCt</b> という値が無効でした。この値を無視して処理を続行しました。</p>
+<a name="1060389"></a><p class="indent"><b>MaxMpxCt</b>は <b> REG_DWORD</b>タイプのレジストリキーで値は 1 ～ 100 です。 このサーバーに発行できる同時要求数の最大値をクライアントシステムに提供します。 大きい値にするとサーバーのパフォーマンスを向上できますが、サーバーの作業アイテムの使用が多くなります。デフォルト値は 50 です。 Windows 2000 を実行しているシステムに MSDE 2000 または SQL Server 2000 をインストールした後、レジストリキー <b>MaxMpxCt</b>は上限を超える <b>0x000001ff</b>（511）の値で作成されます。システムの再起動後、Windows 2000 イベントビューアのシステムログに <b>エラー</b>イベントが記録されます。 システムから MSDE 2000 または SQL Server 2000 を削除すると、レジストリキーも削除されます。</p>
+<ul><li><a name="1057632"></a>	 	 共有違反や、開いているインタフェース接続などが原因で、アンインストール中にディレクトリが残ってしまう可能性があります。 アンインストールを実行する前に、開いているインタフェースセッションをすべて閉じてください。デフォルトのインストールディレクトリまたはユーザー指定のインストールディレクトリに残っているディレクトリは手動で削除します。場合によっては、<b> HKEY_LOCAL_MACHINE&yen;SOFTWARE&yen;Dell Computer Corporation&yen;Dell OpenManage IT Assistant</b>下のレジストリエントリも手動で削除する必要があります。<br><br> </li>
+</ul><hr noshade size="1">
+<a name="1064437"></a><h2>対応する Red Hat Enterprise Linux および SUSE Linux Enterprise Server オペレーティングシステムを実行しているシステムでの Management Station Software のインストール、アップグレード、アンインストール</h2>
+
+
+<a name="1078898"></a><h3> Management Station Software のインストール
+</h3>
+<a name="1081354"></a><p>Red Hat Enterprise Linux および SUSE Linux Enterprise Server を実行している管理ステーションで使用できるのは、BMC と RAC の機能だけです。 </p>
+<a name="1081384"></a><p>BMC 管理ユーティリティを管理ステーションにインストールするには、次の手順に従ってください。</p>
+<ol type="1">
+
+<li value="1"><a name="1082892"></a>Management Station の機能をインストールするシステムに <span class="screen">root</span> としてログオンします。
+<br><br>
+
+<li value="2"><a name="1082893"></a>必要に応じて、
+Red Hat Enterprise 
+Linux（バージョン 4）および SUSE Linux Enterprise Server（バージョン 9）の場合は <span class="screen">mount&#160;/dev/cdrom&#160;/media/cdrom </span>コマンドまたは同様のコマンド、
+Red Hat Enterprise Linux（バージョン 3）の場合は <span class="screen">mount&#160;/dev/cdrom&#160;/mnt/cdrom </span>または同様のコマンドを使用して、『Dell Systems Management Consoles CD』をマウントします。
+<br><br>
+
+<li value="3"><a name="1081618"></a><b>/linux/bmc</b><span class="screen"> </span>ディレクトリに移動し、オペレーティングシステムに固有の rpm コマンドを使用して BMC ソフトウェアをインストールします。
+<br><br>
+<ul>
+<li type="disc"><a name="1082794"></a>Red Hat Enterprise Linux を実行しているシステムでは、<span class="screen">osabmcutil*-RHEL-*.rpm、</span>たとえば <span class="screen">rpm -Uvh osabmcutil*-RHEL-*.rpm</span> を使用します。<br><br></li>
+<li type="disc"><a name="1082795"></a>SUSE Linux Enterprise Server を実行しているシステムでは、<span class="screen">osabmcutil*-SUSE-*.rpm、</span>たとえば <span class="screen">rpm -Uvh osabmcutil*-SUSE-*.rpm </span>を使用します。<br><br></li>
+</ul>
+</ol>
+<a name="1082796"></a><p>RAC Management Station 機能をインストールするには、次の手順を実行してください。</p>
+<ol type="1">
+
+<li value="1"><a name="1082499"></a>Management Station の機能をインストールするシステムに <span class="screen">root</span> としてログオンします。
+<br><br>
+
+<li value="2"><a name="1082500"></a>必要に応じて、
+Red Hat Enterprise 
+Linux（バージョン 4）および SUSE Linux Enterprise Server（バージョン 9）の場合は <span class="screen">mount&#160;/dev/cdrom&#160;/media/cdrom </span>コマンドまたは同様のコマンド、
+Red Hat Enterprise Linux（バージョン 3）の場合は <span class="screen">mount&#160;/dev/cdrom&#160;/mnt/cdrom </span>または同様のコマンドを使用して、CD をマウントします。
+<br><br>
+
+<li value="3"><a name="1082501"></a><b>/linux/rac </b><span class="screen">ディレクトリに移動し、
+</span><span class="screen">rpm&#160;-ivh&#160;*.rpm </span>コマンドを使って RAC ソフトウェアをインストールします。
+<br><br>
+</ol>
+<a name="1078902"></a><h3> 管理ステーションのソフトウェアのアップグレード
+</h3>
+<a name="1078908"></a><p>BMC 管理ユーティリティを管理ステーションでアップグレードするには、次の手順に従ってください。</p>
+<ol type="1">
+
+<li value="1"><a name="1078909"></a>Management Station の機能をアップグレードするシステムに <span class="screen">root</span> としてログオンします。
+<br><br>
+
+<li value="2"><a name="1083027"></a>必要に応じて、
+Red Hat Enterprise 
+Linux（バージョン 4）および SUSE Linux Enterprise Server（バージョン 9）の場合は <span class="screen">mount&#160;/dev/cdrom&#160;/media/cdrom </span>コマンドまたは同様のコマンド、
+Red Hat Enterprise Linux（バージョン 3）の場合は <span class="screen">mount&#160;/dev/cdrom&#160;/mnt/cdrom </span>または同様のコマンドを使用して、『Dell Systems Management Consoles CD』をマウントします。
+<br><br>
+
+<li value="3"><a name="1082640"></a><b>/linux/bmc</b> ディレクトリに移動し、オペレーティングシステムに固有の rpm コマンドを使用して BMC ソフトウェアをアップグレードします。
+<br><br>
+<ul>
+<li type="disc"><a name="1082641"></a>Red Hat Enterprise Linux を実行しているシステムでは、<span class="screen">osabmcutil*-RHEL-*.rpm、</span>たとえば <span class="screen">rpm -Uvh osabmcutil*-RHEL-*.rpm</span> を使用します。<br><br></li>
+<li type="disc"><a name="1082633"></a>SUSE Linux Enterprise Server を実行しているシステムでは、<span class="screen">osabmcutil*-SUSE-*.rpm、</span>たとえば <span class="screen">rpm -Uvh osabmcutil*-SUSE-*.rpm </span>を使用します。<br><br></li>
+</ul>
+</ol>
+<a name="1082634"></a><p>RAC Management Station の機能をupgradeするには、次の手順を実行してください。</p>
+<ol type="1">
+
+<li value="1"><a name="1078916"></a>Management Station の機能をアップグレードするシステムに <span class="screen">root</span> としてログオンします。
+<br><br>
+
+<li value="2"><a name="1078917"></a>必要に応じて、
+Red Hat Enterprise 
+Linux（バージョン 4）および SUSE Linux Enterprise Server（バージョン 9）の場合は <span class="screen">mount&#160;/dev/cdrom&#160;/media/cdrom </span>コマンドまたは同様のコマンド、
+Red Hat Enterprise Linux（バージョン 3）の場合は <span class="screen">mount&#160;/dev/cdrom&#160;/mnt/cdrom </span>または同様のコマンドを使用して、CD をマウントします。
+<br><br>
+
+<li value="3"><a name="1078918"></a><b>/linux/rac </b>ディレクトリに移動し、
+<span class="screen">rpm -Uvh *.rpm</span> コマンドを使って RAC ソフトウェアをアップグレードします。
+<br><br>
+</ol>
+<a name="1078906"></a><h3> Management Station Software のアンインストール
+</h3>
+<a name="1079051"></a><p>BMC 管理ユーティリティを管理ステーションからアンインストールするには、次の手順に従ってください。</p>
+<ol type="1">
+
+<li value="1"><a name="1079052"></a>Management Station の機能をアンインストールするシステムに <span class="screen">root</span> としてログオンします。
+<br><br>
+
+<li value="2"><a name="1080723"></a>rpm クエリコマンドを使用して、どのバージョンの BMC 管理ユーティリティがインストールされているかを確認します。
+<span class="screen">rpm&#160;-qa | grep osabmcutil</span> コマンドを使用します。
+<br><br>
+
+<li value="3"><a name="1082018"></a>それがアンインストールするバージョンであることを確認してから、<span class="screen">rpm -e `rpm 
+-qa | grep osabmcutil`</span> コマンドを使って機能をアンインストールします。
+<br><br>
+</ol>
+<a name="1082019"></a><p>RAC Management Station の機能をアンインストールするには、次の手順を実行してください。</p>
+<ol type="1">
+
+<li value="1"><a name="1079059"></a>Management Station の機能をアンインストールするシステムに <span class="screen">root</span> としてログオンします。
+<br><br>
+
+<li value="2"><a name="1079159"></a>rpm クエリコマンドを使用して、どのバージョンの RAC Management Station がインストールされているかを確認します。 
+<span class="screen">rpm -qa | grep mgmtst-racadm</span> コマンドを使用します。
+<br><br>
+
+<li value="3"><a name="1079160"></a>それがアンインストールするバージョンであることを確認してから、<span class="screen">rpm -e `rpm 
+-qa | grep mgmtst-racadm`</span> コマンドを使って機能をアンインストールします。
+<br><br>
+</ol>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">目次ページに戻る</a></p>
+
+
+<p>&#160;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

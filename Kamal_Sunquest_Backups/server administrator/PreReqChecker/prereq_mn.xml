@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PRCheckReport [
+	<!ELEMENT Exename (#PCDATA)>
+	<!ELEMENT Status (#PCDATA)>
+	<!ELEMENT CaptionID (#PCDATA)>
+	<!ELEMENT DescriptionID (#PCDATA)>
+	<!ELEMENT URLID (#PCDATA)>
+	<!ELEMENT LinkID (#PCDATA)>
+	<!ELEMENT AllPassElement (#PCDATA)>
+	<!ELEMENT AllFailElement (#PCDATA)>
+	<!ELEMENT HeadingFeatureString (#PCDATA)>
+	<!ELEMENT HeadingDescriptionString (#PCDATA)>
+	<!ELEMENT Param1 (#PCDATA)>
+	<!ELEMENT Param2 (#PCDATA)>
+	<!ELEMENT Param3 (#PCDATA)>
+	<!ELEMENT Feature (PRCheckID+)>
+	<!ATTLIST Feature
+	name CDATA #REQUIRED
+>
+	<!ELEMENT FeatureList (Feature+)>
+	<!ELEMENT PRCheck (Exename, Paramstring, Status?, CaptionID, DescriptionID?, URLID?, LinkID?, Param1?, Param2?, Param3?)>
+	<!ATTLIST PRCheck
+	pr_id ID #REQUIRED
+		executed (true | false) #REQUIRED
+>
+	<!ELEMENT PRCheckID EMPTY>
+	<!ATTLIST PRCheckID
+	value IDREF #REQUIRED
+>
+	<!ELEMENT PRCheckList (PRCheck+)>
+	<!ELEMENT PRCheckReport (HeadingList, AllPassList, AllFailList, FeatureList, PRCheckList)>
+	<!ATTLIST PRCheckReport
+	status (executed | failed | notexecuted) #REQUIRED
+>
+	<!ELEMENT Paramstring (#PCDATA)>
+	<!ELEMENT AllPassList (AllPassElement, CaptionID)>
+	<!ELEMENT AllFailList (AllFailElement, CaptionID)>
+	<!ELEMENT HeadingList (HeadingFeatureString, HeadingDescriptionString)>
+]>
+<?xml-stylesheet type="text/xsl" href="prcheckreport.xsl"?>
+<PRCheckReport status="notexecuted">
+	<HeadingList>
+		<HeadingFeatureString>hfs_feature</HeadingFeatureString>
+		<HeadingDescriptionString>hds_description</HeadingDescriptionString>
+	</HeadingList>
+	<AllPassList>
+		<AllPassElement>alp_allpass</AllPassElement>
+		<CaptionID>cap_all</CaptionID>
+	</AllPassList>
+	<AllFailList>
+		<AllFailElement>alf_allfail</AllFailElement>
+		<CaptionID>cap_all</CaptionID>
+	</AllFailList>
+	<FeatureList>
+		<Feature name="ALL">
+			<PRCheckID value="pr001"/>
+			<PRCheckID value="pr010"/>
+			<PRCheckID value="pr012"/>
+			<PRCheckID value="pr047"/>
+			<PRCheckID value="pr013"/>
+			<PRCheckID value="pr003"/>
+			<PRCheckID value="pr022"/>
+			<PRCheckID value="pr041"/>
+			<PRCheckID value="pr046"/>
+		</Feature>
+		<Feature name="SA">
+			<PRCheckID value="pr008"/>
+			<PRCheckID value="pr025"/>
+			<PRCheckID value="pr014"/>
+		</Feature>
+		<Feature name="AM">
+			<PRCheckID value="pr011"/>
+		</Feature>
+		<Feature name="IWS">
+			<PRCheckID value="pr002"/>
+		</Feature>
+		<Feature name="RAC3">
+			<PRCheckID value="pr004"/>
+			<PRCheckID value="pr036"/>
+			<PRCheckID value="pr039"/>
+		</Feature>
+		<Feature name="RAC4">
+			<PRCheckID value="pr005"/>
+			<PRCheckID value="pr040"/>
+		</Feature>
+		<Feature name="RAC5">
+			<PRCheckID value="pr023"/>
+		</Feature>
+		<Feature name="INTEL">
+			<PRCheckID value="pr006"/>
+		</Feature>
+		<Feature name="BRCM">
+			<PRCheckID value="pr007"/>
+		</Feature>
+		<Feature name="OMSM">
+			<PRCheckID value="pr015"/>
+			<PRCheckID value="pr016"/>
+			<PRCheckID value="pr017"/>
+			<PRCheckID value="pr018"/>
+			<PRCheckID value="pr019"/>
+			<PRCheckID value="pr020"/>
+			<PRCheckID value="pr021"/>
+		</Feature>
+		<Feature name="OLD">
+			<PRCheckID value="pr045"/>
+		</Feature>
+	</FeatureList>
+	<PRCheckList>
+		<!--Guidelines for PRChecks:
+			Must only return non-zero if there is a condition that has to do with run-time failure/warning/information.
+			All pre-requisite codes should be returned in the format of Status=0|1|2|3
+			where 0 is pre-req passed, 1 is information, 2 is a warning, and 3 is a failure.
+
+			The prcheck must define a caption id.
+			The Paramstring is dynamic depending upon the executable being invoked. Refer to your executable for the
+			  number and order of the parameters to be passed.
+			The prcheck must pass a description id in the Paramstring. If a check fails the description id will be displayed.
+			The prcheck must pass a status value in the Paramstring. If a check fails the status value will be displayed.
+			Optionally it may define a url id and link id.
+			They must be in the format of one of the following examples:
+
+		<PRCheck pr_id="prNNN" executed="false">
+			<Exename><![CDATA[(executable name)]]></Exename>
+			<Paramstring><![CDATA[(DYNAMIC: parameter(s) to pass to executable, Status value(s), and a description id, more parameters]]></Paramstring>
+			<CaptionID>cap_(some string identifier)</CaptionID>
+		</PRCheck>
+
+        or optionally:
+
+	    <PRCheck pr_id="prNNN" executed="false">
+			<Exename><![CDATA[(executable name)]]></Exename>
+			<Paramstring><![CDATA[(DYNAMIC: parameter(s) to pass to executable, Status value(s), and a description id, more parameters]]></Paramstring>
+			<CaptionID>cap_(some string identifier)</CaptionID>
+			<URLID>url_(some string identifier)</URLID>
+			<LinkID>lnk_(some string identifier)</LinkID>
+		</PRCheck>
+
+			The PRCheck element specifies id values, but they will be overwritten by the output of the prcheck output.
+			So when you define a captionID element in a PRCheck and the output contains a caption id, the corresponding
+			translated message string from a prereqstrings.xml file, will overwrite whatever you defined in this xml.
+			All ids MUST resolve to an id attribute in the prereqstrings.xml string file for each supported language.
+
+			Be sure to wrap your exename and paramstring values in ![CDATA[]] statements so they will parse correctly.
+		-->
+		<PRCheck pr_id="pr001" executed="false">
+			<!-- This will do a version check and display appropriate message 
+			The first parameter "MN" means do version checking for Managed Node 
+			The next two parameters contain the severity and resource id if major upgrade is detected 
+			The next two parameters contain the severity and resource id if minor upgrade is detected 
+			The next two parameters contain the severity and resource id if current version is already installed 
+			The next two parameters contain the severity and resource id if a downgrade is detected -->
+			<Exename><![CDATA[omchecks]]></Exename>
+			<Paramstring><![CDATA[VERSIONCHECK MN 1 desc_majorupgradenode 1 desc_upgradenode 1 desc_curversionnode 3 desc_downgradenode]]></Paramstring>
+			<CaptionID>cap_all</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr002" executed="false">
+			<!-- This will check for the tcp/ip protocol.  Error if not installed -->
+			<Exename><![CDATA[cscript]]></Exename>
+			<Paramstring><![CDATA[//nologo regcheck.vbs 0 3 desc_iwstcpip HKEY_LOCAL_MACHINE System\currentcontrolset\services\tcpip\imagepath]]></Paramstring>
+			<CaptionID>cap_iws</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr003" executed="false">
+			<!-- This will check if we are running on a supported system -->
+			<Exename><![CDATA[hwcheck]]></Exename>
+			<Paramstring><![CDATA[SYSTEMCHECK]]></Paramstring>
+			<CaptionID>cap_all</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr004" executed="false">
+			<!-- This will check if a drac3 card is present in the system -->
+			<Exename><![CDATA[hwcheck]]></Exename>
+			<Paramstring><![CDATA[PCICHECK DRAC3 desc_drac 2]]></Paramstring>
+			<CaptionID>cap_draccheck</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr005" executed="false">
+			<!-- This will check if a drac4 card is present in the system -->
+			<Exename><![CDATA[hwcheck]]></Exename>
+			<Paramstring><![CDATA[PCICHECK DRAC4 desc_drac 2]]></Paramstring>
+			<CaptionID>cap_draccheck</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr006" executed="false">
+			<!-- This will check if a intel card is present in the system -->
+			<Exename><![CDATA[hwcheck]]></Exename>
+			<Paramstring><![CDATA[PCICHECK INTEL desc_intel 2 desc_intelem64t 1]]></Paramstring>
+			<CaptionID>cap_intelcheck</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr007" executed="false">
+			<!-- This will check if a broadcom card is present in the system -->
+			<Exename><![CDATA[hwcheck]]></Exename>
+			<Paramstring><![CDATA[PCICHECK BROADCOM desc_brcm 2 desc_brcmem64t 1]]></Paramstring>
+			<CaptionID>cap_broadcomcheck</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr008" executed="false">
+			<!-- This will check for the snmp service.  Warning if not installed -->
+			<Exename><![CDATA[cscript]]></Exename>
+			<Paramstring><![CDATA[//nologo regcheck.vbs 0 1 desc_sa001 HKEY_LOCAL_MACHINE System\currentcontrolset\services\snmp\imagepath]]></Paramstring>
+			<CaptionID>cap_sa</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr010" executed="false">
+			<!-- This will check if user is running from proper folder when running from CDROM -->
+			<Exename><![CDATA[omchecks]]></Exename>
+			<Paramstring><![CDATA[MNCDFOLDERCHECK 3 desc_mncdfolder]]></Paramstring>
+			<CaptionID>cap_all</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr011" executed="false">
+			<!-- This will check if AM node is installed and warn user that it will be removed. -->
+			<Exename><![CDATA[omchecks]]></Exename>
+			<Paramstring><![CDATA[AMMNCHECK 2 desc_mnamremoval]]></Paramstring>
+			<CaptionID>cap_amcheck</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr012" executed="false">
+			<!-- This will check for right OS version and Service Pack version for Server Administrator -->
+			<Exename><![CDATA[omchecks]]></Exename>
+			<Paramstring><![CDATA[SAOSCHECK 3 desc_sa002]]></Paramstring>
+			<CaptionID>cap_all</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr013" executed="false">
+			<!-- This will check for the right version of MSI engine -->
+			<Exename><![CDATA[omchecks]]></Exename>
+			<Paramstring><![CDATA[MSICHECK 3 desc_msiengine]]></Paramstring>
+			<CaptionID>cap_all</CaptionID>
+			<URLID>url_MSI</URLID>
+			<LinkID>lnk_MSI</LinkID>
+		</PRCheck>
+		<PRCheck pr_id="pr014" executed="false">
+			<!-- This check will perform R2 related prereq checks -->
+			<Exename><![CDATA[omchecks]]></Exename>
+			<Paramstring><![CDATA[R2CHECKS 1 desc_r2nohwmgmt 1 desc_r2nodriver 1 desc_wssr2nohwmgmt 1 desc_wssr2nodriver]]></Paramstring>
+			<CaptionID>cap_sa</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr015" executed="false">
+			<!-- This will delete the temp file-->
+			<Exename><![CDATA[omsmchecks]]></Exename>
+			<Paramstring><![CDATA[DELETETEMPFILE 0 desc_am001]]></Paramstring>
+			<CaptionID>cap_omsscheck</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr016" executed="false">
+			<!-- This will check if FAST is installed -->
+			<Exename><![CDATA[omsmchecks]]></Exename>
+			<Paramstring><![CDATA[FASTCHECK 2 desc_omsm002]]></Paramstring>
+			<CaptionID>cap_omssam</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr017" executed="false">
+			<!-- This will check if PConsole is installed -->
+			<Exename><![CDATA[omsmchecks]]></Exename>
+			<Paramstring><![CDATA[PConsoleCHECK 2 desc_omsm003]]></Paramstring>
+			<CaptionID>cap_omsscheck</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr018" executed="false">
+			<!-- This will check if device drivers are up to date -->
+			<Exename><![CDATA[omsmchecks]]></Exename>
+			<Paramstring><![CDATA[DDCHECK 2 desc_omsm004]]></Paramstring>
+			<CaptionID>cap_omsscheck</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr019" executed="false">
+			<!-- This will check if firmware is up to date -->
+			<Exename><![CDATA[omsmchecks]]></Exename>
+			<Paramstring><![CDATA[FWCHECK 2 desc_omsm005]]></Paramstring>
+			<CaptionID>cap_omsscheck</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr020" executed="false">
+			<!-- This will display information that Adaptec controllers aren't checked -->
+			<Exename><![CDATA[omsmchecks]]></Exename>
+			<Paramstring><![CDATA[ADAWARNING 1 desc_omsm006]]></Paramstring>
+			<CaptionID>cap_omsscheck</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr021" executed="false">
+			<!-- Delete temp file -->
+			<Exename><![CDATA[omsmchecks]]></Exename>
+			<Paramstring><![CDATA[DELETETEMPFILE 0 desc_am001]]></Paramstring>
+			<CaptionID>cap_omsscheck</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr022" executed="false">
+			<!-- This will display an error message if OM 1.x,2.x,3.x is detected -->
+			<Exename><![CDATA[omchecks]]></Exename>
+			<Paramstring><![CDATA[OLDOMCHECK 3 desc_oldom]]></Paramstring>
+			<CaptionID>cap_all</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr023" executed="false">
+			<!-- This will check if the Management Station feature and RAC5 is installed in the system -->
+			<Exename><![CDATA[hwcheck]]></Exename>
+			<Paramstring><![CDATA[RACMSINSTALLED RAC5 3 desc_drac005]]></Paramstring>
+			<CaptionID>cap_draccheck</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr025" executed="false">
+			<!-- This will display a error message if the driver security policy is not set it ignore on w2k -->
+			<Exename><![CDATA[omchecks]]></Exename>
+			<Paramstring><![CDATA[W2KDRIVERPOLICYCHECK 3 desc_sa003]]></Paramstring>
+			<CaptionID>cap_sa</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr036" executed="false">
+			<!-- This will check if a drac3 card is present and (DNS or WINS) in the system -->
+			<Exename><![CDATA[hwcheck]]></Exename>
+			<Paramstring><![CDATA[DNSWINSCHECK DRAC3 desc_drac003 2]]></Paramstring>
+			<CaptionID>cap_draccheck</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr039" executed="false">
+			<!-- This will check if the Management Station feature and RAC3 is installed in the system -->
+			<Exename><![CDATA[hwcheck]]></Exename>
+			<Paramstring><![CDATA[RACMSINSTALLED RAC3 3 desc_drac005]]></Paramstring>
+			<CaptionID>cap_draccheck</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr040" executed="false">
+			<!-- This will check if the Management Station feature and RAC4 is installed in the system -->
+			<Exename><![CDATA[hwcheck]]></Exename>
+			<Paramstring><![CDATA[RACMSINSTALLED RAC4 3 desc_drac005]]></Paramstring>
+			<CaptionID>cap_draccheck</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr041" executed="false">
+			<!-- This will check if the MSI file has a valid signature -->
+			<Exename><![CDATA[omchecks]]></Exename>
+			<Paramstring><![CDATA[SIGNCHECK 3 desc_signinvalid NODE]]></Paramstring>
+			<CaptionID>cap_all</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr045" executed="false">
+			<!-- A NULL check for components that have no prereqs -->
+			<Exename><![CDATA[omchecks]]></Exename>
+			<Paramstring><![CDATA[NULL 0 desc_notfound]]></Paramstring>
+			<CaptionID>cap_old</CaptionID>
+		</PRCheck>
+		<PRCheck pr_id="pr046" executed="false">
+			<!-- This check will test for the MSI Inprogress registry key -->
+			<Exename><![CDATA[omchecks]]></Exename>
+			<Paramstring><![CDATA[MSIINPROGRESSCHECK 3 desc_msiinprogress]]></Paramstring>
+			<CaptionID>cap_all</CaptionID>
+		</PRCheck>
+		<!-- DFCT 16770 MSI UPGRADE STATUS -->
+		<PRCheck pr_id="pr047" executed="false">
+			<!-- This check will test for the MSI Upgrade status -->
+			<Exename><![CDATA[omchecks]]></Exename>
+			<Paramstring><![CDATA[MSIUPGRADESTATUS 3 desc_msiupgradestatus]]></Paramstring>
+			<CaptionID>cap_all</CaptionID>
+		</PRCheck>
+	</PRCheckList>
+</PRCheckReport>

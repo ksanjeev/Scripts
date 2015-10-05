@@ -1,0 +1,952 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;  charset=shift_jis">
+
+<title>Microsoft &#174; Windows &#174; オペレーティングシステムへの Managed System Software のインストール：Dell OpenManage バージョン 5.0 インストールとセキュリティユーザーズガイド</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">目次ページに戻る</a> </p>
+<a name="1056417"></a><h1> Microsoft&#174; Windows&#174; オペレーティングシステムへの Managed System Software のインストール  </h1>
+<p class="title">Dell OpenManage&#8482; バージョン 5.0 インストールおよびセキュリティユーザーズガイド</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1082457">概要</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1056441">はじめに</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1056524">インストール要件</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1056568">インストール手順</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1064678">サードパーティの導入ソフトウェアを利用した Managed System Software のインストール
+
+</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1082457"></a><h2>概要</h2>
+
+
+<a name="1082458"></a><p>管理下システムソフトウェアは複数の方法でインストールできます。 『Dell&#8482; PowerEdge&#8482; Installation and Server Management』には、管理先システムで Managed System Software 機能をインストール、アップグレード、アンインストールするためのセットアッププログラムが入っています。 ネットワーク上でソフトウェアを複数のシステムに無人インストールすることもできます。 </p>
+<a name="1067826"></a><p>インストール可能な Managed System 機能には、Dell OpenManage&#8482; Server Administrator、Intel&#174; SNMP エージェント、Broadcom SNMP エージェント、などがあります。</p>
+<a name="1067834"></a><p>Server Administrator 内からは Server Administrator Web Server（選択しないと Server Administrator はコマンドラインインタフェースからしか使用できません）、診断サービス、Dell Remote Access サービス、および Storage Management サービスのサブ機能を選択できます。</p>
+<a name="1078412"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>DRAC III、DRAC 4、および DRAC 5 を併用することはできません。
+</td>
+  </tr>
+</table><a name="1056427"></a><h3> Dell PowerEdge Installation and Server Management CD 
+</h3>
+<a name="1056428"></a><p>『Dell PowerEdge Installation and Server Management CD』には、管理先システムで Managed System Software 機能をインストール、アップグレード、アンインストールするためのセットアッププログラムが入っています。 また、ネットワーク上で機能を複数のシステムに無人インストールすることもできます。</p>
+<a name="1056430"></a><p>『Dell PowerEdge Installation and Server Management CD』の Windows ディレクトリにあるセットアッププログラムを使用すると、対応オペレーティングシステムを実行しているシステムで Server Administrator のインストールとアップグレードができます。 Microsoft Windows オペレーティングシステムを実行しているシステムでは、オペレーティングシステムから機能をアンインストールできます。</p>
+<a name="1071719"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>現在サポートされているシステムのリストは、『Dell PowerEdge Installation and Server Management CD』に含まれている <b>readme_ins.txt</b> ファイルを参照してください。
+</td>
+  </tr>
+</table><a name="1071720"></a><h3> 無人および事前に準備されたサイレントインストール
+ </h3>
+<a name="1056437"></a><p>『Dell PowerEdge Installation and Server Management CD』を使用すると、対応する Windows オペレーティングシステムを実行しているシステムで Managed System 機能のスクリプト記述インストールを無人でサイレントに実行できます。 また、対応 Windows オペレーティングシステムを実行しているシステムでは、コマンドラインから機能のインストールとアンインストールができます。</p>
+<hr noshade size="1">
+<a name="1056441"></a><h2>はじめに</h2>
+
+
+<ul><li>次の「<a name="1056442">インストール要件</a>」を読んで、お使いのシステムが必要条件を満たしていることを確認してください。<br><br> </li>
+<li><a name="1056443"></a>『Dell OpenManage Server Administrator 互換性ガイド』をお読みください。 このマニュアルには、対応する Windows、Red Hat&#174; Enterprise Linux、および SUSE&#174; Linux Enterprise Server オペレーティングシステムを実行しているさまざまなハードウェアプラットフォームに Server Administrator をインストールして操作するための互換性情報が含まれています。 <br><br></li>
+<li><a name="1056444"></a>『Dell PowerEdge Installation and Server Management CD』に含まれている インストール用 <b>readme_ins.txt</b> ファイルをお読みください。 readme ファイルには、新機能に関する最新情報のほか、既知の問題に関する情報が記載されています。<br><br> </li>
+<li><a name="1056445"></a>『Dell PowerEdge Installation and Server Management CD』に入っている Server Administrator readme ファイルをお読みください。 この readme には、ソフトウェア、ファームウェア、ドライバのバージョンなどに関する最新情報のほか、既知の問題について情報が記載されています。<br><br> </li>
+<li><a name="1056446"></a>ご使用のオペレーティングシステムのインストール手順をお読みください。<br><br> </li>
+</ul><hr noshade size="1">
+<a name="1056524"></a><h2>インストール要件</h2>
+
+
+<a name="1056525"></a><p>以下に、Server Administrator の一般的な必要条件について説明します。 </p>
+<a name="1056529"></a><h3> 対応オペレーティングシステムのバージョン
+ </h3>
+<a name="1056607"></a><p>Server Administrator は次の各オペレーティングシステムをサポートしています。 </p>
+<ul><li><a name="1056608"></a>Windows 2000 Server SP4（Server と Advanced Server を含む）<br><br></li>
+<li><a name="1080856"></a>Windows Server&#8482; 2003 R2（Standard および Enterprise エディションを含む） <br><br></li>
+<li><a name="1083506"></a>Windows Server 2003 SP1（Web エディション）<br><br></li>
+<li><a name="1069654"></a>Windows Server 2003 Standard および Enterprise x64 R2（Remote Access Controller III と IT&#160;Assistant を除く）<br><br></li>
+<li><a name="1087148"></a>Windows Storage Server 2003 R2（Express、Standard、Workgroup、および Enterprise エディションを含む）<br><br></li>
+</ul><a name="1056639"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>各対応オペレーティングシステムがサポートしている Server Administrator サービスの最新リストについては、『Dell PowerEdge Installation and Server Management CD』の Server Administrator <b>readme_ins.txt</b> ファイルか『Dell OpenManage Server Administrator Documentation CD』の『Dell OpenManage Server Administrator 互換性ガイド』を参照してください。 
+</td>
+  </tr>
+</table><a name="1056540"></a><h3> システム要件
+ </h3>
+<a name="1056541"></a><p>Server Administrator は、管理する各システムにインストールする必要があります。 インストール後、対応 Web ブラウザを使って、Server Administrator を実行している各システムをローカルまたはリモートで管理できるようになります。</p>
+<a name="1064085"></a><p><b>setup.exe </b>ユーティリティは CD から必要条件チェッカーを呼び出して、システムの必要条件が満たされているかどうか判別します。 （詳細については、「<a href="prereqch.htm#1053126">必要条件チェッカー</a>」を参照してください。）</p>
+<a name="1056545"></a><h4> 管理下システムの必要条件</h4>
+<ul><li><a name="1056546"></a>対応オペレーティングシステムのいずれか。 <br><br></li>
+<li><a name="1056547"></a>64 MB 以上の RAM。<br><br></li>
+<li><a name="1056548"></a>256 MB 以上のハードドライブ空き容量。<br><br></li>
+<li><a name="1056549"></a>システム管理者権限。<br><br></li>
+<li><a name="1056550"></a>リモートシステム管理を円滑にするための管理下システムと管理ステーションの TCP/IP 接続。<br><br></li>
+<li><a name="1056551"></a>サポートしているシステム管理プロトコル規格のいずれか。 <br><br></li>
+<li><a name="1056552"></a>システムをローカル管理するためのマウス、キーボード、モニター。 モニターには 800 x 600 以上の画面解像度が必要です。 推奨設定は 1024 x 768 です。<br><br> </li>
+<li><a name="1056553"></a>Server Administrator Remote Access Service を使用するには、管理するシステムに Remote Access Controller（RAC）がインストールされている必要があります。 ソフトウェアとハードウェアの詳しい必要条件については、『Dell Remote Access Controller 4 ユーザーズガイド』または『Dell Embedded Remote Access Controller/MC ユーザーズガイド』を参照してください。<br><br></li>
+</ul><a name="1056554"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>RAC ソフトウェアは、『Dell PowerEdge  Installation and Server Management CD』から Managed Sustem Software をインストールするときに、管理先システムが RAC のインストール要件をすべて満たしていれば、インストールオプションの <b>簡易セットアップ </b>と <b>カスタムセットアップ </b>の一部としてインストールされます。 ソフトウェアとハードウェアの詳しい必要条件については、「Remote Access Service」と『Dell Remote Access Controller インストール / セットアップガイド』または『Dell 組み込み型 Remote Access/MC Controller ユーザーズガイド』を参照してください。
+ </td>
+  </tr>
+</table><ul><li><a name="1056558"></a>Server Administrator Storage Management Service を使用する場合には、Dell OpenManage Storage Management をシステムにインストールすると正しく管理を行うことができます。 ソフトウェアとハードウェアの詳しい必要条件については『Dell OpenManage Server Administrator ユーザーズガイド』を参照してください。<br><br> </li>
+<li><a name="1081456"></a>Microsoft Software Installer（MSI）バージョン 3.0 以降<br><br></li>
+</ul><a name="1081491"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+メモ：</span> Dell OpenManage ソフトウェアがシステムから MSI のバージョンを検出します。バージョンが 3.1 より古い場合は、必要条件チェッカーが MSI バージョン 3.1 にアップグレードするように指示します。 
+</td>
+  </tr>
+</table>
+<a name="1081487"></a><h3> サポートしているシステム管理プロトコル規格
+</h3>
+<a name="1056561"></a><p>Server Administrator をインストールする前に、サポートしている System Management プロトコル規格が管理下システムにインストールされている必要があります。 対応 Windows オペレーティングシステムでは、Server Administrator は Common Information Model/Windows Management Instrumentation（CIM/WMI）と シンプルネットワーク管理プロトコル（SNMP）をサポートしています。 CIM と WMI は常にインストール済みで、SNMP はオペレーティングシステムのインストールメディアからインストールできます。</p>
+<a name="1056563"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>サポートしているシステム管理プロトコル規格を管理下システムにインストールする方法については、オペレーティングシステムのマニュアルを参照してください。
+ </td>
+  </tr>
+</table><a name="1082717"></a><h3> Windows Server 2003 R2 と R2 IPMI デバイスドライバ
+</h3>
+<a name="1083396"></a><p>以下の情報は、PowerEdge <i>x8xx</i> システムと PowerEdge <i>x</i>9<i>xx</i> システムのみに適用されます。</p>
+<a name="1083397"></a><p>Windows Server 2003 R2 と Windows Storage Server R2 には、Hardware Management というオプションのコンポーネントが付属しています。このコンポーネントに IPMI ドライバが含まれています。インストール中に、このコンポーネントが IPMI をインストールして有効にします。</p>
+<a name="1082784"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>On PowerEdge<i> x8xx</i> システムでは、Hardware Management コンポーネントをインストールした後、追加のステップを実行して
+R2 IPMI ドライバをインストールする必要があります。
+</td>
+  </tr>
+</table><a name="1083188"></a><p>Server Administrator は起動するとまず、Windows Server 2003 R2 IPMI ドライバが有効になっているかどうかを判別します。有効であれば、Windows Server 2003 R2 の IPMI ドライバを使用して IPMI ベースの機能を提供します。Windows Server 2003 R2 IPMI ドライバが有効になっていない場合は、Server Administrator 独自の内部 IPMI サポートを使用して IPMI ベースの機能を提供します。Server Administrator の場合、この内部 IPMI サポートの代わりに、Windows Server 2003 R2 の IPMI ドライバを使用することをお勧めします。システムで Windows Server 2003 R2 または Windows Storage Server R2 を実行している場合は、Server Administrator をインストールまたはアップグレードした後、オプションの R2 の Hardware Management コンポーネントもインストールすることをお勧めします。</p>
+<a name="1083262"></a><p>Windows Server 2003 R2 IPMI ドライバを PowerEdge <i>x8xx </i>システムにインストールするには、以下の追加ステップを実行してください。</p>
+<ul><li><a name="1083263"></a>コマンドシェルから次のコマンドを実行します。<br><br></li>
+</ul><a name="1082745"></a>
+<p class="screenindent">Rundll32 ipmisetp.dll, AddTheDevice
+</p>
+<a name="1082747"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>このステップは PowerEdge <i>x</i>9<i>xx </i>システムでは不要です。
+</td>
+  </tr>
+</table><a name="1087055"></a><p>Windows Server 2003 R2 の Hardware Management コンポーネントをインストールして、追加ステップを実行して Windows Server 2003 R2 IPMI ドライバをインストールしたら（PowerEdge <i>x8xx</i> システム）、Server Administrator の内部 IPMI サポートの使用から Windows Server 2003 R2 の IPMI ドライバの使用に切り替えるために、<b>DSM SA Data Manager</b> サービスを再起動する必要があります。サービスを再起動するには、手動でサービスを再起動するか、システムをリブートします。</p>
+<a name="1082749"></a><p>後日、Windows Server 2003 R2 の IPMI ドライバを手動で直接アンインストールした場合や、Hardware Management をコンポーネントごとアンインストールした場合は、Windows Server 2003 R2 IPMI ドライバの使用から Server Administrator 内部の IPMI サポートの使用に切り替えるために、<b>DSM SA Data Manager</b> サービスを再起動する必要があります。サービスを再起動するには、手動でサービスを再起動するか、システムをリブートします。</p>
+<a name="1066971"></a><h3> デジタル証明書
+</h3>
+<a name="1066972"></a><p>Microsoft 用の Server Administrator パッケージはすべてデルの証明書を使ってデジタル署名されているので、インストールパッケージの整合性の維持に役立っています。 こうしたパッケージが再パッケージ化、編集、または別の方法で改造されると、デジタル署名は無効になります。 この操作を行うと、インストールパッケージは未サポートとなり、必要条件チェッカーによってそのソフトウェアのインストールは行えなくなります。</p>
+<hr noshade size="1">
+<a name="1056568"></a><h2>インストール手順</h2>
+
+
+<a name="1057210"></a><p>ここでは、Windows オペレーティングシステムを実行しているシステムに Server Administrator をインストール、アップグレード、アンインストールする方法について説明します。 </p>
+<a name="1067552"></a><h3> Server Administrator のインストールまたはアップグレードの必要条件
+</h3>
+<a name="1067554"></a><p>システム管理者権限が必要です。 </p>
+<a name="1067555"></a><p>シンプルネットワーク管理プロトコル（SNMP）の対応エージェンを使用する場合は、Server Administrator をインストールする前か後に、オペレーティングシステムの SNMP 規格サポートをインストールする必要があります。 SNMP のインストールの詳細については、システムで実行しているオペレーティングシステムのインストール手順を参照してください。 </p>
+<a name="1067560"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>簡易インストール中、個々の Server Administrator サービスは、そのサービスのハードウェア要件とソフトウェア要件を満たしていない管理下システムにはインストールされません。 たとえば、Server Administrator Remote Access Service ソフトウェアモジュールは、Managed System に Remote Access Controller がインストールされていなければ、簡易インストール中にインストールされません。 ただし、<b>カスタムセットアップ</b> で Remote Access Service ソフトウェアモジュールを選択するとインストールできます。
+</td>
+  </tr>
+</table><a name="1068061"></a><h4> 必要条件チェッカー</h4>
+<a name="1071811"></a><p>セットアッププログラム（setup.exe）によって必要条件チェッカープログラムが開始します。 セットアッププログラムは『Dell PowerEdge Installation and Systems Management CD』の <b>&yen;srvadmin&yen;Windows</b> ディレクトリに入っています。 必要条件チェッカープログラムは、実際のインストールを起動せずにソフトウェアが機能するための必要条件を調べます。 このプログラムは、ソフトウェア機能のインストールや動作に影響する可能性のあるハードウェアとソフトウェアの情報をステータスウィンドウに表示します。 </p>
+<a name="1076415"></a><p>必要条件チェッカーには、情報、警告、エラーメッセージという 3 種類のメッセージが表示されます。</p>
+<a name="1068065"></a><p>情報メッセージとは、管理者として認識しておくべき状況を説明したものです。 機能がインストールできなくなることはありません。</p>
+<a name="1076780"></a><p>警告メッセージとは、ソフトウェア製品が簡易インストール中にインストールされなくなる状況を示したものです。 警告の原因を解明してから、ソフトウェアのインストールを進めることをお勧めします。 続行する場合は、カスタムインストールを使ってソフトウェアを選択的にインストールできます。 たとえば、Intel ネットワークインタフェースカード（NIC）がシステムで検出されない場合は、次のメッセージが表示されます。</p>
+<a name="1073505"></a>
+<p class="screenindent">An Intel(R) NIC was not detected on this system. This will disable 
+the &quot;Express&quot; installation of the Intel(R) SNMP Agent.<br><br>(このシステムで Intel(R) NIC が検出されませんでした。これによって Intel(R) SNMP エージェントの「簡易」インストールが無効になります。)
+</p>
+<a name="1073507"></a>
+<p class="screenindent">Use the &quot;Custom&quot; installation setup type later during installation to 
+select this feature if you have an Intel(R) NIC installed.<br><br>(Intel(R) NIC をインストールしている場合は、あとで「カスタム」インストールを使用して、
+この機能を選択してください。)
+</p>
+<a name="1072334"></a><p>エラーメッセージとは、ソフトウェア機能をインストールできない状況を説明したものです。 エラーの原因を解明してから、そのソフトウェア機能のインストールを進める必要があります。 問題を解決しなければ、ソフトウェア機能はインストールされません。</p>
+<a name="1077874"></a><p><b>srvadmin&yen;windows&yen;PreReqChecker</b> ディレクトリから <span class="screen">RunPreReqChecks.exe /s</span>	 を実行すると、この必要条件の確認作業をサイレントに実行できます。 詳細は、「<a href="prereqch.htm#1053126">必要条件チェッカー</a>」を参照してください。</p>
+<a name="1077875"></a><h3> Server Administrator のインストールとアップグレード
+ </h3>
+<a name="1057233"></a><p>本項では、次の 2 つのインストールオプションを使って Server Administrator をインストールおよびアップグレードする方法について説明します。</p>
+<ul><li><a name="1057235"></a>Server Administrator や他の Managed System Software をインストールまたはアップグレードするには、『Dell PowerEdge Installation and Server Management CD 』の <b>windows</b> ディレクトリに入っているセットアッププログラムを使用します。<br><br> </li>
+<li><a name="1057236"></a>Server Administrator や他の Managed System Software を複数のシステムにインストールするには、Windows インストーラエンジン <b>msiexec.exe</b>（下の<b> </b><a href="instwin.htm#1060065">表 6-1</a> 参照）を使用した無人インストールを実行します。<br><br> </li>
+</ul><a name="1057237"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>モジュラシステムの場合は、シャーシに取り付けたサーバーモジュールのそれぞれに Server Administrator をインストールする必要があります。
+ </td>
+  </tr>
+</table><a name="1067106"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span><b>アプリケーションの追加と削除</b> で現在インストールされている機能を検索できます。
+</td>
+  </tr>
+</table><a name="1081512"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>MSI の完全インストールのみで Dell OpenManage ソフトウェアのバージョン 4.3 から 5.0 にアップグレードできます。
+</td>
+  </tr>
+</table><a name="1083090"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>Storage Management Service のインストールを選択した場合は、Server Administrator を PowerEdge 1650、2650、4600 のシステムにインストールした後、システムの再起動を要求される可能性があります。
+</td>
+  </tr>
+</table><a name="1083091"></a><h4> 簡易インストールとカスタムインストール</h4>
+<a name="1057251"></a><p>『Dell PowerEdge Installation and Server Management CD』には、Server Administrator や他の Managed System Software をインストールするための <b>簡易セットアップ </b>オプションと <b>カスタムセットアップ</b> オプションがあります。</p>
+<a name="1057253"></a><p>システムの CD ドライブに『Dell PowerEdge Installation and Server Management CD』をインストールすると、セットアッププログラムが必要条件チェッカーを呼び出し、これがシステムの PCI バスを使用してコントローラカードなどのインストールされているハードウェアを検索します。</p>
+<a name="1057255"></a><p>必要条件チェッカーから Server Administrator のインストールを起動して、<b>簡易セットアップ </b>オプションを選択すると、インストールするシステムのハードウェア構成に適した Managed System Software 機能のすべてがインストールまたはアップグレードされます。 <b>簡易セットアップ</b> の実行方法の詳細については、『クイックインストールガイド』を参照してください。 このガイドには、必要条件チェッカーのユーザーインタフェース内のメニューから <b>クイックインストールガイド </b>クリックするとアクセスできます。</p>
+<a name="1057734"></a><p><b>カスタムセットアップ</b> オプションを選択すると、セットアッププログラムでシステムに適切なインストールオプションと識別されたソフトウェア機能の選択を解除できます。 <b>簡易セットアップ</b> 中は、ハードウェア設定に適した機能がすべて事前選択されているため、インストールする機能のリストに追加することはできません。 Server Administrator Storage Management Service は<b>簡易セットアップ</b>中にデフォルトでインストールされます。</p>
+<a name="1057265"></a><h5> カスタムインストール</h5>
+<a name="1063084"></a><p>以下に、<b>カスタムセットアップ</b> オプションを使用して Server Administrator やその他の Managed System Software をインストールおよびアップグレードする方法について説明します。</p>
+<a name="1080989"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>管理ステーションおよび管理下システムのサービスは、同じディレクトリか別のディレクトリにインストールできます。 
+インストール先ディレクトリを選択できます。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1057266"></a>System Management ソフトウェアの機能をインストールするシステムに、システム管理者権限でログインします。
+
+<br><br>
+ <li value="2"><a name="1057268"></a>開いているアプリケーションプログラムをすべて閉じ、ウイルススキャンソフトウェアを無効にします。
+
+<br><br>
+ <li value="3"><a name="1057270"></a>『Dell PowerEdge Installation and Server Management CD』をシステムの CD ドライブに挿入します。
+<br><br>
+ </ol>
+<a name="1073173"></a><p class="indent">CD のセットアッププログラムが自動的に開始しない場合は、システムのデスクトップで <b>マイコンピュータ </b>をダブルクリックするか Windows Explorer を開いて、CD ドライブのアイコンをダブルクリックし、<b>srvadmin</b> フォルダをダブルクリックし、<b>windows</b> フォルダをダブルクリックして、<b>setup.exe</b> ファイルをダブルクリックします。</p>
+<a name="1064191"></a><p class="indent"><b>Dell OpenManage Server Administrator </b>の 必要条件 状態画面が開き、管理先システムの必要条件の確認作業が実行されます。 それに関連する情報、警告、エラーなどのメッセージが表示されます。</p>
+<ol type="1">
+
+<li value="4"><a name="1057276"></a><b>Server Administrator</b> の <b>インストール、変更、修復、</b><b>削除 </b>オプションのいずれかをクリックします。
+<br><br>
+ </ol>
+<a name="1062876"></a><p class="indent"><b>Dell OpenManage Server Administrator インストールウィザードへようこそ</b> 画面が開きます。</p>
+<ol type="1">
+
+<li value="5"><a name="1057280"></a><b></b><b>次へ </b>をクリックします。
+<br><br>
+</ol>
+<a name="1062880"></a><p class="indent"><b>Dell ソフトウェア使用許諾契約 </b>が表示されます。</p>
+<ol type="1">
+
+<li value="6"><a name="1057284"></a>受け入れる場合は、<b>同意する </b>と <b>次へ </b>をクリックします。
+<br><br>
+ </ol>
+<a name="1062884"></a><p class="indent"><b>セットアップの種類</b> ダイアログボックスが開きます。 </p>
+<ol type="1">
+
+<li value="7"><a name="1057288"></a><b>カスタム</b> を選択して <b>次へ</b> をクリックします。
+<br><br>
+</ol>
+<a name="1057290"></a><p class="indent"><b>カスタムセットアップ</b> ダイアログボックスが開きます。</p>
+<a name="1062868"></a><p class="indent">特定の Managed System Software アプリケーションを選択するには、機能リストの横にあるドロップダウン矢印をクリックし、ソフトウェアをインストールするかしないかを選択します。</p>
+<a name="1062869"></a><p class="indent">選択した機能の隣にはハードドライブのアイコンが付きます。 選択解除した機能の隣に赤の <b>X</b> が付きます。 デフォルトでは、ハードウェアでサポートされていないソフトウェア機能が必要条件チェッカーで検出されると、選択が解除されます。</p>
+<a name="1062870"></a><p class="indent">デフォルトのディレクトリパスを使って Managed System Software をインストールするには、<b>次へ</b> をクリックします。</p>
+<a name="1070229"></a><p class="indent">別の場所にインストールする場合は <b>変更</b> をクリックして Managed System Software をインストールするディレクトリに移動してから <b>OK </b>をクリックします。 <b>カスタムセットアップ</b> ダイアログボックスに戻ります。</p>
+<ol type="1">
+
+<li value="8"><a name="1070230"></a>選択したソフトウェア機能のインストールを受け入れるには、<b>次へ</b> をクリックします。
+<br><br>
+ </ol>
+<a name="1073177"></a><p class="indent"><b>プログラムのインストール準備完了</b> ダイアログボックスが開きます。</p>
+<a name="1068314"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span><b>キャンセル </b>をクリックすると、インストール処理をキャンセルできます。 インストールは加えた変更を元の状態に戻します。 インストール処理の最後の方で <b>キャンセル</b> をクリックした場合は、元の状態に正しく戻らず、システムがインストール未完了のままになることがあります。 「<a href="instwin.htm#1081939">失敗したインストールのシステム回復</a>」を参照してください。
+ </td>
+  </tr>
+</table><ol type="1">
+
+<li value="9"><a name="1068315"></a>選択したソフトウェア機能をインストールするには、<b>インストール</b> をクリックします。
+<br><br>
+ </ol>
+<a name="1070259"></a><p class="indent"><b>Dell OpenManage </b><b>Server Administrator </b><b>のインストール</b> 画面が開きます。 インストール中のソフトウェア機能の状態と進行状況を示すメッセージが表示されます。 選択した機能がインストールされると、<b>インストールウィザード</b><b>完了 </b>ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="10"><a name="1057314"></a><b>終了 </b>をクリックして Server Administrator のインストールを終了します。
+<br><br>
+ </ol>
+<a name="1062892"></a><p class="indent">システム再起動のプロンプトが表示されたら、インストールした Managed System Software のサービスを使用するためにシステムを再起動する必要があります。 システム再起動のプロンプトが表示されたら、次のいずれかの再起動オプションを選択します。 </p>
+<ul><ul>
+<li type="disc"><a name="1057322"></a><b>今すぐ再起動する</b><br><br></li>
+<li type="disc"><a name="1057324"></a><b>後で再起動する</b><br><br></li>
+</ul>
+</ul><a name="1057327"></a><h4> Citrix を使用した Server Administrator Installation のインストール</h4>
+<a name="1057328"></a><p>Citrix のインストールによって、ハードドライブの文字がすべて再マッピングされます。 たとえば、ドライブ <b>C:</b> に Server Administrator をインストールしてから Citrix をインストールすると、ドライブ文字 <b>C:</b> が <b>M:</b> に変更されます。 再マッピングの結果、Server Administrator が正常に機能しなくなります。</p>
+<a name="1057334"></a><p>この問題を回避するには、次のいずれかのオプションを選択します。</p>
+<a name="1057336"></a><p>オプション 1：</p>
+<ol type="1">
+
+<li value="1"><a name="1057338"></a>Server Administrator をアンインストールする
+
+<br><br>
+<li value="2"><a name="1057340"></a>Citrix をインストールする
+
+<br><br>
+<li value="3"><a name="1057342"></a>Server Administrator を再インストールする
+<br><br>
+</ol>
+<a name="1057344"></a><p>オプション 2：</p>
+<a name="1057346"></a><p>Citrix をインストールした後、次のコマンドを入力します。</p>
+<a name="1086157"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /fa SysMgmt.msi
+</span></p>
+<a name="1057349"></a><h4> Managed System Software のアップグレード</h4>
+<a name="1057350"></a><p>『Dell PowerEdge Installation and Server Management CD』には、Server Administrator や他の Managed System Software をアップグレードするための <b>アップグレード </b>オプションがあります。</p>
+<a name="1057352"></a><p>システムの CD ドライブに『Dell PowerEdge Installation and Server Management CD』をインストールすると、必要条件チェッカープログラムがシステムの PCI バスを使用して、コントローラカードなどのインストールされているハードウェアを検索します。</p>
+<a name="1057354"></a><p>セットアッププログラムによって、特定のシステムのハードウェア構成に適した Managed System Software 機能すべてがインストールまたはアップグレードされます。</p>
+<a name="1082854"></a><p>システムに適した機能はすべて事前選択されているため、アップグレード中に、インストールする Managed System Software 機能のリストに追加することはできません。</p>
+<a name="1086792"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">
+    注意：</span>Dell OpenManage Array Manager はサポートされなくなりました。Array Manager がインストールされているシステム（Dell OpenManage version 4.3 以降でインストール）をアップグレードする場合は、アップグレードの過程で Array Manager が削除されます。
+代わりに Storage Management Service を使用できます。
+</td>
+  </tr>
+</table>
+<a name="1067065"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>すべてのユーザー設定がアップグレード中に保持されます。
+</td>
+  </tr>
+</table><a name="1057358"></a><p>以下は、IT Assistant や他の Managed System Software をアップグレードする手順です。</p>
+<a name="1057360"></a><h5> カスタムアップグレード</h5>
+<ol type="1">
+
+<li value="1"><a name="1064244"></a>『Dell PowerEdge Installation and Server Management CD』をシステムの CD ドライブに挿入します。
+<br><br>
+ </ol>
+<a name="1073181"></a><p class="indent">CD のセットアッププログラムが自動的に開始しない場合は、システムのデスクトップで <b>マイコンピュータ </b>をダブルクリックするか Windows Explorer を開いて、CD ドライブのアイコンをダブルクリックし、<b>srvadmin</b> フォルダをダブルクリックし、<b>windows</b> フォルダをダブルクリックして、<b>setup.exe</b> ファイルをダブルクリックします。</p>
+<a name="1065091"></a><p class="indent"><b>Dell OpenManage Server Administrator </b>の必要条件ステータス画面が開き、管理先システムの必要条件の確認作業が実行されます。 それに関連する情報、警告、エラーなどのメッセージが表示されます。</p>
+<ol type="1">
+
+<li value="2"><a name="1057367"></a><b>Server Administrator</b> の <b>インストール、変更、修復、</b><b>削除 </b>オプションのいずれかをクリックします。<br>
+<b>Dell OpenManage Server Administrator インストールウィザードへようこそ</b> 画面が開きます。
+<br><br>
+</ol>
+<a name="1065095"></a><p class="indent">この画面は次に <b>Dell OpenManage Server Administrator</b> <b>インストールウィザードの再開 </b>画面に切り替わります。</p>
+<ol type="1">
+
+<li value="3"><a name="1057373"></a><b></b><b>次へ </b>をクリックします。
+<br><br>
+</ol>
+<a name="1070297"></a><p class="indent"><b>Dell OpenManage </b><b>Server Administrator </b><b>のインストール</b> 画面が開きます。 インストールまたはアップグレード中のソフトウェア機能の状態と進行状況を示すメッセージが表示されます。 </p>
+<a name="1065103"></a><p class="indent">選択した機能がインストールまたはアップグレードされると、<b>インストールウィザード完了 </b>ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="4"><a name="1057379"></a><b>終了 </b>をクリックして Server Administrator のインストールを終了します。
+<br><br>
+</ol>
+<a name="1065104"></a><p class="indent">システム再起動のプロンプトが表示されたら、インストールした Managed System Software のサービスを使用するにはシステムを再起動する必要があります。</p>
+<a name="1065108"></a><p class="indent">また、基本ディスクからダイナミックディスクにアップグレードする場合など、オペレーティングシステムのディスクを変更する前にも再起動する必要があります。 システム再起動のプロンプトが表示されたら、次のいずれかの再起動オプションを選択します。 </p>
+<ul><ul>
+<li type="disc"><a name="1057389"></a><b>今すぐ再起動する</b><br><br></li>
+<li type="disc"><a name="1057391"></a><b>後で再起動する</b><br><br></li>
+</ul>
+</ul><a name="1070645"></a><h5> カスタム変更</h5>
+<ol type="1">
+
+<li value="1"><a name="1057396"></a><b>スタート</b> ボタンをクリックし、<b>設定</b>、<b>コントロールパネル</b> の順にポイントします。 
+<br><br>
+
+<li value="2"><a name="1057398"></a><b>プログラムの追加の削除</b> をダブルクリックします。
+
+<br><br>
+ <li value="3"><a name="1057400"></a><b>Dell OpenManage </b><b>Server Administrator</b> をクリックし、<b>変更 </b>をクリックします。
+<br><br>
+ </ol>
+<a name="1065109"></a><p class="indent"><b>Dell OpenManage Server Administrator インストールウィザードへようこそ</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="4"><a name="1057404"></a><b></b><b>次へ </b>をクリックします。
+<br><br>
+</ol>
+<a name="1065113"></a><p class="indent"><b>プログラムのメンテナンス</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="5"><a name="1057408"></a><b>変更</b> オプションを選択して <b>次へ </b>をクリックします。
+<br><br>
+</ol>
+<a name="1065117"></a><p class="indent"><b>カスタムセットアップ</b> ダイアログボックスが開きます。 </p>
+<ol type="1">
+
+<li value="6"><a name="1073186"></a>特定の Managed System Software アプリケーションを選択するには、機能リストの横にあるドロップダウン矢印をクリックし、インストールする場合は <b>この機能をインストールする</b>、インストールしない場合は <b>この機能を無効にする </b>を選択します。
+<br><br>
+</ol>
+<a name="1070341"></a><p class="indent">選択した機能の隣にはハードドライブのアイコンが付きます。 選択解除した機能の隣に赤の <b>X</b> が付きます。 デフォルトでは、ハードウェアでサポートされていないソフトウェア機能が必要条件チェッカーで検出されると、その機能の選択が解除されます。</p>
+<ol type="1">
+
+<li value="7"><a name="1070342"></a>選択したソフトウェア機能のインストールを受け入れるには、<b>次へ</b> をクリックします。
+<br><br>
+ </ol>
+<a name="1070343"></a><p class="indent"><b>プログラムの変更準備完了</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="8"><a name="1057420"></a>選択したソフトウェア機能をインストールするには、<b>インストール</b> をクリックします。
+<br><br>
+ </ol>
+<a name="1065129"></a><p class="indent"><b>Dell OpenManage </b><b>Server Administrator </b><b>のインストール</b> 画面が開きます。 インストール中のソフトウェア機能の状態と進行状況を示すメッセージが表示されます。 </p>
+<a name="1065133"></a><p class="indent">選択した機能がインストールされると、<b>インストールウィザードの完了 </b>ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="9"><a name="1057426"></a><b>終了 </b>をクリックして Server Administrator のインストールを終了します。
+<br><br>
+</ol>
+<a name="1068364"></a><p class="indent">システム再起動のプロンプトが表示されたら、インストールした Managed System Software のサービスを使用するにはシステムを再起動する必要があります。 システム再起動のプロンプトが表示されたら、次のいずれかの再起動オプションを選択します。 </p>
+<ul><ul>
+<li type="disc"><a name="1057434"></a><b>今すぐ再起動する</b><br><br></li>
+<li type="disc"><a name="1057436"></a><b>後で再起動する</b><br><br></li>
+</ul>
+</ul><a name="1057440"></a><h5> カスタム修復</h5>
+<ol type="1">
+
+<li value="1"><a name="1057441"></a><b>スタート</b> ボタンをクリックし、<b>設定</b>、<b>コントロールパネル</b> の順にポイントします。 
+<br><br>
+
+<li value="2"><a name="1057443"></a><b>プログラムの追加の削除</b> をダブルクリックします。
+
+<br><br>
+ <li value="3"><a name="1057445"></a><b>Dell </b><b>Server Administrator</b> をクリックし、<b>変更 </b>をクリックします。
+<br><br>
+ </ol>
+<a name="1065139"></a><p class="indent"><b>Dell OpenManage Server Administrator インストールウィザードへようこそ</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="4"><a name="1057449"></a><b></b><b>次へ </b>をクリックします。
+<br><br>
+</ol>
+<a name="1065143"></a><p class="indent"><b>プログラムのメンテナンス</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="5"><a name="1057453"></a><b>修復</b> オプションを選択して <b>次へ </b>をクリックします。
+<br><br>
+</ol>
+<a name="1065147"></a><p class="indent"><b>プログラムの修復準備完了</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="6"><a name="1057457"></a>選択したソフトウェア機能をインストールするには、<b>インストール</b> をクリックします。
+<br><br>
+ </ol>
+<a name="1070375"></a><p class="indent"><b>Dell OpenManage </b><b>Server Administrator </b><b>のインストール</b> 画面が開きます。 インストール中のソフトウェア機能の状態と進行状況を示すメッセージが表示されます。 </p>
+<a name="1070376"></a><p class="indent">選択した機能がインストールされると、<b>インストールウィザードの完了 </b>ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="7"><a name="1057463"></a><b>終了 </b>をクリックして Server Administrator のインストールを終了します。
+<br><br>
+ </ol>
+<a name="1076448"></a><p class="indent">システム再起動のプロンプトが表示されたら、次のいずれかの再起動オプションを選択します。 </p>
+<ul><ul>
+<li type="disc"><a name="1057469"></a><b>今すぐ再起動する</b><br><br></li>
+<li type="disc"><a name="1057471"></a><b>後で再起動する</b><br><br></li>
+</ul>
+</ul><a name="1081939"></a><h3> 失敗したインストールのシステム回復
+</h3>
+<a name="1081940"></a><p>Windows Microsoft Installer（MSI）は、インストールに失敗した場合にシステムを正常な状態に戻す機能も提供しています。 MSI は、インストール、アップグレード、またはアンインストール中に実行する標準的な処理ごとに「元に戻す」操作ができる仕組みになっています。 この操作には、削除や上書きが行われたファイルやレジストリキーや、その他のリソースが含まれます。 Windows では、インストールや削除中に削除または上書きされたファイルを一時的に保存しているため、必要に応じてロールバックして復元することができます。 インストールが正常に完了した後、バックアップ用の一時ファイルはすべて削除されます。</p>
+<a name="1064049"></a><p>MSI（Microsoft Software Installer）の標準的な処理のロールバックのほか、Dell OpenManage ライブラリでは、ロールバックが発生した場合に各アプリケーションの INI ファイルに一覧になっているコマンドを元に戻すこともできます。 ロールバックが発生すると、Dell OpenManage インストール処理によって変更されたファイルがすべて元の状態に復元されます。 </p>
+<a name="1064050"></a><p>MSI エンジンはインストールシーケンスを実行する場合に、ロールバック処理としてスケジュールされている処理をすべて無視します。 カスタム処理、MSI 標準処理、または Dell OpenManage インストール処理に失敗した場合は、ロールバックが開始します。 </p>
+<a name="1064983"></a><p>いったんインストールが正常に完了したら、それをロールバックすることはできません。処理済みインストールは特定のインストールセッション中にコンピュータを保護するための安全網として用意されているだけです。 たとえば、インストールしたアプリケーションを削除したい場合は、単にそのアプリケーションをアンインストールしてください。</p>
+<a name="1057482"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>ドライバのインストールと削除はインストール処理の一部として実行されないため、実行中に致命的エラーが発生した場合はロールバックできません。
+ </td>
+  </tr>
+</table><a name="1058678"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>インストーラのクリーンアップ中やインストール処理の完了後にキャンセルしたインストール、アンインストール、アップグレードは、ロールバックされません。
+ </td>
+  </tr>
+</table><a name="1068721"></a><h3> アップデートの失敗
+</h3>
+<a name="1070394"></a><p>ベンダーが提供する Windows の MSI パッチやアップデートは、ベンダーのオリジナル MSI パッケージに適用する必要があります。 故意または過失によって MSI をパッケージし直した場合や直接 MSI を変更した場合は、パッチやアップデートに失敗します。 MSI パッケージをパッケージし直してはいけません。パッケージし直すと、機能の構造や GUID が変わって、提供されたパッチやアップデートを壊してしまいます。 ベンダー提供の MSI パッケージに変更を加えなければならない場合は、常に <b>.mst</b> 変換ファイルを使用してください。</p>
+<a name="1057503"></a><h3> Windows インストーラのログ記録
+</h3>
+<a name="1081694"></a><p>Windows にはレジストリがアクティブにするログ記録サービスが含まれており、Windows インストーラの問題の診断に役立ちます。 サイレントインストール中にこのログ記録サービスを有効にするには、<b>Regedt32.exe</b> でレジストリを開いて次のパスとキーを作成します。 </p>
+<a name="1081695"></a><p><span class="screen">HKEY_LOCAL_MACHINE&yen;Software&yen;Policies&yen;Microsoft&yen;Windows&yen;Installer<br>Reg_SZ: Logging<br>Value: voicewarmup </span></p>
+<a name="1081696"></a><p>値フィールドの文字の順序は自由です。 文字によって、オンになるログモードが異なります。 MSI バージョン 3.1 の場合、各文字の実際の機能は次のとおりです。 </p>
+<a name="1081697"></a><p><span class="screen">v</span> - 冗長出力<br><span class="screen">o</span> - ディスク容量不足メッセージ<br><span class="screen">i</span> - 状態メッセージ<br><span class="screen">c</span> - 初期 UI パラメータ<br><span class="screen">e </span>- すべてのエラーメッセージ<br><span class="screen">w</span> - 致命的でない警告<br><span class="screen">a </span>- 処置の開始<br><span class="screen">r </span>- 処置に固有の記録<br><span class="screen">m</span> - メモリ不足または致命的終了の情報<br><span class="screen">u </span>- ユーザー要求<br><span class="screen">p</span> - 端末のプロパティ<br><span class="screen">+</span> - 既存ファイルに追加<br><span class="screen">! </span>- 各行をログにフラッシュ<br><span class="screen">&quot;*&quot;</span> - ワイルドカード、v オプション以外の全情報をログに記録します。 v オプションを含めるには、&quot;/l*v&quot; と指定します。</p>
+<a name="1081698"></a><p>アクティブになると、生成されたログファイルは %TEMP% ディレクトリにあることがわかります。 このディレクトリには次のようなログファイルが生成されます。</p>
+<ul><li><a name="1081699"></a><b>管理下システムのインストール</b><br><br></li>
+<ul>
+<li type="disc"><a name="1081700"></a><b>SysMgmt.log</b><br><br></li>
+</ul>
+<li><a name="1081701"></a><b>管理ステーションのインストール</b><br><br></li>
+<ul>
+<li type="disc"><a name="1081702"></a><b>MgmtSt.log</b><br><br></li>
+<li type="disc"><a name="1081703"></a><b>Msdeinstall.log</b><br><br></li>
+</ul>
+</ul><a name="1057536"></a><p>このログファイルは、必要条件チェッカーのユーザーインタフェース（UI）が実行している場合に、デフォルトで作成されます。</p>
+<a name="1081823"></a><h3> MSI エンジンのアップグレード
+</h3>
+<a name="1081818"></a><p>Dell OpenManage ソフトウェアでは、インタラクティブなインストール中に MSI エンジンをアップグレードできます。サイレントインストールの場合は、インストールスクリプトに適切なコマンドを追加する必要があります。</p>
+<a name="1082220"></a><p>配布スクリプトで次のコマンドを使用して MSI エンジンをアップグレードし（必要な場合）、システム管理ソフトウェアをインストール / アップグレードしてください。</p>
+<a name="1082240"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>Dell OpenManage システム管理と Management Station インストーラには MSI バージョン 3.1 以降が必要です。
+Windows Server 2003（Service Pack なし）、
+Windows&#160;2000 Server、または Windows XP オペレーティングシステムを実行しているシステムを使用している場合は、MSI エンジンをアップデートします。Windows Server 2003 SP1 
+または Windows Server 2003 x64 オペレーティングシステムを実行しているシステムを使用している場合は、MSI エンジンをアップデートする必要はありません。
+</td>
+  </tr>
+</table><a name="1085518"></a><p><span class="screen">:retry<br>start /wait msiexec /i SysMgmt.msi /qn<br>if %errorlevel% == 1613 (<br>REM UPGRADE THE WINDOWS INSTALLER ENGINE<br>start /wait WindowsInstaller-KB893803-v2-x86.exe /quiet /norestart<br>goto retry<br>)<br>if %errorlevel% == 1638 (<br>REM THIS IS A MINOR UPGRADE<br>start /wait msiexec /i SysMgmt.msi REINSTALL=ALL REINSTALLMODE=vomus/qn<br>)</span></p>
+<a name="1081865"></a><h3> Managed System Software の無人インストールの実行
+ </h3>
+<a name="1081866"></a><p>『Dell PowerEdge Installation and Server Management CD』には、無人インストール手順として、<b>簡易セットアップ</b> オプションと<b> カスタムセットアップ</b> オプションがあります。</p>
+<a name="1057543"></a><p>無人インストールを使用すると、Server Administrator を複数のシステムに同時にインストールできます。 必要なすべての Managed System Software ファイルを含めた無人インストールパッケージを作成して、無人インストールを実行します。 無人インストールオプションは、無人インストールの設定、確認、情報表示などができる機能もいくつか提供しています。</p>
+<a name="1057545"></a><p>無人インストールパッケージは、独立系ソフトウェアベンダー（ISV）のソフトウェア配布ツールを使用して、リモートシステムに配布されます。 パッケージが配布されると、インストールスクリプトが実行されてソフトウェアがインストールされます。</p>
+<a name="1057547"></a><h4> 簡易無人インストールパッケージの作成と配布</h4>
+<a name="1057548"></a><p>無人インストールオプションの <b>簡易セットアップ</b> は、無人インストールパッケージとして『Dell PowerEdge Installation and Server Management CD』使用します。 <b>msiexec.exe /i SysMgmt.msi /qb</b> プログラムで『Dell PowerEdge Installation and Server Management CD』にアクセスして、ソフトウェアライセンス契約に同意すると、選択したリモートシステムに Server Administrator 機能の必要コンポーネントがすべてインストールされます。 <b>msiexec.exe /i SysMgmt.msi /qb</b> コマンドは、システムのハードウェア設定に基づいて、各リモートシステムに Server Administrator 機能をインストールします。 </p>
+<a name="1057549"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>無人インストールの完了後に、Server Administrator のコマンドラインインタフェース（CLI）機能を使用するには、別のコンソールウィンドウを開いて、そこから CLI コマンドを実行する必要があります。 Server Administrator をインストールしたコンソールウィンドウから CLI コマンドを実行しても機能しません。
+</td>
+  </tr>
+</table><a name="1057556"></a><p>『Dell PowerEdge Systems Management CD』の内容すべてを配布するか、ターゲットシステムから CD イメージの場所にドライブをマッピングすると、CD イメージをリモートシステムで使用できるようになります。 </p>
+<a name="1057558"></a><h5> 簡易無人インストールパッケージとして使用するためのドライブのマッピング</h5>
+<ol type="1">
+
+<li value="1"><a name="1057559"></a>Server Administrator をインストールする各リモートシステムで『Dell PowerEdge Systems Management CD』イメージを共有します。 
+<br><br>
+</ol>
+<a name="1057561"></a><p class="indent">このタスクは、CD を直接共有するか、CD 全体をドライブにコピーしてコピーを共有することで達成できます。</p>
+<ol type="1">
+
+<li value="2"><a name="1057563"></a>手順 1 で説明した共有ドライブにリモートシステムからドライブをマッピングするスクリプトを作成します。 ドライブがマップされた後、この
+スクリプトで <b>msiexec.exe /i マップされた
+ドライブ&yen;srvadmin&yen;windows&yen;SystemsManagement&yen;SysMgmt.msi /qb</b> が実行されます。
+<br><br>
+
+<li value="3"><a name="1057565"></a>手順 2で作成したスクリプトを配布して実行するように ISV 配布ソフトウェアを設定します。
+
+<br><br>
+ <li value="4"><a name="1057567"></a>ISV ソフトウェア配布ツールを使用して、このスクリプトをターゲットシステムに配布します。
+<br><br>
+ </ol>
+<a name="1057569"></a><p class="indent"><b>msiexec.exe /i マップされたドライブ&yen;srvadmin&yen;windows&yen;SystemsManagement&yen;SysMgmt.msi /qb</b> プログラムが実行して各リモートシステムに Server Administrator がインストールされます。</p>
+<ol type="1">
+
+<li value="5"><a name="1057571"></a>各リモートシステムを再起動して、Server Administrator を有効にします。
+<br><br>
+ </ol>
+<a name="1057573"></a><h5> 簡易無人インストールパッケージとしての全 CD 全体の配布</h5>
+<ol type="1">
+
+<li value="1"><a name="1057574"></a>『Dell PowerEdge Installation and Server Management CD』のイメージ全体をターゲットシステムに配布します。 
+<br><br>
+
+<li value="2"><a name="1057576"></a>『Dell PowerEdge Installation and Server Management CD』イメージから <b>msiexec.exe /i CD 
+ドライブ&yen;srvadmin&yen;windows&yen;SystemsManagement&yen;SysMgmt.msi /qb</b> プログラムを実行するように ISV 配布ソフトウェアを設定します。 
+<br><br>
+</ol>
+<a name="1057578"></a><p class="indent"><b>msiexec.exe /i CD ドライブ&yen;srvadmin&yen;windows&yen;SystemsManagement&yen;SysMgmt.msi /qb</b> プログラムが実行して各リモートシステムに Server Administrator がインストールされます。</p>
+<ol type="1">
+
+<li value="3"><a name="1057580"></a>各リモートシステムを再起動して、Server Administrator を有効にします。
+<br><br>
+ </ol>
+<a name="1057582"></a><h4> カスタム無人インストールパッケージの作成と配布</h4>
+<a name="1057583"></a><p>カスタム無人インストールパッケージを作成するには、次の手順を実行してください。</p>
+<ol type="1">
+
+<li value="1"><a name="1068396"></a><b>windows</b> ディレクトリを CD からシステムのハードドライブにコピーします。
+
+<br><br>
+<li value="2"><a name="1073229"></a>Windows インストーラエンジン（<b>msiexe.exe</b>）を使ってインストールを実行するバッチスクリプトを作成します。
+<br><br>
+ </ol>
+<a name="1073234"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">メモ：</span>カスタム無人インストールの場合は、必要な機能のそれぞれをコマンドラインインタフェース（CLI）のパラメータとして含める必要があります。
+</td>
+  </tr>
+</table>
+<a name="1057590"></a><p class="indent">たとえば、<span class="screen">msiexec.exe /i SysMgmt.msi ADDLOCAL=SA,IWS,BRCM /qb</span><b> </b>のようになります。 詳細と使用可能な機能 ID については、次の「<a href="instwin.htm#1059594">カスタマイズパラメータ</a>」を参照してください。</p>
+<ol type="1">
+
+<li value="3"><a name="1057595"></a>また、バッチスクリプトはシステムのハードドライブにある <b>windows</b> ディレクトリに入れてください。
+<br><br>
+</ol>
+<a name="1057598"></a><h5> カスタム無人インストールパッケージの配布</h5>
+<a name="1057600"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span> <b>カスタムセットアップ </b>無人インストールで使用する Server Administrator 用 <b>SysMgmt.msi </b>インストールパッケージ（「<a href="instwin.htm#1057582">カスタム無人インストールパッケージの作成と配布</a>」を参照）は、srvadmin&yen;<b>windows&yen;SystemsManagement</b> ディレクトリにあります。
+ </td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1057603"></a>インストールパッケージを配布したら、バッチスクリプトを実行するように ISV 配布ソフトウェアを設定します。
+
+<br><br>
+ <li value="2"><a name="1057605"></a>ISV 配布ソフトウェアを使用して、リモートシステムにカスタム無人インストールパッケージを配布します。<br> 
+<b>msiexec.exe /i システムドライブ&yen;srvadmin&yen;windows&yen;SystemsManagement&yen;SysMgmt.msi 
+ADDLOCAL=SA,IWS,BRCM /qb</b> プログラムによって Server Administrator と指定した機能が各リモートシステムにインストールされます。
+<br><br>
+
+<li value="3"><a name="1057609"></a>各リモートシステムを再起動して、Server Administrator を有効にします。
+<br><br>
+ </ol>
+<a name="1065050"></a><h4> ログファイルの場所の指定</h4>
+<a name="1065041"></a><p>管理下システム MSI のインストールでは、次のコマンドを実行して、無人インストールを実行すると共にログファイルの場所を指定します。</p>
+<a name="1065030"></a>
+<p class="screenindent">Msiexec.exe /i SysMgmt.msi /l*v &quot;C:&yen;openmanage&yen;logs&yen;SysMgmt.log&quot;
+</p>
+<a name="1065026"></a><h4> 無人インストール機能</h4>
+<a name="1057612"></a><p>無人インストールには次の機能があります。</p>
+<ul><ul>
+<li type="disc"><a name="1057614"></a>無人インストールをカスタマイズするオプションのコマンドライン設定<br><br> </li>
+<li type="disc"><a name="1057615"></a>特定のソフトウェア機能のインストールを指定するカスタマイズパラメータ<br><br> </li>
+<li type="disc"><a name="1057616"></a>実際のインストールを実行せずに、選択したソフトウェア機能の依存関係を調べる必要条件チェッカープログラム<br><br> </li>
+</ul>
+</ul><a name="1059535"></a><h5> オプションのコマンドライン設定</h5>
+<a name="1059536"></a>
+<p><a href="instwin.htm#1060065">表 6-1</a> は、<b>msiexec.exe</b> MSI インストーラで使用できるオプション設定です。 コマンドラインで <b>msiexec.exe </b> の後に各オプション設定をスペースで区切って入力します。</p>
+<a name="1059539"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>Windows インストーラツールの全コマンドラインスイッチの詳細については、<b>support.microsoft.com</b> を参照してください。
+</td>
+  </tr>
+</table><a name="1077126"></a>
+<p><p class="FigureTableTitle"><a name="1060065"></a>表 6-1.  MSI インストーラのコマンドライン設定&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1060069"> </a>
+<p><b>設定</b></p>
+
+
+</th><th valign="top" align="left"><a name="1060071"> </a>
+<p><b>結果</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1060107"></a><span class="screen">/i&lt;パッケージ|製品コード&gt;</span></p></td><td valign="top" align="left"><p><a name="1060113"></a>このコマンドで製品をインストールまたは設定します。</p><p><a name="1060120"></a><b>/i SysMgmt.msi </b><span class="screen"></span>&#8211; これは Server Administrator Software をインストールします。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1081753"></a><span class="screen">/i SysMgmt.msi /qn</span></p></td><td valign="top" align="left"><p><a name="1082112"></a>このコマンドは バージョン 5.0 の新規インストールを実行します。また、バージョン 4.3 から 5.0 へのメジャーアップグレードも実行します。Windows Server 2003（Service Pack なし）、Windows 2000 Server、または Windows XP オペレーティングシステムを実行しているシステムを使用している場合は、このコマンドを実行する前に MSI エンジンをアップデートする必要があります。MSI のアップグレードおよびシステム管理ソフトウェアのインストール / アップグレードについては、「<a href="instwin.htm#1081823">MSI エンジンのアップグレード</a>」を参照してください。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1081779"></a><span class="screen">/i SysMgmt.msi REINSTALL=ALL REINSTALLMODE=vomus /qn</span></p></td><td valign="top" align="left"><p><a name="1082131"></a>このコマンドは バージョン 4.3 から 4.4 へのマイナーアップグレードを実行します。Windows Server 2003（Service Pack なし）、Windows 2000 Server、または Windows XP オペレーティングシステムを実行しているシステムを使用している場合は、このコマンドを実行する前に MSI エンジンをアップデートする必要があります。 MSI のアップグレードおよびシステム管理ソフトウェアのインストール / アップグレードについては、「<a href="instwin.htm#1081823">MSI エンジンのアップグレード</a>」を参照してください。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1060127"></a><span class="screen">/x&lt;パッケージ|製品コード&gt;</span></p><p><a name="1060089"></a></p></td><td valign="top" align="left"><p><a name="1060134"></a>このコマンドで製品をアンインストールすることができます。 </p><p><a name="1060136"></a><b>/i SysMgmt.msi </b>&#8211; これは Server Administrator Software をアンインストールします。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1060085"></a><span class="screen">/q&lt;n|b|r|f&gt;</span></p></td><td valign="top" align="left"><p><a name="1079167"></a>ユーザーインタフェース（UI）のレベルを設定します。 </p><p><a name="1079165"></a><b>/q</b> or <b>/qn</b> &#8211; UI なし。 このオプションは無人のサイレントインストールに使用されます。<br><b>/qb</b> &#8211; 基本 UI。 このオプションはサイレントでない無人インストールに使用されます。<br><b>/qr</b> &#8211; 縮約 UI。 このオプションは無人インストールに使用されますが、インストールの進行状況を示す様相ダイアログボックスを表示します。<br><b>/qf</b><span class="screen"> </span>&#8211; full UI. このオプションは標準的な有人インストールに使用されます。 </p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1060185"></a><span class="screen">/f&lt;[p|o|e|d|c|a|u|m|s|v]パッケージ|製品コード&gt;</span></p></td><td valign="top" align="left"><p><a name="1060209"></a>このコマンドで製品を修復することができます。</p><p><a name="1060210"></a><b>/fp</b> &#8211; ファイルが足りない場合にのみ、製品を再インストールします。</p><p><a name="1060211"></a><b>/fo</b> &#8211; ファイルが足りない場合、またはファイルの古いバージョンがインストールされている場合に、製品を再インストールします。</p><p><a name="1060212"></a><b>/fe</b> &#8211; ファイルが足りない場合、またはファイルの古いまたは同じバージョンがインストールされている場合に、製品を再インストールします。</p><p><a name="1060213"></a><b>/fo</b> &#8211; ファイルが足りない場合、またはファイルの古いまたは違うバージョンがインストールされている場合に、製品を再インストールします。</p><p><a name="1060214"></a><b>/fc</b> &#8211; ファイルが足りない場合、または保存されているチェックサムの値が計算値と一致しない場合に、製品を再インストールします。</p><p><a name="1060215"></a><b>/fa</b> &#8211; このオプションで全ファイルを強制的に再インストールします。</p><p><a name="1060216"></a><b>/fu</b>  &#8211; 必要なユーザー指定レジストリエントリのすべてを書き換えます。</p><p><a name="1081213"></a><b>/fm</b> &#8211; 必要なユーザー指定レジストリエントリのすべてを書き換えます。</p><p><a name="1081217"></a><b>/fs</b> &#8211; このオプションは既存のショートカットのすべてを上書きします。</p><p><a name="1081218"></a><b>/fv</b> &#8211; このオプションはソースから実行され、ローカルパッケージを再キャッシュします。 アプリケーションや機能の初回インストールには <b>/fv</b> 再インストールオプションを使用しないでください。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1071276"></a>INSTALLDIR=&lt;パス&gt;</p></td><td valign="top" align="left"><p><a name="1071278"></a>指定した場所に製品をインストールします。 このスイッチでインストールディレクトリを指定した場合、CLI インストールコマンドの実行前に手動で作成しておく必要があります。これを行わないと、実行は失敗し、その失敗の理由を示すエラーやメッセージも表示されません。</p><p><a name="1071279"></a><b>/i SysMgmt.msi INSTALLDIR=c:&yen;OpenManage /qn</b> &#8211; はインストール先として <b>c:&yen;OpenManage</b> を使用して特定の場所に製品をインストールします。</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1059590"></a><p>たとえば、<span class="screen">msiexec.exe /i SysMgmt.msi /qn</span> を実行すると、システムのハードウェア構成に基づいて、各リモートシステムに Server Administrator の機能がインストールされます。 このインストールは無人でサイレントに行われます。</p>
+<a name="1059594"></a><h4> カスタマイズパラメータ</h4>
+<a name="1076793"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>大文字と小文字が区別されるため、ADDLOCAL、REINSTALL、REMOVE CLI の各パラメータを大文字で入力します。
+</td>
+  </tr>
+</table><a name="1076887"></a><p><b>ADDLOCAL</b>、<b>REINSTALL</b>、<b>REMOVE </b>のカスタマイズ CLI パラメータを使用すると、インストール、再インストール、またはアンインストールをサイレントまたは無人で実行するときに、ソフトウェア機能を指定してカスタマイズできます。 カスタマイズパラメータでは、同じ無人インストールパッケージを使って異なるシステムでソフトウェア機能を選択的にインストール、再インストール、アンインストールできます。 たとえば、特定のサーバーグループでは Server Administrator はインストールして Remote Access Service（リモートアクセスサービス）をインストールせず、別のサーバーのグループでは Server
+Administrator をインストールして Storage Management Service をインストールしないなどの選択ができます。 また、特定のサーバーグループから 1 つまたは複数の機能をアンインストールすることもできます。</p>
+<a name="1076933"></a>
+<p><p class="FigureTableTitle"><a name="1076890"></a>表 6-2.  ソフトウェア機能 ID</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1076894"> </a>
+<p><b>機能 ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="1076896"> </a>
+<p><b>説明</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1076902"></a>brcm</p></td><td valign="top" align="left"><p><a name="1076904"></a>Broadcom NIC エージェント</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076906"></a>INTEL</p></td><td valign="top" align="left"><p><a name="1076908"></a>Intel NIC エージェント</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076910"></a>IWS</p></td><td valign="top" align="left"><p><a name="1076912"></a>Server Administrator Web Server</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076914"></a>old</p></td><td valign="top" align="left"><p><a name="1076916"></a>Diagnostic Service</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076918"></a>OMSM</p></td><td valign="top" align="left"><p><a name="1076920"></a>Storage Management</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076922"></a>RAC3</p></td><td valign="top" align="left"><p><a name="1076924"></a>Remote Access Controller（DRAC III）</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076926"></a>RAC4</p></td><td valign="top" align="left"><p><a name="1076928"></a>Remote Assistant Controller（DRAC 4）4</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1087109"></a>RAC5</p></td><td valign="top" align="left"><p><a name="1087111"></a>Remote Assistant Controller（DRAC 5）4</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076930"></a>sa</p></td><td valign="top" align="left"><p><a name="1076932"></a>Server Administrator</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1076935"></a><p>コマンドラインに <b>ADDLOCAL</b> カスタマイズパラメータを含め、インストールするソフトウェア機能の ID を割り当てます。 例：</p>
+<a name="1070467"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i SysMgmt.msi ADDLOCAL=BRCM /qb</span><span class="screen"> </span></p>
+<a name="1059601"></a><p>このコマンドは、無人の非サイレントモードで Dell OpenManage Systems Management のインストールを実行して、Broadcom エージェントだけをインストールします。</p>
+<a name="1059603"></a><p>コマンドラインに <b>REINSTALL </b>カスタマイズパラメータを含め、再インストールするソフトウェア機能の ID を割り当てます。例：</p>
+<a name="1059605"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i SysMgmt.msi REINSTALL=BRCM /qb</span>.<span class="screen"> </span></p>
+<a name="1059607"></a><p>このコマンドは、無人の非サイレントモードで Dell OpenManage Systems Management を実行して、Broadcom エージェントだけを再インストールします。</p>
+<a name="1059609"></a><p>コマンドラインに <b>REMOVE </b>カスタマイズパラメータを含め、アンインストールするソフトウェア機能の ID を割り当てます。例：</p>
+<a name="1059611"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i SysMgmt.msi REMOVE=BRCM /qb</span>.<span class="screen"> </span></p>
+<a name="1059613"></a><p>このコマンドは、無人の非サイレントモードで Dell OpenManage Systems Management のアンインストールを実行して、Broadcom エージェントだけをインストールします。</p>
+<a name="1059615"></a><p><b>msiexec.exe</b> プログラムの 1 度の実行で、機能をインストール、再インストール、アンインストールすることもできます。 例：</p>
+<a name="1062336"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i SysMgmt.msi ADDLOCAL=INTEL REINSTALL=OLD REMOVE=BRCM /qb</span></p>
+<a name="1074080"></a><p>このコマンドは Managed System Software のインストールを実行して、Intel エージェントのインストールと、Diagnostic service の再インストールと、Broadcom エージェントのアンインストールを同時に実行します。 これは無人で実行されますが、サイレントモードではありません。</p>
+<a name="1086602"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>グローバル一意識別子（GUID）は 128 ビット長で、GUID の生成に使用されるアルゴリズムによって各 GUID が一意になります。 製品 GUID はアプリケーションを固有に識別します。 この場合、Server Administrator の製品 GUID は {89C7A9F7-2C31-4739-842D-F037B6C9B674} です。
+</td>
+  </tr>
+</table><a name="1086603"></a><h3> MSI 戻りコード
+</h3>
+<a name="1059767"></a><p>アプリケーションのイベントログエントリも <b>SysMgmt.log</b> ファイルに記録されます。 <a href="instwin.htm#1067370">表 6-3</a> に、<b>msiexec.exe </b>Windows インストーラエンジンによって返されるエラーコードをいくつか示します。</p>
+<a name="1067405"></a>
+<p><p class="FigureTableTitle"><a name="1067370"></a>表 6-3.  Windows インストーラの戻りコード&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1067376"> </a>
+<p><b>エラーコード</b></p>
+
+
+</th><th valign="top" align="left"><a name="1067378"> </a>
+<p><b>値</b></p>
+
+
+</th><th valign="top" align="left"><a name="1067380"> </a>
+<p><b>説明</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><a name="1067382"></a><p class="screen">ERROR_SUCCESS
+</p></td><td valign="top" align="left"><a name="1067384"></a><p class="screen">0
+</p></td><td valign="top" align="left"><p><a name="1067386"></a>処理に成功しました。</p></td></tr>
+<tr><td valign="top" align="left"><a name="1067388"></a><p class="screen">ERROR_INVALID_PARAMETER
+</p></td><td valign="top" align="left"><a name="1067390"></a><p class="screen">87
+</p></td><td valign="top" align="left"><p><a name="1067392"></a>パラメータの 1 つが無効でした。</p></td></tr>
+<tr><td valign="top" align="left"><a name="1067394"></a><p class="screen">ERROR_INSTALL_USEREXIT
+</p></td><td valign="top" align="left"><a name="1067396"></a><p class="screen">1602
+</p></td><td valign="top" align="left"><p><a name="1067398"></a>ユーザーがインストールをキャンセルしました。</p></td></tr>
+<tr><td valign="top" align="left"><a name="1067400"></a><p class="screen">ERROR_SUCCESS_REBOOT_REQUIRED
+</p></td><td valign="top" align="left"><a name="1067402"></a><p class="screen">3010
+</p></td><td valign="top" align="left"><p><a name="1067404"></a>インストールを完了するには再起動する必要があります。 このメッセージは成功を表しています。</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1059796"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span><b>msiexec.exe</b> および <b>InstMsi.exe</b> Windows インストーラ機能から返されるエラーコードすべての詳細については、<b>support.microsoft.com</b> を参照してください。
+</td>
+  </tr>
+</table><a name="1059810"></a><h3> Managed System Software のアンインストール
+</h3>
+<a name="1059811"></a><p>『Dell PowerEdge Installation and Server Management CD』またはオペレーティングシステムを使用して、管理下システムソフトウェアの機能をアンインストールできます。複数のシステムで同時に無人アンインストールを実行することもできます。</p>
+<a name="1083117"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>PowerEdge 1650、2650、および 4600 システムで Server Administrator をアンインストールした後、Storage Management Service をアンインストールする場合は、システムのリブートを要求される可能性が
+あります。
+</td>
+  </tr>
+</table><a name="1059813"></a><h4> Installation and Server Management CD を使用した Managed System Software のアンインストール</h4>
+<ol type="1">
+
+<li value="1"><a name="1064505"></a>『Dell PowerEdge Installation and Server Management CD』をシステムの CD ドライブに挿入します。
+<br><br>
+ </ol>
+<a name="1073268"></a><p class="indent">CD のセットアッププログラムが自動的に開始しない場合は、システムのデスクトップで <b>マイコンピュータ</b> をダブルクリックするか Windows Explorer を開いて、CD ドライブのアイコンをダブルクリックし、<b>srvadmin</b> フォルダをダブルクリックし、<b>windows</b> フォルダをダブルクリックして、<b>setup.exe</b> ファイルをダブルクリックします。</p>
+<a name="1073272"></a><p class="indent"><b>Dell OpenManage Server Administrator </b>の必要条件ステータス画面が開き、管理先システムの必要条件の確認作業が実行されます。 チェック中に、情報、警告、エラーなどの関連するメッセージが表示されます。</p>
+<ol type="1">
+
+<li value="2"><a name="1059820"></a><b>Server Administrator</b> の <b>インストール、変更、修復、</b><b>削除 </b>オプションのいずれかをクリックします。
+<br><br>
+</ol>
+<a name="1063122"></a><p class="indent"><b>Dell OpenManage Server Administrator インストールウィザードへようこそ</b> 画面が開きます。</p>
+<ol type="1">
+
+<li value="3"><a name="1059828"></a><b>次へ </b>をクリックします。
+<br><br>
+</ol>
+<a name="1063126"></a><p class="indent"><b>プログラムのメンテナンス</b> ダイアログボックスが開きます。 </p>
+<a name="1063130"></a><p class="indent">このダイアログで、プログラムの変更、修復、削除などができます。</p>
+<ol type="1">
+
+<li value="4"><a name="1059834"></a><b>削除</b> オプションを選択して <b>次へ</b> をクリックします。
+<br><br>
+</ol>
+<a name="1063131"></a><p class="indent"><b>プログラムの削除</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="5"><a name="1059838"></a><b>削除</b> をクリックします。
+<br><br>
+</ol>
+<a name="1063135"></a><p class="indent"><b>OpenManage </b><b>Server Administrator </b><b>のアンインストール</b> 画面が開きます。 アンインストール中のソフトウェア機能の状態と進行状況を示すメッセージが表示されます。 </p>
+<a name="1063139"></a><p class="indent">選択した機能がアンインストールされると、<b>インストールウィザードの完了 </b>ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="6"><a name="1059844"></a><b>終了 </b>をクリックして Server Administrator のアンインストールを終了します。
+<br><br>
+ </ol>
+<a name="1066316"></a><p class="indent">システム再起動のプロンプトが表示されたら、アンインストールに成功するためにシステムを再起動する必要があります。 システム再起動のプロンプトが表示されたら、次のいずれかの再起動オプションを選択します。 </p>
+<ul><ul>
+<li type="disc"><a name="1066318"></a><b>今すぐ再起動する</b><br><br></li>
+<li type="disc"><a name="1059854"></a><b>後で再起動する</b><br><br></li>
+</ul>
+</ul><a name="1059856"></a><p class="indent">Server Administrator の全機能がアンインストールされます。</p>
+<a name="1059859"></a><h4> オペレーティングシステムを使用した Managed System Software 機能のアンインストール</h4>
+<ol type="1">
+
+<li value="1"><a name="1059860"></a><b>スタート</b> ボタンをクリックし、<b>設定</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol"> &#174;</font></span><b>コントロールパネル</b> の順にポイントします。
+
+<br><br>
+ <li value="2"><a name="1059862"></a><b>プログラムの追加の削除</b> をダブルクリックします。
+
+<br><br>
+ <li value="3"><a name="1061324"></a><b>Dell OpenManage </b><b>Server Administrator</b> をクリックし、<b>削除 </b>をクリックします。
+<br><br>
+ </ol>
+<a name="1061326"></a><p class="indent"><b>プログラムの追加と削除</b> ダイアログボックスが開きます。</p>
+<ol type="1">
+
+<li value="4"><a name="1059868"></a><b>はい</b> をクリックして Server Administrator のアンインストールを承認します。
+<br><br>
+ </ol>
+<a name="1059870"></a><p class="indent"><b>Dell OpenManage Server Administrator </b>画面が開きます。アンインストール中のソフトウェア機能の状態と進行状況を示すメッセージが表示されます。</p>
+<a name="1063146"></a><p class="indent">システム再起動のプロンプトが表示されたら、アンインストールに成功するにはシステムを再起動する必要があります。 システム再起動のプロンプトが表示されたら、次のいずれかの再起動オプションを選択します。 </p>
+<ul><ul>
+<li type="disc"><a name="1059878"></a><b>今すぐ再起動する</b><br><br></li>
+<li type="disc"><a name="1059880"></a><b>後で再起動する</b><br><br></li>
+</ul>
+</ul><a name="1059882"></a><p class="indent">Server Administrator の全機能がアンインストールされます。</p>
+<a name="1076089"></a><h4> 製品 GUID を使った無人アンインストール</h4>
+<a name="1076090"></a><p>アンインストール中にインストール CD または MSI パッケージを使用できない場合は、次のコマンドラインを使って
+ Dell OpenManage systems management software を Windows で実行中の 管理下システムまたは 管理ステーションからアンインストールできます。 このような場合には、パッケージ GUID を使って製品をアンインストールできます。</p>
+<a name="1076091"></a><p>Managed System では次のコマンドを使用します。</p>
+<a name="1076092"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /x {89C7A9F7-2C31-4739-842D-F037B6C9B674}
+</span></p>
+<a name="1076093"></a><p>Management Station では次のコマンドを使用します。</p>
+<a name="1076094"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /x {6453394A-5BBE-4325-A854-1FD483612B8D}
+</span></p>
+<a name="1076087"></a><h4> Managed System Software の無人アンインストールの実行</h4>
+<a name="1059887"></a><p>『Dell PowerEdge Installation and Server Management CD』に無人アンインストールの手順が入っています。 無人アンインストールを使用すると、Management Station Software を複数のシステムから同時にアンインストールできます。 無人アンインストールパッケージは、ISV ソフトウェア配布ツールを使用して、リモートシステムに配布します。 パッケージが配布されると、アンインストールスクリプトが実行して、ソフトウェアがアンインストールされます。</p>
+<a name="1059891"></a><h5> 無人アンインストールパッケージの配布</h5>
+<a name="1059892"></a><p>『Dell PowerEdge Installation and Server Management CD』は無人アンインストールパッケージとして動作するように事前設定されています。 パッケージを 1 つまたは複数のシステムに配布するには、次の手順に従います。</p>
+<ol type="1">
+
+<li value="1"><a name="1059894"></a>無人アンインストールパッケージの配布後、<b>msiexec.exe /x CD 
+ドライブ&yen;srvadmin&yen;windows&yen;SystemsManagement&yen;SysMgmt.msi /qb</b> プログラムが実行されるように ISV 配布ソフトウェアを設定します。
+<br><br>
+
+<li value="2"><a name="1059896"></a>ISV ソフトウェア配布ソフトウェアを使用して、リモートシステムに簡易無人アンインストールパッケージを配布します。
+<br><br>
+ </ol>
+<a name="1059898"></a><p class="indent"><b>msiexec.exe /x CD ドライブ&yen;srvadmin&yen;windows&yen;SystemsManagement&yen;SysMgmt.msi /qb </b>プログラムが実行して各リモートシステムから管理下システムソフトウェアがアンインストールされます。</p>
+<ol type="1">
+
+<li value="3"><a name="1059900"></a>各リモートシステムを再起動して、アンインストール処理を完了します。
+<br><br>
+ </ol>
+<a name="1059902"></a><h5> 無人アンインストールのコマンドライン設定</h5>
+<a name="1059903"></a><p><a href="instwin.htm#1060065">表 6 -1</a> は、無人アンインストールで使用できる無人アンインストールのコマンドラインを示します。 コマンドラインで <span class="screen">msiexec.exe /x SysMgmt.msi</span> の後に各設定をスペースで区切って入力します。</p>
+<a name="1059905"></a><p>たとえば、<span class="screen">msiexec.exe /x SysMgmt.msi /qb</span> を実行すると、無人アンインストールが実行され、実行中にその状態が表示されます。</p>
+<a name="1063162"></a><p><span class="screen">msiexec.exe /x SysMgmt.msi /qn</span> を実行すると無人アンインストールが実行されますが、サイレントモード（表示ウィンドウなし）で行われます。</p>
+<hr noshade size="1">
+<a name="1064678"></a><h2>サードパーティ導入ソフトウェアを利用した Managed System Software のインストール</h2>
+
+
+<a name="1071513"></a><p>AltirisDeployment Solution などのサードパーティの導入ソフトウェアを用いて、Managed System Software を対応 Dell システムにインストールすることができます。 Altiris を使って Managed System Software を配布してインストールするには、Altiris アプリケーションを起動し、<b>&yen;srvadmin&yen;support&yen;Altiris </b>の『Dell PowerEdge Installation and Server Management CD』に入っている <b>OpenManage_Jobs.bin</b> located をインポートします。 インポート先のジョブフォルダを指定します。 導入環境に一致させるために、<b>スクリプトの実行 </b>および <b>ファイルのコピー </b> タスクの変更が必要な場合があります。 完了したら、Altiris Deployment Solution 内から管理されている対応 Dell システム上で実行するようにジョブをスケジュールすることができます。</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">目次ページに戻る</a></p>
+
+
+<p>&#160;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

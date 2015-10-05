@@ -1,0 +1,1015 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;  charset=shift_jis">
+
+<title>Microsoft&#174; Active Directory&#174; の使用法：Dell OpenManage バージョン 5.0 インストールとセキュリティユーザーズガイド</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">目次ページに戻る</a> </p>
+<a name="1055432"></a><h1> Microsoft&#174; Active Directory&#174; の使い方 </h1>
+<p class="title">Dell OpenManage&#8482; バージョン 5.0 インストールおよびセキュリティユーザーズガイド</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1053465">ネットワークのアクセス制御</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1053721">Active Directory スキーマの拡張</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1053465"></a><h2>ネットワークのアクセス制御</h2>
+
+
+<a name="1055966"></a><p>Active Directory サービスソフトウェアを使用している場合は、ネットワークへのアクセス制御を設定できます。 デルではこの Active Directory データベースを変更して、リモート管理の認証と許可をサポートできるようにしています。 Active Directory は現在 Dell OpenManage&#8482; IT Assistant と Dell OpenManage Server Administrator のほか、Dell&#8482; Remote Access Controller と連動できます。 このツールを使用すると、中央のデータベースからユーザーや特権を追加して制御できます。</p>
+<a name="1053471"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>RAC、IT Assistant、Server Administrator のユーザー認識のための Active Directory の使用は、Microsoft Windows&#174; 2000 および Windows Server&#8482; 2003 オペレーティングシステムでサポートされています。
+</td>
+  </tr>
+</table><a name="1053473"></a><h3> Active Directory スキーマ拡張
+</h3>
+<a name="1053474"></a><p>Active Directory のデータは <b>属性</b> と <b>クラス</b> の配布データベースにあります。 Active Directory の <b>クラス</b> の例は <b>ユーザー</b> クラスです。 ユーザークラスの <b>属性</b> の例は、ユーザーの氏名や電話番号などです。 既存の Active Directory スキーマに追加される <b>属性</b> や <b>クラス</b> はすべて固有の ID で定義されている必要があります。 業界で重複しない固有の ID を維持するために、Microsoft では Active Directory Object Identifiers（OID）のデータベースを管理しています。</p>
+<a name="1053477"></a><p>Active Directory スキーマは、データベースに格納できるデータの規則を定義しています。 Active Directory のスキーマを拡張すべく、デルではディレクトリサービスの新たな属性とクラスのために独自の OID、独自の社名拡張子、独自のリンク属性 ID を取得しています。</p>
+<a name="1053479"></a><p>Dell の拡張子：	dell</p>
+<a name="1053481"></a><p>Dell のベース OID：	1.2.840.113556.1.8000.1280</p>
+<a name="1053483"></a><p>Dell の LinkID 範囲：	12070 ～ 12079</p>
+<a name="1053484"></a><p>Microsoft が管理する Active Directory OID データベースは、<b>msdn.microsoft.com/certification/ADAcctInfo.asp</b> で、デルの拡張子 <i>dell </i>を入力すると参照できます。</p>
+<a name="1053485"></a><h4> Active Directory スキーマ拡張の概要</h4>
+<a name="1053486"></a><p>Dell 作成のクラス（オブジェクトのグループ）は、ユーザーの独自のニーズに合わせて設定が可能です。 スキーマの新しいクラスには関連、製品、特権などのクラスがあります。 関連オブジェクトは、ネットワークでユーザーまたはグループを特定の権限セットとシステム（製品）に関連付けます。 このモデルを使用すると、ユーザー、特権、システムのさまざまな組み合わせや、ネットワーク上の RAC デバイスを管理者が簡単に制御できます。</p>
+<a name="1053488"></a><h4> Active Directory オブジェクトの概要</h4>
+<a name="1053490"></a><p>認証や許可の目的で Active Directory に統合する各製品につき、少なくとも関連オブジェクトが 1 つと 製品オブジェクトが 1 つ必要です。 製品オブジェクトはシステムを表します。 関連オブジェクトはそれをユーザーと特権に関連付けます。 関連オブジェクトは必要なだけ作成できます。 </p>
+<a name="1053494"></a><p>各関連オブジェクトを関連付けるユーザー、ユーザーグループ、製品オブジェクトの数に制限はありません。 ユーザーと製品オブジェクトはどのドメインにあってもかまいません。 ただし、各関連オブジェクトを関連付けられる特権オブジェクトは 1 つだけです。 これによって、システム管理者は特定のシステムでどのユーザーがどの権限を持っているかを制御できます。</p>
+<a name="1053495"></a><p>製品オブジェクトは認証と許可のクエリのために、システムを Active Directory に関連付けます。 システムがネットワークに追加されると、ユーザーが Active Directory で認証と許可を実行できるように、システム管理者はシステムとその製品オブジェクトをその Active Directory 名を使って設定する必要があります。 また、ユーザーが認証するためには、そのシステムを少なくとも 1 つの関連オブジェクトに追加する必要があります。</p>
+<a name="1053497"></a><p><a href="mad.htm#1053498">図&#160;8-1</a> は、認証と許可のすべてに必要な関連付けを提供する関連オブジェクトを示しています。</p>
+<p class="FigureTableTitle"><a name="1053498"></a>図 8-1.  Active Directory オブジェクトの典型的な設定
+</p>
+
+<a name="1053538"></a>
+<p><img src="mad6.jpg" height="563" width="577" align="center" border="0" hspace="0" vspace="0">
+</p><a name="1053540"></a><p>さらに、Active Directory のオブジェクトは 1 つのドメインでも複数のドメインでも設定できます。 1 つのドメインでオブジェクトを設定する場合は、Dell RAC、Server Admistrator、IT Assistant のどのオブジェクトを設定しても同じですが、 複数のドメインを設定する場合は異なります。 </p>
+<a name="1053542"></a><p>たとえば、DRAC 4 カードが 2 枚（RAC1 と RAC2）あり、既存の Active Directory ユーザーが 3 人（ユーザー 1、ユーザー 2、ユーザー 3）いるとします。 ユーザー 1 と ユーザー 2 に両方の DRAC 4 カードの管理者特権を与え、ユーザー 3 に RAC2 カードのログイン特権を与えたいとします。 <a href="mad.htm#1053543">図 8-2 </a>は、このシナリオで Active Directory のオブジェクトを設定する方法を示しています。</p>
+<p class="FigureTableTitle"><a name="1053543"></a>図 8-2.  単一ドメインで Active Directory のオブジェクトを設定するに
+</p>
+
+<a name="1053577"></a>
+<p><img src="mad14.jpg" height="366" width="577" align="center" border="0" hspace="0" vspace="0">
+</p><a name="1053578"></a><p>単一ドメインのシナリオでオブジェクトを設定するには、次の手順に従います。</p>
+<ol type="1">
+
+<li value="1"><a name="1053579"></a>関連オブジェクトを 2 つ作成します。
+
+<br><br>
+<li value="2"><a name="1053580"></a>2 つの RAC 製品オブジェクト、RAC1 と RAC2 を作成して 2 枚の DRAC 4 カードを表します。
+
+<br><br>
+<li value="3"><a name="1053581"></a>2 つの特権オブジェクト、特権 1 と 特権 2 を作成します。特権 1 にはすべての特権（システム管理者）、特権 2 にはログイン特権があります。
+
+<br><br>
+<li value="4"><a name="1053582"></a>ユーザー 1 と ユーザー 2 を グループ 1 としてグループ化します。
+<br><br>
+
+<li value="5"><a name="1061797"></a>グループ 1 を関連オブジェクト 1（AO1）のメンバとして、特権 1 を AO1 の特権オブジェクトとして、RAC1 と RAC2 の両方を AO1 の RAC 製品として追加します。
+<br><br>
+
+<li value="6"><a name="1061798"></a>ユーザー 3 を関連オブジェクト 2（AO2）のメンバとして、特権 2 を AO2 の特権オブジェクトとして、RAC2 を AO2 の RAC 製品として追加します。
+<br><br>
+</ol>
+<a name="1053588"></a><p>詳しい手順については、「<a href="mad.htm#1054443">Active Directory へのユーザーと特権の追加</a>」を参照してください。</p>
+<a name="1053589"></a><p><a href="mad.htm#1053590">図 8-3 </a>は、RAC の複数のドメインで Active Directory のオブジェクトを設定する方法を示しています。 このシナリオでは、DRAC 4 カードが 2 枚（RAC1 と RAC2）あり、既存の Active Directory ユーザーが 3 人（ユーザー 1、ユーザー 2、ユーザー 3）いるとします。 ユーザー 1 は ドメイン 1 ですが、ユーザー 2 と ユーザー 3 は ドメイン 2 にいます。 ユーザー 1 と ユーザー 2 に RAC1 と RAC2 の両方のカードのシステム管理者特権を与え、ユーザー 3 に RAC2 カードのログイン特権を与えたいとします。</p>
+<p class="FigureTableTitle"><a name="1053590"></a>図 8-3.  複数ドメインでの RAC Active Directory オブジェクトの設定
+</p>
+
+<a name="1053631"></a>
+<p><img src="mad15.jpg" height="389" width="577" align="center" border="0" hspace="0" vspace="0">
+</p><a name="1053632"></a><p>複数のドメインシナリオにおいてオブジェクトを設定するには、次のタスクを実行します。</p>
+<ol type="1">
+
+<li value="1"><a name="1053633"></a>ドメインのフォレスト機能がネイティブまたは Windows 2003 モードになっていることを確認します。
+
+<br><br>
+<li value="2"><a name="1053634"></a>2 つの関連オブジェクト AO1（ユニバーサルスコープの）と AO2 をいずれかのドメインに作成します。 図は ドメイン 2 のオブジェクトを示しています。
+
+<br><br>
+<li value="3"><a name="1053635"></a>2 つの RAC 製品オブジェクト、RAC1 と RAC2 を作成して 2 台のリモートシステムを表します。
+
+<br><br>
+<li value="4"><a name="1053636"></a>2 つの特権オブジェクト、特権 1 と 特権 2 を作成します。特権 1 にはすべての特権（システム管理者）、特権 2 にはログイン特権があります。
+
+<br><br>
+<li value="5"><a name="1053637"></a>ユーザー 1 と ユーザー 2 を グループ 1 としてグループ化します。 グループ 1 のグループスコープはユニバーサルでなければなりません。
+
+<br><br>
+<li value="6"><a name="1053638"></a>グループ 1 を関連オブジェクト 1（AO1）のメンバとして、特権 1 を AO1 の特権オブジェクトとして、RAC1 と RAC2 の両方を AO1 の製品として追加します。
+
+<br><br>
+<li value="7"><a name="1053639"></a>ユーザー 3 を関連オブジェクト 2（AO2）のメンバとして、特権 2 を AO2 の特権オブジェクトとして、RAC2 を AO2 の製品として追加します。
+<br><br>
+</ol>
+<a name="1053640"></a><p>一方、Server Administrator や IT Assistant の場合は、1 つの関連しかない複数のユーザーが異なるドメインに存在でき、ユニバーサルグループに追加する必要はありません。 次に、別々のドメインにある Server Administrator または IT Assistant のシステムがディレクトリのオブジェクトの設定にどのように影響するかをよく似た例を使って説明します。 RAC デバイスの代わりに、Server Administrator（Server Administrator 製品 システム 1 と システム 2）を実行している 2 台のシステムがあります。 システム 1 と システム 2 は異なるドメインにあります。 Active Directory にある既存のユーザーまたはグループを使用できます。 <a href="mad.htm#1053643">図 8-4 </a>は、この例を使った Server Administrator Active Directory のオブジェクトの設定方法を示しています。</p>
+<p class="FigureTableTitle"><a name="1053643"></a>図 8-4.  複数ドメインでの Server Administrator Active Directory オブジェクトの設定
+</p>
+
+<a name="1053686"></a>
+<p><img src="mad16.jpg" height="348" width="577" align="center" border="0" hspace="0" vspace="0">
+</p><a name="1053687"></a><p>複数のドメインシナリオにおいてオブジェクトを設定するには、次のタスクを実行します。</p>
+<ol type="1">
+
+<li value="1"><a name="1053688"></a>ドメインのフォレスト機能がネイティブまたは Windows 2003 モードになっていることを確認します。
+
+<br><br>
+<li value="2"><a name="1053689"></a>2 つの関連オブジェクト、AO1 と AO2 をいずれかのドメインに作成します。 図は ドメイン 1 のオブジェクトを示しています。
+
+<br><br>
+<li value="3"><a name="1053690"></a>2 個の Server Administrator 製品、システム 1 と システム 2 を作成して 2 台のシステムを表します。 システム 1 は ドメイン 1 で、システム 2 は ドメイン 2 にあります。
+
+<br><br>
+<li value="4"><a name="1053691"></a>2 つの特権オブジェクト、特権 1 と 特権 2 を作成します。特権 1 にはすべての特権（システム管理者）、特権 2 にはログイン特権があります。
+
+<br><br>
+<li value="5"><a name="1053692"></a>システム 2 を グループ 1 へグループ化します。 グループ 1 のグループスコープはユニバーサルでなければなりません。
+
+<br><br>
+<li value="6"><a name="1053693"></a>ユーザー 1 と ユーザー 2 を関連オブジェクト 1（AO1）のメンバとして、特権 1 を AO1 の特権オブジェクトとして、システム 1 と グループ 1 の両方を AO1 の製品として追加します。
+<br><br>
+
+<li value="7"><a name="1053694"></a>ユーザー 3 を関連オブジェクト 2（AO2）のメンバとして、特権 2 を AO2 の特権オブジェクトとして、グループ 1 を AO2 の製品として追加します。
+<br><br>
+</ol>
+<a name="1053695"></a><p>この場合は、関連オブジェクトはどちらもユニバーサルスコープでなくてもかまいません。</p>
+<a name="1053696"></a><h4> Active Directory がシステムにアクセスするための設定</h4>
+<a name="1053698"></a><p>Active Directory を使ってシステムにアクセスするには、Active Directory ソフトウェアとシステムの両方を設定する必要があります。</p>
+<ol type="1">
+
+<li value="1"><a name="1053702"></a>Active Directory スキーマを拡張します（「<a href="mad.htm#1053721">Active Directory スキーマの拡張</a>」を参照）。
+
+<br><br>
+<li value="2"><a name="1053705"></a>Active Directory ユーザーとコンピュータスナップインを拡張します（「<a href="mad.htm#1055982">Active Directory ユーザーとコンピュータスナップインへの Dell 拡張のインストール</a>」を参照）。
+
+<br><br>
+<li value="3"><a name="1053709"></a>Active Directory にシステムのユーザーとその特権を追加します（「<a href="mad.htm#1054443">
+Active Directory へのユーザーと特権の追加</a>」を参照）。
+
+<br><br>
+<li value="4"><a name="1053714"></a>RAC システムの場合は、各ドメインコントローラで SSL を有効にします（「<a href="mad.htm#1054543">ドメインコントローラでの SSL を有効にする（RAC のみ）</a>」を参照）。
+
+<br><br>
+<li value="5"><a name="1053716"></a>Web インタフェースかコマンドラインインタフェース（CLI）を使ってシステムの Active Directory のプロパティを設定します（「<a href="mad.htm#1054611">システムまたはデバイスの設定</a>」を参照）。
+<br><br>
+</ol>
+<hr noshade size="1">
+<a name="1053721"></a><h2>Active Directory スキーマの拡張</h2>
+
+
+<a name="1053723"></a><p>RAC、Server Administrator、および IT Assistant のスキーマ拡張を使用できます。 使用しているソフトウェアまたはハードウェアのスキーマだけを拡張します。 そのソフトウェアに固有の設定を活用するには、それぞれの拡張子を別々に適用する必要があります。 Active Directory スキーマを拡張すると、スキーマのクラスと属性、特権例と関連オブジェクト、デルの組織単位などをスキーマに追加できます。</p>
+<a name="1053729"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>スキーマを拡張する前に、ドメインフォレストのスキーママスター FSMO（Flexible Single Master Operation）ロールオーナーで、<b>スキーマ管理者</b> 特権を持っている必要があります。
+</td>
+  </tr>
+</table><a name="1053731"></a><p>スキーマは 2 通りの方法で拡張できます。 Dell スキーマ拡張ユーティリティ、または Lightweight Directory Interchange Format（LDIF）スクリプトファイルを使用できます。</p>
+<a name="1053738"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>LDIF スクリプトファイルを使用する場合は、デルの組織単位は追加されません。
+</td>
+  </tr>
+</table><a name="1053739"></a><p>LDIF スクリプトファイルと Dell Schema Extender は『Dell PowerEdge&#8482; OpenManage Installation and Server Management CD』の以下の各ディレクトリにあります。</p>
+<ul><li><a name="1053740"></a><b>CD ドライブ</b><b>:&yen;support&yen;OMActiveDirectory Tools&yen;</b><b>インストールの種類</b><b>&yen;LDIF Files</b><br><br></li>
+<li><a name="1061827"></a><b>CD ドライブ</b><b>:&yen;support&yen;OMActiveDirectory Tools&yen;</b><b>インストールの種類</b><b>&yen;Schema Extender</b><br><br></li>
+</ul><a name="1061828"></a><p><b>インストールの種類</b>は、選択したスキーマ拡張によって、RAC4、RAC3、Server Administrator、IT&#160;Assistant バージョン 7.0 以降のいずれかになります。</p>
+<a name="1053743"></a><p>LDIF ファイルを使用するには、LDIF ファイルのディレクトリに入っている readme を参照してください。 Active Directory スキーマの拡張に Dell Schema Extender を使用する場合は、「<a href="mad.htm#1053749">Dell Schema Extender の使い方</a>」の手順に従ってください。</p>
+<a name="1053747"></a><p>Schema Extender または LDIF ファイルのコピーと実行はどの場所からでもできます。</p>
+<a name="1053749"></a><h3> Dell Schema Extender の使い方
+</h3>
+<a name="1053756"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">注意：</span>Dell Schema Extender は <b>SchemaExtenderOem.ini </b>ファイルを使用します。 Dell Schema Extender ユーティリティが正しく機能するためには、このファイルの名前を変更しないでください。
+ </td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="1"><a name="1053757"></a>ようこそ画面で <b>次へ
+</b>をクリックします。<br><br>
+
+<li value="2"><a name="1053758"></a>警告を読んで、もう一度 <b>次へ</b> をクリックします。
+
+<br><br>
+<li value="3"><a name="1053759"></a><b>資格情報で現在のログを使用</b> を選択するか、スキーマ管理者権限でユーザー名とパスワードを入力します。
+
+<br><br>
+<li value="4"><a name="1053760"></a><b>次へ</b> をクリックして Dell Schema Extender を実行します。
+
+<br><br>
+<li value="5"><a name="1053761"></a><b>終了 </b>をクリックします。
+<br><br>
+</ol>
+<a name="1053762"></a><p class="indent">スキーマ拡張機能を確認するときは、MMC（Microsoft Management Console）のActive Directory スキーマのスナップインを利用して、次のクラス（<a href="mad.htm#1053811">表&#160;8-1</a>、<a href="mad.htm#1054009">表&#160;8-6</a>、<a href="mad.htm#1054037">表&#160;8-7</a>、<a href="mad.htm#1054098">表&#160;8-9</a>、<a href="mad.htm#1054127">表&#160;8-10</a>、<a href="mad.htm#1054159">表&#160;8-11</a>、<a href="mad.htm#1054189">表&#160;8-12</a> を参照）と属性（<a href="mad.htm#1054233">表&#160;8-13</a>、<a href="mad.htm#1054339">表&#160;8-14</a>、<a href="mad.htm#1054378">表&#160;8-15</a> を参照）について存在を確認してください。 MMC で Active Directory スキーマのスナップインを有効にして使用する方法については、Microsoft のマニュアルを参照してください。</p>
+<a name="1053882"></a>
+<p><p class="FigureTableTitle"><a name="1053811"></a>表 8-1  Active Directory スキーマに追加されるクラスのクラス定義</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>クラス名</p></th><th valign="top" align="left"><p><a name="1053819"></a>割り当てられるオブジェクト識別子（OID）</p></th><th valign="top" align="left"><p><a name="1053821"></a>クラスの種類</p></th></tr>
+<tr><td valign="top" align="left"><p><a name="1053823"></a>dellRacDevice</p></td><td valign="top" align="left"><p><a name="1053825"></a>1.2.840.113556.1.8000.1280.1.1.1.1</p></td><td valign="top" align="left"><p><a name="1053827"></a>構造体クラス</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053829"></a>dellAssociationObject</p></td><td valign="top" align="left"><p><a name="1053831"></a>1.2.840.113556.1.8000.1280.1.1.1.2</p></td><td valign="top" align="left"><p><a name="1053833"></a>構造体クラス</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053835"></a>dellRAC4Privileges</p></td><td valign="top" align="left"><p><a name="1053837"></a>1.2.840.113556.1.8000.1280.1.1.1.3</p></td><td valign="top" align="left"><p><a name="1053839"></a>補助クラス</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053841"></a>dellPrivileges</p></td><td valign="top" align="left"><p><a name="1053843"></a>1.2.840.113556.1.8000.1280.1.1.1.4</p></td><td valign="top" align="left"><p><a name="1053845"></a>構造体クラス</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053847"></a>dellProduct</p></td><td valign="top" align="left"><p><a name="1053849"></a>1.2.840.113556.1.8000.1280.1.1.1.5</p></td><td valign="top" align="left"><p><a name="1053851"></a>構造体クラス</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053853"></a>dellRAC3Privileges</p></td><td valign="top" align="left"><p><a name="1053855"></a>1.2.840.113556.1.8000.1280.1.1.1.6</p></td><td valign="top" align="left"><p><a name="1053857"></a>補助クラス</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053859"></a>dellOmsa2AuxClass</p></td><td valign="top" align="left"><p><a name="1053861"></a>1.2.840.113556.1.8000.1280.1.2.1.1</p></td><td valign="top" align="left"><p><a name="1053863"></a>補助クラス</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053865"></a>dellOmsaApplication</p></td><td valign="top" align="left"><p><a name="1053867"></a>1.2.840.113556.1.8000.1280.1.2.1.2</p></td><td valign="top" align="left"><p><a name="1053869"></a>構造体クラス</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053871"></a>dellIta7AuxClass</p></td><td valign="top" align="left"><p><a name="1053873"></a>1.2.840.113556.1.8000.1280.1.3.1.1</p></td><td valign="top" align="left"><p><a name="1053875"></a>補助クラス</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053877"></a>dellItaApplication</p></td><td valign="top" align="left"><p><a name="1053879"></a>1.2.840.113556.1.8000.1280.1.3.1.2</p></td><td valign="top" align="left"><p><a name="1053881"></a>構造体クラス</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1053912"></a>
+<p><p class="FigureTableTitle"><a name="1053889"></a>表 8-2.  dellRacDevice クラス&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1053895"></a>1.2.840.113556.1.8000.1280.1.1.1.1</p></th></tr>
+<tr><td valign="top" align="left"><p>説明</p></td><td valign="top" align="left"><p><a name="1053899"></a>このクラスは Dell RAC デバイスを表します。 RAC デバイスは Active Directory では dellRacDevice として設定する必要があります。 この設定を使うと、DRAC 4 は LDAP クエリを Active Directory に送信することができます。</p></td></tr>
+<tr><td valign="top" align="left"><p>クラスの種類</p></td><td valign="top" align="left"><p><a name="1053903"></a>構造体クラス</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1053907"></a>dellProduct</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1053911"></a><b>dellSchemaVersion</b></p><p><a name="1062769"></a><b>dellRacType</b></p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1053940"></a>
+<p><p class="FigureTableTitle"><a name="1053916"></a>表 8-3.  dellAssociationObject クラス</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1053922"></a>1.2.840.113556.1.8000.1280.1.1.1.2</p></th></tr>
+<tr><td valign="top" align="left"><p>説明</p></td><td valign="top" align="left"><p><a name="1053926"></a>このクラスは Dell の関連オブジェクトを表しています。 関連オブジェクトはユーザーとデバイスまたは製品間の関連付けを提供します。</p></td></tr>
+<tr><td valign="top" align="left"><p>クラスの種類</p></td><td valign="top" align="left"><p><a name="1053930"></a>構造体クラス</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1053934"></a>グループ</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1053938"></a>dellProductMembers</p><p><a name="1062770"></a>dellPrivilegeMember</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1053975"></a>
+<p><p class="FigureTableTitle"><a name="1053944"></a>表 8-4.  dellRAC4Privileges クラス&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1053950"></a>1.2.840.113556.1.8000.1280.1.1.1.3</p></th></tr>
+<tr><td valign="top" align="left"><p>説明</p></td><td valign="top" align="left"><p><a name="1053954"></a>このクラスは DRAC 4 デバイスの特権（許可の権限）を定義するために使用されます。</p></td></tr>
+<tr><td valign="top" align="left"><p>クラスの種類</p></td><td valign="top" align="left"><p><a name="1053958"></a>補助クラス</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1053962"></a>なし</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1053966"></a>dellIsLoginUser</p><p><a name="1062771"></a>dellIsCardConfigAdmin</p><p><a name="1062772"></a>dellIsUserConfigAdmin</p><p><a name="1062773"></a>dellIsLogClearAdmin</p><p><a name="1062774"></a>dellIsServerResetUser</p><p><a name="1062775"></a>dellIsConsoleRedirectUser</p><p><a name="1062776"></a>dellIsVirtualMediaUser</p><p><a name="1062777"></a>dellIsTestAlertUser</p><p><a name="1062778"></a>dellIsDebugCommandAdmin</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054032"></a>
+<p><p class="FigureTableTitle"><a name="1053982"></a>表 8-5.  dellPrivileges クラス&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1053988"></a>1.2.840.113556.1.8000.1280.1.1.1.4</p></th></tr>
+<tr><td valign="top" align="left"><p>説明</p></td><td valign="top" align="left"><p><a name="1053992"></a>このクラスはデルの特権（許可の権限）のコンテナクラスとして使用されます。</p></td></tr>
+<tr><td valign="top" align="left"><p>クラスの種類</p></td><td valign="top" align="left"><p><a name="1053996"></a>構造体クラス</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1054000"></a>ユーザー</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1054004"></a>dellRAC4Privileges</p><p><a name="1062779"></a>dellRAC3Privileges</p><p><a name="1062780"></a>dellOmsaAuxClass</p><p><a name="1062781"></a>dellItaAuxClass</p></td></tr>
+
+</table>
+
+
+
+
+
+<p class="FigureTableTitle"><a name="1054009"></a>表 8-6.  dellProduct クラス</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054015"></a>1.2.840.113556.1.8000.1280.1.1.1.5</p></th></tr>
+<tr><td valign="top" align="left"><p>説明</p></td><td valign="top" align="left"><p><a name="1054019"></a>これはデル製品が導出される主要クラスです。 </p></td></tr>
+<tr><td valign="top" align="left"><p>クラスの種類</p></td><td valign="top" align="left"><p><a name="1054023"></a>構造体クラス</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1054027"></a>コンピュータ</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1054031"></a>dellAssociationMembers</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054060"></a>
+<p><p class="FigureTableTitle"><a name="1054037"></a>表 8-7.  dellRAC3Privileges クラス</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054043"></a>1.2.840.113556.1.8000.1280.1.1.1.6</p></th></tr>
+<tr><td valign="top" align="left"><p>説明</p></td><td valign="top" align="left"><p><a name="1054047"></a>このクラスは、DRAC III、DRAC III/XT、ERA、ERA/O、および ERA/MC デバイスの特権（許可の権限）を定義するために使用されます。</p></td></tr>
+<tr><td valign="top" align="left"><p>クラスの種類</p></td><td valign="top" align="left"><p><a name="1054051"></a>補助クラス</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1054055"></a>なし</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1054059"></a>dellIsLoginUser</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054093"></a>
+<p><p class="FigureTableTitle"><a name="1054068"></a>表 8-8.  dellOmsa2AuxClass クラス&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054074"></a>1.2.840.113556.1.8000.1280.1.2.1.1</p></th></tr>
+<tr><td valign="top" align="left"><p>説明</p></td><td valign="top" align="left"><p><a name="1054078"></a>このクラスは Server Administrator の特権（許可の権限）を定義するために使用されます。</p></td></tr>
+<tr><td valign="top" align="left"><p>クラスの種類</p></td><td valign="top" align="left"><p><a name="1054082"></a>補助クラス</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1054086"></a>なし</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1054090"></a>dellOmsaIsReadOnlyUser</p><p><a name="1062782"></a>dellOmsaIsReadWriteUser</p><p><a name="1062783"></a>dellOmsaIsAdminUser</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054122"></a>
+<p><p class="FigureTableTitle"><a name="1054098"></a>表 8-9.  dellOmsaApplication クラス&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054104"></a>1.2.840.113556.1.8000.1280.1.2.1.2</p></th></tr>
+<tr><td valign="top" align="left"><p>説明</p></td><td valign="top" align="left"><p><a name="1054108"></a>このクラスは Server Administrator アプリケーションを表します。 Server Administrator は Active Directory では dellOmsaApplication として設定する必要があります。 この設定を使うと、Server Administrator のアプリケーションは LDAP クエリを Active Directory に送信することができます。</p></td></tr>
+<tr><td valign="top" align="left"><p>クラスの種類</p></td><td valign="top" align="left"><p><a name="1054113"></a>構造体クラス</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1054117"></a>dellProduct</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1054121"></a>dellAssociationMembers</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054182"></a>
+<p><p class="FigureTableTitle"><a name="1054127"></a>表 8-10.  dellIta7AuxClass クラス</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054133"></a>1.2.840.113556.1.8000.1280.1.3.1.1</p></th></tr>
+<tr><td valign="top" align="left"><p>説明</p></td><td valign="top" align="left"><p><a name="1054137"></a>このクラスは IT Assistant の特権（許可の権限）を定義するために使用されます。</p></td></tr>
+<tr><td valign="top" align="left"><p>クラスの種類</p></td><td valign="top" align="left"><p><a name="1054141"></a>補助クラス</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1054145"></a>なし</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1054149"></a>dellItaIsReadOnlyUser</p><p><a name="1062784"></a>dellItaIsReadWriteUser</p><p><a name="1062785"></a>dellItaIsAdminUser</p></td></tr>
+
+</table>
+
+
+
+
+
+<p class="FigureTableTitle"><a name="1054159"></a>表 8-11.  dellItaApplication クラス&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054165"></a>1.2.840.113556.1.8000.1280.1.3.1.2</p></th></tr>
+<tr><td valign="top" align="left"><p>説明</p></td><td valign="top" align="left"><p><a name="1054169"></a>このクラスは IT Assistant アプリケーションを表します。 IT Assistant は Active Directory では dellItaApplication として設定する必要があります。 この設定を使うと、IT Assitant は LDAP クエリを Active Directory に送信することができます。</p></td></tr>
+<tr><td valign="top" align="left"><p>クラスの種類</p></td><td valign="top" align="left"><p><a name="1054173"></a>構造体クラス</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1054177"></a>dellProduct</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1054181"></a>dellAssociationMembers</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054226"></a>
+<p><p class="FigureTableTitle"><a name="1054189"></a>表 8-12  Active Directory スキーマに追加される一般的な属性&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054195"> </a>
+<p><b>属性名 / 説明</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054197"> </a>
+<p><b>割り当てられる OID/Syntax オブジェクト識別子</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054199"> </a>
+<p><b>単一値</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054201"></a><b>dellPrivilegeMember</b></p><p><a name="1054202"></a>この属性に属する dellPrivilege オブジェクトのリスト</p></td><td valign="top" align="left"><p><a name="1054204"></a>1.2.840.113556.1.8000.1280.1.1.2.1</p><p><a name="1054205"></a>識別名（LDAPTYPE_DN 1.3.6.1.4.1.1466.115.121.1.12）</p></td><td valign="top" align="left"><p><a name="1054207"></a>FALSE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054209"></a><b>dellProductMembers</b></p><p><a name="1054210"></a>この属性に属する dellRacDevices オブジェクトのリスト。 この属性は dellAssociationMembers バックワードリンクへのフォワードリンクです。</p><p><a name="1054211"></a>リンク ID：12070</p></td><td valign="top" align="left"><p><a name="1054213"></a>1.2.840.113556.1.8000.1280.1.1.2.2</p><p><a name="1054214"></a>識別名（LDAPTYPE_DN 1.3.6.1.4.1.1466.115.121.1.12）</p></td><td valign="top" align="left"><p><a name="1054216"></a>FALSE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054218"></a><b>dellAssociationMembers</b></p><p><a name="1054219"></a>この製品に属する dellAssociationObjectMembers のリスト。 この属性は dellProductMembers リンク属性へのバックワードリンクです。</p><p><a name="1054220"></a>リンク ID：12071</p></td><td valign="top" align="left"><p><a name="1054222"></a>1.2.840.113556.1.8000.1280.1.1.2.14</p><p><a name="1054223"></a>識別名（LDAPTYPE_DN 1.3.6.1.4.1.1466.115.121.1.12）</p></td><td valign="top" align="left"><p><a name="1054225"></a>FALSE</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054332"></a>
+<p><p class="FigureTableTitle"><a name="1054233"></a>表 8-13  Active Directory スキーマに追加される RAC 固有の属性&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054239"> </a>
+<p><b>属性名 / 説明</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054241"> </a>
+<p><b>割り当てられる OID/Syntax オブジェクト識別子</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054243"> </a>
+<p><b>単一値</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054245"></a><b>dellIsLoginUser</b></p><p><a name="1054246"></a>ユーザーがデバイスにログイン権限を持っている場合は TRUE。</p></td><td valign="top" align="left"><p><a name="1054248"></a>1.2.840.113556.1.8000.1280.1.1.2.3</p><p><a name="1054249"></a>ブール（LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7）</p></td><td valign="top" align="left"><p><a name="1054251"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054253"></a><b>dellIsCardConfigAdmin</b></p><p><a name="1054254"></a>ユーザーがデバイスにカード設定権限を持っている場合は TRUE。</p></td><td valign="top" align="left"><p><a name="1054256"></a>1.2.840.113556.1.8000.1280.1.1.2.4</p><p><a name="1054257"></a>ブール（LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7）</p></td><td valign="top" align="left"><p><a name="1054259"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054261"></a><b>dellIsUserConfigAdmin</b></p><p><a name="1054262"></a>ユーザーがデバイスにユーザー設定権限を持っている場合は TRUE。</p></td><td valign="top" align="left"><p><a name="1054264"></a>1.2.840.113556.1.8000.1280.1.1.2.5</p><p><a name="1054265"></a>ブール（LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7）</p></td><td valign="top" align="left"><p><a name="1054267"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054269"></a><b>delIsLogClearAdmin</b></p><p><a name="1054270"></a>ユーザーがデバイスにログ消去権限を持っている場合は TRUE。</p></td><td valign="top" align="left"><p><a name="1054272"></a>1.2.840.113556.1.8000.1280.1.1.2.6</p><p><a name="1054273"></a>ブール（LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7）</p></td><td valign="top" align="left"><p><a name="1054275"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054277"></a><b>dellIsServerResetUser</b></p><p><a name="1054278"></a>ユーザーがデバイスにサーバーリセット権限を持っている場合は TRUE。</p></td><td valign="top" align="left"><p><a name="1054280"></a>1.2.840.113556.1.8000.1280.1.1.2.7</p><p><a name="1054281"></a>ブール（LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7）</p></td><td valign="top" align="left"><p><a name="1054283"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054285"></a><b>dellIsConsoleRedirectUser</b></p><p><a name="1054286"></a>ユーザーがデバイスにコンソールリダイレクト権限を持っている場合は TRUE。</p></td><td valign="top" align="left"><p><a name="1054288"></a>1.2.840.113556.1.8000.1280.1.1.2.8</p><p><a name="1054289"></a>ブール（LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7）</p></td><td valign="top" align="left"><p><a name="1054291"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054293"></a><b>dellIsVirtualMediaUser</b></p><p><a name="1054294"></a>ユーザーがデバイスに仮想メディア権限を持っている場合は TRUE。</p></td><td valign="top" align="left"><p><a name="1054296"></a>1.2.840.113556.1.8000.1280.1.1.2.9</p><p><a name="1054297"></a>ブール（LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7）</p></td><td valign="top" align="left"><p><a name="1054299"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054301"></a><b>dellIsTestAlertUser</b></p><p><a name="1054302"></a>ユーザーがデバイスにユーザー警告テスト権限を持っている場合は TRUE。</p></td><td valign="top" align="left"><p><a name="1054304"></a>1.2.840.113556.1.8000.1280.1.1.2.10</p><p><a name="1054305"></a>ブール（LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7）</p></td><td valign="top" align="left"><p><a name="1054307"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054309"></a><b>dellIsDebugCommandAdmin</b></p><p><a name="1054310"></a>ユーザーがデバイスにデバッグコマンド管理者権限を持っている場合は TRUE。</p></td><td valign="top" align="left"><p><a name="1054312"></a>1.2.840.113556.1.8000.1280.1.1.2.11</p><p><a name="1054313"></a>ブール（LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7）</p></td><td valign="top" align="left"><p><a name="1054315"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054317"></a><b>dellSchemaVersion</b></p><p><a name="1054318"></a>スキーマの更新に現在のバージョンが使用されます。</p></td><td valign="top" align="left"><p><a name="1054320"></a>1.2.840.113556.1.8000.1280.1.1.2.12</p><p><a name="1054321"></a>ケースが文字列を無視<br>（LDAPTYPE_CASEIGNORESTRING<br>1.2.840.113556.1.4.905）</p></td><td valign="top" align="left"><p><a name="1054323"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054325"></a><b>dellRacType</b></p><p><a name="1054326"></a>この属性は dellRacDevice オブジェクトの現在の Rac タイプで dellAssociationObjectMembers フォワードリンクへのバックワードリンクです。</p></td><td valign="top" align="left"><p><a name="1054328"></a>1.2.840.113556.1.8000.1280.1.1.2.13</p><p><a name="1054329"></a>ケースが文字列を無視<br>（LDAPTYPE_CASEIGNORESTRING<br>1.2.840.113556.1.4.905）</p></td><td valign="top" align="left"><p><a name="1054331"></a>TRUE</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054374"></a>
+<p><p class="FigureTableTitle"><a name="1054339"></a>表 8-14  Active Directory スキーマに追加される Server Administrator 固有の属性&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054345"> </a>
+<p><b>属性名 / 説明</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054347"> </a>
+<p><b>割り当てられる OID/Syntax オブジェクト識別子</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054349"> </a>
+<p><b>単一値</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054351"></a><b>dellOMSAIsReadOnlyUser</b></p><p><a name="1054352"></a>ユーザーが Server Administrator に読み取り専用権限を持っている場合は TRUE</p></td><td valign="top" align="left"><p><a name="1054354"></a>1.2.840.113556.1.8000.1280.1.2.2.1</p><p><a name="1054355"></a>ブール（LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7）</p></td><td valign="top" align="left"><p><a name="1054357"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054359"></a><b>dellOMSAIsReadWriteUser</b></p><p><a name="1054360"></a>ユーザーが Server Administrator に読み取り / 書き込み専用権限を持っている場合は TRUE</p></td><td valign="top" align="left"><p><a name="1054362"></a>1.2.840.113556.1.8000.1280.1.2.2.2</p><p><a name="1054363"></a>ブール（LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7）</p></td><td valign="top" align="left"><p><a name="1054365"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054367"></a><b>dellOMSAIsAdminUser</b></p><p><a name="1054368"></a>ユーザーが Server Administrator にシステム管理者権限を持っている場合は TRUE</p></td><td valign="top" align="left"><p><a name="1054370"></a>1.2.840.113556.1.8000.1280.1.2.2.3</p><p><a name="1054371"></a>ブール（LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7）</p></td><td valign="top" align="left"><p><a name="1054373"></a>TRUE</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054413"></a>
+<p><p class="FigureTableTitle"><a name="1054378"></a>表 8-15  Active Directory スキーマに追加される IT Assistant 固有の属性</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054384"> </a>
+<p><b>属性名 / 説明</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054386"> </a>
+<p><b>割り当てられる OID/Syntax オブジェクト識別子</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054388"> </a>
+<p><b>単一値</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054390"></a><b>dellItaIsReadWriteUser</b></p><p><a name="1054391"></a>ユーザーが IT Assistant に読み取り書き込み権限を持っている場合は TRUE</p></td><td valign="top" align="left"><p><a name="1054393"></a>1.2.840.113556.1.8000.1280.1.3.2.1</p><p><a name="1054394"></a>ブール（LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7）</p></td><td valign="top" align="left"><p><a name="1054396"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054398"></a><b>dellItaIsAdminUser</b></p><p><a name="1054399"></a>ユーザーが IT Assistant に管理者権限を持っている場合は TRUE</p></td><td valign="top" align="left"><p><a name="1054401"></a>1.2.840.113556.1.8000.1280.1.3.2.2</p><p><a name="1054402"></a>ブール（LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7）</p></td><td valign="top" align="left"><p><a name="1054404"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054406"></a><b>dellItaIsReadOnlyUser</b></p><p><a name="1054407"></a>ユーザーが IT Assistant に読み取り専用権限を持っている場合は TRUE</p></td><td valign="top" align="left"><p><a name="1054409"></a>1.2.840.113556.1.8000.1280.1.3.2.3</p><p><a name="1054410"></a>ブール（LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7）</p></td><td valign="top" align="left"><p><a name="1054412"></a>TRUE</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054416"></a><h3> Active Directory ユーザーとコンピュータスナップイン
+</h3>
+<a name="1055982"></a><h4> Active Directory ユーザーとコンピュータスナップインへの Dell 拡張のインストール</h4>
+<a name="1054417"></a><p>Active Directory のスキーマを拡張する場合、製品、ユーザーとユーザーグループ、関連付け、特権などを管理できるように Active Directory ユーザーとコンピュータスナップインも拡張する必要があります。 複数のスキーマ拡張を追加した場合でも、スナップインは 1 度拡張するだけで済みます。 これらのオブジェクトの管理に使用するスナップインを各システムにインストールする必要があります。 Active Directory ユーザーとコンピュータスナップインへの Dell 拡張は、『Dell PowerEdge OpenManage Installation and Server Management CD』を使って Systems Management Software をインストールするときにインストールできるオプションの 1 つです。 </p>
+<a name="1054424"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>Active Directory のオブジェクトを管理している管理ステーションのそれぞれに Administrator Pack をインストールする必要があります。 インストールに関しては、次項の「<a href="mad.htm#1054434">Active Directory ユーザーとコンピュータスナップインを開く</a> 」で説明します。 Administrator Pack をインストールしない場合は、コンテナの新しいオブジェクトを表示できません。
+</td>
+  </tr>
+</table><a name="1054432"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>Active Directory ユーザーとコンピュータスナップインの詳細については、Microsoft のマニュアルを参照してください。
+</td>
+  </tr>
+</table><a name="1054434"></a><h4> Active Directory ユーザーとコンピュータスナップインの開始</h4>
+<a name="1054435"></a><p>Active Directory ユーザーとコンピュータスナップインを開くには、次の手順に従います。</p>
+<ol type="1">
+
+<li value="1"><a name="1054436"></a>ドメインコントローラにいる場合は、<b>システム管理ツールの開始</b> <span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span> <b>Active Directory ユーザーと
+コンピュータ</b> の順にクリックします。 ドメインコントロールにいない場合は、ローカルシステムに適切な Microsoft 
+Administrator Pack がインストールされている必要があります。 この Administrator Pack をインストールするには、
+<b>スタート</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b>ファイル名を指定して実行</b> の順にクリックし、<span class="screen">MMC</span> と入力して &lt;<b>Enter</b>&gt; を押します。
+<br>
+<br>
+</ol>
+<a name="1054437"></a><p class="indent">これで Microsoft 管理コンソール（MMC）ウィンドウが開きます。</p>
+<ol type="1">
+
+<li value="2"><a name="1054438"></a><b>コンソール 1</b> ウィンドウで <b>ファイル</b>（Windows 2000 を実行しているシステムでは <b>コンソール</b>）をクリックします。
+
+<br><br>
+<li value="3"><a name="1054439"></a><b>スナップインの追加と削除 </b>をクリックします。
+
+<br><br>
+<li value="4"><a name="1054440"></a>Active Directory ユーザーとコンピュータ スナップインを選択して 追加 をクリックします。
+
+<br><br>
+<li value="5"><a name="1054441"></a><b>閉じる</b> をクリックして <b>OK </b>をクリックします。
+<br><br>
+</ol>
+<a name="1054443"></a><h3> Active Directory へのユーザーと特権の追加
+</h3>
+<a name="1054445"></a><p>Dell 拡張 Active Directory ユーザーとコンピュータスナップインを使用すると、RAC、関連付け、特権の各オブジェクトを作成して DRAC、Server Administrator、IT Assistant などのユーザーと特権を追加できます。 オブジェクトを追加するには、該当する項の手順に従ってください。</p>
+<a name="1054446"></a><h4> 製品オブジェクトの作成</h4>
+<a name="1054451"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>Server Administrator と IT Assistant はユニバーサル製品グループを使用して、その製品オブジェクトのドメインをスパンする必要があります。
+</td>
+  </tr>
+</table><a name="1060590"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>別々のドメインからユニバーサルタイプの製品グループを追加する場合は、ユニバーサルスコープの関連オブジェクトを作成する必要があります。Dell Schema Extender ユーティリティで作成されるデフォルトの関連オフジェクトは、
+ドメインローカルグループで、他のドメインのユニバーサルタイプの製品グループとは親和性がありません。
+</td>
+  </tr>
+</table><a name="1054453"></a><p><b>コンソールのルート</b>（MMC）ウィンドウでコンテナを右クリックします。</p>
+<ol type="1">
+
+<li value="1"><a name="1054454"></a><b>新規作成 </b>を選択します。
+
+<br><br>
+<li value="2"><a name="1054456"></a>インストールしたコンポーネントに応じて、RAC、Server Administrator、または IT Assistant のオブジェクトを選択します。
+<br><br>
+</ol>
+<a name="1054457"></a><p class="indent"><b>新規オブジェクト</b> ウィンドウが開きます。</p>
+<ol type="1">
+
+<li value="3"><a name="1054458"></a>新しいオブジェクトの名前を入力します。 この名前は、「<a href="mad.htm#1054634"> Server Administrator を実行しているシステムで CLI を使って Active Directory を設定する方法</a>」で説明する <b>Active Directory 製品名 </b>と一致する必要があります。また、
+RAC デバイスの場合は、「<a href="mad.htm#1054611">システムまたはデバイスの設定</a>」のステップ 4 で入力する値、
+IT Assistant の場合は、「<a href="mad.htm#1054676">IT Assistantを実行しているシステムでの
+Active Directory の設定</a>」で説明する名前と一致する必要があります。&quot;
+<br><br>
+
+<li value="4"><a name="1054468"></a>該当する <b>製品オブジェクト</b> を選択します。
+
+<br><br>
+<li value="5"><a name="1054469"></a><b>OK </b>をクリックします。
+<br><br>
+</ol>
+<a name="1054470"></a><h4> 特権オブジェクトの作成</h4>
+<a name="1054471"></a><p>特権オブジェクトは、それを関連付ける関連オブジェクトと同じドメインで作成する必要があります。</p>
+<ol type="1">
+
+<li value="1"><a name="1054472"></a><b>コンソールのルート</b>（MMC） ウィンドウでコンテナを右クリックします。
+
+<br><br>
+<li value="2"><a name="1054473"></a><b>新規作成 </b>を選択します。
+
+<br><br>
+<li value="3"><a name="1054474"></a>インストールしたコンポーネントに応じて、RAC、Server Administrator、または IT Assistant のオブジェクトを選択します。
+<br><br>
+</ol>
+<a name="1054475"></a><p class="indent"><b>新規オブジェクト </b>ウィンドウが開きます。</p>
+<ol type="1">
+
+<li value="4"><a name="1054476"></a>新しいオブジェクトの名前を入力します。
+
+<br><br>
+<li value="5"><a name="1054477"></a>該当する <b>特権オブジェクト</b> を選択します。
+
+<br><br>
+<li value="6"><a name="1054478"></a><b>OK </b>をクリックします。
+
+<br><br>
+<li value="7"><a name="1054479"></a>作成した特権オブジェクトを右クリックして <b>プロパティ </b>を選択します。
+
+<br><br>
+<li value="8"><a name="1054480"></a>適切な <b>特権 </b>タブをクリックして、ユーザーに与える特権を選択します。
+（詳細については、<a href="mad.htm#1053811">表&nbsp;8-1</a> 、および <a href="mad.htm#1054127">表&nbsp;8-10</a> を参照してください）。
+<br><br>
+</ol>
+<a name="1054490"></a><h4> 関連オブジェクトの作成</h4>
+<a name="1054493"></a><p>関連オブジェクトはグループから導出され、グループの種類が含まれていなければなりません。 関連スコープは関連オブジェクトのセキュリティグループの種類を指定します。 関連オブジェクトを作成するたびに、追加したいオブジェクトの種類に適用する関連スコープを選択する必要があります。 たとえば、<b>ユニバーサル</b> を選択すると、Active Directory ドメインがネイティブモード以上で機能している場合にのみ関連オブジェクトを使用できます。</p>
+<ol type="1">
+
+<li value="1"><a name="1054496"></a><b>コンソールのルート</b>（MMC） ウィンドウでコンテナを右クリックします。
+
+<br><br>
+<li value="2"><a name="1054497"></a><b>新規作成 </b>を選択します。
+
+<br><br>
+<li value="3"><a name="1054499"></a>インストールしたコンポーネントに応じて、RAC、Server Administrator、または IT Assistant のオブジェクトを選択します。
+<br><br>
+</ol>
+<a name="1054500"></a><p class="indent"><b>新規オブジェクト </b>ウィンドウが開きます。</p>
+<ol type="1">
+
+<li value="4"><a name="1054501"></a>新しいオブジェクトの名前を入力します。
+
+<br><br>
+<li value="5"><a name="1054502"></a><b>関連オブジェクト</b> を選択します。
+
+<br><br>
+<li value="6"><a name="1054504"></a><b>関連オブジェクト</b> のスコープを選択します。
+
+<br><br>
+<li value="7"><a name="1054505"></a><b>OK </b>をクリックします。
+<br><br>
+</ol>
+<a name="1054506"></a><h4> 関連オブジェクトへのオブジェクトの追加</h4>
+<a name="1054507"></a><p><b>関連オブジェクトのプロパティ </b>ウィンドウを使って、ユーザーやユーザーグループ、特権オブジェクト、システム、RAC デバイス、システムやデバイスグループを関連付けることができます。</p>
+<a name="1054513"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>RAC ユーザーはそのユーザーや RAC オブジェクトのドメインをスパンするには、ユニバーサルグループを使用する必要があります。
+</td>
+  </tr>
+</table><a name="1054514"></a><p>ユーザーと製品のグループを追加することもできます。 デルに関連したグループを、他のグループを作成したのと同じ方法で作成できます。</p>
+<a name="1054515"></a><p>ユーザーまたはユーザーグループを追加する方法</p>
+<ol type="1">
+
+<li value="1"><a name="1054516"></a><b>関連オブジェクト </b>を右クリックして <b>プロパティ </b>を選択します。
+
+<br><br>
+<li value="2"><a name="1054517"></a><b>ユーザー </b>タブを選択して <b>追加 </b>をクリックします。
+
+<br><br>
+<li value="3"><a name="1054518"></a>ユーザーまたはユーザーグループの名前を入力するか、参照して選択し、<b>OK</b> をクリックします。
+<br><br>
+</ol>
+<a name="1054520"></a><p><b>特権オブジェクト </b>タブをクリックして、システムで認証するときにユーザーまたはユーザーグループの特権を定義する関連を特権オブジェクトに追加します。</p>
+<a name="1054526"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>関連オブジェクトに追加できる特権オブジェクトは 1 つだけです。
+</td>
+  </tr>
+</table><a name="1054527"></a><p>特権を追加するには</p>
+<ol type="1">
+
+<li value="1"><a name="1054528"></a><b>特権オブジェクト</b> タブを選択し、<b>追加</b> をクリックします。
+
+<br><br>
+<li value="2"><a name="1054529"></a>特権オブジェクトの名前を入力するか参照して、<b>OK</b> をクリックします。
+<br><br>
+</ol>
+<a name="1054530"></a><p><b>製品 </b>タブをクリックして、1 つまたは複数のシステムあるいはデバイスを関連に追加します。 関連オブジェクトは、ネットワークに接続している製品のうち、定義したユーザーやユーザーグループが使用できるものを指定します。</p>
+<a name="1054535"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>関連オブジェクトには複数のシステムまたは RAC デバイスを追加できます。
+</td>
+  </tr>
+</table><a name="1054536"></a><p>製品を追加するには</p>
+<ol type="1">
+
+<li value="1"><a name="1054537"></a><b>製品</b> タブを選択して <b>追加
+</b> をクリックします。<br><br>
+
+<li value="2"><a name="1054538"></a>システム、デバイス、またはグループ名を入力して、<b>OK</b> をクリックします。
+
+<br><br>
+<li value="3"><a name="1054539"></a><b>プロパティ</b> ウィンドウで、<b>適用</b>、<b>OK</b> の順にクリックします。
+<br><br>
+</ol>
+<a name="1054543"></a><h4> ドメインコントローラで SSL を有効にする（RAC のみ）</h4>
+<a name="1054545"></a><p>Microsoft エンタープライズのルート CA を使用してドメインコントローラすべての SSL 証明書を自動的に割り当てる場合は、次の操作を実行して各ドメインコントローラで SSL を有効にする必要があります。 	 </p>
+<ol type="1">
+
+<li value="1"><a name="1054546"></a>ドメインコントローラに Microsoft エンタープライズのルート CA をインストールします。  
+<br><br>
+ <ol type="a">
+
+<li value="1"><a name="1054547"></a><b>スタート</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span> <b>コントロールパネル</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> プログラムの追加と削除</b> を選択します。 
+<br><br>
+  </ol>
+  <ol type="a">
+
+<li value="2"><a name="1054548"></a><b>Windows コンポーネントの追加と削除 </b>を選択します。
+
+<br><br>
+ <li value="3"><a name="1054549"></a><b>Windows コンポーネントウィザード</b> で、<b>証明書サービス</b> チェックボックスをオンにします。
+<br><br>
+
+<li value="4"><a name="1054550"></a><b>CA の種類 </b>で<b> エンタープライズのルート CA </b>を選択して <b>次へ </b>をクリックします。
+
+<br><br>
+<li value="5"><a name="1054551"></a><b>この CA の共通名</b> を入力して <b>次へ </b>をクリックし、<b>完了 </b>をクリックします。  
+<br><br>
+</ol>
+
+<li value="2"><a name="1054553"></a>各コントローラの SSL 証明書をインストールして、各ドメインで SSL を有効にします。  
+<br><br>
+ <ol type="a">
+
+<li value="1"><a name="1054554"></a><b>スタート</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> 管理ツール</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> ドメイン セキュリティ ポリシー</b> をクリックします。  
+<br><br>
+ </ol>
+  <ol type="a">
+
+<li value="2"><a name="1054555"></a><b>公開キーポリシー</b> フォルダを展開し、<b>自動証明書要求の
+設定 </b>を右クリックして <b>自動証明書の要求 </b>をクリックします。
+
+<br><br>
+<li value="3"><a name="1054556"></a><b>自動証明書要求の設定ウィザード </b>で <b>次へ </b>をクリックし、<b>ドメインコントローラ </b>を選択します。<b></b>
+
+<br><br>
+<li value="4"><a name="1054557"></a><b>次へ</b> をクリックして、<b>完了</b> をクリックします。  
+<br><br>
+</ol>
+</ol>
+<a name="1054559"></a><h4> ドメインコントローラのルート CA 証明書のエクスポート（RAC のみ）</h4>
+<a name="1054564"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>Windows 2000 を使用している場合は、以下の手順と若干異なる場合があります。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1054565"></a>Microsoft Enterprise CA サービスをインストールするドメインコントローラに移動します。
+
+<br><br>
+<li value="2"><a name="1054566"></a><b>スタート</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> ファイル名を指定して実行</b> をクリックします。
+
+<br><br>
+<li value="3"><a name="1054568"></a><span class="screen">mmc</span> と入力して <b>OK </b>をクリックします。
+
+<br><br>
+<li value="4"><a name="1054570"></a><b>コンソール 1（MMC）</b> ウィンドウで <b>ファイル</b>（Windows 2000 システムでは <b>コンソール</b>）をクリックし、<b>スナップインの追加と削除 </b>を選択します。
+<br><br>
+
+<li value="5"><a name="1054571"></a><b>スナップインの追加と削除</b> ウィンドウで <b>追加 </b>をクリックします。
+
+<br><br>
+<li value="6"><a name="1054572"></a><b>スタンドアロンスナップイン </b>ウィンドウで <b>証明書 </b>を選択して <b>追加 </b>をクリックします。
+
+<br><br>
+<li value="7"><a name="1054573"></a><b>コンピュータ</b> アカウントを選択して <b>次へ </b>をクリックします。
+
+<br><br>
+<li value="8"><a name="1054574"></a><b>ローカルコンピュータ </b>を選択して <b>完了 </b>をクリックします。
+
+<br><br>
+<li value="9"><a name="1054575"></a><b>OK </b>をクリックします。
+
+<br><br>
+<li value="10"><a name="1054576"></a><b>コンソール 1 </b>ウィンドウで、<b>証明書 </b>フォルダを展開し、<b>パーソナル</b> フォルダを展開して、
+<b>証明書</b> フォルダをクリックします。
+
+<br><br>
+<li value="11"><a name="1054577"></a>ルート CA 証明書を見つけて右クリックし、<b>すべてのタスク </b>を選択して <b>エクスポート</b> をクリックします。
+
+<br><br>
+<li value="12"><a name="1054578"></a><b>証明書のエクスポート </b>ウィザードで <b>次へ </b>を選択し、<b>いいえ、秘密キーをエクスポートしない </b>を選択します。
+
+<br><br>
+<li value="13"><a name="1054579"></a><b>次へ </b>をクリックし、フォーマットとして <b>Base-64 エンコード X.509 (.cer)</b> を選択します。
+
+<br><br>
+<li value="14"><a name="1054580"></a><b>次へ </b>をクリックし、目的の場所に証明書を保存します。 この証明書を DRAC 4 に
+アップロードする必要があります。 証明書をアップロードするには、<b>DRAC 4 Web ベースインタフェース</b><b>→</b><b> 設定タブ</b><b>→</b><b> Active 
+Directory ページ</b> に移動します。または、<b>racadm</b> CLI コマンドを使うこともできます（
+「<a href="mad.htm#1054713">racadm CLI を使用した DRAC 4 Active Directory オプションの設定</a>」を参照）。
+
+<br><br>
+ <li value="15"><a name="1054585"></a><b>完了</b> をクリックして <b>OK </b>をクリックします。
+<br><br>
+</ol>
+<a name="1054588"></a><h4> 全ドメインコントローラの信頼できる証明書リストへの DRAC 4 ファームウェア SSL 証明書のインポート</h4>
+<a name="1054593"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>DRAC 4 ファームウェアの SSL 証明書がよく知られた CA によって署名されている場合は、ここで説明する手順を省略できます。
+</td>
+  </tr>
+</table><a name="1054598"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>Windows 2000 を使用している場合は、以下の手順と若干異なる場合があります。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1054600"></a>DRAC 4 の SSL 証明書は DRAC 4 の Web サーバーで使用される証明書と同じです。 DRAC 4 のコントローラにはすべて、デフォルトの自己署名付き証明書が付属しています。 この証明書は、<b>DRAC 4 </b>から <b>Download DRAC 4 サーバー証明書をダウンロードする </b>を選択して入手できます（DRAC 4 Web インタフェースの <b>設定 </b>タブと<b> Active Directory</b> サブタグを参照してください）。
+
+<br><br>
+  <li value="2"><a name="1054601"></a>ドメインコントローラで、<b>MMC コンソール</b> ウィンドウを開き、<b>証明書</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b>
+信頼できるルート認証局</b> の順に選択します。
+
+<br><br>
+<li value="3"><a name="1054602"></a><b>証明書 </b>を右クリックし、<b>すべてのタスク </b>を選択して <b>インポート </b>をクリックします。
+
+<br><br>
+<li value="4"><a name="1054603"></a><b>次へ </b>をクリックして SSL 証明書ファイルまで参照します。
+
+<br><br>
+ <li value="5"><a name="1054604"></a>各ドメインコントローラの<b>信頼できるルート認証局</b>で RAC SSL 証明書をインストールします。<b></b>
+<br><br>
+ </ol>
+<a name="1054607"></a><p class="indent">独自の証明書をインストールした場合は、その証明書に署名する CA が <b>信頼できるルート認証局</b> リストにあるかどうか確認してください。 CA がリストにない場合には、すべてのドメインコントローラにインストールする必要があります。</p>
+<ol type="1">
+
+<li value="6"><a name="1054608"></a><b>次へ</b> をクリックし、証明書の種類に基づいて証明書の保存場所を Windows に自動的に選択させるか、希望の場所まで参照します。
+
+<br><br>
+<li value="7"><a name="1054609"></a><b>完了</b> をクリックして <b>OK</b> をクリックします。
+<br><br>
+</ol>
+<a name="1054611"></a><h3> システムまたはデバイスの設定
+</h3>
+<a name="1054612"></a><p>CLI コマンドを使用して Server Administrator または IT Assistant のシステムを設定する方法については、「<a href="mad.htm#1054634">Server Administrator を実行しているシステムで CLI を使って Active Directory を設定する方法</a>」と「<a href="mad.htm#1054676">IT Assistant を実行しているシステムでの Active Directory の設定</a>」を参照してください。DRAC ユーザーの場合、DRAC 4 を設定する方法は 2 通りあります。 「<a href="mad.htm#1054692">Web インタフェースを使用した DRAC 4 の設定</a>」または「<a href="mad.htm#1054713">racadm CLI を使用した DRAC 4 Active Directory オプションの設定</a>」を参照してください。</p>
+<a name="1054631"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ: </span>Server Administrator および / または IT Assistant がインストールされているシステムで、Active Directory ドメインはコンピュータアカウントに必要です。
+</td>
+  </tr>
+</table><a name="1054634"></a><h4> Server Administrator を実行しているシステムで CLI を使って Active Directory を設定する方法 </h4>
+<a name="1054636"></a><p>Active Directory サービスを設定するには、<b>omconfig preferences dirservice</b> コマンドを使用できます。 productoem.ini ファイルが変更されて、これらの変更が反映されます。 <b>adproductname</b> が product<b>oem.ini </b>ファイルにない場合は、デフォルト名が割り当てられます。 デフォルト値は「システム名-ソフトウェア-製品名」です。システム名Server Administrator を実行しているシステムの名前、ソフトウェア-製品名は、<b>omprv32.ini（つまり </b>computerName<b>-omsa）</b>で定義されたソフトウェア製品の名前を指します。</p>
+<a name="1054642"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>このコマンドは、Windows オペレーティングシステムを実行しているシステムにのみ適用できます。
+</td>
+  </tr>
+</table><a name="1054647"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ: </span>Active Directory の設定後、 Server Administrator サービスを再起動します。
+</td>
+  </tr>
+</table><a name="1054648"></a><p><a href="mad.htm#1054652">表 8-16 </a>はコマンドの有効なパラメータです。</p>
+<a name="1054673"></a>
+<p><p class="FigureTableTitle"><a name="1054652"></a>表 8-16  Active Directory サービスの設定パラメータ</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054656"> </a>
+<p><b>name=value pair</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054658"> </a>
+<p><b>説明</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054661"></a>prodname=&lt;テキスト&gt;</p></td><td valign="top" align="left"><p><a name="1054663"></a>Active Directory の設定変更を適用するソフトウェア製品を指定します。 <i>Prodname</i><b> </b>は、<b>omprv32.ini</b> で定義されている製品の名前を指します。 Server Administrator では <i>omsa </i>です。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054665"></a>enable=&lt;true | false&gt;</p></td><td valign="top" align="left"><p><a name="1054667"></a><b>true：</b>Active Directory サービスの認証サポートを有効にします。</p><p><a name="1054668"></a><b>false：</b>Active Directory サービスの認証サポートを無効にします。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054670"></a>adprodname=&lt;テキスト&gt;</p></td><td valign="top" align="left"><p><a name="1054672"></a>Active Directory サービスで定義されている製品の名前を指定します。 この名前は製品を Active Directory の特権データに関連付けて、ユーザー認証に使用します。</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054676"></a><h4> IT Assistantを実行しているシステムでの Active Directory の設定</h4>
+<a name="1054677"></a><p>デフォルトでは、Active Directory 製品名は、マシーン名-ita で、<u>マシーン名</u> は IT Assistant がインストールされているシステムの名前です。 違う名前に設定するには、インストールディレクトリにある <b>itaoem.ini</b> ファイルを見つけます。 このファイルを編集して &quot;adproductname=テキスト&quot; の行を追加します。<u>テキスト</u>は、Active Directory で作成した製品オブジェクトの名前です。 たとえば、Active Directory 製品名が <b>mgmtStationITA</b> と設定されている場合、<b>itaoem.ini </b>ファイルには次の構文が含まれます。 </p>
+<a name="1054678"></a>
+<p class="screenindent">productname=IT Assistant<br>
+startmenu=Dell OpenManage Applications<br>
+autdbid=ita<br>
+accessmask=3<br>
+startlink=ITAUIServlet<br>
+adsupport=true<br>
+adproductname=mgmtStationITA
+</p>
+<a name="1054689"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span><b>itaoem.ini</b> ファイルをディスクに保存してから IT Assistant サービスを再起動してください。
+</td>
+  </tr>
+</table><a name="1054692"></a><h4> Web インタフェースを使用した DRAC 4 の設定</h4>
+<ol type="1">
+
+<li value="1"><a name="1054693"></a>デフォルトのユーザー、ルート、およびそのパスワードを使って、ウェブベースインタフェースにログインします。
+
+<br><br>
+<li value="2"><a name="1054694"></a><b>設定 </b>タブをクリックし、<b>Active Directory </b>を選択します。
+
+<br><br>
+ <li value="3"><a name="1054695"></a><b>Active Directory を有効にする </b>チェックボックスをオンにします。
+
+<br><br>
+<li value="4"><a name="1054696"></a><b>DRAC 4 の名前</b> を入力します。 この名前は、ドメインコントローラで作成した RAC オブジェクトの共通名と同じでなければなりません（「<a href="mad.htm#1055982">Active Directory ユーザーとコンピュータスナップインへの Dell 拡張のインストール</a>」を参照してください）。
+
+<br><br>
+<li value="5"><a name="1054700"></a><b>ルートドメイン名</b> を入力します。 <b>ルートドメイン名</b> はフォレストのルートドメインの完全修飾名です。
+
+<br><br>
+<li value="6"><a name="1054701"></a><b>DRAC 4 ドメイン名</b>（たとえば <span class="screen">drac4.com</span>）を入力します。 NetBIOS 名は使用しないでください。<b>DRAC 4 ドメイン名</b> は、RAC デバイスオブジェクトがあるサブドメインの完全修飾ドメイン名です。
+
+<br><br>
+<li value="7"><a name="1054702"></a><b>適用</b> をクリックして Active Directory の設定を保存します。
+
+<br><br>
+<li value="8"><a name="1054704"></a><b>Active Directory CA 証明書をアップロードする </b>をクリックして、ドメインフォレストのルート CA 
+証明書を DRAC 4 にアップロードします。ドメインフォレストのドメインコントローラの SSL 証明書は、この CA 証明書に署名している必要があります。ルート CA 証明書をローカルシステムで使用できるようにします（「<a href="mad.htm#1054559">ドメインコントローラのルート CA 証明書のエクスポート（RAC のみ）</a>」を参照）。 ルート CA 証明書のフルパスとファイル名を指定し、<b>アップロード</b> をクリックしてルート CA 証明書を DRAC 4 ファームウェアにアップロードします。<b>アップロード </b>をクリックした後、DRAC 4 Web サーバーが自動的に再起動します。 DRAC 4 Active Directory 機能の設定を完了するには、もう一度ログインする必要があります。
+
+<br><br>
+<li value="9"><a name="1054708"></a><b>設定</b> タブをクリックし、<b>ネットワーク </b> を選択します。
+
+<br><br>
+<li value="10"><a name="1054710"></a><b>DRAC 4 NIC DHCP</b> が有効になっている場合は、<b>DHCP を使用して DNS サーバーのアドレスを取得する</b> チェックボックスをオンにします。
+DNS サーバーの IP アドレスを手動で入力したい場合は、<b>DHCP を使用して DNS サーバーのアドレスを取得する</b> チェックボックスをオフにし、プライマリおよび代替の DNS サーバーの IP アドレスを入力します。
+
+<br><br>
+<li value="11"><a name="1054711"></a><b>適応</b> を押して、DRAC 4 Active Directory 機能の設定を完了します。
+<br><br>
+</ol>
+<a name="1054713"></a><h4> racadm CLI を使用した DRAC 4 Active Directory オプションの設定</h4>
+<a name="1054714"></a><p>Web インタフェースの代わりに racadm CLI を使って DRAC 4 の Active Directory 機能を設定するには、次のコマンドを使用します。</p>
+<ol type="1">
+
+<li value="1"><a name="1054716"></a>コマンドプロンプトを開き、次の racadm コマンドを入力します。
+<br><br>
+</ol>
+<a name="1054717"></a><p class="indent"><span class="screen">racadm config -g cfgActiveDirectory -o cfgADEnable 1<br>racadm config -g cfgActiveDirectory -o cfgADRacDomain &lt;</span><span class="screen">rac の完全修飾ドメイン名</span><span class="screen">&gt;<br>racadm config -g cfgActiveDirectory -o cfgADRootDomain &lt;</span><span class="screen"> root の完全修飾ドメイン名</span><span class="screen">&gt;<br>racadm config -g cfgActiveDirectory -o cfgADRacName &lt;</span><span class="screen">RAC 共通名</span><span class="screen">&gt;<br>racadm sslcertupload -t 0x2 -f &lt;</span><span class="screen">ADS ルート CA 証明書</span><span class="screen">&gt;<br>racadm sslcertdownload -t 0x1 -f &lt;</span><span class="screen">RAC SSL 証明書</span><span class="screen">&gt;</span></p>
+<ol type="1">
+
+<li value="2"><a name="1054724"></a>DRAC 4 で DHCP が有効になり、DHCP サーバーが提供する DNS を使用したい場合は、次のコマンドを入力します。
+<br><br>
+</ol>
+<a name="1054725"></a><p class="indent"><span class="screen">racadm config -g cfgLanNetworking -o cfgDNSServersFromDHCP 1</span></p>
+<ol type="1">
+
+<li value="3"><a name="1054726"></a>DRAC 4 で DHCP が無効になっている場合や、手動で DNS IP アドレスを入力したい場合は、
+次のコマンドを入力します。
+<br><br>
+</ol>
+<a name="1054727"></a><p class="indent"><span class="screen">racadm config -g cfgLanNetworking -o cfgDNSServersFromDHCP 0<br>racadm config -g cfgLanNetworking -o cfgDNSServer1 &lt;</span><span class="screen">一次 DNS IP アドレス</span><span class="screen">&gt;<br>racadm config -g cfgLanNetworking -o cfgDNSServer2 </span><span class="screen">&lt;二次 DNS IP アドレス&gt;</span></p>
+<ol type="1">
+
+<li value="4"><a name="1054730"></a><b>Enter</b> を押して、DRAC 4 Active Directory 機能の設定を完了します。
+<br><br>
+</ol>
+<a name="1054731"></a><p>詳細については、『Dell Remote Access Controller <i>4 </i>ユーザーズガイド』を参照してください。</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">目次ページに戻る</a></p>
+
+
+<p>&#160;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

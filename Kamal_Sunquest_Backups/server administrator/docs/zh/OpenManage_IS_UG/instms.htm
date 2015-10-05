@@ -1,0 +1,673 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+<title>安装 Management Station Software：Dell OpenManage 5.0 版安装和安全性用户指南</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">返回目录页</a> </p>
+<a name="1043338"></a><h1> 安装 Management Station Software  </h1>
+<p class="title">Dell OpenManage&#8482; 5.0 版安装和安全性用户指南</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1054353">概览
+</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1054367">安装要求</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1058223">在运行支持的 Windows 操作系统上</a><a href="#1058223">安装、升级和卸载 Management Station Software</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1064437">在运行支持的 Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 操作系统上</a>
+<br>
+&#160;&#160;&#160; <a href="#1064437">安装、升级和卸载 Management Station Software</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1054353"></a><h2>概览</h2>
+
+
+<a name="1054354"></a><p><i>Dell&#8482; Systems Management Consoles </i>CD 提供安装程序，可用于在系统上安装、升级和卸载 Dell OpenManage&#8482; Management Station Software。</p>
+<a name="1054356"></a><p>使用 <i>Dell Systems Management Consoles</i> CD 上的安装程序，可以在运行 Microsoft&#174; Windows&#174; 操作系统的系统上安装和升级 Management Station Software。 可以用 <i>Dell Systems Management Consoles </i>CD 或在运行支持的 Windows 操作系统的系统上通过操作系统来卸载 Dell OpenManage Management Station Software。</p>
+<a name="1081981"></a><p>Management Station Applications 包括 Dell OpenManage IT Assistant、RAC&#160;Management Station、BMC Console 和 Microsoft Active Directory&#174; 管理单元公用程序。</p>
+<a name="1081984"></a><p>某些 Management Station 应用程序也在 Red Hat&#174; Enterprise Linux 和 SUSE&#174; Linux Enterprise Server 操作系统上运行。请参阅“<a href="instms.htm#1064437">在运行支持的 Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 操作系统上安装、升级和卸载 Management Station Software</a>”，以了解更具体的信息。</p>
+<a name="1060730"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>请参阅 <i>Dell OpenManage IT Assistant 用户指南</i>，以了解更多安装和配置信息。</td>
+  </tr>
+</table><hr noshade size="1">
+<a name="1054367"></a><h2>安装要求</h2>
+
+
+<a name="1054368"></a><p>这些是管理站的一般要求。 操作系统特定的安装前提条件作为相应应用程序安装过程的一部分列在下面。 </p>
+<a name="1054373"></a><h4> 支持的操作系统</h4>
+<a name="1054374"></a><p>Management Station Software 至少在以下各个操作系统上运行： </p>
+<ul><li><a name="1079651"></a>Red Hat Enterprise Linux AS、ES 和 WS（版本 3）x86 和 Intel&#174; Extended Memory 64 Technology (EM64T) Update 6（BMC 管理公用程序和 RAC Management Station）<br><br></li>
+<li><a name="1067423"></a>Red Hat Enterprise Linux AS、ES 和 WS（版本 4）（用于 Intel x86 和 Intel EM64T），（BMC 管理公用程序和 RAC Management Station）<br><br></li>
+<li><a name="1079659"></a>Windows 2000 Server SP4（包括 Server 和 Advanced Server）</li>
+<li><a name="1079649"></a>Windows 2000 Professional SP4<br><br></li>
+<li><a name="1062907"></a>Windows Server&#8482; 2003 R2（包括 Standard 和 Enterprise 版本）</li>
+<li><a name="1071859"></a>Windows Server 2003 SP1（Web 版本）</li>
+<li><a name="1081578"></a>Windows SBS 2003 SP1（不包括 IT Assistant）<br><br></li>
+<li><a name="1083302"></a>Windows Server 2003 Standard 和 Enterprise x64 R2（不包括 IT Assistant）</li>
+<li><a name="1083303"></a>Windows Storage Server 2003 R2（包括 Express、Standard、Workgroup 和 Enterprise 版本）</li>
+<li><a name="1083304"></a>Windows XP SP1 和 SP2<br><br></li>
+<li><a name="1078374"></a>SUSE Linux Enterprise Server（版本 9）SP3（BMC 管理公用程序和 RAC Management Station）</li>
+</ul><a name="1069988"></a><p>有关更多特定应用程序操作系统的要求，请参阅该应用程序的说明文件。</p>
+<a name="1054382"></a><h3> 系统要求
+ </h3>
+<a name="1054383"></a><p>在 Windows 系统上，安装程序 (<b>setup.exe</b>) 将启动 CD 上的<b> </b><b>“Prerequisite Checker”</b><b>（前提条件检查程序）</b>自动分析系统以确定是否已符合系统要求。（请参阅“<a href="instms.htm#1079984">前提条件检查程序</a>”。） </p>
+<a name="1079912"></a><h3>Management Station 要求</h3>
+<a name="1079937"></a><p>要求系统上具有 Microsoft Software Installer (MSI) 3.0 或更高版本。Dell OpenManage 软件会检测系统上 MSI 的版本。如果版本低于 3.1，前提条件检查程序会提示升级到 MSI 3.1 版。</p>
+<a name="1079939"></a><h3> 在 IT Assistant 中启用 CIM 查找和安全性
+</h3>
+<a name="1054446"></a><p>有些应用程序，比如 IT Assistant，可以使用公用信息模型 (CIM) 协议。 如果使用 CIM 协议，应确保它已安装并启用。 有关为 IT Assistant 配置 CIM 的详细信息，请参阅《Dell OpenManage <i>IT Assistant 用户指南》</i>。</p>
+<a name="1056706"></a><h3> 安装 SNMP
+</h3>
+<a name="1080364"></a><p>IT Assistant 系统上必须安装并运行 SNMP 服务。要搜索和管理的系统上还必须安装 SNMP（或 CIM）。如果尝试在没有 SNMP 的系统上安装 IT Assistant，安装程序会停止并提示安装 SNMP。 此外，如果停止 SNMP 服务，IT Assistant 服务也会停止。</p>
+<a name="1060009"></a><p>有关在 IT Assistant Management Station 上安装 SNMP 的信息，请参阅 Dell OpenManage 的<i>《IT Assistant 用户指南》</i>。</p>
+<hr noshade size="1">
+<a name="1058223"></a><h2>在运行支持的 Windows 操作系统的系统上安装、升级和卸载 Management Station Software</h2>
+
+
+<a name="1056724"></a><p>本节说明了如何在运行支持的 Windows 操作系统的系统上安装、升级和卸载 Management Station Software。 如果系统符合这些前提条件，则默认安装的功能有 IT Assistant 和 Remote Access Controller 控制台。</p>
+<a name="1080295"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>如果系统上已经安装 BMC 管理公用程序，则默认情况下会升级它。</td>
+  </tr>
+</table><a name="1079982"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>如果没有检测到以前的 Management Station Software（装有 Array Manager 控制台），则 Dell OpenManage Array Manager 控制台在 Windows 下不可用。 它只能用于升级。 将在以后的版本中终止对 Array Manager 控制台的支持。
+ </td>
+  </tr>
+</table><a name="1079984"></a><h4> 前提条件检查程序</h4>
+<a name="1072193"></a><p>安装程序 (setup.exe) 会启动前提条件检查程序。 安装程序位于 Dell Systems Management Consoles CD 上的 <b>windows</b> 目录中。 前提条件检查程序会检查是否符合软件功能的前提条件要求而不用启动实际的安装程序。 前提条件检查程序显示一个状况窗口，提供可能影响软件功能安装和运行的系统硬件和软件的信息。 </p>
+<a name="1068442"></a><p>前提条件检查程序显示三种类型信息：通知、警告和错误信息。</p>
+<ul><li><a name="1068443"></a>通知信息说明应注意的情况。 它不阻止安装功能。<br><br></li>
+<li><a name="1068444"></a>警告信息说明<b>“Express”（快速）</b>安装过程中阻止安装软件功能的情况。 建议解决引起警告的情况，然后再继续软件的安装。 如果决定继续，可选择并使用<b>“Custom”（自定义）</b>安装来安装软件。<br><br></li>
+<li><a name="1068445"></a>错误信息说明应注意的阻止安装软件功能的情况。 必须解决引起错误的情况，然后才可继续安装该软件功能。 如果不解决问题，将不安装该软件功能。<br><br></li>
+</ul><a name="1068446"></a><p>可以从 <b>\windows\PreReqChecker</b> 目录通过执行 <span class="screen">RunPreReqChecks.exe /s</span> 无提示运行前提条件检查。有关无提示运行前提条件检查程序的详细信息，请参阅“<a href="prereqch.htm#1053126">前提条件检查程序</a>”一节。</p>
+<a name="1070573"></a><h3> 安装并升级 Management Station Software
+</h3>
+<a name="1068209"></a><p>本节说明了如何安装和升级 Management Station Software。 安装选项如下所示：</p>
+<ul><li><a name="1068210"></a>使用 Dell Systems Management Consoles CD 上的安装程序安装或升级 IT Assistant 和其它 Management Station Software。<br><br></li>
+<li><a name="1058239"></a>通过 msiexec.exe Windows 安装程序引擎（请参阅<a href="instms.htm#1068484">表&#160;5-1</a>）使用无人值守安装方法在多个系统上安装 IT Assistant 和其它 Management Station Software。<br><br> </li>
+</ul><a name="1058254"></a><h3> 快速安装和自定义安装
+</h3>
+<a name="1058259"></a><p>Dell Systems Management Consoles CD 具有<b>“Express Setup”（快速安装）</b>选项和<b>“Custom Setup”（自定义安装）</b>选项来安装 IT Assistant 和其它 Management Station Software。</p>
+<a name="1071914"></a><p>在系统 CD 驱动器中插入 Dell Systems Management Consoles CD 后，安装程序会运行前提条件检查程序来提供有关可能影响功能安装和运行的系统硬件和软件信息。</p>
+<a name="1073567"></a><p>可以通过以下操作安装系统上当前安装的所有 Management Station Software 产品：</p>
+<ol type="1">
+
+<li value="1"><a name="1075414"></a>启动 Management Station 安装。
+
+<br><br>
+ <li value="2"><a name="1075421"></a>单击<b>“Install, Modify, Repair or Remove Management Station”（安装、修改、修复或删除 Management Station）</b>并单击<b>“Next”（下一步）</b>。
+
+<br><br>
+<li value="3"><a name="1075540"></a>选择<b>“Express Setup”（快速安装）</b>选项。
+<br><br>
+</ol>
+<a name="1075418"></a><p>如果符合前提条件，在默认情况下会安装 IT&#160;Assistant 和 RAC Management Station，而在默认情况下，Active Directory 管理单元公用程序和 BMC 控制台是未选中的，可以使用<b>“Custom Setup”（自定义安装）</b>选项进行安装。 （有关如何执行<b>“Express Setup”（快速安装）</b>的详情，请参阅《软件快速安装指南》，可通过单击安装程序中任务栏上的<b>“Info”（信息）</b>访问此指南。）</p>
+<a name="1066381"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>在<b>快速</b>安装期间，各个 Management Station 服务不会安装在不符合服务特定硬件和软件要求的管理型系统上。 例如，如果管理型系统未安装 Remote Access Controller，则不会在<b>“Express”（快速）</b>安装过程中安装 Dell OpenManage Server Administrator Remote Access Service 软件模块。 但是用户可以转至<b>“Custom Setup”（自定义安装）</b>并选择安装 Remote Access Service 软件模块。
+</td>
+  </tr>
+</table><a name="1056759"></a><p>当选择<b>“Custom Setup”（自定义安装）</b>选项时，用户可以取消选择一个或多个已由安装程序标识为适合系统中已安装选件的软件功能。 <b>“Express Setup”（快速安装）</b>过程中，无法添加到要安装的功能列表，因为已预先选择所有适合硬件配置的功能。</p>
+<a name="1058289"></a><p>下面的部分使用 IT Assistant 的安装和升级作为示例来说明“Custom Setup”（自定义安装）选项。 可以使用“Custom Setup”（自定义安装）选项安装其它 Management Station Software。</p>
+<a name="1056766"></a><h3> 自定义安装
+</h3>
+<a name="1068476"></a><p>自定义安装路径使您能够选择要安装的特定软件功能。</p>
+<a name="1078495"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>Management Station 和管理系统服务可以安装在相同或不同目录内。安装时可以选择目录。</td>
+  </tr>
+</table><a name="1078496"></a><h4> 安装 Management Station</h4>
+<ol type="1">
+
+<li value="1"><a name="1056769"></a>以管理员权限登录到您要安装 Management Station Software 功能的系统上。
+
+<br><br>
+ <li value="2"><a name="1056771"></a>关闭任何打开的应用程序。
+
+<br><br>
+ <li value="3"><a name="1056773"></a>将<i> Dell Systems Management Consoles </i>CD 插入系统的 CD 驱动器中。
+<br><br>
+ </ol>
+<a name="1063338"></a><p class="indent">如果安装程序没有自动启动，请导航到 CD 上的 <b>windows</b> 文件夹并双击 <b>setup.exe</b> 文件。</p>
+<a name="1063344"></a><p class="indent"><b>“Dell OpenManage Management Station Prerequisite Status”（Dell OpenManage Management Station 前提条件状况）</b>屏幕打开并为 Management Station 运行前提条件检查。 <b>“Prerequisite Status”（前提条件状况）</b>显示所有相关通知、警告和错误信息。 查看信息，如有必要，解决所有警告和错误信息，然后再继续安装。</p>
+<ol type="1">
+
+<li value="4"><a name="1063340"></a>单击<b>“Install, Modify, Repair or Remove Management Station”（安装、修改、修复或删除 Management Station）</b>选项。
+<br><br>
+ </ol>
+<a name="1056782"></a><p class="indent"><b>“Welcome to the Install Wizard for Dell OpenManage Management Station”（欢迎使用 Dell OpenManage Management Station 安装向导）</b>屏幕会打开。</p>
+<ol type="1">
+
+<li value="5"><a name="1056783"></a>单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1056784"></a><p class="indent">Dell 软件许可协议将会出现。</p>
+<ol type="1">
+
+<li value="6"><a name="1056785"></a>如果同意，请单击<b>“Accept”（接受）</b>。
+<br><br>
+ </ol>
+<a name="1056788"></a><p class="indent"><b>“Setup Type”（安装类型）</b>对话框会打开。 </p>
+<ol type="1">
+
+<li value="7"><a name="1056790"></a>选择<b>“Custom”（自定义）</b>并单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1056791"></a><p class="indent"><b>“Custom Setup”（自定义安装）</b>对话框会打开。</p>
+<a name="1056795"></a><p class="indent">要选择特定 Management Station Software 应用程序，请单击列出功能旁的下拉箭头并选择安装或不安装应用程序。</p>
+<a name="1062227"></a><p class="indent">所选功能的旁边有一个硬盘驱动器图标。 取消选择的功能旁边有一个红色的 <b>X</b>。 默认情况下，如果前提条件检查程序发现没有支持硬件的软件功能，检查程序会取消选中它们。</p>
+<a name="1080095"></a><p class="indent">如果接受安装 Management Station Software 的默认目录路径，请单击<b>“Next”（下一步）</b>。 否则，请单击<b>“Change”（更改）</b>并导航至要安装 Management Station Software 的目录，然后单击<b>“Next”（下一步）</b>。 </p>
+<a name="1080096"></a><p class="indent">确保选中<b>&quot;Dell OpenManage IT Assistant&quot;</b>。</p>
+<ol type="1">
+
+<li value="8"><a name="1056800"></a>单击<b>“Next”（下一步）</b>接受要安装的所选软件功能。
+<br><br>
+</ol>
+<a name="1056801"></a><p class="indent"><b>“IT Assistant Custom Settings”（IT Assistant 自定义设置）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="9"><a name="1056802"></a>如有必要，修改<b>“Custom Settings for IT Assistant”（IT Assistant 的自定义设置）</b>字段。
+
+<br><br>
+<li value="10"><a name="1056803"></a>单击<b>“Next”（下一步）</b>接受 IT Assistant 的自定义设置。
+<br><br>
+ </ol>
+<a name="1056805"></a><p class="indent"><b>“Ready to Install the Program”（准备安装程序）</b>对话框将会打开。</p>
+<a name="1059468"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>可以单击<b>“Cancel”（取消）</b>取消安装过程。 安装将回滚所作的更改。 如果在安装过程的后期单击<b>“Cancel”（取消）</b>，安装可能不会正确回滚，从而给系统留下不完整的安装。 请参阅“<a href="instms.htm#1056882">安装失败时的系统恢复</a>”了解详情。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="11"><a name="1059464"></a>单击<b>“Install”（安装）</b>安装选定的软件功能。
+<br><br>
+ </ol>
+<a name="1058388"></a><p class="indent"><b>“Installing Dell OpenManage Management Station”（安装 Dell OpenManage Management Station）</b>屏幕将会打开。 </p>
+<a name="1056816"></a><p class="indent">所选功能安装后，<b>“Install Wizard Completed”（安装向导已完成）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="12"><a name="1056818"></a>单击<b>“Finish”（完成）</b>结束 Management Station 安装。</ol>
+<a name="1056819"></a><h3> 升级
+</h3>
+<a name="1056821"></a><p><i>Dell Systems Management Consoles</i> CD 具有<b>“Upgrade”（升级）</b>选项，用于升级 IT Assistant 和其它 Management Station Software。</p>
+<a name="1056823"></a><p>将 <i>Dell Systems Management Consoles </i>CD 插入系统 CD 驱动器后，前提条件检查程序会检查系统。</p>
+<a name="1074708"></a><p>要升级系统上当前安装的所有 Management Station Software 产品，单击<b>“Install, Modify, Repair or Remove Management Station”（安装、修改、修复或删除 Management Station）</b>并选择<b>“Next”（下一步）</b>。</p>
+<a name="1074725"></a><p>在升级期间，无法添加到要安装的 Management Station Software 功能列表。 所有适合于系统的功能都在升级的过程中预先选中。</p>
+<a name="1056829"></a><p>以下过程说明了如何升级 IT Assistant 和其它 Managed Management Software。</p>
+<a name="1056831"></a><h4> 自定义升级</h4>
+<ol type="1">
+
+<li value="1"><a name="1056833"></a>将<i> Dell Systems Management Consoles </i>CD 插入系统的 CD 驱动器中。
+<br><br>
+ </ol>
+<a name="1056834"></a><p class="indent">如果安装程序没有自动启动，请导航到 CD 上的 <b>windows</b> 文件夹并双击 <b>setup.exe</b> 文件。</p>
+<a name="1063423"></a><p class="indent"><b>“Dell OpenManage Management Station Prerequisite Status”（Dell OpenManage Management Station 前提条件状况）</b>屏幕打开并为 Management Station 运行前提条件检查。 <b>“Prerequisite Status”（前提条件状况）</b>显示所有相关通知、警告和错误信息。 查看这些信息并且，如果有必要，解决任何问题然后再继续安装。</p>
+<ol type="1">
+
+<li value="2"><a name="1056836"></a>单击<b>“Install, Modify, Repair or Remove Management Station”（安装、修改、修复或删除 Management Station）</b>选项。
+<br><br>
+</ol>
+<a name="1056837"></a><p class="indent"><b>“Welcome to the Install Wizard for Dell OpenManage Management Station”（欢迎使用 Dell OpenManage Management Station 安装向导）</b>屏幕会打开。</p>
+<ol type="1">
+
+<li value="3"><a name="1056838"></a>单击“Next”（下一步）。
+<br><br>
+</ol>
+<a name="1056839"></a><p class="indent"><b>“Installing Dell OpenManage Management Station”（安装 Dell OpenManage Management Station）</b>屏幕将会打开。 信息会提供所安装或升级软件功能的状况和进程。 </p>
+<a name="1067910"></a><p class="indent">所选功能安装或升级后，“Install Wizard Completed”（安装向导已完成）对话框将会打开。</p>
+<ol type="1">
+
+<li value="4"><a name="1067912"></a>单击<b>“Finish”（完成）</b>结束 Management Station 安装。
+<br><br>
+ </ol>
+<a name="1067913"></a><h3> 自定义修改
+</h3>
+<ol type="1">
+
+<li value="1"><a name="1056852"></a>单击<b>“Start”（开始）</b>按钮，指向<b>“Settings”（设置）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b>“Control Panel”（控制面板）</b>。<li value="2"><a name="1056853"></a>双击<b>“Add/Remove Programs”（添加/删除程序）</b>。
+
+<br><br>
+ <li value="3"><a name="1056854"></a>单击 <b>Dell OpenManage Management Station </b>并单击<b>“Change”（更改）</b>。
+<br><br>
+ </ol>
+<a name="1056855"></a><p class="indent"><b>“Welcome to the Install Wizard for Dell OpenManage Management Station”（欢迎使用 Dell OpenManage Management Station 安装向导）</b>对话框将打开。</p>
+<ol type="1">
+
+<li value="4"><a name="1056856"></a>单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1056857"></a><p class="indent"><b>“Program Maintenance”（程序维护）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="5"><a name="1056858"></a>选择<b>“Modify”（修改）</b>选项并单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1066734"></a><p class="indent"><b>“Custom Setup”（自定义安装）</b>对话框会打开。 </p>
+<ol type="1">
+
+<li value="6"><a name="1066735"></a>要选择特定 Management Station Software 应用程序，请单击列出功能旁的下拉箭头并选择安装或不安装应用程序。
+<br><br>
+</ol>
+<a name="1056861"></a><p class="indent">所选功能的旁边有一个硬盘驱动器图标。 取消选择的功能旁边有一个红色的“X”。 默认情况下，如果前提条件检查程序发现没有支持硬件的软件功能，检查程序会取消选中它们。</p>
+<ol type="1">
+
+<li value="7"><a name="1056862"></a>单击<b>“Next”（下一步）</b>接受要安装的所选软件功能。
+<br><br>
+ </ol>
+<a name="1056863"></a><p class="indent"><b>“Ready to Modify the Program”（准备修改程序）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="8"><a name="1056864"></a>单击<b>“Install”（安装）</b>安装选定的软件功能。
+<br><br>
+ </ol>
+<a name="1056865"></a><p class="indent"><b>“Installing Dell OpenManage Management Station”（安装 Dell OpenManage Management Station）</b>屏幕将会打开。 显示的信息会提供所安装软件功能的状况和进程。 </p>
+<a name="1056866"></a><p class="indent">所选功能安装后，<b>“Install Wizard Completed”（安装向导已完成）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="9"><a name="1056867"></a>单击<b>“Finish”（完成）</b>结束 Management Station 安装。</ol>
+<a name="1056868"></a><h3> 自定义修复
+</h3>
+<ol type="1">
+
+<li value="1"><a name="1056869"></a>单击<b>“Start”（开始）</b>按钮，指向<b>“Settings”（设置）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b>“Control Panel”（控制面板）</b>。<li value="2"><a name="1056870"></a>双击<b>“Add/Remove Programs”（添加/删除程序）</b>。
+
+<br><br>
+ <li value="3"><a name="1056871"></a>单击 <b>Dell OpenManage Management Station </b>并单击<b>“Change”（更改）</b>。
+<br><br>
+ </ol>
+<a name="1056872"></a><p class="indent"><b>“Welcome to the Install Wizard for Dell OpenManage Management Station”（欢迎使用 Dell OpenManage Management Station 安装向导）</b>对话框将打开。</p>
+<ol type="1">
+
+<li value="4"><a name="1056873"></a>单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1056874"></a><p class="indent"><b>“Program Maintenance”（程序维护）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="5"><a name="1056875"></a>选择<b>“Repair”（修复）</b>选项并单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1056876"></a><p class="indent"><b>“Ready to Repair the Program”（准备修复程序）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="6"><a name="1056877"></a>单击<b>“Install”（安装）</b>安装选定的软件功能。
+<br><br>
+ </ol>
+<a name="1056878"></a><p class="indent"><b>“Installing Dell OpenManage Management Station”（安装 Dell OpenManage Management Station）</b>屏幕将会打开。 显示的信息会提供所安装软件功能的状况和进程。 </p>
+<a name="1056879"></a><p class="indent">所选功能安装后，<b>“Install Wizard Completed”（安装向导已完成）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="7"><a name="1056880"></a>单击<b>“Finish”（完成）</b>结束 Management Station 安装。</ol>
+<a name="1056882"></a><h3> 安装失败时的系统恢复
+</h3>
+<a name="1056883"></a><p>如果安装过程中软件安装公用程序遇到致命错误，系统可能变得不稳定。 要解决此问题，Dell OpenManage 安装程序使系统能够回滚或返回安装失败前完全正常的工作状态。 </p>
+<a name="1056884"></a><p>Windows 安装程序服务使 Dell OpenManage 安装程序能够回滚，这是通过在安装、卸载或任何其它配置更改期间为执行的每个操作保留<i>“undo”（撤消）</i>操作而实现的。 如果在安装会话期间安装的某方面出现故障，Windows 安装程序服务可以准确地将系统返回到以前的状态。 此功能包括恢复删除或改写的文件、注册表项和其它资源。 在安装或删除期间删除或改写的文件会临时保存到备份位置，以便可以在需要时进行恢复。 安装成功完成后，所有的临时备份文件都会被删除。</p>
+<a name="1071200"></a><p>一旦成功完成，安装将无法回滚。 事务处理安装的目的就是在给定安装会话期间作为保护系统的安全网。 例如，如果要删除安装的应用程序，应卸载该应用程序。 </p>
+<a name="1071201"></a><p>从 Dell OpenManage 软件版本 4.3 升级到版本 4.<i>x</i> 时，错误会将系统回滚到以前的状态。</p>
+<a name="1060068"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>安装程序清除期间或安装事务完成后由管理员取消的安装、卸载和升级将不能回滚。
+</td>
+  </tr>
+</table><a name="1056893"></a><h3> 执行 Management Station Software 的无人值守安装
+ </h3>
+<a name="1056895"></a><p><i>Dell Systems Management Consoles</i> CD 为无人值守安装过程提供了<b>“Express Setup”（快速安装）</b>选项和<b>“Custom Setup”（自定义安装）</b>选项。</p>
+<a name="1056897"></a><p>无人值守安装使您可以在多个系统上同时安装 Management Station Software。您可以通过创建包含所有必需的 Management Station 文件的无人值守安装软件包来执行无人值守安装。 无人值守安装选项还提供了一些功能，使用户可以配置、验证和查看有关无人值守安装的信息。</p>
+<a name="1056899"></a><p>无人值守安装软件包使用独立软件供应商 (ISV) 的软件分发工具分发至远程系统。 软件包分发完毕后，安装脚本将安装该软件。</p>
+<a name="1067277"></a><h4> 无人值守安装功能</h4>
+<a name="1067278"></a><p>无人值守安装提供以下功能：</p>
+<ul><li><a name="1067279"></a>	 	 一组可选的命令行设置，用于自定义无人值守安装<br><br></li>
+<li><a name="1067280"></a>自定义参数，用于指定要安装的特定软件功能。<br><br> </li>
+<li><a name="1067281"></a>	 前提条件检查程序，用于检查选择的软件功能的相关性状况，而无需执行实际的安装。<br><br> </li>
+</ul><a name="1056901"></a><h4> 创建和分发快速无人值守安装软件包</h4>
+<a name="1056903"></a><p><b>“Express Setup”（快速安装）</b>无人值守安装选项使用 <i>Dell Systems Management Consoles </i>CD 作为无人值守安装软件包。<b>msiexec.exe /i MgmtSt.msi /qb</b> 命令访问 <i>Dell Systems Management Consoles </i>CD 接受软件许可协议并在选定的远程系统上安装所有必需的 Management Station Software 产品。<b>msiexec.exe /i MgmtSt.msi /qb</b> 命令在每个远程系统上根据系统的硬件和软件配置安装 Management Station Software。</p>
+<a name="1058431"></a><p>可以将 <i>Dell Systems Management Consoles </i>CD 映像用于远程系统，方法是通过分发整个 CD 的内容，或通过从目标系统将一个驱动器映射到 CD 映像的位置。</p>
+<a name="1056907"></a><h4> 映射驱动器以用作快速无人值守安装软件包</h4>
+<a name="1074815"></a><p>要映射驱动器用作快速无人值守安装软件包，执行以下操作：</p>
+<ol type="1">
+
+<li value="1"><a name="1056909"></a>与要安装 Management Station 的每个远程系统共享 <i>Dell Systems Management Consoles </i>CD 的映像。
+<br><br>
+ </ol>
+<a name="1056911"></a><p class="indent">您可以通过直接共享 CD 或将整个 CD 复制到磁盘驱动器并共享备份来完成此任务。</p>
+<ol type="1">
+
+<li value="2"><a name="1056913"></a>创建一个脚本，将从远程系统的一个驱动器映射到步骤 1 中说明的共享驱动器。 
+此脚本应在映射完驱动器后执行以下命令：
+<br><br>
+</ol>
+<a name="1064818"></a><p class="indent"><b>msiexec.exe /i</b> <b>Mapped Drive\windows\ManagementStation\MgmtSt.msi /qb</b></p>
+<ol type="1">
+
+<li value="3"><a name="1056915"></a>配置 ISV 分发软件以分发和执行步骤 2 中创建的脚本。
+
+<br><br>
+ <li value="4"><a name="1056917"></a>使用 ISV 软件分发工具将该脚本分发至目标系统。
+<br><br>
+ </ol>
+<a name="1056919"></a><p class="indent"><b>msiexec.exe /i</b> <b>Mapped Drive\windows\ManagementStation\MgmtSt.msi /qb</b> 命令随后会在每个远程系统上安装 Management Station。</p>
+<a name="1056922"></a><h4> 分发整个 CD 以用作快速无人值守安装软件包 </h4>
+<a name="1074821"></a><p>要将整个 CD 分发为快速无人值守安装软件包，执行以下操作：</p>
+<ol type="1">
+
+<li value="1"><a name="1056924"></a>将<i> Dell Systems Management Consoles </i>CD 的整个映像分发至目标系统。<li value="2"><a name="1056926"></a>配置 ISV 分发软件从 <i>Dell Systems Management 
+Consoles</i> CD 映像执行 <b>msiexec.exe /i CD 
+Drive\windows\ManagementStation\MgmtSt.msi /qb</b> 命令。</ol>
+<a name="1056928"></a><p><b>msiexec.exe /i CD Drive\windows\ManagementStation\MgmtSt.msi /qb</b> 命令从该 CD 执行在每个远程系统上安装 Management Station。</p>
+<a name="1074805"></a><h4> 创建和分发自定义无人值守安装软件包</h4>
+<a name="1056934"></a><p>要创建自定义的无人值守安装软件包以用于分发，只需将该 <b>windows</b> 目录从 CD 复制到系统的硬盘驱动器上。</p>
+<a name="1056935"></a><p>创建将使用 Windows 安装程序引擎 (<b>msiexec.exe</b>) 执行安装的批处理脚本。 例如：</p>
+<a name="1075736"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i MgmtSt.msi ADDLOCAL=ITA,RACMS,ADS /qb</span></p>
+<a name="1060123"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>对于自定义的无人值守安装，每个所需功能都必须作为命令行界面 (CLI) 参数包括在内才能被安装。
+</td>
+  </tr>
+</table><a name="1076475"></a><p>同时，将该批处理脚本放在系统硬盘驱动器上的 <b>windows</b> 目录中。</p>
+<a name="1056943"></a><p>请参阅“<a href="instms.htm#1057093">自定义参数</a>”了解其它详情和可用功能标识。</p>
+<a name="1056948"></a><h4> 分发自定义无人值守安装软件包</h4>
+<a name="1071251"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>如前面部分所述，在<b>“Custom Setup”（自定义设置）</b>无人值守安装中使用的 Management Station <b>MgmtSt.msi</b> 安装软件包位于 <b>\windows\ManagementStation</b> 目录内。</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1071252"></a>配置 ISV 分发软件在分发安装软件包后执行批处理脚本。
+
+<br><br>
+ <li value="2"><a name="1056960"></a>使用 ISV 分发软件将自定义无人值守安装软件包分发至远程系统。
+<br><br>
+ </ol>
+<a name="1056962"></a><p>以下命令从脚本执行以在各个远程系统上安装 Management Station 以及指定的功能：</p>
+<a name="1075751"></a>
+<p class="screenindent">msiexec.exe /i <i>系统驱动器</i>\windows\ManagementStation\MgmtSt.msi ADDLOCAL=ITA,RACMS,ADS /qb
+</p>
+<a name="1064740"></a><h4> 指定日志文件位置</h4>
+<a name="1064765"></a><p>运行以下命令执行无人值守安装，同时指定日志文件位置：</p>
+<a name="1064742"></a>
+<p class="screenindent">msiexec.exe /i MgmtSt.msi /l*v &quot;C:\openmanage\logs\MgmtSt.log&quot;
+</p>
+<a name="1056979"></a><h4> 可选命令行设置</h4>
+<a name="1060754"></a><p><a href="instms.htm#1068484">表&#160;5-1</a> 显示了 <b>msiexec.exe</b> 可用的可选命令行设置。 在命令行上，在 <b>msiexec.exe </b>后面键入可选的设置，各个设置间带一个空格。</p>
+<a name="1068480"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>请参阅 <b>support.microsoft.com </b>详细了解所有的 Microsoft Windows 安装程序命令行开关。
+</td>
+  </tr>
+</table><a name="1068519"></a>
+<p><p class="FigureTableTitle"><a name="1068484"></a>表 5-1.  MSI 安装程序命令行设置&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1068488"> </a>
+<p><b>设置</b></p>
+
+
+</th><th valign="top" align="left"><a name="1068490"> </a>
+<p><b>结果</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1068492"></a><span class="screen">/i &lt;软件包|产品代码&gt;</span></p></td><td valign="top" align="left"><p><a name="1068494"></a>安装或配置产品。</p><p><a name="1068495"></a><span class="screen">/i MgmtSt.msi </span>– 此命令将安装 Server Administrator 软件。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1068497"></a><span class="screen">/x &lt;软件包|产品代码&gt;</span></p><p><a name="1068498"></a></p></td><td valign="top" align="left"><p><a name="1071469"></a>卸载产品。 </p><p><a name="1068501"></a><span class="screen">/x MgmtSt.msi </span>– 此命令将卸载 Server Administrator 软件。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1068503"></a><span class="screen">/q&lt;n|b|r|f&gt;</span></p></td><td valign="top" align="left"><p><a name="1068505"></a>设置用户界面 (UI) 级别。 </p><p><a name="1068506"></a><b>/q</b> 或 <b>/qn</b> – 无 UI。 此选项用于无提示和无人值守安装。<br><b>/qb</b> – 基本 UI。 此选项用于无人值守安装，但不是无提示安装。<br><b>/qr</b> – 精简的 UI。 此选项用于无人值守安装，同时显示一个指示安装进度的模式对话框。<br><b>/qf</b><span class="screen"> </span>– 完全 UI。此选项用于标准有人值守安装。 </p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1068508"></a><span class="screen">/f&lt;[p|o|e|d|c|a|u|m|s|v]</span>软件包|产品代码<span class="screen">&gt;</span></p></td><td valign="top" align="left"><p><a name="1077160"></a>修复产品。</p><p><a name="1077167"></a><b>/fp</b> – 此选项只在缺少文件时重新安装产品。</p><p><a name="1077173"></a><b>/fo</b> – 此选项在缺少文件或安装了较旧版本的文件时重新安装产品。</p><p><a name="1068513"></a><b>/fe</b> – 此选项在缺少文件或安装了相同或较旧版本的文件时重新安装产品。</p><p><a name="1068514"></a><b>/fd</b> – 此选项在缺少文件或安装了不同版本的文件时重新安装产品。</p><p><a name="1068515"></a><b>/fc</b> – 此选项在缺少文件或存储的检查和值与计算值不匹配时重新安装产品。</p><p><a name="1069825"></a><b>/fa</b> – 此选项强制重新安装所有文件。</p><p><a name="1069826"></a><b>/fu</b> – 此选项重写所有必需的用户特定注册表项。</p><p><a name="1068518"></a><b>/fm</b> – 此选项重写所有必需的系统特定注册表项。</p><p><a name="1078661"></a><b>/fs</b> – 此选项覆盖所有现有快捷方式。</p><p><a name="1078659"></a><b>/fv</b> – 此选项从来源运行，并重新缓存本地软件包。初次安装应用程序或功能时不要使用 <b>/fv</b> 重新安装选项。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1071605"></a>INSTALLDIR=&lt;路径&gt;</p></td><td valign="top" align="left"><p><a name="1072894"></a>此命令将产品安装到特定的位置。 如果用此开关指定安装目录，必须在执行 CLI 安装命令前手工创建，否则命令将会失败，并且不会显示为什么会失败的错误或信息。</p><p><a name="1071634"></a><span class="screen">/i MgmtSt.msi INSTALLDIR=c:\OpenManage /qn</span> – 此命令使用 <b>c:\OpenManage</b> 作为安装位置将产品安装到特定位置。</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1068520"></a><p>使用 MSI 的命令示例为 <span class="screen">msiexec.exe /i MgmtSt.msi /qn</span>。 此命令会在各个远程系统基于系统的硬件和软件配置安装 Management Station 功能，并且不要求提示。</p>
+<a name="1057029"></a><h3> 卸载 Management Station Software
+</h3>
+<a name="1057030"></a><p>使用 <i>Dell Systems Management Consoles </i>CD 或操作系统可以卸载 Management Station Software 功能。此外，您还可以在多个系统上同时执行无人值守卸载。</p>
+<a name="1057032"></a><h4> 使用 Dell Systems Management Consoles CD 卸载 Management Station Software</h4>
+<a name="1074849"></a><p>要使用 <i>Dell Systems Management Consoles</i> CD 卸载 Management Station Software，执行以下操作：</p>
+<ol type="1">
+
+<li value="1"><a name="1057034"></a>将<i> Dell Systems Management Consoles </i>CD 插入系统的 CD 驱动器中。
+<br><br>
+ </ol>
+<a name="1058884"></a><p class="indent">如果 CD 没有自动启动安装程序，请转至系统桌面，依次双击<b>“My Computer”（我的电脑）</b>、<b>CD 驱动器</b>图标、<b>windows</b> 文件夹和 <b>setup.exe</b> 文件。</p>
+<a name="1063526"></a><p class="indent"><b>“Dell OpenManage Management Station Prerequisite Status”（Dell OpenManage Management Station 前提条件状况）</b>屏幕打开并为 Management Station 运行前提条件检查。 <b>“Prerequisite Status”（前提条件状况）</b>显示所有相关通知、警告和错误信息。</p>
+<ol type="1">
+
+<li value="2"><a name="1057037"></a>单击<b>“Install, Modify, Repair or Remove Management Station”（安装、修改、修复或删除 Management Station）</b>选项。</ol>
+<a name="1057038"></a><p class="indent"><b>“Welcome to the Install Wizard for Dell OpenManage Management Station”（欢迎使用 Dell OpenManage Management Station 安装向导）</b>屏幕会打开。</p>
+<ol type="1">
+
+<li value="3"><a name="1057039"></a>单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1057040"></a><p class="indent"><b>“Program Maintenance”（程序维护）</b>对话框将会打开。 此对话框使您能够修改、修复或删除程序。</p>
+<ol type="1">
+
+<li value="4"><a name="1057042"></a>选择<b>“Remove”（删除）</b>选项并单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1057043"></a><p class="indent"><b>“Remove the Program”（删除程序）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="5"><a name="1057044"></a>单击<b>“Remove”（删除）</b>。
+<br><br>
+</ol>
+<a name="1057045"></a><p class="indent"><b>“Uninstalling Dell OpenManage Management Station”（卸载 Dell OpenManage Management Station）</b>屏幕将会打开。 显示的信息会提供所卸载软件功能的状况和进程。 </p>
+<a name="1057046"></a><p class="indent">所选功能卸载后，<b>“Install Wizard Completed”（安装向导已完成）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="6"><a name="1057047"></a>单击<b>“Finish”（完成）</b>退出 Management Station 卸载。
+<br><br>
+ </ol>
+<a name="1057048"></a><p class="indent">将卸载所有 Management Station 功能。</p>
+<a name="1057049"></a><h4> 使用 Microsoft Windows 操作系统卸载 Management Station Software 功能</h4>
+<a name="1074852"></a><p>要使用 Windows 卸载 Management Station Software 功能，执行以下操作：</p>
+<ol type="1">
+
+<li value="1"><a name="1057051"></a>单击<b>“Start”（开始）</b>按钮并指向<b>“Settings”（设置）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b>“Control Panel”（控制面板）</b>。<li value="2"><a name="1057053"></a>双击<b>“Add/Remove Programs”（添加/删除程序）</b>。
+
+<br><br>
+ <li value="3"><a name="1057055"></a>单击 <b>Dell OpenManage Management Station</b> 并单击<b>“Remove”（删除）</b>。<br> 
+<b>“Add or Remove Programs”（添加或删除程序）</b>问题框将会打开。
+
+<br><br>
+<li value="4"><a name="1057059"></a>单击<b>“Yes”（是）</b>确认卸载 Management Station。
+<br><br>
+ </ol>
+<a name="1060584"></a><p class="indent"><b>“Uninstall Summary”（卸载摘要）</b>屏幕将会打开。 显示的信息会提供所卸载软件功能的状况和进程。</p>
+<a name="1060576"></a><p class="indent">将卸载所有 Management Station 功能。</p>
+<a name="1057065"></a><h3> 执行 Management Station Software 的无人值守卸载
+</h3>
+<a name="1057067"></a><p><i>Dell Systems Management Consoles </i>CD 配置有一个程序，用于无人卸载 Management Station Software。</p>
+<a name="1057069"></a><p>无人值守卸载使您可以从多个系统同时卸载 Management Station Software。 无人值守卸载软件包使用 ISV 软件分发工具分发至远程系统。 软件包分发完毕后，卸载脚本将执行软件卸载。</p>
+<a name="1057071"></a><h4> 分发无人值守卸载软件包</h4>
+<a name="1057073"></a><p><i>Dell Systems Management Consoles </i>CD 经过预配置，可以作为无人值守卸载软件包。 要将该软件包分发至一个或多个系统，请执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1057075"></a>配置 ISV 分发软件在分发无人值守卸载软件包后执行 <b>msiexec.exe /x CD
+驱动器\windows\ManagementStation\MgmtSt.msi /qb</b> 命令。<li value="2"><a name="1057077"></a>使用 ISV 软件分发软件将快速无人值守卸载软件包分发至远程系统。
+
+<br><br>
+ <li value="3"><a name="1057079"></a><b>msiexec.exe /x CD 驱动器\windows\ManagementStation\MgmtSt.msi /qb</b> 命令执行以在每个远程系统上卸载 IT Assistant 和其它 Management Station Software。</ol>
+<a name="1057081"></a><h4> 无人值守卸载命令行设置</h4>
+<a name="1058797"></a><p><a href="instms.htm#1068484">表&#160;5-1</a> 所示为无人值守卸载可用的卸载命令行设置。在命令行上<br><span class="screen">msiexec.exe /x SysMgmt.msi</span> 的后面键入可选的设置，各个设置间带一个空格。</p>
+<a name="1057087"></a><p>例如，运行 <span class="screen">msiexec.exe /x MgmtSt.msi /qb</span> 将运行无人值守卸载，并在运行时显示无人值守安装状况。</p>
+<a name="1058604"></a><p>运行 <span class="screen">msiexec.exe /x MgmtSt.msi /qn</span> 将运行无人值守无提示（没有状况显示）的卸载。</p>
+<a name="1057093"></a><h4> 自定义参数</h4>
+<a name="1057095"></a><p>ADDLOCAL、REINSTALL 和 REMOVE CLI 参数提供了一种明确指定在无提示或无人值守运行时要安装、重新安装或卸载的软件功能的方法。 借助自定义参数，可以使用相同的无人值守安装软件包为不同的系统选择性安装、重新安装或卸载软件功能。 例如，可以选择在特定系统组上安装 IT Assistant，而不安装 Remote Access Controller Management Station。 还可以选择在一组特定系统上卸载一个或多个功能。</p>
+<a name="1075282"></a>
+<p><p class="FigureTableTitle"><a name="1075259"></a>表 5-2.  Management Station 的功能 ID</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1075263"> </a>
+<p><b>功能 ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="1075265"> </a>
+<p><b>说明</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1075267"></a>ADS</p></td><td valign="top" align="left"><p><a name="1075269"></a>Active Directory 管理单元公用程序</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1075271"></a>BMU</p></td><td valign="top" align="left"><p><a name="1075273"></a>底板管理控制器管理公用程序</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1075275"></a>ITA</p></td><td valign="top" align="left"><p><a name="1075277"></a>IT Assistant</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1075279"></a>RACMS</p></td><td valign="top" align="left"><p><a name="1075281"></a>Remote Access Controller Management Station</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1071432"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>必须以大写键入 ADDLOCAL、REINSTALL 和 REMOVE CLI 参数，因为它们区分大小写。
+</td>
+  </tr>
+</table><a name="1075143"></a><p>可以在命令行包括 ADDLOCAL 自定义参数，并指定要安装的软件功能的功能 ID。 比如：</p>
+<a name="1071104"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i MgmtSt.msi ADDLOCAL=ITA /qb</span>
+ </p>
+<a name="1057100"></a><p>此命令会以无人值守和详细（带有信息）模式运行 Management Station 的安装并且只安装 IT Assistant。</p>
+<a name="1057101"></a><p>可以在命令行包括 REINSTALL 自定义参数，并指定要重新安装的软件功能的功能 ID。 比如</p>
+<a name="1057102"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i MgmtSt.msi REINSTALL=RACMS /qb </span></p>
+<a name="1057103"></a><p>此命令会以无人值守和详细模式只运行 Management Station 的安装并重新安装 Remote Access Controller Management Station。</p>
+<a name="1057104"></a><p>可以在命令行包括 REMOVE 自定义参数，并指定要卸载的软件功能的功能 ID。 比如</p>
+<a name="1057105"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i MgmtSt.msi REMOVE=RACMS /qb </span></p>
+<a name="1057106"></a><p>此命令会以无人值守和详细模式只运行 Management Station 的安装并卸载 Remote Access Controller Management Station。</p>
+<a name="1057107"></a><p>还可以选择运行 <b>msiexec.exe </b>程序一次性安装、重新安装和卸载功能。 比如</p>
+<a name="1073158"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i MgmtSt.msi ADDLOCAL=ADS REINSTALL=ITA REMOVE=BMC /qb </span></p>
+<a name="1073159"></a><p>此命令会运行 Management Station 的安装，与此同时安装 Active Directory 管理单元公用程序、重新安装 IT Assistant 并卸载底板管理控制器。 将会在无人值守和详细模式下执行。</p>
+<a name="1060369"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>Dell OpenManage 全局唯一标识符 (GUID) 有 128 位长。 产品 GUID 唯一标识应用程序。 在这种情况下，Dell OpenManage Management Station 的产品 GUID 是 {6453394A-5BBE-4325-
+A854-1FD483612B8D}。</td>
+  </tr>
+</table><a name="1057197"></a><h3> 支持的管理和警报代理
+ </h3>
+<a name="1057198"></a><p>对于 Dell OpenManage 软件，<i>代理</i>是一个应用于系统管理设备软件功能的常规术语。各个代理的支持级别各不相同。 例如，IT Assistant 可以自动查找、显示、接收 Server Administrator 管理的系统上的警报并在其上执行操作，不过 IT Assistant 只能接收来自某些存储设备代理的警报。 请参阅<i>《Dell OpenManage IT Assistant 用户指南》</i>，以获得 IT Assistant 支持的代理列表。</p>
+<a name="1057621"></a><h3> 迁移到 Windows Server 2003 后升级 IT Assistant
+</h3>
+<a name="1057622"></a><p>如果装有 IT Assistant 的系统迁移到 Windows Server 2003，然后升级到更新版本的 IT Assistant，在 Windows Server 2003 和早期版本的 Windows 间的加密差异可能会造成问题。</p>
+<a name="1057626"></a><p>在已经迁移到 Windows Server 2003 的系统上升级后，配置有 CIM 协议的系统可能无法再进行查找。 如果出现此问题，为 CIM 用户重设密码。 在 IT Assistant 用户界面中，转到<b>“Discovery and Monitoring”（查找和监测）</b>，选择<b>“Ranges”（范围）</b>，然后右键单击<b>“Include Ranges”（包含范围）</b>。 单击<b>“New Include Range”（新建包含范围）</b>运行新建发现向导，在此可在<b>“CIM Configuration”（CIM 配置）</b>窗口中指定新的 CIM 用户名。 请参阅 IT Assistant 联机帮助了解其它信息。</p>
+<a name="1075585"></a><h3> Microsoft 安装的其它已知问题
+</h3>
+<ul><li><a name="1057630"></a>IT Assistant 安装程序安装 MSDE 并重新引导系统后，Windows 2000 事件查看器会记录一个 <b>ERROR</b> 事件，其中包括 <b>“Source”（源）</b> 值 <b>“Server”（服务器）</b>、<b>“Category”(类别）</b> 值 <b>“None”（无）</b>、<b>“Event”（事件）</b> 值 <b>2506</b> 和一条如下的错误信息：<br><br></li>
+</ul><a name="1060388"></a><p class="indent">系统注册表项 <b>LanmanServer\Parameters </b>中名为 <b>MaxMpxCt</b> 的值无效。 此值将被忽略，并且会继续处理。</p>
+<a name="1060389"></a><p class="indent"><b>MaxMpxCt</b> 是一种 <b>REG_DWORD</b> 类型的注册表项，值的范围为 1 到 100。为客户系统提供了同时发给此服务器的最大建议请求数。 较高的值可以增加服务器的性能，不过需要使用更多服务器工作项目。 默认值为 50。 在运行 Windows 2000 的系统上安装 MSDE 2000 或 SQL Server 2000 后，会创建注册表项 <b>MaxMpxCt</b>，值为 <b>0x000001ff</b> (511)，该值比其上限高。重新引导系统后，Windows 2000 系统事件查看器的系统日志中会有一个 <b>ERROR</b> 事件项。如果从系统删除 MSDE 2000 或 SQL Server 2000，注册表项也将会删除。 </p>
+<ul><li><a name="1057632"></a>	 	 在卸载期间由于共享冲突或打开的用户接口连接等原因，可能会遗留下来一些目录。 建议在卸载前关闭所有打开的接口会话。 手动删除默认安装目录或用户指定安的装目录中遗留的目录。 可能还需要手动删除 <b>HKEY _LOCAL_MACHINE\SOFTWARE\Dell Computer Corporation\Dell OpenManage IT Assistant</b> 下的注册表项。</li>
+</ul><hr noshade size="1">
+<a name="1064437"></a><h2>在运行支持的 Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 操作系统上安装、升级和卸载 Management Station Software</h2>
+
+
+<a name="1078898"></a><h3> 安装 Management Station Software
+</h3>
+<a name="1081354"></a><p>只有 Management Station 软件套件的 BMC 和 RAC 功能可以在运行 Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 的管理站上使用。</p>
+<a name="1081384"></a><p>要将 BMC 管理公用程序安装到管理站，请执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1082892"></a>作为 <span class="screen">root</span> 登录到要安装 Management Station 功能的系统。<li value="2"><a name="1082893"></a>如果有必要，请使用 
+<span class="screen">mount&#160;/dev/cdrom&#160;/media/cdrom </span>命令或类似的命令（对于 Red Hat Enterprise 
+Linux [版本 4] 和 SUSE Linux Enterprise Server [版本 9]）或 
+<span class="screen">mount&#160;/dev/cdrom&#160;/mnt/cdrom </span>或类似的命令（对于 Red Hat Enterprise Linux [版本 3]）加载 <i>Dell Systems Management Consoles</i> CD 。<li value="3"><a name="1081618"></a>导航至 <b>/linux/bmc</b><span class="screen"> </span>目录，并使用适合操作系统的 rpm 命令安装 BMC 软件：<ul>
+<li type="disc"><a name="1082794"></a>对于运行 Red Hat Enterprise Linux 的系统，请使用 <span class="screen">osabmcutil*-RHEL-*.rpm，</span>例如 <span class="screen">rpm -Uvh osabmcutil*-RHEL-*.rpm</span>。</li>
+<li type="disc"><a name="1082795"></a>对于运行 SUSE Linux Enterprise Server 的系统，请使用 <span class="screen">osabmcutil*-SUSE-*.rpm，</span>例如 <span class="screen">rpm -Uvh osabmcutil*-SUSE-*.rpm。</span></li>
+</ul>
+</ol>
+<a name="1082796"></a><p>要安装 RAC Management Station 功能，请执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1082499"></a>作为 <span class="screen">root</span> 登录到要安装 Management Station 功能的系统。<li value="2"><a name="1082500"></a>如果有必要，请使用 <span class="screen">mount&#160;/dev/cdrom&#160;/media/cdrom </span>命令或类似的命令（对于 Red Hat Enterprise Linux [版本 4] 和 SUSE Linux Enterprise Server [版本 9]）或 <span class="screen">mount&#160;/dev/cdrom&#160;/mnt/cdrom </span>或类似的命令（对于 Red Hat Enterprise 
+Linux [版本 3]）加载 CD。<li value="3"><a name="1082501"></a>导航至 <b>/linux/rac</b><span class="screen"> </span>目录，并使用 <span class="screen">rpm&#160;-ivh *.rpm</span> 
+命令安装 RAC 软件。</ol>
+<a name="1078902"></a><h3>升级 Management Station Software</h3>
+<a name="1078908"></a><p>要升级管理站上的 BMC 管理公用程序，请执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1078909"></a>作为 <span class="screen">root</span> 登录到要升级 Management Station 功能的系统。<li value="2"><a name="1083027"></a>如果有必要，请使用 
+<span class="screen">mount&#160;/dev/cdrom&#160;/media/cdrom</span><b> </b>命令或类似的命令（对于 Red Hat Enterprise 
+Linux [版本 4] 和 SUSE Linux Enterprise Server [版本 9]）或 
+<span class="screen">mount&#160;/dev/cdrom&#160;/mnt/cdrom </span>类似的命令（对于 Red Hat Enterprise Linux [版本 3]）加载 <i>Dell Systems Management Consoles</i> CD 。<li value="3"><a name="1082640"></a>导航至 <b>/linux/bmc</b> 目录，并使用适合操作系统的 rpm 命令升级 BMC 软件：<ul>
+<li type="disc"><a name="1082641"></a>对于运行 Red Hat Enterprise Linux 的系统，请使用 <span class="screen">osabmcutil*-RHEL-*.rpm，</span>例如 <span class="screen">rpm -Uvh osabmcutil*-RHEL-*.rpm</span>。</li>
+<li type="disc"><a name="1082633"></a>对于运行 SUSE Linux Enterprise Server 的系统，请使用 <span class="screen">osabmcutil*-SUSE-*.rpm，</span>例如 <span class="screen">rpm -Uvh osabmcutil*-SUSE-*.rpm。</span></li>
+</ul>
+</ol>
+<a name="1082634"></a><p>要升级 RAC Management Station 功能，请执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1078916"></a>作为 <span class="screen">root</span> 登录到要升级 Management Station 功能的系统。<li value="2"><a name="1078917"></a>如果有必要，请使用 <span class="screen">mount&#160;/dev/cdrom&#160;/media/cdrom</span><b> </b>命令或类似的命令（对于 Red Hat Enterprise Linux [版本 4] 和 SUSE Linux Enterprise Server 
+[版本 9]）或 <span class="screen">mount&#160;/dev/cdrom&#160;/mnt/cdrom </span>或类似的命令（对于 Red Hat Enterprise 
+Linux [版本 3]）加载 CD。<li value="3"><a name="1078918"></a>导航至 <b>/linux/rac</b> 目录，并使用 <span class="screen">rpm -Uvh *.rpm</span> 命令升级 RAC 软件。</ol>
+<a name="1078906"></a><h3> 卸载 Management Station Software
+</h3>
+<a name="1079051"></a><p>要卸载管理站上的 BMC 管理公用程序，请执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1079052"></a>作为 <span class="screen">root</span> 登录到要卸载 Management Station 功能的系统。<li value="2"><a name="1080723"></a>使用 rpm 查询命令确定所安装的 BMC 管理公用程序的版本。应使用<b> </b><span class="screen">rpm&#160;-qa | grep osabmcutil</span> 命令。<li value="3"><a name="1082018"></a>确认该版本是否是要卸载的版本，如果是，使用 <span class="screen">rpm -e `rpm 
+-qa | grep osabmcutil`</span> 命令卸载该功能。</ol>
+<a name="1082019"></a><p>要卸载 RAC Management Station 功能，请执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1079059"></a>作为 <span class="screen">root</span> 登录到要卸载 Management Station 功能的系统。<li value="2"><a name="1079159"></a>使用 rpm 查询命令确定所安装的 RAC Management Station 的版本。应使用 <span class="screen">rpm -qa | grep mgmtst-racadm</span> 命令。<li value="3"><a name="1079160"></a>确认该版本是否是要卸载的版本，如果是，使用 <span class="screen">rpm -e `rpm 
+-qa | grep mgmtst-racadm`</span> 命令卸载该功能。</ol>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">返回目录页</a></p>
+
+
+<p>&#160;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

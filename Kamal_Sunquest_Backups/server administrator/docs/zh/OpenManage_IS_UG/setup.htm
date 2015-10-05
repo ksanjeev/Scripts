@@ -1,0 +1,1258 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+<title>设置和管理：Dell OpenManage 5.0 版安装和安全性用户指南</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">返回目录页</a> </p>
+<a name="1059954"></a><h1> 设置和管理  </h1>
+<p class="title">Dell OpenManage&#8482; 5.0 版安装和安全性用户指南</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1065250">开始之前</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1063820">安装要求</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1079516">相关性和前提条件</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1060384">配置支持的 Web 浏览器</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1044105">分配用户权限</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1064797">配置 SNMP 代理</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1093618">安全端口服务器和安全性设置</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1065250"></a><h2>开始之前</h2>
+
+
+<ul><li><a name="1063814"></a>阅读本章中相应的说明。<br><br></li>
+<li><a name="1063815"></a>阅读安装要求，以确保您的系统满足或超出最低要求。<br><br></li>
+<li><a name="1100339"></a>阅读<i>《Dell OpenManage&#8482; Server Administrator 兼容性指南》</i>。此说明文件包含有关在运行支持的 Microsoft&#174; Windows&#174;、Red Hat&#174; Enterprise Linux 和 SUSE&#174; Linux Enterprise Server 操作系统的各种硬件平台（系统）上安装和运行 Dell OpenManage 软件的兼容性信息。</li>
+<li><a name="1100342"></a>阅读 Dell OpenManage CD 上或 Dell&#8482; 支持网站 <b>support.dell.com</b> 上相应的 Dell OpenManage 自述文件。除有关已知问题的信息外，这些文件还包含有关软件、固件及驱动程序版本的最新信息。 安装 <b>readme_ins.txt</b> 文件也包含所支持服务器的列表。<br><br></li>
+<li><a name="1063818"></a>阅读操作系统的安装说明。<br><br></li>
+</ul><hr noshade size="1">
+<a name="1063820"></a><h2>安装要求</h2>
+
+
+<a name="1063821"></a><p>以下部分说明了 Dell OpenManage Systems Management Software 的一般要求。 针对操作系统的安装必备要求被列为安装过程的一部分。 </p>
+<ul><li><a name="1063825"></a><a href="setup.htm#1063831">支持的操作系统</a><br><br> </li>
+<li><a name="1063829"></a><a href="setup.htm#1092189">系统要求</a><br><br></li>
+</ul><a name="1063831"></a><h3> 支持的操作系统
+</h3>
+<a name="1063832"></a><p>Dell OpenManage Systems Management Software 至少运行在以下各个操作系统上： </p>
+<ul><li><a name="1079024"></a>Windows 2000 Server 系列（带有 SP4） — 包括 Windows 2000 Server、Windows 2000 Advanced Server 和 Windows 2000 Professional</li>
+<li><a name="1088430"></a>Windows Server&#8482; 2003 系列（带有 SP2） — 包括 Standard 和 Enterprise 版本</li>
+<li><a name="1080964"></a>Windows Server 2003 x64 R2 — 包括 Standard 和 Enterprise 版本（不包括 IT Assistant）</li>
+</ul><a name="1089586"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>IT Assistant 在运行 Microsoft Windows Server 2003 x64 的系统上不受支持。
+</td>
+  </tr>
+</table>
+<ul><li><a name="1094982"></a>Windows Server 2003 SP1（Web 版本）</li>
+<li><a name="1094986"></a>Windows SBS 2003 SP1（不包括 IT Assistant）<br><br></li>
+<li><a name="1096958"></a>Windows XP SP1 和 SP2</li>
+<li><a name="1100878"></a>Windows Storage Server 2003 R2（包括 Express、Standard、Workgroup 和 Enterprise 版本）</li>
+<li><a name="1080966"></a>Red Hat Enterprise Linux AS、ES 和 WS（版本 3）x86 Update 6</li>
+</ul><a name="1063841"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>对 Red Hat 发布的已更新内核和更高版本的 Red Hat Enterprise Linux 的支持可能要求使用动态内核支持（有关该功能的说明，请参阅“<a href="instlx.htm#1054829">动态内核支持 (DKS)</a>”）。
+</td>
+  </tr>
+</table>
+<ul><li><a name="1093940"></a>Red Hat Enterprise Linux AS、ES 和 WS（版本 3）for Intel&#174; Extended Memory 64 Technology (Intel EM64T) Update 6</li>
+<li><a name="1076067"></a>Red Hat Enterprise Linux AS、ES 和 WS（版本 4）for Intel x86</li>
+<li><a name="1092186"></a>Red Hat Enterprise Linux AS、ES 和 WS（版本 4）for Intel EM64T</li>
+<li><a name="1092187"></a>SUSE Linux Enterprise Server（版本 9）SP3 for Intel EM64T</li>
+</ul><a name="1094163"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>对 Novell&#174; 发布的已更新内核和更高版本的 SUSE Linux Enterprise 
+Server 的支持可能要求使用动态内核支持（有关该功能的说明，请参阅“<a href="instlx.htm#1054829">动态内核支持 (DKS)</a>”）。</td>
+  </tr>
+</table>
+<a name="1092189"></a><h3> 系统要求
+</h3>
+<a name="1063854"></a><p>Dell OpenManage Server Administrator 软件必须安装在每个需要管理的系统上。 这样，您便可以在本地或通过支持的 Web 浏览器远程管理每个运行 Server Administrator 的系统。</p>
+<a name="1065231"></a><h4> 管理系统要求</h4>
+<ul><li><a name="1065235"></a>一种<a href="setup.htm#1063831">支持的操作系统</a><br><br></li>
+<li><a name="1065236"></a>至少 64 MB RAM<br><br></li>
+<li><a name="1063861"></a>至少 256 MB 可用硬盘驱动器空间<br><br></li>
+<li><a name="1063862"></a>管理员权限<br><br></li>
+<li><a name="1063863"></a>监测的系统和远程系统间的 TCP/IP 连接，以便于远程系统管理<br><br></li>
+<li><a name="1075721"></a>一种支持的 Web 浏览器（请参阅“<a href="setup.htm#1063893">支持的 Web 浏览器的最低要求</a>”）<br><br></li>
+<li><a name="1075725"></a>一种<a href="setup.htm#1089702">支持的系统管理协议标准</a>（请参阅“<a href="setup.htm#1089702">支持的系统管理协议标准</a>”）<br><br></li>
+<li><a name="1075726"></a>鼠标、键盘和显示器，用于在本地管理系统。 显示器要求屏幕分辨率最低为 800 x 600。 建议的屏幕分辨率设置为 1024 x 768。<br><br></li>
+<li><a name="1100206"></a>Server Administrator Remote Access Service 要求在要管理的系统上安装 Remote Access Controller (RAC)。 请参阅<i>《Dell Remote Access Controller 4 用户指南》、</i><i>《Dell Remote Access Controller 5 用户指南》</i>和<i>《Dell Remote Access Controller 安装和设置指南》</i>或<i>《Dell&#160;Embedded Remote Access/MC Controller 用户指南》</i>，以了解详细的软件和硬件要求。</li>
+</ul><a name="1063878"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>从 <i>Dell PowerEdge&#8482; Installation and Server Management</i> CD 安装 Managed System Software 时，RAC 软件作为<b>“Express Setup”（快速安装）</b>和<b>“Custom Setup”（自定义安装）</b>安装选项的一部分安装，条件是管理系统满足所有的 RAC 安装前提条件。有关软件和硬件的完整要求，请参阅“<a href="intro.htm#1047127">Remote Access Service</a>”和<i>《Dell Remote Access Controller 安装和设置指南》</i>或<i>《Dell Embedded Remote Access/MC Controller 用户指南》</i>。
+ </td>
+  </tr>
+</table>
+<a name="1063888"></a><h4> 远程管理系统要求</h4>
+<ul><li><a name="1063889"></a>一种支持的 Web 浏览器，用于从图形用户界面 (GUI) 远程管理系统<br><br></li>
+<li><a name="1063890"></a>管理系统和远程系统之间的 TCP/IP 连接，以便于远程系统管理<br><br></li>
+<li><a name="1063891"></a>屏幕分辨率最低为 800 x 600。 建议的屏幕分辨率设置为 1024 x 768</li>
+</ul><a name="1063893"></a><h4>支持的 Web 浏览器的最低要求</h4>
+<ul><li><a name="1089698"></a>Internet Explorer 6.0 SP1 和 SP2（仅限 Windows）<br><br></li>
+<li><a name="1089700"></a>Mozilla Firefox 1.07（SUSE Linux Enterprise Server 和 Red Hat Enterprise Linux）<br><br></li>
+<li><a name="1092192"></a>Mozilla 1.7.8、1.7.10 和 1.7.11（SUSE Linux Enterprise Server 和 Red Hat Enterprise Linux）</li>
+</ul><a name="1089702"></a><h4> 支持的系统管理协议标准</h4>
+<a name="1063910"></a><p>必须在管理系统上安装支持的系统管理协议标准，才能安装管理站或 Managed System Software。 在支持的 Windows 操作系统中，Dell OpenManage 软件支持这两个系统管理标准：公用信息模型/Windows 管理工具 (CIM/WMI) 和简单网络管理协议 (SNMP)。 在支持的 Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 操作系统中，Dell OpenManage 软件支持 SNMP 系统管理标准。</p>
+<a name="1063915"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>有关在管理型系统中安装支持的系统管理协议标准的信息，请参阅操作系统说明文件。
+</td>
+  </tr>
+</table><a name="1063919"></a><p><a href="setup.htm#1063926">表 3-1</a> 说明了每个支持的操作系统可用的 Systems Management 标准。</p>
+<a name="1063955"></a>
+<p><p class="FigureTableTitle"><a name="1063926"></a>表 3-1.  操作系统可用的 Systems Management 协议&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1063932"> </a>
+<p><b>操作系统</b></p>
+
+
+</th><th valign="top" align="left"><a name="1063934"> </a>
+<p><b>SNMP</b></p>
+
+
+</th><th valign="top" align="left"><a name="1063936"> </a>
+<p><b>CIM/WMI</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1063938"></a>支持的 Windows 操作系统。</p></td><td valign="top" align="left"><p><a name="1063940"></a>可通过操作系统安装介质获得。</p></td><td valign="top" align="left"><p><a name="1063942"></a>始终安装。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1063944"></a>支持的 Red Hat Enterprise Linux 操作系统。</p></td><td valign="top" align="left"><p><a name="1063946"></a>您必须安装操作系统附带的 SNMP 软件包。</p></td><td valign="top" align="left"><p><a name="1063948"></a>不可用。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1092196"></a>支持的 SUSE Linux Enterprise Server 操作系统。</p></td><td valign="top" align="left"><p><a name="1092198"></a>您必须安装操作系统附带的 SNMP 软件包。</p></td><td valign="top" align="left"><p><a name="1092200"></a>不可用。</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><hr noshade size="1">
+<a name="1079516"></a><h2>相关性和前提条件</h2>
+
+
+<a name="1079519"></a><h3> 从 Dell OpenManage 软件版本 1.<i>x、</i>2.<i>x</i> 和 3.<i>x</i>–4.2 升级
+</h3>
+<a name="1084514"></a><p>不支持从 Dell OpenManage 软件 1.<i>x、</i>2.<i>x</i>和 3.x–<i>4.2</i> 版升级。必须手动卸载 Dell OpenManage 软件 1.<i>x、</i> 2.<i>x 和 3.x</i>-<i> 4.2 </i>版，然后才能启动 Dell OpenManage 软件安装。如果在系统上检测到 Dell&#160;OpenManage 软件版本 1<i>.x </i>-<i> </i>4.2<i> </i>，安装程序将会通知您。 从这些版本升级的另一种方式是先升级到版本 4.3，然后再升级到当前版本。 对于 Microsoft Windows，只能通过完全 Microsoft Software Installer (MSI) 安装从 4.3 版升级到更高版本。</p>
+<hr noshade size="1">
+<a name="1060384"></a><h2>配置支持的 Web 浏览器</h2>
+
+
+<a name="1060296"></a><p>以下部分提供了有关配置支持的 Web 浏览器的说明。 有关支持的 Web 浏览器，请参阅“<a href="setup.htm#1063893">支持的 Web 浏览器的最低要求</a>”。</p>
+<a name="1060300"></a><h3> 配置 Internet Explorer 连接到基于 Web 的界面
+</h3>
+<a name="1060301"></a><p>如果从连接到因特网的管理站通过代理服务器连接到基于 Web 的界面，则需要配置 Web 浏览器才能正确连接。 如果正在使用 Microsoft 的 Internet Explorer 浏览器，则应遵循这些步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1060302"></a>从 Internet Explorer 主窗口，单击<b>“Tools”（工具）</b>，然后单击<b>“Internet Options”（Internet 选项）</b>。
+
+<br><br>
+<li value="2"><a name="1060303"></a>从<b>“Internet Options”（Internet 选项）</b>窗口，单击<b>“Connections”（连接）</b>选项卡。
+
+<br><br>
+<li value="3"><a name="1060304"></a>在<b>“Local Area Network (LAN) settings”（局域网 [LAN] 设置）</b>下，单击<b>“LAN Settings”（局域网设置）</b>。
+
+<br><br>
+<li value="4"><a name="1060305"></a>如果已选中<b>“Use a proxy server”（使用代理服务器）</b>框，则选择<b>“Bypass proxy server for local addresses”（对于本地地址不使用代理服务器）</b>框。
+
+<br><br>
+<li value="5"><a name="1060306"></a>单击<b>“OK”（确定）</b>两次。
+<br><br>
+</ol>
+<a name="1067173"></a><p>为其它浏览器配置相同功能。</p>
+<a name="1060308"></a><h3> 查看本地化版本的基于 Web 的界面
+</h3>
+<a name="1060309"></a><p>在运行 Windows 的系统上使用 Internet Explorer 或 Netscape Navigator 时，要查看本地化版本的基于 Web 的界面，应执行以下操作：</p>
+<ol type="1">
+
+<li value="1"><a name="1060310"></a>打开 Windows<b>“Control Panel”（控制面板）</b>并双击<b>“Regional Options”（区域选项）</b>图标。
+
+<br><br>
+<li value="2"><a name="1060292"></a>从<b>“Your locale (location)”（您的区域设置 [位置]）</b>下拉菜单选择所需区域。
+<br><br>
+</ol>
+<hr noshade size="1">
+<a name="1044105"></a><h2>分配用户权限</h2>
+
+
+<a name="1044106"></a><p>为了确保重要系统组件的安全，在安装 Dell OpenManage 软件之前必须给所有 Dell OpenManage 软件用户正确分配用户权限。</p>
+<a name="1054177"></a><p>以下部分逐步介绍了如何为各种所支持操作系统创建用户并分配用户权限。</p>
+<ul><li><a name="1054181"></a><a href="setup.htm#1044126">为支持的 Windows 操作系统创建用户</a><br><br></li>
+<li><a name="1054185"></a><a href="setup.htm#1073295">为支持的 Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 操作系统创建用户</a><br><br></li>
+<li><a name="1054097"></a><a href="setup.htm#1061874">Microsoft Active Directory</a><br><br></li>
+</ul><a name="1066257"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">注意：</span>要保护对重要系统组件的访问，您必须为可以访问 Dell OpenManage 软件的每个用户帐户分配密码。
+ </td>
+  </tr>
+</table>
+<a name="1044724"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">注意：</span>您必须为支持的 Windows 操作系统禁用来宾帐户，以保护对重要系统组件的访问。 有关说明，请参阅“<a href="setup.htm#1079052">在支持的 Microsoft Windows 操作系统中禁用来宾和匿名帐户</a>”。
+</td>
+  </tr>
+</table>
+<a name="1044126"></a><h3> 为支持的 Windows 操作系统创建用户
+</h3>
+<a name="1044814"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>您必须以 Administrator（管理员）权限登录才能执行这些步骤。
+</td>
+  </tr>
+</table><a name="1060978"></a><p>以下程序介绍了创建用户帐户、分配用户权限并将用户添加到域。</p>
+<a name="1044136"></a><h4> 在支持的 Windows Server 2003 操作系统中创建用户和分配用户权限</h4>
+<a name="1045082"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>如果对创建用户和分配用户组权限有疑问或要了解详细说明，请参阅您的操作系统说明文件。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1052789"></a>单击<b>“Start”（开始）</b>按钮，右键单击<b>“My Computer”（我的电脑）</b>并单击<b>“Manage”（管理）</b>。
+
+<br><br>
+<li value="2"><a name="1044147"></a>在控制台树中，展开<b>“Local Users and Groups”（本地用户和组）</b>，然后单击<b>“Users”（用户）</b>。
+
+<br><br>
+ <li value="3"><a name="1044148"></a>单击<b>“Action”（操作）</b>，然后单击<b>“New User”（新用户）</b>。
+
+<br><br>
+ <li value="4"><a name="1044149"></a>在对话框中键入相应信息，选中或取消相应的复选框，然后单击<b>“Create”（创建）</b>。
+<br><br>
+ </ol>
+<a name="1099265"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">注意：</span>要保护对重要系统组件的访问，您必须为可以访问 Dell OpenManage 软件的每个用户帐户分配密码。 此外，由于操作系统限制，没有分配密码的用户将不能登录运行 Windows Server 2003 的系统上的 Dell OpenManage 软件。
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="5"><a name="1044159"></a>在控制台树中，单击<b>“Local Users and Groups”（本地用户和组）</b>下的<b>“Groups”（组）</b>。
+
+<br><br>
+ <li value="6"><a name="1044160"></a>单击要向其中添加新用户的组：<b>“Users”（用户）</b>、<b>“Power Users”（高级用户）</b>或 <b>“Administrators”（管理员）</b>。
+
+<br><br>
+ <li value="7"><a name="1095518"></a>单击<b>“Action”（操作）</b>，然后单击<b>“Properties”（属性）</b>。
+
+<br><br>
+ <li value="8"><a name="1095519"></a>单击<b>“Add”（添加）</b>。
+
+<br><br>
+ <li value="9"><a name="1095520"></a>输入添加的用户名，单击<b>“Check Names”（检查名称）</b>进行验证。
+
+<br><br>
+<li value="10"><a name="1044165"></a>单击<b>“OK”（确定）</b>。
+<br><br>
+</ol>
+<a name="1044166"></a><p class="indent">新用户可使用为其组分配的用户权限登录至 Dell OpenManage 软件。</p>
+<a name="1052910"></a><h4> 在支持的 Windows 2000 操作系统中创建用户和分配用户权限</h4>
+<a name="1052915"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>如果对创建用户和分配用户组权限有疑问或要了解详细说明，请参阅您的操作系统说明文件。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1052916"></a>右键单击<b>“My Computer”（我的电脑）</b>并指向<b>“Manage”（管理）</b>。
+
+<br><br>
+<li value="2"><a name="1052917"></a>在控制台树中，展开<b>“Local Users and Groups”（本地用户和组）</b>，然后单击<b>“Users”（用户）</b>。
+
+<br><br>
+ <li value="3"><a name="1052918"></a>单击<b>“Action”（操作）</b>，然后单击<b>“New User”（新用户）</b>。
+
+<br><br>
+ <li value="4"><a name="1052919"></a>在对话框中键入相应信息，选中或取消相应的复选框，然后单击<b>“Create”（创建）</b>。
+
+<br><br>
+ <li value="5"><a name="1052925"></a>在控制台树中，单击<b>“Local Users and Groups”（本地用户和组）</b>下的<b>“Groups”（组）</b>。
+
+<br><br>
+ <li value="6"><a name="1052926"></a>单击要向其中添加新用户的组：<b>“Users”（用户）</b>、<b>“Power Users”（高级用户）</b>或 <b>“Administrators”（管理员）</b>。
+
+<br><br>
+ <li value="7"><a name="1052927"></a>单击<b>“Action”（操作）</b>，然后单击<b>“Properties”（属性）</b>。
+
+<br><br>
+ <li value="8"><a name="1052928"></a>单击<b>“Add”（添加）</b>。
+
+<br><br>
+ <li value="9"><a name="1052929"></a>单击要添加的用户名，然后单击<b>“Add”（添加）</b>。
+
+<br><br>
+ <li value="10"><a name="1052930"></a>单击<b>“Check Names”（检查名称）</b>，验证添加的用户名。
+
+<br><br>
+<li value="11"><a name="1052931"></a>单击<b>“OK”（确定）</b>。
+<br><br>
+</ol>
+<a name="1052932"></a><p class="indent">新用户可使用为其组分配的用户权限登录至 Dell OpenManage 软件。</p>
+<a name="1044167"></a><h4> 将用户添加至域</h4>
+<a name="1045358"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>如果对创建用户和分配用户组权限有疑问或要了解详细说明，请参阅您的操作系统说明文件。
+</td>
+  </tr>
+</table><a name="1045375"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>要执行下面的步骤，系统中必须装有 Microsoft Active Directory&#174;。 
+请参阅“<a href="setup.htm#1061874">Microsoft Active Directory</a>”了解使用 Active Directory 的详情。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1044187"></a>单击<b>“Start”（开始）</b>按钮，然后指向<b>“Control Panel”（控制面板）</b><span style="FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b>“Administrative Tools”（管理工具）</b><span style="FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b>“Active Directory 
+Users and Computers”（Active Directory 用户和计算机）</b>。<li value="2"><a name="1056080"></a>在控制台树中，右键单击<b>“Users”（用户）</b>，或者右键单击想向其中添加新用户的容器，然后指向<b>“New”（新建）</b><b>→</b><b>“User”（用户）。</b><li value="3"><a name="1056081"></a>在对话框中键入相应的用户名信息并单击<b>“Next”（下一步）</b>。
+<br><br>
+ </ol>
+<a name="1044199"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">注意：</span>要保护对重要系统组件的访问，您必须为可以访问 Dell OpenManage 软件的每个用户帐户分配密码。 此外，由于操作系统限制，没有分配密码的用户将不能登录运行 Windows Server 2003 的系统上的 Dell OpenManage 软件。
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="4"><a name="1044200"></a>单击<b>“Next”（下一步）</b>，然后单击<b>“Finish”（完成）</b>。
+
+<br><br>
+<li value="5"><a name="1044201"></a>双击表示刚创建的用户的图标。
+
+<br><br>
+<li value="6"><a name="1044202"></a>单击<b>“Member of”（成员）</b>选项卡。
+
+<br><br>
+<li value="7"><a name="1044203"></a>单击<b>“Add”（添加）</b>。
+
+<br><br>
+<li value="8"><a name="1044204"></a>选择相应的组并单击<b>“Add”（添加）</b>。
+
+<br><br>
+<li value="9"><a name="1044205"></a>单击<b>“OK”（确定）</b>，然后再次单击<b>“OK”（确定）</b>。
+<br><br>
+</ol>
+<a name="1044206"></a><p class="indent">新用户可使用为其组和域分配的用户权限登录至 Dell OpenManage 软件。</p>
+<a name="1079052"></a><h4> 在支持的 Windows 操作系统中禁用来宾和匿名帐户</h4>
+<a name="1079057"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>必须以 Administrator（管理员）权限登录才能执行此程序。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1079058"></a>如果系统运行的是 Windows Server 2003，则单击<b>“Start”（开始）</b>按钮，右键单击<b>“My Computer”（我的电脑）</b>并指向<b>“Manage”（管理）</b>。
+<br><br>
+ </ol>
+<a name="1081137"></a><p class="indent">如果系统运行的是 Windows 2000，右键单击<b>“My Computer”（我的电脑）</b>并指向<b>“Manage”（管理）</b>。</p>
+<ol type="1">
+
+<li value="2"><a name="1079059"></a>在控制台树中，展开<b>“Local Users and Groups”（本地用户和组）</b>并单击<b>“Users”（用户）</b>。
+
+<br><br>
+ <li value="3"><a name="1079060"></a>单击<b>“Guest”（来宾）</b>或<b>“IUSR</b><b>_ </b><b>system name”（IUSR_系统名称）</b>用户帐户。<li value="4"><a name="1079061"></a>单击<b>“Action”（操作）</b>并指向<b>“Properties”（属性）</b>。
+
+<br><br>
+ <li value="5"><a name="1079062"></a>选择<b>“Account is disabled”（帐户已停用）</b>，然后单击<b>“OK”（确定）</b>。
+<br><br>
+ </ol>
+<a name="1079063"></a><p class="indent">该用户名上将出现一个带 X 的红圈。 该帐户已被禁用。</p>
+<a name="1079049"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>考虑重命名帐户，这样远程脚本无法使用该名称启用帐户。
+</td>
+  </tr>
+</table><a name="1073295"></a><h3>为支持的 Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 操作系统创建用户</h3>
+<a name="1073296"></a><p>Administrator（管理员）访问权限将分配给以 <span class="screen">root</span> 登录的用户。 要创建具有 User（用户）和 Power User（高级用户）权限的用户，请执行以下步骤。</p>
+<a name="1045936"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>您必须以 <span class="screen">root</span> 登录才能执行这些步骤。
+</td>
+  </tr>
+</table><a name="1057634"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>要执行下面的步骤，系统中必须已安装 useradd 公用程序。
+</td>
+  </tr>
+</table><a name="1044272"></a><h4> 创建用户</h4>
+<a name="1045968"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>如果对创建用户和分配用户组权限有疑问或要了解详细说明，请参阅您的操作系统说明文件。
+</td>
+  </tr>
+</table><a name="1044282"></a><h5> 创建具有 User（用户）权限的用户</h5>
+<ol type="1">
+
+<li value="1"><a name="1044292"></a>通过命令行运行以下命令：
+<br><br>
+</ol>
+<a name="1044293"></a><p class="indent"><span class="screen">useradd -d </span><span class="screen"><i>主目录</i></span><span class="screen"> -g </span><span class="screen"><i>组</i></span><span class="screen"> </span><span class="screen"><i>用户名</i></span></p>
+<a name="1044294"></a><p class="indent">其中<span class="screen"><i>组</i></span><i>不是</i> <span class="screen">root</span>。</p>
+<a name="1055571"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>如果<span class="screen">组</span>不存在，则必须用 <b>groupadd</b> 命令创建它。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="2"><a name="1044295"></a>键入 <span class="screen">passwd</span> <span class="screen"><i>用户名</i></span>并按 &lt;Enter&gt;。
+
+<br><br>
+<li value="3"><a name="1044296"></a>屏幕出现提示时，输入新用户的密码。
+<br><br>
+</ol>
+<a name="1046142"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">注意：</span>要保护对重要系统组件的访问，您必须为可以访问 Dell OpenManage 软件的每个用户帐户分配密码。
+</td>
+  </tr>
+</table>
+<a name="1044306"></a><p class="indent">现在，新用户可使用 User（用户）组权限登录至 Dell OpenManage 软件。</p>
+<a name="1044307"></a><h5> 创建具有 Power User（高级用户）权限的用户</h5>
+<ol type="1">
+
+<li value="1"><a name="1044317"></a>通过命令行运行以下命令：
+<br><br>
+</ol>
+<a name="1044318"></a>
+<p class="screenindent">useradd -d <span class="screen"><i>主目录</i></span> -g root <span class="screen"><i>用户名</i></span></p>
+<a name="1046263"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>您必须将 <span class="screen">root</span> 设置为主要组。
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="2"><a name="1044328"></a>键入 <span class="screen">passwd</span> <span class="screen"><i>用户名</i></span>并按 &lt;Enter&gt;。
+
+<br><br>
+<li value="3"><a name="1052344"></a>屏幕出现提示时，输入新用户的密码。
+<br><br>
+</ol>
+<a name="1052349"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">注意：</span>要保护对重要系统组件的访问，您必须为可以访问 Dell OpenManage 软件的每个用户帐户分配密码。
+</td>
+  </tr>
+</table>
+<a name="1052350"></a><p class="indent">现在，新用户可使用 Power User（高级用户）组权限登录至 Dell OpenManage 软件。</p>
+<a name="1061874"></a><h3> Microsoft Active Directory
+</h3>
+<a name="1084529"></a><p>如果使用 Active Directory 服务软件，可以配置它以控制对网络的访问。 Dell 修改了 Active Directory 数据库以支持远程管理身份验证和授权。 IT Assistant 和 Server Administrator 以及 Dell Remote Access Controller 现在可以与 Active Directory 交互。 借助此工具，可以从一个中央数据库添加并控制用户和权限。 如果使用 Active Directory 控制用户对网络的访问，请参阅“<a href="mad.htm#1055432">使用 Microsoft&#174; Active Directory&#174;</a>”。</p>
+<hr noshade size="1">
+<a name="1064797"></a><h2>配置 SNMP 代理</h2>
+
+
+<a name="1094229"></a><p>在所有支持的操作系统中，Dell OpenManage 软件支持 SNMP 系统管理标准。 SNMP 支持不一定会安装，具体取决于操作系统和操作系统安装的方式。安装 Dell OpenManage 软件之前，需要安装支持的系统管理协议标准（例如 SNMP）。 有关详情，请参阅“<a href="setup.htm#1063820">安装要求</a>”。</p>
+<a name="1089732"></a><p>您可以配置 SNMP 代理，以更改团体名称、启用设置操作及向管理站发送陷阱。 要配置 SNMP 代理以正确地与管理应用程序（例如 IT Assistant）进行交互，请执行以下各节中说明的步骤。</p>
+<a name="1100522"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>为了使 IT Assistant 可以从运行 Server Administrator 的系统检索管理信息，IT Assistant 所使用的团体名称必须与运行 Server Administrator 的系统上的团体名称匹配。 
+为了使 IT Assistant 可以在运行 Server Administrator 的系统上修改信息或执行操作，IT Assistant 所使用的团体名称必须与运行 Server Administrator 的系统上允许设置操作的团体名称匹配。 为了使 IT Assistant 可以从运行 Server Administrator 的系统上接收陷阱（异步事件通知），必须将运行 Server Administrator 的系统配置为将陷阱发送至运行 IT Assistant 的系统。 有关详情，请参阅<i>《IT Assistant 用户指南》</i>。
+</td>
+  </tr>
+</table><a name="1082573"></a><p>以下部分提供了用于为每个支持的操作系统配置 SNMP 代理的逐步说明：</p>
+<ul><li><a name="1047647"></a><a href="setup.htm#1066278">为运行支持的 Windows 操作系统的系统配置 SNMP 代理</a><br><br></li>
+<li><a name="1047648"></a><a href="setup.htm#1047161">在运行支持的 Red Hat Enterprise Linux 操作系统的系统上配置 SNMP 代理</a><br><br></li>
+<li><a name="1094244"></a><a href="setup.htm#1093653">在运行支持的 SUSE Linux Enterprise Server 操作系统的系统上配置 SNMP 代理</a></li>
+</ul><a name="1066278"></a><h3> 为运行支持的 Windows 操作系统的系统配置 SNMP 代理
+</h3>
+<a name="1066308"></a><p>Dell OpenManage 软件使用 Windows SNMP 代理提供的 SNMP 服务。 （在支持的连接到 System Administrator 会话的两种方式中，SNMP 是一种，另一种是 CIM/WMI。〉 您可以配置 SNMP 代理，以更改团体名称、启用设置操作及向管理站发送陷阱。 要配置 SNMP 代理以正确地与管理应用程序（例如 IT Assistant）进行交互，请执行以下各节中说明的步骤。</p>
+<a name="1057516"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>有关 SNMP 配置的其它详细信息，请参阅您的操作系统说明文件。
+</td>
+  </tr>
+</table><a name="1057684"></a><h4> 通过 Windows Server 2003 上的远程主机启用 SNMP 访问</h4>
+<a name="1057696"></a><p>默认情况下，Windows Server 2003 不接受来自远程主机的 SNMP 数据包。 对于运行 Windows Server 2003 的系统，如果您打算使用远程主机上的 SNMP 管理应用程序来管理系统，则必须配置 SNMP 服务接受来自远程主机的 SNMP 数据包。 要从 IT Assistant 启用系统的远程关机，必须启用 SNMP Set 操作。</p>
+<a name="1095473"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>为更改管理功能重新引导系统不需要 SNMP Set 操作。</td>
+  </tr>
+</table><a name="1057701"></a><p>要使运行 Windows Server 2003 操作系统的系统能够接收来自远程主机的 SNMP 数据包，请执行下列步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1057711"></a>单击<b>“Start”（开始）</b>按钮，右键单击<b>“My Computer”（我的电脑）</b>并单击<b>“Manage”（管理）</b>。
+<br><br>
+</ol>
+<a name="1058501"></a><p class="indent">系统将显示<b>“Computer Management”（计算机管理）</b>窗口。</p>
+<ol type="1">
+
+<li value="2"><a name="1057734"></a>如果有必要，请展开窗口中的<b>“Computer Management”（计算机管理）</b>图标。
+
+<br><br>
+<li value="3"><a name="1057739"></a>展开<b>“Services and Applications”（服务和应用程序）</b>图标并单击<b>“Services”（服务）</b>。
+
+<br><br>
+<li value="4"><a name="1057753"></a>向下滚动服务列表，直至找到<b>“SNMP Service”（SNMP 服务）</b>。右键单击<b>“SNMP Service”（SNMP 服务）</b>，然后单击<b>“Properties”（属性）</b>。
+<br><br>
+</ol>
+<a name="1058507"></a><p class="indent">系统将显示<b>“SNMP Service Properties”（SNMP 服务属性）</b>窗口。</p>
+<ol type="1">
+
+<li value="5"><a name="1057767"></a>单击<b>“Security”（安全）</b>选项卡。
+
+<br><br>
+<li value="6"><a name="1057782"></a>选择<b>“Accept SNMP packets from any host”（接受来自所有主机的 SNMP 数据包）</b>，或将 IT Assistant 主机添加到<b>“Accept SNMP 
+packets from these hosts”（接受来自这些主机的 SNMP 数据包）</b>列表。
+<br><br>
+</ol>
+<a name="1057360"></a><h4> 更改 SNMP 团体名称</h4>
+<a name="1047035"></a><p>配置 SNMP 团体名称可确定哪个系统能够通过 SNMP 管理您的系统。 管理应用程序使用的 SNMP 团体名称必须与在 Dell OpenManage 软件系统上配置的 SNMP 团体名称匹配，以便管理应用程序可以从 Dell OpenManage 软件检索管理信息。</p>
+<ol type="1">
+
+<li value="1"><a name="1047058"></a>如果系统运行的是 Windows Server 2003，则单击<b>“Start”（开始）</b>按钮，右键单击<b>“My Computer”（我的电脑）</b>并指向<b>“Manage”（管理）</b>。 如果系统运行的是 Windows 2000，右键单击<b>“My Computer”（我的电脑）</b>并指向<b>“Manage”（管理）</b>。
+<br><br>
+</ol>
+<a name="1047063"></a><p class="indent">系统将显示<b>“Computer Management”（计算机管理）</b>窗口。</p>
+<ol type="1">
+
+<li value="2"><a name="1047064"></a>如果有必要，请展开窗口中的<b>“Computer Management”（计算机管理）</b>图标。
+
+<br><br>
+<li value="3"><a name="1047065"></a>展开<b>“Services and Applications”（服务和应用程序）</b>图标并单击<b>“Services”（服务）</b>。
+
+<br><br>
+<li value="4"><a name="1047066"></a>向下滚动服务列表，直至找到<b>“SNMP Service”（SNMP 服务）</b>。右键单击<b>“SNMP Service”（SNMP 服务）</b>，然后单击<b>“Properties”（属性）</b>。
+<br><br>
+</ol>
+<a name="1047067"></a><p class="indent">系统将显示<b>“SNMP Service Properties”（SNMP 服务属性）</b>窗口。</p>
+<ol type="1">
+
+<li value="5"><a name="1086611"></a>单击<b>“Security”（安全）</b>选项卡以添加或编辑团体名称。  
+<br><br>
+<ol type="a">
+
+<li value="1"><a name="1048177"></a>要添加团体名称，请单击<b>“Accepted Community Names”（接受的团体名称）</b>列表下的<b>“Add”（添加）</b>。  
+<br><br>
+ </ol>
+</ol>
+<a name="1048178"></a><p class="Indentsub">系统将显示 <b>“SNMP Service Configuration”（SNMP 服务配置）</b>窗口。</p>
+<ol type="1">
+  <ol type="a">
+
+<li value="2"><a name="1048179"></a>在<b>“Community Name”（团体名称）</b>文本框中键入系统（能够管理您的系统）的团体名称（默认设置为 public），然后单击<b>“Add”（添加）</b>。  
+<br><br>
+ </ol>
+</ol>
+<a name="1048180"></a><p class="Indentsub">系统将显示<b>“SNMP Service Properties”（SNMP 服务属性）</b>窗口。</p>
+<ol type="1">
+  <ol type="a">
+
+<li value="3"><a name="1048181"></a>要更改团体名称，请在<b>“Accepted Community Names”（接受的团体名称）</b>列表中选择团体名称，然后单击<b>“Edit”（编辑）</b>。  
+<br><br>
+</ol>
+</ol>
+<a name="1048182"></a><p class="Indentsub">系统将显示 <b>“SNMP Service Configuration”（SNMP 服务配置）</b>窗口。</p>
+<ol type="1">
+  <ol type="a">
+
+<li value="4"><a name="1048183"></a>在<b>“Community Name”（团体名称）</b>文本框中对系统（能够管理您的系统）的团体名称执行所有必要的编辑操作，然后单击<b>“OK”（确定）</b>。  
+<br><br>
+</ol>
+</ol>
+<a name="1048175"></a><p class="Indentsub">系统将显示<b>“SNMP Service Properties”（SNMP 服务属性）</b>窗口。</p>
+<ol type="1">
+
+<li value="6"><a name="1047080"></a>单击<b>“OK”（确定）</b>以保存更改。
+<br><br>
+</ol>
+<a name="1047082"></a><h4> 启用 SNMP Set 操作</h4>
+<a name="1099287"></a><p>必须在 Dell OpenManage 软件系统上启用 SNMP Set 操作才能使用 IT Assistant 更改 Dell OpenManage 软件属性。 要从 IT Assistant 启用系统的远程关机，必须启用 SNMP Set 操作。</p>
+<a name="1095417"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>为更改管理功能重新引导系统不需要 SNMP Set 操作。</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1047100"></a>如果系统运行的是 Windows Server 2003，则单击<b>“Start”（开始）</b>按钮，右键单击<b>“My Computer”（我的电脑）</b>并指向<b>“Manage”（管理）</b>。 如果系统运行的是 Windows 2000，右键单击<b>“My Computer”（我的电脑）</b>并指向<b>“Manage”（管理）</b>。
+<br><br>
+</ol>
+<a name="1047105"></a><p class="indent">将打开<b>“Computer Management”（计算机管理）</b>窗口。</p>
+<ol type="1">
+
+<li value="2"><a name="1047106"></a>如果有必要，请展开窗口中的<b>“Computer Management”（计算机管理）</b>图标。
+
+<br><br>
+<li value="3"><a name="1047107"></a>展开<b>“Services and Applications”（服务和应用程序）</b>图标并单击<b>“Services”（服务）</b>。
+
+<br><br>
+<li value="4"><a name="1047108"></a>向下滚动服务列表，直至找到<b>“SNMP Service”（SNMP 服务）</b>。右键单击<b>“SNMP Service”（SNMP 服务）</b>，然后单击<b>“Properties”（属性）</b>。
+<br><br>
+</ol>
+<a name="1047109"></a><p class="indent">系统将显示<b>“SNMP Service Properties”（SNMP 服务属性）</b>窗口。</p>
+<ol type="1">
+
+<li value="5"><a name="1047110"></a>单击<b>“Security”（安全）</b>选项卡以更改团体的访问权限。
+
+<br><br>
+<li value="6"><a name="1047111"></a>在<b>“Accepted Community Names”（接受的团体名称）</b>列表中选择一个团体名称，然后单击<b>“Edit”（编辑）</b>。
+<br><br>
+ </ol>
+<a name="1047112"></a><p class="indent">将打开<b>“SNMP Service Configuration”（SNMP 服务配置）</b>窗口。</p>
+<ol type="1">
+
+<li value="7"><a name="1047113"></a>将<b>“Community Rights”（团体权利）</b>设置为<b>“READ WRITE”（读写）</b>或<b>“READ CREATE”（读创建）</b>，然后单击<b>“OK”（确定）</b>。
+<br><br>
+</ol>
+<a name="1047114"></a><p class="indent">将打开<b>“SNMP Service Properties”（SNMP 服务属性）</b>窗口。</p>
+<ol type="1">
+
+<li value="8"><a name="1047115"></a>单击<b>“OK”（确定）</b>以保存更改。
+<br><br>
+</ol>
+<a name="1047117"></a><h4> 配置您的系统以向 Management Station 发送 SNMP 陷阱</h4>
+<a name="1047118"></a><p>Dell OpenManage 软件生成 SNMP 陷阱，以响应传感器状况的更改和其它受监测参数的更改。 您必须在 Dell OpenManage 软件系统上为将要发送至管理站的 SNMP 陷阱配置一个或多个陷阱目标。</p>
+<ol type="1">
+
+<li value="1"><a name="1047139"></a>如果系统运行的是 Windows Server 2003，则单击<b>“Start”（开始）</b>按钮，右键单击<b>“My Computer”（我的电脑）</b>并指向<b>“Manage”（管理）</b>。 如果系统运行的是 Windows 2000，右键单击<b>“My Computer”（我的电脑）</b>并指向<b>“Manage”（管理）</b>。
+<br><br>
+</ol>
+<a name="1047144"></a><p class="indent">将打开<b>“Computer Management”（计算机管理）</b>窗口。</p>
+<ol type="1">
+
+<li value="2"><a name="1047145"></a>如果有必要，请展开窗口中的<b>“Computer Management”（计算机管理）</b>图标。
+
+<br><br>
+<li value="3"><a name="1047146"></a>展开<b>“Services and Applications”（服务和应用程序）</b>图标并单击<b>“Services”（服务）</b>。
+
+<br><br>
+<li value="4"><a name="1047147"></a>向下滚动服务列表，直至找到<b>“SNMP Service”（SNMP 服务）</b>。右键单击<b>“SNMP Service”（SNMP 服务）</b>，然后单击<b>“Properties”（属性）</b>。
+<br><br>
+</ol>
+<a name="1047148"></a><p class="indent">将打开<b>“SNMP Service Properties”（SNMP 服务属性）</b>窗口。</p>
+<ol type="1">
+
+<li value="5"><a name="1047149"></a>单击<b>“Traps”（陷阱）</b>选项卡以添加陷阱团体，或添加陷阱团体的陷阱目标。  
+<br><br>
+<ol type="a">
+
+<li value="1"><a name="1048519"></a>要添加陷阱团体，请在<b>“Community Name”（团体名称）</b>框中键入团体名称，然后单击<b>“Community Name”（团体名称）</b>框旁边的<b>“Add to list”（添加到列表）</b>。  
+<br><br>
+</ol>
+  <ol type="a">
+
+<li value="2"><a name="1048520"></a>要添加陷阱团体的陷阱目标，请从<b>“Community Name”（团体名称）</b>下拉框中选择团体名称，然后单击<b>“Trap Destinations”（陷阱目标）</b>框下的<b>“Add”（添加）</b>。  
+<br><br>
+</ol>
+</ol>
+<a name="1090976"></a><p class="Indentsub">将打开<b>“SNMP Service Configuration”（SNMP 服务配置）</b>窗口。 </p>
+<ol type="1">
+  <ol type="a">
+
+<li value="3"><a name="1048522"></a>键入陷阱目标并单击<b>“Add”（添加）</b>。  
+<br><br>
+</ol>
+</ol>
+<a name="1047157"></a><p class="Indentsub">将打开<b>“SNMP Service Properties”（SNMP 服务属性）</b>窗口。</p>
+<ol type="1">
+
+<li value="6"><a name="1047158"></a>单击<b>“OK”（确定）</b>以保存更改。
+<br><br>
+</ol>
+<a name="1047161"></a><h3> 在运行支持的 Red Hat Enterprise Linux 操作系统的系统上配置 SNMP 代理
+</h3>
+<a name="1047162"></a><p>Server Administrator 使用 ucd-snmp 或 net-SNMP 代理提供的 SNMP 服务。 您可以配置 SNMP 代理，以更改团体名称、启用设置操作及向管理站发送陷阱。 要配置 SNMP 代理以正确地与管理应用程序（例如 IT Assistant）进行交互，请执行以下各节中说明的步骤。</p>
+<a name="1048607"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>有关 SNMP 配置的其它详细信息，请参阅您的操作系统说明文件。
+</td>
+  </tr>
+</table><a name="1093089"></a><h4> SNMP 代理 Access Control 配置</h4>
+<a name="1093095"></a><p>Server Administrator 实现的 MIB (Management Information Base [管理信息库]) 分支标有 1.3.6.1.4.1.674 OID。管理应用程序必须能够访问 MIB 树的这个分支才能管理运行 Server Administrator 的系统。</p>
+<a name="1093099"></a><p>对于 Red Hat Enterprise Linux 操作系统，默认 SNMP 代理配置只给予“public”团体对 MIB 树 MIB-II“system”分支（标识为 OID 1.3.6.1.2.1.1）的只读访问权限。 这项配置不允许管理应用程序检索或更改 Server Administrator 或 MIB-II“system”分支之外的其它 Systems Management 信息。</p>
+<a name="1093091"></a><h4> Server Administrator SNMP 代理安装操作</h4>
+<a name="1084581"></a><p>如果 Server Administrator 在安装期间检测到默认 SNMP 配置，将尝试修改 SNMP 代理配置，以给予“public”团体对整个 MIB 树的只读访问权限。 Server Administrator 以两种方式修改 <b>/etc/snmp/snmpd.conf</b> SNMP 代理配置文件。</p>
+<a name="1057668"></a><p>第一种更改是，通过添加下列行来创建一个查看整个 MIB 树的视图（如果不存在）：</p>
+<a name="1057669"></a><p class="screen">view all included .1
+</p><a name="1057670"></a><p>第二种更改是，修改默认“access”行，给予“public”团体对整个 MIB 树的只读访问权限。 Server Administrator 会查看下列：</p>
+<a name="1057671"></a><p class="screen">access notConfigGroup &quot;&quot; any noauth exact systemview none none
+</p><a name="1057672"></a><p>如果 Server Administrator 找到上面的行，它会修改该行以便读取：</p>
+<a name="1057673"></a><p class="screen">access notConfigGroup &quot;&quot; any noauth exact all none none
+</p><a name="1057674"></a><p>这些对默认 SNMP 代理配置的修改给予 &quot;public&quot; 团体对整个 MIB 树的只读访问权限。 </p>
+<a name="1057675"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>为确保 Server Administrator 能够修改 SNMP 代理配置以提供对 Systems Management 数据的适当访问权限，建议在安装 Server Administrator 之后再对其它所有 SNMP 代理配置进行修改。
+</td>
+  </tr>
+</table><a name="1093209"></a><p>Server Administrator SNMP 使用 SNMP 多路复用 (SMUX) 协议与 SNMP 代理进行通信。Server Administrator SNMP 连接至 SNMP 代理时，它会向 SNMP 发送一个对象标识符，表明自己是 SMUX 同层协议。因为必须在 SNMP 代理上配置该对象标识符，所以在安装期间，Server Administrator 会向 SNMP 代理配置文件<b> /etc/snmp/snmpd.conf</b> 中添加以下一行命令（如果配置文件中没有）：</p>
+<a name="1093879"></a>
+<p class="screenindent"><span class="screen">smuxpeer .1.3.6.1.4.1.674.10892.1</span></p>
+<a name="1093211"></a><h4> 更改 SNMP 团体名称</h4>
+<a name="1094035"></a><p>配置 SNMP 团体名称可确定哪个系统能够通过 SNMP 管理您的系统。 管理应用程序使用的 SNMP 团体名称必须与在 Server Administrator 软件系统上配置的 SNMP 团体名称匹配，以便管理应用程序可以从 Server Administrator 检索管理信息。</p>
+<a name="1047174"></a><p>要更改用于从运行 Server Administrator 的系统检索管理信息的 SNMP 团体名称，请编辑 SNMP 代理配置文件 <b>/etc/snmp/snmpd.conf</b> 并执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1047175"></a>查找以下行：
+<br><br>
+ </ol>
+<a name="1047176"></a>
+<p class="screenindent"><span class="screen">com2sec publicsec default public</span>
+ </p>
+<a name="1047177"></a><p class="indent">或 </p>
+<a name="1047178"></a>
+<p class="screenindent"><span class="screen">com2sec notConfigUser default public</span>
+ </p>
+<ol type="1">
+
+<li value="2"><a name="1082011"></a><span class="screen"></span>编辑此行，用新 SNMP 团体名称替换 public。 编辑后，新行应为：
+<br><br>
+ </ol>
+<a name="1082012"></a>
+<p class="screenindent"><span class="screen">com2sec publicsec default </span><span class="screen"><i>团体名称</i></span>
+ </p>
+<a name="1082013"></a><p class="indent">或 </p>
+<a name="1047182"></a>
+<p class="screenindent"><span class="screen">com2sec notConfigUser default</span> <span class="screen"><i>团体名称</i></span></p>
+<ol type="1">
+
+<li value="3"><a name="1047183"></a>要启用已更改的 SNMP 配置，请通过键入以下命令重新启动 SNMP 代理程序：
+<br><br>
+ </ol>
+<a name="1047184"></a>
+<p class="screenindent"><span class="screen">service snmpd restart</span></p>
+<a name="1047185"></a><h4> 启用 SNMP Set 操作</h4>
+<a name="1047186"></a><p>必须在运行 Server Administrator 的系统上启用 SNMP Set 操作才能使用 IT Assistant 更改 Server Administrator 软件属性。要从 IT Assistant 启用系统的远程关机，必须启用 SNMP Set 操作。</p>
+<a name="1095442"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>为更改管理功能重新引导系统不需要 SNMP Set 操作。</td>
+  </tr>
+</table><a name="1047187"></a><p>要在运行 Server Administrator 的系统上启用 SNMP Set 操作，请编辑 <b>/etc/snmp/snmpd.conf</b>  SNMP 代理配置文件并执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1047188"></a>查找以下行：
+<br><br>
+ </ol>
+<a name="1047189"></a>
+<p class="screenindent"><span class="screen">access publicgroup &quot;&quot; any noauth exact all none</span> none
+</p>
+<a name="1047190"></a><p class="indent">或 </p>
+<a name="1047191"></a>
+<p class="screenindent"><span class="screen">access notConfigGroup &quot;&quot; any noauth exact all none</span> none
+</p>
+<ol type="1">
+
+<li value="2"><a name="1047192"></a>编辑此行，用 all 替换第一个 none<span class="screen"></span><span class="screen"></span>。 编辑后，新行应为：
+<br><br>
+ </ol>
+<a name="1047193"></a>
+<p class="screenindent"><span class="screen">access publicgroup &quot;&quot; any noauth exact all all none</span>
+ </p>
+<a name="1047194"></a><p class="indent">或 </p>
+<a name="1047195"></a>
+<p class="screenindent">access notConfigGroup &quot;&quot; any noauth exact all all none
+ </p>
+<ol type="1">
+
+<li value="3"><a name="1047196"></a>要启用已更改的 SNMP 配置，请通过键入以下命令重新启动 SNMP 代理程序：
+<br><br>
+ </ol>
+<a name="1047197"></a>
+<p class="screenindent"><span class="screen">service snmpd restart</span></p>
+<a name="1047198"></a><h4> 配置您的系统以向 Management Station 发送陷阱 </h4>
+<a name="1047199"></a><p>Server Administrator 生成 SNMP 陷阱，以响应传感器状态的变化和其它受监测参数的变化。必须在运行 Server Administrator 的系统上为将要发送至管理站的 SNMP 陷阱配置一个或多个陷阱目标。</p>
+<a name="1047200"></a><p>要配置运行 Server Administrator 的系统以向管理站发送陷阱，请编辑 <b>/etc/snmpd.conf</b> SNMP 代理配置文件并执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1047201"></a>向文件添加以下命令行：
+<br><br>
+ </ol>
+<a name="1047202"></a>
+<p class="screenindent"><span class="screen">trapsink</span> <span class="screen"><i>IP 地址 团体名称</i></span></p>
+<a name="1047203"></a><p class="indent">其中，<span class="screen"><i>IP 地址</i></span>是管理站的 IP 地址，<span class="screen"><i>团体名称</i></span>是 SNMP 团体名称</p>
+<ol type="1">
+
+<li value="2"><a name="1047204"></a>要启用已更改的 SNMP 配置，请通过键入以下命令重新启动 SNMP 代理程序：
+<br><br>
+ </ol>
+<a name="1084853"></a>
+<p class="screenindent"><span class="screen">service snmpd restart</span></p>
+<a name="1084854"></a><h4> 在运行支持的 Red Hat Enterprise Linux 操作系统的系统中的防火墙配置</h4>
+<a name="1084858"></a><p>如果在安装 Red Hat Enterprise Linux 时启用了防火墙安全保护，则默认情况下，所有外部网络接口上的 SNMP 端口都将处于关闭状况。 要启用 SNMP 管理应用程序（例如 IT Assistant）以从 Server Administrator 查找和检索信息，则至少一个外部网络接口上的 SNMP 端口必须处于打开状况。 如果 Server Administrator 检测到防火墙中未打开任何外部网络接口的 SNMP 端口，则将显示警告信息，并在系统日志中记录信息。 请参阅“<a href="security.htm#1047255">端口</a>”了解其它信息。</p>
+<a name="1084791"></a><p>通过禁用防火墙、打开防火墙中的整个外部网络接口或打开防火墙中至少一个外部网络接口的 SNMP 端口，您可以打开 SNMP 端口。 您可以在启动 Server Administrator 之前或之后执行此操作。</p>
+<a name="1084792"></a><p>要使用上述方法之一打开 SNMP 端口，请执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1084793"></a>在 Red Hat Enterprise Linux 命令提示符后，键入 <span class="screen">setup</span> 并按 &lt;Enter&gt; 键，以启动文本模式设置公用程序。
+<br><br>
+</ol>
+<a name="1084798"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>只有在执行了默认的操作系统安装之后这个命令才可用。
+</td>
+  </tr>
+</table>
+<a name="1084799"></a><p class="indent"><b>“Choose a Tool”（选择工具）</b>菜单将会打开。</p>
+<ol type="1">
+
+<li value="2"><a name="1084800"></a>使用下箭头键选择<b>“Firewall Configuration”（防火墙配置）</b>并按 &lt;Enter&gt; 键。
+<br><br>
+</ol>
+<a name="1084801"></a><p class="indent"><b>“Firewall Configuration”（防火墙配置）</b>屏幕将会打开。</p>
+<ol type="1">
+
+<li value="3"><a name="1084802"></a>选择<b>“Security Level”（安全级别）</b>，方法是按 Tab 键跳至该选项并按空格键。 所选<b>“Security Level”（安全级别）</b>将以星号表示。
+<br><br>
+</ol>
+<a name="1084807"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>有关防火墙安全级别的详细信息，请按 &lt;F1&gt; 键。 默认 SNMP 端口号为 <b>161</b>。 
+如果您使用的是 X Windows GUI，按 &lt;F1&gt; 不会提供有关新版 Red Hat Enterprise Linux 操作系统防火墙安全级别的信息。
+</td>
+  </tr>
+</table>
+<ol type="a">  <ol type="a">
+
+<li value="1"><a name="1084808"></a>要禁用防火墙，请选择<b>“No firewall”（无防火墙）</b>或<b>“Disabled”（禁用）</b>并转至步骤 7。</ol>
+  <ol type="a">
+
+<li value="2"><a name="1084809"></a>要打开整个网络接口或 SNMP 端口，请选择<b>“High”（高级）、“Medium”（中级）</b>或<b>“Enabled”（已启用）</b>，然后继续步骤 4。  
+<br><br>
+</ol>
+
+<li value="4"><a name="1084814"></a>按 Tab 键跳至<b>“Customize”（自定义）</b>并按 &lt;Enter&gt; 键。
+<br><br>
+</ol><a name="1084815"></a><p class="indent">系统将显示<b>“Firewall Configuration - Customize”（防火墙配置 - 自定义）</b>屏幕。</p>
+<ol type="1">
+
+<li value="5"><a name="1084816"></a>选择打开整个网络接口或仅打开所有网络接口上的 SNMP 端口。  
+<br><br>
+<ol type="a">
+
+<li value="1"><a name="1084817"></a>要打开整个网络接口，请按 Tab 键跳至<b>“Trusted Devices”（信任的设备）</b>之一并按空格键。 
+设备名称左侧框中的星号表示将打开整个网络接口。  
+<br><br>
+</ol>
+  <ol type="a">
+
+<li value="2"><a name="1084818"></a>要打开所有网络接口上的 SNMP 端口，请按 Tab 键跳至<b>“Other ports”（其它端口）</b>，然后键入 <span class="screen">snmp:udp</span>。  
+<br><br>
+</ol>
+
+<li value="6"><a name="1084819"></a>按 Tab 键跳至<b>“OK”（确定）</b>并按 &lt;Enter&gt; 键。
+<br><br>
+</ol>
+<a name="1084820"></a><p class="indent"><b>“Firewall Configuration”（防火墙配置）</b>屏幕将会打开。</p>
+<ol type="1">
+
+<li value="7"><a name="1084821"></a>按 Tab 键跳至<b>“OK”（确定）</b>并按 &lt;Enter&gt; 键。
+<br><br>
+</ol>
+<a name="1084822"></a><p class="indent"><b>“Choose a Tool”（选择工具）</b>菜单将会打开。</p>
+<ol type="1">
+
+<li value="8"><a name="1093232"></a>按 Tab 键跳至<b>“Quit”（退出）</b>并按 &lt;Enter&gt; 键。
+<br><br>
+</ol>
+<a name="1093653"></a><h3>在运行支持的 SUSE Linux Enterprise Server 操作系统的系统上配置 SNMP 代理
+</h3>
+<a name="1093654"></a><p>Server Administrator 使用 ucd-snmp 或 net-SNMP 代理提供的 SNMP 服务。 可以配置 SNMP 代理以启用从远程主机进行 SNMP 访问的权限、更改团体名称、启用 Set 操作以及向管理站发送陷阱。要配置 SNMP 代理以正确地与管理应用程序（例如 IT Assistant）进行交互，请执行以下各节中说明的步骤。</p>
+<a name="1093386"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>有关 SNMP 配置的其它详细信息，请参阅您的操作系统说明文件。
+</td>
+  </tr>
+</table><a name="1093275"></a><h4>Sever Administrator SNMP 安装措施</h4>
+<a name="1093411"></a><p>Server Administrator SNMP 使用 SNMP 多路复用 (SMUX) 协议与 SNMP 代理进行通信。Server Administrator SNMP 连接至 SNMP 代理时，它会向 SNMP 发送一个对象标识符，表明自己是 SMUX 同层协议。因为必须在 SNMP 代理上配置该对象标识符，所以在安装期间，Server Administrator 会向 SNMP 代理配置文件<b> /etc/snmpd.conf</b> 中添加以下一行命令（如果配置文件中没有）：</p>
+<a name="1093412"></a>
+<p class="screenindent">smuxpeer .1.3.6.1.4.1.674.10892.1
+</p>
+<a name="1093281"></a><h4>启用从远程主机进行 SNMP 访问的权限</h4>
+<a name="1093283"></a><p>SUSE Linux Enterprise Server 操作系统上的默认 SNMP 代理配置仅赋予“public”团体从本地主机只读访问整个 MIB 树的权限。此配置不允许其它主机上运行的 SNMP 管理应用程序（例如 IT Assistant）适当地搜索和管理 Server Administrator 系统。如果在安装期间 Server Administrator 检测到此配置，它会在操作系统日志文件<b> /var/log/messages</b> 中记录一条信息，表明 SNMP 访问仅限于本地主机。如果准备使用 SNMP 管理应用程序从远程主机管理系统，必须配置 SNMP 代理，以启用远程主机 SNMP 访问。</p>
+<a name="1095281"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>出于安全性方面的原因，建议仅将 SNMP 访问权限赋予特定的远程主机（如果可能）。</td>
+  </tr>
+</table><a name="1095271"></a><p>要启用从特定远程主机对运行 Server Administrator 的系统进行 SNMP 访问的权限，请编辑 SNMP 代理配置文件 <b>/etc/snmpd.conf</b>，并执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1095149"></a>查找以下行：
+<br><br>
+</ol>
+<a name="1095150"></a>
+<p class="screenindent"><span class="screen">rocommunity public 127.0.0.1
+</span></p>
+<ol type="1">
+
+<li value="2"><a name="1095151"></a>编辑或复制此行，用远程主机 IP 地址替换 127.0.0.1。编辑后，新行应为：
+<br><br>
+</ol>
+<a name="1095152"></a>
+<p class="screenindent"><span class="screen">rocommunity public </span><span class="screen">IP 地址</span></p>
+<a name="1095230"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>可以通过为每台远程主机添加一条 <span class="screen">rocommunity</span> 指令，启用从多台特定远程主机进行 SNMP 访问的权限。</td>
+  </tr>
+</table><ol type="1">
+
+<li value="3"><a name="1095231"></a>要启用已更改的 SNMP 配置，请通过键入以下命令重新启动 SNMP 代理程序：
+<br><br>
+</ol>
+<a name="1095232"></a>
+<p class="screenindent"><span class="screen">/etc/init.d/snmpd restart</span></p>
+<a name="1093447"></a><p>要启用从所有远程主机对运行 Server Administrator 的系统进行 SNMP 访问的权限，请编辑 SNMP 代理配置文件 <b>/etc/snmpd.conf</b>，并执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1093448"></a>查找以下行：
+<br><br>
+</ol>
+<a name="1093289"></a>
+<p class="screenindent">rocommunity public 127.0.0.1</p>
+<ol type="1">
+
+<li value="2"><a name="1093291"></a>编辑此行，删除 127.0.0.1。编辑后，新行应为：
+<br><br>
+</ol>
+<a name="1093293"></a>
+<p class="screenindent">rocommunity public</p>
+<ol type="1">
+
+<li value="3"><a name="1093295"></a>要启用已更改的 SNMP 配置，请通过键入以下命令重新启动 SNMP 代理程序：
+<br><br>
+</ol>
+<a name="1093297"></a>
+<p class="screenindent">/etc/init.d/snmpd restart</p>
+<a name="1093299"></a><h4> 更改 SNMP 团体名称</h4>
+<a name="1093301"></a><p>配置 SNMP 团体名称可确定哪个系统能够通过 SNMP 管理您的系统。管理应用程序使用的 SNMP 团体名称必须与在 Server Administrator 系统上配置的 SNMP 团体名称匹配，以便管理应用程序可以从 Server Administrator 检索管理信息。</p>
+<a name="1093303"></a><p>要更改用于从运行 Server Administrator 的系统检索管理信息的默认 SNMP 团体名称，请编辑 SNMP 代理配置文件 <b>/etc/snmpd.conf</b> 并执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1093305"></a>查找以下行：
+<br><br>
+</ol>
+<a name="1093307"></a>
+<p class="screenindent">rocommunity public 127.0.0.1</p>
+<ol type="1">
+
+<li value="2"><a name="1093517"></a>编辑此行，用新 SNMP 团体名称替换 <span class="screen">public</span>。编辑后，新行应为：
+<br><br>
+</ol>
+<a name="1093519"></a>
+<p class="screenindent">rocommunity 团体名称 127.0.0.1</p>
+<ol type="1">
+
+<li value="3"><a name="1093313"></a>要启用已更改的 SNMP 配置，请通过键入以下命令重新启动 SNMP 代理程序：
+<br><br>
+</ol>
+<a name="1093315"></a>
+<p class="screenindent">/etc/init.d/snmpd restart</p>
+<a name="1093317"></a><h4> 启用 SNMP Set 操作</h4>
+<a name="1093319"></a><p>必须在运行 Server Administrator 的系统上启用 SNMP Set 操作才能使用 IT Assistant 更改 Server Administrator 属性。要从 IT Assistant 启用系统的远程关机，必须启用 SNMP Set 操作。</p>
+<a name="1095492"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>为更改管理功能重新引导系统不需要 SNMP Set 操作。</td>
+  </tr>
+</table><a name="1093321"></a><p>要在运行 Server Administrator 的系统上启用 SNMP Set 操作，请编辑 SNMP 代理配置文件 <b>/etc/snmpd.conf</b> 并执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1093323"></a>查找以下行：
+<br><br>
+</ol>
+<a name="1093325"></a>
+<p class="screenindent">rocommunity public 127.0.0.1</p>
+<ol type="1">
+
+<li value="2"><a name="1093327"></a>编辑此行，用 <span class="screen">rwcommunity</span> 替换 <span class="screen">rocommunity</span>。编辑后，新行应为：
+<br><br>
+</ol>
+<a name="1093329"></a>
+<p class="screenindent">rwcommunity public 127.0.0.1</p>
+<ol type="1">
+
+<li value="3"><a name="1093331"></a>要启用已更改的 SNMP 配置，请通过键入以下命令重新启动 SNMP 代理程序：
+<br><br>
+</ol>
+<a name="1093333"></a>
+<p class="screenindent">/etc/init.d/snmpd restart</p>
+<a name="1093335"></a><h4> 配置您的系统以向 Management Station 发送陷阱</h4>
+<a name="1093337"></a><p>Server Administrator 生成 SNMP 陷阱，以响应传感器状态的变化和其它受监测参数的变化。必须在运行 Server Administrator 的系统上为将要发送至管理站的 SNMP 陷阱配置一个或多个陷阱目标。</p>
+<a name="1093339"></a><p>要配置运行 Server Administrator 的系统以向管理站发送陷阱，请编辑 SNMP 代理配置文件 <b>/etc/snmpd.conf </b>并执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1093341"></a>向文件添加以下命令行：
+<br><br>
+</ol>
+<a name="1093343"></a>
+<p class="screenindent">trapsink IP 地址 团体名称
+</p>
+<a name="1093345"></a><p class="indent">where<span class="screen"> </span><span class="screen">IP 地址</span> 是管理站的 IP 地址，<span class="screen">团体名称</span> 是 SNMP 团体名称。</p>
+<ol type="1">
+
+<li value="2"><a name="1093347"></a>要启用已更改的 SNMP 配置，请通过键入以下命令重新启动 SNMP 代理程序：
+<br><br>
+</ol>
+<a name="1093349"></a>
+<p class="screenindent">/etc/init.d/snmpd restart</p>
+<hr noshade size="1">
+<a name="1093618"></a><h2>安全端口服务器和安全性设置</h2>
+
+
+<a name="1064459"></a><p>本节包括以下主题：</p>
+<ul><li><a name="1064463"></a><a href="setup.htm#1064469">设置用户和服务器首选项</a><br><br></li>
+<li><a name="1064467"></a><a href="setup.htm#1064516">X.509 认证管理</a><br><br></li>
+</ul><a name="1064469"></a><h3> 设置用户和服务器首选项
+</h3>
+<a name="1084692"></a><p>可以从相应的<b>“Preferences”（首选项）</b>Web 页面为 Server Administrator 和 IT Assistant 设置用户和安全端口服务器首选项。单击<b>“General Settings”（常规设置）</b>并单击<b>“User”（用户）</b>选项卡或 <b>Web Server</b> 选项卡。</p>
+<a name="1088527"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>要设置或重设用户或服务器首选项，您必须以 Administrator（管理员）权限登录。
+  	 	 	 	</td>
+  </tr>
+</table><a name="1088549"></a><p>要设置用户首选项，请执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1064477"></a>单击全局导航栏上的<b>“Preferences”（首选项）</b>。
+<br><br>
+</ol>
+<a name="1064478"></a><p class="indent">系统将显示<b>“Preferences”（首选项）</b>主页。</p>
+<ol type="1">
+
+<li value="2"><a name="1064479"></a>单击<b>“General Settings”（常规设置）</b>。
+
+<br><br>
+<li value="3"><a name="1064480"></a>要添加预先选定的电子邮件收件人，请在<b>“Mail To:”（邮件发送至：）</b>字段中键入指定服务联络的电子邮件地址，然后单击<b>“Apply Changes”（应用更改）</b>。
+<br><br>
+</ol>
+<a name="1064485"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>在任意窗口中单击<b>“Email”（电子邮件）</b>可将电子邮件信息和附加的该窗口的 HTML 文件发送至指定的电子邮件地址。</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="4"><a name="1064486"></a>要更改主页外观，请在<b>“skin”（外观）</b>或<b>“scheme”（方案）</b>字段中选择替换值，然后单击<b>“Apply Changes”（应用更改）</b>。
+<br><br>
+</ol>
+<a name="1084898"></a><p>要设置安全端口服务器首选项，请执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1064488"></a>单击全局导航栏上的<b>“Preferences”（首选项）</b>。
+<br><br>
+</ol>
+<a name="1064489"></a><p class="indent">系统将显示<b>“Preferences”（首选项）</b>主页。</p>
+<ol type="1">
+
+<li value="2"><a name="1064490"></a>单击<b>“General Settings”（常规设置）</b>和 <b>Web Server</b> 选项卡。
+
+<br><br>
+<li value="3"><a name="1064491"></a>在<b>“Server Preferences”（服务器首选项）</b>窗口中根据需要设置选项。
+<br><br>
+<ul>
+<li type="disc"><a name="1064492"></a><b>“Session Timeout”（会话超时）</b>功能可以设置会话保持活动的时间限制。 选择<b>“Enable”（启用）</b>单选按钮启用在指定分钟内没有用户交互情况下的超时。 会话超时的用户必须再次登录才能继续。选择<b>“Disable”（禁用）</b>单选按钮将禁用 Server Administrator 会话超时功能。<br><br> </li>
+<li type="disc"><a name="1064493"></a><b>“HTTPS Port”（HTTPS 端口）</b>字段可以为 Server Administrator 指定安全端口。 Server Administrator 的默认安全端口是 1311。<br><br></li>
+</ul>
+</ol>
+<a name="1064498"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>将端口编号更改为无效或正在使用的端口编号可能会妨碍其它应用程序或浏览器访问管理系统上的 Server Administrator。
+</td>
+  </tr>
+</table>
+<ul><ul>
+<li type="disc"><a name="1064499"></a><b>“IP Address to Bind to”（要绑定到的 IP 地址）</b>字段可指定启动会话时 Server Administrator 绑定到的管理系统的 IP 地址。 选择<b>“All”（所有）</b>单选按钮将绑定到所有适用于系统的 IP 地址。 选择<b>“Specific”（特定）</b>单选按钮将绑定到特定 IP 地址。<br><br></li>
+</ul>
+</ul><a name="1086988"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>具有管理员权限的用户在远程登录系统时不能使用 Server Administrator。
+</td>
+  </tr>
+</table>
+<a name="1064504"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>将<b>“IP Address to Bind to”（要绑定到的 IP 地址）</b>值更改为除<b>“All”（所有）</b>以外的值可能会造成其它应用程序或浏览器无法远程访问管理系统上的 Server Administrator。</td>
+  </tr>
+</table>
+<ul><ul>
+<li type="disc"><a name="1064505"></a><b>“SMTP Server name”（SMTP 服务器名称）</b>和<b>“DNS Suffix for SMTP Server”（SMTP 服务器的 DNS 后缀）</b>字段可指定您的公司或组织的简单邮件传输协议 (SMTP) 和域名服务器 (DNS) 后缀。 要启用 Server Administrator 发送电子邮件，您必须在相应字段中键入您公司或组织的 SMTP 服务器的 IP 地址和 DNS 后缀。<br><br></li>
+</ul>
+</ul><a name="1064510"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>出于安全性的原因，您的公司或组织可能不允许通过 SMTP 服务器向外部帐户发送电子邮件。
+</td>
+  </tr>
+</table>
+<ul><ul>
+<li type="disc"><a name="1064511"></a><b>“Command Log Size”（命令日志大小）</b>字段可指定命令日志文件的最大文件大小（以 MB 为单位）。<br><br></li>
+<li type="disc"><a name="1064512"><b>“</b></a><b>Support Link”（支持链接）</b>字段可指定为管理系统提供支持的企业实体的 Web 地址。<br><br></li>
+<li type="disc"><a name="1064513"></a><b>“Custom Delimiter”（自定义分隔符）</b>字段指定用于分隔数据字段的字符，以便分隔那些使用<b>“Export”（导出）</b>按钮创建的文件中的字段。 <b>;</b> 字符是默认分隔符。 其它选项有 <b>!</b>、<b>@</b>、<b>#</b>、<b>$</b>、<b>%</b>、<b>^</b>、<b>*</b>、<b>~</b>、<b>?</b>、<b>: </b>、<b>|</b> 和 <b>,</b>。<br><br></li>
+</ul>
+
+<li value="4"><a name="1064514"></a>在<b>“Server Preferences”（服务器首选项）</b>窗口中完成选项设置后，请单击<b>“Apply Changes”（应用更改）</b>。
+<br><br>
+</ul><a name="1064516"></a><h3> X.509 认证管理
+</h3>
+<a name="1064517"></a><p>Web 认证可以确保远程系统的身份并确保与远程系统交换的信息不会被他人查看或更改。 为了确保系统安全，强烈建议您生成新的 X.509 认证、重新使用现有的 X.509 认证或导入来自认证机构 (CA) 的根认证或认证链。</p>
+<a name="1064522"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>要执行认证管理，您必须以 Administrator（管理员）权限登录。
+</td>
+  </tr>
+</table><a name="1084746"></a><p>可以从相应的<b>“Preferences”（首选项）</b>Web 页面管理 Server Administrator 和 IT Assistant 的 X.509 认证。单击<b>“General Settings”（常规设置）</b>，单击 <b>Web Server</b> 选项卡，并单击<b>“X.509 Certificate”（X.509 认证）</b>。 </p>
+<a name="1064524"></a><p>使用 X.509 认证工具可生成新的 X.509 认证、重新使用现有的 X.509 认证或通过 CA 导入根认证或认证链。 已授权的 CA 包括 Verisign、Entrust 和 Thawte。</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">返回目录页</a></p>
+
+
+<p>&#160;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

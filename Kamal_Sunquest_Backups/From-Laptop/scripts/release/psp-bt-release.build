@@ -1,0 +1,622 @@
+<?xml version="1.0"?>
+<project>
+    <!--
+
+        Copyright 2005 Hewlett-Packard . All Rights Reserved.
+        This software is the confidential and proprietary information of
+        Hewlett-Packard. Use is subject to license terms.
+
+        NAnt version : 0.85 Release Candidate 3 (Build 0.85.1932.0 rc3 4/16/2005)
+        http://www.swoogan.com/nantgui.html  : NAnt-Gui-1.2.4-rc6.exe
+
+        NOTE : This script is not intended to be modified by anyone other than the build team.
+        Author: Gopinath M.R. (mgopinath@trianz.com)
+    -->
+    <include buildfile="S:/sdtajscripts/scripts/psp-release.build"/>
+    <property name="l10n.languages.list" value="cs,da,de,el,es,fi,fr,hu,it,ja,ko,no,nl,pl,pt,ru,sv,tr,zh-CN,zh-TW"/>
+    <property name="l10n.dir" value="${source.drive}/btappres/l10n-files"/>
+    <property name="l10n.bin.dir" value="${source.drive}/btappres/l10n-binaries"/>
+    <property name="l10n.vendor.view.name" value="${vendor.release.ccase.account}_Release_${product.name.prefix}_${product.program.release}_l10n_vendor_DynamicView"/>
+    <property name="l10n.projectslist.filename" value="s:/btbuild/scripts/release/l10n-projects.txt" overwrite="true"/>
+    <property name="l10n.pseudo-options.filename" value="s:/btbuild/scripts/release/pseudo-l10n-options.txt" overwrite="true"/>
+    
+    <target name="psp.l10n.l10n-vendor.mkview">
+        <!-- create a new dynamic view for getting the latest localized files from localization vendors branch (sd_dev_l10n) -->
+        <property name="param.ccase.view.name" value="${l10n.vendor.view.name}"/>
+        <call target="task.ccase.mkview" failonerror="false"/>
+       <property name="param.ccase.cspec" value="${vendor.buildvob.dir}/cspecs/bt-l10n-vendor.cspec" overwrite="true"/>
+       <call target="task.ccase.setcs"/>
+    </target>
+
+    <target name="psp.l10n.langs.checkout">
+      <property name="param.ccase.comment" value="Checkout of localized files for incorporating the latest translation files from l10n vendors and source for build ${build.version} by ${vendor.name} for ${product.name} - ${build.product.release.major}.${build.product.release.minor} [${product.program.release}]" overwrite="true"/>
+      <foreach item="String" in="en,en-pseudo,${l10n.languages.list},ar,he" delim="," property="lang">
+        <property name="param.ccase.folder.name" value="${l10n.dir}/${lang}" overwrite="true"/>
+        <call target="task.ccase.folder.checkout"/>
+      </foreach>
+    </target>
+
+    <target name="psp.l10n.langs.binaries.checkout">
+      <property name="param.ccase.comment" value="Checkout to update the generated l10n binaries for build ${build.version} by ${vendor.name} for ${product.name} - ${build.product.release.major}.${build.product.release.minor} [${product.program.release}]" overwrite="true"/>
+      <foreach item="String" in="en,en-pseudo,${l10n.languages.list},ar,he" delim="," property="lang">
+        <property name="param.ccase.folder.name" value="${l10n.bin.dir}/${lang}" overwrite="true"/>
+        <call target="task.ccase.folder.checkout"/>
+      </foreach>
+    </target>
+    
+    <target name="psp.l10n.l10n-vendor.copy">
+        <property name="src.base.dir" value="${vob.drive}/${l10n.vendor.view.name}/btappres/l10n-files" overwrite="true"/>
+        <!--
+        <property name="src.base.dir" value="E:/write2me/l10n-common/HP-drop-localized/btappres/l10n-files" overwrite="true"/>
+        -->
+        <foreach item="String" in="en,en-pseudo,${l10n.languages.list}" delim="," property="lang">
+            <property name="src.dir" value="${src.base.dir}/${lang}" overwrite="true"/>
+            <if test="${directory::exists(src.dir)}">
+                <copy todir="${l10n.dir}/${lang}" overwrite="true">
+                    <fileset basedir="${src.dir}">
+                        <include name="*.*" />
+                    </fileset>
+                </copy>
+            </if>
+        </foreach>
+    </target>
+
+    <target name="psp.l10n.en.update.all">
+        <call target="psp.l10n.versionmerge"/>
+        <if test="${file::exists(l10n.projectslist.filename)}">
+            <foreach item="Line" in="${l10n.projectslist.filename}" property="projectLineStr">
+                <property name="param.util.line" value="${projectLineStr}" overwrite="true"/>
+                <call target="task.extractL10ProjectOptions"/>
+                <call target="psp.l10n.en.update"/>
+                <call target="psp.l10n.pseudo.update"/>
+            </foreach>
+            
+            <!-- run pseudo localization tool for every en file-->
+
+            <foreach item="File" property="src.file">
+                <in>
+                    <items basedir="${l10n.dir}/en">
+                        <include name="*.ts"/>
+                        <exclude name="**.mkelem/**"/>
+                        <exclude name="*.keep"/>
+                    </items>
+                </in>
+                <do>
+                    <exec program="${bt.tools.dir}/QtPseudoLocalizer.exe" workingdir="${bt.tools.dir}" failonerror="false">
+                        <arg value="-verbose"/>
+                        <arg value="-reset"/>
+                        <arg value="-force"/>
+                        <arg value="-en"/>
+                        <arg value="${src.file}"/>
+                        <arg value="-dir"/>
+                        <arg value="${l10n.dir}"/>
+                        <arg value="-lang"/>
+                        <arg value="en-pseudo,${l10n.languages.list}"/>
+                        <arg value="-prefix"/>
+                        <arg value="prefixText"/>
+                        <arg value="-suffix"/>
+                        <arg value="suffixText"/>
+                        <arg value="-percent"/>
+                        <arg value="45"/>
+                    </exec>
+                </do>
+            </foreach>
+        </if>
+        <foreach item="String" in="${l10n.languages.list},ar,he" delim="," property="lang">
+            <foreach item="File" property="src.file">
+                <in>
+                    <items basedir="${l10n.dir}/${lang}">
+                        <include name="*.ts"/>
+                        <exclude name="**.mkelem/**"/>
+                        <exclude name="*.keep"/>
+                    </items>
+                </in>
+                <do>
+                    <exec program="${bt.tools.dir}/QtResourceVersionUpdator.exe" workingdir="${directory}" failonerror="false">
+                        <arg value="-ts"/>
+                        <arg value="${src.file}"/>
+                        <arg value="-version.build"/>
+                        <arg value="${build.version}"/>
+                    </exec>
+                </do>
+            </foreach>
+        </foreach>
+    </target>
+    
+    <target name="psp.l10n.copy.ArabicHebrew">
+        <foreach item="String" in="ar,he" delim="," property="lang">
+            <property name="src.dir" value="${l10n.dir}/en" overwrite="true"/>
+            <property name="dest.dir" value="${l10n.dir}/${lang}" overwrite="true"/>
+            <foreach item="File" in="${src.dir}" property="src.file">
+                <property name="langSuffix" value="_${lang}" overwrite="true"/>
+                <property name="src.name" value="${path::get-file-name(src.file)}" overwrite="true"/>
+                <property name="dest.name" value="${string::replace(src.name, '_en', langSuffix)}" overwrite="true"/>
+                <copy overwrite="true"
+                    file="${src.file}"
+                    tofile="${dest.dir}/${dest.name}"/>
+            </foreach>
+        </foreach>
+    </target>
+    
+    <target name="psp.l10n.versionmerge">
+
+        <property name="src.base.dir" value="${vob.drive}/${l10n.vendor.view.name}/btappres/l10n-files" overwrite="true"/>
+        <!--
+        <property name="src.base.dir" value="E:/write2me/l10n-common/HP-drop-localized/btappres/l10n-files" overwrite="true"/>
+        -->
+        <property name="dest.base.dir" value="${l10n.dir}" overwrite="true"/>
+        <property name="log.l10n.dir" value="${release.repository.dir}/${build.version}/logs/l10n-logs" overwrite="true"/>
+        <mkdir dir="${log.l10n.dir}"/>
+        <foreach item="String" in="en,en-pseudo,${l10n.languages.list},ar,he" delim="," property="lang">
+            <property name="src.dir" value="${src.base.dir}/${lang}" overwrite="true"/>
+            <if test="${directory::exists(src.dir)}">
+              <property name="dest.dir" value="${dest.base.dir}/${lang}" overwrite="true"/>
+              <foreach item="File" in="${src.dir}" property="src.file">
+                    
+                  <!-- get the version.build from src.file and make it as version.l10n -->
+                  <property name="log.version.file"  value="${path::get-file-name-without-extension(src.file)}.version" overwrite="true"/>
+                  <property name="dest.file"  value="${dest.dir}/${path::get-file-name(src.file)}" overwrite="true"/>
+        
+                  <exec program="${bt.tools.dir}/QtResourceVersionReader.exe" workingdir="${bt.tools.dir}" failonerror="false">
+                      <arg value="-ts"/>
+                      <arg value="${src.file}"/>
+                      <arg value="-version.build"/>
+                      <arg value="-out"/>
+                      <arg value="${log.l10n.dir}/${log.version.file}"/>
+                  </exec>
+                  
+                  <property name="l10nFilePath" value="${log.l10n.dir}/${log.version.file}" overwrite="true"/>
+                  <if test="${file::exists(l10nFilePath)}">
+                      <foreach item="Line" in="${log.l10n.dir}/${log.version.file}" property="version.l10n">
+                          <exec program="${bt.tools.dir}/QtResourceVersionUpdator.exe" workingdir="${bt.tools.dir}" failonerror="false">
+                              <arg value="-ts"/>
+                              <arg value="${dest.file}"/>
+                              <arg value="-version.build"/>
+                              <arg value="${build.version}"/>
+                              <arg value="-version.l10n"/>
+                              <arg value="${version.l10n}"/>
+                          </exec>
+                      </foreach>
+                  </if>
+              </foreach>
+            </if>
+        </foreach>
+    </target>
+    
+    <target name="psp.l10n.pseudo.update">
+        <!--  generate pseudo localization files and languages files -->
+        <copy overwrite="true"
+            file="${directory}/${projectName}.pro"
+            tofile="${directory}/${projectName}_pseudo.pro"/>
+        <echo message="Qt lupdating for pseudolocalization and languages ... ${projectFile}  ${tsFile}"/>
+        <property name="pseudo.pro" value="${directory}/${projectName}_pseudo.pro" overwrite="true"/>
+        <exec program="${bt.tools.dir}/QtProjectUpdator.exe" workingdir="${bt.tools.dir}" failonerror="false">
+            <arg value="-pro"/>
+            <arg value="${pseudo.pro}"/>
+            <arg value="-pseudo-dir"/>
+            <arg value="${l10n.dir}/en-pseudo"/>
+            <arg value="-ts"/>
+            <arg value="${tsFileName}"/>
+            <arg value="-basedir"/>
+            <arg value="${l10n.dir}"/>
+            <arg value="-lang"/>
+            <arg value="${l10n.languages.list}"/>
+        </exec>
+
+        <exec program="${tools.qt.lupdate}" workingdir="${directory}" verbose="true">
+            <arg value="-noobsolete"/>
+            <arg value="${pseudo.pro}"/>
+        </exec>
+            
+        <!-- checkin the .ts file in source VOB -->
+        <property name="param.ccase.comment" value="Checkin of qt default .ts file in source VOB to include latest message keys from source files for build ${build.version} by ${vendor.name} for ${product.name} - ${build.product.release.major}.${build.product.release.minor} [${product.program.release}]" overwrite="true"/>
+        <property name="param.ccase.element" value="${tsFile}" overwrite="true"/>
+        <call target="task.ccase.checkin"/>
+        
+        <if test="${file::exists(pseudo.pro)}">
+            <delete file="${pseudo.pro}" failonerror="false"/>
+        </if>
+
+    </target>
+    
+    <target name="psp.l10n.en.update">
+        <property name="projectFile" value="${directory}/${projectName}.pro" overwrite="true"/>
+        <property name="tsFile" value="${directory}/${tsFileName}_en.ts" overwrite="true"/>
+        <if test="${file::exists(projectFile)}">
+
+          <!-- checkout the .pro file -->
+            <property name="param.ccase.comment" value="Checkout of qt .pro file for including the latest source files for localization in build ${build.version} by ${vendor.name} for ${product.name} - ${build.product.release.major}.${build.product.release.minor} [${product.program.release}]" overwrite="true"/>
+            <property name="param.ccase.element" value="${projectFile}" overwrite="true"/>
+            <call target="task.ccase.checkout"/>
+            
+          <!-- checkout the .ts file in source folder -->
+            <property name="param.ccase.comment" value="Checkout of qt default .ts file in source VOB to include latest message keys from source files for build ${build.version} by ${vendor.name} for ${product.name} - ${build.product.release.major}.${build.product.release.minor} [${product.program.release}]" overwrite="true"/>
+            <property name="param.ccase.element" value="${tsFile}" overwrite="true"/>
+            <call target="task.ccase.checkout"/>
+
+            <!-- run lupdate tool -->
+            <exec program="${tools.qt.qmake}" workingdir="${directory}" verbose="true">
+                <arg value="-project"/>
+            </exec>
+            
+            <property name="translatedEnFile" value="${vob.drive}/${l10n.vendor.view.name}/btappres/l10n-files/en/${tsFileName}_en.ts" overwrite="true"/>
+            <!--
+            <property name="translatedEnFile" value="E:/write2me/l10n-common/HP-drop-localized/btappres/l10n-files/en/${tsFileName}_en.ts" overwrite="true"/>
+            -->
+            <if test="${file::exists(translatedEnFile)}">
+                <copy overwrite="true"
+                    file="${translatedEnFile}"
+                    tofile="${directory}/${tsFileName}_en.ts"/>
+            </if>
+            <echo message="Qt lupdating... ${projectFile}  ${tsFile}"/>
+            <exec program="${tools.qt.lupdate}" workingdir="${directory}" verbose="true">
+                <arg value="-noobsolete"/>
+                <arg value="${projectFile}"/>
+            </exec>
+            
+            <exec program="${bt.tools.dir}/QtResourceVersionUpdator.exe" workingdir="${directory}" failonerror="false">
+                <arg value="-ts"/>
+                <arg value="${tsFile}"/>
+                <arg value="-version.build"/>
+                <arg value="${build.version}"/>
+            </exec>
+
+            <!-- checkin the .pro file in source VOB -->
+            <property name="param.ccase.comment" value="Checkin of qt .pro file for including the latest source files for localization in build ${build.version} by ${vendor.name} for ${product.name} - ${build.product.release.major}.${build.product.release.minor} [${product.program.release}]" overwrite="true"/>
+            <property name="param.ccase.element" value="${projectFile}" overwrite="true"/>
+            <call target="task.ccase.checkin"/>
+        </if>
+        <if test="${file::exists(tsFile)}">
+            <copy overwrite="true" file="${tsFile}"
+                tofile="${l10n.dir}/en/${path::get-file-name(tsFile)}"/>
+        </if>
+    </target>
+    
+    <target name="psp.l10n.l10n-vendor.rmview">
+        <property name="param.ccase.view.name" value="${l10n.vendor.view.name}"/>
+        <call target="task.ccase.rmview"/>
+    </target>
+    
+    <target name="psp.l10n.langs.checkin">
+      <property name="param.ccase.comment" value="Checkin of localized files for incorporating the latest translation files from l10n vendors and source for build ${build.version} by ${vendor.name} for ${product.name} - ${build.product.release.major}.${build.product.release.minor} [${product.program.release}]" overwrite="true"/>
+       <mkdir dir="${release.repository.dir}/temp"/>
+      <property name="param.newFiles.outFile" value="${release.repository.dir}/temp/l10n-vendors-new-files-to-merge.out" overwrite="true"/>
+      <property name="param.vob.name" value="btappres\l10n-files" overwrite="true"/>
+      <call target="task.ccase.checkin.newFiles"/>
+      
+      <foreach item="String" in="en,en-pseudo,${l10n.languages.list},ar,he" delim="," property="lang">
+        <property name="param.ccase.folder.name" value="${l10n.dir}/${lang}" overwrite="true"/>
+        <call target="task.ccase.folder.checkin"/>
+      </foreach>
+      
+      <property name="param.ccase.folder.name" value="${l10n.dir}" overwrite="true"/>
+      <property name="param.ccase.temp.fileName" value="${release.repository.dir}/temp/l10n-vendors-checkedout-to-checkin.out" overwrite="true"/>
+       <call target="task.ccase.checkin.checkedout"/>
+    </target>
+    
+    <target name="psp.l10n.langs.binaries.checkin">
+      <property name="param.ccase.comment" value="Checkin to update the generated l10n binaries for build ${build.version} by ${vendor.name} for ${product.name} - ${build.product.release.major}.${build.product.release.minor} [${product.program.release}]" overwrite="true"/>
+      <property name="param.newFiles.outFile" value="${release.repository.dir}/temp/l10n-binaries-new-files-to-checkin.out" overwrite="true"/>
+      <property name="param.vob.name" value="btappres\l10n-binaries" overwrite="true"/>
+      <call target="task.ccase.checkin.newFiles"/>
+      
+      <foreach item="String" in="en,en-pseudo,${l10n.languages.list},ar,he" delim="," property="lang">
+        <property name="param.ccase.folder.name" value="${l10n.bin.dir}/${lang}" overwrite="true"/>
+        <call target="task.ccase.folder.checkin"/>
+      </foreach>
+      
+      <property name="param.ccase.folder.name" value="${l10n.bin.dir}" overwrite="true"/>
+      <property name="param.ccase.temp.fileName" value="${release.repository.dir}/temp/l10n-binaries-checkedout-to-checkin.out" overwrite="true"/>
+       <call target="task.ccase.checkin.checkedout"/>
+    </target>
+    
+    <target name="psp.l10n.all" description="localize all the files">
+        <call target="psp.l10n.l10n-vendor.mkview"/>
+        
+        <call target="psp.l10n.langs.checkout"/>
+        <call target="psp.l10n.l10n-vendor.copy"/>
+        
+        <call target="psp.l10n.copy.ArabicHebrew"/>
+        <call target="psp.l10n.en.update.all"/>
+        
+        <call target="psp.l10n.langs.checkin"/>
+        <call target="psp.l10n.l10n-vendor.rmview"/>
+        
+        <call target="psp.l10n.langs.binaries.checkout"/>
+        <call target="psp.l10n.lrelease"/>
+        <call target="psp.l10n.langs.binaries.checkin"/>
+    </target>
+    
+    <target name="psp.l10n.lrelease">
+        <property name="src.base.dir" value="${l10n.dir}" overwrite="true"/>
+        <property name="dest.base.dir" value="${l10n.bin.dir}" overwrite="true"/>
+        <foreach item="String" in="en-pseudo,${l10n.languages.list},ar,he" delim="," property="lang">
+            <property name="param.ccase.folder.name" value="${l10n.bin.dir}/${lang}" overwrite="true"/>
+            <property name="proContent" value="TRANSLATIONS +=" overwrite="true"/>
+            <foreach item="File" property="src.file">
+                <in>
+                    <items basedir="${l10n.dir}/${lang}">
+                        <include name="**/*.ts"/>
+                        <exclude name="**.mkelem/**"/>
+                        <exclude name="*.keep"/>
+                    </items>
+                </in>
+                <do>
+                  <property name="name"  value="${path::get-file-name(src.file)}" overwrite="true"/>
+                  <property name="proContent" value="${proContent} ${name}" overwrite="true"/>
+                </do>
+            </foreach>
+            <delete file="${l10n.dir}/${lang}/temp_${lang}.pro" failonerror="false"/>
+            <echo message="${proContent}" file="${l10n.dir}/${lang}/temp_${lang}.pro" verbose="true"/>
+            <echo message="Qt lreleasing files for '${lang}' ..."/>
+            
+            <exec program="${tools.qt.lrelease}" workingdir="${l10n.dir}/${lang}" verbose="true">
+                <arg value="-verbose"/>
+                <arg value="${l10n.dir}/${lang}/temp_${lang}.pro"/>
+            </exec>
+            
+            <foreach item="File" property="src.file">
+                <in>
+                    <items basedir="${l10n.dir}/${lang}">
+                        <include name="**/*.qm"/>
+                        <exclude name="**.mkelem/**"/>
+                        <exclude name="*.keep"/>
+                        <exclude name="*.ts"/>
+                    </items>
+                </in>
+                <do>
+                    <move file="${src.file}" todir="${dest.base.dir}/${lang}" overwrite="true"/>
+                </do>
+            </foreach>
+            
+            <delete file="${l10n.dir}/${lang}/temp_${lang}.pro" failonerror="false"/>
+       </foreach>
+
+       <!-- execute lrelease with -nounfinished arg value only for en,en-pseudo -->
+       <foreach item="String" in="en" delim="," property="lang">
+            <property name="param.ccase.folder.name" value="${l10n.bin.dir}/${lang}" overwrite="true"/>
+            <property name="proContent" value="TRANSLATIONS +=" overwrite="true"/>
+            <foreach item="File" property="src.file">
+                <in>
+                    <items basedir="${l10n.dir}/${lang}">
+                        <include name="**/*.ts"/>
+                        <exclude name="**.mkelem/**"/>
+                        <exclude name="*.keep"/>
+                    </items>
+                </in>
+                <do>
+                  <property name="name"  value="${path::get-file-name(src.file)}" overwrite="true"/>
+                  <property name="proContent" value="${proContent} ${name}" overwrite="true"/>
+                </do>
+            </foreach>
+            <delete file="${l10n.dir}/${lang}/temp_${lang}.pro" failonerror="false"/>
+            <echo message="${proContent}" file="${l10n.dir}/${lang}/temp_${lang}.pro" verbose="true"/>
+            <echo message="Qt lreleasing files for '${lang}' ..."/>
+            
+            <exec program="${tools.qt.lrelease}" workingdir="${l10n.dir}/${lang}" verbose="true">
+                <arg value="-verbose"/>
+                <arg value="-nounfinished"/>
+                <arg value="${l10n.dir}/${lang}/temp_${lang}.pro"/>
+            </exec>
+            
+            <foreach item="File" property="src.file">
+                <in>
+                    <items basedir="${l10n.dir}/${lang}">
+                        <include name="**/*.qm"/>
+                        <exclude name="**.mkelem/**"/>
+                        <exclude name="*.keep"/>
+                        <exclude name="*.ts"/>
+                    </items>
+                </in>
+                <do>
+                    <move file="${src.file}" todir="${dest.base.dir}/${lang}" overwrite="true"/>
+                </do>
+            </foreach>
+            
+            <delete file="${l10n.dir}/${lang}/temp_${lang}.pro" failonerror="false"/>
+       </foreach>
+
+    </target>
+    
+    <target name="task.extractL10ProjectOptions">
+        
+         <!--
+         <foreach item="String" in="${param.util.line}" delim="," property="str1,str2,str3">
+            <property name="directory" value="${str1}" overwrite="true"/>
+            <property name="projectName" value="${str2}" overwrite="true"/>
+            <property name="tsFileName" value="${str3}" overwrite="true"/>
+         </foreach>
+        -->
+
+        <property name="str" value="${param.util.line}"/>
+        <property name="replaceStr" value="" overwrite="true"/>
+        
+        <property name="endIndex" value="${string::index-of(str,',')}"/>
+        <property name="directory" value="${string::substring(str,0,endIndex)}"/>
+        <property name="replaceStr" value="${directory}," overwrite="true"/>
+        
+        <property name="str" value="${string::replace(str,replaceStr,'')}"/>
+        <property name="endIndex" value="${string::index-of(str,',')}"/>
+        <property name="projectName" value="${string::substring(str,0,endIndex)}"/>
+        <property name="replaceStr" value="${projectName}," overwrite="true"/>
+        
+        <property name="str" value="${string::replace(str,replaceStr,'')}"/>
+        <property name="endIndex" value="${string::index-of(str,',')}"/>
+        <property name="tsFileName" value="${string::substring(str,0,endIndex)}"/>
+        <property name="replaceStr" value="${tsFileName}," overwrite="true"/>
+    </target>
+    
+    <target name="psp.debug-build-notification.send" failonerror="false">
+       <zip zipfile="${release.repository.dir}/debug-logs/${product.name.prefix}_debug_build_log_${build.version}.zip">
+     
+          <fileset basedir="${release.repository.dir}/debug-logs/" prefix="${build.version}_debug_logs">
+               <include name="nant_out_debug_${build.version}.log"/>
+          </fileset>
+          <fileset basedir="s:/btapp/!BuildLogs" prefix="${build.version}_debug-logs/!BuildLogs">
+              <include name="**/**"/>
+          </fileset>
+      </zip>
+     
+       <property name="notify.miscellaneous.list" value="" overwrite="false"/>
+        <mail 
+            from="tzhpradm@trianz.com" 
+            bcclist="project-hp-psp@trianz.com;${notify.miscellaneous.list}" 
+            subject="[Trianz-${product.name.prefix} builds] Status: ${product.program.release} INSTRUMENTED BUILD_${build.version} ${buildResult}!!!" 
+            message="The  ${product.name} INSTRUMENTED build for ${product.program.release} - &lt;b&gt;${build.version}&lt;/b&gt; is completed.  Please find the attached zip with debug build logs for details.&lt;p&gt;The INSTRUMENTED DEBUG zip file is available at the path \\ps_release\archive-logs\devzips\devzip_${build.version}.zip.&lt;p&gt;Regards&lt;p&gt;Trianz Build Team"
+            format="Html"
+            mailhost="10.10.10.8">
+            <attachments>
+                <include name="${release.repository.dir}/debug-logs/${product.name.prefix}_debug_build_log_${build.version}.zip"/>
+            </attachments>
+        </mail>
+    </target>
+
+    <target name="psp.imgmgrbuild.binary.copy">
+    	<copy todir="q:/cue-components/bt" overwrite="true">
+	        <fileset basedir="e:/Imgmgr_Inst_Shared">
+            <include name="SharedBin/**"/>
+            <include name="SharedLib/**"/>
+            </fileset>
+        </copy>
+   </target>
+
+
+    <target name="psp.zip.deployable">
+        <call target="task.version.read"/>
+        <property name="deploy.zip.dir" value="${release.repository.dir}/${build.version}/ZipDeploy" overwrite="true"/>
+        <mkdir dir="${deploy.zip.dir}"/>
+       <copy todir="${psp.deploy.bin.dir}/Resources" overwrite="true">
+           <fileset basedir="s:/btappres/l10n-binaries">
+               <include name="**/**/*.qm"/>
+           </fileset>
+       </copy>
+
+      <!-- copy VC runtime redistributable -->
+       <copy overwrite="true" failonerror="false"
+            file="${system.env.VSINSTALLDIR}/SDK/v2.0/BootStrapper/Packages/vcredist_x86/vcredist_x86.exe"
+            todir="${psp.deploy.bin.dir}"/>
+       
+       <!-- copy the .bat  useful for QA to do COM registration -->
+       <copy overwrite="true"
+           file="s:/btbuild/scripts/release/install.bat"
+            todir="${psp.deploy.bin.dir}"/>
+        
+       <property name="deploy.zipfile" value="${deploy.zip.dir}/PSE_Build_${build.version}.zip" overwrite="true"/>
+       <zip zipfile="${deploy.zipfile}">
+           <fileset basedir="s:/btapp/Hewlett-Packard" prefix="PSE2.0_${build.version}/Hewlett-Packard">
+               <include name="**/**"/>
+          </fileset>
+       </zip>
+       <call target="psp.build-notification.send"/>
+       <echo message="The deployable zip file is available as ${deploy.zipfile}"/>
+    </target>
+    
+   <target name="psp.build-notification.send" failonerror="false">
+       <zip zipfile="${release.repository.dir}/logs/${product.name.prefix}_build_log_${build.version}.zip">
+           <fileset basedir="${release.repository.dir}/logs/" prefix="${build.version}_logs">
+               <include name="nant_out_${param.buildtype}_${param.access.type}_${build.version}.log"/>
+          </fileset>
+          <fileset basedir="s:/btapp/!BuildLogs" prefix="${build.version}_logs/!BuildLogs">
+              <include name="**/**"/>
+          </fileset>
+          <fileset basedir="${release.repository.dir}/MergeModules/${build.version}/logs" prefix="${build.version}_logs/MergeModuleLogs">
+              <include name="**/**"/>
+          </fileset>
+          <fileset basedir="${release.repository.dir}/${build.version}/logs/l10n-logs" prefix="${build.version}_logs/l10n-logs">
+              <include name="**/**"/>
+          </fileset>
+       </zip>
+     <property name="notify.miscellaneous.list" value="" overwrite="false"/> 
+        <mail 
+            from="tzhpradm@trianz.com" 
+            bcclist="project-hp-psp@trianz.com;${notify.miscellaneous.list}" 
+            subject="[Trianz-Builds] Status: ${buildResult}!! - PSE-Kaa RELEASE BUILD_${build.version}" 
+            message="The ${product.name} build for Kaa - &lt;b&gt;${build.version}&lt;/b&gt; is completed.  Please find the attached zip with build logs for details.&lt;p&gt;&lt;p&gt;Regards&lt;p&gt;Trianz Build Team"
+
+            format="Html"
+            mailhost="10.10.10.8">
+            <attachments>
+                <include name="${release.repository.dir}/logs/${product.name.prefix}_build_log_${build.version}.zip"/>
+            </attachments>
+        </mail>
+    </target>
+    
+    <target name="psp.build.msi">
+        <property name="param.buildtype" value="msm" overwrite="false"/>
+        <call target="task.version.read"/>
+        <exec program="c:/Program Files/Macrovision/IS11.5/System/IsCmdBld.exe" workingdir="s:/ndtaj/DP_Installer" failonerror="true" verbose="true">
+            <arg value="-p"/>
+            <arg value="S:\ndtaj\DP_Installer\hp\hp.ism"/>
+            <arg value="-r"/>
+            <arg value="Trianz Onyx MSI Release"/>
+        </exec>
+        <property name="msi.version" value="${string::replace(build.version,'_012','_002')}"/>
+       <mkdir dir="${release.repository.dir}/${build.version}/MSI-Installers"/>
+       <property name="msi.lang" value="EN" overwrite="true"/>
+       <zip zipfile="${release.repository.dir}/${build.version}/MSI-Installers/${msi.version}_${msi.lang}.zip">
+           <fileset basedir="s:\ndtaj\DP_Installer\hp\Trianz Onyx Configuration\Trianz Onyx MSI Release\DiskImages\DISK1" prefix="${msi.version}_${msi.lang}">
+              <include name="**/**"/>
+          </fileset>
+       </zip>
+    </target>
+    
+    <target name="psp.gen-api">
+        <!-- need to cleanup the source code so that  GeneratedFiles are not documented -->
+        <property name="param.buildtype" value="msm" overwrite="false"/>
+        <call target="task.version.read"/>
+        
+        <property name="doxygen.input.basedir" value="s:/btbuild/doxygen-files"/>
+        <property name="doxygen.output.basedir" value="s:/btapp/Hewlett-Packard/apidocs"/>
+        <foreach item="Line" in="S:/btbuild/doxygen-files/api-generation-modules.csv" delim="," property="doxyFileName,moduleName">
+            <copy overwrite="true" file="${doxygen.input.basedir}/${doxyFileName}"
+                tofile="${doxygen.input.basedir}/generated-${doxyFileName}">
+                <filterchain>
+                    <replacetokens>
+                        <token key="module" value="${moduleName}" />
+                        <token key="build.version" value="${build.version}" />
+                        <token key="program_name" value="${product.program.release}" />
+                    </replacetokens>
+                </filterchain>
+            </copy>
+            <mkdir dir="${doxygen.output.basedir}/${moduleName}"/>
+            <exec program="${tools.doxygen}" workingdir="${doxygen.output.basedir}" failonerror="false" verbose="true">
+                <arg value="${doxygen.input.basedir}/generated-${doxyFileName}"/>
+            </exec>
+            
+            <delete file="${doxygen.input.basedir}/generated-${doxyFileName}" failonerror="false"/>
+        </foreach>
+    </target>
+    
+    <target name="psp.iis.deploy">
+        <delete>
+            <fileset basedir="${iis.dir.ruby_docs}">
+                <include name="**/**" />
+                <exclude name="**/index.html" />
+            </fileset>
+        </delete>
+        <mkdir dir="${iis.dir.ruby_docs}/doxygen_docs/${product.program.release}"/>
+        <copy todir="${iis.dir.ruby_docs}/doxygen_docs/${product.program.release}" overwrite="true">
+            <fileset basedir="s:/btapp/Hewlett-Packard/apidocs">
+                <include name="**/**" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="delete.dpe_onyx.folders">
+        <delete>
+            <fileset basedir="q:/btapp">
+                <include name="**/**"/>
+            </fileset>
+        </delete>
+        <delete>
+            <fileset basedir="q:/bttaj">
+                <include name="**/**"/>
+            </fileset>
+        </delete>
+        <delete>
+            <fileset basedir="q:/cue-components/bt">
+                <include name="**/**"/>
+            </fileset>
+        </delete>
+    </target>
+</project>

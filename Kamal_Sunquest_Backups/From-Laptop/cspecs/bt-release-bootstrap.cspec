@@ -1,0 +1,49 @@
+#This template is used to generate the config spec to retrieve source used for Trianz build.
+
+element * CHECKEDOUT
+
+#Shared staging VOB
+element \cue_ruby /main/LATEST
+element \cue_ruby\cue-components /main/LATEST
+element \cue_ruby\cue-installation /main/LATEST
+
+#Trianz shared binaries
+element \cue_ruby\cue-components\bt .../bt_dev_main/LATEST
+element \cue_ruby\cue-components\bt .../bt_dev_public/LATEST -mkbranch bt_dev_main
+element \cue_ruby\cue-components\bt\... .../bt_dev_main/LATEST
+element \cue_ruby\cue-components\bt\... .../main/LATEST -mkbranch bt_dev_main
+element \cue_ruby\cue-components\bt\... .../main/0 -mkbranch bt_dev_main
+
+element \cue_ruby\bttaj .../bt_dev_main/LATEST
+element \cue_ruby\bttaj\... .../bt_dev_main/LATEST
+element \cue_ruby\bttaj\... .../bt_dev_public/LATEST -mkbranch bt_dev_main
+element \cue_ruby\bttaj\... .../main/0 -mkbranch bt_dev_main
+
+element \cue_ruby\btapp .../bt_dev_main/LATEST
+element \cue_ruby\btapp\... .../bt_dev_main/LATEST
+element \cue_ruby\btapp\... .../bt_dev_public/LATEST -mkbranch bt_dev_main
+element \cue_ruby\btapp\... .../main/0 -mkbranch bt_dev_main
+
+
+#Trianz shared MergeModules
+element \cue_ruby\cue-installation\built\mergeModules\bt .../bt_dev_main/LATEST
+element \cue_ruby\cue-installation\built\mergeModules\bt\... .../main/LATEST -mkbranch bt_dev_main
+element \cue_ruby\cue-installation\built\mergeModules\bt\... .../main/0 -mkbranch bt_dev_main
+
+#Scicom shared public binaries
+element \cue_ruby\cue-components\nd .../nd_dev_public/LATEST
+element \cue_ruby\cue-components\nd\... .../nd_dev_public/LATEST
+
+#Trianz VOBs
+
+element \btbuild\... .../bt_dev_main/LATEST
+
+#Shared build VOB
+element \sdtajscripts\... .../sd_dev_main/LATEST
+
+#rule to branch off for elements in other VOBs
+element * ...\main\LATEST -mkbranch bt_dev_main
+element * ...\main\0 -mkbranch bt_dev_main
+load \sdtajscripts
+load \cue_ruby
+load \btbuild

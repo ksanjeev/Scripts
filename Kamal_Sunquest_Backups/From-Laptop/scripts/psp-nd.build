@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<project name="Photosmart Premier" default="psp.build">
+
+  <!--
+
+        Copyright 2005 Hewlett-Packard . All Rights Reserved.
+        This software is the confidential and proprietary information of
+        Hewlett-Packard. Use is subject to license terms.
+
+        NAnt version : 0.85 Release Candidate 3 (Build 0.85.1932.0 rc3 4/16/2005)
+        http://www.swoogan.com/nantgui.html  : NAnt-Gui-1.2.4-rc6.exe
+
+        NOTE : This script is not intended to be modified by anyone other than the build team.
+        Author:
+    -->
+  <property name="vendor.name" value="trianz" overwrite="false"/>
+
+  <include buildfile="s:/sdtajscripts/scripts/psp.properties" />
+  <include buildfile="${source.drive}/${vendor.buildvob}/scripts/${product.name.prefix}-${vendor.prefix}-init.build" />
+
+ <!-- CommouUtility target starts -->
+
+ <target name="psp.src.commonutils.compile">
+    <property name="param.solution.dir" value="${psp.nd.taj.src.dir}/DP_CommonUtils" overwrite="true"/>
+    <property name="param.solution.name" value="hpqcutil" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+ </target>
+
+ <target name="psp.src.commonutils.share">
+     <copy overwrite="true"
+         file="${psp.nd.taj.src.dir}/DP_CommonUtils/hpqcutil/${solution.config}/hpqcutild.pdb"
+         todir="${psp.deploy.bin.dir}"/>
+ </target>
+
+  <target name="psp.src.instantshare.compile">
+    <property name="param.solution.dir" value="${psp.nd.taj.src.dir}/DP_InstantShare" overwrite="true"/>
+    <property name="param.solution.name" value="InstantShare" overwrite="true"/>
+    <exec program="${vsnet.devenv}" verbose="true">
+           <arg value="${param.solution.dir}/${param.solution.name}.sln"/>
+           <arg value="/project"/>
+           <arg value="InstantShareUtilLib"/>
+           <arg value="/${vsnet.buildflag}"/>
+           <arg value="${solution.config}"/>
+           <arg value="/out"/>
+           <arg value="${build.output.log.dir}/${param.solution.name}.log"/>
+       </exec>
+  </target>
+
+ <target name="psp.src.instantshare.share">
+     <copy overwrite="true"
+         file="${psp.nd.taj.src.dir}/DP_InstantShare/InstantShareUtilLib/bin/${solution.config}/hpqisu01d.pdb"
+         todir="${psp.deploy.bin.dir}"/>
+ </target>
+ 
+  <target name="psp.src.sdl.compile">
+     <property name="param.solution.dir" value="${psp.nd.taj.src.dir}/DP_Share/SDL" overwrite="true"/>
+    <property name="param.solution.name" value="HpqSdl" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+ </target>
+
+ <target name="psp.src.sdl.share">
+     <copy overwrite="true"
+         file="${psp.nd.taj.src.dir}/DP_Share/SDL/${solution.config}/HpqSdld.pdb"
+         todir="${psp.deploy.bin.dir}"/>
+ </target>
+
+  <target name="psp.src.sil.compile">
+     <property name="param.solution.dir" value="${psp.nd.taj.src.dir}/DP_Share/SIL" overwrite="true"/>
+    <property name="param.solution.name" value="hpqsil" overwrite="true"/>
+     <call target="task.vcnet.compile"/>
+ </target>
+
+ <target name="psp.src.sil.share">
+     <copy overwrite="true"
+         file="${psp.nd.taj.src.dir}/DP_Share/sil/${solution.config}/hpqsil.pdb"
+         todir="${psp.deploy.bin.dir}"/>
+ </target>
+ 
+ <!-- CommonUtility target ends --> 
+
+ <!-- ImageLib target starts -->
+
+  <target name="psp.src.imagelibrary.compile">
+    <property name="param.solution.dir" value="${psp.nd.taj.src.dir}/DP_ImageLibrary" overwrite="true"/>
+    <property name="param.solution.name" value="ImageLibrary" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+ </target>
+
+  <target name="psp.src.imagelibrary.share">
+     <copy overwrite="true"
+         file="${psp.nd.taj.src.dir}/DP_ImageLibrary/ImageLibrary/${solution.config}/HPQIML02d.pdb"
+         todir="${psp.deploy.bin.dir}"/>
+ </target>
+
+  <target name="psp.src.crmcomponent.compile">
+     <property name="param.solution.dir" value="${psp.nd.taj.src.dir}/DP_CRMService/CrmComponent" overwrite="true"/>
+     <property name="param.solution.name" value="hpqPhotoCrm" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+ </target>
+
+  <target name="psp.src.crmcomponent.share">
+     <copy overwrite="true"
+         file="${psp.nd.taj.src.dir}/DP_CRMService/CrmComponent/${solution.config}/hpqPhotoCrm.pdb"
+         todir="${psp.deploy.bin.dir}"/>
+ </target>
+
+  <!-- ImageLib target ends -->
+
+  <!-- Printsubsystem target starts -->
+
+   <target name="psp.src.printsubsystem.compile">
+     <property name="param.solution.dir" value="${psp.nd.taj.src.dir}/DP_PrintSubsystem" overwrite="true"/>
+    <property name="param.solution.name" value="PrintSubsystem" overwrite="true"/>      <call target="task.vcnet.compile"/>
+ </target>
+
+  <target name="psp.src.printsubsystem.share">
+     <copy overwrite="true"
+         file="${psp.nd.taj.src.dir}/DP_PrintSubsystem/PrintSubsystem/${solution.config}/hpqpsb02d.pdb"
+         todir="${psp.deploy.bin.dir}"/>
+ </target>
+
+  <!-- Printsubsystem target ends -->
+
+  <!-- Thumbnai target starts -->
+
+   <target name="psp.src.tngenerator.compile">
+      <property name="param.solution.dir" value="${psp.nd.taj.src.dir}/DP_ThumbnailGenerator" overwrite="true"/>
+    <property name="param.solution.name" value="ThumbnailGenerator" overwrite="true"/>     <call target="task.vcnet.compile"/>
+   </target>
+
+   <target name="psp.src.tngenerator.share">
+     <copy overwrite="true"
+         file="${psp.nd.taj.src.dir}/DP_ThumbnailGenerator/ThumbnailGenerator/${solution.config}/hpqthbg2d.pdb"
+         todir="${psp.deploy.bin.dir}"/>
+  </target>
+
+  <!-- Thumbnail target ends -->
+
+  <!-- PrintEngine target starts -->
+
+   <target name="psp.src.printengine.compile">
+     <property name="param.solution.dir" value="${psp.nd.taj.src.dir}/DP_PrintEngine" overwrite="true"/>
+    <property name="param.solution.name" value="DP_PrintEngine" overwrite="true"/>
+    <call target="task.vcnet.compile"/>
+   </target>
+
+   <target name="psp.src.printengine.share">
+     <copy overwrite="true"
+         file="${psp.nd.taj.src.dir}/DP_PrintEngine/Framework/${solution.config}/Hpqpaefx01d.pdb"         
+         todir="${psp.deploy.bin.dir}"/>
+     <copy overwrite="true"
+         file="${psp.nd.taj.src.dir}/DP_PrintEngine/Plugins/${solution.config}/hpqpaeplugins01d.pdb"         
+         todir="${psp.deploy.bin.dir}"/>
+   </target>
+
+   <!-- PrintEngine target ends -->
+
+   <!--Copy Q:\ndtaj\SharedBin to S:\Hewlett-Packard\Digital Imaging\Bin -->
+ 
+   <target name="psp.shared.deploy.bin">
+   <copy todir="${psp.deploy.bin.dir}" overwrite="true">
+       <fileset
+           basedir="Q:\ndtaj\Sharedbin">
+           <include name="*.dll"/>
+           <exclude name="hpqd_*.*"/>
+       </fileset>
+   </copy>
+  </target>  
+
+   <!-- Copy target ends -->
+
+    <!-- Build hpqprjdoc vcproj -->
+    <target name="psp.src.hpqprjdoc.compile">
+        <property name="param.solution.dir" value="${psp.nd.taj.src.dir}/DP_PrintSubsystem/hpqprjdoc" overwrite="true"/>
+        <property name="param.solution.name" value="hpqprjdoc" overwrite="true"/>
+        <call target="task.vcnet.vcproj.compile"/>
+   </target>
+
+    <target name="psp.src.hpqprjdoc.deploy">
+    <property name="param.assembly.name" value="${hpq}hpqprjdoc${assembly.type}" overwrite="true"/>
+    <property name="param.project.dir" value="${psp.nd.taj.src.dir}/DP_PrintSubsystem/hpqprjdoc" overwrite="true"/>
+    <call target="task.project.deploy"/>   
+    </target>
+  <!-- hpqprjdoc target ends -->
+
+
+    <!-- Build Photobook -->
+    <target name="psp.src.photobook.compile">
+        <property name="param.solution.dir" value="${psp.nd.app.src.dir}/CreativeProjects" overwrite="true"/>
+        <property name="param.solution.name" value="Photobook" overwrite="true"/>
+        <call target="task.vcnet.compile"/>
+    </target>
+
+    <target name="psp.src.photobook.deploy">
+        <property name="param.assembly.name" value="${hpq}Photobook${assembly.type}" overwrite="true"/>
+        <property name="param.project.dir" value="${psp.nd.app.src.dir}/CreativeProjects/Photobook" overwrite="true"/>
+        <call target="task.project.deploy"/>   
+        <call target="psp.src.photobook.deploy.data"/>
+    </target>
+
+    <target name="psp.src.photobook.deploy.data">
+
+        <copy overwrite="true"
+            file="${psp.nd.app.src.dir}/CreativeProjects/Photobook/hpqphotobook.plg.config3"
+            todir="${psp.deploy.dir}/Plugins"/>
+
+        <delete dir="${psp.deploy.dir}/Data/Projects/ContentPackages" failonerror="false"/>
+        <copy todir="${psp.bt.app.res.dir}/contentPackages/Photobook" overwrite="true">
+            <fileset basedir="${psp.deploy.dir}/Data/Projects/ContentPackages">
+                <include name="**/**" />
+            </fileset>
+        </copy>
+
+        <copy todir="${psp.deploy.dir}/Data/Projects/Configuration" overwrite="true">
+            <fileset basedir="${psp.bt.taj.src.dir}/ProjectEngine/Plugin/Photobook/Configuration">
+                <include name="**/**" />
+            </fileset>
+        </copy>
+
+        <mkdir dir="${psp.deploy.dir}/Graphics/Photobook"/>
+        <copy todir="${psp.deploy.dir}/Graphics/Photobook" overwrite="true">
+            <fileset basedir="${psp.bt.app.res.dir}/Resources/prj/PhotoBook">
+                <include name="**/**" />
+            </fileset>
+        </copy>
+    </target>
+    <!-- Photobook target ends -->
+
+    <!-- Build the Photobook code so as to get working with Photobook -->
+      
+    <!--<call target="psp.src.photobook.compile">
+    <call target="psp.src.photobook.deploy">-->
+      
+   <!-- <call target="binaries.copy.target"/>-->
+
+    <target name="psp.vendor.nd.src.build.compile">
+        
+    <echo message=" path is : ${psp.deploy.bin.dir}"/>
+    <call target="psp.src.commonutils.compile"/>
+    <call target="psp.src.commonutils.share"/> 
+
+   <!--  <call target="psp.src.hpqprjdoc.compile"/>
+    <call target="psp.src.hpqprjdoc.deploy"/>-->
+
+   <call target="psp.src.instantshare.compile"/>
+   <call target="psp.src.instantshare.share"/>
+
+    <call target="psp.src.sdl.compile"/>
+    <call target="psp.src.sdl.share"/>
+
+    <call target="psp.src.sil.compile"/>
+    <call target="psp.src.sil.share"/>
+
+    <call target="psp.src.imagelibrary.compile"/>
+    <call target="psp.src.imagelibrary.share"/>
+
+    <call target="psp.src.crmcomponent.compile"/>
+    <call target="psp.src.crmcomponent.share"/>
+
+    <call target="psp.src.printsubsystem.compile"/>
+    <call target="psp.src.printsubsystem.share"/>
+
+    <call target="psp.src.tngenerator.compile"/>
+    <call target="psp.src.tngenerator.share"/>
+
+    <call target="psp.src.printengine.compile"/>
+    <call target="psp.src.printengine.share"/>
+
+    <call target="psp.shared.deploy.bin"/>
+
+ 
+ </target>
+</project>

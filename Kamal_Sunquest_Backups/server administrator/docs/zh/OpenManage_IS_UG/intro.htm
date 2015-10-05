@@ -1,0 +1,242 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+<title>简介：Dell OpenManage 5.0 版安装和安全性用户指南</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">返回目录页</a> </p>
+<a name="1039152"></a><h1> 简介 </h1>
+<p class="title">Dell OpenManage&#8482; 5.0 版安装和安全性用户指南</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1043589">概览</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1045837">Dell OpenManage Systems Management Software 
+组件
+</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1043763">可能需要的其它说明文件</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1045381">获得技术帮助</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1043589"></a><h2>概览</h2>
+
+
+<a name="1046101"></a><p>本指南包含的信息可以帮助您在管理站及其管理系统上安装 Dell OpenManage&#8482; 软件。 <i>管理系统</i>是一个装有支持的工具或代理程序的系统，允许对系统进行查找并轮询其状态。 <i>管理站</i>可用于从一个中央位置远程管理一个或多个管理系统。 请参阅<a href="intro.htm#1052269">图&#160;1-1</a> 了解管理站及其管理系统。 此外，本指南提供了在部署或升级之前或期间配置系统的信息和说明。 涉及了以下主题：</p>
+<ul><li><a name="1047395"></a><a href="security.htm#1039152">Dell OpenManage&#8482; 安全性</a><br><br></li>
+<li><a name="1047396"></a><a href="setup.htm#1059954">设置和管理</a><br><br></li>
+<li><a name="1047400"></a><a href="instos.htm#1043338"><a href="instos.htm#1043338">使用 Server Assistant 安装操作系统</a></a><br><br></li>
+<li><a name="1059416"></a><a href="instms.htm#1043338">安装 Management Station Software</a><br><br></li>
+<li><a name="1059476"></a><a href="instwin.htm#1056417">在 Microsoft&#174; Windows&#174; 操作系统上安装 Managed System Software</a><br><br></li>
+<li><a name="1059489"></a><a href="instlx.htm#1054425">在 Red Hat&#174; Enterprise Linux 和 SUSE&#174; Linux 操作系统上安装 Managed System Software</a><br><br></li>
+<li><a name="1059491"></a><a href="mad.htm#1055432">使用 Microsoft&#174; Active Directory&#174;</a><br><br></li>
+<li><a name="1059492"></a><a href="prereqch.htm#1053126">前提条件检查程序</a><br><br></li>
+<li><a name="1055067"></a><a href="faq.htm#1055187">常见问题</a><br><br></li>
+</ul><a name="1046215"></a><h3> Systems Management Software 概览
+</h3>
+<a name="1046216"></a><p>Dell OpenManage Systems Management Software 是一套用于 Dell&#8482;&#160;PowerEdge&#8482; 系统和一些 Dell PowerVault&#8482; 系统的应用程序。 此软件使用户能够通过主动监测、诊断、通知和远程访问来管理系统。 </p>
+<a name="1051819"></a><p>由 Dell OpenManage Systems Management Software 管理的每个系统都称为管理系统。 既可以在本地也可以远程管理一个管理系统。 可以安装到管理系统的软件应用程序包括 Dell OpenManage Server Administrator（其中包括 Storage Management Service、Diagnostic Service 和 Server Administrator Web Server）、用于 Intel&#174; 或 Broadcom 网络接口卡 (NIC) 的 SNMP 代理以及 Remote Access Controller (RAC) 软件。</p>
+<a name="1051809"></a><p>一个管理站可用于从一个中央位置远程配置和维护一个或多个管理系统。 Dell OpenManage IT Assistant 和其它 Management Station Applications 使用户能够管理少则一个，多则数千个管理系统。 例如，管理站可用于将物理介质的映像部署到多个管理系统上的虚拟介质。</p>
+<a name="1054174"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>如果在同一系统安装管理站和 Managed System Software，应安装相同版本的软件以避免系统冲突。
+</td>
+  </tr>
+</table><a name="1054179"></a><p><a href="intro.htm#1052269">图&#160;1-1</a> 说明了管理站及其管理系统间的关系。 <a href="intro.htm#1052269">图 1-1</a> 还显示了可以安装在管理系统上的操作系统和 Dell OpenManage 软件产品。 说明文件 CD 可以从具有显示器、键盘和鼠标的任何系统进行访问。</p>
+<a name="1052261"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span><i>Dell PowerEdge Updates</i> CD 只包括在 Dell OpenManage Subscription Service Kit 中；并没有包括在 Dell OpenManage Systems Management Software Kit 中。
+</td>
+  </tr>
+</table><p class="FigureTableTitle"><a name="1052269"></a>图 1-1.  Management Station 和 Managed Systems
+示例
+</p>
+
+<a name="1052352"></a>
+<p><img src="introa.jpg" height="469" width="577" align="center" border="0" hspace="0" vspace="0">
+</p><a name="1052092"></a><h3> Dell OpenManage Systems Management Software Kit 内容
+</h3>
+<a name="1052093"></a><p>Dell OpenManage Systems Management Software Kit 包括（但不限于）以下组件： </p>
+<ul><li><a name="1052095"></a><i>《Dell OpenManage Software 快速安装指南》</i>概述了可以在管理站（即控制台）和管理系统上安装的应用程序。 该指南（位于 <i>Documentation</i> CD 中）还介绍了如何在运行所支持操作系统的系统上安装控制台和 Managed System Applications。<br><br></li>
+<li><a name="1047679"></a><i>Dell Systems Management Consoles </i>CD 包含用于管理站的 Dell 系统管理控制台产品。 该 CD 包含 IT Assistant 和其它系统管理应用程序。<br><br> </li>
+<li><a name="1047680"></a><i>Dell PowerEdge Installation and Server Management</i> CD — 提供安装操作系统和配置管理系统（包括 Server Administrator Instrumentation、诊断程序、Storage Management 和 Remote Access Service）所需的工具。</li>
+<li><a name="1047681"></a><i>Dell PowerEdge Service and Diagnostic Utilities</i> CD — 提供用于配置管理系统的工具，并为管理系统提供最新的诊断程序和 Dell 优化的驱动程序。</li>
+<li><a name="1047682"></a><i>Dell PowerEdge Documentation</i> CD 可以帮助您始终使用最新的系统、Systems Management Software 产品、外围设备和 RAID 控制器的说明文件。<br><br></li>
+<li><a name="1055075"></a><i>Dell PowerEdge Updates</i> CD - 包含 Server Update Utility (SUU)，这是一个基于 CD 的应用程序，用于确定并将更新应用到系统。 用于 Microsoft&#174; Windows&#174; 和 Linux 操作系统的 SUU 分别通过单独的 CD 提供。</li>
+</ul><a name="1050002"></a><p>大部分 CD 还包含自述文件，提供最新产品信息。</p>
+<a name="1049973"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span><i>Dell PowerEdge Updates</i> CD 只作为 Subscription Service kit 的一部分提供，或者从 Dell 支持站点 <b>support.dell.com</b> 得到。
+</td>
+  </tr>
+</table><a name="1049525"></a><p>请将系统附件盒中的物件与系统附带的装箱单或发票内容进行比较。 如果任何组件缺少或损坏，请在自发票开具之日起的 30 天内致电 Dell 进行免费更换。 有关详情，请参阅“<a href="intro.htm#1045381">获得技术帮助</a>”。</p>
+<a name="1056894"></a><h3> 新增内容
+</h3>
+<ul><li><a name="1057114"></a>PowerEdge 1900、1955、2900 和 2950 系统支持</li>
+<li><a name="1060458"></a>SUSE&#174; Linux Enterprise Server（版本 9）SP3 for Intel Extended Memory 64 Technology (Intel EM64T) 支持</li>
+<li><a name="1060558"></a>Windows Storage Server 2003 R2（Express、Standard、Workgroup 和 Enterprise 版本）支持</li>
+<li><a name="1060559"></a>Dell Remote Access Controller 5 (DRAC 5) 支持</li>
+<li><a name="1060199"></a>Dell PowerEdge RAID Controller 5 (PERC 5) 支持</li>
+<li><a name="1060467"></a>Dell OpenManage Array Manager 现在由 Server Administrator Storage Management 替代。</li>
+</ul><a name="1060208"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>如果没有检测到以前的 Management Station Software（装有 Array Manager 控制台），则 Dell OpenManage Array Manager 控制台在 Windows 下不可用。 它只能用于升级。
+</td>
+  </tr>
+</table>
+<a name="1056896"></a><p>有关详情，请参阅 Dell OpenManage 网站 <b>www.dell.com/openmanage</b>。</p>
+<hr noshade size="1">
+<a name="1045837"></a><h2>Dell OpenManage Systems Management Software 
+组件</h2>
+
+
+<a name="1044096"></a><h3>部署软件 (Dell PowerEdge Installation and Server Management CD)</h3>
+<a name="1048146"></a><p>对于管理系统，Dell OpenManage Server Assistant 提供了简化的操作系统安装步骤，指导您通过易于遵循的逐步安装过程减少安装 Windows、NetWare 和 Red Hat Enterprise Linux 操作系统所需的时间。</p>
+<a name="1046148"></a><p>此外，Server Assistant 还提供了必要的工具，用于设置和配置 PowerEdge 系统和软件。 这些工具允许搜索和配置 Dell 提供的 RAID 控制器和网络适配器。</p>
+<a name="1046123"></a><h3> Management Station Software (Dell Systems Management Consoles CD)
+</h3>
+<a name="1046746"></a><h4> IT Assistant</h4>
+<a name="1051590"></a><p>IT Assistant 是一个基于 Web 的图形用户界面 (GUI)，使用户能够从一个中央访问位置来监控并管理局域网 (LAN) 或广域网 (WAN) 上的系统。 通过提供一个跨越企业的综合视图，IT Assistant 可以增加系统运行时间、减少重复任务并防止中断重要业务操作。 </p>
+<a name="1051577"></a><p>通过 IT Assistant，可以：</p>
+<ul><li><a name="1046752"></a>标识要远程管理的系统组<br><br></li>
+<li><a name="1046753"></a>集中所有系统的视图，使用户能够从中央启动位置进行系统管理<br><br></li>
+<li><a name="1046754"></a>创建警报筛选器和操作，在系统运行时间受影响时自动通知您<br><br></li>
+<li><a name="1046756"></a>创建自定义企业范围的报告，显示各个系统的状态，包括交换机、存储设备、BIOS、固件和驱动程序版本<br><br></li>
+<li><a name="1051268"></a>创建自定义任务，使您能够在整个企业中协调配置管理，包括执行软件更新、关机和唤醒以及命令行执行<br><br></li>
+<li><a name="1053086"></a>查看网络中设备的图形化表示，可以从中启动应用程序、刷新资源清册和状态以及执行故障排除<br><br></li>
+<li><a name="1053087"></a>启动以下 Dell Systems Management 应用程序：Server Administrator、Remote Access Console、Dell PowerConnect&#8482; 和数字化 KVM（键盘/视频/鼠标）<br><br></li>
+<li><a name="1053105"></a>将 Dell Update Packages 和 System Update Sets 载入中央存储库，然后将这些软件包与企业系统上当前运行的软件的版本相比较<br><br></li>
+</ul><a name="1051272"></a><h4> Dell Remote Access Controller Management Station</h4>
+<a name="1051283"></a><p>Dell Remote Access Controller (RAC) 控制台是一种 Management Station Software，专门设计用于为 PowerEdge 系统提供远程管理功能。 可以使用 RAC Management Station Software 远程连接到 RAC 硬件。 以下 RAC 功能在硬件中实现，可以通过浏览器或 racadm&#160;CLI 使用： </p>
+<ul><li><a name="1051301"></a>硬件传感器显示器，比如温度、电压和风扇<br><br></li>
+<li><a name="1051302"></a>对硬件和警报日志的访问<br><br></li>
+<li><a name="1051303"></a>能够生成警报，即使系统停机时也可以<br><br></li>
+<li><a name="1051329"></a>远程系统通电和断电<br><br></li>
+<li><a name="1051330"></a>远程软盘引导操作<br><br></li>
+</ul><a name="1054097"></a><p>请参阅<i>《Dell Remote Access Controller 4 用户指南》</i>或<i>《Dell Remote Access Controller 5 用户指南》</i>，以了解有关如何使用 racadm CLI 连接至管理系统从远程控制台执行 racadm 命令或使用管理站的 IP 地址连接至管理站的详细信息。</p>
+<a name="1051332"></a><h4> 底板管理控制器 (BMC) 管理公用程序</h4>
+<a name="1051276"></a><p>BMC 管理公用程序提供了一个基于命令行的远程管理站来管理所有支持的 BMC 功能。 使用 BMC 管理公用程序从远程管理站管理 BMC，并作为管理系统的紧急管理控制台。此公用程序使用户能够选择使用命令行界面（智能平台管理界面 [IPMI Shell] 或 LAN 上串行代理 [SOL 代理]）访问并管理 BMC。</p>
+<a name="1046872"></a><p>BMC 通过与系统板上各种不同传感器进行通信，并在某些参数超出其预置阈值时发送警报和日志事件来监测系统是否发生严重事件。BMC 支持业界标准的 IPMI 规范，使您可以远程配置、监视和恢复系统。 </p>
+<a name="1051598"></a><p>BMC 提供了以下功能：</p>
+<ul><li><a name="1051601"></a>通过系统串行端口和集成 NIC 管理访问<br><br></li>
+<li><a name="1051604"></a>错误日志记录和 SNMP 报警<br><br></li>
+<li><a name="1050318"></a>对系统事件日志 (SEL) 和传感器状况的访问<br><br></li>
+<li><a name="1046876"></a>系统功能控制，包括打开和关闭电源<br><br></li>
+<li><a name="1051337"></a>独立于系统电源或运行状态的支持<br><br></li>
+<li><a name="1051339"></a>系统设置的文本控制台重定向、基于文本的公用程序和操作系统控制台<br><br></li>
+<li><a name="1051341"></a>使用 SOL 对 Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 串行控制台界面的访问</li>
+</ul><a name="1050482"></a><h4> Active Directory 管理单元公用程序</h4>
+<a name="1050489"></a><p>Microsoft Active Directory 管理单元公用程序提供了对 Microsoft Active Directory 用户和计算机管理单元的扩展管理单元，使用户能够管理 Dell 特定的 Active Directory 对象。</p>
+<a name="1050491"></a><p>在 Dell 特定架构类添加到 Active Directory 架构后，可以使用此选项。</p>
+<a name="1050485"></a><h3> Managed System Software (Dell PowerEdge Installation and Server Management CD)
+</h3>
+<a name="1047098"></a><h4> Server Administrator</h4>
+<a name="1049546"></a><p>Server Administrator 通过以下方式提供了全面的、一对一的系统管理解决方案：通过集成的、基于 Web 浏览器的 GUI（Server Administrator 主页）或通过命令行界面 (CLI) 功能。 Server Administrator 包括以下集成服务和功能：</p>
+<a name="1055497"></a><h5> Instrumentation Service</h5>
+<a name="1047126"></a><p>Instrumentation Service 使您可以快速查看由系统管理代理程序收集的详细故障和性能信息，并且允许对受监测系统进行远程管理（包括关闭系统、启动和安全保护）。 </p>
+<a name="1047127"></a><h5> Remote Access Service</h5>
+<a name="1060098"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>Remote Access Service 在模块化系统上不可用。 必须直接连接到模块化系统上的 RAC。 有关详情，请参阅<i>《Dell Embedded Remote Access/MC 用户指南》、</i><i>《Dell Remote Access Controller 4 
+用户指南》</i>或<i>《Dell Remote Access Controller 5 用户指南》</i>。</td>
+  </tr>
+</table><a name="1060100"></a><p>Remote Access Service 提供以下功能：</p>
+<ul><li><a name="1051655"></a>远程访问不可操作系统，使用户能够关闭、重新启动并尽快运行系统<br><br></li>
+<li><a name="1051650"></a>系统停机时的警报通知<br><br></li>
+<li><a name="1051651"></a>记录系统崩溃可能原因的系统崩溃日志并保存最新的崩溃屏幕<br><br></li>
+</ul><a name="1051645"></a><p>安装 Remote Access Service 需要系统上具有 Server Administrator。 </p>
+<a name="1053113"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>Server Administrator Remote Access Service 和 Remote Access Controller Management Station 不能同时安装在系统上。 如果同时安装 Server Administrator 和 Management Station，并且需要 RAC 支持，则安装 Server Administrator Remote Access Service。 
+它提供了 Remote Access Controller Management Station 的所有功能。
+</td>
+  </tr>
+</table><a name="1050144"></a><h5> Storage Management Service</h5>
+<a name="1047135"></a><p>Storage Management Service 提供用于管理系统的本地连接 RAID 和非 RAID 磁盘存储设备的增强功能。</p>
+<a name="1051668"></a><p>Storage Management Service 提供以下功能：</p>
+<ul><li><a name="1047139"></a>可以让您查看被监视系统上所连本地和远程存储设备的状态<br><br></li>
+<li><a name="1047140"></a>支持 SAS、SCSI、SATA 和 ATA，但不支持光纤信道</li>
+<li><a name="1047144"></a>可以让您通过单一图形界面或 CLI 对所有支持的 RAID 和非 RAID 控制器和机柜执行控制器和机柜功能，而无需使用控制器 BIOS 公用程序<br><br></li>
+<li><a name="1049051"></a>通过配置数据冗余、分配热备份或重建故障驱动器来保护数据<br><br></li>
+</ul><a name="1053169"></a><h5> Diagnostic Service</h5>
+<a name="1053175"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>Diagnostic Service 在模块化系统上不可用。
+</td>
+  </tr>
+</table><a name="1053177"></a><p>Diagnostic Service 提供一套诊断程序，在本地系统运行，或通过与网络连接的管理站远程控制。 Diagnostic Service 可以诊断各个系统中的问题，并与所检测系统上运行的所有其它应用程序同时运行。</p>
+<a name="1051015"></a><h3>诊断程序 (Dell PowerEdge Service and Diagnostic Utilities CD)</h3>
+<a name="1057629"></a><p>Dell PowerEdge 诊断是一套诊断程序（或检测模块），在系统上本地运行。 选择从包含 PowerEdge 诊断在系统上所找硬件的<b>“Diagnostic Selection”（诊断选择）</b>树上运行相应的诊断检测。</p>
+<a name="1057632"></a><h3>驱动程序 (Dell PowerEdge Service and Diagnostic Utilities CD)</h3>
+<a name="1057634"></a><p>此抽取公用程序使用户可以查看并创建 Dell 软件驱动程序和诊断软盘。 </p>
+<a name="1047112"></a><h3> 更改管理 (Dell PowerEdge Updates CD)
+</h3>
+<a name="1047120"></a><p><i>Dell PowerEdge Updates</i> CD 包括 Server Update Utility (SUU)。 SUU 是一个基于 CD 的应用程序，用于确定和应用对系统的更新。 SUU 是具有双重目的的应用程序，而且易于使用。 可以使用 SUU 更新 PowerEdge 服务器或者查看“存储库”中所列任何系统的可用更新。</p>
+<a name="1058172"></a><p>SUU 通过使用户可以使用应用程序更新系统组件来促进更改管理，将当前所装组件的版本与 CD 和存储库中存储的更新组件的版本进行比较。 SUU 的完整会话一般会对所装组件及其版本进行资源清点，提供一份系统上当前所装组件和存储库中最新组件版本的比较报告，然后让您决定是否应用 Dell 组件系统更新集来更新系统。 可以自定义要安装的软件包。可将系统上版本更新的组件回滚到 <i>Dell PowerEdge Updates</i> CD 包含的相应的组件版本。用于 Microsoft Windows 和 Linux 操作系统的 SUU 分别通过单独的 CD 提供。</p>
+<hr noshade size="1">
+<a name="1043763"></a><h2>可能需要的其它说明文件</h2>
+
+
+<a name="1043764"></a><p>除了本<i>指南</i>以外，还可以在 Dell 支持网站 <b>support.dell.com</b> 或<i>说明文件</i> CD 上找到以下指南：</p>
+<ul><li><a name="1053190"></a><i>《Dell OpenManage Software 快速安装指南》</i>概述了可以在管理站（即控制台）和管理系统上安装的应用程序。 还介绍了安装控制台和 Managed System 应用程序的各个过程。<br><br></li>
+<li><a name="1059974"></a><i>《Dell OpenManage Server Administrator 用户指南》</i>介绍了 Server Administrator 的安装和使用。 Server Administrator 通过一组全面的集成管理服务提供了易于使用的对本地和远程系统的管理和监控。<br><br></li>
+<li><a name="1059977"></a><i>《Dell OpenManage Server Administrator 兼容性指南》</i>提供了有关在运行支持的 Microsoft Windows、Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 操作系统的各种硬件平台（或系统）上安装和操作 Server Administrator 的兼容性信息。</li>
+<li><a name="1059979"></a><i>《Dell OpenManage Server Administrator SNMP 参考指南》</i>介绍了简单网络管理协议 (SNMP) 管理信息库 (MIB)。 SNMP MIB 定义了标准 MIB 之外的变量，以涵盖系统管理代理功能。<br><br></li>
+<li><a name="1043768"></a><i>《Dell OpenManage Server Administrator CIM 参考指南》</i>介绍了公用信息模型 (CIM) 提供程序，它是标准管理对象格式 (MOF) 文件的扩展。 此指南说明了支持的各类管理对象。<br><br></li>
+<li><a name="1043769"></a><i>《Dell OpenManage Server Administrator 消息参考指南》</i>列出了 Server Administrator 主页警报日志或操作系统事件查看器中显示的信息。 该指南解释了 Server Administrator 发出的每个警报信息的内容、严重性和原因。<br><br></li>
+<li><a name="1043770"></a><i>《Dell OpenManage Server Administrator 命令行界面用户指南》</i>介绍了 Server Administrator 的完整命令行界面，包括对查看系统状况、访问日志、创建报告、配置各种组件参数和设置临界阈值的 CLI 命令的解释。<br><br></li>
+<li><a name="1049666"></a>《Dell OpenManage IT Assistant 用户指南》提供有关安装、配置和使用 IT Assistant 的信息。 IT Assistant 提供了一个集中的位置来监控和管理局域网 (LAN) 或广域网 (WAN) 上的系统。 通过为管理员提供一个跨越企业的综合视图，IT Assistant 可以增加系统运行时间、自动化重复任务并防止中断重要业务操作。<br><br></li>
+<li><a name="1053704"></a><i>《Dell Remote Access Controller 4 用户指南》</i>提供了有关安装和配置 DRAC 4 控制器以及使用 DRAC 4 远程访问不可操作系统的完整信息。<br><br></li>
+<li><a name="1060511"></a><i>《Dell Remote Access Controller 5 用户指南》</i>提供了有关安装和配置 DRAC 5 控制器以及使用 DRAC 5 远程访问不可操作系统的完整信息。</li>
+<li><a name="1047541"></a><i>《Dell Remote Access Controller/MC 用户指南》</i>提供了有关安装和配置 DRAC/MC 控制器以及使用 DRAC/MC 远程访问不可操作系统的完整信息。<br><br></li>
+<li><a name="1043801"></a><i>《Dell Remote Access Controller 安装和设置指南》</i>提供了有关安装和配置 DRAC III、DRAC III/XT 或 ERA/O 控制器，配置 ERA 控制器以及使用 RAC 远程访问不可操作系统的完整信息。<br><br></li>
+<li><a name="1043773"></a><i>《Dell Remote Access Controller Racadm 用户指南》</i>提供了关于使用 racadm 命令行公用程序管理 DRAC III、DRAC III/XT、ERA 和 ERA/O 控制器的信息。<br><br></li>
+<li><a name="1044268"></a><i>《Dell Embedded Remote Access/MC 控制器用户指南》</i>提供了有关配置和使用 ERA/MC 控制器来通过网络远程管理和监测模块化系统和其共享资源的完整信息。<br><br></li>
+<li><a name="1049686"></a><i>《Dell Update Packages 用户指南》</i>介绍了如何获取 Dell&#160;Update Packages 并将其用作系统更新策略的一部分。<br><br></li>
+<li><a name="1049673"></a><i>Dell PowerEdge Installation and Server Management</i> 和 <i>Systems Management Consoles </i>CD 包含这些 CD 上大多数应用程序的自述文件。<br><br></li>
+</ul><hr noshade size="1">
+<a name="1045381"></a><h2>获得技术帮助</h2>
+
+
+<a name="1045382"></a><p>如果不明白本指南中说明的程序或者您的产品没有按照预期运行，您可以随时寻求各种帮助。 有关详情，请参阅系统<i>《硬件用户手册》</i>中的 “获得帮助”。</p>
+<a name="1043149"></a><p>另外，Dell 可以提供企业培训和认证；有关详情，请参阅 <b>www.dell.com/training</b>。 并非在所有地区均提供此项服务。</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">返回目录页</a></p>
+
+
+<p>&#160;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

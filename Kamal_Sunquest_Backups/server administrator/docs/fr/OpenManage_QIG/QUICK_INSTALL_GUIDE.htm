@@ -1,0 +1,997 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="MS.LOCALE" content="EN">
+<title> Guide d'installation rapide de Dell OpenManage Software Subscription Service</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+<script language="javascript" src="/oma/js/disable-action.js"></script>
+</head>
+
+<body bgcolor="#ffffff">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="left" width="18" class="top-separator"><img height=30
+    src="topcurve.gif" width=18 border=0></td>
+    <td align="left" class="top-separator" nowrap>Guide d'installation rapide de Dell OpenManage&#8482; Software Subscription Service</td>
+  </tr>
+</table>
+
+<br/>
+
+<p class="minitoc"><img src="bullet.gif" border=0>&nbsp;&nbsp;<a href="#wp1111863">Optimisation de votre système Dell&#8482; PowerEdge&#8482;</a></p>
+<p class="minitoc"><img src="bullet.gif" border=0>&nbsp;&nbsp;<a href="#wp1112608">Vérification du contenu du kit Dell OpenManage Subscription Service</a></p>
+<p class="minitoc"><img src="bullet.gif" border=0>&nbsp;&nbsp;<a href="#wp1122998">Disponibilité</a></p>
+<p class="minitoc"><img src="bullet.gif" border=0>&nbsp;&nbsp;<a href="#wp1112678">Présentation générale de Systems Management Software</a></p>
+<p class="minitoc"><img src="bullet.gif" border=0>&nbsp;&nbsp;<a href="#wp1123217">Utilisation de Dell OpenManage sur un logiciel VMware ESX Server</a></p>
+<p class="minitoc"><img src="bullet.gif" border=0>&nbsp;&nbsp;<a href="#wp1113799">Installation de votre système d'exploitation</a></p>
+<p class="minitoc"><img src="bullet.gif" border=0>&nbsp;&nbsp;<a href="#wp1112015">Installation de Systems Management Software sur un système géré</a></p>
+<p class="minitoc"><img src="bullet.gif" border=0>&nbsp;&nbsp;<a href="#wp1112168">Installation de Systems Management Software sur une station de gestion</a></p>
+<p class="minitoc"><img src="bullet.gif" border=0>&nbsp;&nbsp;<a href="#wp1112224">Mise à jour des pilotes et des utilitaires</a></p>
+<p class="minitoc"><img src="bullet.gif" border=0>&nbsp;&nbsp;<a href="#wp1112241">Correctifs logiciels de sécurité</a></p>
+<p class="minitoc"><img src="bullet.gif" border=0>&nbsp;&nbsp;<a href="#wp1112249">Obtention d'assistance technique</a></p>
+<p class="minitoc"><img src="bullet.gif" border=0>&nbsp;&nbsp;<a href="#wp1123054">Coordonnées</a></p>
+
+<br>
+
+<hr noshade size="1">
+
+<h2><a name="wp1111863"></a>Optimisation de votre système Dell&#8482; PowerEdge&#8482;</h2>
+
+<p>Utilisez les CD fournis pour pouvoir utiliser votre système dans les plus brefs délais. Vous obtiendrez des résultats consistants et fiables et serez assuré d'un fonctionnement sans problèmes. Les CD fournissent&nbsp;:</p>
+
+<ul><li><a name="1111865"></a><b>
+Des outils d'installation de système d'exploitation optimisés</b> qui réduisent le temps nécessaire à l'installation des systèmes d'exploitation Microsoft® Windows®, Novell® NetWare® et Red Hat® Enterprise Linux en vous guidant tout au long d'étapes faciles à suivre. <br><br><li><a name="1111866"></a><b>
+Des outils d'installation et de configuration</b> nécessaires à l'installation et à la configuration des systèmes et logiciels Dell PowerEdge. Les outils permettent de découvrir et de configurer automatiquement les contrôleurs RAID et les cartes réseau fournis par Dell. <br><br><li><a name="1111867"></a><b>
+Des utilitaires, des pilotes et des diagnostics</b> qui permettent d'afficher et de créer des pilotes de logiciel et des disquettes de diagnostics Dell. <br><br><li><a name="1111868"></a><b>
+Le logiciel Systems Management</b> qui permet d'installer les applications logicielles Dell OpenManage pour obtenir un maximum de fiabilité et de disponibilité de vos systèmes. Ces applications fournissent les outils nécessaires à la surveillance, le diagnostic et la mise à jour à distance de vos systèmes. <br><br><li><a name="1112574"></a><b>
+De la documentation</b> traduite dans certaines langues sur les systèmes, le logiciel Systems Management Software, le contrôleur RAID et les périphériques. <br><br></li></ul>
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top width="17" height="17">
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;:</span> Pour afficher la documentation des systèmes qui fonctionnent sous Red Hat Enterprise Linux, vous devez lancer le fichier <b>index.htm</b> à partir du répertoire de la langue de votre choix.</td>
+</tr>
+</table>
+
+<p><a href="index.htm">Retour au début</a></p>
+
+<hr noshade size="1">
+
+<h2><a name="wp1112608"></a>Vérification du contenu du kit Dell OpenManage Subscription Service</h2>
+
+<p>Le kit Subscription Service comprend, de façon non exhaustive, les composants suivants&nbsp;: </p>
+
+<ul><li><a name="1112641"></a>Le CD <i>Dell PowerEdge Installation and Server Management</i> est un CD de démarrage qui fournit les outils dont vous avez besoin pour configurer votre système et installer votre système d'exploitation. Ce CD contient les derniers produits du logiciel Systems Management Software, y compris les diagnostics Dell OpenManage Server Administrator, Storage Management et les services d'accès à distance. <br><br>
+  <li><a name="1111885"></a>Le CD <i>Dell Systems Management Consoles</i> contient tous les tous nouveaux produits Dell Systems Management console, y compris Dell OpenManage IT Assistant.<br><br><li><a name="1111886"></a>Le CD <i></i><i>Dell PowerEdge Service and Diagnostic Utilities</i> fournit les outils nécessaires pour configurer votre système ainsi que les derniers BIOS, micrologiciels, diagnostics et pilotes Dell optimisés pour votre système.<br><br><li><a name="1122823"></a>Le CD <i></i><i>Dell PowerEdge</i> Updates<i></i> est seulement fourni avec le kit Subscription Service et fournit les nouvelles versions de logiciels pour votre système avec l'utilitaire Dell OpenManage Server Update Utility (SUU) et les progiciels Dell Update Packages (DUP).<br><br><li><a name="1111887"></a>Le CD <i>Dell PowerEdge Documentation</i> vous contient la documentation des systèmes et des informations sur les produits Systems Management Software, les périphériques et les contrôleurs de RAID. <br><br></li></ul>
+
+<p>La plupart de ces CD contiennent aussi des fichiers <b>lisez-moi</b> qui contiennent les dernières informations sur les produits.</p>
+
+<p>Comparez le contenu de la boîte d'accessoires de votre système au bordereau ou à la facture fournis avec votre système. Si un composant est manquant ou endommagé, appelez Dell dans les 30 jours qui suivent la date de la facture pour obtenir un remplacement gratuit. Pour des informations supplémentaires, consultez la section «&nbsp;<a href="#wp1112249">Obtention d'assistance technique </a>&nbsp;».</p>
+
+<p><a href="index.htm">Retour au début</a> </p>
+
+<hr noshade size="1">
+
+<h2><a name="wp1122998"></a>Disponibilité</h2>
+
+<p>Les systèmes qui ne sont pas complètement pris en charge par ce service sont les systèmes PowerEdge 1300, 2100, 2200, 2300, 4100, 4200, 4300, 4350, 6100, 6300, et 6350. Ce service est seulement disponible pour les clients vivant aux États-Unis et au Canada. D'autres services similaires sont disponibles ailleurs. Contactez votre représentant de commerce local pour plus de détails.</p>
+
+<p><a href="index.htm">Retour au début</a> </p>
+
+<hr noshade size="1">
+
+<h2><a name="wp1112678"></a>Présentation générale de Systems Management Software</h2>
+
+<p>Dell OpenManage Systems Management Software constitue une suite de programmes d'application pour les systèmes PowerEdge. Ces logiciels vous permettent de gérer votre système par surveillance active, diagnostic, notification et accès à distance.</p>
+
+<p>Les systèmes que vous avez l'intention de gérer avec les logiciels Dell OpenManage sont appelés <i>systèmes gérés</i>. Les applications <i>Managed System</i> comprennent Server Administrator, Dell OpenManage Array Manager et le logiciel Remote Access Controller (RAC). Une <i>station de gestion</i> peut servir à gérer un ou plusieurs <i>systèmes gérés</i> à distance à partir d'un emplacement central.</p>
+
+<p>La <a  href="index.htm#wp1113601">figure 1-1</a> illustre les relations entre une station de gestion et ses systèmes gérés. La  <a href="index.htm#wp1113601">figure 1-1 </a> illustre aussi les systèmes d'exploitation et les logiciels Dell OpenManage installés sur les systèmes gérés.</p>
+
+<p class="FigureTableTitle"><a name="wp1113601"></a>Figure 1-1. Exemple d'une station de gestion et de systèmes gérés</p>
+<a name="wp1115010"> </a><p>
+
+</p><div><img height=361 hspace=0 src="dc187eb2.jpg" width=394 border=0 >
+</div><p>
+
+</p>
+<p><a href="index.htm">Retour au début</a></p>
+
+<hr noshade size="1">
+
+<h2><a name="wp1123217"></a>Utilisation de Dell OpenManage sur un logiciel VMware ESX
+Server</h2>
+
+<p>L'installation de Dell OpenManage avec le logiciel VMware ESX Server suit des étapes particulières. Ces étapes varient en fonction de la version de Dell OpenManage et la version de ESX Server&nbsp;; seul un nombre limité de combinaisons est pris en charge. Consultez le <i>Systems Compatibility Guide (Guide de compatibilité des systèmes)</i> de VMware et le <i>ESX Server Deployment Guide</i> <i>(Guide de déploiement de </i>VMware <i>ESX Server)</i> situé sous Resource Center (Centre de ressources) à l'adresse <b>www.dell.com/vmware</b> pour des détails. Les instructions pour l'installation des versions prises en charge de Dell OpenManage sont disponibles dans le <i>ESX Server Deployment Guide</i> <i>(Guide de déploiement de ESX Server)</i>.</p>
+
+<a name="wp1113602"> </a><p>
+
+</p>
+
+<p>Le tableau 1-1  décrit les produits Dell OpenManage.<p class="FigureTableTitle"><a name="wp1114192"></a>Tableau 1-1. Applications Dell OpenManage Systems Management Software </p>
+
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="wp1114200"></a>
+<p align="left"><b>Fonction</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1114202"></a>
+<p align="left"><b>Produit logiciel</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1114205"></a>
+<p align="left"><b>CD</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1114207"></a>
+<p align="left"><b>Description</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p>Gestion de système locale, y compris configuration et gestion de RAID</p>
+
+
+</td><td valign="top" align="left"><p>Server Administrator</p>
+
+
+</td><td valign="top" align="left"><p><i>Installation and Server Management</i></p>
+
+
+</td><td valign="top" align="left"><p>Une solution de gestion pour les systèmes PowerEdge qui fournit une façon centralisée et fiable de surveiller, configurer, mettre à jour et gérer des systèmes Dell individuels.</p>
+
+
+<p>Server Administrator dispose des fonctionnalités suivantes&nbsp;:</p>
+
+
+<ul><li><a name="1114316"></a>La gestion de la sécurité<li><a name="1114346"></a>Une interface de ligne de commande (CLI)<li><a name="1114347"></a>Une journalisation avancée<li><a name="1114354"></a>La capacité de revoir et de rapporter la configuration et la condition d'un sous-système RAID hôte
+        <li>Des outils de diagnostic pour identifier les problèmes de matériel alors que le système est encore opérationnel 
+        <li>Un accès rapide à des informations de panne et de performance rapportées sur l'interface utilisateur 
+        <li>Une administration à distance des systèmes surveillés, y compris la configuration du BIOS, l'arrêt, le démarrage et la sécurité du RAC 
+        <li>Des fonctionnalités améliorées de configuration du stockage sur disque RAID ou non RAID raccordé localement à un système 
+        <li>Des informations sur la gestion du stockage sous la forme d'un affichage graphique intégré 
+        <li>La condition du stockage local et distant rattaché à un système surveillé 
+        <li>La prise en charge de SCSI, SATA et ATA, mais pas de Fibre Channel</li>
+        <li>La capacité d'effectuer des fonctionnalités sur tous les contrôleurs et enceintes RAID et non-RAID à partir d'une interface graphique unique ou la CLI, sans avoir besoin d'utiliser les utilitaires du BIOS du contrôleur 
+        <li>La capacité de protéger vos données en configurant la redondance des données, en attribuant des disques de secours ou en recréant des disques défaillants </li></ul></td></tr>
+<tr><td valign="top" align="left"><p>Configuration et gestion du RAID</p>
+
+
+</td><td valign="top" align="left"><p>Array Manager</p>
+
+
+<p> </p>
+
+
+</td><td valign="top" align="left"><p><i>Installation and Server Management</i></p>
+
+
+</td><td valign="top" align="left"><a name="1123226"></a>
+<p><span class="notes">REMARQUE&nbsp;: </span>Array Manager n'est pas disponible sous Windows si une version précédente du logiciel Dell OpenManage Systems Management  (avec Array Manager installé) n'est pas détectée. Il peut seulement être mis à niveau. En revanche, Array Manager est disponible pour NetWare.</p>
+
+
+<p>Une solution complète de gestion de stockage avec un affichage graphique intégré. Array Manager vous permet de configurer et de gérer le stockage local et distant relié à un serveur alors que le serveur est en ligne et en train de traiter des requêtes.</p>
+      <p>Array Manager réalise les fonctions suivantes&nbsp;:</p>
+      <ul>
+        <li><a name=1123234></a>Obtient des informations sur les périphériques de stockage raccordés au serveur,
+            y compris les contrôleurs, les disques de matrice, les enceintes, les canaux et
+            autres composants physiques 
+        <li><a name=1114510></a>Obtient des informations sur les composants logiques du système de stockage,
+            comme les disques et les volumes virtuels, et affiche les connexions entre
+            les composants de stockage logiques et physiques 
+        <li><a name=1114511></a>Crée et supprime les disques virtuels du système de stockage 
+        <li><a name=1114566></a>Recrée et reconstruit les données sur le stockage RAID raccordé localement
+            à un système</li></ul>
+      <p><span class=notes>REMARQUE&nbsp;: </span>Vous pouvez utiliser Array Manager et le service Storage Management Service de Server Administrator pour gérer des sous-systèmes RAID SCSI. Dell vous conseille d'utiliser ce service pour les systèmes fonctionnant sous les systèmes d'exploitation Windows et Red Hat Enterprise Linux. Consultez le <i>Guide d'utilisation de Server Administrator </i> pour une description détaillée des différences entre Array Manager et le service Server Administrator Storage Management.</p>
+
+
+</td></tr>
+<tr><td valign="top" align="left"><p>Condition et informations</p>
+
+
+</td><td valign="top" align="left"><p>IT Assistant</p>
+
+
+</td><td valign="top" align="left"><p><i>Systems Management </i><i>Consoles</i></p>
+
+
+</td><td valign="top" align="left"><p>Un programme de gestion de systèmes sous forme de console, installé en général sur une station de gestion pour recueillir des informations et fournir une vue de tous les systèmes gérés. IT Assistant réalise les fonctions suivantes&nbsp;:</p>
+
+
+<ul><li><a name="1117293"></a>La surveillance des pannes, avec notification par e-mail ou alerte sur console pour avertir les administrateurs des événements rapportés par les conditions des disques, de la mémoire, des tensions, des ventilateurs et de la température<li><a name="1114641"></a>Le compte rendu d'inventaire et des biens, y compris le numéro de service, les informations sur le coût de possession et des données spécifiques au BIOS, aux microprocesseurs et à la mémoire
+        <li><a name=1114656></a>Le lancement contextuel d'outils spécifiques aux périphériques tels que Server Administrator, Array Manager, la console d'accès à distance, la console du commutateur Dell PowerConnect<span 
+        style="FONT-WEIGHT: normal; FONT-STYLE: normal">&#8482; </span>et la console KVM numérique.</li></ul></td></tr>
+<tr><td valign="top" align="left"><p>Gestion à distance</p>
+
+
+<p> </p>
+
+
+</td><td valign="top" align="left"><p>Remote Access Controller  (DRAC 4, DRAC III, DRAC III/XT, ERA, ERA/O et ERA/MC)</p>
+    <p> </p>
+    <p> </p>
+    <p>Utilitaire
+        de gestion du contrôleur BMC</p>
+
+
+</td><td valign="top" align="left"><p><i>Systems Management </i><i>Consoles</i></p>
+    <p> </p>
+    <p> </p>
+    <p> </p>
+    <p><i>Systems Management </i><i>Consoles</i></p>
+
+
+</td><td valign="top" align="left"><p>Ces solutions matérielles et logicielles
+        réalisent les fonctions
+        suivantes&nbsp;:</p>
+      <ul><li><a name="1114715"></a>Fournissent des messages d'alerte pour les problèmes système, activent la gestion du système à distance et réduisent le besoin pour un administrateur système de se déplacer<li><a name="1114722"></a>Aident à améliorer la disponibilité d'ensemble des systèmes Dell<li><a name="1114723"></a>Permettent d'accéder à distance à un système en panne et de prendre contrôle de la console locale </li></ul>
+      <p>Un utilitaire qui fournit la gestion à distance et la configuration des systèmes équipés d'un contrôleur de gestion de la carte mère (BMC) en utilisant le protocole IPMI.</p><a name=1114772></a>
+      <p><span class=notes>REMARQUE&nbsp;: </span>Cet utilitaire est disponible uniquement pour les systèmes d'exploitation Windows et Red Hat Enterprise Linux.</p></td></tr>
+<tr><td valign="top" align="left"><p>Gestion des objets Microsoft Active<sup class="cSuperscript">®</sup> Directory Dell</p>
+
+
+</td><td valign="top" align="left"><p>Utilitaire snap-in Active Directory</p>
+
+
+<p> </p>
+
+
+</td><td valign="top" align="left"><p><i>Systems Management </i><i>Consoles</i></p>
+
+
+<p> </p>
+
+
+</td><td valign="top" align="left"><p>Fournit un complément d'extension aux utilisateurs de Microsoft Active Directory ainsi qu'un complément d'ordinateur qui vous permet de gérer les objets Active Directory spécifiques à Dell. Les définitions de classe de schéma Dell et leur installation sont aussi contenues sur le CD.</p>
+
+
+<p>Vous pouvez utiliser cette option lorsque des classes de schémas Dell ont été rajoutés au schéma Active Directory.</p>
+
+
+</td></tr>
+<tr><td valign="top" align="left"><p>Configuration du serveur et installation du système d'exploitation</p>
+
+
+</td><td valign="top" align="left"><p>Server Assistant</p>
+
+
+<p> </p>
+
+
+</td><td valign="top" align="left"><p><i>Installation and Server Management</i></p>
+
+
+<p> </p>
+
+
+</td><td valign="top" align="left"><p>Un utilitaire qui fournit&nbsp;:</p>
+
+
+<ul><li><a name="1114947"></a>Une configuration du système détaillée, y compris celle des contrôleurs RAID et des interfaces réseau<li><a name="1114948"></a>Une prise en charge de l'installation pour les systèmes d'exploitation Windows, Red Hat Enterprise Linux et NetWare<li><a name="1114949"></a>Des pilotes de périphérique optimisés par Dell pour les systèmes PowerEdge </li></ul></td></tr>
+<tr><td valign="top" align="left"><p>Identification et installation de pilotes</p>
+
+
+</td><td valign="top" align="left"><p>System Software Extraction Utility</p>
+
+
+</td><td valign="top" align="left"><p>Service and Diagnostic Utilities </p>
+
+
+</td><td valign="top" align="left"><p>Fournit des pilotes de périphérique et des utilitaires permettant de mettre à jour votre système.</p>
+
+
+</td></tr>
+<tr><td valign="top" align="left"><p>Mises à jour de logiciel</p>
+
+
+</td><td valign="top" align="left"><p>Serveur Update Utility et Dell Update Packages</p>
+
+
+</td><td valign="top" align="left"><p>Updates</p>
+
+
+</td><td valign="top" align="left"><p>Fournit les versions les plus récentes de logiciels pour votre système avec l'utilitaire Serveur Update Utility et les progiciels Dell Update Packages.</p>
+
+
+</td></tr>
+
+</table>
+<p></p>
+
+<p><a href="index.htm">Retour au début</a> </p>
+
+<hr noshade size="1">
+
+<h2><a name="wp1113799"></a>Installation de votre système d'exploitation</h2>
+
+<p>Effectuez les étapes suivantes pour déterminer si un système d'exploitation est installé sur votre système&nbsp;:</p>
+
+<ol type="1">
+<a name="wp1112004"></a>
+
+<li value="1">Vérifiez que le clavier, la souris et le moniteur sont connectés à votre système et allumez ce dernier.<br><br><a name="wp1112005"></a>
+
+<li value="2">Lisez et acceptez le contrat de licence logicielle pour continuer. 
+<br><br></li>
+</ol>
+
+<p class="indent">Votre système redémarre. Si un message apparaît, indiquant qu'aucun disque
+d'amorçage n'existe ou qu'aucun système d'exploitation n'a été trouvé, c'est qu'il n'y
+a pas de système d'exploitation installé sur votre système. Prenez le CD de votre système d'exploitation et passez aux étapes suivantes. </p>
+
+<p class="indent">Si un système d'exploitation a été pré-installé sur votre système, il n'est pas nécessaire de poursuivre cette procédure. Déterminez l'emplacement du document du système d'exploitation intitulé <i>Instructions d'installation</i> fourni avec votre système et suivez ces instructions pour effectuer l'installation.</p>
+
+<p>Effectuez les étapes suivantes pour installer un système d'exploitation sur votre système&nbsp;: </p>
+
+<ol type="1">
+<a name="wp1112008"></a>
+
+<li value="1">Insérez le CD <i>Installation and Server Management</i> et redémarrez votre système. <br><br><a name="wp1112009"></a>
+
+<li value="2">Sélectionnez <b>Configuration du serveur</b> sur la page principale de <b>Server Assistant</b>.<br><br><a name="wp1112010"></a>
+
+<li value="3">Suivez les instructions étape par étape pour configurer votre matériel et installer votre système d'exploitation.
+<br><br></li>
+</ol>
+
+<p>Pour des informations supplémentaires sur l'installation du RAID, consultez la section 
+ <i>Initiation au RAID</i> du CD de documentation.</p>
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;:</span> Quand vous utilisez Server Assistant pour installer un système d'exploitation Windows ou Red Hat Enterprise Linux, Server Assistant copie automatiquement les fichiers d'installation de Server Administrator pertinents sur le disque dur et place les icônes <b>Installer Server Administrator</b> et <b>Supprimer les fichiers d'installation de Server Administrator</b> sur le bureau. </td>
+</tr>
+</table>
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Vous pouvez utiliser l'icône<b> Installer Server Administrator</b> pour installer Server Administrator sans le CD d'installation. Sur les systèmes fonctionnant sous Windows, le fait de cliquer sur cette icône affiche l'interface d'installation standard. Sur les systèmes fonctionnant sous Red Hat Enterprise Linux, le fait de cliquer sur cette icône lance l'installation personnalisée de Red Hat Enterprise Linux. Si vous ne voulez pas installer Server Administrator, vous pouvez supprimer les fichiers d'installation en cliquant sur l'icône <b>Supprimer les fichiers d'installation de Server Administrator</b>. Après avoir confirmé que vous voulez continuer, tous les fichiers de Server Administrator seront supprimés, y compris les icônes.</td>
+</tr>
+</table>
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;:</span> Lors de l'installation du système d'exploitation
+    Windows, quelques configurations matérielles avec plus de 4 Go de mémoire physique installée
+    nécessitent des étapes supplémentaires après l'installation du système d'exploitation afin d'utiliser pleinement toute la mémoire installée. Pour plus d'informations sur l'extension de l'adresse
+    physique (PAE), veuillez consultez&nbsp;:</td>
+</tr>
+</table>
+
+<p class="indent"><b>www.microsoft.com/windows2000/en/advanced/help/PAE_checklist.htm</b></p>
+
+<p class="indent"><b>www.microsoft.com/resources/documentation/windowsserv/2003/enterprise/proddocs/en-us/paex86_2.asp</b></p>
+
+<p class="indent"><b>www.support.microsoft.com/default.aspx?scid=kb;en-us;283037</b></p>
+
+<p><a href="index.htm">Retour au début</a></p>
+
+<hr noshade size="1"><h2>
+
+<a name="wp1112015"></a>Installation de Systems Management Software sur un système géré</h2>
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Consultez le fichier lisez-moi d'installation du CD Installation and Server Management pour obtenir la liste des systèmes pris en charge.</td>
+</tr>
+</table>
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;:</span> Si la version (&gt;= 3.0) ou une version antérieure du logiciel Systems Management Software est installée sur votre système, vous ne pouvez pas
+directement mettre au niveau de la version 4.5. Pour préserver vos paramètres, vous devez d'abord mettre au niveau de la version 4.3,
+puis au niveau de la version 4.5 pour obtenir les dernières mises à jour de logiciels. La version 4.3 est disponible sur le site de support de Dell à l'adresse <b>support.dell.com</b>.</td>
+</tr>
+</table>
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;:</span>  Installez l'agent SNMP sur le système géré en utilisant votre système d'exploitation avant d'installer Managed System Software.</td>
+</tr>
+</table>
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Le programme d'installation fournit une option d'<b>installation rapide </b>et une option d'<b>installation personnalisée</b>. L'option d'<b>installation rapide</b> (recommandée) installe automatiquement tous les composants logiciels détectés comme étant nécessaires à la gestion de votre système. L'option d'<b>installation personnalisée </b>vous permet de sélectionner les composants logiciels que vous voulez installer. La procédure de ce document est basée sur l'option <b>Installation rapide</b>. Consultez le <i>Guide d'installation et de sécurité de Dell OpenManage </i>pour des informations sur l'<b>installation personnalisée</b>.</td>
+</tr>
+</table><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>IT Assistant et RAC Management Station ne sont pas des composants pris en charge pour les versions 64 bits de Windows Server&#8482; 2003 Standard et Windows 2003 Enterprise Editions. </td>
+</tr>
+</table>
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;:</span> Pour éviter de démarrer à partir de Server Assistant, enlevez le CD <i>Installation and Server Management</i> si vous redémarrez votre système.</td>
+</tr>
+</table><a name="wp1118530"></a>
+
+<h4>Installation de Managed System Software sur un système d'exploitation Microsoft Windows pris en charge</h4>
+
+<ol type="1">
+<a name="wp1118534"></a>
+
+<li value="1">Ouvrez une session avec des droits d'administrateur sur le système fonctionnant sous un système d'exploitation Windows pris en charge où vous voulez installer les composants Managed System .<br><br>
+<a name="wp1112061"></a>
+
+<li value="2">Vérifiez que votre système dispose d'un navigateur pris en charge.<br><br>
+<a name="wp1112062"></a>
+
+<li value="3">Si un contrôleur RAID est installé sur votre système et que vous avez l'intention d'installer la fonction Storage Management, assurez-vous que les pilotes de périphérique de chaque contrôleur RAID sont aussi installés. 
+<br><br></li>
+</ol>
+
+<p class="indent">Les pilotes de périphériques sont disponibles dans le CD <i>Service and Diagnostic Utilities</i>. Vous pouvez vérifier le pilote de périphérique sous Windows en cliquant-droite sur <b>Poste de travail</b>, sélectionnant <b>Gérer</b> puis en cliquant sur <b>Gestionnaire de périphériques</b>.</p>
+
+<ol type="1">
+<a name="wp1112073"></a>
+
+<li value="4">Insérez le CD <i>Installation and Server Management</i> dans le lecteur de CD.
+<br><br></li>
+</ol>
+
+<p class="indent">Le programme de configuration devrait démarrer automatiquement. Si ce n'est pas le cas, cliquez sur le bouton <b>Démarrer</b>, puis sur <b>Exécuter</b> et tapez <span class="screen">x:\srvadmin\windows\setup.exe</span> (<span class="screen">x</span> étant la lettre de lecteur de votre lecteur de CD). Le programme d'installation démarre l'utilitaire de vérification des prérequis. </p>
+
+<ol type="1">
+<a name="wp1116920"></a>
+
+<li value="5">Vérifiez les résultats des vérifications des prérequis effectuées et résolvez tous les problèmes énumérés.<br><br><a name="wp1116902"></a>
+
+<li value="6">Cliquez sur le bouton <b>Installer, modifier, réparer ou supprimer Server Administrator</b>.<br><br><a name="wp1112075"></a>
+
+<li value="7">Cliquez sur <b>Suivant</b> dans la fenêtre d'<b>accueil</b>.<br><br><a name="wp1112076"></a>
+
+<li value="8">Acceptez le contrat de licence et cliquez sur <b>Suivant</b>.<br><br><a name="wp1112077"></a>
+
+<li value="9">Sélectionnez <b>Installation rapide</b> et cliquez sur <b>Suivant</b>.<br><br><a name="wp1112078"></a>
+
+<li value="10">Cliquez sur <b>Installer</b> pour poursuivre la procédure d'installation. 
+<br><br></li>
+</ol>
+
+<p class="indent">Le programme de configuration installe automatiquement tous les composants Managed System Software qui s'appliquent à votre configuration matérielle.</p>
+
+<ol type="1">
+<a name="wp1112079"></a>
+
+<li value="11">Une fois l'installation effectuée, cliquez sur <b>Terminer</b> et redémarrez votre système (si vous êtes invités à le faire) avant d'utiliser le logiciel.
+<br><br></li>
+</ol>
+<a name="wp1112081"></a>
+
+<h4>Installation de Managed System Software sur un système d'exploitation Red Hat Enterprise Linux pris en charge</h4>
+
+<ol type="1">
+<a name="wp1112082"></a>
+
+<li value="1">Ouvrez une session en tant que «&nbsp;root&nbsp;» sur le système fonctionnant sous le système d'exploitation Red Hat Enterprise Linux où vous voulez installer les composants Managed System.<br><br><a name="wp1112083"></a>
+
+<li value="2">Insérez le CD <i>Installation and Server Management</i> dans le lecteur de CD.<br><br><a name="wp1116934"></a>
+
+<li value="3">	 Si nécessaire, montez le CD avec la commande <b>mount /mnt/cdrom</b> ou une commande similaire.<br><br><a name="wp1116714"></a>
+
+<li value="4">Si vous avez l'intention d'installer les logiciels DRAC III, DRACIII/XT, ERA ou ERA/O, allez au répertoire <b>/srvadmin/linux/express-install-with-RAC3</b>. Si vous avez l'intention d'installer le logiciel DRAC 4, allez au répertoire <b>/srvadmin/linux/express-install-with-RAC4</b>. Ensuite, à partir du répertoire approprié, exécutez la commande RPM suivante&nbsp;:<br>
+<span class="screen">tr/min &#8211;ihv *.tr/min
+</span><br><br>
+<a name="wp1116764"></a>
+
+<li value="5">Si vous ne savez pas quel RAC est installé dans votre système, exécutez le script <b>srvadmin-install.sh</b> à partir du répertoire <b>/srvadmin/linux/supportscripts</b> de la manière suivante&nbsp;:<br>
+<span class="screen">sh srvadmin-install.sh --express<br>
+</span>ou<br>
+<span class="screen">sh srvadmin-install.sh -x</span><br><br></li>
+</ol>
+
+<p class="indent">Le script installera les logiciels de RAC. Si aucun périphérique RAC n'est présent, le script n'installera pas de logiciel RAC.</p>
+
+<ol type="1">
+<a name="wp1116765"></a>
+
+<li value="6">Démarrez les services avec la commande <b>sh srvadmin-services.sh</b> start.
+<br><br></li>
+</ol>
+
+<table class="indent" border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;:</span> Vous pouvez journaliser les résultats de l'installation RPM en ajoutant <span class="screen">2&gt;&amp;1 | tee &#8211;a /var/log/srvadmin.log</span> à la commande RPM ci-dessus. La commande résultante sera&nbsp;:<br><span class="screen">rpm &#8211;ihv *.rpm 2&gt;&amp;1|tee &#8211;a /var/log/srvadmin.log</span></td>
+</tr>
+</table>
+
+<a name="wp1112099"></a>
+
+<h4>Installation de Managed System Software sur un système d'exploitation Novell NetWare pris en charge</h4>
+
+<ol type="1">
+<a name="wp1112100"></a>
+
+<li value="1">Insérez le CD <i>Installation and Server Management </i>dans le lecteur de CD du système fonctionnant sous NetWare 6.5.
+<br><br></li>
+</ol>
+
+<p class="indent">Le CD se charge automatiquement.</p>
+
+<ol type="1">
+<a name="wp1112102"></a>
+
+<li value="2">Si le nom du volume ne s'affiche pas, tapez <span class="screen">volumes</span>
+    à l'invite de la console et appuyez sur &lt;Entrée&gt;. 
+<br><br></li>
+</ol>
+
+<p class="indent">Tous les volumes disponibles s'affichent.</p>
+
+<ol type="1">
+<a name="wp1112104"></a>
+
+<li value="3">Prenez note du nom de volume du lecteur de CD.<br><br><a name="wp1112105"></a>
+
+<li value="4">Tapez <span class="screen">load nwconfig</span> et appuyez sur &lt;Entrée&gt;.<br><br><a name="wp1112106"></a>
+
+<li value="5">À l'écran <b>Configuration de NetWare</b>, sélectionnez
+<b>Options de produits</b> sous <b>Options de configuration</b> et appuyez sur &lt;Entrée&gt;.<br><br><a name="wp1113012"></a>
+
+<li value="6">Dans le menu <b>Autres actions d'installation</b>, sélectionnez <b>Installer un
+produit non répertorié</b> et appuyez sur &lt;Entrée&gt;.
+<br><br></li>
+</ol>
+
+<table class="indent" border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;:</span>   Une boîte de dialogue répertoriant les chemins sélectionnés auparavant pourrait apparaître lorsque vous appuyez sur &lt;Entrée&gt;. Appuyez sur &lt;Échap&gt; pour fermer cette boîte de dialogue.</td>
+</tr>
+</table>
+
+<p class="indent">Par défaut, un message apparaît pour vous informer que le produit sera installé à partir du lecteur A:</p>
+
+<ol type="1">
+<a name="wp1112118"></a>
+
+<li value="7">Appuyez sur &lt;F3&gt; pour spécifier un autre chemin d'installation.<br><br><a name="wp1112119"></a>
+
+<li value="8">Supprimez A: et tapez le nom du volume et celui du chemin&nbsp;:
+<br><br></li>
+</ol>
+
+<p class="indent"><span class="screen">nom_du_volume:srvadmin\netware</span></p>
+
+<p class="indent"><i>nom_du_volume</i> étant le nom de volume attribué au lecteur de CD.</p>
+
+<table class="indent" border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;:</span>  Vous ne pouvez pas entrer d'espaces dans le nom du chemin.</td>
+</tr>
+</table>
+
+<ol type="1">
+<a name="wp1112131"></a>
+
+<li value="9">Une fois le nom de chemin saisi, appuyez sur &lt;Entrée&gt; pour continuer.
+<br><br></li>
+</ol>
+
+<p class="indent">Le message suivant apparaît&nbsp;:</p>
+
+<p class="screenindent">Indicate which file groups you want installed.<br><br>(Indiquez les groupes de fichiers à installer.)</p>
+
+<p class="indent">Server Administrator n'est pas répertorié comme possibilité car
+  il est installé par défaut.</p>
+
+<ol type="1">
+<a name="wp1112135"></a>
+
+<li value="10">Sélectionnez les composants à installer.
+<br><br></li>
+</ol>
+
+<table class="indent" border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;:</span> Un X apparaîtra à côté des éléments sélectionnés pour l'installation. Appuyez sur &lt;Entrée&gt; à côté d'un élément pour le sélectionner. Si vous appuyez sur la barre d'espacement à côté d'un élément sélectionné, il ne le sera plus.</td>
+</tr>
+</table>
+
+<ol type="1">
+<a name="wp1117210"></a>
+
+<li value="11">Appuyez sur &lt;F10&gt; pour accepter les composants que vous avez sélectionnés.<br><br><a name="wp1117215"></a>
+
+<li value="12">L'écran résumé apparaît et est la dernière étape pour arrêter l'installation. Vérifiez le résumé des informations et appuyez sur &lt;Entrée&gt; pour continuer ou &lt;Échap&gt; pour annuler l'installation.
+<br><br></li>
+</ol>
+
+<p class="indent">L'installation de Server Administrator et des composants sélectionnés
+  commence. Des messages d'état apparaissent. </p>
+
+<p class="indent">L'utilitaire Systems Management Security Utility s'affiche et demande si vous voulez modifier les paramètres de sécurité par défaut pour les opérations set SNMP.</p>
+
+<table class="indent" border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span> Par défaut, le mot de passe de root est <span class="screen">calvin</span>.</td>
+</tr>
+</table>
+
+<ol type="1">
+<a name="wp1112158"></a>
+
+<li value="13">	 Sélectionnez une des options suivantes&nbsp;: 
+<br><br>
+<ul><li type="disc"><a name="1112159"></a>Appuyez sur &lt;y&gt; pour changer le mot de passe par défaut de root.<br><br></li></ul></li></ol>
+
+<p class="indentsub">Tapez le nouveau mot de passe, puis tapez-le une seconde fois pour confirmer.</p>
+
+<ul><ul><li type="disc"><a name="1112161"></a>Appuyez sur &lt;n&gt; ou &lt;q&gt; pour quitter l'utilitaire de sécurité et redéfinir le mot de passe de root sur sa valeur par défaut. <br><br></li></ul></ul>
+<p class="indent">L'installation de Server Administrator et des composants sélectionnés continue. Des messages d'état apparaissent. Quand l'installation est terminée, une boîte de dialogue apparaît indiquant que l'installation a été effectuée. </p>
+
+<ol type="1">
+<a name="wp1112163"></a>
+
+<li value="14">Appuyez sur &lt;Entrée&gt;.<br><br><a name="wp1112164"></a>
+
+<li value="15">Appuyez sur &lt;Échap&gt; deux fois et sur &lt;Entrez&gt; une fois pour revenir à l'invite de console et quitter le programme de configuration de NetWare. 
+<br><br></li>
+</ol>
+
+<p><a href="index.htm">Retour au début</a></p>
+
+<hr noshade size="1">
+
+<h2><a name="wp1112168"></a>Installation de Systems Management Software sur une station de gestion</h2>
+
+<p>L'installation rapide installe IT Assistant, la console RAC et l'utilitaire de gestion du contrôleur BMC. L'installation rapide installe tous ces composants. Si vous ne voulez pas tous les installer, consultez les sections sur l'installation personnalisée du <i>Guide d'installation et de sécurité de Dell OpenManage</i>.</p>
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;:</span>  Sous Windows,
+    les applications Management Station ne peuvent s'exécuter que sur un système fonctionnant sous Windows XP Professionnel,
+    Windows 2000 Professionnel (SP4), la gamme Windows Server 2003 (y compris Small Business
+    Server [SBS]) et la gamme Windows 2000 Server (y compris SBS)&nbsp;; elles peuvent gérer des systèmes
+    qui fonctionnent sous un système d'exploitation Windows, NetWare et Red Hat Enterprise Linux pris en charge. IT
+Assistant n'est pas pris en charge par les systèmes d'exploitation Windows Server 2003 SBS et Windows 2000 Server SBS. </td>
+</tr>
+</table><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;:</span>  Seuls la console RAC
+    et l'utilitaire de gestion du contrôleur BMC sont pris en charge par les systèmes d'exploitation Red Hat Enterprise Linux.</td>
+</tr>
+</table>
+
+<a name="wp1112180"></a>
+
+<h4>Installation de Managed System Software sur un système d'exploitation Microsoft Windows</h4>
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>L'installation d'IT Assistant n'est pas prise en charge par les systèmes avec une version de Systems Management Software antérieure à la  version 4.3. Si la version 4.2 ou une version antérieure (&gt;= 3.0) du logiciel Systems Management Software est installée sur votre système, vous ne pouvez pas
+directement mettre au niveau de la version 4.5. Pour préserver vos paramètres, vous devez d'abord mettre au niveau de la version 4.3,
+puis au niveau de la version 4.5 pour obtenir les dernières mises à jour de logiciels. La version 4.3 est disponible sur le site de support de Dell à l'adresse <b>support.dell.com</b>.</td>
+</tr>
+</table><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;:</span> Pour installer IT Assistant, installez l'agent MSDE (s'il n'est pas préalablement installé) sur votre station de gestion en utilisant le CD <i>Systems Management Consoles</i> avant d'installer Management Station Software. Redémarrez après l'installation de MSDE.</td>
+</tr>
+</table>
+
+<p>Pour installer des applications sur la station de gestion, effectuez les étapes suivantes&nbsp;: </p>
+
+<ol type="1">
+<a name="wp1112201"></a>
+
+<li value="1">Ouvrez une session avec des privilèges d'administrateur sur le système où vous voulez installer les applications Management Station Applications.<br><br><a name="wp1112202"></a>
+
+<li value="2">Insérez le CD <i>Systems Management Consoles</i> dans le lecteur de CD. 
+<br><br></li>
+</ol>
+
+<p class="indent">Le programme de configuration devrait démarrer automatiquement. Si ce n'est pas le cas, cliquez sur le bouton <b>Démarrer</b>, puis sur <b>Exécuter</b> et tapez <span class="screen">x:\windows\setup.exe</span> (<i>x</i> étant la lettre de lecteur de votre lecteur de CD). Le programme d'installation démarre l'utilitaire de vérification des prérequis. </p>
+
+<ol type="1">
+<a name="wp1116971"></a>
+
+<li value="3">Vérifiez les résultats des vérifications des prérequis effectuées et résolvez tous les problèmes énumérés.<br><br><a name="wp1112203"></a>
+
+<li value="4">Cliquez sur le bouton <b>Installer, modifier, réparer ou supprimer Management Station</b>.
+<br><br></li>
+</ol>
+
+<p class="indent">L'écran d'<b>accueil</b> s'affiche.</p>
+
+<ol type="1">
+<a name="wp1112205"></a>
+
+<li value="5">Cliquez sur <b>Suivant</b>.
+<br><br></li>
+</ol>
+
+<p class="indent">L'écran du <b>contrat de licence</b> s'affiche.</p>
+
+<ol type="1">
+<a name="wp1112207"></a>
+
+<li value="6">Sélectionnez <b>J'accepte </b>et cliquez sur <b>Suivant</b>.
+<br><br></li>
+</ol>
+
+<p class="indent">L'écran <b>Type d'installation</b> s'affiche.</p>
+
+<ol type="1">
+<a name="wp1112209"></a>
+
+<li value="7">Sélectionnez <b>Rapide</b> et cliquez sur <b>Suivant</b>.
+<br><br></li>
+</ol>
+
+<p class="indent">L'écran <b>Prêt pour l'installation</b> s'affiche.</p>
+
+<ol type="1">
+<a name="wp1112211"></a>
+
+<li value="8">Cliquez sur <b>Installer</b> pour accepter les composants sélectionnés et commencer l'installation.
+<br><br></li>
+</ol>
+
+<p class="indent">L'écran <b>Installation de Dell OpenManage Management Station</b> apparaît. Des messages apparaissent, indiquant la condition et la progression de l'installation des logiciels. </p>
+
+<p class="indent">Quand les composants sélectionnés sont installés, la boîte de dialogue <b>Fin de l'assistant d'installation</b> s'affiche.</p>
+
+<ol type="1">
+<a name="wp1112214"></a>
+
+<li value="9">Cliquez sur <b>Terminer</b> pour sortir du programme d'installation de <b>Dell OpenManage Management Station</b>.
+<br><br></li>
+</ol>
+<a name="wp1112216"></a>
+
+<h4>Installation de Management Station Software sur le système d'exploitation
+ Red Hat
+Enterprise Linux</h4>
+
+<p>L'utilitaire de gestion du contrôleur BMC et les composants RAC de la suite de logiciels Management Station Software peuvent être utilisés sur une station de gestion fonctionnant sous Red Hat Enterprise Linux.</p>
+
+<p>Pour installer l'utilitaire de gestion du contrôleur BMC sur la station de gestion, effectuez les étapes suivantes pour lancer le programme d'installation&nbsp;:</p>
+
+<ol type="1">
+<a name="wp1112218"></a>
+
+<li value="1">Ouvrez une session en tant que «&nbsp;root&nbsp;» sur le système où vous voulez installer les composants de Management Station.<br><br><a name="wp1112219"></a>
+
+<li value="2">Si nécessaire, montez le CD avec la commande <b>mount /mnt/cdrom</b> ou une commande similaire.<br><br><a name="wp1117011"></a>
+
+<li value="3">Allez au répertoire <b>/linux/bmc</b>
+et exécutez la commande <b>rpm -ivh *.rpm</b> .
+<br><br></li>
+</ol>
+
+<p>Pour installer le composant RAC de Management Station, effectuez les étapes suivantes pour lancer
+    le programme d'installation&nbsp;: </p>
+
+<ol type="1">
+<a name="wp1116487"></a>
+
+<li value="1">Ouvrez une session en tant que «&nbsp;root&nbsp;» sur le système où vous voulez installer les composants de Management Station.<br><br><a name="wp1117027"></a>
+
+<li value="2">Si nécessaire, montez le CD avec la commande <b>mount /mnt/cdrom</b> ou une commande similaire.<br><br><a name="wp1117038"></a>
+
+<li value="3">Allez au répertoire <b>/linux/rac</b>
+et exécutez la commande <b>rpm -ivh *.rpm</b> .
+<br><br></li>
+</ol>
+
+<p><a href="index.htm">Retour au début</a></p>
+
+<hr noshade size="1">
+
+<h2><a name="wp1112224"></a>Mise à jour des pilotes et des utilitaires</h2>
+
+<p>Le CD <i>Service and Diagnostic Utilities</i> contient des pilotes de périphériques et des utilitaires que vous pouvez utiliser pour mettre à jour votre système. Vous devez copier les pilotes et les utilitaires sur une disquette ou sur le disque dur pour pouvoir les utiliser. </p>
+
+<p>Pour les dernières mises à jour de produits, comme le BIOS, les micrologiciels, les pilotes et les applications Dell OpenManage, allez au site Web de support de Dell à l'adresse <b>support.dell.com</b>.</p>
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;:</span>  Vous ne pouvez exécuter le CD <i>Service and Diagnostic Utilities</i> que sur les systèmes qui fonctionnent sous Windows. Pour extraire des pilotes pour les systèmes qui fonctionnent sous Red Hat Enterprise Linux ou NetWare, vous devez utiliser le CD <i>Service and Diagnostic Utilities</i> sur un système fonctionnant sous Windows puis copier ou partager les fichiers sélectionnés sur le système de destination.</td>
+</tr>
+</table><ol type="1">
+<a name="wp1112236"></a>
+
+<li value="1">Insérez le CD <i>Service and Diagnostic Utilities</i> dans le lecteur de CD d'un système fonctionnant sous Windows. 
+<br><br></li>
+</ol>
+
+<p class="indent">Le programme de configuration devrait démarrer automatiquement. Si ce n'est pas le cas, cliquez sur le bouton <b>Démarrer</b> puis sur <b>Exécuter</b> et tapez <span class="screen">x:\setup.exe</span> (<span class="screen">x</span> étant la lettre de lecteur de votre lecteur de CD) .</p>
+
+<ol type="1">
+<a name="wp1112237"></a>
+
+<li value="2">Sélectionnez le système et sélectionnez l'ensemble de fichiers à mettre à jour
+dans <b>Sélectionnez un jeu de pilotes/utilitaires</b>, puis cliquez sur <b>Continuer</b>.<br><br><a name="wp1112238"></a>
+
+<li value="3">Sur la <b>page Pilotes et utilitaires</b>, sélectionnez l'utilitaire ou le pilote que vous voulez mettre à jour en cliquant sur le lien du nom de périphérique. 
+<br><br></li>
+</ol>
+
+<p class="indent">Le système vous demande l'emplacement d'enregistrement du fichier. Les fichiers sont fournis en format compressé. Les fichiers du BIOS et des micrologiciels requièrent normalement des disquettes pour pouvoir être extraits.</p>
+
+<ol type="1">
+<a name="wp1112239"></a>
+
+<li value="4">Décompressez le fichier.
+<br><br></li>
+</ol>
+
+<p>Consultez le <i>Guide de compatibilité de Dell OpenManage Server Administrator</i> pour des informations supplémentaires sur le BIOS, les micrologiciels, les pilotes et les versions de l'application Dell OpenManage.</p>
+
+<p>Le CD <i>Dell PowerEdge Updates </i>n'est fourni qu'avec le kit Subscription Service et contient les versions les plus récentes de logiciels pour votre système avec l'utilitaire Server Update Utility (SUU) et les progiciels Dell Update Packages (DUP).</p>
+
+<ol type="1">
+<a name="wp1122861"></a>
+
+<li value="1">Insérez le CD <i>Updates</i> dans le lecteur de CD d'un système qui exécute un système d'exploitation Windows ou Red Hat .
+<br><br>
+<a name="wp1122865"></a>
+
+<li value="2">L'utilitaire Server Update Utility devrait démarrer automatiquement. Si ce n'est pas le cas, cliquez sur le bouton <b>Démarrer</b> puis sur <b>Exécuter</b>, tapez <span class="screen">cmd</span> et appuyez sur <b>Entrée</b>. Quand l'invite de commande apparaît, faîtes passer le
+répertoire sur la racine du lecteur de CD. Tapez <span class="screen">suu -g</span> (pour le mode graphique) ou <span class="screen">suu -h</span> (pour afficher les options aide).
+<br><br></li>
+</ol>
+
+<table class="indent" border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align=top>
+</td>
+<td valign="top" align="left"><span class="notes">REMARQUE&nbsp;:</span> Pur les systèmes Red Hat
+  Enterprise Linux, l'option <span class="screen">-g</span> (mode graphique) peut seulement être utilisée avec le système X Window.</td>
+</tr>
+</table>
+
+<ol type="1">
+<a name="wp1122942"></a>
+
+<li value="3">Pour afficher une comparaison des espaces de stockage sur la GUI, cliquez sur le nom d'hôte du serveur affiché dans l'arborescence de gauche. SUU compare ce qu'il y a sur votre serveur avec les versions des composants disponibles dans son espace de stockage. Pour chaque composant de votre serveur qui correspond à la version sur l'espace de stockage de SUU, SUU affiche l'icône d'une coche verte. Pour chaque
+composant de votre serveur qui n'est pas à jour et qui peut être
+mis à jour avec SUU, une icône jaune d'avertissement s'affiche. Si des composants qui peuvent être mis à jour sont trouvés, un bouton <b>Mettre à jour</b> s'active dans le coin supérieur droit de votre écran.
+<br><br>
+<a name="wp1122945"></a>
+
+<li value="4">Cliquez sur <b>Mise à jour</b> pour appliquer toutes les mises à jour qui sont répertoriées pour votre serveur. Vous ne pouvez pas sélectionner des mises à jour particulières à appliquer. SUU affiche une boîte de dialogue pour vous demander de confirmer que vous voulez mettre à jour les composants répertoriés. Cliquez sur <b>oui</b> pour continuer.
+<br><br>
+<a name="wp1122948"></a>
+
+<li value="5">La fenêtre <b>Mise à jour effectuée</b> apparaît et vous demandera peut-être de redémarrer votre système pour terminer la mise à jour.
+<br><br></li>
+</ol>
+
+<p>Dell Update Packages&nbsp;:</p>
+
+<p>Quand vous cliquez sur <b>Mise à jour</b> dans SUU, SUU déterminera quels progiciels Dell Update Packages s'appliquent à votre système et les installera automatiquement. </p>
+
+<p>Consultez le <i>Guide d'utilisation de l'utilitaire </i><i>Dell OpenManage Server Update Utility </i>pour des informations supplémentaires.</p>
+
+<p><a href="index.htm">Retour au début</a> </p>
+
+<hr noshade size="1">
+
+<h2><a name="wp1112241"></a>Correctifs 
+	logiciels de sécurité</h2>
+
+<p>Nous vous conseillons vivement de télécharger et 
+d'installer les tous derniers correctifs logiciels de sécurité et les Services Packs ou Support Packs 
+de votre système d'exploitation immédiatement après l'installation. Vous trouverez des téléchargements pour votre
+système d'exploitation aux adresses <b>www.microsoft.com</b>, <b>www.redhat.com</b>
+et <b>
+www.novell.com</b>.</p>
+
+<p><a href="index.htm">Retour au début</a> </p>
+
+<hr noshade size="1">
+
+<h2><a name="wp1112249"></a>Obtention d'assistance technique</h2>
+
+<p>Avant de contacter Dell pour de l'assistance technique, consultez le site Web de support de Dell à l'adresse <b>support.dell.com</b>. Si vous avez besoin de support technique supplémentaire, consultez la section «&nbsp;Obtention d'aide&nbsp;» de votre <i>Guide d'installation et de dépannage</i> pour des informations sur la manière de contacter Dell par téléphone, fax et Internet dans votre pays.</p>
+
+<p>Pour les programmes de formation et de certification d'entreprise Dell, allez à <b>www.dell.com/training</b>. Ce service n'est pas disponible partout.</p>
+
+<p>Un support technique avancé pour les logiciels est aussi disponible par téléphone. Ce support avancé vous permet de contacter rapidement des techniciens de réseau qualifiés. Contactez votre représentant de commerce pour des détails sur la manière d'acheter ce service. Pour une copie complète des contrats de service de Dell ou des garanties limitées, visitez le site <b>www.dell.com</b>.</p>
+
+<p><a href="index.htm">Retour au début</a> </p>
+
+<hr noshade size="1">
+
+<h2><a name="wp1123054"></a>Coordonnées</h2>
+
+<p>Vous pouvez mettre à jour votre adresse d'expédition en appelant le 1-800-770-6499 ou en consultant le site Web d'abonnements de Dell à l'adresse <b>dellsubscriptions.productorder.com</b>. Vous devriez vérifier et confirmer vos coordonnées pour assurer que votre nouvelle commande arrive à l'emplacement approprié.</p>
+
+<p>Pour des renseignements concernant l'état de livraison de votre commande, consultez le site Web <b>dellsubscriptions.productorder.com</b>.</p>
+
+<p>Pour des médias manquants ou défectueux ou des questions non techniques liées au service d'abonnement, appelez le 1-800-770-6499 pour de l'assistance.</p>
+
+<p>Pour de l'aide avec toutes les questions d'ordre technique, contactez le service approprié du support technique client de Dell&nbsp;:</p>
+
+<ul><li><a name="1123059"></a>États-Unis&nbsp;: 1-800-822-8965 (grandes entreprises), 1-800-456-3355 (pouvoirs publics) ou 1-800-624-9896 (particuliers et PME/PMI)<br><br><li><a name="1123060"></a>Canada&nbsp;: 1-800-387-5757 (comptes principaux) ou 1-800-847-4096 (particuliers et PME/PMI)<br><br></li></ul>
+
+<p><a href="index.htm">Retour au début</a> </p>
+
+<hr noshade size="1">
+
+<p class="copyright"><b>Les informations contenues dans ce document sont sujettes à modification sans préavis.</b></p>
+<p class="copyright"><b>© 2005 Dell Inc. Tous droits réservés.</b></p>
+<p class="copyright">Toute reproduction, de quelque manière
+que ce soit, sans l'autorisation écrite de Dell Inc.
+est formellement
+interdite.</p>
+<p class="copyright">Marques utilisées dans ce texte&nbsp;: <i>Dell</i>, le logo <i>DELL</i>, <i>Dell OpenManage</i>, <i>PowerEdge</i> et <i>PowerConnect</i> sont des marques de Dell Inc.&nbsp;; <i>Windows Server</i> est une marque et <i>Microsoft</i> <i>Windows </i>et <i>Active Directory</i> sont des marques déposées de
+Microsoft Corporation&nbsp;; <i>Novell</i> et <i>NetWare</i> sont des marques déposées de
+Novell, Inc.&nbsp;; <i>Red Hat</i> est une marque déposée de Red Hat, Inc.</p>
+<p class="copyright">D'autres marques et noms de marque peuvent être utilisés dans ce document pour faire référence aux entités se réclamant de ces marques et de ces noms ou à leurs produits. Dell Inc. dénie tout
+intérêt propriétaire vis-à-vis des marques et des noms de marque qui ne lui appartiennent pas.</p>
+
+<p><a href="index.htm">Retour au début</a></p>
+
+<p> </p>
+
+<p><i>Dernière révision&nbsp;: 5 juillet 2005</i></p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

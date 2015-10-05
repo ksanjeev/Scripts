@@ -1,0 +1,7 @@
+cleartool mkview -stream LAB_6.4_RELEASE_SQU_INT@\LAB_PVOB -tag AutoBuild_LAB64RL_INT \\CMBF-64RL\cc_views\LAB64RL.vms
+
+
+perl ActivityDetail.pl -c LAB -d @\LAB_PVOB -l LAB_CACHE_OBJECTS,LAB_CS,LAB_DOC,LAB_M -p LAB_6.4_RELEASE_SQU -b LAB_6.4_RELEASE_SQU_6.4.0.156_081023 -i LAB_6.4_RELEASE_SQU_INT -v 6.4.0.156
+
+
+cleartool rmview -force -tag AutoBuild_LAB64RL_INT

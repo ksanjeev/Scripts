@@ -1,0 +1,347 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="MS.LOCALE" content="EN">
+<title>Instalación del Managed System Software en sistemas operativos Netware: Guía del usuario de instalación y seguridad de Dell OpenManage versión 4.5</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+<p><a href="index.htm">Regresar a la página de contenido</a></p>
+
+<h1><a name="wp1054403"></a>Instalación del Managed System Software en sistemas operativos Netware</h1>
+
+<p class="title">Guía del usuario de instalación y seguridad de Dell OpenManage&#8482; versión 4.5</p>
+
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#wp1054418">Descripción general</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#wp1054478">Antes de comenzar</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#wp1054506">Requisitos para la instalación</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#wp1054672">Procedimientos de instalación</a></p>
+
+<br>
+
+<hr noshade size="1">
+
+<h2><a name="wp1054418"></a>Descripción general</h2>
+
+<p>Puede instalar Managed System Software mediante de varios métodos. El CD <i>Dell PowerEdge Installation and Server Management</i> proporciona secuencias de comandos de instalación IPS para instalar, actualizar y desinstalar Dell OpenManage&#8482; Server Administrator y otros componentes de Managed System Software en el sistema administrado. Además, Managed System Software se puede instalar en varios sistemas utilizando una instalación desatendida a lo largo de una red. </p>
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">NOTA: </span>Consulte el archivo <b>readme_ins.txt</b> en el CD <i>Dell PowerEdge Installation and Server Management</i> para ver una lista de los sistemas admitidos actualmente.<span style="font-style: normal; font-weight: normal"></span>Si se detecta una versión anterior del software Systems Management, usted deberá desinstalarla primero. Una vez que se haya completado la desinstalación, tiene que reiniciar el sistema antes de que pueda instalar la versión más reciente del software Systems Management. </td>
+</tr>
+</table><a name="wp1054426"></a>
+
+<h3>Instalación desatendida y silenciosa con secuencia de comandos</h3>
+
+
+<p>El CD <i>Dell PowerEdge Installation and Server Management</i> se puede utilizar para realizar una instalación desatendida y silenciosa con secuencias de comandos de Server Administrator en sistemas que ejecutan sistemas operativos Novell® Netware® admitidos.</p>
+
+<hr noshade size="1">
+
+<h2><a name="wp1054478"></a>Antes de comenzar</h2>
+
+<ul><li><a name="1054479"></a>Lea los requisitos de instalación para asegurarse de que su sistema cumple o supera los requisitos mínimos. <br><br></li><li><a name="1056971"></a>Lea la <i>Guía de compatibilidad de Server Administrator</i>. Este documento contiene información de compatibilidad acerca de la instalación y la operación de Server Administrator en diversas plataformas de hardware que ejecutan los sistemas operativos Microsoft® Windows®, NetWare y Red Hat® Enterprise Linux admitidos. <br><br></li><li><a name="1054481"></a>Lea el archivo de instalación de Dell OpenManage <b>readme_ins.txt</b> en el CD <i>Dell PowerEdge Installation and Server Management</i>. Este archivo contiene la información más actualizada sobre las nuevas funciones, mejoras y requisitos de hardware, además de la información de los problemas conocidos. <br><br></li><li><a name="1054482"></a>Lea el archivo léame de Server Administrator en el CD <i>Dell PowerEdge</i> <i>Installation and Server Management</i>. Este archivo contiene la información más actualizada sobre las versiones del software, firmware y controlador, además de información relacionada con problemas conocidos. <br><br></li><li><a name="1054428"></a>Lea las instrucciones para la instalación del sistema operativo. <br><br></li></ul>
+
+<hr noshade size="1">
+
+<h2><a name="wp1054506"></a>Requisitos para la instalación</h2>
+
+<p>En las secciones siguientes se describen los requisitos generales para instalar Managed System Software. </p>
+
+<a name="wp1054511"></a>
+
+<h3>Versiones de los sistemas operativos admitidos </h3>
+
+<p>Managed System Software admite, como mínimo, los siguientes sistemas operativos: </p>
+
+
+<ul><li><a name="1054515"></a>Novell NetWare, versión 6.5 <br><br></li></ul><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">NOTA: </span>Consulte el archivo &quot;léame&quot; de Server Administrator en el CD <span style="font-style: italic; font-weight: normal">Dell PowerEdge Installation and Sever Management</span> o la <span style="font-style: italic; font-weight: normal">Guía de Compatibilidad de Server Administrator</span> de <i>Dell OpenManage</i> en el CD de documentación para obtener la lista detallada más reciente de los servicios de Server Administrator admitidos por cada sistema operativo admitido. </td>
+</tr>
+</table>
+
+<a name="wp1054520"></a>
+
+<h3>Requisitos del sistema </h3>
+
+
+<p>Managed System Software debe estar instalado en cada uno de los sistemas que se van a administrar. Se pueden administrar entonces todos los sistemas que ejecutan Managed System Software en forma local o remota mediante un explorador de web admitido.</p>
+
+
+<a name="wp1054525"></a>
+
+<h4>Requisitos del sistema administrado</h4>
+
+<ul><li><a name="1054526"></a>Una de las versiones admitidas de los sistemas operativos. <br><br></li><li><a name="1054527"></a>Mínimo de 64 MB de RAM. <br><br></li><li><a name="1054528"></a>Mínimo de 256 MB de espacio libre en la unidad de disco duro. <br><br></li><li><a name="1054529"></a>Derechos de administrador.<br><br></li><li><a name="1054530"></a>Conexión TCP/IP en el sistema supervisado y en el sistema remoto para facilitar la administración de sistemas remotos.<br><br></li><li><a name="1054531"></a>El protocolo simple de gestión de red (SNMP) estándar. <br><br></li><li><a name="1054532"></a>Mouse, teclado y monitor para administrar sistemas localmente. El monitor requiere una resolución de pantalla mínima de 800 x 600. La resolución recomendada es 1024 x 768. <br><br></li><li><a name="1054533"></a>El servicio de acceso remoto de Server Administrator requiere que haya un controlador de acceso remoto (RAC) instalado en el sistema que se va a administrar. Consulte la <span style="font-style: italic; font-weight: normal"> </span><i>Guía del usuario de Remote Access Controller 4</i> de Dell o la <i>Guía del usuario de Dell Embedded Remote Access Controller/MC</i> para conocer todos los requisitos de hardware y de software. <br><br></li></ul><a name="wp1054535"></a>
+
+<h4>Estándares compatibles de protocolos de administración de sistemas</h4>
+
+<p>Debe haber un protocolo estándar de administración de sistemas admitido instalado en el sistema administrado antes de instalar Managed System Software. En los sistemas operativos NetWare admitidos, Managed System Software sólo admite el estándar de administración de sistemas SNMP. El SNMP siempre está instalado. Los estándares WMI y CIM no están disponibles.</p>
+
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">NOTA: </span>Para obtener más información sobre la instalación de un estándar de protocolo de administración de sistemas compatible en el sistema administrado, consulte la documentación del sistema operativo.</td>
+</tr>
+</table>
+
+<hr noshade size="1">
+
+<h2><a name="wp1054672"></a>Procedimientos de instalación</h2>
+
+<p>En esta sección se explica cómo instalar, actualizar y desinstalar Managed System Software en un sistema que ejecuta un sistema operativo NetWare compatible. </p>
+
+<a name="wp1054688"></a>
+
+<h3>Instalación y actualización de Managed System Software </h3>
+
+<p>En esta sección se explica como instalar y actualizar Managed System Software utilizando las siguientes opciones de instalación:</p>
+
+
+<ul><li><a name="1054691"></a>Utilizar el programa de instalación del CD <i>Dell PowerEdge</i> <i>Installation and Server Management</i> para instalar o actualizar el Server Administrator y otro software de Managed System. <br><br></li><li><a name="1054692"></a>Use el procedimiento de instalación silenciosa con secuencia de comandos para instalar Server Administrator y otro Managed System Software en múltiples sistemas. <br><br></li></ul><a name="wp1054705"></a>
+<h4>Requisitos previos para instalar o actualizar Managed System Software</h4>
+
+<p>Los siguientes son los requisitos previos para instalar Managed System Software:</p>
+
+
+<ul><li><a name="1054708"></a>Debe tener privilegios de administrador. <br><br></li><li><a name="1054709"></a>El agente SNMP proporcionado con el sistema operativo debe estar instalado en el sistema administrado. Si desea utilizar agentes de asistencia para el agente SNMP, debe instalar la asistencia del sistema operativo para el estándar SNMP antes de instalar el Server Administrator. Para obtener más información sobre la instalación de SNMP, consulte las instrucciones de instalación del sistema operativo que se esté ejecutando en el equipo. <br><br></li></ul><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">NOTA: </span>La instalación de Managed System Software no se admite en los sistemas que contienen una versión de Systems Management Software anterior a la versión 4.3. Si se descubre una versión anterior del software de Systems Management, debe desinstalar primero esa versión del software de Systems Management. </td>
+</tr>
+</table>
+
+<a name="wp1057861"></a>
+
+<h4>Instalación y actualización de Managed Systems Software utilizando el CD Dell PowerEdge Installation and 
+Server Management</h4>
+
+<ol type="1">
+<a name="wp1054726"></a>
+
+<li value="1">Inserte el CD <span style="font-style: italic; font-weight: normal">Dell PowerEdge</span> <i>Installation and Server Management</i> en la unidad de CD del sistema. 
+<br><br>
+</ol>
+
+<p class="indent">El CD carga automáticamente y se muestran todos los nombres de volumen.</p>
+
+
+<p class="indent">Si no aparece el nombre del volumen, escriba <span class="screen">volume</span> en la petición de la consola y oprima &lt;Entrar&gt;. </p>
+
+<ol type="1">
+<a name="wp1054734"></a>
+
+<li value="2">Registre el nombre del volumen de la unidad de CD.<br><br><a name="wp1054736"></a>
+
+<li value="3">Escriba <span class="screen">load nwconfig</span> y oprima &lt;Entrar&gt;.<br><br><a name="wp1054738"></a>
+
+<li value="4">En la pantalla <b>Configuración de NetWare</b>, en <b>Opciones de configuración</b>, seleccione <b>Opciones de producto </b>y oprima &lt;Entrar&gt;.<br><br><a name="wp1054740"></a>
+
+<li value="5">En el menú <b>Otras acciones de instalación</b>, seleccione <b>Instalar un producto no listado </b>y oprima &lt;Entrar&gt;. 
+<br><br>
+</ol>
+
+
+<table class="indent" border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">NOTA: </span>Es posible que se abra un cuadro de diálogo con una lista de las rutas de acceso seleccionadas previamente tras oprimir &lt;Entrar&gt;. Oprima &lt;Esc&gt; para cerrar el cuadro de diálogo. </td>
+</tr>
+</table>
+
+<p class="indent">Un mensaje predeterminado indicará entonces que el producto se va a instalar desde la unidad A. </p>
+
+<ol type="1">
+<a name="wp1054748"></a>
+
+<li value="6">Oprima &lt;F3&gt; para especificar una ruta de acceso de instalación diferente. <br>
+Borre <b>A:</b> y escriba <span class="screen"> <i>nombre_del_volumen</i></span><span style="font-style: normal; font-weight: normal"><span class="screen">:srvadmin\netware</span></span>, donde
+<span class="screen"><i>nombre_del_volumen</i></span> es el nombre del volumen asignado a la unidad de CD.
+<br><br>
+</ol>
+
+
+<table class="indent" border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">NOTA: </span>No se pueden introducir espacios en el nombre de la ruta de acceso. </td>
+</tr>
+</table>
+
+<ol type="1">
+<a name="wp1054756"></a>
+
+<li value="7">Después de introducir la ruta de acceso, oprima &lt;Entrar&gt; para continuar. <br>
+Aparece un mensaje solicitando: <br>
+<span class="screen">Indicate which file groups you want installed.<br><br>(Indique los grupos de archivos que desea instalar.)</span><br><br><a name="wp1054762"></a>
+
+<li value="8">Seleccione cualquier otro componente que desee instalar. Server Administrator no se incluye en la lista de grupos de archivos porque se instala de manera predeterminada. 
+<br><br>
+</ol>
+
+<table class="indent" border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">NOTA: </span>Los elementos seleccionados para la instalación tienen una X junto a ellos. Si oprime &lt;Entrar&gt; junto a un elemento, éste queda seleccionado. Si oprime la barra espaciadora junto a un elemento, éste cambia alternativamente entre seleccionado y no seleccionado. </td>
+</tr>
+</table>
+
+<ol type="1">
+<a name="wp1054768"></a>
+
+<li value="9">Presione &lt;F10&gt; para aceptar los componentes que seleccionó.<br><br><a name="wp1055544"></a>
+
+<li value="10">A continuación, aparece la pantalla de resumen. Revise la información de resumen y presione &lt;Entrar&gt; para continuar o &lt;Esc&gt; para anular la instalación.<br>
+Se iniciará la instalación del Server Administrator y de los componentes seleccionados.<br><br><a name="wp1055553"></a>
+
+<li value="11">Se abrirá la pantalla <span style="font-style: normal; font-weight: bold">Utilidad de seguridad de Systems Management</span> en la que se preguntará si desea 
+cambiar la configuración de seguridad predeterminada para las operaciones Set de SNMP.
+<br><br>
+<a name="wp1055560"></a>
+
+<li value="12">Seleccione una de las siguientes opciones: 
+<br><br>
+<ul><li type="disc"><a name="1055556"></a>Oprima &lt;y&gt; para cambiar la contraseña predeterminada del usuario <span class="screen">root</span>. <br>Introduzca la nueva contraseña y después vuelva a escribir la contraseña para confirmarla.<br><br></li></ul></ol>
+
+
+<table class="indent" border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">NOTA: </span>La contraseña predeterminada de <span class="screen">root</span> es <span class="screen">calvin</span>. </td>
+</tr>
+</table>
+
+<ul><ul><li type="disc"><a name="1055048"></a>Presione &lt;n&gt; para salir de la utilidad de seguridad y restablecer la contraseña de <span class="screen">root</span> al valor predeterminado. <br><br></li></ul></ul>
+<p class="indent">Se abre la utilidad de seguridad de Systems Management.</p>
+
+<ol type="1">
+<a name="wp1058272"></a>
+
+<li value="13">Cuando se le solicite, presione &lt;s&gt; para permitir el establecimiento de operaciones (escritura) SNMP, &lt;n&gt; para rechazar 
+el establecimiento de operaciones (sólo lectura) SNMP, o cualquier tecla para continuar. 
+<br><br>
+</ol>
+
+<p class="indent">El procedimiento de instalación continua, y los mensajes de estado aparecen. Cuando la instalación se complete, se abrirá un cuadro de diálogo informando que la instalación se ha completado.</p>
+
+<ol type="1">
+<a name="wp1057634"></a>
+
+<li value="14">Oprima &lt;Entrar&gt;.<br><br><a name="wp1054793"></a>
+
+<li value="15">Oprima &lt;Esc&gt; dos veces y &lt;Entrar&gt; una vez para regresar a la petición de la consola y salir del programa NWConfig. 
+<br><br>
+</ol>
+<a name="wp1055178"></a>
+
+<h4>Realización de una instalación o actualización silenciosa con secuencia de comandos de Managed System Software</h4>
+
+<p>Utilice el siguiente procedimiento para instalar silenciosamente Managed System Software por primera vez o para actualizarlo a una versión más reciente.</p>
+
+
+<ol type="1">
+<a name="wp1055181"></a>
+
+<li value="1">Inserte el CD <span style="font-style: italic; font-weight: normal">Dell PowerEdge </span><i>Installation and Server Management</i> en la unidad de CD del sistema. 
+<br><br>
+</ol>
+
+<p class="indent">El CD carga automáticamente y se muestra el nombre del volumen.</p>
+
+
+<p class="indent">Si no se muestra el nombre de volumen, escriba <span class="screen">volume</span> en la petición de consola presione &lt;Entrar&gt; para mostrar todos los nombres de volumen.</p>
+
+<ol type="1">
+<a name="wp1055189"></a>
+
+<li value="2">Registre el nombre del volumen de la unidad de CD.<br><br><a name="wp1055191"></a>
+
+<li value="3">Escriba lo siguiente  y oprima &lt;Entrar&gt;:
+<br><br>
+</ol>
+
+<p class="indent"><span class="screen">load </span><span class="screen"><i>nombre_del_volumen</i></span><span style="font-style: normal; font-weight: normal"><span class="screen">:\srvadmin\netware\ominss32.nlm [-noinstallweb] [-noam] [-norac]</span></span></p>
+
+
+<p class="indent">La secuencia de comandos de instalación instala todos los archivos necesarios en el sistema administrado.</p>
+
+
+<p class="indent">Puede ver el contrato de licencia (<b>license.txt</b>) en el CD <span style="font-style: italic; font-weight: normal">Dell PowerEdge </span><i>Installation and Server Management</i> en el directorio <span style="font-style: normal; font-weight: normal"><b>root</b></span>.<br><br>El valor <b>-noinstallweb </b>es opcional y producirá una instalación que tiene únicamente componentes de línea de comando y no se podrá acceder a ellos por medio de un explorador.<br><br>El valor <b>-noam </b>es opcional y producirá una instalación que no tendrá Dell OpenManage Array Manager. <br><br>El valor<b> -norac</b> es opcional y producirá una instalación que no tendrá compatibilidad de software de Dell Remote Access Controller. </p>
+
+<a name="wp1055205"></a>
+
+<h3>Desinstalación de Managed System Software</h3>
+
+<p>Puede desinstalar Managed System Software del sistema utilizando el menú <b>Opciones del producto</b> de la utilidad <b>NWConfig</b> o mediante la secuencia de comandos de desinstalación silenciosa que se proporciona en el CD <i>Installation and Server Management</i> de <span style="font-style: italic; font-weight: normal">Dell PowerEdge</span>.<br></p>
+
+<a name="wp1055208"></a>
+
+<h4>Desinstalación usando la utilidad NWConfig</h4>
+
+<ol type="1">
+<a name="wp1055209"></a>
+
+<li value="1">En la consola de la línea de comando de NetWare, escriba <span class="screen">load nwconfig </span>y oprima &lt;Entrar&gt;.<br><br><a name="wp1055211"></a>
+
+<li value="2">Seleccione <b>Opciones de producto</b> en el menú <b>Opciones de configuración</b>.<br><br><a name="wp1055213"></a>
+
+<li value="3">Seleccione <b>Ver/Configurar/Eliminar</b> del menú <b>Otras acciones de instalación</b> .<br><br><a name="wp1055215"></a>
+
+<li value="4">Seleccione <b>SRVADMIN</b> en el menú <b>Productos instalados actualmente</b>.<br><br><a name="wp1057774"></a>
+
+<li value="5">Presione &lt;Eliminar&gt; para desinstalar el Server Administrator.<br><br><a name="wp1057884"></a>
+
+<li value="6">Oprima &lt;Esc&gt; dos veces y &lt;Entrar&gt; una vez para regresar a la petición de la consola y salir del programa NWConfig. 
+<br><br>
+</ol>
+<a name="wp1055217"></a>
+
+<h4>Desinstalación silenciosa</h4>
+
+<p>En la consola de la línea de comando de NetWare, escriba <span class="screen">omunins.ncf</span> y oprima &lt;Entrar&gt;. La secuencia de comandos de desinstalación desinstala todos los archivos de Managed System Software del sistema administrado.</p>
+
+<a name="wp1056348"></a>
+
+<h3>Note sobre Arranque</h3>
+
+<a name="wp1056436"></a>
+
+<h4>Instrumentation Service al inicio</h4>
+
+<p>En los sistemas administrados que ejecutan un sistema operativo NetWare, el Instrumentation Service carga varios NLM (módulos cargables de NetWare) durante el arranque de sistema. Es posible que algunos NLM se puedan desinstalar debido a que no se necesitan en un sistema específico. El proceso de desinstalación de los NLM ocurre aproximadamente dos minutos después de que usted inicia o reinicia el sistema. Durante este proceso de desinstalación, aparece un mensaje de descarga de módulo en la consola del sistema NetWare.</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">Regresar a la página de contenido</a></p>
+
+<p> </p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

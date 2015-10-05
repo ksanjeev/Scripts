@@ -1,0 +1,11 @@
+#Config spec for MSMs of  build - 085_000_224_012 by trianz for Photosmart Essential - 085.000 [onyx]
+#This template is used to generate the config spec to retrieve Built MSMs for a build.
+element * CHECKEDOUT
+
+element \dpe_onyx\cue-installation\built\mergeModules\bt .../main/bt_dev_main/LATEST  -time 05-Jul-2007.16:54:14
+element \dpe_onyx\cue-installation\built\mergeModules\bt .../main/LATEST  -time 05-Jul-2007.16:54:14 -mkbranch bt_dev_main
+element \dpe_onyx\cue-installation\built\mergeModules\bt .../main/0 -mkbranch bt_dev_main
+element \dpe_onyx\cue-installation\built\mergeModules\bt\... .../main/bt_dev_main/LATEST  -time 05-Jul-2007.16:54:14
+element \dpe_onyx\cue-installation\built\mergeModules\bt\... .../main/LATEST  -time 05-Jul-2007.16:54:14 -mkbranch bt_dev_main
+element \dpe_onyx\cue-installation\built\mergeModules\bt\... .../main/0 -mkbranch bt_dev_main
+element \dpe_onyx\cue-installation\built\mergeModules\fc\... .../main/fc_dev_main/LATEST  -time 05-Jul-2007.16:54:14

@@ -1,0 +1,954 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+<title>使用 Microsoft&#174; Active Directory&#174;：Dell OpenManage 5.0 版安装和安全性用户指南</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">返回目录页</a> </p>
+<a name="1055432"></a><h1> 使用 Microsoft&#174; Active Directory&#174; </h1>
+<p class="title">Dell OpenManage&#8482; 5.0 版安装和安全性用户指南</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1053465">控制对网络的访问
+</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1053721">扩展 Active Directory 架构</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1053465"></a><h2>控制对网络的访问</h2>
+
+
+<a name="1055966"></a><p>如果使用 Active Directory 服务软件，可以配置它以控制对网络的访问。 Dell 修改了 Active Directory 数据库以支持远程管理身份验证和授权。 Dell OpenManage&#8482; IT Assistant 和 Dell OpenManage Server Administrator 以及 Dell&#8482; Remote Access Controller 现在可以与 Active Directory 交互。 借助此工具，可以从一个中央数据库添加并控制用户和权限。</p>
+<a name="1053471"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>在 Microsoft Windows&#174; 2000 和 Windows Server&#8482; 2003 操作系统上支持使用 Active Directory 识别 RAC、IT Assistant 或 Server Administrator 用户。
+</td>
+  </tr>
+</table><a name="1053473"></a><h3> Active Directory 架构扩展
+</h3>
+<a name="1053474"></a><p>Active Directory 数据存放在一个<b>“Attributes”（属性）</b>和<b>“Classes”（类）</b>的分布式数据库中。 一种 Active Directory<b>“Class”（类）</b>的示例为<b>“User”（用户）</b>类。 一些用户类的示例<b>“Attributes”（属性）</b>可为用户的名、姓和电话号码等。 每个添加到现有 Active Directory 架构的<b>“Attribute”（属性）</b>或<b>“Class”（类）</b>都必须定义有一个唯一 ID。 要在整个业界中保证唯一 ID，Microsoft 维护着一个 Active Directory 对象标识符 (OID) 数据库。</p>
+<a name="1053477"></a><p>Active Directory 架构定义了规定哪些数据可以包括在数据库中的规则。 要扩展 Active Directory 中的架构，Dell 为目录服务中的新属性和类申请了唯一 OID、唯一名称扩展和唯一链接属性 ID。</p>
+<a name="1053479"></a><p>Dell 扩展是： 	 dell</p>
+<a name="1053481"></a><p>Dell 基础 OID 是： 	 1.2.840.113556.1.8000.1280</p>
+<a name="1053483"></a><p>Dell LinkID 范围是：	 12070 到 12079</p>
+<a name="1053484"></a><p>Microsoft 维护的 Active Directory OID 数据库可以在 <b>msdn.microsoft.com/certification/ADAcctInfo.asp</b> 中通过输入我们的扩展 <i>Dell</i> 进行查看。</p>
+<a name="1053485"></a><h4> Active Directory 架构扩展概览</h4>
+<a name="1053486"></a><p>Dell 创建了类或对象组，可以由用户配置以满足特定需求。 架构中的新类包括关联、产品和权限类。 关联对象将用户或组链接到一组给定的权限以及网络中的系统（产品对象）。 这种模式使管理员能够控制网络上各种组合的用户、权限和系统或 RAC 设备，而不增加复杂性。</p>
+<a name="1053488"></a><h4> Active Directory 对象概览</h4>
+<a name="1053490"></a><p>对于每一个想与 Active Directory 集成以进行验证和授权的系统来说，必须创建至少一个关联对象和一个产品对象。 产品对象代表系统。 关联对象将其与用户和权限相链接。 可以根据需要创建任意多个关联对象。 </p>
+<a name="1053494"></a><p>每个关联对象都可以链接到任意多个用户、用户组和产品对象。 用户和产品对象可以来自任何域。 不过，每个关联对象只能链接到一个权限对象。 此行为使管理员能够控制哪些用户对于特定系统具有什么样的权限。</p>
+<a name="1053495"></a><p>产品对象将系统链接到 Active Directory 以进行验证和授权查询。 将系统添加到网络后，管理员必须使用 Active Directory 名称配置系统及其产品对象以便用户可以使用 Active Directory 执行验证和授权。 管理员还必须将系统添加到至少一个关联对象以使用户能够验证。</p>
+<a name="1053497"></a><p><a href="mad.htm#1053498">图&#160;8-1</a> 说明关联对象提供了进行所有验证和授权所需的连接。</p>
+<p class="FigureTableTitle"><a name="1053498"></a>图 8-1.  Active Directory 对象的典型设置
+</p>
+
+<a name="1053538"></a>
+<p><img src="mad6.jpg" height="563" width="577" align="center" border="0" hspace="0" vspace="0">
+</p><a name="1053540"></a><p>此外，可以在一个域或多个域中设置 Active Directory 对象。 在一个域中设置对象并没有什么不同，无论是设置 RAC、Server Administrator，还是 IT Assistant 对象。 不过，涉及到多个域时，就有些不同了。 </p>
+<a name="1053542"></a><p>比如，您有两个 DRAC 4 卡（RAC1 和 RAC2）以及三个现有 Active Directory 用户（用户 1、用户 2 和用户 3）。 想给用户 1 和用户 2 对两个 DRAC 4 卡的管理员权限，而给用户 3 对 RAC2 卡的登录权限。 <a href="mad.htm#1053543">图 8-2 </a>显示了如何在此情况下设置 Active Directory 对象。</p>
+<p class="FigureTableTitle"><a name="1053543"></a>图 8-2.  在一个域中设置 Active Directory 对象
+</p>
+
+<a name="1053577"></a>
+<p><img src="mad14.jpg" height="366" width="577" align="center" border="0" hspace="0" vspace="0">
+</p><a name="1053578"></a><p>要为一个域的情况设置对象，应执行以下任务：</p>
+<ol type="1">
+
+<li value="1"><a name="1053579"></a>创建两个关联对象。
+
+<br><br>
+<li value="2"><a name="1053580"></a>创建两个 RAC 产品对象（RAC1 和 RAC2）来表示这两个 DRAC 4 卡。
+
+<br><br>
+<li value="3"><a name="1053581"></a>创建两个权限对象（权限 1 和权限 2），其中权限 1 具有所有权限（管理员），而权限 2 具有登录权限。
+
+<br><br>
+<li value="4"><a name="1053582"></a>将用户 1 和用户 2 分组到组 1。<li value="5"><a name="1061797"></a>将组 1 添加为关联对象 1 (AO1) 的成员，权限 1 作为 AO1 中的权限对象，而 RAC1 和 RAC2 作为 AO1 中的 RAC 产品。<li value="6"><a name="1061798"></a>将用户 3 添加为关联对象 2 (AO2) 的成员，权限 2 作为 AO2 中的权限对象，而 RAC2 作为 AO2 中的 RAC 产品。
+<br><br>
+</ol>
+<a name="1053588"></a><p>请参阅“<a href="mad.htm#1054443">将用户和权限添加到 Active Directory</a>”了解详细指导。</p>
+<a name="1053589"></a><p><a href="mad.htm#1053590">图 8-3 </a>显示了如何在 RAC 的多个域中设置 Active Directory 对象。在这种情况下，假设有两个 DRAC 4 卡（RAC1 和 RAC2）以及三个现有 Active Directory 用户（用户 1、用户 2 和用户 3）。用户 1 位于域 1，不过用户 2 和用户 3 位于域 2。要给用户 1 和用户 2 对 RAC1 和 RAC2 卡的管理员权限，而给用户 3 对 RAC2 卡的登录权限。</p>
+<p class="FigureTableTitle"><a name="1053590"></a>图 8-3.  在多个域中设置 RAC Active Directory 对象
+</p>
+
+<a name="1053631"></a>
+<p><img src="mad15.jpg" height="389" width="577" align="center" border="0" hspace="0" vspace="0">
+</p><a name="1053632"></a><p>要为此多个域的情况设置对象，应执行以下任务：</p>
+<ol type="1">
+
+<li value="1"><a name="1053633"></a>确保域目录林功能处在本机或 Windows 2003 模式。
+
+<br><br>
+<li value="2"><a name="1053634"></a>在任何域中创建两个关联对象 AO1（通用范围）和 AO2。 此图显示了域 2 中的对象。
+
+<br><br>
+<li value="3"><a name="1053635"></a>创建两个 RAC 设备对象（RAC1 和 RAC2）来表示这两个远程系统。
+
+<br><br>
+<li value="4"><a name="1053636"></a>创建两个权限对象（权限 1 和权限 2），其中权限 1 具有所有权限（管理员），而权限 2 具有登录权限。
+
+<br><br>
+<li value="5"><a name="1053637"></a>将用户 1 和用户 2 分组到组 1。组 1 的组范围必须是通用。
+
+<br><br>
+<li value="6"><a name="1053638"></a>将组 1 添加为关联对象 1 (AO1) 的成员，权限 1 作为 AO1 中的权限对象，而 RAC1 和 RAC2 作为 AO1 中的产品。
+
+<br><br>
+<li value="7"><a name="1053639"></a>将用户 3 添加为关联对象 2 (AO2) 的成员，权限 2 作为 AO2 中的权限对象，而 RAC2 作为 AO2 中的产品。
+<br><br>
+</ol>
+<a name="1053640"></a><p>对于 Server Administrator 或 IT Assistant，在另一方面，一个关联中的用户可以位于不同的域中，而无需添加到通用组中。 以下是一个非常相似的示例，显示不同域中的 Server Administrator 或 IT Assistant <i>系统</i>如何影响目录对象的设置。 除了 RAC 设备，将有两个运行 Server Administrator 的系统（Server Administrator 产品系统 1 和系统 2）。 系统 1 和系统 2 位于不同的域中。 可以使用 Active Directory 中任何现有用户或组。 <a href="mad.htm#1053643">图 8-4 </a>显示了如何为此示例设置 Server Administrator Active Directory 对象。</p>
+<p class="FigureTableTitle"><a name="1053643"></a>图 8-4.  在多个域中设置 Server Administrator Active Directory 对象
+</p>
+
+<a name="1053686"></a>
+<p><img src="mad16.jpg" height="348" width="577" align="center" border="0" hspace="0" vspace="0">
+</p><a name="1053687"></a><p>要为此多个域的情况设置对象，应执行以下任务：</p>
+<ol type="1">
+
+<li value="1"><a name="1053688"></a>确保域目录林功能处在本机或 Windows 2003 模式。
+
+<br><br>
+<li value="2"><a name="1053689"></a>在任意域中创建两个关联对象（AO1 和 AO2）。 此图显示了域 1 中的对象。
+
+<br><br>
+<li value="3"><a name="1053690"></a>创建两个 Server Administrator 产品（系统 1 和系统 2）来表示两个系统。 系统 1 位于域 1 而系统 2 位于域 2 中。
+
+<br><br>
+<li value="4"><a name="1053691"></a>创建两个权限对象（权限 1 和权限 2），其中权限 1 具有所有权限（管理员），而权限 2 具有登录权限。
+
+<br><br>
+<li value="5"><a name="1053692"></a>将系统 2 分组到组 1。 组 1 的组范围必须是通用。
+
+<br><br>
+<li value="6"><a name="1053693"></a>将用户 1 和用户 2 添加为关联对象 1 (AO1) 的成员，权限 1 作为 AO1 中的权限对象，而系统 1 和组 1 作为 AO1 中的产品。<li value="7"><a name="1053694"></a>将用户 3 添加为关联对象 2 (AO2) 的成员，权限 2 作为 AO2 中的权限对象，而组 1 作为 AO2 中的产品。
+<br><br>
+</ol>
+<a name="1053695"></a><p>请注意在本情况下每个关联对象都不需要是通用范围。</p>
+<a name="1053696"></a><h4> 配置 Active Directory 访问系统</h4>
+<a name="1053698"></a><p>在使用 Active Directory 访问系统前，必须配置好 Active Directory 软件和系统。</p>
+<ol type="1">
+
+<li value="1"><a name="1053702"></a>扩展 Active Directory 架构（请参阅“<a href="mad.htm#1053721">扩展 Active Directory 架构</a>”）。
+
+<br><br>
+<li value="2"><a name="1053705"></a>扩展 Active Directory 用户和计算机管理单元（请参阅“<a href="mad.htm#1055982">安装 Dell 对 Active Directory 用户和计算机管理单元的扩展</a>”）。
+
+<br><br>
+<li value="3"><a name="1053709"></a>将系统用户及其权限添加到 Active Directory（请参阅“<a href="mad.htm#1054443">将用户和权限添加到 Active Directory</a>”）。
+
+<br><br>
+<li value="4"><a name="1053714"></a>仅对于 RAC 系统，在各个域控制器上启用 SSL（请参阅“<a href="mad.htm#1054543">在域控制器上启用 SSL（仅限 RAC）</a>”）。
+
+<br><br>
+<li value="5"><a name="1053716"></a>使用基于 Web 的界面或 CLI 配置系统的 Active Directory 属性（请参阅“<a href="mad.htm#1054611">配置系统或设备</a>”）。
+<br><br>
+</ol>
+<hr noshade size="1">
+<a name="1053721"></a><h2>扩展 Active Directory 架构</h2>
+
+
+<a name="1053723"></a><p>可以使用 RAC、Server Administrator 和 IT Assistant 架构扩展。 只需为要使用的软件或硬件扩展架构。 必须单独应用每个扩展以得到其软件特定设置的好处。 扩展 Active Directory 架构将会为架构添加架构类和属性、示例权限和关联对象，以及 Dell 组织单元。</p>
+<a name="1053729"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>扩展架构前，必须在域目录林的架构主灵活单主机操作 (FSMO) 角色物主上拥有<b>“Schema Admin”（架构管理员）</b>权限。
+</td>
+  </tr>
+</table><a name="1053731"></a><p>可以用两种不同方法扩展架构。 可以使用 Dell Schema Extender 公用程序，或者可使用轻型目录交换格式 (LDIF) 脚本文件。</p>
+<a name="1053738"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>如果使用 LDIF 脚本文件，将不会添加 Dell 组织单元。
+</td>
+  </tr>
+</table><a name="1053739"></a><p>LDIF 脚本文件和 Dell Schema Extender 位于 <i>Dell PowerEdge&#8482; Installation and Server Management</i> CD 的以下相应目录中：</p>
+<ul><li><a name="1053740"></a><b><i>CD 驱动器</i></b><b>:\support\OMActiveDirectory Tools\</b><b><i>安装类型</i></b><b>\LDIF Files</b></li>
+<li><a name="1061827"></a><b><i>CD 驱动器</i></b><b>:\support\OMActiveDirectory Tools\</b><b><i>安装类型</i></b><b>\Schema Extender</b></li>
+</ul><a name="1061828"></a><p><b><i>安装类型</i></b>将是 RAC4、RAC3、Server Administrator 或 IT&#160;Assistant 7.0 或更高版本，具体取决于架构扩展的选择。</p>
+<a name="1053743"></a><p>要使用 LDIF 文件，请参阅 LDIF 文件目录中自述文件的说明。 要使用 Dell Schema Extender 扩展 Active Directory 架构，执行“<a href="mad.htm#1053749">使用 Dell Schema Extender</a>”中的步骤。</p>
+<a name="1053747"></a><p>可以从任意位置复制并运行 Schema Extender 或 LDIF 文件。</p>
+<a name="1053749"></a><h3> 使用 Dell Schema Extender
+</h3>
+<a name="1053756"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">注意：</span>Dell Schema Extender 使用 <b>SchemaExtenderOem.ini </b>文件。 要确保 Dell Schema Extender 公用程序运作正常，请勿修改此文件的名称或内容。
+ </td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="1"><a name="1053757"></a>单击<b>“</b><b>Next on the Welcome screen</b><b>”（欢迎屏幕上的下一步）。</b><li value="2"><a name="1053758"></a>阅读警告并再次单击<b>“Next”（下一步）</b>。<li value="3"><a name="1053759"></a>既可以选择<b>“Use Current Log In Credentials”（使用当前登录凭据）</b>也可以输入具有架构管理员权限的用户名和密码。
+
+<br><br>
+<li value="4"><a name="1053760"></a>单击<b>“Next”（下一步）</b>运行 Dell Schema Extender。
+
+<br><br>
+<li value="5"><a name="1053761"></a>单击<b>“Finish”（完成）</b>。
+<br><br>
+</ol>
+<a name="1053762"></a><p class="indent">要验证架构扩展，请使用 Microsoft Management Console (MMC) 中的 Active Directory 架构管理单元验证是否存在以下类（<a href="mad.htm#1053811">表&#160;8-1</a>、<a href="mad.htm#1054009">表&#160;8-6</a>、<a href="mad.htm#1054037">表&#160;8-7</a>、<a href="mad.htm#1054098">表&#160;8-9</a>、<a href="mad.htm#1054127">表&#160;8-10</a>、<a href="mad.htm#1054159">表&#160;8-11</a> 和 <a href="mad.htm#1054189">表&#160;8-12</a> 中所列的类）和属性（<a href="mad.htm#1054233">表&#160;8-13</a>、<a href="mad.htm#1054339">表&#160;8-14</a> 和<a href="mad.htm#1054378">表&#160;8-15</a>中所列的属性）。请参阅 Microsoft 说明文件详细了解如何在 MMC 中启用并使用 Active Directory 架构管理单元。</p>
+<a name="1053882"></a>
+<p><p class="FigureTableTitle"><a name="1053811"></a>表 8-1.  添加到 Active Directory 架构类的类定义</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>类名称</p></th><th valign="top" align="left"><p><a name="1053819"></a>分配的对象标识号 (OID)</p></th><th valign="top" align="left"><p><a name="1053821"></a>类的类型</p></th></tr>
+<tr><td valign="top" align="left"><p><a name="1053823"></a>dellRacDevice</p></td><td valign="top" align="left"><p><a name="1053825"></a>1.2.840.113556.1.8000.1280.1.1.1.1</p></td><td valign="top" align="left"><p><a name="1053827"></a>结构类</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053829"></a>dellAssociationObject</p></td><td valign="top" align="left"><p><a name="1053831"></a>1.2.840.113556.1.8000.1280.1.1.1.2</p></td><td valign="top" align="left"><p><a name="1053833"></a>结构类</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053835"></a>dellRAC4Privileges</p></td><td valign="top" align="left"><p><a name="1053837"></a>1.2.840.113556.1.8000.1280.1.1.1.3</p></td><td valign="top" align="left"><p><a name="1053839"></a>辅助类</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053841"></a>dellPrivileges</p></td><td valign="top" align="left"><p><a name="1053843"></a>1.2.840.113556.1.8000.1280.1.1.1.4</p></td><td valign="top" align="left"><p><a name="1053845"></a>结构类</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053847"></a>dellProduct</p></td><td valign="top" align="left"><p><a name="1053849"></a>1.2.840.113556.1.8000.1280.1.1.1.5</p></td><td valign="top" align="left"><p><a name="1053851"></a>结构类</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053853"></a>dellRAC3Privileges</p></td><td valign="top" align="left"><p><a name="1053855"></a>1.2.840.113556.1.8000.1280.1.1.1.6</p></td><td valign="top" align="left"><p><a name="1053857"></a>辅助类</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053859"></a>dellOmsa2AuxClass</p></td><td valign="top" align="left"><p><a name="1053861"></a>1.2.840.113556.1.8000.1280.1.2.1.1</p></td><td valign="top" align="left"><p><a name="1053863"></a>辅助类</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053865"></a>dellOmsaApplication</p></td><td valign="top" align="left"><p><a name="1053867"></a>1.2.840.113556.1.8000.1280.1.2.1.2</p></td><td valign="top" align="left"><p><a name="1053869"></a>结构类</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053871"></a>dellIta7AuxClass</p></td><td valign="top" align="left"><p><a name="1053873"></a>1.2.840.113556.1.8000.1280.1.3.1.1</p></td><td valign="top" align="left"><p><a name="1053875"></a>辅助类</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053877"></a>dellItaApplication</p></td><td valign="top" align="left"><p><a name="1053879"></a>1.2.840.113556.1.8000.1280.1.3.1.2</p></td><td valign="top" align="left"><p><a name="1053881"></a>结构类</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1053912"></a>
+<p><p class="FigureTableTitle"><a name="1053889"></a>表 8-2. dellRacDevice 类</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1053895"></a>1.2.840.113556.1.8000.1280.1.1.1.1</p></th></tr>
+<tr><td valign="top" align="left"><p>说明</p></td><td valign="top" align="left"><p><a name="1053899"></a>这种类表示 Dell RAC 设备。 RAC 设备必须在 Active Directory 中配置为 dellRacDevice。 此配置启用 DRAC 4 将 LDAP 查询发送到 Active Directory。</p></td></tr>
+<tr><td valign="top" align="left"><p>类的类型</p></td><td valign="top" align="left"><p><a name="1053903"></a>结构类</p></td></tr>
+<tr><td valign="top" align="left"><p>超类</p></td><td valign="top" align="left"><p><a name="1053907"></a>dellProduct</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1053911"></a><b>dellSchemaVersion</b></p><p><a name="1062769"></a><b>dellRacType</b></p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1053940"></a>
+<p><p class="FigureTableTitle"><a name="1053916"></a>表 8-3. dellAssociationObject 类</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1053922"></a>1.2.840.113556.1.8000.1280.1.1.1.2</p></th></tr>
+<tr><td valign="top" align="left"><p>说明</p></td><td valign="top" align="left"><p><a name="1053926"></a>这种类表示 Dell 关联对象。 关联对象提供了用户和设备或产品之间的连接。</p></td></tr>
+<tr><td valign="top" align="left"><p>类的类型</p></td><td valign="top" align="left"><p><a name="1053930"></a>结构类</p></td></tr>
+<tr><td valign="top" align="left"><p>超类</p></td><td valign="top" align="left"><p><a name="1053934"></a>组</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1053938"></a>dellProductMembers</p><p><a name="1062770"></a>dellPrivilegeMember</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1053975"></a>
+<p><p class="FigureTableTitle"><a name="1053944"></a>表 8-4. dellRAC4Privileges 类</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1053950"></a>1.2.840.113556.1.8000.1280.1.1.1.3</p></th></tr>
+<tr><td valign="top" align="left"><p>说明</p></td><td valign="top" align="left"><p><a name="1053954"></a>这种类用于为 DRAC 4 设备定义权限（授权权限）。</p></td></tr>
+<tr><td valign="top" align="left"><p>类的类型</p></td><td valign="top" align="left"><p><a name="1053958"></a>辅助类</p></td></tr>
+<tr><td valign="top" align="left"><p>超类</p></td><td valign="top" align="left"><p><a name="1053962"></a>无</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1053966"></a>dellIsLoginUser</p><p><a name="1062771"></a>dellIsCardConfigAdmin</p><p><a name="1062772"></a>dellIsUserConfigAdmin</p><p><a name="1062773"></a>dellIsLogClearAdmin</p><p><a name="1062774"></a>dellIsServerResetUser</p><p><a name="1062775"></a>dellIsConsoleRedirectUser</p><p><a name="1062776"></a>dellIsVirtualMediaUser</p><p><a name="1062777"></a>dellIsTestAlertUser</p><p><a name="1062778"></a>dellIsDebugCommandAdmin</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054032"></a>
+<p><p class="FigureTableTitle"><a name="1053982"></a>表 8-5. dellPrivileges 类</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1053988"></a>1.2.840.113556.1.8000.1280.1.1.1.4</p></th></tr>
+<tr><td valign="top" align="left"><p>说明</p></td><td valign="top" align="left"><p><a name="1053992"></a>这种类用作 Dell 权限（授权权限）的容器类。</p></td></tr>
+<tr><td valign="top" align="left"><p>类的类型</p></td><td valign="top" align="left"><p><a name="1053996"></a>结构类</p></td></tr>
+<tr><td valign="top" align="left"><p>超类</p></td><td valign="top" align="left"><p><a name="1054000"></a>用户</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1054004"></a>dellRAC4Privileges</p><p><a name="1062779"></a>dellRAC3Privileges</p><p><a name="1062780"></a>dellOmsaAuxClass</p><p><a name="1062781"></a>dellItaAuxClass</p></td></tr>
+
+</table>
+
+
+
+
+
+<p class="FigureTableTitle"><a name="1054009"></a>表 8-6. dellProduct 类</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054015"></a>1.2.840.113556.1.8000.1280.1.1.1.5</p></th></tr>
+<tr><td valign="top" align="left"><p>说明</p></td><td valign="top" align="left"><p><a name="1054019"></a>这是所有 Dell 产品所派生的主类。 </p></td></tr>
+<tr><td valign="top" align="left"><p>类的类型</p></td><td valign="top" align="left"><p><a name="1054023"></a>结构类</p></td></tr>
+<tr><td valign="top" align="left"><p>超类</p></td><td valign="top" align="left"><p><a name="1054027"></a>计算机</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1054031"></a>dellAssociationMembers</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054060"></a>
+<p><p class="FigureTableTitle"><a name="1054037"></a>表 8-7. dellRAC3Privileges 类</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054043"></a>1.2.840.113556.1.8000.1280.1.1.1.6</p></th></tr>
+<tr><td valign="top" align="left"><p>说明</p></td><td valign="top" align="left"><p><a name="1054047"></a>这种类用于为 DRAC III、DRAC III/XT、ERA、ERA/O 和 ERA/MC 设备定义权限（授权权限）。</p></td></tr>
+<tr><td valign="top" align="left"><p>类的类型</p></td><td valign="top" align="left"><p><a name="1054051"></a>辅助类</p></td></tr>
+<tr><td valign="top" align="left"><p>超类</p></td><td valign="top" align="left"><p><a name="1054055"></a>无</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1054059"></a>dellIsLoginUser</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054093"></a>
+<p><p class="FigureTableTitle"><a name="1054068"></a>表 8-8. dellOmsa2AuxClass 类</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054074"></a>1.2.840.113556.1.8000.1280.1.2.1.1</p></th></tr>
+<tr><td valign="top" align="left"><p>说明</p></td><td valign="top" align="left"><p><a name="1054078"></a>这种类用于为 Server Administrator 定义权限（授权权限）。</p></td></tr>
+<tr><td valign="top" align="left"><p>类的类型</p></td><td valign="top" align="left"><p><a name="1054082"></a>辅助类</p></td></tr>
+<tr><td valign="top" align="left"><p>超类</p></td><td valign="top" align="left"><p><a name="1054086"></a>无</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1054090"></a>dellOmsaIsReadOnlyUser</p><p><a name="1062782"></a>dellOmsaIsReadWriteUser</p><p><a name="1062783"></a>dellOmsaIsAdminUser</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054122"></a>
+<p><p class="FigureTableTitle"><a name="1054098"></a>表 8-9. dellOmsaApplication 类</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054104"></a>1.2.840.113556.1.8000.1280.1.2.1.2</p></th></tr>
+<tr><td valign="top" align="left"><p>说明</p></td><td valign="top" align="left"><p><a name="1054108"></a>这种类代表 Server Administrator 应用程序。 Server Administrator 必须在 Active Directory 中配置为 dellOmsaApplication。 此配置启用 Server Administrator 应用程序将 LDAP 查询发送到 Active Directory。</p></td></tr>
+<tr><td valign="top" align="left"><p>类的类型</p></td><td valign="top" align="left"><p><a name="1054113"></a>结构类</p></td></tr>
+<tr><td valign="top" align="left"><p>超类</p></td><td valign="top" align="left"><p><a name="1054117"></a>dellProduct</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1054121"></a>dellAssociationMembers</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054182"></a>
+<p><p class="FigureTableTitle"><a name="1054127"></a>表 8-10. dellIta7AuxClass 类</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054133"></a>1.2.840.113556.1.8000.1280.1.3.1.1</p></th></tr>
+<tr><td valign="top" align="left"><p>说明</p></td><td valign="top" align="left"><p><a name="1054137"></a>这种类用于为 IT Assistant 定义权限（授权权限）。</p></td></tr>
+<tr><td valign="top" align="left"><p>类的类型</p></td><td valign="top" align="left"><p><a name="1054141"></a>辅助类</p></td></tr>
+<tr><td valign="top" align="left"><p>超类</p></td><td valign="top" align="left"><p><a name="1054145"></a>无</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1054149"></a>dellItaIsReadOnlyUser</p><p><a name="1062784"></a>dellItaIsReadWriteUser</p><p><a name="1062785"></a>dellItaIsAdminUser</p></td></tr>
+
+</table>
+
+
+
+
+
+<p class="FigureTableTitle"><a name="1054159"></a>表 8-11. dellItaApplication 类</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054165"></a>1.2.840.113556.1.8000.1280.1.3.1.2</p></th></tr>
+<tr><td valign="top" align="left"><p>说明</p></td><td valign="top" align="left"><p><a name="1054169"></a>这种类代表 IT Assistant 应用程序。 IT Assistant 必须在 Active Directory 中配置为 dellItaApplication。 此配置启用 IT Assistant 将 LDAP 查询发送到 Active Directory。</p></td></tr>
+<tr><td valign="top" align="left"><p>类的类型</p></td><td valign="top" align="left"><p><a name="1054173"></a>结构类</p></td></tr>
+<tr><td valign="top" align="left"><p>超类</p></td><td valign="top" align="left"><p><a name="1054177"></a>dellProduct</p></td></tr>
+<tr><td valign="top" align="left"><p>属性</p></td><td valign="top" align="left"><p><a name="1054181"></a>dellAssociationMembers</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054226"></a>
+<p><p class="FigureTableTitle"><a name="1054189"></a>表 8-12.  添加到 Active Directory 架构的常规属性</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054195"> </a>
+<p><b>属性名称/说明</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054197"> </a>
+<p><b>分配的 OID/语法对象标识符</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054199"> </a>
+<p><b>单值</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054201"></a><b>dellPrivilegeMember</b></p><p><a name="1054202"></a>列出属于此属性的 dellPrivilege 对象。</p></td><td valign="top" align="left"><p><a name="1054204"></a>1.2.840.113556.1.8000.1280.1.1.2.1</p><p><a name="1054205"></a>可分辨名称 (LDAPTYPE_DN 1.3.6.1.4.1.1466.115.121.1.12)</p></td><td valign="top" align="left"><p><a name="1054207"></a>FALSE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054209"></a><b>dellProductMembers</b></p><p><a name="1054210"></a>列出属于此角色的 dellRacDevices 对象。 此属性是到 dellAssociationMembers 后退链接的前进链接。</p><p><a name="1054211"></a>链接 ID: 12070</p></td><td valign="top" align="left"><p><a name="1054213"></a>1.2.840.113556.1.8000.1280.1.1.2.2</p><p><a name="1054214"></a>可分辨名称 (LDAPTYPE_DN 1.3.6.1.4.1.1466.115.121.1.12)</p></td><td valign="top" align="left"><p><a name="1054216"></a>FALSE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054218"></a><b>dellAssociationMembers</b></p><p><a name="1054219"></a>属于此产品的 dellAssociationObjectMembers 的列表。 此属性是到 dellProductMembers 链接属性的后退链接。</p><p><a name="1054220"></a>链接 ID: 12071</p></td><td valign="top" align="left"><p><a name="1054222"></a>1.2.840.113556.1.8000.1280.1.1.2.14</p><p><a name="1054223"></a>可分辨名称 (LDAPTYPE_DN 1.3.6.1.4.1.1466.115.121.1.12)</p></td><td valign="top" align="left"><p><a name="1054225"></a>FALSE</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054332"></a>
+<p><p class="FigureTableTitle"><a name="1054233"></a>表 8-13.  添加到 Active Directory 架构的 RAC 特定属性</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054239"> </a>
+<p><b>属性名称/说明</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054241"> </a>
+<p><b>分配的 OID/语法对象标识符</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054243"> </a>
+<p><b>单值</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054245"></a><b>dellIsLoginUser</b></p><p><a name="1054246"></a>如果用户具有设备的登录权限，则为 TRUE。</p></td><td valign="top" align="left"><p><a name="1054248"></a>1.2.840.113556.1.8000.1280.1.1.2.3</p><p><a name="1054249"></a>布尔值 (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054251"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054253"></a><b>dellIsCardConfigAdmin</b></p><p><a name="1054254"></a>如果用户具有设备的卡配置权限，则为 TRUE。</p></td><td valign="top" align="left"><p><a name="1054256"></a>1.2.840.113556.1.8000.1280.1.1.2.4</p><p><a name="1054257"></a>布尔值 (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054259"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054261"></a><b>dellIsUserConfigAdmin</b></p><p><a name="1054262"></a>如果用户具有设备的用户配置权限，则为 TRUE。</p></td><td valign="top" align="left"><p><a name="1054264"></a>1.2.840.113556.1.8000.1280.1.1.2.5</p><p><a name="1054265"></a>布尔值 (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054267"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054269"></a><b>delIsLogClearAdmin</b></p><p><a name="1054270"></a>如果用户具有设备的日志清除权限，则为 TRUE。</p></td><td valign="top" align="left"><p><a name="1054272"></a>1.2.840.113556.1.8000.1280.1.1.2.6</p><p><a name="1054273"></a>布尔值 (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054275"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054277"></a><b>dellIsServerResetUser</b></p><p><a name="1054278"></a>如果用户具有设备的服务器重设权限，则为 TRUE。</p></td><td valign="top" align="left"><p><a name="1054280"></a>1.2.840.113556.1.8000.1280.1.1.2.7</p><p><a name="1054281"></a>布尔值 (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054283"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054285"></a><b>dellIsConsoleRedirectUser</b></p><p><a name="1054286"></a>如果用户具有设备的控制台重定向权限，则为 TRUE。</p></td><td valign="top" align="left"><p><a name="1054288"></a>1.2.840.113556.1.8000.1280.1.1.2.8</p><p><a name="1054289"></a>布尔值 (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054291"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054293"></a><b>dellIsVirtualMediaUser</b></p><p><a name="1054294"></a>如果用户具有设备的虚拟介质权限，则为 TRUE。</p></td><td valign="top" align="left"><p><a name="1054296"></a>1.2.840.113556.1.8000.1280.1.1.2.9</p><p><a name="1054297"></a>布尔值 (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054299"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054301"></a><b>dellIsTestAlertUser</b></p><p><a name="1054302"></a>如果用户具有设备的检测警报权限，则为 TRUE。</p></td><td valign="top" align="left"><p><a name="1054304"></a>1.2.840.113556.1.8000.1280.1.1.2.10</p><p><a name="1054305"></a>布尔值 (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054307"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054309"></a><b>dellIsDebugCommandAdmin</b></p><p><a name="1054310"></a>如果用户具有设备的调试命令管理员权限，则为 TRUE。</p></td><td valign="top" align="left"><p><a name="1054312"></a>1.2.840.113556.1.8000.1280.1.1.2.11</p><p><a name="1054313"></a>布尔值 (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054315"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054317"></a><b>dellSchemaVersion</b></p><p><a name="1054318"></a>当前架构版本用于更新架构。</p></td><td valign="top" align="left"><p><a name="1054320"></a>1.2.840.113556.1.8000.1280.1.1.2.12</p><p><a name="1054321"></a>不区分大小写的字符串<br>(LDAPTYPE_CASEIGNORESTRING<br>1.2.840.113556.1.4.905)</p></td><td valign="top" align="left"><p><a name="1054323"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054325"></a><b>dellRacType</b></p><p><a name="1054326"></a>此属性是 dellRacDevice 对象的当前 RAC 类型以及到 dellAssociationObjectMembers 前进链接的后退链接。</p></td><td valign="top" align="left"><p><a name="1054328"></a>1.2.840.113556.1.8000.1280.1.1.2.13</p><p><a name="1054329"></a>不区分大小写的字符串<br>(LDAPTYPE_CASEIGNORESTRING<br>1.2.840.113556.1.4.905)</p></td><td valign="top" align="left"><p><a name="1054331"></a>TRUE</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054374"></a>
+<p><p class="FigureTableTitle"><a name="1054339"></a>表 8-14.  添加到 Active Directory 架构的 Server Administrator 特定属性</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054345"> </a>
+<p><b>属性名称/说明</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054347"> </a>
+<p><b>分配的 OID/语法对象标识符</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054349"> </a>
+<p><b>单值</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054351"></a><b>dellOMSAIsReadOnlyUser</b></p><p><a name="1054352"></a>如果用户在 Server Administrator 中具有只读权限，则为 TRUE</p></td><td valign="top" align="left"><p><a name="1054354"></a>1.2.840.113556.1.8000.1280.1.2.2.1</p><p><a name="1054355"></a>布尔值 (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054357"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054359"></a><b>dellOMSAIsReadWriteUser</b></p><p><a name="1054360"></a>如果用户在 Server Administrator 中具有读写权限，则为 TRUE</p></td><td valign="top" align="left"><p><a name="1054362"></a>1.2.840.113556.1.8000.1280.1.2.2.2</p><p><a name="1054363"></a>布尔值 (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054365"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054367"></a><b>dellOMSAIsAdminUser</b></p><p><a name="1054368"></a>如果用户在 Server Administrator 中具有管理员权限，则为 TRUE</p></td><td valign="top" align="left"><p><a name="1054370"></a>1.2.840.113556.1.8000.1280.1.2.2.3</p><p><a name="1054371"></a>布尔值 (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054373"></a>TRUE</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054413"></a>
+<p><p class="FigureTableTitle"><a name="1054378"></a>表 8-15.  添加到 Active Directory 架构的 IT Assistant 特定属性</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054384"> </a>
+<p><b>属性名称/说明</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054386"> </a>
+<p><b>分配的 OID/语法对象标识符</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054388"> </a>
+<p><b>单值</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054390"></a><b>dellItaIsReadWriteUser</b></p><p><a name="1054391"></a>如果用户在 IT Assistant 中具有读写权限，则为 TRUE</p></td><td valign="top" align="left"><p><a name="1054393"></a>1.2.840.113556.1.8000.1280.1.3.2.1</p><p><a name="1054394"></a>布尔值 (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054396"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054398"></a><b>dellItaIsAdminUser</b></p><p><a name="1054399"></a>如果用户在 IT Assistant 中具有管理员权限，则为 TRUE</p></td><td valign="top" align="left"><p><a name="1054401"></a>1.2.840.113556.1.8000.1280.1.3.2.2</p><p><a name="1054402"></a>布尔值 (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054404"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054406"></a><b>dellItaIsReadOnlyUser</b></p><p><a name="1054407"></a>如果用户在 IT Assistant 中具有只读权限，则为 TRUE</p></td><td valign="top" align="left"><p><a name="1054409"></a>1.2.840.113556.1.8000.1280.1.3.2.3</p><p><a name="1054410"></a>布尔值 (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054412"></a>TRUE</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054416"></a><h3> Active Directory 用户和计算机管理单元
+</h3>
+<a name="1055982"></a><h4> 安装 Dell 对 Active Directory 用户和计算机管理单元的扩展</h4>
+<a name="1054417"></a><p>在 Active Directory 中扩展架构时，也必须扩展 Active Directory 用户和计算机管理单元以便管理员可以管理产品、用户和用户组、关联和权限。 只需扩展一次管理单元，即使已经添加了一个以上的架构扩展。 必须在每个用于管理这些对象的系统上安装管理单元。 Dell 对 Active Directory 用户和计算机管理单元的扩展是一个选件，可以在使用 <i>Dell PowerEdge Installation and Server Management </i>CD 安装 Systems Management 软件时安装。 </p>
+<a name="1054424"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>必须在准备管理新 Active Directory 对象的各个管理站上安装 Administrator Pack。 安装过程在下面的“<a href="mad.htm#1054434">打开 Active Directory 用户和计算机管理单元</a>”部分中介绍。 如果不带 Administrator Pack，则无法查看容器中的新对象。
+</td>
+  </tr>
+</table><a name="1054432"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>有关 Active Directory 用户和计算机管理单元的详情，请参阅 Microsoft 说明文件。
+</td>
+  </tr>
+</table><a name="1054434"></a><h4> 打开 Active Directory 用户和计算机管理单元</h4>
+<a name="1054435"></a><p>要打开 Active Directory 用户和计算机管理单元，应执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1054436"></a>如果在域控制器上，单击<b>“Start”（开始）</b> <b>“Admin Tools”（管理工具）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b>“Active Directory Users and Computers”（Active Directory 用户和计算机）</b>。 如果不在域控制器上，必须在本地系统上安装相应的 Microsoft Administrator Pack。 要安装此 Administrator Pack，请单击<b>“Start”（开始）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b>
+</b><b>“Run”（运行）</b>，键入 <span class="screen">MMC</span> 并按 <b>Enter</b>。</ol>
+<a name="1054437"></a><p class="indent">这会打开 Microsoft Management Console (MMC)。</p>
+<ol type="1">
+
+<li value="2"><a name="1054438"></a>单击<b>“Console 1”（控制台 1）</b>窗口中的<b>“File”（文件）</b>（或运行 Windows 2000 的系统上的<b>“Console”（控制台）</b>。<li value="3"><a name="1054439"></a>单击<b>“Add/Remove Snap-in”（添加/删除管理单元）</b>。
+
+<br><br>
+<li value="4"><a name="1054440"></a>选择<b>“Active Directory Users and Computers”（Active Directory 用户和计算机）</b>管理单元并单击<b>“Add”（添加）</b>。<li value="5"><a name="1054441"></a>单击<b>“Close”（关闭）</b>并单击<b>“OK”（确定）</b>。
+<br><br>
+</ol>
+<a name="1054443"></a><h3> 将用户和权限添加到 Active Directory
+</h3>
+<a name="1054445"></a><p>Dell 扩展的 Active Directory 用户和计算机管理单元使您能够通过创建 RAC、关联和权限对象来添加 DRAC、Server Administrator 和 IT Assistant 用户和权限。 要添加对象，执行相应小节中的步骤。</p>
+<a name="1054446"></a><h4> 创建产品对象</h4>
+<a name="1054451"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>Server Administrator 和 IT Assistant 用户必须使用通用类型产品组用其产品对象来跨越域。
+</td>
+  </tr>
+</table><a name="1060590"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>从单独域添加通用类型产品组时，必须创建通用范围的关联对象。Dell Schema Extender 公用程序创建的默认关联对象是域本地组，它不能与来自其他域的通用类型产品组一起使用。</td>
+  </tr>
+</table><a name="1054453"></a><p>在<b>“Console Root”（控制台根节点）</b> (MMC) 窗口，右击一个容器。</p>
+<ol type="1">
+
+<li value="1"><a name="1054454"></a>选择<b>“New”（新建）</b>。
+
+<br><br>
+<li value="2"><a name="1054456"></a>根据安装情况，选择 RAC、Server Administrator 或 IT Assistant 对象。
+<br><br>
+</ol>
+<a name="1054457"></a><p class="indent">系统将打开<b>“New Object”（新建对象）</b>窗口。</p>
+<ol type="1">
+
+<li value="3"><a name="1054458"></a>键入新对象的名称。 此名称必须匹配 <b>Active Directory 产品名称</b>（如“<a href="mad.htm#1054634">在运行 Server Administrator 的系统上使用 CLI 配置 Active Directory</a>”所述）或者，对于 RAC 设备，匹配将在“<a href="mad.htm#1054611">配置系统或设备</a>”步骤 4 中键入的名称，或者对于 IT Assistant，匹配在“<a href="mad.htm#1054676">在运行 IT 
+Assistant 的系统上配置 Active Directory</a>”中所述的名称。<li value="4"><a name="1054468"></a>选择相应的<b>“Product Object”（产品对象）</b>。
+
+<br><br>
+<li value="5"><a name="1054469"></a>单击<b>“OK”（确定）</b>。
+<br><br>
+</ol>
+<a name="1054470"></a><h4> 创建权限对象</h4>
+<a name="1054471"></a><p>权限对象必须创建在其关联的关联对象的域中。</p>
+<ol type="1">
+
+<li value="1"><a name="1054472"></a>在<b>“Console Root”（控制台根节点）</b> (MMC) 窗口，右击一个容器。
+
+<br><br>
+<li value="2"><a name="1054473"></a>选择<b>“New”（新建）</b>。
+
+<br><br>
+<li value="3"><a name="1054474"></a>根据安装情况，选择 RAC、Server Administrator 或 IT Assistant 对象。
+<br><br>
+</ol>
+<a name="1054475"></a><p class="indent">系统将打开<b>“New Object”（新建对象）</b>窗口。</p>
+<ol type="1">
+
+<li value="4"><a name="1054476"></a>键入新对象的名称。
+
+<br><br>
+<li value="5"><a name="1054477"></a>选择相应的<b>“Privilege Object”（权限对象）</b>。
+
+<br><br>
+<li value="6"><a name="1054478"></a>单击<b>“OK”（确定）</b>。
+
+<br><br>
+<li value="7"><a name="1054479"></a>右击创建的权限对象并选择<b>“Properties”（属性）</b>。
+
+<br><br>
+<li value="8"><a name="1054480"></a>单击相应的<b>“Privileges”（权限）</b>选项卡并选择希望用户具有的权限（有关详情，请参阅<a href="mad.htm#1053811">表&#160;8-1</a> 和<a href="mad.htm#1054127">表&#160;8-10</a>）。</ol>
+<a name="1054490"></a><h4> 创建关联对象</h4>
+<a name="1054493"></a><p>关联对象从组中派生并且必须包含一个组类型。 关联范围为关联对象指定安全组类型。 创建关联对象时，必须选择适用于要添加对象类型的关联范围。 比如，选择<b>“Universal”（通用）</b>表示关联对象只有在 Active Directory 域以本机或更高模式运行时才可用。 </p>
+<ol type="1">
+
+<li value="1"><a name="1054496"></a>在<b>“Console Root”（控制台根节点）</b> (MMC) 窗口，右击一个容器。
+
+<br><br>
+<li value="2"><a name="1054497"></a>选择<b>“New”（新建）</b>。
+
+<br><br>
+<li value="3"><a name="1054499"></a>根据安装情况，选择 RAC、Server Administrator 或 IT Assistant 对象。
+<br><br>
+</ol>
+<a name="1054500"></a><p class="indent">系统将打开<b>“New Object”（新建对象）</b>窗口。</p>
+<ol type="1">
+
+<li value="4"><a name="1054501"></a>键入新对象的名称。
+
+<br><br>
+<li value="5"><a name="1054502"></a>选择<b>“Association Object”（关联对象）</b>。
+
+<br><br>
+<li value="6"><a name="1054504"></a>选择<b>“Association Object”（关联对象）</b>的范围。
+
+<br><br>
+<li value="7"><a name="1054505"></a>单击<b>“OK”（确定）</b>。
+<br><br>
+</ol>
+<a name="1054506"></a><h4> 将对象添加到关联对象</h4>
+<a name="1054507"></a><p>通过使用<b>“Association Object Properties”（关联对象属性）</b>窗口，可以关联用户或用户组、权限对象、系统、RAC 设备以及系统或设备组。</p>
+<a name="1054513"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>RAC 用户必须使用通用组用其用户或 RAC 对象跨越域。
+</td>
+  </tr>
+</table><a name="1054514"></a><p>可以添加用户和产品组。 可以采用创建其它组的相同方法创建与 Dell 相关的组。</p>
+<a name="1054515"></a><p>要添加用户或用户组：</p>
+<ol type="1">
+
+<li value="1"><a name="1054516"></a>右击<b>“Association Object”（关联对象）</b>并选择<b>“Properties”（属性）</b>。
+
+<br><br>
+<li value="2"><a name="1054517"></a>选择<b>“Users”（用户）</b>选项卡并单击<b>“Add”（添加）</b>。
+
+<br><br>
+<li value="3"><a name="1054518"></a>键入用户或用户组名称或浏览选择一个并单击<b>“OK”（确定）</b>。
+<br><br>
+</ol>
+<a name="1054520"></a><p>单击<b>“Privilege Object”（权限对象）</b>选项卡将权限对象添加到关联，从而定义用户或用户组验证系统时的权限。</p>
+<a name="1054526"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>只能将一个权限对象添加到关联对象。
+</td>
+  </tr>
+</table><a name="1054527"></a><p>要添加权限：</p>
+<ol type="1">
+
+<li value="1"><a name="1054528"></a>选择<b>“Privileges Object”（权限对象）</b>选项卡并单击<b>“Add”（添加）</b>。
+
+<br><br>
+<li value="2"><a name="1054529"></a>键入权限对象名称或浏览选择一个并单击<b>“OK”（确定）</b>。
+<br><br>
+</ol>
+<a name="1054530"></a><p>单击<b>“Products”（产品）</b>选项卡将一个或多个系统或设备添加到关联。 关联的对象指定连接到网络的对已定义用户或用户组可用的产品。</p>
+<a name="1054535"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>可以将多个系统或 RAC 设备添加到关联对象。
+</td>
+  </tr>
+</table><a name="1054536"></a><p>要添加产品：</p>
+<ol type="1">
+
+<li value="1"><a name="1054537"></a>选择<b>“Products”（产品）</b>选项卡并单击<b>“Add”（添加）。</b><li value="2"><a name="1054538"></a>键入系统、设备或组名称并单击<b>“OK”（确定）</b>。
+
+<br><br>
+<li value="3"><a name="1054539"></a>在<b>“Properties”（属性）</b>窗口中，单击<b>“Apply”（应用）</b>，然后单击<b>“OK”（确定）</b>。
+<br><br>
+</ol>
+<a name="1054543"></a><h4> 在域控制器上启用 SSL（仅限 RAC）</h4>
+<a name="1054545"></a><p>如果准备使用 Microsoft 企业根 CA 自动给所有的域控制器分配 SSL 认证，必须执行下列步骤在各个域控制器上启用 SSL。 	 </p>
+<ol type="1">
+
+<li value="1"><a name="1054546"></a>在域控制器上安装 Microsoft 企业根 CA。  
+<br><br>
+ <ol type="a">
+
+<li value="1"><a name="1054547"></a>选择<b>“Start”（开始）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b>
+</b>&#160;<b>“Control Panel”（控制面板）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b>“ Add or Remove Programs”（添加或删除程序）</b>。</ol>
+  <ol type="a">
+
+<li value="2"><a name="1054548"></a>选择<b>“Add/Remove Windows Components”（添加/删除 Windows 组件）</b>。
+
+<br><br>
+ <li value="3"><a name="1054549"></a>在<b>“Windows Components Wizard”（Windows 组件向导）</b>中，选择<b>“Certificate Services”（认证服务）</b>复选框。<li value="4"><a name="1054550"></a>选择<b>“Enterprise root CA”（企业根 CA）</b>作为<b>“CA Type”（CA 类型）</b>并单击<b>“Next”（下一步）</b>。
+
+<br><br>
+<li value="5"><a name="1054551"></a>输入<b>“Common name for this CA”（此 CA 的常用名）</b>，单击<b>“Next”（下一步）</b>并单击<b>“Finish”（完成）</b>。  
+<br><br>
+</ol>
+
+<li value="2"><a name="1054553"></a>通过安装每个控制器的 SSL 认证启用每个域控制器上 SSL。  
+<br><br>
+ <ol type="a">
+
+<li value="1"><a name="1054554"></a>单击<b>“Start”（开始）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b>“Administrative Tools”（管理工具）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b>“Domain Security Policy”（域安全策略）</b>。  
+<br><br>
+ </ol>
+  <ol type="a">
+
+<li value="2"><a name="1054555"></a>展开<b>“Public Key Policies”（公共密钥策略）</b>文件夹，右击<b>“Automatic Certificate Request Settings”（自动认证申请设置）</b>并单击<b>“Automatic Certificate Request”（自动认证申请）</b>。
+
+<br><br>
+<li value="3"><a name="1054556"></a>在<b>“Automatic Certificate Request Setup Wizard”（自动认证申请设置向导）</b>中，单击<b>“Next”（下一步）</b>并选择<b>“Domain Controller”（域控制器）</b>。
+
+<br><br>
+<li value="4"><a name="1054557"></a>单击<b>“Next”（下一步）并</b>单击<b>“Finish”（完成）</b>。  
+<br><br>
+</ol>
+</ol>
+<a name="1054559"></a><h4> 导出域控制器根 CA 认证（仅限 RAC）</h4>
+<a name="1054564"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>如果在使用 Windows 2000，以下步骤可能略有不同。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1054565"></a>转至装有 Microsoft Enterprise CA 服务的域控制器。
+
+<br><br>
+<li value="2"><a name="1054566"></a>单击<b>“Start”（开始）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b>“Run”（运行）</b>。
+
+<br><br>
+<li value="3"><a name="1054568"></a>键入 <span class="screen">mmc</span> 并单击<b>“OK”（确定）</b>。
+
+<br><br>
+<li value="4"><a name="1054570"></a>在<b>“Console 1”（控制台 1）</b>(MMC) 窗口中，单击<b>“File”（文件）（或 Windows 2000 系统上的“Console”[控制台]）</b>并选择<b>“Add/Remove Snap-in”（添加/删除管理单元）</b>。<li value="5"><a name="1054571"></a>在<b>“Add/Remove Snap-in”（添加/删除管理单元）</b>窗口，单击<b>“Add”（添加）</b>。
+
+<br><br>
+<li value="6"><a name="1054572"></a>在<b>“Standalone Snap-in”（独立管理单元）</b>窗口，选择<b>“Certificates”（认证）</b>并单击<b>“Add”（添加）</b>。
+
+<br><br>
+<li value="7"><a name="1054573"></a>选择<b>“Computer”（计算机）</b>帐户并单击<b>“Next”（下一步）</b>。
+
+<br><br>
+<li value="8"><a name="1054574"></a>选择<b>“Local Computer”（本地计算机）</b>并单击<b>“Finish”（完成）</b>。
+
+<br><br>
+<li value="9"><a name="1054575"></a>单击<b>“OK”（确定）</b>。
+
+<br><br>
+<li value="10"><a name="1054576"></a>在<b>“Console 1”（控制台 1）</b>窗口中，展开<b>“Certificates”（认证）</b>文件夹，展开<b>“Personal”（个人）</b>文件夹并单击<b>“Certificates”（认证）</b>文件夹。
+
+<br><br>
+<li value="11"><a name="1054577"></a>查找并右击根 CA 认证，选择<b>“All Tasks”（所有任务）</b>并单击<b>“Export”（导出）</b>。
+
+<br><br>
+<li value="12"><a name="1054578"></a>在<b>“Certificate Export Wizard”（认证导出向导）</b>，单击<b>“Next”（下一步）</b>并选择<b>“No do not export the private key”（不，不要导出私钥）</b>。
+
+<br><br>
+<li value="13"><a name="1054579"></a>单击<b>“Next”（下一步）</b>并选择<b>“Base-64 encoded X.509 (.cer)”（ Base-64 编码 X.509 [.cer]）</b> 作为格式。
+
+<br><br>
+<li value="14"><a name="1054580"></a>单击<b>“Next”（下一步）</b>并将认证保存到所选位置。 需要将此认证上载到 DRAC 4。 要这样做，请转至<b>“DRAC 4 基于 Web 的界面</b><b>→</b><b>”Configuration“（配置）选项卡</b><b>→</b><b>”Active
+Directory page“（Active Directory 页）</b>。或者可以使用 <b>racadm</b> CLI 命令（请参阅“<a href="mad.htm#1054713">使用 racadm CLI 配置 DRAC 4 Active Directory 设置</a>”）。
+
+<br><br>
+ <li value="15"><a name="1054585"></a>单击<b>“Finish”（完成）</b>并单击<b>“OK”（确定）</b>。
+<br><br>
+</ol>
+<a name="1054588"></a><h4>将 DRAC 4 固件 SSL 认证导入所有域控制器可信认证列表</h4>
+<a name="1054593"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>如果 DRAC 4 固件 SSL 认证是由有名的 CA 签署的，则无需执行本部分中介绍的步骤。
+</td>
+  </tr>
+</table><a name="1054598"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>如果在使用 Windows 2000，以下步骤可能略有不同。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1054600"></a>该 DRAC 4 SSL 认证就是用于 DRAC 4 Web Server 的认证。 所有 DRAC 4 控制器都配备有默认自签署认证。 通过选择<b>“Download DRAC 4 Server Certificate”（下载 DRAC 4 服务器认证）</b>（请参阅 DRAC 4 基于 Web 的界面<b>“Configuration”（配置）</b>选项卡和 <b>Active Directory</b> 子选项卡），可以从 DRAC 4 获取此认证。
+
+<br><br>
+ 	<li value="2"><a name="1054601"></a>在域控制器上，打开<b>“MMC Console”（MMC 控制台）</b>窗口并选择<b>“Certificates”（认证）</b> <span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b>“Trusted Root Certification Authorities”（受信任的根认证颁发机构）</b>。
+
+<br><br>
+<li value="3"><a name="1054602"></a>右击<b>“Certificates”（认证）</b>，选择<b>“All Tasks”（所有任务）</b>并单击<b>“Import”（导入）</b>。
+
+<br><br>
+<li value="4"><a name="1054603"></a>单击<b>“Next”（下一步）</b>并浏览查找到 SSL 认证文件。
+
+<br><br>
+ <li value="5"><a name="1054604"></a>在每个域控制器的<b>“Trusted Root Certification Authority”（受信任的根认证颁发机构）</b>中安装 RAC SSL 认证。
+<br><br>
+ </ol>
+<a name="1054607"></a><p class="indent">如果已安装了自己的认证，确保签署认证的 CA 位于<b>“Trusted Root Certification Authority”（受信任的根认证颁发机构）</b>列表。 如果 CA 不在列表中，必须在所有的域控制器上安装它。</p>
+<ol type="1">
+
+<li value="6"><a name="1054608"></a>单击<b>“Next”（下一步）</b>并选择是否要 Windows 根据认证类型自动选择认证存储，或浏览到所选存储。
+
+<br><br>
+<li value="7"><a name="1054609"></a>单击<b>“Finish”（完成）</b>并单击<b>“OK”（确定）</b>。
+<br><br>
+</ol>
+<a name="1054611"></a><h3> 配置系统或设备
+</h3>
+<a name="1054612"></a><p>有关如何使用 CLI 命令配置 Server Administrator 或 IT Assistant 系统的说明，请参阅“<a href="mad.htm#1054634">在运行 Server Administrator 的系统上使用 CLI 配置 Active Directory</a>”和“<a href="mad.htm#1054676">在运行 IT Assistant 的系统上配置 Active Directory</a>”。对于 DRAC 用户，有两种方式配置 DRAC 4。 请参阅“<a href="mad.htm#1054692">使用基于 Web 的界面配置 DRAC 4</a>”或“<a href="mad.htm#1054713">使用 racadm CLI 配置 DRAC 4 Active Directory 设置</a>”。</p>
+<a name="1054631"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>装有 Server Administrator 和/或 IT Assistant 的系统必须是 Active Directory 域的一部分并且在该域中还应具有计算机帐户。
+</td>
+  </tr>
+</table><a name="1054634"></a><h4> 在运行 Server Administrator 的系统上使用 CLI 配置 Active Directory </h4>
+<a name="1054636"></a><p>可以使用 <b>omconfig preferences dirservice</b> 命令配置 Active Directory 服务。产品oem.ini 文件会修改以反映这些更改。 如果 <b>adproductname </b>没有出现在产品 <b>oem.ini </b>文件中，将会分配一个默认名称。默认值是系统名称-软件-产品名称，其中系统名称<i></i>是运行 Server Administrator 的系统的名称，而软件-产品名称是指 <b>omprv32.ini 中定义的软件产品的名称（即，</b>“computerName”（计算机名称）<b>-omsa）</b>。</p>
+<a name="1054642"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>此命令只适用于运行 Windows 操作系统的系统。
+</td>
+  </tr>
+</table><a name="1054647"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>配置完 Active Directory 后重新启动 Server Administrator 服务。
+</td>
+  </tr>
+</table><a name="1054648"></a><p><a href="mad.htm#1054652">表 8-16 </a>所示为命令的有效参数。</p>
+<a name="1054673"></a>
+<p><p class="FigureTableTitle"><a name="1054652"></a>表 8-16.  Active Directory 服务配置参数</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054656"> </a>
+<p><b>名称=值对</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054658"> </a>
+<p><b>说明</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054661"></a>prodname=&lt;文本&gt;</p></td><td valign="top" align="left"><p><a name="1054663"></a>指定要应用 Active Directory 配置更改的软件产品。 <i>产品名称</i><b></b>是指 <b>omprv32.ini</b> 中定义的产品的名称。 对于 Server Administrator，为 <i>omsa</i>。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054665"></a>enable=&lt;true | false&gt;</p></td><td valign="top" align="left"><p><a name="1054667"></a><b>true:</b> 启用 Active Directory 服务验证支持。</p><p><a name="1054668"></a><b>false:</b> 禁用 Active Directory 服务验证支持。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054670"></a>adprodname=&lt;文本&gt;</p></td><td valign="top" align="left"><p><a name="1054672"></a>指定 Active Directory 服务中定义的产品名称。 此名称将产品与 Active Directory 权限数据链接到一起以进行用户验证。</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054676"></a><h4> 在运行 IT Assistant 的系统上配置 Active Directory</h4>
+<a name="1054677"></a><p>默认情况下，Active Directory 产品名称对应于 <i>机器名</i>-ita，其中<i>机器名</i>是装有 IT Assistant 的系统的名称。 要配置其它名称，找到安装目录中的 <b>itaoem.ini</b> 文件。 编辑该文件以添加“adproductname=<i>文本</i>”行，其中<i>文本</i>是在 Active Directory 中创建的产品对象的名称。 例如，如果 Active Directory 产品名称配置为 <b>mgmtStationITA</b>，<b>itaoem.ini </b>文件将包含以下语法。 </p>
+<a name="1054678"></a>
+<p class="screenindent">productname=IT Assistant<br>
+startmenu=Dell OpenManage Applications<br>
+autdbid=ita<br>
+accessmask=3<br>
+startlink=ITAUIServlet<br>
+adsupport=true<br>
+adproductname=mgmtStationITA
+</p>
+<a name="1054689"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>请将<b> itaoem.ini </b>文件保存到磁盘后重新启动 IT Assistant 服务。</td>
+  </tr>
+</table><a name="1054692"></a><h4> 使用基于 Web 的界面配置 DRAC 4</h4>
+<ol type="1">
+
+<li value="1"><a name="1054693"></a>使用默认用户 root 及其密码登录到基于 Web 的界面。
+
+<br><br>
+<li value="2"><a name="1054694"></a>单击<b>“Configuration”（配置）</b>选项卡并选择 <b>Active Directory</b>。
+
+<br><br>
+ <li value="3"><a name="1054695"></a>选择<b>“Enable Active Directory”（启用 Active Directory）</b>复选框。
+
+<br><br>
+<li value="4"><a name="1054696"></a>键入<b>“DRAC 4 Name”（DRAC 4 名称）</b>。 此名称必须和域控制器中创建的 RAC 对象的常用名一样（请参阅“<a href="mad.htm#1055982">安装 Dell 对 Active Directory 用户和计算机管理单元的扩展 </a>”）。
+
+<br><br>
+<li value="5"><a name="1054700"></a>键入<b>“Root Domain Name”（Root 域名）</b>。 <b>“Root Domain Name”（Root 域名）</b>是目录林的完全限定 Root 域名。
+
+<br><br>
+<li value="6"><a name="1054701"></a>键入<b>“DRAC 4 Domain Name”（DRAC 4 域名）</b>（例如，<span class="screen">drac4.com</span>）。 请勿使用 NetBIOS 名称。 <b>“DRAC 4 Domain Name”（DRAC 4 域名）</b>是 RAC 设备对象所在子域的完全限定域名。
+
+<br><br>
+<li value="7"><a name="1054702"></a>单击<b>“Apply”（应用）</b>保存 Active Directory 设置。
+
+<br><br>
+<li value="8"><a name="1054704"></a>单击<b>“Upload Active Directory CA Certificate”（上载 Active Directory CA 认证）</b>将域目录林根 CA 认证上载到 DRAC 4。 域目录林域控制器的 SSL 认证需要已签署此根 CA 认证。 将根 CA 认证提供给本地系统（请参阅“<a href="mad.htm#1054559">导出域控制器根 CA 认证 [仅限 RAC]</a>”）。 指定根 CA 认证的完整路径和文件名并单击<b>“Upload”（上载）</b>将根 CA 认证上载到 DRAC 4 固件。 DRAC 4 Web Server 会在单击<b>“Upload”（上载）</b>后自动重新启动。 必须再次登录以完成 DRAC 4 Active Directory 功能配置。
+
+<br><br>
+<li value="9"><a name="1054708"></a>单击<b>“Configuration”（配置）</b>选项卡并选择<b>“Network”（网络）</b>。<li value="10"><a name="1054710"></a>如果启用了 <b>DRAC 4 NIC DHCP</b>，在<b>“Use DHCP to obtain DNS server address”（使用 DHCP 获取 DNS 服务器地址）</b>旁选中复选框。 
+如果想手动输入 DNS 服务器 IP 地址，取消选中<b>“Use DHCP to obtain DNS server address”（使用 DHCP 获取 DNS 服务器地址）</b>旁的复选框并输入主要和备用 DNS 服务器 IP 地址。
+
+<br><br>
+<li value="11"><a name="1054711"></a>单击<b>“Apply”（应用）</b>完成 DRAC 4 Active Directory 功能配置。
+<br><br>
+</ol>
+<a name="1054713"></a><h4> 使用 racadm CLI 配置 DRAC 4 Active Directory 设置</h4>
+<a name="1054714"></a><p>通过 racadm CLI 而不是基于 Web 的界面，使用以下命令配置 DRAC 4 Active Directory 功能。</p>
+<ol type="1">
+
+<li value="1"><a name="1054716"></a>打开命令提示符并键入以下 racadm 命令：
+<br><br>
+</ol>
+<a name="1054717"></a><p class="indent"><span class="screen">racadm config -g cfgActiveDirectory -o cfgADEnable 1<br>racadm config -g cfgActiveDirectory -o cfgADRacDomain &lt;</span><span class="screen"><i>完全合格的 rac 域名称</i></span><span class="screen">&gt;<br>racadm config -g cfgActiveDirectory -o cfgADRootDomain &lt;</span><span class="screen"><i>完全合格的根域名称</i></span><span class="screen">&gt;<br>racadm config -g cfgActiveDirectory -o cfgADRacName &lt;</span><span class="screen"><i>RAC 常用名</i></span><span class="screen">&gt;<br>racadm sslcertupload -t 0x2 -f &lt;</span><span class="screen"><i>ADS 根 CA 认证</i></span><span class="screen">&gt;<br>racadm sslcertdownload -t 0x1 -f &lt;</span><span class="screen"><i>RAC SSL 认证</i></span><span class="screen">&gt;</span></p>
+<ol type="1">
+
+<li value="2"><a name="1054724"></a>如果在 DRAC 4 上启用了 DHCP 并且想使用 DHCP 服务器提供的 DNS，请键入以下命令：</ol>
+<a name="1054725"></a><p class="indent"><span class="screen">racadm config -g cfgLanNetworking -o cfgDNSServersFromDHCP 1</span></p>
+<ol type="1">
+
+<li value="3"><a name="1054726"></a>如果在 DRAC 4 上禁用了 DHCP，或者想手动输入 DNS IP 地址，请键入以下命令：</ol>
+<a name="1054727"></a><p class="indent"><span class="screen">racadm config -g cfgLanNetworking -o cfgDNSServersFromDHCP 0<br>racadm config -g cfgLanNetworking -o cfgDNSServer1 &lt;</span><span class="screen"><i>主要 DNS IP 地址</i></span><span class="screen">&gt;<br>racadm config -g cfgLanNetworking -o cfgDNSServer2 </span><span class="screen"><i>&lt;次要 DNS IP 地址&gt;</i></span></p>
+<ol type="1">
+
+<li value="4"><a name="1054730"></a>按 <b>Enter</b> 完成 DRAC 4 Active Directory 功能配置。
+<br><br>
+</ol>
+<a name="1054731"></a><p>有关详情，请参阅<i>《Dell Remote Access Controller 4 用户指南》</i>。</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">返回目录页</a></p>
+
+
+<p>&#160;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!-- Content Description:  the bottom frame for homeframe.htm. -->
+<!doctype html public "-//IETF//DTD HTML//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>启动应用程序框</title>
+<link href="../oma.css" type="text/css" rel="stylesheet">
+</head>
+
+<body bgcolor="white" tabindex="-1">
+<br>
+<!-- A HREF needs to point to "#". Load all pages using onmousedown
+This fixes DFCT113445 & DFCT113446
+-->
+<table border="0" cellspacing="0" cellpadding="0" width="550" align="center">
+<tr>
+	<td align="left">
+		<table align="center" border="0" cellspacing="0" cellpadding="0" width="320">
+			<tr>
+				<td nowrap="true"><img src="../images/lbutton.gif"></td>
+				<td id="b0" nowrap="true" width="320" align="center" class="data-area-button">
+				<a href="#" onmousedown=javascript:location.href="http://localhost/blank.htm?launchstation.msg"
+					onkeypress='javascript:if (event.keycode == 13) { location.href="http://localhost/blank.htm?launchstation.msg"; }'
+					tabindex="1"
+					class="data-area-button"
+					id="management_station_link">安装、修改、修复或删除 Management Station</a>
+				</td>
+				<td nowrap="true"><img src="../images/rbutton.gif"></td>
+			</tr>
+		</table>
+	</td>
+
+
+<!-- Move rescan button from scroll area to "fixed area"
+	From prereqreporttemplate.xml:
+			<div id="optional_button_area" style="visibility:hidden">
+			<table align="center" border="0" cellspacing="0" cellpadding="0" width="250">
+				<tr>
+					<td nowrap="true"><img src="images/lbutton.gif" /></td>
+					<td id="b3" nowrap="true" width="225" align="center" class="data-area-button">
+						<a href="#" onmousedown='javascript:location.href="omprereq.htm?rescan.msg"' class="data-area-button" id="rescan_button">Rescan Dependencies</a>
+					</td>
+					<td nowrap="true"><img src="images/rbutton.gif" /></td>
+				</tr>
+			</table>
+			</div>
+
+This fixes DFCT127080
+-->
+
+	<td align="right">
+		<table align="center" border="0" cellspacing="0" cellpadding="0" width="150">
+		<tr>
+		<td nowrap="true"><img src="../images/lbutton.gif"></td>
+		<td nowrap="true" id="b3" width="150" align="center" class="data-area-button">
+		<a href="#" onmousedown='javascript:location.href="http://localhost/blank.htm?rescan.msg"'
+			onkeypress='javascript:if (event.keycode == 13) { location.href="http://localhost/blank.htm?rescan.msg"; }'
+			tabindex="2"
+			class="data-area-button"
+			id="rescan_button">重新扫描相关性</a>
+		</td>
+		<td nowrap="true"  tabindex="-1"><img src="../images/rbutton.gif"></td>
+		</tr>
+		</table>
+	</td>
+
+
+
+</tr>
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+================= Logging started at 2/16/2009 01:02:09 PM ==================
+Created release folders
+AdminExecuteSequence table successfully built
+AdminUISequence table successfully built
+AdvtExecuteSequence table successfully built
+AdvtUISequence table successfully built
+InstallExecuteSequence table successfully built
+InstallUISequence table successfully built
+Directory table successfully built
+Feature table successfully built
+FeatureComponents table successfully built
+Component table successfully built
+Loading File table
+ISDEV : error -32000: Build canceled by the user
+Product Configuration 1\Release 1 - 1 error(s), 0 warning(s)
+================= Logging stopped at 2/16/2009 01:02:11 PM ==================
+Log file has been created: <file:\\gemini\2kfp2-eldo\PC-DEV\InstallShield Projects\Lab 6.4REL\SRM\SRM\Product Configuration 1\Release 1\LogFiles\2-16-2009 01-02-09 PM.txt>
+

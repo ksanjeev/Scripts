@@ -1,0 +1,1385 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<title>Setup and Administration : Dell OpenManage Version 5.0
+ Installation and Security User's Guide</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">Back to Contents Page</a> </p>
+<a name="1059954"></a><h1> Setup and Administration  </h1>
+<p class="title">Dell OpenManage&#153; Version 5.0
+ Installation and Security User's Guide</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1065250">Before You Begin</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1063820">Installation Requirements</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1079516">Dependencies and Prerequisites</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1060384">Configuring a Supported Web Browser</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1044105">Assigning User Privileges</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1064797">Configuring the SNMP Agent</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1093618">Secure Port Server and Security Setup</A></P>
+
+
+<br>
+<hr noshade size="1">
+<a name="1065250"></a><h2>Before You Begin</h2>
+
+
+<ul><li><a name="1063814"></a>Read the applicable instructions in this chapter.<br><br></li>
+<li><a name="1063815"></a>Read the installation requirements to ensure that your system meets or exceeds the minimum&nbsp;requirements.<br><br></li>
+<li><a name="1100339"></a>Read the <i>Dell OpenManage&#153; Server Administrator Compatibility Guide</i>. This document contains compatibility information about Dell OpenManage software installation and operation on various hardware platforms (systems) running supported Microsoft&#174; Windows&#174;, Red Hat&#174; Enterprise Linux, and SUSE&#174; Linux Enterprise Server operating systems.<br><br></li>
+<li><a name="1100342"></a>Read the applicable Dell OpenManage readme files on the Dell OpenManage CDs or on the Dell&#153; Support website at <b>support.dell.com</b>. These files contain the latest information about software, firmware, and driver versions, in addition to information about known issues. The&nbsp;installation <b>readme_ins.txt</b> file also contains a list of supported servers.<br><br></li>
+<li><a name="1063818"></a>Read the installation instructions for your operating system.<br><br></li>
+</ul><hr noshade size="1">
+<a name="1063820"></a><h2>Installation Requirements</h2>
+
+
+<a name="1063821"></a><p>The following sections describe the Dell OpenManage systems management software general requirements. Operating system-specific installation prerequisites are listed as part of the installation procedures. </p>
+<ul><li><a name="1063825"></a><a href="setup.htm#1063831">Supported Operating Systems</a> <br><br></li>
+<li><a name="1063829"></a><a href="setup.htm#1092189">System Requirements</a><br><br></li>
+</ul><a name="1063831"></a><h3> Supported Operating Systems
+</h3>
+<a name="1063832"></a><p>Dell OpenManage systems management software runs, at a minimum, on each of the following operating systems: </p>
+<ul><li><a name="1079024"></a>Windows 2000 Server family (with SP4) &#151; Includes Windows 2000 Server, Windows 2000 Advanced Server, and Windows 2000 Professional<br><br></li>
+<li><a name="1088430"></a>Windows Server&#153; 2003 family (with R2) &#151; Includes Standard and Enterprise editions<br><br></li>
+<li><a name="1080964"></a>Windows Server 2003 x64 R2 &#151; Includes Standard and Enterprise editions (except IT Assistant)<br><br></li>
+</ul><a name="1089586"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTE: </span> IT Assistant is not supported on systems running Microsoft Windows Server 2003 x64.
+</td>
+  </tr>
+</table>
+<ul><li><a name="1094982"></a>Windows Server 2003 SP1 (Web Edition)<br><br></li>
+<li><a name="1094986"></a>Windows SBS 2003 SP1 (except IT Assistant)<br><br></li>
+<li><a name="1096958"></a>Windows XP SP1 and SP2<br><br></li>
+<li><a name="1100878"></a>Windows Storage Server 2003 R2 &#151; Includes Express, Standard, Workgroup, and Enterprise editions <br><br></li>
+<li><a name="1080966"></a>Red Hat Enterprise Linux AS, ES, and WS (version 3) x86, Update 6<br><br></li>
+</ul><a name="1063841"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTE: </span> Support for updated kernels released by Red Hat and for later versions of Red Hat Enterprise Linux may 
+require the use of Dynamic Kernel Support (see "<a href="instlx.htm#1054829">Dynamic Kernel Support (DKS)</a>" for a description of this feature).
+</td>
+  </tr>
+</table>
+<ul><li><a name="1093940"></a>Red Hat Enterprise Linux AS, ES, and WS (version 3) for Intel&#174; Extended Memory 64 Technology (Intel EM64T) Update 6<br><br></li>
+<li><a name="1076067"></a>Red Hat Enterprise Linux AS, ES, and WS (version 4) for Intel x86<br><br></li>
+<li><a name="1092186"></a>Red Hat Enterprise Linux AS, ES, and WS (version 4) for Intel EM64T<br><br></li>
+<li><a name="1092187"></a>SUSE Linux Enterprise Server (version 9), SP3 for Intel EM64T<br><br></li>
+</ul><a name="1094163"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTE: </span> Support for updated kernels released by Novell&#174; and for later versions of SUSE Linux Enterprise 
+Server may require the use of Dynamic Kernel Support (see "<a href="instlx.htm#1054829">Dynamic Kernel Support (DKS)</a>" for a description 
+of this feature).
+</td>
+  </tr>
+</table>
+<a name="1092189"></a><h3> System Requirements
+</h3>
+<a name="1063854"></a><p>Dell OpenManage Server Administrator software must be installed on each system to be managed. You can then manage each system running Server Administrator locally or remotely through a supported Web browser.</p>
+<a name="1065231"></a><h4> Managed System Requirements</h4>
+<ul><li><a name="1065235"></a>One of the <a href="setup.htm#1063831">Supported Operating Systems</a><br><br></li>
+<li><a name="1065236"></a>A minimum of 64 MB of RAM<br><br></li>
+<li><a name="1063861"></a>A minimum of 256 MB of free hard drive space<br><br></li>
+<li><a name="1063862"></a>Administrator rights<br><br></li>
+<li><a name="1063863"></a>A TCP/IP connection on the monitored system and the remote system to facilitate remote system&nbsp;management<br><br></li>
+<li><a name="1075721"></a>One of the supported Web browsers (see "<a href="setup.htm#1063893">Minimum Supported Web Browser Requirements</a>")<br><br></li>
+<li><a name="1075725"></a>One of the <a href="setup.htm#1089702">Supported Systems Management Protocol Standards</a> (see "<a href="setup.htm#1089702">Supported Systems Management Protocol Standards</a>")<br><br></li>
+<li><a name="1075726"></a>A mouse, keyboard, and monitor to manage a system locally. The monitor requires a minimum screen resolution of 800 x 600. The recommended screen resolution setting is 1024 x 768.<br><br></li>
+<li><a name="1100206"></a>The Server Administrator Remote Access Service requires that a remote access controller (RAC) be installed on the system to be managed. See the <i>Dell Remote Access Controller 4 User's Guide, </i>the <i>Dell Remote Access Controller 5 User's Guide, </i>and the <i>Dell Remote Access Controller Installation and Setup Guide, </i>or the <i>Dell&nbsp;Embedded Remote Access/MC Controller User's Guide</i> for complete software and hardware requirements.<br><br></li>
+</ul><a name="1063878"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTE: </span> The RAC software is installed as part of the <b>Express Setup</b> and <b>Custom Setup</b> installation options 
+when installing managed system software from the <i>Dell PowerEdge&#153; Installation and Server Management</i> 
+CD provided that the managed system meets all of the RAC installation prerequisites. See "<a href="intro.htm#1047127">Remote Access 
+Service</a>" and the <i>Dell Remote Access Controller Installation and Setup Guide</i> or the <i>Dell Embedded Remote 
+Access/MC Controller User's Guide</i> for complete software and hardware requirements. 
+</td>
+  </tr>
+</table>
+<a name="1063888"></a><h4> Remote Management System Requirements</h4>
+<ul><li><a name="1063889"></a>One of the supported Web browsers to manage a system remotely from a graphical user interface (GUI)<br><br></li>
+<li><a name="1063890"></a>A TCP/IP connection on the managed system and the remote system to facilitate remote system&nbsp;management<br><br></li>
+<li><a name="1063891"></a>A minimum screen resolution of 800 x 600. The recommended screen resolution setting is 1024 x 768<br><br></li>
+</ul><a name="1063893"></a><h4> Minimum Supported Web Browser Requirements</h4>
+<ul><li><a name="1089698"></a>Internet Explorer 6.0 SP1 and SP2 (Windows only)<br><br></li>
+<li><a name="1089700"></a>Mozilla Firefox 1.07 (SUSE Linux Enterprise Server and Red Hat Enterprise Linux)<br><br></li>
+<li><a name="1092192"></a>Mozilla 1.7.8, 1.7.10, and 1.7.11 (SUSE Linux Enterprise Server and Red Hat Enterprise Linux)<br><br></li>
+</ul><a name="1089702"></a><h4> Supported Systems Management Protocol Standards</h4>
+<a name="1063910"></a><p>A supported systems management protocol standard must be installed on the managed system before installing your management station or managed system software. On supported Windows operating systems, Dell OpenManage software supports these two systems management standards: Common Information Model/Windows Management Instrumentation (CIM/WMI) and Simple Network Management Protocol (SNMP). On supported Red Hat Enterprise Linux and SUSE Linux Enterprise Server operating systems, Dell OpenManage software supports the SNMP systems management standard.</p>
+<a name="1063915"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>For information about installing a supported systems management protocol standard on your managed 
+system, see your operating system documentation.
+</td>
+  </tr>
+</table><a name="1063919"></a><p><a href="setup.htm#1063926">Table&nbsp;3-1</a> shows the availability of the systems management standards for each supported operating&nbsp;system.</p>
+<a name="1063955"></a>
+<p><p class="FigureTableTitle"><a name="1063926"></a>Table 3-1.&#32; Availability of Systems Management Protocol by Operating Systems&nbsp;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1063932"> </a>
+<p><b>Operating System</b></p>
+
+
+</th><th valign="top" align="left"><a name="1063934"> </a>
+<p><b>SNMP</b></p>
+
+
+</th><th valign="top" align="left"><a name="1063936"> </a>
+<p><b>CIM/WMI</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1063938"></a>Supported Windows operating systems.</p></td><td valign="top" align="left"><p><a name="1063940"></a>Available from the operating system installation media.</p></td><td valign="top" align="left"><p><a name="1063942"></a>Always installed.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1063944"></a>Supported Red Hat Enterprise Linux operating systems.</p></td><td valign="top" align="left"><p><a name="1063946"></a>You must install the SNMP package provided with the operating system.</p></td><td valign="top" align="left"><p><a name="1063948"></a>Unavailable.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1092196"></a>Supported SUSE Linux Enterprise Server operating systems.</p></td><td valign="top" align="left"><p><a name="1092198"></a>You must install the SNMP package provided with the operating system.</p></td><td valign="top" align="left"><p><a name="1092200"></a>Unavailable.</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><hr noshade size="1">
+<a name="1079516"></a><h2>Dependencies and Prerequisites</h2>
+
+
+<a name="1079519"></a><h3> Upgrading from Dell OpenManage Software Versions 1.<i>x, </i>2.<i>x</i>, and 3.<i>x</i>&#150;4.2
+</h3>
+<a name="1084514"></a><p>Upgrades from Dell OpenManage software versions 1.<i>x,</i> 2.<i>x, and 3.x </i>through<i> 4.2 </i>are not supported. You&nbsp;must manually uninstall Dell OpenManage software versions 1.<i>x,</i> 2.<i>x, and 3.x </i>through<i> 4.2 </i>before launching the Dell OpenManage software installation. The installer will notify you if it detects Dell&nbsp;OpenManage software versions 1<i>.x </i>through<i> </i>4.2<i> </i>on the system. Another way of upgrading from these versions is to upgrade to version 4.3 first, then upgrade to the current version. For Microsoft Windows, you can upgrade from version 4.3 to a later version through a full Microsoft Software Installer (MSI) install only.</p>
+<hr noshade size="1">
+<a name="1060384"></a><h2>Configuring a Supported Web Browser</h2>
+
+
+<a name="1060296"></a><p>The following sections provide instructions for configuring the supported Web browsers. For a list of supported Web browsers, see "<a href="setup.htm#1063893">Minimum Supported Web Browser Requirements</a>."</p>
+<a name="1060300"></a><h3> Configuring Internet Explorer to Connect to the Web-Based Interface
+</h3>
+<a name="1060301"></a><p>If you are connecting to a Web-based interface from a management station that connects to the Internet through a proxy server, you need to configure the Web browser to connect properly. If you are using Microsoft's Internet Explorer browser, follow these steps:</p>
+<ol type="1">
+
+<li value="1"><a name="1060302"></a>From the Internet Explorer main window, click <b>Tools</b>, and then click <b>Internet Options</b>.
+<br><br>
+
+<li value="2"><a name="1060303"></a>From the <b>Internet Options</b> window, click the <b>Connections</b> tab.
+<br><br>
+
+<li value="3"><a name="1060304"></a>Under <b>Local Area Network (LAN) settings</b>, click <b>LAN Settings</b>.
+<br><br>
+
+<li value="4"><a name="1060305"></a>If the <b>Use a proxy server</b> box is selected, select the <b>Bypass proxy server for local addresses</b> box.
+<br><br>
+
+<li value="5"><a name="1060306"></a>Click <b>OK</b> twice.
+<br><br>
+</ol>
+<a name="1067173"></a><p>Configure other browsers for the same functionality.</p>
+<a name="1060308"></a><h3> Viewing Localized Versions of the Web-Based Interface
+</h3>
+<a name="1060309"></a><p>When using Internet Explorer or Netscape Navigator on systems running Windows, to view localized versions of the Web-based interface, do the following:</p>
+<ol type="1">
+
+<li value="1"><a name="1060310"></a>Open the Windows <b>Control Panel </b>and double-click the <b>Regional Options</b> icon.
+<br><br>
+
+<li value="2"><a name="1060292"></a>Select the desired locale from the <b>Your locale (location)</b> drop-down menu.
+<br><br>
+</ol>
+<hr noshade size="1">
+<a name="1044105"></a><h2>Assigning User Privileges</h2>
+
+
+<a name="1044106"></a><p>To ensure critical system component security, you must properly assign user privileges to all Dell&nbsp;OpenManage software users before installing Dell OpenManage software.</p>
+<a name="1054177"></a><p>The following sections provide step-by-step instructions for creating users and assigning user privileges for each supported operating system.</p>
+<ul><li><a name="1054181"></a><a href="setup.htm#1044126">Creating Users for Supported Windows Operating Systems</a><br><br></li>
+<li><a name="1054185"></a><a href="setup.htm#1073295">Creating Users for Supported Red Hat Enterprise Linux and SUSE Linux Enterprise Server Operating Systems</a><br><br></li>
+<li><a name="1054097"></a><a href="setup.htm#1061874">Microsoft Active Directory</a><br><br></li>
+</ul><a name="1066257"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">
+    NOTICE: </span>  To protect access to your critical system components, you must assign a password to every user 
+account that can access Dell OpenManage software. 
+</td>
+  </tr>
+</table>
+<a name="1044724"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">
+    NOTICE: </span>  You should disable guest accounts for supported Windows operating systems in order to protect access 
+to your critical system components. See "<a href="setup.htm#1079052">Disabling Guest and Anonymous Accounts in Supported Windows 
+Operating Systems</a>" for instructions.
+</td>
+  </tr>
+</table>
+<a name="1044126"></a><h3> Creating Users for Supported Windows Operating Systems
+</h3>
+<a name="1044814"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>You must be logged in with Administrator privileges to perform these procedures.
+</td>
+  </tr>
+</table><a name="1060978"></a><p>The following procedures create user accounts, assign user privileges, and add users to domains.</p>
+<a name="1044136"></a><h4> Creating Users and Assigning User Privileges for Supported Windows Server 2003 Operating Systems</h4>
+<a name="1045082"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>For questions about creating users and assigning user group privileges, or for more detailed instructions, 
+see your operating system documentation.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1052789"></a>Click the <b>Start</b> button, right-click <b>My Computer,</b> and point to <b>Manage</b>.
+<br><br>
+
+<li value="2"><a name="1044147"></a>In the console tree, expand <b>Local Users and Groups</b>, and then click <b>Users</b>. 
+<br><br>
+
+<li value="3"><a name="1044148"></a>Click <b>Action</b>, and then click <b>New User</b>. 
+<br><br>
+
+<li value="4"><a name="1044149"></a>Type the appropriate information in the dialog box, select or clear the appropriate check boxes, and 
+then click <b>Create</b>. 
+<br><br>
+</ol>
+<a name="1099265"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">
+    NOTICE: </span>  You must assign a password to every user account that can access Dell OpenManage software to 
+protect access to your critical system components. Additionally, users who do not have an assigned 
+password cannot log into Dell OpenManage software on a system running Windows Server 2003 due to 
+operating system constraints.
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="5"><a name="1044159"></a>In the console tree, under <b>Local Users and Groups</b>, click <b>Groups</b>. 
+<br><br>
+
+<li value="6"><a name="1044160"></a>Click the group to which you want to add the new user: <b>Users</b>, <b>Power Users</b>, or <b>Administrators</b>. 
+<br><br>
+
+<li value="7"><a name="1095518"></a>Click <b>Action</b>, and then click <b>Properties</b>. 
+<br><br>
+
+<li value="8"><a name="1095519"></a>Click <b>Add</b>. 
+<br><br>
+
+<li value="9"><a name="1095520"></a>Type the user name that you are adding and click <b>Check Names</b> to validate.
+<br><br>
+
+<li value="10"><a name="1044165"></a>Click <b>OK</b>.
+<br><br>
+</ol>
+<a name="1044166"></a><p class="indent">New users can log into Dell OpenManage software with the user privileges for their assigned&nbsp;group.</p>
+<a name="1052910"></a><h4> Creating Users and Assigning User Privileges for Supported Windows 2000 Operating Systems</h4>
+<a name="1052915"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>For questions about creating users and assigning user group privileges, or for more detailed instructions, 
+see your operating system documentation.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1052916"></a>Right-click <b>My Computer</b> and point to <b>Manage</b>.
+<br><br>
+
+<li value="2"><a name="1052917"></a>In the console tree, expand <b>Local Users and Groups</b>, and then click <b>Users</b>. 
+<br><br>
+
+<li value="3"><a name="1052918"></a>Click <b>Action</b>, and then click <b>New User</b>. 
+<br><br>
+
+<li value="4"><a name="1052919"></a>Type the appropriate information in the dialog box, select or clear the appropriate check boxes, and 
+then click <b>Create</b>. 
+<br><br>
+
+<li value="5"><a name="1052925"></a>In the console tree, under <b>Local Users and Groups</b>, click <b>Groups</b>. 
+<br><br>
+
+<li value="6"><a name="1052926"></a>Click the group to which you want to add the new user: <b>Users</b>, <b>Power Users</b>, or&nbsp;<b>Administrators</b>. 
+<br><br>
+
+<li value="7"><a name="1052927"></a>Click <b>Action</b>, and then click <b>Properties</b>. 
+<br><br>
+
+<li value="8"><a name="1052928"></a>Click <b>Add</b>. 
+<br><br>
+
+<li value="9"><a name="1052929"></a>Click the name of the user you want to add, and then click <b>Add</b>. 
+<br><br>
+
+<li value="10"><a name="1052930"></a>Click <b>Check Names</b> to validate the user name that you are adding.
+<br><br>
+
+<li value="11"><a name="1052931"></a>Click <b>OK</b>.
+<br><br>
+</ol>
+<a name="1052932"></a><p class="indent">New users can log into Dell OpenManage software with the user privileges for their assigned&nbsp;group.</p>
+<a name="1044167"></a><h4> Adding Users to a Domain</h4>
+<a name="1045358"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>For questions about creating users and assigning user group privileges or for more detailed instructions, 
+see your operating system documentation.
+</td>
+  </tr>
+</table><a name="1045375"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>You must have Microsoft Active Directory&#174; installed on your system to perform the following procedures. 
+See "<a href="setup.htm#1061874">Microsoft Active Directory</a>" for more information about using Active Directory.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1044187"></a>Click the <b>Start</b> button, and then point to <b>Control Panel</b><span style="FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> Administrative Tools</b><span style="FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> Active Directory 
+Users and Computers</b>. 
+<br><br>
+
+<li value="2"><a name="1056080"></a>In the console tree, right-click <b>Users</b> or right-click the container in which you want to add the new user, 
+and then point to <b>New</b><b>&rarr;</b><b> User.</b> 
+<br><br>
+
+<li value="3"><a name="1056081"></a>Type the appropriate user name information in the dialog box, and then click <b>Next</b>. 
+<br><br>
+</ol>
+<a name="1044199"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">
+    NOTICE: </span>  You must assign a password to every user account that can access Dell OpenManage software to 
+protect access to your critical system components. Additionally, users who do not have an assigned 
+password cannot log into Dell OpenManage software on a system running Windows Server 2003 due to 
+operating system constraints.
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="4"><a name="1044200"></a>Click <b>Next</b>, and then click <b>Finish</b>.
+<br><br>
+
+<li value="5"><a name="1044201"></a>Double-click the icon representing the user that you just created.
+<br><br>
+
+<li value="6"><a name="1044202"></a>Click the <b>Member of</b> tab.
+<br><br>
+
+<li value="7"><a name="1044203"></a>Click <b>Add</b>.
+<br><br>
+
+<li value="8"><a name="1044204"></a>Select the appropriate group and click <b>Add</b>.
+<br><br>
+
+<li value="9"><a name="1044205"></a>Click <b>OK</b>, and then click <b>OK</b> again.
+<br><br>
+</ol>
+<a name="1044206"></a><p class="indent">New users can log into Dell OpenManage software with the user privileges for their assigned group and&nbsp;domain.</p>
+<a name="1079052"></a><h4> Disabling Guest and Anonymous Accounts in Supported Windows Operating Systems</h4>
+<a name="1079057"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>You must be logged in with Administrator privileges to perform this procedure.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1079058"></a>If your system is running Windows Server 2003, click the <b>Start</b> button, right-click <b>My&nbsp;Computer,</b> and 
+point to <b>Manage</b>. 
+<br><br>
+</ol>
+<a name="1081137"></a><p class="indent">If your system is running Windows 2000, right-click <b>My Computer</b> and point to <b>Manage</b>.</p>
+<ol type="1">
+
+<li value="2"><a name="1079059"></a>In the console tree, expand <b>Local Users and Groups</b> and click <b>Users</b>. 
+<br><br>
+
+<li value="3"><a name="1079060"></a>Click the <b>Guest</b> or <b>IUSR</b><b>_</b><b>system name</b> user account. 
+<br><br>
+
+<li value="4"><a name="1079061"></a>Click <b>Action</b> and point to <b>Properties</b>. 
+<br><br>
+
+<li value="5"><a name="1079062"></a>Select <b>Account is disabled</b> and click <b>OK</b>. 
+<br><br>
+</ol>
+<a name="1079063"></a><p class="indent">A red circle with an X appears over the user name. The account is disabled.</p>
+<a name="1079049"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>Consider renaming the accounts so that remote scripts cannot enable the accounts using the&nbsp;name.
+</td>
+  </tr>
+</table><a name="1073295"></a><h3> Creating Users for Supported Red Hat Enterprise Linux and SUSE Linux Enterprise Server 
+Operating Systems
+</h3>
+<a name="1073296"></a><p>Administrator access privileges are assigned to the user logged in as <span class="screen">root</span>. To create users with User and Power User privileges, perform the following steps.</p>
+<a name="1045936"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>You must be logged in as <span class="screen">root</span> to perform these procedures.
+</td>
+  </tr>
+</table><a name="1057634"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>You must have the useradd utility installed on your system to perform these procedures.
+</td>
+  </tr>
+</table><a name="1044272"></a><h4> Creating Users</h4>
+<a name="1045968"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>For questions about creating users and assigning user group privileges, or for more detailed instructions, 
+see your operating system documentation.
+</td>
+  </tr>
+</table><a name="1044282"></a><h5> Creating Users With User Privileges</h5>
+<ol type="1">
+
+<li value="1"><a name="1044292"></a>Run the following command from the command line:
+<br><br>
+</ol>
+<a name="1044293"></a><p class="indent"><span class="screen">useradd -d </span><span class="screen"><i>home-directory</i></span><span class="screen"> -g </span><span class="screen"><i>group</i></span><span class="screen"> </span><span class="screen"><i>username</i></span></p>
+<a name="1044294"></a><p class="indent">where <span class="screen"><i>group</i></span> is <i>not</i> <span class="screen">root</span>.</p>
+<a name="1055571"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>If <span class="screen">group</span> does not exist, you must create it by using the <b>groupadd</b> command.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="2"><a name="1044295"></a>Type <span class="screen">passwd</span> <span class="screen"><i>username</i></span> and press &lt;Enter&gt;.
+<br><br>
+
+<li value="3"><a name="1044296"></a>When prompted, enter a password for the new user.
+<br><br>
+</ol>
+<a name="1046142"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">
+    NOTICE: </span>  You must assign a password to every user account that can access Dell OpenManage software to 
+protect access to your critical system components.
+</td>
+  </tr>
+</table>
+<a name="1044306"></a><p class="indent">The new user can now log in to Dell OpenManage software with User group privileges.</p>
+<a name="1044307"></a><h5> Creating Users With Power User Privileges</h5>
+<ol type="1">
+
+<li value="1"><a name="1044317"></a>Run the following command from the command line:
+<br><br>
+</ol>
+<a name="1044318"></a>
+<p class="screenindent">useradd -d <span class="screen"><i>home-directory</i></span> -g root <span class="screen"><i>username
+</i></span></p>
+<a name="1046263"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTE: </span> You must set <span class="screen">root</span> as the primary group.
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="2"><a name="1044328"></a>Type <span class="screen">passwd</span> <span class="screen"><i>username</i></span> and press &lt;Enter&gt;.
+<br><br>
+
+<li value="3"><a name="1052344"></a>When prompted, enter a password for the new user.
+<br><br>
+</ol>
+<a name="1052349"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">
+    NOTICE: </span>  You must assign a password to every user account that can access Dell OpenManage software to 
+protect access to your critical system components.
+</td>
+  </tr>
+</table>
+<a name="1052350"></a><p class="indent">The new user can now log in to Dell OpenManage software with Power User group privileges.</p>
+<a name="1061874"></a><h3> Microsoft Active Directory
+</h3>
+<a name="1084529"></a><p>If you use Active Directory service software, you can configure it to control access to your network. Dell&nbsp;has modified the Active Directory database to support remote management authentication and authorization. IT Assistant and Server Administrator, as well as Dell remote access controllers, can now interface with Active Directory. With this tool, you can add and control users and privileges from one central database. If you use Active Directory to control user access to your network, see "<a href="mad.htm#1055432">Using Microsoft&#174; Active Directory&#174;</a>."</p>
+<hr noshade size="1">
+<a name="1064797"></a><h2>Configuring the SNMP Agent</h2>
+
+
+<a name="1094229"></a><p>Dell OpenManage software supports the SNMP systems management standard on all supported operating systems. The SNMP support may or may not be installed depending on your operating system and how the operating system was installed. An installed supported systems management protocol standard, such as SNMP, is required before installing Dell OpenManage software. See "<a href="setup.htm#1063820">Installation Requirements</a>" for more information.</p>
+<a name="1089732"></a><p>You can configure the SNMP agent to change the community name, enable Set operations, and send traps to a management station. To configure your SNMP agent for proper interaction with management applications such as IT Assistant, perform the procedures described in the following sections.</p>
+<a name="1100522"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>For IT Assistant to retrieve management information from a system running Server Administrator, the 
+community name used by IT Assistant must match a community name on the system running Server Administrator. 
+For IT Assistant to modify information or perform actions on a system running Server Administrator, the community 
+name used by IT Assistant must match a community name that allows Set operations on the system running Server 
+Administrator. For IT Assistant to receive traps (asynchronous event notifications) from a system running Server 
+Administrator, the system running Server Administrator must be configured to send traps to the system running 
+IT&nbsp;Assistant. For more information, see the <i>IT Assistant User's Guide</i>.
+</td>
+  </tr>
+</table><a name="1082573"></a><p>The following sections provide step-by-step instructions for configuring the SNMP agent for each supported operating system:</p>
+<ul><li><a name="1047647"></a><a href="setup.htm#1066278">Configuring the SNMP Agent for Systems Running Supported Windows Operating&nbsp;Systems</a><br><br></li>
+<li><a name="1047648"></a><a href="setup.htm#1047161">Configuring the SNMP Agent on Systems Running Supported Red Hat Enterprise Linux Operating&nbsp;Systems</a><br><br></li>
+<li><a name="1094244"></a><a href="setup.htm#1093653">Configuring the SNMP Agent on Systems Running Supported SUSE Linux Enterprise Server Operating Systems</a><br><br></li>
+</ul><a name="1066278"></a><h3> Configuring the SNMP Agent for Systems Running Supported Windows Operating&nbsp;Systems
+</h3>
+<a name="1066308"></a><p>Dell OpenManage software uses the SNMP services provided by the Windows SNMP agent. (SNMP is one of the two supported ways of connecting to a System Administrator session; the other is CIM/WMI.) You can configure the SNMP agent to change the community name, enable Set operations, and send traps to a management station. To configure your SNMP agent for proper interaction with management applications such as IT Assistant, perform the procedures described in the following sections.</p>
+<a name="1057516"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>See your operating system documentation for additional details on SNMP configuration.
+</td>
+  </tr>
+</table><a name="1057684"></a><h4> Enabling SNMP Access By Remote Hosts on Windows Server 2003</h4>
+<a name="1057696"></a><p>Windows Server 2003, by default, does not accept SNMP packets from remote hosts. For systems running Windows Server 2003, you must configure the SNMP service to accept SNMP packets from remote hosts if you plan to manage the system by using SNMP management applications from remote hosts. To enable remote shutdown of a system from IT Assistant, SNMP Set operations must be enabled.</p>
+<a name="1095473"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>Rebooting your system for change management functionality does not require SNMP Set operations.
+</td>
+  </tr>
+</table><a name="1057701"></a><p>To enable a system running the Windows Server 2003 operating system to receive SNMP packets from a remote host, perform the following steps:</p>
+<ol type="1">
+
+<li value="1"><a name="1057711"></a>Click the <b>Start</b> button, right-click <b>My Computer</b>, and point to <b>Manage</b>.
+<br><br>
+</ol>
+<a name="1058501"></a><p class="indent">The <b>Computer Management</b> window appears.</p>
+<ol type="1">
+
+<li value="2"><a name="1057734"></a>Expand the <b>Computer Management</b> icon in the window, if necessary.
+<br><br>
+
+<li value="3"><a name="1057739"></a>Expand the <b>Services and Applications</b> icon and click <b>Services</b>.
+<br><br>
+
+<li value="4"><a name="1057753"></a>Scroll down the list of services until you find <b>SNMP Service</b>, right-click <b>SNMP Service</b>, and then click 
+<b>Properties</b>.
+<br><br>
+</ol>
+<a name="1058507"></a><p class="indent">The <b>SNMP Service Properties</b> window appears.</p>
+<ol type="1">
+
+<li value="5"><a name="1057767"></a>Click the <b>Security</b> tab.
+<br><br>
+
+<li value="6"><a name="1057782"></a>Select <b>Accept SNMP packets from any host</b>, or add the IT Assistant host to the <b>Accept SNMP 
+packets from these hosts</b> list.
+<br><br>
+</ol>
+<a name="1057360"></a><h4> Changing the SNMP Community Name</h4>
+<a name="1047035"></a><p>Configuring the SNMP community names determines which systems are able to manage your system through SNMP. The SNMP community name used by management applications must match an SNMP community name configured on the Dell OpenManage software system so that&nbsp;the management applications can retrieve management information from Dell&nbsp;OpenManage&nbsp;software.</p>
+<ol type="1">
+
+<li value="1"><a name="1047058"></a>If your system is running Windows Server 2003, click the <b>Start</b> button, right-click <b>My&nbsp;Computer,</b> and 
+point to <b>Manage</b>. If your system is running Windows 2000, right-click <b>My&nbsp;Computer</b> and point to <b>Manage</b>.
+<br><br>
+</ol>
+<a name="1047063"></a><p class="indent">The <b>Computer Management</b> window appears.</p>
+<ol type="1">
+
+<li value="2"><a name="1047064"></a>Expand the <b>Computer Management</b> icon in the window, if necessary.
+<br><br>
+
+<li value="3"><a name="1047065"></a>Expand the <b>Services and Applications</b> icon and click <b>Services</b>.
+<br><br>
+
+<li value="4"><a name="1047066"></a>Scroll down the list of services until you find <b>SNMP Service</b>, right-click <b>SNMP Service</b>, and then click 
+<b>Properties</b>.
+<br><br>
+</ol>
+<a name="1047067"></a><p class="indent">The <b>SNMP Service Properties</b> window appears.</p>
+<ol type="1">
+
+<li value="5"><a name="1086611"></a>Click the <b>Security</b> tab to add or edit a community name.
+<br><br>
+  <ol type="a">
+
+<li value="1"><a name="1048177"></a>To add a community name, click <b>Add</b> under the <b>Accepted Community Names</b> list. 
+<br><br>
+  </ol>
+</ol>
+<a name="1048178"></a><p class="Indentsub">The <b>SNMP Service Configuration</b> window appears.</p>
+<ol type="1">
+  <ol type="a">
+
+<li value="2"><a name="1048179"></a>Type the community name of a system that is able to manage your system (the default is public) 
+in the <b>Community Name</b> text box and click <b>Add</b>. 
+<br><br>
+  </ol>
+</ol>
+<a name="1048180"></a><p class="Indentsub">The <b>SNMP Service Properties</b> window appears.</p>
+<ol type="1">
+  <ol type="a">
+
+<li value="3"><a name="1048181"></a>To change a community name, select a community name in the <b>Accepted Community Names</b> list 
+and click <b>Edit</b>.
+<br><br>
+  </ol>
+</ol>
+<a name="1048182"></a><p class="Indentsub">The <b>SNMP Service Configuration</b> window appears.</p>
+<ol type="1">
+  <ol type="a">
+
+<li value="4"><a name="1048183"></a>Make all necessary edits to the community name of the system that is able to manage your system 
+in the <b>Community Name</b> text box, and then click <b>OK</b>.
+<br><br>
+  </ol>
+</ol>
+<a name="1048175"></a><p class="Indentsub">The <b>SNMP Service Properties</b> window appears.</p>
+<ol type="1">
+
+<li value="6"><a name="1047080"></a>Click <b>OK</b> to save the changes.
+<br><br>
+</ol>
+<a name="1047082"></a><h4> Enabling SNMP Set Operations</h4>
+<a name="1099287"></a><p>SNMP Set operations must be enabled on the Dell OpenManage software system to change Dell&nbsp;OpenManage software attributes using IT Assistant. To enable remote shutdown of a system from IT Assistant, SNMP Set operations must be enabled.</p>
+<a name="1095417"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>Rebooting your system for change management functionality does not require SNMP Set operations.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1047100"></a>If your system is running Windows Server 2003, click the <b>Start</b> button, right-click <b>My&nbsp;Computer,</b> and 
+point to <b>Manage</b>. If your system is running Windows 2000, right-click <b>My&nbsp;Computer</b> and point to <b>Manage</b>.
+<br><br>
+</ol>
+<a name="1047105"></a><p class="indent">The <b>Computer Management</b> window opens.</p>
+<ol type="1">
+
+<li value="2"><a name="1047106"></a>Expand the <b>Computer Management</b> icon in the window, if necessary.
+<br><br>
+
+<li value="3"><a name="1047107"></a>Expand the <b>Services and Applications</b> icon, and then click <b>Services</b>.
+<br><br>
+
+<li value="4"><a name="1047108"></a>Scroll down the list of services until you find <b>SNMP Service</b>, right-click <b>SNMP Service</b>, and click 
+<b>Properties</b>.
+<br><br>
+</ol>
+<a name="1047109"></a><p class="indent">The <b>SNMP Service Properties</b> window appears.</p>
+<ol type="1">
+
+<li value="5"><a name="1047110"></a>Click the <b>Security</b> tab to change the access rights for a community.
+<br><br>
+
+<li value="6"><a name="1047111"></a>Select a community name in the <b>Accepted Community Names</b> list, and then click <b>Edit</b>. 
+<br><br>
+</ol>
+<a name="1047112"></a><p class="indent">The <b>SNMP Service Configuration</b> window opens.</p>
+<ol type="1">
+
+<li value="7"><a name="1047113"></a>Set the <b>Community Rights</b> to <b>READ WRITE</b> or <b>READ CREATE</b>, and click <b>OK</b>.
+<br><br>
+</ol>
+<a name="1047114"></a><p class="indent">The <b>SNMP Service Properties</b> window opens.</p>
+<ol type="1">
+
+<li value="8"><a name="1047115"></a>Click <b>OK</b> to save the changes.
+<br><br>
+</ol>
+<a name="1047117"></a><h4> Configuring Your System to Send SNMP Traps to a Management Station</h4>
+<a name="1047118"></a><p>Dell OpenManage software generates SNMP traps in response to changes in the status of sensors and other monitored parameters. You must configure one or more trap destinations on the Dell&nbsp;OpenManage software system for SNMP traps to be sent to a management station.</p>
+<ol type="1">
+
+<li value="1"><a name="1047139"></a>If your system is running Windows Server 2003, click the <b>Start</b> button, right-click <b>My&nbsp;Computer,</b> and 
+point to <b>Manage</b>. If your system is running Windows 2000, right-click <b>My&nbsp;Computer</b> and point 
+to&nbsp;<b>Manage</b>.
+<br><br>
+</ol>
+<a name="1047144"></a><p class="indent">The <b>Computer Management</b> window opens.</p>
+<ol type="1">
+
+<li value="2"><a name="1047145"></a>Expand the <b>Computer Management</b> icon in the window, if necessary.
+<br><br>
+
+<li value="3"><a name="1047146"></a>Expand the <b>Services and Applications</b> icon and click <b>Services</b>.
+<br><br>
+
+<li value="4"><a name="1047147"></a>Scroll down the list of services until you find <b>SNMP Service</b>, right-click <b>SNMP Service</b>, and 
+click&nbsp;<b>Properties</b>.
+<br><br>
+</ol>
+<a name="1047148"></a><p class="indent">The <b>SNMP Service Properties</b> window opens.</p>
+<ol type="1">
+
+<li value="5"><a name="1047149"></a>Click the <b>Traps</b> tab to add a community for traps or to add a trap destination for a trap&nbsp;community.
+<br><br>
+  <ol type="a">
+
+<li value="1"><a name="1048519"></a>To add a community for traps, type the community name in the <b>Community Name</b> box and click 
+<b>Add to list</b>, which is located next to the <b>Community Name</b> box.
+<br><br>
+  </ol>
+  <ol type="a">
+
+<li value="2"><a name="1048520"></a>To add a trap destination for a trap community, select the community name from the 
+<b>Community Name</b> drop-down box and click <b>Add</b> under the <b>Trap Destinations</b> box.
+<br><br>
+  </ol>
+</ol>
+<a name="1090976"></a><p class="Indentsub">The <b>SNMP Service Configuration</b> window opens. </p>
+<ol type="1">
+  <ol type="a">
+
+<li value="3"><a name="1048522"></a>Type in the trap destination and click <b>Add</b>.
+<br><br>
+  </ol>
+</ol>
+<a name="1047157"></a><p class="Indentsub">The <b>SNMP Service Properties</b> window opens.</p>
+<ol type="1">
+
+<li value="6"><a name="1047158"></a>Click <b>OK</b> to save the changes.
+<br><br>
+</ol>
+<a name="1047161"></a><h3> Configuring the SNMP Agent on Systems Running Supported Red Hat Enterprise Linux 
+Operating&nbsp;Systems
+</h3>
+<a name="1047162"></a><p>Server Administrator uses the SNMP services provided by the ucd-snmp or net-snmp agent. You can configure the SNMP agent to change the community name, enable Set operations, and send traps to a management station. To configure your SNMP agent for proper interaction with management applications such as IT Assistant, perform the procedures described in the following sections.</p>
+<a name="1048607"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>See your operating system documentation for additional details about SNMP configuration.
+</td>
+  </tr>
+</table><a name="1093089"></a><h4> SNMP Agent Access Control Configuration</h4>
+<a name="1093095"></a><p>The management information base (MIB) branch implemented by Server Administrator is identified by the 1.3.6.1.4.1.674 OID. Management applications must have access to this branch of the MIB tree to manage systems running Server Administrator.</p>
+<a name="1093099"></a><p>For Red Hat Enterprise Linux operating systems, the default SNMP agent configuration gives read-only access for the "public" community only to the MIB-II "system" branch (identified by the 1.3.6.1.2.1.1 OID) of the MIB tree. This configuration does not allow management applications to retrieve or change Server Administrator or other systems management information outside of the MIB-II "system" branch.</p>
+<a name="1093091"></a><h4> Server Administrator SNMP Agent Install Actions</h4>
+<a name="1084581"></a><p>If Server Administrator detects the default SNMP configuration during installation, it attempts to modify the SNMP agent configuration to give read-only access to the entire MIB tree for the "public" community. Server Administrator modifies the <b>/etc/snmp/snmpd.conf</b> SNMP agent configuration file in two ways.</p>
+<a name="1057668"></a><p>The first change is to create a view to the entire MIB tree by adding the following line if it does&nbsp;not&nbsp;exist:</p>
+<a name="1057669"></a><p class="screen">view all included .1
+</p><a name="1057670"></a><p>The second change is to modify the default "access" line to give read-only access to the entire MIB&nbsp;tree for the "public" community. Server Administrator looks for the following line:</p>
+<a name="1057671"></a><p class="screen">access notConfigGroup "" any noauth exact systemview none none
+</p><a name="1057672"></a><p>If Server Administrator finds the line above, it modifies the line so that it reads:</p>
+<a name="1057673"></a><p class="screen">access notConfigGroup "" any noauth exact all none none
+</p><a name="1057674"></a><p>These changes to the default SNMP agent configuration give read-only access to the entire MIB&nbsp;tree for the "public" community. </p>
+<a name="1057675"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>To ensure that Server Administrator is able to modify the SNMP agent configuration to provide proper 
+access to systems management data, it is recommended that any other SNMP agent configuration changes be 
+made after installing Server Administrator.
+</td>
+  </tr>
+</table><a name="1093209"></a><p>Server Administrator SNMP communicates with the SNMP agent using the SNMP Multiplexing (SMUX) protocol. When Server Administrator SNMP connects to the SNMP agent, it sends an object identifier to the SNMP agent to identify itself as a SMUX peer. Because that object identifier must be configured with the SNMP agent, Server Administrator adds the following line to the SNMP agent configuration file,<b> /etc/snmp/snmpd.conf</b>, during installation if it does not exist:</p>
+<a name="1093879"></a>
+<p class="screenindent"><span class="screen">smuxpeer .1.3.6.1.4.1.674.10892.1
+</span></p>
+<a name="1093211"></a><h4> Changing the SNMP Community Name</h4>
+<a name="1094035"></a><p>Configuring the SNMP community names determines which systems are able to manage your system through SNMP. The SNMP community name used by management applications must match an SNMP&nbsp;community name configured on the Server Administrator software system, so the management applications can retrieve management information from Server Administrator.</p>
+<a name="1047174"></a><p>To change the SNMP community name used for retrieving management information from a system running Server Administrator, edit the SNMP agent configuration file, <b>/etc/snmp/snmpd.conf</b>, and perform the following steps:</p>
+<ol type="1">
+
+<li value="1"><a name="1047175"></a>Find the line that reads: 
+<br><br>
+</ol>
+<a name="1047176"></a>
+<p class="screenindent"><span class="screen">com2sec publicsec default public</span> 
+</p>
+<a name="1047177"></a><p class="indent">or </p>
+<a name="1047178"></a>
+<p class="screenindent"><span class="screen">com2sec notConfigUser default public</span> 
+</p>
+<ol type="1">
+
+<li value="2"><a name="1082011"></a>Edit this line, replacing <span class="screen">public</span> with the new SNMP community name. When edited, the new line 
+should read: 
+<br><br>
+</ol>
+<a name="1082012"></a>
+<p class="screenindent"><span class="screen">com2sec publicsec default </span><span class="screen"><i>community_name</i></span> 
+</p>
+<a name="1082013"></a><p class="indent">or </p>
+<a name="1047182"></a>
+<p class="screenindent"><span class="screen">com2sec notConfigUser default</span> <span class="screen"><i>community_name
+</i></span></p>
+<ol type="1">
+
+<li value="3"><a name="1047183"></a>To enable SNMP configuration changes, restart the SNMP agent by typing: 
+<br><br>
+</ol>
+<a name="1047184"></a>
+<p class="screenindent"><span class="screen">service snmpd restart
+</span></p>
+<a name="1047185"></a><h4> Enabling SNMP Set Operations</h4>
+<a name="1047186"></a><p>SNMP Set operations must be enabled on the system running Server Administrator in order to change Server Administrator software attributes using IT Assistant. To enable remote shutdown of a system from IT Assistant, SNMP Set operations must be enabled.</p>
+<a name="1095442"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>Rebooting your system for change management functionality does not require SNMP Set operations.
+</td>
+  </tr>
+</table><a name="1047187"></a><p>To enable SNMP Set operations on the system running Server Administrator, edit the <b>/etc/snmp/snmpd.conf</b> SNMP agent configuration file and perform the following steps:</p>
+<ol type="1">
+
+<li value="1"><a name="1047188"></a>Find the line that reads: 
+<br><br>
+</ol>
+<a name="1047189"></a>
+<p class="screenindent"><span class="screen">access publicgroup "" any noauth exact all none</span> none
+</p>
+<a name="1047190"></a><p class="indent">or </p>
+<a name="1047191"></a>
+<p class="screenindent"><span class="screen">access notConfigGroup "" any noauth exact all none</span> none
+</p>
+<ol type="1">
+
+<li value="2"><a name="1047192"></a>Edit this line, replacing the first <span class="screen">none</span> with <span class="screen">all</span>. When edited, the new line should read: 
+<br><br>
+</ol>
+<a name="1047193"></a>
+<p class="screenindent"><span class="screen">access publicgroup "" any noauth exact all all none</span> 
+</p>
+<a name="1047194"></a><p class="indent">or </p>
+<a name="1047195"></a>
+<p class="screenindent">access notConfigGroup "" any noauth exact all all none 
+</p>
+<ol type="1">
+
+<li value="3"><a name="1047196"></a>To enable SNMP configuration changes, restart the SNMP agent by typing: 
+<br><br>
+</ol>
+<a name="1047197"></a>
+<p class="screenindent"><span class="screen">service snmpd restart
+</span></p>
+<a name="1047198"></a><h4> Configuring Your System to Send Traps to a Management Station </h4>
+<a name="1047199"></a><p>Server Administrator generates SNMP traps in response to changes in the status of sensors and other monitored parameters. One or more trap destinations must be configured on the system running Server Administrator for SNMP traps to be sent to a management station. </p>
+<a name="1047200"></a><p>To configure your system running Server Administrator to send traps to a management station, edit the <b>/etc/snmp/snmpd.conf</b> SNMP agent configuration file and perform the following&nbsp;steps:</p>
+<ol type="1">
+
+<li value="1"><a name="1047201"></a>Add the following line to the file: 
+<br><br>
+</ol>
+<a name="1047202"></a>
+<p class="screenindent"><span class="screen">trapsink</span> <span class="screen"><i>IP_address community_name
+</i></span></p>
+<a name="1047203"></a><p class="indent">where<span class="screen"><i> IP_address</i></span> is the IP address of the management station and <span class="screen"><i>community_name</i></span> is the SNMP community name</p>
+<ol type="1">
+
+<li value="2"><a name="1047204"></a>To enable SNMP configuration changes, restart the SNMP agent by typing: 
+<br><br>
+</ol>
+<a name="1084853"></a>
+<p class="screenindent"><span class="screen">service snmpd restart
+</span></p>
+<a name="1084854"></a><h4> Firewall Configuration on Systems Running Supported Red Hat Enterprise Linux Operating Systems</h4>
+<a name="1084858"></a><p>If you enable firewall security when installing Red Hat Enterprise Linux, the SNMP port on all external network interfaces is closed by default. To enable SNMP management applications such as IT Assistant to discover and retrieve information from Server Administrator, the SNMP port on at least one external network interface must be open. If Server Administrator detects that the SNMP&nbsp;port is not open in the firewall for any external network interface, Server Administrator displays a warning message and logs a message to the system log. See "<a href="security.htm#1047255">Ports</a>" for additional&nbsp;information.</p>
+<a name="1084791"></a><p>You can open the SNMP port by disabling the firewall, opening an entire external network interface in the firewall, or opening the SNMP port for at least one external network interface in the firewall. You can perform this action before or after Server Administrator is started.</p>
+<a name="1084792"></a><p>To open the SNMP port using one of the previously described methods, perform the following&nbsp;steps:</p>
+<ol type="1">
+
+<li value="1"><a name="1084793"></a>At the Red Hat Enterprise Linux command prompt, type <span class="screen">setup</span> and press &lt;Enter&gt; to start the Text 
+Mode Setup Utility.
+<br><br>
+</ol>
+<a name="1084798"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTE: </span> This command is available only if you have performed a default installation of the operating&nbsp;system.
+</td>
+  </tr>
+</table>
+<a name="1084799"></a><p class="indent">The <b>Choose a Tool</b> menu opens.</p>
+<ol type="1">
+
+<li value="2"><a name="1084800"></a>Select <b>Firewall Configuration</b> using the down arrow and press &lt;Enter&gt;.
+<br><br>
+</ol>
+<a name="1084801"></a><p class="indent">The <b>Firewall Configuration</b> screen opens.</p>
+<ol type="1">
+
+<li value="3"><a name="1084802"></a>Select the <b>Security Level</b> by tabbing to it and pressing the spacebar. The selected <b>Security Level</b> is 
+indicated by an asterisk.
+<br><br>
+</ol>
+<a name="1084807"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTE: </span> Press &lt;F1&gt; for more information about the firewall security levels. The default SNMP port number is <b>161</b>. 
+If you are using the X Windows GUI, pressing &lt;F1&gt; might not provide information about firewall security 
+levels on newer versions of the Red Hat Enterprise Linux operating system.
+</td>
+  </tr>
+</table>
+<ol type="a">  <ol type="a">
+
+<li value="1"><a name="1084808"></a>To disable the firewall, select <b>No firewall</b> or <b>Disabled</b> and go to step 7.
+<br><br>
+  </ol>
+  <ol type="a">
+
+<li value="2"><a name="1084809"></a>To open an entire network interface or the SNMP port, select <b>High, Medium, </b>or <b>Enabled </b>and 
+continue with step&nbsp;4.
+<br><br>
+  </ol>
+
+<li value="4"><a name="1084814"></a>Tab to <b>Customize</b> and press &lt;Enter&gt;.
+<br><br>
+</ol><a name="1084815"></a><p class="indent">The <b>Firewall Configuration - Customize</b> screen opens.</p>
+<ol type="1">
+
+<li value="5"><a name="1084816"></a>Select whether to open an entire network interface or just the SNMP port on all network&nbsp;interfaces.
+<br><br>
+  <ol type="a">
+
+<li value="1"><a name="1084817"></a>To open an entire network interface, tab to one of the <b>Trusted Devices</b> and press the spacebar. 
+An&nbsp;asterisk in the box to the left of the device name indicates that the entire interface will be opened.
+<br><br>
+  </ol>
+  <ol type="a">
+
+<li value="2"><a name="1084818"></a>To open the SNMP port on all network interfaces, tab to <b>Other ports</b> and type <span class="screen">snmp:udp</span>.
+<br><br>
+  </ol>
+
+<li value="6"><a name="1084819"></a>Tab to <b>OK</b> and press &lt;Enter&gt;.
+<br><br>
+</ol>
+<a name="1084820"></a><p class="indent">The <b>Firewall Configuration</b> screen opens.</p>
+<ol type="1">
+
+<li value="7"><a name="1084821"></a>Tab to <b>OK</b> and press &lt;Enter&gt;.
+<br><br>
+</ol>
+<a name="1084822"></a><p class="indent">The <b>Choose a Tool</b> menu opens.</p>
+<ol type="1">
+
+<li value="8"><a name="1093232"></a>Tab to <b>Quit</b> and press &lt;Enter&gt;.
+<br><br>
+</ol>
+<a name="1093653"></a><h3> Configuring the SNMP Agent on Systems Running Supported SUSE Linux Enterprise Server 
+Operating Systems
+</h3>
+<a name="1093654"></a><p>Server Administrator uses the SNMP services provided by the ucd-snmp or net-snmp agent. You can configure the SNMP agent to enable SNMP access from remote hosts, change the community name, enable Set operations, and send traps to a management station. To configure your SNMP agent for proper interaction with management applications such as IT Assistant, perform the procedures described in the following sections.</p>
+<a name="1093386"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>See your operating system documentation for additional details about SNMP configuration.
+</td>
+  </tr>
+</table><a name="1093275"></a><h4> Sever Administrator SNMP Install Actions</h4>
+<a name="1093411"></a><p>Server Administrator SNMP communicates with the SNMP agent using the SNMP Multiplexing (SMUX) protocol. When Server Administrator SNMP connects to the SNMP agent, it sends an object identifier to the SNMP agent to identify itself as a SMUX peer. Because that object identifier must be configured with the SNMP agent, Server Administrator adds the following line to the SNMP agent configuration file,<b> /etc/snmpd.conf</b>, during installation if it does not exist: </p>
+<a name="1093412"></a>
+<p class="screenindent">smuxpeer .1.3.6.1.4.1.674.10892.1
+</p>
+<a name="1093281"></a><h4> Enabling SNMP Access From Remote Hosts</h4>
+<a name="1093283"></a><p>The default SNMP agent configuration on SUSE Linux Enterprise Server operating systems gives read-only access to the entire MIB tree for the "public" community from the local host only. This configuration does not allow SNMP management applications such as IT Assistant running on other hosts to discover and manage Server Administrator systems properly. If Server Administrator detects this configuration during installation, it logs a message to the operating system log file,<b> /var/log/messages</b>, to indicate that SNMP access is restricted to the local host. You must configure the SNMP agent to enable SNMP access from remote hosts if you plan to manage the system by using SNMP management applications from remote hosts.</p>
+<a name="1095281"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>For security reasons, it is advisable to restrict SNMP access to specific remote hosts if possible.
+</td>
+  </tr>
+</table><a name="1095271"></a><p>To enable SNMP access from a specific remote host to a system running Server Administrator, edit the SNMP agent configuration file, <b>/etc/snmpd.conf</b>, and perform the following steps:</p>
+<ol type="1">
+
+<li value="1"><a name="1095149"></a>Find the line that reads:
+<br><br>
+</ol>
+<a name="1095150"></a>
+<p class="screenindent"><span class="screen">rocommunity public 127.0.0.1
+</span></p>
+<ol type="1">
+
+<li value="2"><a name="1095151"></a>Edit or copy this line, replacing 127.0.0.1 with the remote host IP address. When edited, the new line 
+should read:
+<br><br>
+</ol>
+<a name="1095152"></a>
+<p class="screenindent"><span class="screen">rocommunity public </span><span class="screen">IP_address
+</span></p>
+<a name="1095230"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>You can enable SNMP access from multiple specific remote hosts by adding a <span class="screen">rocommunity</span> directive 
+for each remote host.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="3"><a name="1095231"></a>To enable SNMP configuration changes, restart the SNMP agent by typing:
+<br><br>
+</ol>
+<a name="1095232"></a>
+<p class="screenindent"><span class="screen">/etc/init.d/snmpd restart
+</span></p>
+<a name="1093447"></a><p>To enable SNMP access from all remote hosts to a system running Server Administrator, edit the SNMP agent configuration file, <b>/etc/snmpd.conf</b>, and perform the following steps:</p>
+<ol type="1">
+
+<li value="1"><a name="1093448"></a>Find the line that reads:
+<br><br>
+</ol>
+<a name="1093289"></a>
+<p class="screenindent">rocommunity public 127.0.0.1
+</p>
+<ol type="1">
+
+<li value="2"><a name="1093291"></a>Edit this line by removing 127.0.0.1. When edited, the new line should read:
+<br><br>
+</ol>
+<a name="1093293"></a>
+<p class="screenindent">rocommunity public
+</p>
+<ol type="1">
+
+<li value="3"><a name="1093295"></a>To enable SNMP configuration changes, restart the SNMP agent by typing:
+<br><br>
+</ol>
+<a name="1093297"></a>
+<p class="screenindent">/etc/init.d/snmpd restart
+</p>
+<a name="1093299"></a><h4> Changing the SNMP Community Name</h4>
+<a name="1093301"></a><p>Configuring the SNMP community name determines which systems are able to manage your system through SNMP. The SNMP community name used by management applications must match an SNMP community name configured on the Server Administrator system, so the management applications can retrieve management information from Server Administrator.</p>
+<a name="1093303"></a><p>To change the default SNMP community name used for retrieving management information from a system running Server Administrator, edit the SNMP agent configuration file, <b>/etc/snmpd.conf</b>, and perform the following steps:</p>
+<ol type="1">
+
+<li value="1"><a name="1093305"></a>Find the line that reads:
+<br><br>
+</ol>
+<a name="1093307"></a>
+<p class="screenindent">rocommunity public 127.0.0.1
+</p>
+<ol type="1">
+
+<li value="2"><a name="1093517"></a>Edit this line by replacing <span class="screen">public</span> with the new SNMP community name. When edited, the new line 
+should read:
+<br><br>
+</ol>
+<a name="1093519"></a>
+<p class="screenindent">rocommunity community_name 127.0.0.1
+</p>
+<ol type="1">
+
+<li value="3"><a name="1093313"></a>To enable SNMP configuration changes, restart the SNMP agent by typing:
+<br><br>
+</ol>
+<a name="1093315"></a>
+<p class="screenindent">/etc/init.d/snmpd restart
+</p>
+<a name="1093317"></a><h4> Enabling SNMP Set Operations</h4>
+<a name="1093319"></a><p>SNMP Set operations must be enabled on the system running Server Administrator in order to change Server Administrator attributes using IT Assistant. To enable remote shutdown of a system from IT&nbsp;Assistant, SNMP Set operations must be enabled.</p>
+<a name="1095492"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>Rebooting your system for change management functionality does not require SNMP Set operations.
+</td>
+  </tr>
+</table><a name="1093321"></a><p>To enable SNMP Set operations on the system running Server Administrator, edit the SNMP agent configuration file, <b>/etc/snmpd.conf</b>, and perform the following steps:</p>
+<ol type="1">
+
+<li value="1"><a name="1093323"></a>Find the line that reads:
+<br><br>
+</ol>
+<a name="1093325"></a>
+<p class="screenindent">rocommunity public 127.0.0.1
+</p>
+<ol type="1">
+
+<li value="2"><a name="1093327"></a>Edit this line by replacing <span class="screen">rocommunity</span> with <span class="screen">rwcommunity</span>. When edited, the new line 
+should&nbsp;read:
+<br><br>
+</ol>
+<a name="1093329"></a>
+<p class="screenindent">rwcommunity public 127.0.0.1
+</p>
+<ol type="1">
+
+<li value="3"><a name="1093331"></a>To enable SNMP configuration changes, restart the SNMP agent by typing:
+<br><br>
+</ol>
+<a name="1093333"></a>
+<p class="screenindent">/etc/init.d/snmpd restart
+</p>
+<a name="1093335"></a><h4> Configuring Your System to Send Traps to a Management Station</h4>
+<a name="1093337"></a><p>Server Administrator generates SNMP traps in response to changes in the status of sensors and other monitored parameters. One or more trap destinations must be configured on the system running Server Administrator for SNMP traps to be sent to a management station.</p>
+<a name="1093339"></a><p>To configure your system running Server Administrator to send traps to a management station, edit the SNMP agent configuration file, <b>/etc/snmpd.conf</b>, and perform the following steps:</p>
+<ol type="1">
+
+<li value="1"><a name="1093341"></a>Add the following line to the file:
+<br><br>
+</ol>
+<a name="1093343"></a>
+<p class="screenindent">trapsink IP_address community_name
+</p>
+<a name="1093345"></a><p class="indent">where<span class="screen"> </span><span class="screen">IP_address</span> is the IP address of the management station and <span class="screen">community_name</span> is the SNMP community name.</p>
+<ol type="1">
+
+<li value="2"><a name="1093347"></a>To enable SNMP configuration changes, restart the SNMP agent by typing:
+<br><br>
+</ol>
+<a name="1093349"></a>
+<p class="screenindent">/etc/init.d/snmpd restart
+</p>
+<hr noshade size="1">
+<a name="1093618"></a><h2>Secure Port Server and Security Setup</h2>
+
+
+<a name="1064459"></a><p>This section contains the following topics:</p>
+<ul><li><a name="1064463"></a><a href="setup.htm#1064469">Setting User and Server Preferences</a><br><br></li>
+<li><a name="1064467"></a><a href="setup.htm#1064516">X.509 Certificate Management</a><br><br></li>
+</ul><a name="1064469"></a><h3> Setting User and Server Preferences
+</h3>
+<a name="1084692"></a><p>You can set user and secure port server preferences for Server Administrator and IT Assistant from the respective <b>Preferences</b> Web page. Click <b>General Settings</b> and click either the <b>User</b> tab or <b>Web Server</b> tab.</p>
+<a name="1088527"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>You must be logged in with Administrator privileges to set or reset user or server preferences.	 	 	 	  
+</td>
+  </tr>
+</table><a name="1088549"></a><p>Perform the following steps to set up your user preferences:</p>
+<ol type="1">
+
+<li value="1"><a name="1064477"></a>Click <b>Preferences</b> on the global navigation bar.
+<br><br>
+</ol>
+<a name="1064478"></a><p class="indent">The <b>Preferences</b> home page appears.</p>
+<ol type="1">
+
+<li value="2"><a name="1064479"></a>Click <b>General Settings</b>.
+<br><br>
+
+<li value="3"><a name="1064480"></a>To add a preselected e-mail recipient, type the e-mail address of your designated service contact in the 
+<b>Mail To:</b> field, and click <b>Apply Changes</b>.
+<br><br>
+</ol>
+<a name="1064485"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTE: </span> Clicking <b>Email</b> in any window sends an e-mail message with an attached HTML file of the window to 
+the designated e-mail address.
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="4"><a name="1064486"></a>To change the home page appearance, select an alternative value in the <b>skin</b> or <b>scheme</b> fields and click 
+<b>Apply Changes</b>.
+<br><br>
+</ol>
+<a name="1084898"></a><p>Perform the following steps to set up your secure port server preferences:</p>
+<ol type="1">
+
+<li value="1"><a name="1064488"></a>Click <b>Preferences</b> on the global navigation bar.
+<br><br>
+</ol>
+<a name="1064489"></a><p class="indent">The <b>Preferences</b> home page appears.</p>
+<ol type="1">
+
+<li value="2"><a name="1064490"></a>Click <b>General Settings</b>, and the <b>Web Server</b> tab.
+<br><br>
+
+<li value="3"><a name="1064491"></a>In the <b>Server Preferences</b> window, set options as necessary.
+<br><br>
+<ul>
+<li type="disc"><a name="1064492"></a>The <b>Session Timeout</b> feature can set a limit on the amount of time that a session can remain active. Select the <b>Enable</b> radio button to allow a time-out if there is no user interaction for a specified number of minutes. Users whose sessions time-out must log in again to continue. Select the <b>Disable</b> radio button to disable the Server Administrator session time-out feature. <br><br></li>
+<li type="disc"><a name="1064493"></a>The <b>HTTPS Port</b> field specifies the secure port for Server Administrator. The default secure port for Server Administrator is 1311.<br><br></li>
+</ul>
+</ol>
+<a name="1064498"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTE: </span> Changing the port number to an invalid or in-use port number might prevent other applications or 
+browsers from accessing Server Administrator on the managed system.
+</td>
+  </tr>
+</table>
+<ul><ul>
+<li type="disc"><a name="1064499"></a>The <b>IP Address to Bind to </b>field specifies the IP address(es) for the managed system that Server Administrator binds to when starting a session. Select the <b>All</b> radio button to bind to all IP addresses applicable for your system. Select the <b>Specific</b> radio button to bind to a specific IP address.<br><br></li>
+</ul>
+</ul><a name="1086988"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTE: </span> A user with Administrator privileges cannot use Server Administrator when logged into the 
+system&nbsp;remotely.
+</td>
+  </tr>
+</table>
+<a name="1064504"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTE: </span> Changing the <b>IP Address to Bind to</b> value to a value other than <b>All</b> may prevent other applications or 
+browsers from remotely accessing Server Administrator on the managed system.
+</td>
+  </tr>
+</table>
+<ul><ul>
+<li type="disc"><a name="1064505"></a>The <b>SMTP Server name</b> and <b>DNS Suffix for SMTP Server</b> fields specify your company or organization's Simple Mail Transfer Protocol (SMTP) and domain name server (DNS) suffix. To&nbsp;enable Server Administrator to send e-mails, you must type the IP address and DNS suffix for the SMTP server for your company or organization in the appropriate&nbsp;fields.<br><br></li>
+</ul>
+</ul><a name="1064510"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTE: </span> For security reasons, your company or organization might not allow e-mails to be sent through the 
+SMTP server to outside accounts.
+</td>
+  </tr>
+</table>
+<ul><ul>
+<li type="disc"><a name="1064511"></a>The <b>Command Log Size</b> field specifies the largest file size in MB for the command log&nbsp;file.<br><br></li>
+<li type="disc"><a name="1064512"></a>The <b>Support Link</b> field specifies the Web address for the business entity that provides support for your managed system.<br><br></li>
+<li type="disc"><a name="1064513"></a>The <b>Custom Delimiter</b> field specifies the character used to separate the data fields in the files created using the <b>Export</b> button. The <b>;</b> character is the default delimiter. Other options are <b>!</b>, <b>@</b>, <b>#</b>, <b>$</b>, <b>%</b>, <b>^</b>, <b>*</b>, <b>~</b>, <b>?</b>, <b>:</b>,<b>|</b>, and <b>,</b>.<br><br></li>
+</ul>
+
+<li value="4"><a name="1064514"></a>When you finish setting options in the <b>Server Preferences</b> window, click <b>Apply Changes</b>.
+<br><br>
+</ul><a name="1064516"></a><h3> X.509 Certificate Management
+</h3>
+<a name="1064517"></a><p>Web certificates are necessary to ensure the identity of a remote system and ensure that information exchanged with the remote system cannot be viewed or changed by others. To ensure system security, it is strongly recommended that you either generate a new X.509 certificate, reuse an existing X.509 certificate, or import a root certificate or certificate chain from a Certification Authority (CA).</p>
+<a name="1064522"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>You must be logged in with Administrator privileges to perform certificate management.
+</td>
+  </tr>
+</table><a name="1084746"></a><p>You can manage X.509 certificates for Server Administrator and IT Assistant from the respective <b>Preferences</b> Web page. Click <b>General Settings</b>, click the <b>Web Server</b> tab, and click <b>X.509 Certificate</b>. </p>
+<a name="1064524"></a><p>Use the X.509 certificate tool to either generate a new X.509 certificate, reuse an existing X.509&nbsp;certificate, or import a root certificate or certificate chain from a CA. Authorized CAs include Verisign, Entrust, and Thawte.</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">Back to Contents Page</a></p>
+
+
+<p>&nbsp;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

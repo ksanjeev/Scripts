@@ -1,0 +1,1302 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;  charset=shift_jis">
+
+<title>設定と管理：Dell OpenManage バージョン 5.0 インストールとセキュリティユーザーズガイド</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">目次ページに戻る</a> </p>
+<a name="1059954"></a><h1> 設定と管理  </h1>
+<p class="title">Dell OpenManage&#8482; バージョン 5.0 インストールおよびセキュリティユーザーズガイド</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1065250">はじめに</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1063820">インストール要件</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1079516">依存性と必要条件</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1060384">対応 Web ブラウザの設定</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1044105">ユーザー特権の割り当て</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1064797">SNMP エージェントの設定</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1093618">セキュアポートサーバーとセキュリティの設定</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1065250"></a><h2>はじめに</h2>
+
+
+<ul><li><a name="1063814"></a>この章では該当する手順を選んでお読みください。<br><br></li>
+<li>「<a name="1063815">インストール要件</a>」を読んで、お使いのシステムが最小必要条件を満たしていることを確認してください。<br><br></li>
+<li><a name="1100339"></a>『Dell OpenManage&#8482; Server Administrator 互換性ガイド』をお読みください。 このマニュアルには、対応する Microsoft&#174; Windows&#174;、Red Hat&#174; Enterprise Linux、および SUSE&#174; Linux Enterprise Server オペレーティングシステムを実行しているさまざまなハードウェアプラットフォーム（システム）に Dell OpenManage&#8482; ソフトウェアをインストールして操作するための互換性情報が含まれています。<br><br></li>
+<li><a name="1100342"></a>『Dell OpenManage CD』またはデルのサポート Web サイト <b>support.dell.com.com</b> で、該当する Dell OpenManage の Readme ファイルをお読みください。 これらのファイルには、ソフトウェア、ファームウェア、ドライババージョンに関する最新情報のほか、既知の問題について記載されています。 インストール用の <b>Readme_ins.txt</b> ファイルには、サポートするサーバーのリストも記載されています。<br><br></li>
+<li><a name="1063818"></a>お使いのオペレーティングシステムのインストール手順をお読みください。<br><br></li>
+</ul><hr noshade size="1">
+<a name="1063820"></a><h2>インストール要件</h2>
+
+
+<a name="1063821"></a><p>以下に、Dell OpenManage Systems Management Software の一般的な必要条件について説明します。 オペレーティングシステムに固有のインストール要件は、インストール手順に含まれています。 </p>
+<ul><li><a name="1063825"></a><a href="setup.htm#1063831">対応オペレーティングシステム</a><br><br> </li>
+<li><a name="1063829"></a><a href="setup.htm#1092189">システム要件</a><br><br></li>
+</ul><a name="1063831"></a><h3> 対応オペレーティングシステム
+</h3>
+<a name="1063832"></a><p>Dell OpenManage Systems Management Software は必要条件を満たしている次の各オペレーティングシステムで実行できます。 </p>
+<ul><li><a name="1079024"></a>Windows 2000 Server family（SP4） &#8212; Windows 2000 Server、Windows 2000 Advanced Server、Windows 2000 Professional を含みます。<br><br></li>
+<li><a name="1088430"></a>Windows Server&#8482; 2003 ファミリ（R2） &#8212; Standard および Enterprise エディションを含みます。<br><br></li>
+<li><a name="1080964"></a>Windows Server 2003 x64 R2 &#8212; Standard および Enterprise エディションを含みます（IT Assistant を除く）<br><br></li>
+</ul><a name="1089586"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">メモ：</span>IT Assistant は Microsoft Windows Server 2003 x64 を実行するシステムではサポートされていません。
+</td>
+  </tr>
+</table>
+<ul><li><a name="1094982"></a>Windows Server 2003 SP1（Web エディション）<br><br></li>
+<li><a name="1094986"></a>Windows SBS 2003 SP1（IT Assistant を除く）<br><br></li>
+<li><a name="1096958"></a>Windows XP SP1 と SP2<br><br></li>
+<li><a name="1100878"></a>Windows Storage Server 2003 R2（Express、Standard、Workgroup、および Enterprise エディションを含む） <br><br></li>
+<li><a name="1080966"></a>Red Hat Enterprise Linux AS、ES、WS、（バージョン 3) x86、アップデート 6<br><br></li>
+</ul><a name="1063841"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">メモ：</span>Red Hat がリリースしたアップデートカーネルと、Red Hat Enterprise Linux の新しいバージョンをサポートするには、ダイナミックカーネルサポートの使用が必要になる場合があります（この説明については、「<a href="instlx.htm#1054829">ダイナミックカーネルサポート（DKS）</a>」を参照してください。）
+</td>
+  </tr>
+</table>
+<ul><li><a name="1093940"></a>Red Hat Enterprise Linux AS、ES、WS、（バージョン 3）（Intel&#174; Extended Memory 64 Technology（Intel EM64T）アップデート 6 用）<br><br></li>
+<li><a name="1076067"></a>Red Hat Enterprise Linux AS、ES、WS (バージョン 4)（Intel x86 用）<br><br></li>
+<li><a name="1092186"></a>Red Hat Enterprise Linux AS、ES、および WS (バージョン 4)（Intel EM64T）<br><br></li>
+<li><a name="1092187"></a>SUSE Linux Enterprise Server（バージョン 9）（Intel EM64T 用）<br><br></li>
+</ul><a name="1094163"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+メモ：</span>Novell&#174; がリリースしたアップデートカーネルと、SUSE Linux Enterprise 
+Server の新しいバージョンをサポートするには、ダイナミックカーネルサポートの使用が必要になる可能性があります（この機能については「<a href="instlx.htm#1054829">ダイナミックカーネルサポート（DKS）</a>」を参照してください）。
+
+</td>
+  </tr>
+</table>
+<a name="1092189"></a><h3> システム要件
+</h3>
+<a name="1063854"></a><p>管理するシステムのそれぞれに Dell OpenManage Server Administrator ソフトウェアをインストールする必要があります。 その後、対応ウェブブラウザを使って、Server Administrator を実行している各システムをローカルまたはリモートで管理できるようになります。</p>
+<a name="1065231"></a><h4> 管理下システムの必要条件</h4>
+<ul><li><a name="1065235"></a><a href="setup.htm#1063831">対応オペレーティングシステム</a>のいずれか。<br><br></li>
+<li><a name="1065236"></a>64 MB 以上の RAM。<br><br></li>
+<li><a name="1063861"></a>256 MB 以上のハードドライブ空き容量。<br><br></li>
+<li><a name="1063862"></a>システム管理者権限。<br><br></li>
+<li><a name="1063863"></a>リモートシステム管理を円滑にするための監視下システムとリモートシステムの TCP/IP 接続。<br><br></li>
+<li><a name="1075721"></a>対応 Web ブラウザの 1 つ（「<a href="setup.htm#1063893">対応 Web ブラウザの最小必要条件</a>」を参照してください）<br><br></li>
+<li><a name="1075725"></a><a href="setup.htm#1089702">対応する Systems Management プロトコル規格の 1 つ</a>（「<a href="setup.htm#1089702">対応する Systems Management プロトコル規格</a>」を参照してください）。<br><br></li>
+<li><a name="1075726"></a>システムをローカル管理するためのマウス、キーボード、モニター。 モニターには 800 x 600 以上の画面解像度が必要です。 推奨設定は 1024 x 768 です。<br><br></li>
+<li><a name="1100206"></a>Server Administrator Remote Access Service を使用するには、管理するシステムに Remote Access Controller（RAC）がインストールされている必要があります。 ソフトウェアとハードウェアの詳しい必要条件については、『Dell Remote Access Controller 4 ユーザーズガイド』、『Dell Remote Access Controller 5 ユーザーズガイド』、『Dell Remote Access Controller インストール / セットアップガイド』、または『Dell&#160;Embedded Remote Access/MC Controller ユーザーズガイド』を参照してください。<br><br></li>
+</ul><a name="1063878"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">メモ：</span>RAC ソフトウェアは、『Dell PowerEdge<i>&#8482;</i> Installation and Server Management CD』から Managed Sustem Software をインストールするときに、管理先システムが RAC のインストール要件をすべて満たしていれば、インストールオプションの <b>簡易セットアップ </b>と <b>カスタムセットアップ </b>の一部としてインストールされます。 ソフトウェアとハードウェアの詳しい必要条件については、「<a href="intro.htm#1047127">Remote Access Service</a>」と『Dell Remote Access Controller インストール / セットアップガイド』または『Dell 組み込み型 Remote Access/MC Controller ユーザーズガイド』を参照してください。
+ </td>
+  </tr>
+</table>
+<a name="1063888"></a><h4> リモート管理下システム要件</h4>
+<ul><li><a name="1063889"></a>グラフィカルユーザーインタフェース（GUI）からシステムをリモート管理するための対応 Web ブラウザのいずれか。<br><br></li>
+<li><a name="1063890"></a>リモートシステム管理を円滑にするための管理下システムとリモートシステムの TCP/IP 接続。<br><br></li>
+<li><a name="1063891"></a>800 x 600 以上の画面解像度。 推奨設定は 1024 x 768 です。<br><br></li>
+</ul><a name="1063893"></a><h4> 対応 Web ブラウザの最小必要条件</h4>
+<ul><li><a name="1089698"></a>Internet Explorer 6.0 SP1 および SP2 （Windows のみ）<br><br></li>
+<li><a name="1089700"></a>Mozilla Firefox 1.07（SUSE Linux Enterprise Server と Red Hat Enterprise Linux）<br><br></li>
+<li><a name="1092192"></a>Mozilla 1.7.8, 1.7.10 および 1.7.11（SUSE Linux Enterprise Server と Red Hat Enterprise Linux）<br><br></li>
+</ul><a name="1089702"></a><h4> サポートしているシステム管理プロトコル規格</h4>
+<a name="1063910"></a><p>Management Station Software や Managed System Software をインストールする前に、サポートしているシステム管理プロトコル規格を管理下システムインストールする必要があります。 対応 Windows オペレーティングシステムでは、Dell OpenManage ソフトウェアは Common Information Model/Windows Management Instrumentation（CIM/WMI）とシンプルネットワーク管理プロトコル（SNMP）の 2 種類のシステム管理規格をサポートしています。 Red Hat Enterprise Linux および SUSE Linux Enterprise Server の対応 オペレーティングシステムでは、Dell OpenManage ソフトウェアは SNMP システム管理規格をサポートしています。</p>
+<a name="1063915"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>サポートしているシステム管理プロトコル規格を管理下システムにインストールする方法については、オペレーティングシステムのマニュアルを参照してください。
+</td>
+  </tr>
+</table><a name="1063919"></a><p><a href="setup.htm#1063926">表 3-1</a> は、各対応オペレーティングシステムで使用可能なシステム管理規格を示しています。</p>
+<a name="1063955"></a>
+<p><p class="FigureTableTitle"><a name="1063926"></a>表 3-1  オペレーティングシステム別システム管理プロトコル&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1063932"> </a>
+<p><b>オペレーティングシステム</b></p>
+
+
+</th><th valign="top" align="left"><a name="1063934"> </a>
+<p><b>SNMP</b></p>
+
+
+</th><th valign="top" align="left"><a name="1063936"> </a>
+<p><b>CIM/WMI</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1063938"></a>Windows オペレーティングシステム</p></td><td valign="top" align="left"><p><a name="1063940"></a>オペレーティングシステムのインストールメディアから使用できます。</p></td><td valign="top" align="left"><p><a name="1063942"></a>常にインストールされています。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1063944"></a>Red Hat Enterprise Linux オペレーティングシステム</p></td><td valign="top" align="left"><p><a name="1063946"></a>オペレーティングシステムと一緒に提供されている SNMP パッケージをインストールしてください。</p></td><td valign="top" align="left"><p><a name="1063948"></a>使用できません。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1092196"></a>対応 SUSE Linux Enterprise Server オペレーティングシステム</p></td><td valign="top" align="left"><p><a name="1092198"></a>オペレーティングシステムと一緒に提供されている SNMP パッケージをインストールしてください。</p></td><td valign="top" align="left"><p><a name="1092200"></a>使用できません。</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><hr noshade size="1">
+<a name="1079516"></a><h2>依存性と必要条件</h2>
+
+
+<a name="1079519"></a><h3> Dell OpenManage Software バージョン 1.<i>x</i>、2.<i>x</i>、3.x&#8211;4.2 からのアップグレード
+</h3>
+<a name="1084514"></a><p>Dell OpenManage Software バージョン 1.<i>x</i>、2.<i>x</i>、<i>3.x ～ 4.2</i> からのアップグレードはサポートされていません。Dell OpenManage ソフトウェアバージョン 1.<i>x</i>、2.<i>x</i>、<i>3.x ～ 4.2 </i>を手動でアンインストールしてから Dell OpenManage ソフトウェアをインストールする必要があります。システムで Dell OpenManage Software バージョン 1<i>.x</i> ～ 4.2 が検出された場合は、通知されます。 これらのバージョンからアップグレードするもう一つの方法は、いったんバージョン 4.3 にアップグレードしてから最新バージョンにアップグレードすることです。 Microsoft Windows の場合、バージョン 4.3 から新しいバージョンへは Microsoft Software Installer（MSI）による完全インストールのみでアップグレードできます。</p>
+<hr noshade size="1">
+<a name="1060384"></a><h2>対応 Web ブラウザの設定</h2>
+
+
+<a name="1060296"></a><p>以下に、対応 Web ブラウザの設定手順を説明します。 対応 Web ブラウザについては、「<a href="setup.htm#1063893">対応 Web ブラウザの最小必要条件</a>」のリストを参照してください。</p>
+<a name="1060300"></a><h3> Web インタフェースに接続するための Internet Explorer の設定
+</h3>
+<a name="1060301"></a><p>プロキシサーバーを介してインターネットに接続している管理ステーションから Web インタフェースに接続する場合は、Web ブラウザを正しく設定する必要があります。 Microsoft の Internet Explorer ブラウザを使用している場合は、以下の手順に従ってください。</p>
+<ol type="1">
+
+<li value="1"><a name="1060302"></a>Internet Explorer のメインウィンドウから <b>ツール</b>、<b>インターネットオプション </b>をクリックします。
+
+<br><br>
+<li value="2"><a name="1060303"></a><b>インターネットオプション </b>ウィンドウで <b>接続 </b>タブをクリックします。
+
+<br><br>
+<li value="3"><a name="1060304"></a><b>ローカルエリアネットワーク（LAN）設定 </b>で <b>LAN の設定 </b>をクリックします。
+
+<br><br>
+<li value="4"><a name="1060305"></a><b>プロキシサーバーを使用する</b> ボックスを選択した場合は、<b>ローカルアドレスにはプロキシサーバーを使用しない</b> を選択します。
+
+<br><br>
+<li value="5"><a name="1060306"></a><b>OK</b> を 2 回クリックします。
+<br><br>
+</ol>
+<a name="1067173"></a><p>他のブラウザでも同様の機能を設定します。</p>
+<a name="1060308"></a><h3> Web インタフェースの日本語版の表示
+</h3>
+<a name="1060309"></a><p>Microsoft Windows を実行しているシステムで Internet Explorer または Netscape Navigator を使用している場合、Web インタフェースの日本語版を表示するには、以下の手順に従ってください。</p>
+<ol type="1">
+
+<li value="1"><a name="1060310"></a>Windows <b>コントロールパネル </b>を開き、<b>地域のオプション</b> アイコンをダブルクリックします。
+
+<br><br>
+<li value="2"><a name="1060292"></a><b>ロケール（国または地域</b><b>）</b> ドロップダウンメニューから自分の地域を選択します。
+<br><br>
+</ol>
+<hr noshade size="1">
+<a name="1044105"></a><h2>ユーザー特権の割り当て</h2>
+
+
+<a name="1044106"></a><p>重要なシステムコンポーネントのセキュリティを確保するには、OpenManage ソフトウェアをインストールする前に、Dell OpenManage ソフトウェアのユーザーに正しくユーザー特権を割り当てる必要があります。</p>
+<a name="1054177"></a><p>以下に、各対応オペレーティングシステムでユーザーを作成してユーザー特権を割り当てる方法を順を追って説明します。</p>
+<ul><li><a name="1054181"></a><a href="setup.htm#1044126">対応 Windows オペレーティングシステムでのユーザーの作成</a><br><br></li>
+<li><a name="1054185"></a><a href="setup.htm#1073295">Red Hat Enterprise Linux および SUSE Linux Enterprise Server 対応オペレーティングシステムのユーザーの作成</a><br><br></li>
+<li><a name="1054097"></a><a href="setup.htm#1061874">Microsoft Active Directory</a><br><br></li>
+</ul><a name="1066257"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">注意：</span>重要なシステムコンポーネントへのアクセスを保護するには、Dell OpenManage ソフトウェアにアクセスできるユーザーアカウントのすべてにパスワードを割り当てる必要があります。
+ </td>
+  </tr>
+</table>
+<a name="1044724"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">注意：</span>重要なシステムコンポーネントへのアクセスを保護するには、対応 Windows オペレーティングシステムのゲストアカウントを無効にする必要があります。 手順については、「<a href="setup.htm#1079052">「対応 Windows オペレーティングシステムでゲストアカウントと匿名アカウントを無効にする</a>」を参照してください。
+</td>
+  </tr>
+</table>
+<a name="1044126"></a><h3> 対応 Windows オペレーティングシステムでのユーザーの作成
+</h3>
+<a name="1044814"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>この操作を実行するには、システム管理者特権でログインする必要があります。
+</td>
+  </tr>
+</table><a name="1060978"></a><p>以下の手順でユーザーアカウントを作成し、ユーザー特権を割り当てて、ユーザーをドメインに追加します。</p>
+<a name="1044136"></a><h4> 対応 Windows Server 2003 オペレーティングシステムでのユーザーの作成とユーザー特権の割り当て</h4>
+<a name="1045082"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>ユーザーの作成とユーザーグループの特権の割り当てについて質問がある場合や、さらに詳しい説明が必要な場合は、オペレーティングシステムのマニュアルを参照してください。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1052789"></a><b>スタート</b> ボタンをクリックし、<b>マイコンピュータ</b> を右クリックして、<b>管理</b> をポイントします。
+
+<br><br>
+<li value="2"><a name="1044147"></a>コンソールツリーで <b>ローカルユーザーとグループ</b> を展開して、<b>ユーザー</b> をクリックします。
+
+<br><br>
+ <li value="3"><a name="1044148"></a><b>動作</b> をクリックしてから <b>新しいユーザー</b> をクリックします。
+
+<br><br>
+ <li value="4"><a name="1044149"></a>ダイアログボックスに適切な情報を入力し、適切なチェックボックスを選択またはクリアして <b>作成</b> をクリックします。
+<br><br>
+ </ol>
+<a name="1099265"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">注意：</span>重要なシステムコンポーネントへのアクセスを保護するには、Dell OpenManage ソフトウェアにアクセスできるユーザーアカウントのすべてにパスワードを割り当てる必要があります。 また、パスワードを割り当てられていないユーザーは、オペレーティングシステムの制約を受けるため、Windows Server 2003 を実行しているシステムでは Dell OpenManage ソフトウェアにログインできません。
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="5"><a name="1044159"></a>コンソールツリーの <b>ローカルユーザーとグループ</b> で、<b>グループ</b> をクリックします。
+
+<br><br>
+ <li value="6"><a name="1044160"></a>新しいユーザーの追加先グループをクリックします：<b>ユーザー、</b><b>パワーユーザー</b>、<b>システム管理者</b>
+
+<br><br>
+ <li value="7"><a name="1095518"></a><b>処置 </b>をクリックしてから <b>プロパティ </b>をクリックします。
+
+<br><br>
+ <li value="8"><a name="1095519"></a><b>追加</b> をクリックします。
+
+<br><br>
+ <li value="9"><a name="1095520"></a>追加しているユーザー名を入力し、<b>名前の確認</b> をクリックして確認します。
+
+<br><br>
+<li value="10"><a name="1044165"></a><b>OK </b>をクリックします。
+<br><br>
+</ol>
+<a name="1044166"></a><p class="indent">新しいユーザーは、割り当てられたグループのユーザー特権で Dell OpenManage ソフトウェアにログインできます。</p>
+<a name="1052910"></a><h4> 対応 Windows 2000 オペレーティングシステムでのユーザーの作成とユーザー特権の割り当て</h4>
+<a name="1052915"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>ユーザーの作成とユーザーグループの特権の割り当てについて質問がある場合や、さらに詳しい説明が必要な場合は、オペレーティングシステムのマニュアルを参照してください。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1052916"></a><b>マイ コンピュータ</b> を右クリックして <b>管理</b> をポイントします。
+
+<br><br>
+<li value="2"><a name="1052917"></a>コンソールツリーで <b>ローカルユーザーとグループ</b> を展開して、<b>ユーザー</b> をクリックします。
+
+<br><br>
+ <li value="3"><a name="1052918"></a><b>動作</b> をクリックしてから <b>新しいユーザー</b> をクリックします。
+
+<br><br>
+ <li value="4"><a name="1052919"></a>ダイアログボックスに適切な情報を入力し、適切なチェックボックスを選択またはクリアして <b>作成</b> をクリックします。
+
+<br><br>
+ <li value="5"><a name="1052925"></a>コンソールツリーの <b>ローカルユーザーとグループ</b> で、<b>グループ</b> をクリックします。
+
+<br><br>
+ <li value="6"><a name="1052926"></a>新しいユーザーの追加先グループをクリックします：<b>ユーザー、</b><b>パワーユーザー</b>、<b>システム管理者</b>
+
+<br><br>
+ <li value="7"><a name="1052927"></a><b>処置 </b>をクリックしてから <b>プロパティ </b>をクリックします。
+
+<br><br>
+ <li value="8"><a name="1052928"></a><b>追加</b> をクリックします。
+
+<br><br>
+ <li value="9"><a name="1052929"></a>追加するユーザーの名前をクリックして、<b>追加</b> をクリックします。
+
+<br><br>
+ <li value="10"><a name="1052930"></a><b>名前の確認</b> をクリックして、追加するユーザー名を確認します。
+
+<br><br>
+<li value="11"><a name="1052931"></a><b>OK </b>をクリックします。
+<br><br>
+</ol>
+<a name="1052932"></a><p class="indent">新しいユーザーは、割り当てられたグループのユーザー特権で Dell OpenManage ソフトウェアにログインできます。</p>
+<a name="1044167"></a><h4> ドメインへのユーザーの追加</h4>
+<a name="1045358"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>ユーザーの作成とユーザーグループの特権の割り当てについて質問がある場合や、さらに詳しい説明が必要な場合は、オペレーティングシステムのマニュアルを参照してください。
+</td>
+  </tr>
+</table><a name="1045375"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>以下の操作を実行するには、システムに Microsoft Active Directory&#174; がインストールされている必要があります。 
+Active Directory の使用方法に関する詳細は、「<a href="setup.htm#1061874"></a>Microsoft Active Directory」を参照してください。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1044187"></a><b>スタート</b> ボタンをクリックし、<b>コントロールパネル</b><span style="FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> 管理ツール</b><span style="FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span><b> Active Directory 
+ユーザーとコンピュータ</b> の順にポイントします。
+<br><br>
+
+<li value="2"><a name="1056080"></a>コンソールツリーで、<b>ユーザー</b> を右クリックするか新しいユーザーを追加するコンテナを右クリックして、
+<b>新規作成</b><b>→</b><b> ユーザー</b> の順にポイントします。
+<br><br>
+
+<li value="3"><a name="1056081"></a>ダイアログボックスに適切なユーザー名情報を入力して、<b>次へ</b> をクリックします。
+<br><br>
+ </ol>
+<a name="1044199"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">注意：</span>重要なシステムコンポーネントへのアクセスを保護するには、Dell OpenManage ソフトウェアにアクセスできるユーザーアカウントのすべてにパスワードを割り当てる必要があります。 また、パスワードを割り当てられていないユーザーは、オペレーティングシステムの制約を受けるため、Windows Server 2003 を実行しているシステムでは Dell OpenManage ソフトウェアにログインできません。
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="4"><a name="1044200"></a><b>次へ</b> をクリックして、<b>完了</b> をクリックします。
+
+<br><br>
+<li value="5"><a name="1044201"></a>作成したユーザーを表すアイコンをダブルクリックします。
+
+<br><br>
+<li value="6"><a name="1044202"></a><b>所属するグループ</b> タブをクリックします。
+
+<br><br>
+<li value="7"><a name="1044203"></a><b>追加</b> をクリックします。
+
+<br><br>
+<li value="8"><a name="1044204"></a>適切なグループを選択して、<b>追加</b> をクリックします。
+
+<br><br>
+<li value="9"><a name="1044205"></a><b>OK</b> をクリックしてから、もう一度 <b>OK</b> をクリックします。
+<br><br>
+</ol>
+<a name="1044206"></a><p class="indent">新しいユーザーは、割り当てられたグループとドメインのユーザー特権で Dell OpenManage ソフトウェアにログインできます。</p>
+<a name="1079052"></a><h4> 対応する Windows オペレーティングシステムでゲストアカウントと匿名アカウントを無効にする</h4>
+<a name="1079057"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>この手順を実行するには、システム管理者でログインしている必要があります。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1079058"></a>システムで Windows Server 2003 を実行している場合は、<b>スタート</b> ボタンをクリックし、<b>マイコンピュータ </b>を右クリックして <b>管理 </b>をポイントします。
+<br><br>
+ </ol>
+<a name="1081137"></a><p class="indent">システムで Windows 2000 が実行中の場合は、<b>マイコンピュータ</b> を右クリックし、<b>管理 </b>をポイントします。</p>
+<ol type="1">
+
+<li value="2"><a name="1079059"></a>コンソールツリーで <b>ローカルユーザーとグループ</b> を展開して、<b>ユーザー</b> をクリックします。
+
+<br><br>
+ <li value="3"><a name="1079060"></a><b>ゲスト</b> または <b>IUSR</b><b>_</b><b>system name</b> ユーザーアカウントをクリックします。
+<br><br>
+
+<li value="4"><a name="1079061"></a><b>処置</b> をクリックして、<b>プロパティ</b> をポイントします。
+
+<br><br>
+ <li value="5"><a name="1079062"></a><b>アカウントは無効</b> を選択して、<b>OK</b> をクリックします。
+<br><br>
+ </ol>
+<a name="1079063"></a><p class="indent">X が付いた赤い丸印がユーザー名の上に表示されます。 アカウントは無効です。</p>
+<a name="1079049"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>リモートスクリプトがその名前を使ってアカウントを有効にすることを防ぐために、アカウントの名前を変更することをお勧めします。
+</td>
+  </tr>
+</table><a name="1073295"></a><h3> Red Hat Enterprise Linux および SUSE Linux Enterprise Server 対応オペレーティングシステムのユーザーの作成
+</h3>
+<a name="1073296"></a><p>システム管理者特権は、<span class="screen">root</span> でログインしているユーザーに割り当てられます。 ユーザー特権およびパワーユーザー特権を持つユーザーを作成するには、次の手順に従ってください。</p>
+<a name="1045936"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>以下の操作を実行するには、<span class="screen">root</span> としてログインする必要があります。
+</td>
+  </tr>
+</table><a name="1057634"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>これらの手順を実行するには、システムに useradd ユーティリティがインストールされている必要があります。
+</td>
+  </tr>
+</table><a name="1044272"></a><h4> ユーザーの作成</h4>
+<a name="1045968"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>ユーザーの作成とユーザーグループの特権の割り当てについて質問がある場合や、さらに詳しい説明が必要な場合は、オペレーティングシステムのマニュアルを参照してください。
+</td>
+  </tr>
+</table><a name="1044282"></a><h5> ユーザー特権を持つユーザーの作成</h5>
+<ol type="1">
+
+<li value="1"><a name="1044292"></a>コマンドラインから次のコマンドを実行します。
+<br><br>
+</ol>
+<a name="1044293"></a><p class="indent"><span class="screen">useradd -d </span><span class="screen">ホームディレクトリ</span><span class="screen"> -g </span><span class="screen">グループ</span><span class="screen"> </span><span class="screen">ユーザー名</span></p>
+<a name="1044294"></a><p class="indent">この <span class="screen">「グループ」</span> は <span class="screen">root</span> 以外のものです。</p>
+<a name="1055571"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>グループ<span class="screen"></span> が存在しない場合は、<b>groupadd</b> コマンドを使って作成する必要があります。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="2"><a name="1044295"></a><span class="screen"></span>passwd <span class="screen"></span>ユーザー名を入力し、&lt;Enter&gt; を押します。
+
+<br><br>
+<li value="3"><a name="1044296"></a>プロンプトで、新しいユーザーのパスワードを入力します。
+<br><br>
+</ol>
+<a name="1046142"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">注意：</span>重要なシステムコンポーネントへのアクセスを保護するには、Dell OpenManage ソフトウェアにアクセスできるユーザーアカウントのすべてにパスワードを割り当てる必要があります。
+</td>
+  </tr>
+</table>
+<a name="1044306"></a><p class="indent">これで、新しいユーザーはユーザーというグループ特権で Dell OpenManage ソフトウェアにログインできます。</p>
+<a name="1044307"></a><h5> パワーユーザー特権を持つユーザーの作成</h5>
+<ol type="1">
+
+<li value="1"><a name="1044317"></a>コマンドラインから次のコマンドを実行します。
+<br><br>
+</ol>
+<a name="1044318"></a>
+<p class="screenindent">useradd -d <span class="screen">ホームディレクトリ</span> -g root <span class="screen">ユーザー名</span></p>
+<a name="1046263"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">メモ：</span>プライマリグループとして <span class="screen">root</span> を設定する必要があります。
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="2"><a name="1044328"></a><span class="screen"></span>passwd <span class="screen"></span>ユーザー名を入力し、&lt;Enter&gt; を押します。
+
+<br><br>
+<li value="3"><a name="1052344"></a>プロンプトで、新しいユーザーのパスワードを入力します。
+<br><br>
+</ol>
+<a name="1052349"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">注意：</span>重要なシステムコンポーネントへのアクセスを保護するには、Dell OpenManage ソフトウェアにアクセスできるユーザーアカウントのすべてにパスワードを割り当てる必要があります。
+</td>
+  </tr>
+</table>
+<a name="1052350"></a><p class="indent">これで、新しいユーザーはパワーユーザーというグループ特権で Dell OpenManage ソフトウェアにログインできます。</p>
+<a name="1061874"></a><h3> Microsoft Active Directory
+</h3>
+<a name="1084529"></a><p>Active Directory サービスソフトウェアを使用している場合は、ネットワークへのアクセス制御を設定できます。 デルではこの Active Directory データベースを変更して、リモート管理の認証と許可をサポートできるようにしています。 Active Directory は現在 IT Assistant と Server Administrator のほか、Dell Remote Access Controller と連動できます。 このツールを使用すると、中央のデータベースからユーザーや特権を追加して制御できます。 Active Directory を使用してネットワークへのユーザーアクセスを制限するときは、「<a href="mad.htm#1055432">Microsoft&#174; Active Directory&#174; の使い方</a>」を参照してください。</p>
+<hr noshade size="1">
+<a name="1064797"></a><h2>SNMP エージェントの設定</h2>
+
+
+<a name="1094229"></a><p>Dell OpenManage ソフトウェアは、サポートするすべてのオペレーティングシステムにおいて SNMP システム管理規格をサポートしています。 オペレーティングシステムの種類とインストール方法によっては、SNMP のサポートがインストールされていない可能性があります。Dell OpenManage をインストールする前に、SNMP などのサポートしているシステム管理プロトコル規格をインストールする必要があります。詳細については、「<a href="setup.htm#1063820">インストール要件</a>」を参照してください。</p>
+<a name="1089732"></a><p>SNMP エージェントを設定すると、コミュニティ名を変更したり、Set 操作を有効にしたり、管理ステーションにトラップを送ることができます。 IT Assistant のような管理アプリケーションと正しく相互作用するように SNMP エージェントを設定するには、以下の手順に従います。</p>
+<a name="1100522"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>Server Administrator を実行しているシステムから IT Assistant が管理情報を取得するには、IT Assistant が使用しているコミュニティ名が Server Administrator を実行しているシステムのコミュニティ名と一致する必要があります。 
+Server Administrator を実行しているシステムで IT Assistant が情報を変更したり処置を実行したりするには、IT Assistant で使用しているコミュニティ名が、Server Administrator のシステムで Set 操作を可能にするコミュニティ名と一致する必要があります。 Server Administrator を実行しているシステムから IT Assistant がトラップ（非同期イベント通知）を受け取るには、IT Assistant を実行しているシステムにトラップを送信するように Server Administrator を設定する必要があります。 詳細については、『IT Assistant ユーザーズガイド』を参照してください。
+</td>
+  </tr>
+</table><a name="1082573"></a><p>以下に、各対応オペレーティングシステムで SNMP エージェントを設定する手順を説明します。</p>
+<ul><li><a name="1047647"></a><a href="setup.htm#1066278">Microsoft Windows オペレーティングシステムを実行しているシステムでの SNMP エージェントの設定</a><br><br></li>
+<li><a name="1047648"></a><a href="setup.htm#1047161">Red Hat Enterprise Linux オペレーティングシステムを実行しているシステムでの SNMP エージェントの設定</a><br><br></li>
+<li><a name="1094244"></a><a href="setup.htm#1093653">SUSE Linux  Enterprise Server オペレーティングシステムを実行しているシステムでの SNMP エージェントの設定</a><br><br></li>
+</ul><a name="1066278"></a><h3> Microsoft Windows オペレーティングシステムを実行しているシステムでの SNMP Agent の設定
+</h3>
+<a name="1066308"></a><p>Dell OpenManage ソフトウェアは Windows SNMP エージェントが提供する SNMP サービスを使用します。 （SNMP は System Administrator のセッションに接続できる 2 通りの方法の 1 つです。もう一つは CIM/WMI です。） SNMP エージェントを設定すると、コミュニティ名を変更したり、Set 操作を有効にしたり、管理ステーションにトラップを送ることができます。 IT Assistant のような管理アプリケーションと正しく相互作用するように SNMP エージェントを設定するには、以下の手順に従います。</p>
+<a name="1057516"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>SNMP の設定の詳細については、オペレーティングシステムのマニュアルを参照してください。
+</td>
+  </tr>
+</table><a name="1057684"></a><h4> Windows Server 2003 のリモートホストから SNMP アクセスを有効にする</h4>
+<a name="1057696"></a><p>Windows Server 2003 はデフォルトではリモートホストからの SNMP パケットを受け入れません。 Windows Server 2003 を実行しているシステムでリモートホストから SNMP 管理アプリケーションを使ってシステムを管理する場合は、リモートホストからの SNMP パケットを受け入れるように SNMP サービスを設定する必要があります。 IT Assistant からのシステムのリモートシャットダウンを有効にするには、SNMP Set 操作を有効にしておく必要があります。</p>
+<a name="1095473"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>変更管理機能のためにシステムを再起動する場合、SNMP Set オペレーションは不要です。
+</td>
+  </tr>
+</table><a name="1057701"></a><p>Windows Server 2003 オペレーティングシステムを実行しているシステムでリモートホストから SNMP パケットを受信できるようにするには、次の手順に従ってください。</p>
+<ol type="1">
+
+<li value="1"><a name="1057711"></a><b>スタート</b> ボタンをクリックし、<b>マイコンピュータ</b> を右クリックして、<b>管理</b> をポイントします。
+<br><br>
+</ol>
+<a name="1058501"></a><p class="indent"><b>コンピュータの管理</b> ウィンドウが表示されます。</p>
+<ol type="1">
+
+<li value="2"><a name="1057734"></a>必要に応じて、ウィンドウの <b>コンピュータの管理</b> アイコンを展開します。
+
+<br><br>
+<li value="3"><a name="1057739"></a><b>サービスとアプリケーション</b> アイコンを展開して、<b>サービス</b> をクリックします。
+
+<br><br>
+<li value="4"><a name="1057753"></a>リストを下にスクロールして <b>SNMP サービス</b> を見つけ、<b>SNMP サービス</b> を右クリックして <b>プロパティ</b> をクリックします。
+<br><br>
+</ol>
+<a name="1058507"></a><p class="indent"><b>SNMP サービスプロパティ</b> ウィンドウが表示されます。</p>
+<ol type="1">
+
+<li value="5"><a name="1057767"></a><b>セキュリティ</b> タブをクリックします。
+
+<br><br>
+<li value="6"><a name="1057782"></a><b>任意のホストから SNMP パケットを受け入れる</b> を選択するか、IT Assistant ホストを <b>これらのホストの SNMP パケットを受け入れる</b> リストに追加します。
+<br><br>
+</ol>
+<a name="1057360"></a><h4> SNMP コミュニティ名の変更</h4>
+<a name="1047035"></a><p>SNMP コミュニティ名を変更すると、どのシステムが SNMP を使ってシステムを管理できるかが決まります。 Dell OpenManage Software から管理情報を取得できるように、管理アプリケーションで使用される SNMP コミュニティ名は、Dell OpenManage ソフトウェアのシステムで設定されている SNMP コミュニティ名と一致する必要があります。</p>
+<ol type="1">
+
+<li value="1"><a name="1047058"></a>システムで Windows Server 2003 を実行している場合は、<b>スタート</b> ボタンをクリックし、<b>マイコンピュータ </b>を右クリックして <b>管理 </b>をポイントします。 システムで Windows 2000 が実行中の場合は、<b>マイコンピュータ</b> を右クリックし、<b>管理 </b>をポイントします。
+<br><br>
+</ol>
+<a name="1047063"></a><p class="indent"><b>コンピュータの管理</b> ウィンドウが表示されます。</p>
+<ol type="1">
+
+<li value="2"><a name="1047064"></a>必要に応じて、ウィンドウの <b>コンピュータの管理</b> アイコンを展開します。
+
+<br><br>
+<li value="3"><a name="1047065"></a><b>サービスとアプリケーション</b> アイコンを展開して、<b>サービス</b> をクリックします。
+
+<br><br>
+<li value="4"><a name="1047066"></a>リストを下にスクロールして <b>SNMP サービス</b> を見つけ、<b>SNMP サービス</b> を右クリックして <b>プロパティ</b> をクリックします。
+<br><br>
+</ol>
+<a name="1047067"></a><p class="indent"><b>SNMP サービスプロパティ</b> ウィンドウが表示されます。</p>
+<ol type="1">
+
+<li value="5"><a name="1086611"></a><b>セキュリティ </b>タブをクリックして、コミュニティ名を追加または編集します。  
+<br><br>
+<ol type="a">
+
+<li value="1"><a name="1048177"></a>コミュニティ名を追加するには、<b>受け付けるコミュニティ名</b> リストの <b>追加 </b>をクリックします。  
+<br><br>
+ </ol>
+</ol>
+<a name="1048178"></a><p class="Indentsub"><b>SNMP サービス構成</b> ウィンドウが表示されます。</p>
+<ol type="1">
+  <ol type="a">
+
+<li value="2"><a name="1048179"></a>システムを管理できるコミュニティ名（デフォルトはpublic）を<b>コミュニティ名</b> テキストボックスに入力して、<b>追加</b> をクリックします。  
+<br><br>
+ </ol>
+</ol>
+<a name="1048180"></a><p class="Indentsub"><b>SNMP サービスプロパティ</b> ウィンドウが表示されます。</p>
+<ol type="1">
+  <ol type="a">
+
+<li value="3"><a name="1048181"></a>コミュニティ名を変更するには、<b>受け付けるコミュニティ名</b> リストのコミュニティ名を選択して、<b>編集</b> をクリックします。  
+<br><br>
+</ol>
+</ol>
+<a name="1048182"></a><p class="Indentsub"><b>SNMP サービス構成</b> ウィンドウが表示されます。</p>
+<ol type="1">
+  <ol type="a">
+
+<li value="4"><a name="1048183"></a><b>コミュニティ名</b> テキストボックスでシステムを管理するシステムのコミュニティ名を変更して、<b>OK</b> をクリックします。  
+<br><br>
+</ol>
+</ol>
+<a name="1048175"></a><p class="Indentsub"><b>SNMP サービスプロパティ</b> ウィンドウが表示されます。</p>
+<ol type="1">
+
+<li value="6"><a name="1047080"></a><b>OK</b> をクリックして変更を保存します。
+<br><br>
+</ol>
+<a name="1047082"></a><h4> SNMP Set 操作の有効化</h4>
+<a name="1099287"></a><p>IT Assistant を使って Dell OpenManage ソフトウェアの属性を変更するには、Dell OpenManage ソフトウェアを実行しているシステムで SNMP Set 操作が有効になっている必要があります。 IT Assistant からのシステムのリモートシャットダウンを有効にするには、SNMP Set 操作を有効にしておく必要があります。</p>
+<a name="1095417"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>変更管理機能のためにシステムを再起動する場合、SNMP Set オペレーションは不要です。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1047100"></a>システムで Windows Server 2003 を実行している場合は、<b>スタート</b> ボタンをクリックし、<b>マイコンピュータ </b>を右クリックして <b>管理 </b>をポイントします。 システムで Windows 2000 が実行中の場合は、<b>マイコンピュータ</b> を右クリックし、<b>管理 </b>をポイントします。
+<br><br>
+</ol>
+<a name="1047105"></a><p class="indent"><b>コンピュータの管理</b> ウィンドウが開きます。</p>
+<ol type="1">
+
+<li value="2"><a name="1047106"></a>必要に応じて、ウィンドウの <b>コンピュータの管理</b> アイコンを展開します。
+
+<br><br>
+<li value="3"><a name="1047107"></a><b>サービスとアプリケーション</b> アイコンを展開して、<b>サービス</b> をクリックします。
+
+<br><br>
+<li value="4"><a name="1047108"></a><b>SNMP サービス</b> が見つかるまでサービスのリストをスクロールし、<b>SNMP サービス</b> を右クリックして、<b>プロパティ</b> をクリックします。
+<br><br>
+</ol>
+<a name="1047109"></a><p class="indent"><b>SNMP サービスプロパティ</b> ウィンドウが表示されます。</p>
+<ol type="1">
+
+<li value="5"><a name="1047110"></a><b>セキュリティ</b> タブをクリックして，コミュニティのアクセス権を変更します。
+
+<br><br>
+<li value="6"><a name="1047111"></a><b>受け付けるコミュニティ名</b> リストでコミュニティ名を選択して、<b>編集</b> をクリックします。
+<br><br>
+ </ol>
+<a name="1047112"></a><p class="indent"><b>SNMP サービス設定</b> ウィンドウが開きます。</p>
+<ol type="1">
+
+<li value="7"><a name="1047113"></a><b>コミュニティの権利</b>
+ を <b>読み取り書き込み</b> または <b>読み取り作成</b> に設定して、<b>OK</b> をクリックします。
+<br><br>
+</ol>
+<a name="1047114"></a><p class="indent"><b>SNMP サービスプロパティ</b> ウィンドウが開きます。</p>
+<ol type="1">
+
+<li value="8"><a name="1047115"></a><b>OK</b> をクリックして変更を保存します。
+<br><br>
+</ol>
+<a name="1047117"></a><h4> SNMP トラップを管理ステーションに送信するシステム設定</h4>
+<a name="1047118"></a><p>Dell OpenManage ソフトウェアはセンサーやその他の監視パラメータの状態変化に応じて SNMP トラップを生成します。 SNMP トラップが管理ステーションに送信されるためには、Dell OpenManage ソフトウェアのシステムでトラップの送信先を 1 つまたは複数設定する必要があります。</p>
+<ol type="1">
+
+<li value="1"><a name="1047139"></a>システムで Windows Server 2003 を実行している場合は、<b>スタート</b> ボタンをクリックし、<b>マイコンピュータ </b>を右クリックして <b>管理 </b>をポイントします。 システムで Windows 2000 が実行中の場合は、<b>マイコンピュータ</b> を右クリックし、<b>管理 </b>をポイントします。
+<br><br>
+</ol>
+<a name="1047144"></a><p class="indent"><b>コンピュータの管理</b> ウィンドウが開きます。</p>
+<ol type="1">
+
+<li value="2"><a name="1047145"></a>必要に応じて、ウィンドウの <b>コンピュータの管理</b> アイコンを展開します。
+
+<br><br>
+<li value="3"><a name="1047146"></a><b>サービスとアプリケーション</b> アイコンを展開して、<b>サービス</b> をクリックします。
+
+<br><br>
+<li value="4"><a name="1047147"></a><b>SNMP サービス</b> が見つかるまでサービスのリストをスクロールし、<b>SNMP サービス</b> を右クリックして、<b>プロパティ</b> をクリックします。
+<br><br>
+</ol>
+<a name="1047148"></a><p class="indent"><b>SNMP サービスプロパティ</b> ウィンドウが開きます。</p>
+<ol type="1">
+
+<li value="5"><a name="1047149"></a><b>トラップ</b> タブをクリックしてトラップのコミュニティを追加するか、トラップコミュニティのトラップ送信先を追加します。  
+<br><br>
+<ol type="a">
+
+<li value="1"><a name="1048519"></a>トラップのコミュニティを追加するには、<b>コミュニティ名</b> ボックスにコミュニティ名を入力し、<b>コミュニティ名</b> ボックスの横にある <b>リストに追加</b> をクリックします。  
+<br><br>
+</ol>
+  <ol type="a">
+
+<li value="2"><a name="1048520"></a>トラップコミュニティのトラップ送信先を追加するには、<b>コミュニティ名</b> ドロップダウンボックスからコミュニティ名を選択して、<b>トラップ送信先</b> ボックスの中の <b>追加</b> をクリックします。  
+<br><br>
+</ol>
+</ol>
+<a name="1090976"></a><p class="Indentsub"><b>SNMP サービス設定</b> ウィンドウが開きます。 </p>
+<ol type="1">
+  <ol type="a">
+
+<li value="3"><a name="1048522"></a>トラップ送信先を入力して、<b>追加</b> をクリックします。  
+<br><br>
+</ol>
+</ol>
+<a name="1047157"></a><p class="Indentsub"><b>SNMP サービスプロパティ</b> ウィンドウが開きます。</p>
+<ol type="1">
+
+<li value="6"><a name="1047158"></a><b>OK</b> をクリックして変更を保存します。
+<br><br>
+</ol>
+<a name="1047161"></a><h3> Red Hat Enterprise Linux オペレーティングシステムを実行しているシステムでの SNMP エージェントの設定
+</h3>
+<a name="1047162"></a><p>Server Administrator は ucd-snmp または net-snmp エージェントが提供する SNMP サービスを使用します。 SNMP エージェントを設定すると、コミュニティ名を変更したり、Set 操作を有効にしたり、管理ステーションにトラップを送ることができます。 IT Assistant のような管理アプリケーションと正しく相互作用するように SNMP エージェントを設定するには、以下の手順に従います。</p>
+<a name="1048607"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>SNMP の設定の詳細については、オペレーティングシステムのマニュアルを参照してください。
+</td>
+  </tr>
+</table><a name="1093089"></a><h4> SNMP エージェントのアクセスコントロールの設定</h4>
+<a name="1093095"></a><p>Server Administrator によって実装されている管理情報ベース（MIB）ブランチは、1.3.6.1.4.1.674 OID で識別されます。 Server Administrator を実行しているシステムを管理するには、この MIB ツリーのブランチへのアクセス権が必要です。</p>
+<a name="1093099"></a><p>Red Hat Enterprise Linux オペレーティングシステムの場合、SNMP エージェントのデフォルト設定では、MIB ツリーの MIB-II「システム」ブランチ（1.3.6.1.2.1.1 の OID で識別）にのみ「パブリック」コミュニティへの読み取り専用アクセス権が与えられます。 この設定では、管理アプリケーションを使用して、Server Administrator や MIB-II「システム」ブランチ外の他のシステム管理情報を取得したり変更したりすることはできません。</p>
+<a name="1093091"></a><h4> Server Administrator SNMP エージェントのインストール動作</h4>
+<a name="1084581"></a><p>Server Administrator はインストール中にデフォルト SNMP 設定を検出すると、SNMP エージェント設定を変更して、「パブリック」コミュニティの MIB ツリー全体に読み取り専用アクセスを与えようとします。 これは SNMP エージェント設定ファイル <b>/etc/snmp/snmpd.conf</b> を 2 通りの方法で Server Administrator が修正を行います。</p>
+<a name="1057668"></a><p>まず、次の行がない場合はこれを追加して MIB ツリー全体のビューを作成します。</p>
+<a name="1057669"></a><p class="screen">view all included .1
+</p><a name="1057670"></a><p>次に、デフォルトの「access」行を変更して、「パブリック」コミュニティの MIB ツリー全体に読み取り専用アクセスを与えます。 Server Administrator が次の行を探します。</p>
+<a name="1057671"></a><p class="screen">access notConfigGroup &quot;&quot; any noauth exact systemview none none
+</p><a name="1057672"></a><p>Server Administrator は、上の行を見つけると、次のように変更します。</p>
+<a name="1057673"></a><p class="screen">access notConfigGroup &quot;&quot; any noauth exact all none none
+</p><a name="1057674"></a><p>デフォルト SNMP エージェント設定をこのように変更すると、「パブリック」コミュニティの MIB ツリー全体に読み取り専用アクセスが与えられます。 </p>
+<a name="1057675"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>Server Administrator が SNMP エージェントの設定を変更して、システム管理データに正しくアクセスできるように、その他の SNMP エージェントの設定変更は Server Administrator のインストール後に行うことをお勧めします。
+</td>
+  </tr>
+</table><a name="1093209"></a><p>Server Administrator SNMP は SNMP Multiplexing（SMUX）プロトコルを使用して SNMP エージェントと通信します。Server Administrator SNMP は SNMP エージェントに接続すると、オブジェクト識別子を SNMP エージェントに送信して自身を SMUX ピアと名乗ります。そのオブジェクト識別子は SNMP エージェントで設定しなければならないため、それがない場合は、インストール中に Server Administrator が SNMP エージェント設定ファイル <b> /etc/snmp/snmpd.conf</b> に次の行を追加します。</p>
+<a name="1093879"></a>
+<p class="screenindent"><span class="screen">smuxpeer .1.3.6.1.4.1.674.10892.1
+</span></p>
+<a name="1093211"></a><h4> SNMP コミュニティ名の変更</h4>
+<a name="1094035"></a><p>SNMP コミュニティ名を変更すると、どのシステムが SNMP を使ってシステムを管理できるかが決まります。 管理アプリケーションが Server Administrator から管理情報を取得できるように、管理アプリケーションが使用する SNMP コミュニティ名は、Server Administrator ソフトウェアのシステムで設定されている SNMP コミュニティ名と一致する必要があります。</p>
+<a name="1047174"></a><p>Server Administrator を実行しているシステムから管理情報を取得する際に使用される SNMP コミュニティ名を変更するには、SNMP エージェント設定ファイル <b>/etc/snmp/snmpd.conf </b>を編集し、次の手順に従ってください。</p>
+<ol type="1">
+
+<li value="1"><a name="1047175"></a>次の行を探します。
+<br><br>
+ </ol>
+<a name="1047176"></a>
+<p class="screenindent"><span class="screen">com2sec publicsec default public&#160;</span>
+ </p>
+<a name="1047177"></a><p class="indent">または </p>
+<a name="1047178"></a>
+<p class="screenindent"><span class="screen">com2sec notConfigUser default public&#160;</span>
+ </p>
+<ol type="1">
+
+<li value="2"><a name="1082011"></a><span class="screen"></span>public の部分を SNMP コミュニティに置き換えてこの行を編集します。 編集後の行は次のようになります。
+<br><br>
+ </ol>
+<a name="1082012"></a>
+<p class="screenindent"><span class="screen">com2sec publicsec default </span><span class="screen">コミュニティ名&#160;</span>
+ </p>
+<a name="1082013"></a><p class="indent">または </p>
+<a name="1047182"></a>
+<p class="screenindent"><span class="screen">com2sec notConfigUser default</span> <span class="screen">コミュニティ名</span></p>
+<ol type="1">
+
+<li value="3"><a name="1047183"></a>SNMP 設定の変更を有効にするには、次のように入力して SNMP エージェントを再起動します。
+<br><br>
+ </ol>
+<a name="1047184"></a>
+<p class="screenindent"><span class="screen">service snmpd restart</span></p>
+<a name="1047185"></a><h4> SNMP Set オペレーションの有効化</h4>
+<a name="1047186"></a><p>IT Assistant を使用して Server Administrator のソフトウェア属性を変更するには、Server Administrator を実行しているシステムで SNMP Set オペレーションが有効になっている必要があります。 IT Assistant からのシステムのリモートシャットダウンを有効にするには、SNMP Set 操作を有効にしておく必要があります。</p>
+<a name="1095442"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>変更管理機能のためにシステムを再起動する場合、SNMP Set オペレーションは不要です。
+</td>
+  </tr>
+</table><a name="1047187"></a><p>Server Administrator を実行しているシステムで <b>SNMP</b> Set オペレーションを有効にするには、SNMP エージェント設定ファイル <b>/etc/snmp/snmpd.conf</b> を編集して、次の手順を実行してください。</p>
+<ol type="1">
+
+<li value="1"><a name="1047188"></a>次の行を探します。
+<br><br>
+ </ol>
+<a name="1047189"></a>
+<p class="screenindent"><span class="screen">access publicgroup &quot;&quot; any noauth exact all none</span> none
+</p>
+<a name="1047190"></a><p class="indent">または </p>
+<a name="1047191"></a>
+<p class="screenindent"><span class="screen">access notConfigGroup &quot;&quot; any noauth exact all none</span> none
+</p>
+<ol type="1">
+
+<li value="2"><a name="1047192"></a><span class="screen"></span>最初の none を all に置き換えて行を編集します。<span class="screen"></span> 編集後の行は次のようになります。
+<br><br>
+ </ol>
+<a name="1047193"></a>
+<p class="screenindent"><span class="screen">access publicgroup &quot;&quot; any noauth exact all all none</span>
+ </p>
+<a name="1047194"></a><p class="indent">または </p>
+<a name="1047195"></a>
+<p class="screenindent">access notConfigGroup &quot;&quot; any noauth exact all all none
+ </p>
+<ol type="1">
+
+<li value="3"><a name="1047196"></a>SNMP 設定の変更を有効にするには、次のように入力して SNMP エージェントを再起動します。
+<br><br>
+ </ol>
+<a name="1047197"></a>
+<p class="screenindent"><span class="screen">service snmpd restart</span></p>
+<a name="1047198"></a><h4> SNMP トラップを管理ステーションに送信するシステム設定 </h4>
+<a name="1047199"></a><p>Server Administrator はセンサーやその他の監視パラメータの状態変化に応答して SNMP トラップを生成します。 SNMP トラップが管理ステーションに送信されるためには、Server Administrator を実行しているシステムで 1 つまたは複数のトラップ送信先を設定する必要があります。 </p>
+<a name="1047200"></a><p>Server Administrator を実行しているシステムでトラップを管理ステーションに送信するように設定するには、SNMP エージェント設定ファイル <b>/etc/snmp/snmpd.conf</b> を編集して、次の手順を実行してください。</p>
+<ol type="1">
+
+<li value="1"><a name="1047201"></a>次の行をファイルに追加します。
+<br><br>
+ </ol>
+<a name="1047202"></a>
+<p class="screenindent"><span class="screen">trapsink</span> <span class="screen">IP_アドレスコミュニティ_名</span></p>
+<a name="1047203"></a><p class="indent"><span class="screen">IP_アドレス</span>は管理ステーションの IP アドレスを、<span class="screen">コミュニティ_名</span> は、SNMP コミュニティ名を表します。</p>
+<ol type="1">
+
+<li value="2"><a name="1047204"></a>SNMP 設定の変更を有効にするには、次のように入力して SNMP エージェントを再起動します。
+<br><br>
+ </ol>
+<a name="1084853"></a>
+<p class="screenindent"><span class="screen">service snmpd restart</span></p>
+<a name="1084854"></a><h4> Red Hat Enterprise Linux オペレーティングシステムを実行しているシステムのファイアウォールの設定</h4>
+<a name="1084858"></a><p>Red Hat Enterprise Linux のインストール時にファイアウォールセキュリティを有効にすると、デフォルトではすべての外部ネットワークインタフェースの SNMP ポートが閉じます。 IT Assistant などの SNMP 管理アプリケーションを有効にして Server Administrator から情報を検出して取得するには、外部ネットワークインタフェースの SNMP ポートが少なくとも 1 つ開いている必要があります。 外部ネットワークインタフェースの SNMP ポートがファイアウォールで開いていないことが検出されたら、警告メッセージが表示され、メッセージがシステムログに記録されます。 追加情報については、「<a href="security.htm#1047255">ポート</a>」を参照してください。</p>
+<a name="1084791"></a><p>SNMP ポートを開くには、ファイアウォールを無効にし、ファイアウォールの外部ネットワークインタフェース全体を開くか、ファイアウォールで少なくとも 1 つの外部ネットワークインタフェースの SNMP ポートを開きます。 この処理は、Server Administrator 起動の前か後に行うことができます。</p>
+<a name="1084792"></a><p>以前に説明した方法の 1 つを使用して SNMP ポートを開くには、次の操作を実行します。</p>
+<ol type="1">
+
+<li value="1"><a name="1084793"></a>Red Hat Enterprise Linux コマンドプロンプトで、<span class="screen">setup</span> と入力して &lt;Enter&gt; を押し、テキストモードセットアップユーティリティを起動します。
+<br><br>
+</ol>
+<a name="1084798"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">メモ：</span>このコマンドは、オペレーティングシステムでデフォルトのインストールを実行した場合にのみ使用できます。
+</td>
+  </tr>
+</table>
+<a name="1084799"></a><p class="indent"><b>ツールの選択 </b>メニューが開きます。</p>
+<ol type="1">
+
+<li value="2"><a name="1084800"></a>下矢印を使用して <b>ファイアウォールの設定</b> を選択し、&lt;Enter&gt; を押します。
+<br><br>
+</ol>
+<a name="1084801"></a><p class="indent"><b>ファイアウォールの設定 </b>画面が開きます。</p>
+<ol type="1">
+
+<li value="3"><a name="1084802"></a><b>セキュリティレベル</b> のタブを選択し、スペースバーを押します。 選択した <b>セキュリティレベル</b> にアスタリスクが付きます。
+<br><br>
+</ol>
+<a name="1084807"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">メモ：</span>ファイアウォールのセキュリティレベルの詳細については、&lt;F1&gt; を押してください。 デフォルトの SNMP ポート番号は <b>161</b> です。 
+X Windows GUI を使用している場合、
+Red Hat Enterprise Linux オペレーティングシステムの新しいバージョンでは、&lt;F1&gt; を押しても、ファイアウォールのセキュリティレベルに関する情報が表示されないことがあります。
+</td>
+  </tr>
+</table>
+<ol type="a">  <ol type="a">
+
+<li value="1"><a name="1084808"></a>ファイアウォールを無効にするには、<b>ファイアウォールなし</b> か <b>無効 </b>を選択してステップ 7 に進みます。  
+<br><br>
+</ol>
+  <ol type="a">
+
+<li value="2"><a name="1084809"></a>ネットワークインタフェース全体または SNMP ポートを開くには、<b>高</b>、<b>中</b>、または <b>有効 </b>を選択して、手順 4に進みます。  
+<br><br>
+</ol>
+
+<li value="4"><a name="1084814"></a><b></b><b>カスタマイズ </b>に進んで &lt;Enter&gt; を押します。
+<br><br>
+</ol><a name="1084815"></a><p class="indent"><b>ファイアウォールの設定-カスタマイズ </b>画面が開きます。</p>
+<ol type="1">
+
+<li value="5"><a name="1084816"></a>ネットワークインタフェース全体を開くか、すべてのネットワークインタフェースで SNMP ポートだけを開くかを選択します。  
+<br><br>
+<ol type="a">
+
+<li value="1"><a name="1084817"></a>ネットワークインタフェース全体を開くには、<b>信頼できるデバイス</b> のいずれかのタブに進んでスペースバーを押します。 
+デバイス名の左側のボックスにアスタリスクが付いたら、インタフェース全体が開くことを示します。  
+<br><br>
+</ol>
+  <ol type="a">
+
+<li value="2"><a name="1084818"></a>すべてのネットワークインタフェースで SNMP ポートを開くには、<b>他のポート </b>タブに進んで <span class="screen">snmp:udp</span> と入力します。  
+<br><br>
+</ol>
+
+<li value="6"><a name="1084819"></a><b>OK</b> に進んで &lt;Enter&gt; を押します。
+<br><br>
+</ol>
+<a name="1084820"></a><p class="indent"><b>ファイアウォールの設定 </b>画面が開きます。</p>
+<ol type="1">
+
+<li value="7"><a name="1084821"></a><b>OK</b> に進んで &lt;Enter&gt; を押します。
+<br><br>
+</ol>
+<a name="1084822"></a><p class="indent"><b>ツールの選択 </b>メニューが開きます。</p>
+<ol type="1">
+
+<li value="8"><a name="1093232"></a><b>終了 </b>に進んで &lt;Enter&gt; を押します。
+<br><br>
+</ol>
+<a name="1093653"></a><h3> SUSE Linux  Enterprise Server オペレーティングシステムを実行しているシステムでの SNMP エージェントの設定
+</h3>
+<a name="1093654"></a><p>Server Administrator は ucd-snmp または net-snmp エージェントが提供する SNMP サービスを使用します。 SNMP エージェントを設定すると、リモートホストから SNMP を有効にしたり、コミュニティ名を変更したり、Set オペレーションを有効にしたり、管理ステーションにトラップを送ることができます。 IT Assistant のような管理アプリケーションと正しく相互作用するように SNMP エージェントを設定するには、以下の手順に従います。</p>
+<a name="1093386"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>SNMP の設定の詳細については、オペレーティングシステムのマニュアルを参照してください。
+</td>
+  </tr>
+</table><a name="1093275"></a><h4> Sever Administrator SNMP インストール動作</h4>
+<a name="1093411"></a><p>Server Administrator SNMP は SNMP Multiplexing（SMUX）プロトコルを使用して SNMP エージェントと通信します。 Server Administrator SNMP は SNMP エージェントに接続すると、オブジェクト識別子を SNMP エージェントに送信して自身を SMUX ピアと名乗ります。 そのオブジェクト識別子は SNMP エージェントで設定しなければならないため、それがない場合は、インストール中に Server Administrator が SNMP エージェント設定ファイル <b>/etc/snmpd.conf</b> に次の行を追加します。 </p>
+<a name="1093412"></a>
+<p class="screenindent">smuxpeer .1.3.6.1.4.1.674.10892.1
+</p>
+<a name="1093281"></a><h4> リモートホストから SNMP アクセスを有効にする</h4>
+<a name="1093283"></a><p>SUSE Linux Enterprise Server オペレーティングシステムのデフォルトの SNMP エージェント設定では、MIB「public」コミュニティのツリー全体への読み取り専用アクセスがローカルホストからしか提供されません。この設定では、他のホストで実行している IT Assistant のような SNMP 管理アプリケーションが Server Administrator システムを正しく検出して管理することができません。Server Administrator がインストール中にこの設定を検出すると、オペレーティングシステムのログファイル <b> /var/log/messages</b> にメッセージを記録して、SNMP アクセスがローカルホストに限定されていることを示します。SNMP 管理アプリケーションを使用してリモートホストからシステムを管理する場合は、SNMP エージェントを設定してリモートホストからの SNMP アクセスを有効にする必要があります。</p>
+<a name="1095281"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>セキュリティ上の理由から、できれば SNMP アクセスを特定のリモートホストに限定することをお勧めします。
+</td>
+  </tr>
+</table><a name="1095271"></a><p>特定のリモートホストから、Server Administrator を実行しているシステムへの SNMP アクセスを有効にするには、SNMP エージェント設定ファイル <b>/etc/snmpd.conf</b> を編集し、次の手順を実行してください。</p>
+<ol type="1">
+
+<li value="1"><a name="1095149"></a>次の行を探します。
+<br><br>
+</ol>
+<a name="1095150"></a>
+<p class="screenindent"><span class="screen">rocommunity public 127.0.0.1
+</span></p>
+<ol type="1">
+
+<li value="2"><a name="1095151"></a>127.0.0.1 をリモートホストの IP アドレスに置き換えて、この行を編集またはコピーします。編集後の行は次のようになります。
+<br><br>
+</ol>
+<a name="1095152"></a>
+<p class="screenindent"><span class="screen">rocommunity public </span><span class="screen">IP_アドレス
+</span></p>
+<a name="1095230"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>各リモートホストについて <span class="screen">rocommunity</span> ディレクティブ
+を追加すると、複数のリモートホストからの SNMP アクセスを有効にすることができます。
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="3"><a name="1095231"></a>SNMP 設定の変更を有効にするには、次のように入力して SNMP エージェントを再起動します。
+<br><br>
+</ol>
+<a name="1095232"></a>
+<p class="screenindent"><span class="screen">/etc/init.d/snmpd restart
+</span></p>
+<a name="1093447"></a><p>すべてのリモートホストから、Server Administrator を実行しているシステムへの SNMP アクセスを有効にするには、SNMP エージェント設定ファイル <b>/etc/snmpd.conf</b> を編集し、次の手順を実行してください。</p>
+<ol type="1">
+
+<li value="1"><a name="1093448"></a>次の行を探します。
+<br><br>
+</ol>
+<a name="1093289"></a>
+<p class="screenindent">rocommunity public 127.0.0.1
+</p>
+<ol type="1">
+
+<li value="2"><a name="1093291"></a>127.0.0.1 を削除して、この行を編集します。編集後の行は次のようになります。
+<br><br>
+</ol>
+<a name="1093293"></a>
+<p class="screenindent">rocommunity public
+</p>
+<ol type="1">
+
+<li value="3"><a name="1093295"></a>SNMP 設定の変更を有効にするには、次のように入力して SNMP エージェントを再起動します。
+<br><br>
+</ol>
+<a name="1093297"></a>
+<p class="screenindent">/etc/init.d/snmpd restart
+</p>
+<a name="1093299"></a><h4> SNMP コミュニティ名の変更</h4>
+<a name="1093301"></a><p>SNMP コミュニティ名を設定すると、どのシステムが SNMP を使ってシステムを管理できるかが決まります。 管理アプリケーションが Server Administrator から管理情報を取得できるように、管理アプリケーションが使用する SNMP コミュニティ名は、Server Administrator ソフトウェアで設定されている SNMP コミュニティ名と一致する必要があります。</p>
+<a name="1093303"></a><p>Server Administrator を実行しているシステムから管理情報を取得する際に使用されるデフォルトの SNMP コミュニティ名を変更するには、SNMP エージェント設定ファイル <b>/etc/snmp/snmpd.conf </b>を編集し、次の手順に従ってください。</p>
+<ol type="1">
+
+<li value="1"><a name="1093305"></a>次の行を探します。
+<br><br>
+</ol>
+<a name="1093307"></a>
+<p class="screenindent">rocommunity public 127.0.0.1
+</p>
+<ol type="1">
+
+<li value="2"><a name="1093517"></a><span class="screen">public</span> を新しい SNMP コミュニティ名に置き換えて、この行を編集します。編集後の行は次のようになります。
+<br><br>
+</ol>
+<a name="1093519"></a>
+<p class="screenindent">rocommunity コミュニティ_名 127.0.0.1
+</p>
+<ol type="1">
+
+<li value="3"><a name="1093313"></a>SNMP 設定の変更を有効にするには、次のように入力して SNMP エージェントを再起動します。
+<br><br>
+</ol>
+<a name="1093315"></a>
+<p class="screenindent">/etc/init.d/snmpd restart
+</p>
+<a name="1093317"></a><h4> SNMP Set 操作の有効化</h4>
+<a name="1093319"></a><p>IT Assistant を使用して Server Administrator の属性を変更するには、Server Administrator を実行しているシステムで SNMP Set オペレーションが有効になっている必要があります。 IT Assistant からのシステムのリモートシャットダウンを有効にするには、SNMP Set 操作を有効にしておく必要があります。</p>
+<a name="1095492"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>変更管理機能のためにシステムを再起動する場合、SNMP Set オペレーションは不要です。
+</td>
+  </tr>
+</table><a name="1093321"></a><p>Server Administrator を実行しているシステムで SNMP Set オペレーションを有効にするには、SNMP エージェント設定ファイル <b>/etc/snmpd.conf </b>を編集して、次の手順を実行してください。</p>
+<ol type="1">
+
+<li value="1"><a name="1093323"></a>次の行を探します。
+<br><br>
+</ol>
+<a name="1093325"></a>
+<p class="screenindent">rocommunity public 127.0.0.1
+</p>
+<ol type="1">
+
+<li value="2"><a name="1093327"></a><span class="screen">rocommunity</span> を <span class="screen">rwcommunity</span> に置き換えて、この行を編集します。編集後の行は次のようになります。
+<br><br>
+</ol>
+<a name="1093329"></a>
+<p class="screenindent">rwcommunity public 127.0.0.1
+</p>
+<ol type="1">
+
+<li value="3"><a name="1093331"></a>SNMP 設定の変更を有効にするには、次のように入力して SNMP エージェントを再起動します。
+<br><br>
+</ol>
+<a name="1093333"></a>
+<p class="screenindent">/etc/init.d/snmpd restart
+</p>
+<a name="1093335"></a><h4> SNMP トラップを管理ステーションに送信するシステム設定</h4>
+<a name="1093337"></a><p>Server Administrator はセンサーやその他の監視パラメータの状態変化に応答して SNMP トラップを生成します。 SNMP トラップが管理ステーションに送信されるためには、Server Administrator を実行しているシステムで 1 つまたは複数のトラップ送信先を設定する必要があります。</p>
+<a name="1093339"></a><p>Server Administrator を実行しているシステムでトラップを管理ステーションに送信するように設定するには、SNMP エージェント設定ファイル <b>/etc/snmpd.conf</b> を編集して、次の手順を実行してください。</p>
+<ol type="1">
+
+<li value="1"><a name="1093341"></a>次の行をファイルに追加します。
+<br><br>
+</ol>
+<a name="1093343"></a>
+<p class="screenindent">trapsink IP_アドレス コミュニティ_名
+</p>
+<a name="1093345"></a><p class="indent"><span class="screen"> </span><span class="screen">IP_アドレス</span> は管理ステーションの IP アドレスで、<span class="screen">コミュニティ_名</span> は SNMP のコミュニティ名です。</p>
+<ol type="1">
+
+<li value="2"><a name="1093347"></a>SNMP 設定の変更を有効にするには、次のように入力して SNMP エージェントを再起動します。
+<br><br>
+</ol>
+<a name="1093349"></a>
+<p class="screenindent">/etc/init.d/snmpd restart
+</p>
+<hr noshade size="1">
+<a name="1093618"></a><h2>セキュアポートサーバーとセキュリティの設定</h2>
+
+
+<a name="1064459"></a><p>ここでは次のトピックについて説明します。</p>
+<ul><li><a name="1064463"></a><a href="setup.htm#1064469">ユーザーとサーバー設定の指定</a><br><br></li>
+<li><a name="1064467"></a><a href="setup.htm#1064516">X.509 証明書の管理</a><br><br></li>
+</ul><a name="1064469"></a><h3> ユーザーとサーバーのプリファランスの設定
+</h3>
+<a name="1084692"></a><p><b>プリファランス</b> Web ページでは、Server Administrator および IT Assistant のユーザーとセキュアポートサーバーのプリファランスを設定できます。 <b>一般設定</b> をクリックし、<b>ユーザー</b> タブか <b>Web Server</b> タブのいずれかをクリックします。</p>
+<a name="1088527"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>ユーザーやサーバーのオプションを設定したりリセットしたりするには、システム管理者特権でログインする必要があります。
+  	 	 	 	</td>
+  </tr>
+</table><a name="1088549"></a><p>ユーザー設定を指定するには、次の手順を実行してください。</p>
+<ol type="1">
+
+<li value="1"><a name="1064477"></a>グローバルナビゲーションバーの <b>プリファランス</b> をクリックします。
+<br><br>
+</ol>
+<a name="1064478"></a><p class="indent"><b>プリファランス </b>ホームページが表示されます。</p>
+<ol type="1">
+
+<li value="2"><a name="1064479"></a><b>一般設定 </b>をクリックします。
+
+<br><br>
+<li value="3"><a name="1064480"></a>事前に選択されている電子メール受信者を追加するには、指定するサービス連絡先の電子メールアドレスを <b>宛先：</b> フィールドに入力し、<b>変更の適用 </b>をクリックします。
+<br><br>
+</ol>
+<a name="1064485"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">メモ：</span>いずれかのウィンドウで <b>電子メール </b>をクリックすると、ウィンドウの HTML ファイルが添付された電子メールメッセージが、指定した電子メールアドレスに送信されます。
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="4"><a name="1064486"></a>ホームページの外観を変更するには、<b>スキン</b> または <b>スキーム</b> フィールドで別の値を選択して <b>変更の適用</b> をクリックします。<br><br>
+。
+<br><br>
+</ol>
+<a name="1084898"></a><p>次の手順を実行して、セキュアポートサーバーのプリファランスを設定します。</p>
+<ol type="1">
+
+<li value="1"><a name="1064488"></a>グローバルナビゲーションバーの <b>プリファランス</b> をクリックします。
+<br><br>
+</ol>
+<a name="1064489"></a><p class="indent"><b>プリファランス </b>ホームページが表示されます。</p>
+<ol type="1">
+
+<li value="2"><a name="1064490"></a><b>一般設定 </b>と <b>Web サーバー </b>タブをクリックします。
+
+<br><br>
+<li value="3"><a name="1064491"></a><b>サーバープリファレンス</b>ウィンドウで必要に応じてオプションを設定します。
+<br><br>
+<ul>
+<li type="disc"><a name="1064492"></a><b>セッションのタイムアウト</b> 機能を使うと、セッションがアクティブでいられる時間を制限できます。 指定した時間（分単位）ユーザー操作がない場合のタイムアウトを有効にするには、<b>有効</b> ラジオボタンを選択します。 セッションがタイムアウトになったユーザーは、再ログインして続行する必要があります。 Server Administrator のセッションタイムアウト機能を無効にするには、<b>無効</b> ラジオボタンを選択します。<br><br> </li>
+<li type="disc"><a name="1064493"></a><b>HTTPS ポート</b> フィールドには、Server Administrator のセキュアポートを指定します。 Server Administrator のデフォルトのセキュアポートは 1311 です。<br><br></li>
+</ul>
+</ol>
+<a name="1064498"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">メモ：</span>ポート番号を無効な番号や使用中のポート番号に変更すると、他のアプリケーションやブラウザが管理下システムの Server Administrator にアクセスできなくなる可能性があります。
+</td>
+  </tr>
+</table>
+<ul><ul>
+<li type="disc"><a name="1064499"></a><b>IP アドレスのバインド先</b> フィールドで、セッション開始時に Server Administrator がバインドする管理下システムの IP アドレスを指定します。 システムに該当するすべての IP アドレスをバインドする場合は、<b>すべて</b> ラジオボタンを選択します。 特定の IP アドレスにバインドする場合は、<b>特定</b>
+ ラジオボタンを選択します。<br><br></li>
+</ul>
+</ul><a name="1086988"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">メモ：</span>システム管理者特権を持つユーザーは、リモートからシステムにログインする際、Server Administrator を使用できません。
+</td>
+  </tr>
+</table>
+<a name="1064504"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">メモ：</span><b>IP アドレスのバインド先 </b> の値を <b><b>すべて</b> </b>以外の値に変更すると、他のアプリケーションやブラウザが管理下システムの Server Administrator にアクセスできなくなる可能性があります。
+</td>
+  </tr>
+</table>
+<ul><ul>
+<li type="disc"><a name="1064505"></a><b>SMTP サーバー名</b> と <b>SMTP サーバーの DNS サフィックス </b>フィールドに、所属会社または組織の SMTP とドメイン名サーバー（DNS）のサフィックスを指定します。 Server Administrator で電子メール送信を有効にするには、適切なフィールドに所属会社または組織の SMTP サーバーの IP アドレスと DNS サフィックスを入力する必要があります。<br><br></li>
+</ul>
+</ul><a name="1064510"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">メモ：</span>セキュリティ上の理由から、SMTP サーバーから外部アカウントへの電子メール送信を許可していない会社や組織もあります。
+</td>
+  </tr>
+</table>
+<ul><ul>
+<li type="disc"><a name="1064511"></a><b>コマンドログサイズ</b> フィールドに、コマンドログファイルの最大ファイルサイズを MB 単位で指定します。<br><br></li>
+<li type="disc"><a name="1064512"></a><b>サポートリンク</b> フィールドに、管理下システムのサポートを提供する事業体の Web アドレスを指定します。<br><br></li>
+<li type="disc"><a name="1064513"></a><b>カスタム区切り文字</b> フィールドに、<b>エクスポート</b> ボタンを使って作成したファイルのデータフィールドのは区切りに使用する文字を指定します。 デフォルトのデリミタは <b>;</b> 文字です。 その他のオプションは <b>!、</b><b>@、</b><b>#、</b><b>$、</b><b>%、</b><b>^、</b><b>*、</b><b>~、</b><b>?、</b><b>:、</b><b>|、</b>および <b>, </b>です。<br><br></li>
+</ul>
+
+<li value="4"><a name="1064514"></a><b>サーバー設定</b> ウィンドウのオプション設定が完了したら、<b>変更の適用</b> をクリックします。
+<br><br>
+</ul><a name="1064516"></a><h3> X.509 証明書の管理
+</h3>
+<a name="1064517"></a><p>リモートシステムの身元を確認して、リモートシステムと交換する情報を他者が閲覧し変更したりするのを防ぐには、Web 証明書が必要です。 システムのセキュリティを確保するには、新しい X.509 証明書を生成するか、既存の X.509 証明書を再利用するか、認証局（CA）からルート証明書または証明書チェーンをインポートすることをお勧めします。</p>
+<a name="1064522"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>証明書を管理するには、システム管理者特権でログインする必要があります。
+</td>
+  </tr>
+</table><a name="1084746"></a><p><b>プリファランス</b> Web ページから、Server Administrator と IT Assistant の X.509 証明書を管理できます。 <b>一般設定</b> クリックし、<b>Web Server</b> タブをクリックした後、<b>X.509 証明書</b> をクリックします。 </p>
+<a name="1064524"></a><p>X.509 証明書ツールを使用して、新しい X.509
+証明書の作成、既存の X.509 証明書の再使用、または CA からのルート証明書か証明書チェーンのインポートを行います。 承認されている CA には、VeriSign、Entrust、Thawte などがあります。</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">目次ページに戻る</a></p>
+
+
+<p>&#160;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

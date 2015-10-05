@@ -1,0 +1,898 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+<title>在 Microsoft&#174; Windows&#174; 操作系统在安装 Managed System Software：Dell OpenManage 5.0 版安装和安全性用户指南</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">返回目录页</a> </p>
+<a name="1056417"></a><h1> 在 Microsoft&#174; Windows&#174; 操作系统上安装 Managed System Software  </h1>
+<p class="title">Dell OpenManage&#8482; 5.0 版安装和安全性用户指南</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1082457">概览
+</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1056441">开始之前</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1056524">安装要求</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1056568">安装步骤</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1064678">使用第三方部署软件进行 Managed System Software 安装
+</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1082457"></a><h2>概览</h2>
+
+
+<a name="1082458"></a><p>可使用多个方法安装 Managed System Software。 <i>Dell&#8482; PowerEdge&#8482; Installation and Server Management</i> CD 提供了一个安装程序，可用于在管理系统上安装、升级和卸载 Managed System Software 功能。您可以在无人值守的情况下，通过网络在多个系统上安装该软件。 </p>
+<a name="1067826"></a><p>可以安装的管理系统功能包括 Dell OpenManage&#8482; Server Administrator、Intel&#174; SNMP 代理和 Broadcom SNMP 代理。</p>
+<a name="1067834"></a><p>从 Server Administrator 中，可选择 Server Administrator Web Server（不选择将限制只能从命令行界面使用 Server Administrator）、Diagnostic Service、Remote Access Service 和 Storage Management Service 子功能。</p>
+<a name="1078412"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>DRAC III、DRAC 4 和 DRAC 5 不能一起使用。</td>
+  </tr>
+</table><a name="1056427"></a><h3>Dell PowerEdge Installation and Server Management CD</h3>
+<a name="1056428"></a><p><i>Dell PowerEdge Installation and Server Management</i> CD 提供了一个安装程序，用于在管理系统上安装、升级和卸载 Managed System Software 功能。 此外，您还可以在无人值守的情况下，通过网络在多个系统上安装功能。</p>
+<a name="1056430"></a><p>使用 <i>Dell PowerEdge Installation and Server Management</i> CD 上 Windows 目录中的安装程序，可以在运行所有支持的操作系统的系统上安装和升级 Server Administrator。 在运行支持的 Microsoft Windows 操作系统的系统上，可以通过操作系统卸载功能。</p>
+<a name="1071719"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>请参阅 <i>Dell PowerEdge Installation and Server Management</i> CD 上的 <b>readme_ins.txt</b> 文件，以获得目前支持的系统的列表。</td>
+  </tr>
+</table><a name="1071720"></a><h3> 无人值守和脚本化无提示安装
+ </h3>
+<a name="1056437"></a><p>在运行支持的 Windows 操作系统的系统上，可以使用 <i>Dell PowerEdge Installation and Server Management</i> CD 执行无人值守和脚本化无提示安装管理系统功能。 此外，在运行支持的 Windows 操作系统的系统上，您还可以通过命令行安装和卸载功能。</p>
+<hr noshade size="1">
+<a name="1056441"></a><h2>开始之前</h2>
+
+
+<ul><li><a name="1056442"></a>阅读以下安装要求，以确保您的系统满足或超出最低要求。<br><br> </li>
+<li><a name="1056443"></a>阅读<i>《Dell OpenManage Server Administrator 兼容性指南》</i>。此指南包含有关在运行支持的 Windows、Red Hat&#174; Enterprise Linux 和 SUSE&#174; Linux Enterprise Server 操作系统的各种硬件平台上安装和运行 Server Administrator 的兼容性信息。</li>
+<li><a name="1056444"></a>请阅读 <i>Dell PowerEdge Installation and Server Management</i> CD 上的安装 <b>readme_ins.txt</b> 文件。 除了已知问题信息，此自述文件还包含有关新功能的最新信息。<br><br> </li>
+<li><a name="1056445"></a>阅读 <i>Dell PowerEdge Installation and Server Management </i>CD 上的 Server Administrator 自述文件。 除有关已知问题的信息外，该自述文件还包含有关软件、固件及驱动程序版本的最新信息。<br><br> </li>
+<li><a name="1056446"></a>阅读操作系统的安装说明。<br><br> </li>
+</ul><hr noshade size="1">
+<a name="1056524"></a><h2>安装要求</h2>
+
+
+<a name="1056525"></a><p>以下各节介绍了 Server Administrator 的一般要求。 </p>
+<a name="1056529"></a><h3> 支持的操作系统版本
+ </h3>
+<a name="1056607"></a><p>Server Administrator 支持以下操作系统： </p>
+<ul><li><a name="1056608"></a>Windows 2000 Server SP4（包括 Server 和 Advanced Server）</li>
+<li><a name="1080856"></a>Windows Server&#8482; 2003 R2（包括 Standard 和 Enterprise 版本） <br><br></li>
+<li><a name="1083506"></a>Windows Server 2003 SP1（Web 版本）</li>
+<li><a name="1069654"></a>Windows Server 2003 Standard 和 Enterprise x64 R2（不包括 Remote Access Controller III 和 IT&#160;Assistant）</li>
+<li><a name="1087148"></a>Windows Storage Server 2003 R2（包括 Express、Standard、Workgroup 和 Enterprise 版本）</li>
+</ul><a name="1056639"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>请参阅 <i>Dell PowerEdge Installation and Server Management</i> CD 上的 Server Administrator <b>readme_ins.txt</b> 文件或 <i>Documentation CD </i>上的<i>《Dell OpenManage Server Administrator 兼容性指南》</i>，以获得每个支持的操作系统上支持的 Server Administrator 服务的最新详细列表。</td>
+  </tr>
+</table><a name="1056540"></a><h3> 系统要求
+ </h3>
+<a name="1056541"></a><p>必须在每个管理系统中均安装 Server Administrator。 这样，您便可以在本地或通过支持的 Web 浏览器远程管理每个运行 Server Administrator 的系统。</p>
+<a name="1064085"></a><p><b>setup.exe</b> 公用程序会调用 CD 上的前提条件检查程序来确定是否满足系统要求。（有关详情，请参阅“<a href="prereqch.htm#1053126">前提条件检查程序</a>”一节。）</p>
+<a name="1056545"></a><h4> 管理系统要求</h4>
+<ul><li><a name="1056546"></a>一种支持的操作系统</li>
+<li><a name="1056547"></a>至少 64 MB RAM</li>
+<li><a name="1056548"></a>至少 256 MB 可用硬盘驱动器空间</li>
+<li><a name="1056549"></a>管理员权限</li>
+<li><a name="1056550"></a>管理系统和 Management Station 之间的 TCP/IP 连接，以便于远程系统管理</li>
+<li><a name="1056551"></a>一种支持的系统管理协议标准</li>
+<li><a name="1056552"></a>鼠标、键盘和显示器，用于在本地管理系统。 显示器必须具有最低屏幕分辨率 800 x 600。 推荐使用的屏幕分辨率设置为 1024 x 768。<br><br> </li>
+<li><a name="1056553"></a>Server Administrator Remote Access Service 要求在要管理的系统上安装 Remote Access Controller (RAC)。 请参阅<i>《Dell Remote Access Controller 4 用户指南》</i>或<i>《Dell Embedded Remote Access Controller/MC 用户指南》</i>了解软件和硬件的完整要求。<br><br></li>
+</ul><a name="1056554"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>从 <i>Dell PowerEdge Installation and Server Management</i> CD 安装 Managed System Software 时，RAC 软件作为<b>“Express Setup”（快速安装）</b>和<b>“Custom Setup”（自定义安装）</b>安装选项的一部分安装，条件是管理系统满足所有的 RAC 安装前提条件。 有关软件和硬件的完整要求，请参阅“Remote Access Service”和<i>《Dell Remote Access Controller 安装和设置指南》</i>或<i>《Dell Embedded Remote Access/MC 控制器用户指南》</i>。
+ </td>
+  </tr>
+</table><ul><li><a name="1056558"></a>Server Administrator Storage Management Service 要求将 Dell OpenManage Storage Management 安装在系统上才能正确管理。 请参阅<i>《Dell OpenManage Server Administrator 用户指南》</i>了解软件和硬件的完整要求。<br><br> </li>
+<li><a name="1081456"></a>Microsoft Software Installer (MSI) 3.0 或更高版本</li>
+</ul><a name="1081491"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>Dell OpenManage 软件会检测系统上 MSI 的版本。如果版本低于 3.1，前提条件检查程序会提示升级到 MSI 3.1 版。</td>
+  </tr>
+</table>
+<a name="1081487"></a><h3> 支持的系统管理协议标准
+</h3>
+<a name="1056561"></a><p>安装 Server Administrator 之前，管理系统中必须已安装支持的系统管理协议标准。 在支持的 Windows 操作系统中，Server Administrator 支持公用信息模型/Windows 管理工具 (CIM/WMI) 和简单网络管理协议 (SNMP)。 始终安装 CIM 和 WMI，SNMP 可从操作系统安装介质中获得。</p>
+<a name="1056563"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>有关在管理型系统中安装支持的系统管理协议标准的信息，请参阅操作系统说明文件。
+ </td>
+  </tr>
+</table><a name="1082717"></a><h3>Windows Server 2003 R2 和 R2 IPMI 设备驱动程序</h3>
+<a name="1083396"></a><p>本节中的信息仅适用于 PowerEdge <i>x8xx</i> 系统和 PowerEdge <i>x</i>9<i>xx</i> 系统。</p>
+<a name="1083397"></a><p>Windows Server 2003 R2 和 Windows Storage Server R2 包含名为 Hardware Management 的可选组件。此组件包含一个 IPMI 驱动程序。在安装期间，该组件会安装并启用其 IPMI 驱动程序。</p>
+<a name="1082784"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>在 PowerEdge<i> x8xx</i> 系统上，安装 Hardware Management 组件后，必须再执行一个步骤安装 R2 IPMI 驱动程序。</td>
+  </tr>
+</table><a name="1083188"></a><p>Server Administrator 启动时，它首先会确定是否 Windows Server 2003 R2 IPMI 驱动程序已启用。如果已启用，则 Server Administrator 使用 Windows Server 2003 R2 IPMI 驱动程序提供其基于 IPMI 的功能。如果 Windows Server 2003 R2 IPMI 驱动程序没有启用，则 Server Administrator 使用其自己的内部 IPMI 支持程序提供其基于 IPMI 的功能。对于 Server Administrator，建议使用 Windows Server 2003 R2 IPMI 驱动程序，不要使用内部的 IPMI 支持程序。如果系统运行 Windows Server 2003 R2 或 Windows Storage Server R2，建议在安装或升级 Server Administrator 之后，另外安装 R2 可选的 Hardware Management 组件。</p>
+<a name="1083262"></a><p>要在 PowerEdge <i>x8xx </i>系统上安装 Windows Server 2003 R2 IPMI 驱动程序，请再执行以下一些步骤：</p>
+<ul><li><a name="1083263"></a>从命令解释程序执行以下命令：</li>
+</ul><a name="1082745"></a>
+<p class="screenindent">Rundll32 ipmisetp.dll, AddTheDevice</p>
+<a name="1082747"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>PowerEdge <i>x</i>9<i>xx </i>系统上不需要执行此步骤<i>。</i></td>
+  </tr>
+</table><a name="1087055"></a><p>安装 Windows Server 2003 R2 操作系统的 Hardware Management 组件并执行附加步骤安装 Windows Server 2003 R2 IPMI 驱动程序（在 PowerEdge <i>x8xx</i> 系统上）之后，还必须重新启动 <b>DSM SA Data Manager</b> 服务，这样 Server Administrator 才能从使用其自己内部的 IPMI 支持程序切换到使用 Windows Server 2003 R2 IPMI 驱动程序。要重新启动该服务，可以手动重新启动服务或重新引导系统。</p>
+<a name="1082749"></a><p>今后，如果直接手动卸载或通过卸载 Hardware Management 组件卸载（这样将卸载驱动程序）Windows Server 2003 R2 IPMI 驱动程序，必须重新启动 <b>DSM SA Data Manager</b> 服务，这样 Server Administrator 才能从使用 Windows Server 2003 R2 IPMI 驱动程序切换到使用其自己内部的 IPMI 支持程序。要重新启动该服务，可以手动重新启动服务或重新引导系统。</p>
+<a name="1066971"></a><h3> 数字证书
+</h3>
+<a name="1066972"></a><p>所有用于 Microsoft 的 Server Administrator 软件包都使用 Dell 认证进行数字签名，该认证可帮助保证安装软件包的完整性。 如果这些软件包重新封装、编辑或以其它方式处理，则数字签名将无效。 这种处理会生成不受支持的安装软件包并且前提条件检查程序将不会允许安装软件。</p>
+<hr noshade size="1">
+<a name="1056568"></a><h2>安装步骤</h2>
+
+
+<a name="1057210"></a><p>本节说明了如何在运行支持的 Windows 操作系统的系统上安装、升级和卸载 Server Administrator。 </p>
+<a name="1067552"></a><h3> 安装或升级 Server Administrator 的必备要求
+</h3>
+<a name="1067554"></a><p>您必须具有管理员权限。 </p>
+<a name="1067555"></a><p>如果想使用简单网络管理协议 (SNMP) 的支持代理，则必须在安装 Server Administrator 前后安装对 SNMP 标准的操作系统支持。 有关安装 SNMP 的详细信息，请参阅系统中运行的操作系统的安装说明。 </p>
+<a name="1067560"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>在快速安装期间，各个 Server Administrator 服务不会安装在不符合服务特定硬件和软件安装要求的管理型系统上。 例如，如果管理系统未安装 Remote Access Controller，则无法在快速安装过程中安装 Server Administrator Remote Access Service 软件模块。 不过，您可以转至<b>“Custom Setup”（自定义安装）</b>并选择安装 Remote Access Service 软件模块。
+</td>
+  </tr>
+</table><a name="1068061"></a><h4> 前提条件检查程序</h4>
+<a name="1071811"></a><p>安装程序 (<b>setup.exe</b>) 会启动前提条件检查程序。安装程序位于 <b>Dell PowerEdge Installation and Server Management </b>CD 上的 <i>\srvadmin\Windows</i> 目录中。前提条件检查程序会检查是否符合软件功能的前提条件要求而不用启动实际的安装程序。 此程序显示一个状况窗口，提供可能影响软件功能安装和运行的系统硬件和软件的信息。 </p>
+<a name="1076415"></a><p>前提条件检查程序显示三种类型信息：通知、警告和错误信息。</p>
+<a name="1068065"></a><p>通知信息说明应注意的情况。 它不阻止安装功能。</p>
+<a name="1076780"></a><p>警告信息说明快速安装过程中阻止安装软件产品的情况。 建议解决引起警告的情况，然后再继续安装软件。 如果决定继续，可选择并使用自定义安装来安装软件。 例如，如果在系统上没有检测到 Intel 网络接口卡 (NIC)，将会看到以下信息：</p>
+<a name="1073505"></a>
+<p class="screenindent">An Intel(R) NIC was not detected on this system. This will disable the &quot;Express&quot; installation of the Intel(R) SNMP Agent.<br><br>（在此系统上没有检测到 Intel(R) NIC。这将会禁用 Intel(R) SNMP 代理的“Express”[快速] 安装。）
+</p>
+<a name="1073507"></a>
+<p class="screenindent">Use the &quot;Custom&quot; installation setup type later during 
+installation to select this feature if you have an Intel(R) NIC 
+installed. <br><br>（在后面的安装过程中使用“Custom”[自定义] 安装类型以在装有 Intel(R) NIC 的情况下选择此功能。）
+</p>
+<a name="1072334"></a><p>错误信息说明应注意的阻止安装软件功能的情况。 必须解决引起错误的情况，然后才可继续安装该软件功能。 如果不解决问题，将不安装该软件功能。</p>
+<a name="1077874"></a><p>可以从<b> srvadmin\windows\PreReqChecker </b>目录通过执行 <span class="screen">RunPreReqChecks.exe /s</span> 无提示运行前提条件检查。 有关更多详情，请参阅“<a href="prereqch.htm#1053126">前提条件检查程序</a>”。</p>
+<a name="1077875"></a><h3> 安装和升级 Server Administrator
+ </h3>
+<a name="1057233"></a><p>此节介绍如何使用以下两个安装选项安装和升级 Server Administrator：</p>
+<ul><li><a name="1057235"></a>使用 <i>Dell PowerEdge Installation and Server Management </i>CD 上 <b>windows</b> 目录中的安装程序安装或升级 Server Administrator 和其它 Managed System Software。<br><br> </li>
+<li><a name="1057236"></a>通过 Windows 安装程序引擎 <b>msiexec.exe</b>（请参阅<a href="instwin.htm#1060065">表 6-1</a>）使用无人值守安装方法在多个系统上安装 Server Administrator 和其它 Managed System Software。<br><br> </li>
+</ul><a name="1057237"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>对于模块化系统，必须为机箱中所装的每个服务器模块安装 Server Administrator。
+ </td>
+  </tr>
+</table><a name="1067106"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>可以转至<b>“Add/Remove Programs”（添加/删除程序）</b>找出当前安装的功能。
+</td>
+  </tr>
+</table><a name="1081512"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>只能通过完全 MSI 安装从 Dell OpenManage 软件 4.3 版本升级到 5.0 版。</td>
+  </tr>
+</table><a name="1083090"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>在 PowerEdge 1650、2650 和 4600 系统上安装 Server Administrator 后，如果选择了安装 Storage Management 服务，可能会要求重新引导系统。</td>
+  </tr>
+</table><a name="1083091"></a><h4> 快速安装和自定义安装</h4>
+<a name="1057251"></a><p><i>Dell PowerEdge Installation and Server Management </i>CD 为安装 Server Administrator 和其它 Managed System Software 提供了<b>“Express Setup”（快速安装）</b>选项和<b>“Custom Setup”（自定义安装）</b>选项。</p>
+<a name="1057253"></a><p>将 <i>Dell PowerEdge Installation and Server Management </i>CD 插入系统 CD 驱动器时，安装程序会调用前提条件检查程序，该程序使用系统的 PCI 总线搜索已装硬件，比如控制器卡。</p>
+<a name="1057255"></a><p>从前提条件检查程序启动 Server Administrator 安装并选择<b>“Express Setup”（快速安装）</b>选项后，安装程序会安装或升级适合您特定系统硬件配置的所有 Managed System Software 功能。 有关如何执行<b>“Express Setup”（快速安装）</b>的详细信息，请参阅<i>《快速安装指南》</i>。 通过单击前提条件检查程序用户界面中菜单栏上的<b>“Quick Install Guide”（快速安装指南）</b>，可以获得<i>《快速安装指南》</i>。</p>
+<a name="1057734"></a><p>当选择<b>“Custom Setup”（自定义安装）</b>选项时，用户可以取消选择一个或多个已由安装程序标识为适合系统中已安装选件的软件功能。 在<b>快速安装</b>期间，由于适用于硬件配置的所有功能均已预先选定，所以您无法添加要安装功能的列表。 Server Administrator Storage Management Service 默认情况下会在<b>“Express Setup”（快速安装）</b>期间安装。</p>
+<a name="1057265"></a><h5> 自定义安装</h5>
+<a name="1063084"></a><p>以下各节说明了如何使用<b>“Custom Setup”（自定义安装）</b>选项安装和升级 Server Administrator 和其它 Managed System Software。</p>
+<a name="1080989"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>管理站和管理系统服务可以安装在相同或不同目录内。安装时可以选择目录。</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1057266"></a>以管理员权限登录到您要安装系统管理软件功能的系统上。
+
+<br><br>
+ <li value="2"><a name="1057268"></a>关闭任何打开的应用程序并禁用任何病毒扫描软件。
+
+<br><br>
+ <li value="3"><a name="1057270"></a>将 <i>Dell PowerEdge Installation and Server Management </i>CD 插入系统的 CD 驱动器中。
+<br><br>
+ </ol>
+<a name="1073173"></a><p class="indent">如果 CD 没有自动启动安装程序，请转至系统桌面，依次双击<b>“My Computer”（我的电脑）</b>（或打开 Windows 资源管理器）、CD 驱动器图标、<b>srvadmin</b> 文件夹、<b>windows</b> 文件夹和 <b>setup.exe</b> 文件。</p>
+<a name="1064191"></a><p class="indent"><b>“Dell OpenManage Server Administrator </b>prerequisite”（Dell OpenManage Server Administrator 前提条件）状况屏幕会打开并为 Managed Station 运行前提条件检查。 会显示任何相关的通知、警告或错误信息。</p>
+<ol type="1">
+
+<li value="4"><a name="1057276"></a>单击<b>“Install, Modify, Repair, or Remove Server Administrator”（安装、修改、修复或删除 Server Administrator）</b>选项。
+<br><br>
+ </ol>
+<a name="1062876"></a><p class="indent"><b>“Welcome to the Install Wizard for Dell OpenManage Server Administrator”（欢迎使用 Dell OpenManage Server Administrator 安装向导）</b>屏幕将会打开。</p>
+<ol type="1">
+
+<li value="5"><a name="1057280"></a>单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1062880"></a><p class="indent"><b>“Dell Software License Agreement”（Dell 软件许可协议）</b>将会显示。</p>
+<ol type="1">
+
+<li value="6"><a name="1057284"></a>如果同意，单击<b>“Accept”（接受）</b>和<b>“Next”（下一步）</b>。
+<br><br>
+ </ol>
+<a name="1062884"></a><p class="indent"><b>“Setup Type”（安装类型）</b>对话框会打开。 </p>
+<ol type="1">
+
+<li value="7"><a name="1057288"></a>选择<b>“Custom”（自定义）</b>并单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1057290"></a><p class="indent"><b>“Custom Setup”（自定义安装）</b>对话框会打开。</p>
+<a name="1062868"></a><p class="indent">要选择特定 Managed System Software 应用程序，请单击所列功能旁的下拉箭头并选择安装或不安装软件。</p>
+<a name="1062869"></a><p class="indent">所选功能的旁边有一个硬盘驱动器图标。 取消选择的功能的旁边有一个红色的 <b>X</b>。 默认情况下，如果前提条件检查程序发现没有支持硬件的软件功能，检查程序会取消选中它们。</p>
+<a name="1062870"></a><p class="indent">如果接受安装 Managed System Software 的默认目录路径，请单击<b>“Next”（下一步）</b>。</p>
+<a name="1070229"></a><p class="indent">否则，请单击<b>“Change”（更改）</b>并浏览至要安装 Managed System Software 的目录，然后单击<b>“OK”（确定）</b>。此时将返回<b>“Custom Setup”（自定义安装）</b>对话框。</p>
+<ol type="1">
+
+<li value="8"><a name="1070230"></a>单击<b>“Next”（下一步）</b>接受要安装的所选软件功能。
+<br><br>
+ </ol>
+<a name="1073177"></a><p class="indent"><b>“Ready to Install the Program”（准备安装程序）</b>对话框将会显示。</p>
+<a name="1068314"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>可以单击<b>“Cancel”（取消）</b>取消安装进程。 安装将回滚所作的更改。 如果在安装过程的某点单击<b>“Cancel”（取消）</b>，安装可能不会正确回滚，从而给系统留下不完整的安装。 请参阅“<a href="instwin.htm#1081939">安装失败时的系统恢复</a>”。
+ </td>
+  </tr>
+</table><ol type="1">
+
+<li value="9"><a name="1068315"></a>单击<b>“Install”（安装）</b>以安装选定的软件功能。
+<br><br>
+ </ol>
+<a name="1070259"></a><p class="indent"><b>“Installing Dell OpenManage Server Administrator”（安装 Dell OpenManage Server Administrator）</b>屏幕将会打开。 显示的信息会提供所安装软件功能的状况和进程。 所选功能安装后，<b>“Install Wizard Completed”（安装向导已完成）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="10"><a name="1057314"></a>单击<b>“Finish”（完成）</b>退出 Server Administrator 安装。
+<br><br>
+ </ol>
+<a name="1062892"></a><p class="indent">如果提示重新引导系统，必须重新引导它以使安装的 Managed System Software 服务可以使用。 如果提示重新引导系统，则选择一种重新引导选项： </p>
+<ul><ul>
+<li type="disc"><a name="1057322"></a><b>是，现在重新引导系统。</b><br><br></li>
+<li type="disc"><a name="1057324"></a><b>否，稍后重新引导系统。</b><br><br></li>
+</ul>
+</ul><a name="1057327"></a><h4> Server Administrator 与 Citrix 的安装</h4>
+<a name="1057328"></a><p>Citrix 会在安装时重新映射所有的硬盘驱动器号。 例如，如果在驱动器 <b>C:</b> 上安装了 Server Administrator，随后安装了 Citrix，会将驱动器号 <b>C:</b> 更改为 <b>M:</b>。 重新映射会导致 Server Administrator 不能正确工作。</p>
+<a name="1057334"></a><p>为避免此问题，请选择以下选项之一：</p>
+<a name="1057336"></a><p>选项 1：</p>
+<ol type="1">
+
+<li value="1"><a name="1057338"></a>卸载 Server Administrator。
+
+<br><br>
+<li value="2"><a name="1057340"></a>安装 Citrix。
+
+<br><br>
+<li value="3"><a name="1057342"></a>重新安装 Server Administrator。
+<br><br>
+</ol>
+<a name="1057344"></a><p>选项 2：</p>
+<a name="1057346"></a><p>安装 Citrix 后，键入以下命令：</p>
+<a name="1086157"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /fa SysMgmt.msi</span></p>
+<a name="1057349"></a><h4> 升级 Managed System Software</h4>
+<a name="1057350"></a><p><i>Dell PowerEdge Installation and Server Management </i>CD 具有<b>“Upgrade”（升级）</b>选项，可用于升级 Server Administrator 和其他 Managed System Software。</p>
+<a name="1057352"></a><p>将<i> Dell PowerEdge Installation and Server Management</i> CD 插入系统 CD 驱动器时，前提条件检查程序会使用系统的 PCI 总线搜索已安装硬件，例如控制器卡。</p>
+<a name="1057354"></a><p>安装程序会安装或升级所有适合特定系统硬件配置的 Managed System Software 功能。</p>
+<a name="1082854"></a><p>在升级期间，由于适用于您的系统的所有功能均已预先选定，所以您无法添加要安装的 Managed System Software 功能的列表。</p>
+<a name="1086792"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>不再支持  Dell OpenManage Array Manager。如果在升级安装有 Array Manager 的系统（使用 
+Dell OpenManage 4.3 或更高版本安装的系统），则在升级过程中会删除 Array Manager。可以使用 Storage Management 服务作为替代管理工具。</td>
+  </tr>
+</table>
+<a name="1067065"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>升级时将保留所有用户设置。
+</td>
+  </tr>
+</table><a name="1057358"></a><p>以下程序说明了如何升级 Server Administrator 和其它 Managed System Software。</p>
+<a name="1057360"></a><h5> 自定义升级</h5>
+<ol type="1">
+
+<li value="1"><a name="1064244"></a>将 <i>Dell PowerEdge Installation and Server Management </i>CD 插入系统的 CD 驱动器中。
+<br><br>
+ </ol>
+<a name="1073181"></a><p class="indent">如果 CD 没有自动启动安装程序，请转至系统桌面，依次双击<b>“My Computer”（我的电脑）</b>（或打开 Windows 资源管理器）、CD 驱动器图标、<b>srvadmin</b> 文件夹、<b>windows</b> 文件夹和 <b>setup.exe</b> 文件。</p>
+<a name="1065091"></a><p class="indent"><b>“Dell OpenManage Server Administrator prerequisite”（Dell OpenManage Server Administrator 前提条件）</b>状况屏幕会打开并为 Managed Station 运行前提条件检查。 会显示任何相关的通知、警告或错误信息。</p>
+<ol type="1">
+
+<li value="2"><a name="1057367"></a>单击<b>“Install, Modify, Repair, or Remove Server Administrator”（安装、修改、修复或删除 Server Administrator）</b>选项。<br>
+<b>“Welcome to the Install Wizard for Dell OpenManage Server Administrator ”（欢迎使用 Dell OpenManage Server Administrator 安装向导）</b>屏幕会打开。
+<br><br>
+</ol>
+<a name="1065095"></a><p class="indent">此屏幕随后会切换到<b>“Resuming the Install Wizard for Dell OpenManage Server Administrator”（为 Dell OpenManage Server Administrator 恢复安装向导）</b>屏幕。</p>
+<ol type="1">
+
+<li value="3"><a name="1057373"></a>单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1070297"></a><p class="indent"><b>“Installing Dell OpenManage Server Administrator”（安装 Dell OpenManage Server Administrator）</b>屏幕将会打开。 信息会显示并表明所安装或升级软件功能的状况和进程。 </p>
+<a name="1065103"></a><p class="indent">所选功能安装或升级后，<b>“Install Wizard Completed”（安装向导已完成）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="4"><a name="1057379"></a>单击<b>“Finish”（完成）</b>退出 Server Administrator 安装。
+<br><br>
+</ol>
+<a name="1065104"></a><p class="indent">如果提示重新引导系统，必须重新引导它以使安装的 Managed System Software 服务可以使用。</p>
+<a name="1065108"></a><p class="indent">还必须在更改操作系统磁盘前重新引导系统；比如在从基本磁盘升级到动态磁盘时。 如果提示重新引导系统，则选择一种重新引导选项： </p>
+<ul><ul>
+<li type="disc"><a name="1057389"></a><b>是，现在重新引导系统。</b><br><br></li>
+<li type="disc"><a name="1057391"></a><b>否，稍后重新引导系统。</b><br><br></li>
+</ul>
+</ul><a name="1070645"></a><h5> 自定义修改</h5>
+<ol type="1">
+
+<li value="1"><a name="1057396"></a>单击<b>“Start”（开始）</b>按钮，指向<b>“Settings”（设置）</b>→ <b>“Control Panel”（控制面板）</b>。<li value="2"><a name="1057398"></a>双击<b>“Add/Remove Programs”（添加/删除程序）</b>。
+
+<br><br>
+ <li value="3"><a name="1057400"></a>单击 <b>Dell OpenManage Server Administrator</b> 并单击<b>“Change”（更改）</b>。
+<br><br>
+ </ol>
+<a name="1065109"></a><p class="indent"><b>“Welcome to the Install Wizard for Dell OpenManage Server Administrator ”（欢迎使用 Dell OpenManage Server Administrator 安装向导）</b>对话框会打开。</p>
+<ol type="1">
+
+<li value="4"><a name="1057404"></a>单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1065113"></a><p class="indent"><b>“Program Maintenance”（程序维护）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="5"><a name="1057408"></a>选择<b>“Modify”（修改）</b>选项并单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1065117"></a><p class="indent"><b>“Custom Setup”（自定义安装）</b>对话框会打开。 </p>
+<ol type="1">
+
+<li value="6"><a name="1073186"></a>要选择特定的 Managed System Software 应用程序，单击所列功能旁边的下拉箭头并选择<b>“This feature will be installed...”（此功能将会安装...）</b>来进行安装，或者选择<b>“This feature will not be available”（此功能将不可用）</b>不进行安装。
+<br><br>
+</ol>
+<a name="1070341"></a><p class="indent">所选功能的旁边有一个硬盘驱动器图标。 取消选择的功能旁边有一个红色的 <b>X</b>。 默认情况下，如果前提条件检查程序发现没有支持硬件的软件功能，检查程序会取消选中该功能。</p>
+<ol type="1">
+
+<li value="7"><a name="1070342"></a>单击<b>“Next”（下一步）</b>接受要安装的所选软件功能。
+<br><br>
+ </ol>
+<a name="1070343"></a><p class="indent"><b>“Ready to Modify the Program”（准备修改程序）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="8"><a name="1057420"></a>单击<b>“Install”（安装）</b>以安装选定的软件功能。
+<br><br>
+ </ol>
+<a name="1065129"></a><p class="indent"><b>“Installing Dell OpenManage Server Administrator”（安装 Dell OpenManage Server Administrator）</b>屏幕将会打开。 显示的信息会提供所安装软件功能的状况和进程。 </p>
+<a name="1065133"></a><p class="indent">所选功能安装后，<b>“Install Wizard Completed”（安装向导已完成）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="9"><a name="1057426"></a>单击<b>“Finish”（完成）</b>退出 Server Administrator 安装。
+<br><br>
+</ol>
+<a name="1068364"></a><p class="indent">如果提示重新引导系统，必须重新引导它以使安装的 Managed System Software 服务可以使用。 如果提示重新引导系统，则选择一种重新引导选项： </p>
+<ul><ul>
+<li type="disc"><a name="1057434"></a><b>是，现在重新引导系统。</b><br><br></li>
+<li type="disc"><a name="1057436"></a><b>否，稍后重新引导系统。</b><br><br></li>
+</ul>
+</ul><a name="1057440"></a><h5> 自定义修复</h5>
+<ol type="1">
+
+<li value="1"><a name="1057441"></a>单击<b>“Start”（开始）</b>按钮，指向<b>“Settings”（设置）</b>→ <b>“Control Panel”（控制面板）</b>。<li value="2"><a name="1057443"></a>双击<b>“Add/Remove Programs”（添加/删除程序）</b>。
+
+<br><br>
+ <li value="3"><a name="1057445"></a>单击 <b>Dell Server Administrator</b> 并单击<b>“Change”（更改）</b>。
+<br><br>
+ </ol>
+<a name="1065139"></a><p class="indent"><b>“Welcome to the Install Wizard for Dell OpenManage Server Administrator ”（欢迎使用 Dell OpenManage Server Administrator 安装向导）</b>对话框会打开。</p>
+<ol type="1">
+
+<li value="4"><a name="1057449"></a>单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1065143"></a><p class="indent"><b>“Program Maintenance”（程序维护）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="5"><a name="1057453"></a>选择<b>“Repair”（修复）</b>选项并单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1065147"></a><p class="indent"><b>“Ready to Repair the Program”（准备修复程序）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="6"><a name="1057457"></a>单击<b>“Install”（安装）</b>以安装选定的软件功能。
+<br><br>
+ </ol>
+<a name="1070375"></a><p class="indent"><b>“Installing Dell OpenManage Server Administrator”（安装 Dell OpenManage Server Administrator）</b>屏幕将会打开。 显示的信息会提供所安装软件功能的状况和进程。 </p>
+<a name="1070376"></a><p class="indent">所选功能安装后，<b>“Install Wizard Completed”（安装向导已完成）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="7"><a name="1057463"></a>单击<b>“Finish”（完成）</b>退出 Server Administrator 安装。
+<br><br>
+ </ol>
+<a name="1076448"></a><p class="indent">如果提示重新引导系统，则选择一种重新引导选项： </p>
+<ul><ul>
+<li type="disc"><a name="1057469"></a><b>是，立即重新引导系统。</b><br><br></li>
+<li type="disc"><a name="1057471"></a><b>否，稍后重新引导系统。</b><br><br></li>
+</ul>
+</ul><a name="1081939"></a><h3> 安装失败时的系统恢复
+</h3>
+<a name="1081940"></a><p>Microsoft Software Installer (MSI) 提供了一种功能，使系统能够在安装失败后返回到完全正常的状态。 MSI 通过为安装、升级或卸载期间执行的每个标准操作都保留一个撤消操作来实现。 此操作包括恢复删除或改写的文件、注册表项和其它资源。 Windows 会临时保存安装或卸载期间删除或改写的任何文件以便可以在需要时恢复，这是一种回滚。 成功完成安装后，Windows 会删除所有临时的备份文件。</p>
+<a name="1064049"></a><p>除了回滚 MSI 标准操作外，Dell OpenManage 库还能够在回滚时撤消 INI 文件中列出的各个应用程序的命令。 Dell OpenManage 安装操作修改的所有文件将会在回滚时恢复到原有状态。 </p>
+<a name="1064050"></a><p>MSI 引擎执行安装序列时，会忽略计划为回滚操作的所有操作。 如果自定义操作、MSI 标准操作或 Dell OpenManage 安装操作失败，则回滚就会开始。 </p>
+<a name="1064983"></a><p>一旦安装完成后就不能回滚；事务处理安装的目的就是在安装会话期间作为保护系统的安全网。 如果要卸下安装的应用程序，只需卸载该应用程序就可以了。</p>
+<a name="1057482"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>驱动程序安装和卸载不是安装事务处理的一部分，因此如果在执行期间出现严重错误就不能回滚。
+ </td>
+  </tr>
+</table><a name="1058678"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>安装程序清除期间或安装事务完成后取消的安装、卸载和升级将不能回滚。
+ </td>
+  </tr>
+</table><a name="1068721"></a><h3> 失败的更新
+</h3>
+<a name="1070394"></a><p>供应商提供的 MSI 修补程序和更新程序必须应用到供应商提供的原 MSI 软件包中。 如果有意或无意中重新打包了 MSI 软件包，或直接进行了更改，修补程序和更新程序可能会失败。 MSI 软件包不得进行重新打包，这样将更改功能结构和 GUID，从而中断任何提供的修补程序或更新程序。 当有必要对供应商提供的 MSI 软件包进行更改时，应始终使用 <b>.mst</b> 转换文件。</p>
+<a name="1057503"></a><h3> Windows 安装程序日志记录
+</h3>
+<a name="1081694"></a><p>Windows 带有一种注册表激活的日志记录服务以帮助诊断 Windows 安装程序问题。 要在无提示安装期间启用这种日志记录服务，请使用 <b>Regedt32.exe</b> 打开注册表并创建以下路径和键：</p>
+<a name="1081695"></a><p><span class="screen">HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer<br>Reg_SZ: Logging<br>Value: voicewarmup </span></p>
+<a name="1081696"></a><p>值字段中的字母可以是任何顺序。 每个字母打开一种不同的日志记录模式。 每个字母的实际作用如以下 MSI 版本 3.1 中所示： </p>
+<a name="1081697"></a><p><span class="screen">v</span> - 详细输出<br><span class="screen">o</span> - 磁盘空间不足信息<br><span class="screen">i</span> - 状况信息<br><span class="screen">c</span> - 初始 UI 参数<br><span class="screen">e </span>- 所有错误信息<br><span class="screen">w</span> - 非严重错误警告<br><span class="screen">a </span>- 操作启动<br><span class="screen">r </span>- 操作特定的记录<br><span class="screen">m</span> - 内存不足或严重错误退出信息<br><span class="screen">u </span>- 用户请求<br><span class="screen">p</span> - 终端属性<br><span class="screen">+</span> - 附加到现有文件<br><span class="screen">! </span>- 将每一行刷新到日志<br><span class="screen">&quot;*&quot;</span> - 通配符，记录除 v 选项外的所有信息。 要包括 v 选项，指定 &quot;/l*v&quot;。</p>
+<a name="1081698"></a><p>激活后，就可以在 %TEMP% 目录中找到生成的日志文件。 此目录中生成的一些日志文件有：</p>
+<ul><li><a name="1081699"></a><b>管理系统安装</b><br><br></li>
+<ul>
+<li type="disc"><a name="1081700"></a><b>SysMgmt.log</b><br><br></li>
+</ul>
+<li><a name="1081701"></a><b>Management Station安装</b><br><br></li>
+<ul>
+<li type="disc"><a name="1081702"></a><b>MgmtSt.log</b><br><br></li>
+<li type="disc"><a name="1081703"></a><b>Msdeinstall.log</b><br><br></li>
+</ul>
+</ul><a name="1057536"></a><p>如果前提条件检查程序用户界面 (UI) 在运行，会默认创建这些特殊的日志文件。</p>
+<a name="1081823"></a><h3>升级 MSI 引擎</h3>
+<a name="1081818"></a><p>Dell OpenManage 软件使您可以在执行交互安装期间升级 MSI 引擎。对于无提示安装，必须在安装脚本中加入适当的命令。</p>
+<a name="1082220"></a><p>在部署脚本中使用以下命令可升级 MSI 引擎（如果需要）和安装/升级系统管理软件。</p>
+<a name="1082240"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>Dell OpenManage Systems Management 和 Management Station 安装程序要求具有 MSI 3.1 或更高版本。如果在使用运行 Windows Server 2003（不带 Service Pack）、Windows&#160;2000 Server 或 Windows XP 操作系统的系统，请更新 MSI 引擎。如果在使用运行 Windows Server 2003 SP1
+或 Windows Server 2003 x64 操作系统的系统，则不需要更新 the MSI 引擎。</td>
+  </tr>
+</table><a name="1085518"></a><p><span class="screen">:retry<br>start /wait msiexec /i SysMgmt.msi /qn<br>if %errorlevel% == 1613 (<br>REM UPGRADE THE WINDOWS INSTALLER ENGINE<br>start /wait WindowsInstaller-KB893803-v2-x86.exe /quiet /norestart<br>goto retry<br>)<br>if %errorlevel% == 1638 (<br>REM THIS IS A MINOR UPGRADE<br>start /wait msiexec /i SysMgmt.msi REINSTALL=ALL REINSTALLMODE=vomus/qn<br>)</span></p>
+<a name="1081865"></a><h3> 执行 Managed System Software 的无人值守安装
+ </h3>
+<a name="1081866"></a><p><i>Dell PowerEdge Installation and Server Management CD</i> 为无人值守安装过程提供了<b>“Express Setup”（快速安装）</b>选项和<b>“Custom Setup”（自定义安装）</b>选项。</p>
+<a name="1057543"></a><p>无人值守安装使您可以在多个系统上同时安装 Server Administrator。 您可以通过创建包含所有必需的 Managed System Software 文件的无人值守安装软件包来执行无人值守安装。 无人值守安装选项还提供了一些功能，使用户可以配置、验证和查看有关无人值守安装的信息。</p>
+<a name="1057545"></a><p>无人值守安装软件包使用独立软件供应商 (ISV) 的软件分发工具分发至远程系统。 软件包分发完毕后，安装脚本将执行软件安装。</p>
+<a name="1057547"></a><h4> 创建和分发快速无人值守安装软件包</h4>
+<a name="1057548"></a><p><b>“Express Setup”（快速安装）</b>无人值守安装选项使用 <i>Dell PowerEdge Installation and Server Management CD</i> 作为无人值守安装软件包。<b>msiexec.exe /i SysMgmt.msi /qb</b> 程序访问 <i>Dell PowerEdge Installation and Server Management CD</i> 接受软件许可协议，并在选定的远程系统上安装所有必需的 Server Administrator 功能。<b>msiexec.exe /i SysMgmt.msi /qb</b> 命令基于系统硬件配置在每个远程系统上安装 Server Administrator 功能。 </p>
+<a name="1057549"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>无人值守安装完成后，为了使用 Server Administrator 的命令行界面 (CLI) 功能，必须打开新的控制台窗口并从那里执行 CLI 命令。 从安装 Server Administrator 的同一控制台窗口执行 CLI 命令不会起作用。
+</td>
+  </tr>
+</table><a name="1057556"></a><p>可以将 <i>Dell PowerEdge Installation and Server Management </i>CD 映像提供给远程系统，方法是通过分发整个 CD 的内容，或者通过将驱动器从目标系统映射到 CD 映像的位置。</p>
+<a name="1057558"></a><h5> 映射驱动器以用作快速无人值守安装软件包</h5>
+<ol type="1">
+
+<li value="1"><a name="1057559"></a>将 <i>Dell PowerEdge Installation and Server Management CD</i> 的映像与要安装 Server Administrator 的每个远程系统进行共享。</ol>
+<a name="1057561"></a><p class="indent">您可以通过直接共享 CD 或将整个 CD 复制到磁盘驱动器并共享备份来完成此任务。</p>
+<ol type="1">
+
+<li value="2"><a name="1057563"></a>创建一个脚本，从远程系统到步骤 1 中说明的共享驱动器映射一个驱动器。 此脚本应在映射驱动器后执行 <b>msiexec.exe /i Mapped Drive\srvadmin\windows\SystemsManagement\SysMgmt.msi /qb</b>。<li value="3"><a name="1057565"></a>配置 ISV 分发软件以分发和执行步骤 2 中创建的脚本。
+
+<br><br>
+ <li value="4"><a name="1057567"></a>使用 ISV 软件分发工具将该脚本分发至目标系统。
+<br><br>
+ </ol>
+<a name="1057569"></a><p class="indent"><b>msiexec.exe /i Mapped Drive\srvadmin\windows\SystemsManagement\SysMgmt.msi /qb</b> 程序会执行以在每个远程系统上安装 Server Administrator。</p>
+<ol type="1">
+
+<li value="5"><a name="1057571"></a>重新引导每个远程系统以启用 Server Administrator。
+<br><br>
+ </ol>
+<a name="1057573"></a><h5> 分发整个 CD 以用作快速无人值守安装软件包</h5>
+<ol type="1">
+
+<li value="1"><a name="1057574"></a>将<i> Dell PowerEdge Installation and Server Management </i>CD 的整体映像分发给目标系统。<li value="2"><a name="1057576"></a>配置 ISV 分发软件以执行 <b>msiexec.exe /i CD Drive\srvadmin\windows\SystemsManagement\SysMgmt.msi /qb</b> 程序（从 <i>Dell&#160;PowerEdge 
+Installation and Server Management</i> CD 映像）。</ol>
+<a name="1057578"></a><p class="indent"><b>msiexec.exe /i CD Drive\srvadmin\windows\SystemsManagement\SysMgmt.msi /qb</b> 程序会执行以在每个远程系统上安装 Server Administrator。</p>
+<ol type="1">
+
+<li value="3"><a name="1057580"></a>重新引导每个远程系统以启用 Server Administrator。
+<br><br>
+ </ol>
+<a name="1057582"></a><h4> 创建和分发自定义无人值守安装软件包</h4>
+<a name="1057583"></a><p>要创建自定义无人值守安装软件包，请执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1068396"></a>将 <b>windows</b> 目录从 CD 复制到系统硬盘驱动器。
+
+<br><br>
+<li value="2"><a name="1073229"></a>创建将使用 Windows 安装程序引擎 (<b>msiexec.exe</b>) 执行安装的批处理脚本。
+<br><br>
+ </ol>
+<a name="1073234"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>对于自定义的无人值守安装，每个所需功能都必须作为命令行界面 (CLI) 参数包括在内才能被安装。
+</td>
+  </tr>
+</table>
+<a name="1057590"></a><p class="indent">例如，<span class="screen">msiexec.exe /i SysMgmt.msi ADDLOCAL=SA,IWS,BRCM /qb</span><b></b>。 （请参阅下面的“<a href="instwin.htm#1059594">自定义参数</a>”部分了解其它详情和可用功能标识。）</p>
+<ol type="1">
+
+<li value="3"><a name="1057595"></a>将该批处理脚本放在系统硬盘驱动器上的 <b>windows</b> 目录中。
+<br><br>
+</ol>
+<a name="1057598"></a><h5> 分发自定义无人值守安装软件包</h5>
+<a name="1057600"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span><b>“Custom Setup”（自定义设置）</b>无人值守安装中使用的 Server Administrator <b>SysMgmt.msi</b> 安装软件包（请参阅“<a href="instwin.htm#1057582">创建和分发自定义无人值守安装软件包</a>”）位于 srvadmin\<b>windows\SystemsManagement</b> 目录中。
+ </td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1057603"></a>配置 ISV 分发软件在分发安装软件包后执行批处理脚本。
+
+<br><br>
+ <li value="2"><a name="1057605"></a>使用 ISV 分发软件将自定义无人值守安装软件包分发至远程系统。<br> <b>msiexec.exe /i System Drive\srvadmin\windows\SystemsManagement\SysMgmt.msi 
+ADDLOCAL=SA,IWS,BRCM /qb</b> 程序会在多个远程系统上安装 Server Administrator 以及指定的功能。<li value="3"><a name="1057609"></a>重新引导每个远程系统以启用 Server Administrator。
+<br><br>
+ </ol>
+<a name="1065050"></a><h4> 指定日志文件位置</h4>
+<a name="1065041"></a><p>对于管理系统 MSI 安装，运行以下命令执行无人值守安装，同时指定日志文件位置：</p>
+<a name="1065030"></a>
+<p class="screenindent">msiexec.exe /i SysMgmt.msi /l*v &quot;C:\openmanage\logs\SysMgmt.log&quot;
+</p>
+<a name="1065026"></a><h4> 无人值守安装功能</h4>
+<a name="1057612"></a><p>无人值守安装提供以下功能：</p>
+<ul><ul>
+<li type="disc"><a name="1057614"></a>	 	 一组可选的命令行设置，用于自定义无人值守安装<br><br> </li>
+<li type="disc"><a name="1057615"></a>自定义参数，用于指定要安装的特定软件功能。<br><br> </li>
+<li type="disc"><a name="1057616"></a>	前提条件检查程序，用于检查选择的软件功能的相关性状况，而无需执行实际的安装。<br><br> </li>
+</ul>
+</ul><a name="1059535"></a><h5> 可选命令行设置</h5>
+<a name="1059536"></a><p><a href="instwin.htm#1060065">表&#160;6-1</a> 显示了用于 <b>msiexec.exe</b> MSI 安装程序的可选设置。 在命令行上，在 <b>msiexec.exe </b>后面键入可选的设置，各个设置间带一个空格。</p>
+<a name="1059539"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>请参阅 <b>support.microsoft.com </b>详细了解所有的 Windows 安装程序工具命令行开关。
+</td>
+  </tr>
+</table><a name="1077126"></a>
+<p><p class="FigureTableTitle"><a name="1060065"></a>表 6-1.  MSI 安装程序命令行设置&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1060069"> </a>
+<p><b>设置</b></p>
+
+
+</th><th valign="top" align="left"><a name="1060071"> </a>
+<p><b>结果</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1060107"></a><span class="screen">/i&lt;软件包|产品代码&gt;</span></p></td><td valign="top" align="left"><p><a name="1060113"></a>此命令安装或配置产品。</p><p><a name="1060120"></a><b>/i SysMgmt.msi</b><span class="screen"> </span>– 安装 Server Administrator 软件。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1081753"></a><span class="screen">/i SysMgmt.msi /qn</span></p></td><td valign="top" align="left"><p><a name="1082112"></a>此命令用于执行 5.0 版全新安装。也用于执行从 4.3 版到 5.0 版的次要升级。如果在使用运行 Windows Server 2003（不带 Service Pack）、Windows 2000 Server 或 Windows XP 操作系统，在运行此命令之前，必须先更新 MSI 引擎。请参阅“<a href="instwin.htm#1081823">升级 MSI 引擎</a>”，以了解有关升级 MSI 引擎和安装/升级
+Systems Management Software 的信息。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1081779"></a><span class="screen">/i SysMgmt.msi REINSTALL=ALL REINSTALLMODE=vomus /qn</span></p></td><td valign="top" align="left"><p><a name="1082131"></a>此命令用于执行次要升级，例如从 4.3 版升级到 4.4 版。如果在使用运行 Windows Server 2003（不带 Service Pack）、Windows 2000 Server 或 Windows XP 操作系统，在运行此命令之前，必须先更新 MSI 引擎。 请参阅“<a href="instwin.htm#1081823">升级 MSI 引擎</a>”，以了解有关升级 MSI 引擎和安装/升级
+Systems Management Software 的信息。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1060127"></a><span class="screen">/x&lt;软件包|产品代码&gt;</span></p><p><a name="1060089"></a></p></td><td valign="top" align="left"><p><a name="1060134"></a>此命令卸载产品。 </p><p><a name="1060136"></a><b>/x SysMgmt.msi</b> – 卸载 Server Administrator 软件。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1060085"></a><span class="screen">/q&lt;n|b|r|f&gt;</span></p></td><td valign="top" align="left"><p><a name="1079167"></a>此命令设置用户界面 (UI) 级别。 </p><p><a name="1079165"></a><b>/q</b> 或 <b>/qn</b> – 无 UI。 此选项用于无提示和无人值守安装。<br><b>/qb</b> – 基本 UI。 此选项用于无人值守安装，但不是无提示安装。<br><b>/qr</b> – 精简的 UI。 此选项用于无人值守安装，同时显示一个指示安装进度的模式对话框。<br><b>/qf</b><span class="screen"> </span>– 完全 UI。 此选项用于标准有人值守安装。 </p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1060185"></a><span class="screen">/f&lt;[p|o|e|d|c|a|u|m|s|v]软件包|产品代码&gt;</span></p></td><td valign="top" align="left"><p><a name="1060209"></a>此命令修复产品。</p><p><a name="1060210"></a><b>/fp</b> – 此选项只在缺少文件时重新安装产品。</p><p><a name="1060211"></a><b>/fo</b> – 此选项在缺少文件或安装了较旧版本的文件时重新安装产品。</p><p><a name="1060212"></a><b>/fe</b> – 此选项在缺少文件或安装了相同或较旧版本的文件时重新安装产品。</p><p><a name="1060213"></a><b>/fd</b> – 此选项在缺少文件或安装了不同版本的文件时重新安装产品。</p><p><a name="1060214"></a><b>/fc</b> – 此选项在缺少文件或存储的检查和值与计算值不匹配时重新安装产品。</p><p><a name="1060215"></a><b>/fa</b> – 此选项强制重新安装所有文件。</p><p><a name="1060216"></a><b>/fu</b> – 此选项重写所有必需的用户特定注册表项。</p><p><a name="1081213"></a><b>/fm</b> – 此选项重写所有必需的系统特定注册表项。</p><p><a name="1081217"></a><b>/fs</b> – 此选项覆盖所有现有快捷方式。</p><p><a name="1081218"></a><b>/fv</b> – 此选项从来源运行，并重新缓存本地软件包。初次安装应用程序或功能时不要使用 <b>/fv</b> 重新安装选项。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1071276"></a>INSTALLDIR=&lt;路径&gt;</p></td><td valign="top" align="left"><p><a name="1071278"></a>此命令将产品安装到特定的位置。 如果用此开关指定安装目录，必须在执行 CLI 安装命令前手工创建，否则命令将会失败，并且不会显示为什么会失败的错误或信息。</p><p><a name="1071279"></a><b>/i SysMgmt.msi INSTALLDIR=c:\OpenManage /qn</b> – 以 <b>c:\OpenManage</b> 为安装位置，将产品安装到这个特定位置。</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1059590"></a><p>例如，运行 <span class="screen">msiexec.exe /i SysMgmt.msi /qn</span> 会在每个远程系统上基于系统硬件配置安装 Server Administrator 功能。 此安装会以无提示并且无人值守的方式完成。</p>
+<a name="1059594"></a><h4> 自定义参数</h4>
+<a name="1076793"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>必须以大写键入 ADDLOCAL、REINSTALL 和 REMOVE CLI 参数，因为它们区分大小写。
+</td>
+  </tr>
+</table><a name="1076887"></a><p>通过 <b>ADDLOCAL</b>、<b>REINSTALL</b> 和 <b>REMOVE</b> 自定义 CLI 参数，可以明确指定在无提示或无人值守运行时要安装、重新安装或卸载的软件功能。 借助自定义参数，可以使用相同的无人值守安装软件包为不同的系统选择性安装、重新安装或卸载软件功能。 例如，您可以在一组特定服务器上选择安装 Server Administrator，而不安装 Remote Access Service，在另一组服务器上选择安装 Server Administrator，而不安装 Storage Management Service。 还可以选择在一组特定服务器上卸载一个或多个功能。</p>
+<a name="1076933"></a>
+<p><p class="FigureTableTitle"><a name="1076890"></a>表 6-2.  软件功能 ID</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1076894"> </a>
+<p><b>功能 ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="1076896"> </a>
+<p><b>说明</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1076902"></a>BRCM</p></td><td valign="top" align="left"><p><a name="1076904"></a>Broadcom NIC 代理</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076906"></a>INTEL</p></td><td valign="top" align="left"><p><a name="1076908"></a>Intel NIC 代理</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076910"></a>IWS</p></td><td valign="top" align="left"><p><a name="1076912"></a>Server Administrator Web Server</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076914"></a>OLD</p></td><td valign="top" align="left"><p><a name="1076916"></a>Diagnostic Service</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076918"></a>OMSM</p></td><td valign="top" align="left"><p><a name="1076920"></a>Storage Management</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076922"></a>RAC3</p></td><td valign="top" align="left"><p><a name="1076924"></a>Remote Access Controller (DRAC III)</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076926"></a>RAC4</p></td><td valign="top" align="left"><p><a name="1076928"></a>Remote Access Controller (DRAC 4)</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1087109"></a>RAC5</p></td><td valign="top" align="left"><p><a name="1087111"></a>Remote Access Controller (DRAC 5)</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076930"></a>SA</p></td><td valign="top" align="left"><p><a name="1076932"></a>Server Administrator</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1076935"></a><p>可以在命令行包括 <b>ADDLOCAL</b> 自定义参数，指定要安装的软件功能的功能 ID。 比如</p>
+<a name="1070467"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i SysMgmt.msi ADDLOCAL=BRCM /qb</span>.<span class="screen"> </span></p>
+<a name="1059601"></a><p>此命令会运行 Dell OpenManage Systems Management 的安装，并只安装 Broadcom 代理，模式为无人值守，但不是无提示。</p>
+<a name="1059603"></a><p>可以在命令行包括 <b>REINSTALL</b> 自定义参数，指定要重新安装的软件功能的功能 ID。 比如</p>
+<a name="1059605"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i SysMgmt.msi REINSTALL=BRCM /qb</span>.<span class="screen"> </span></p>
+<a name="1059607"></a><p>此命令会运行 Dell OpenManage Systems Management 的安装，并只重新安装 Broadcom 代理，模式为无人值守，但不是无提示。</p>
+<a name="1059609"></a><p>可以在命令行包括 <b>REMOVE</b> 自定义参数，指定要卸载的软件功能的功能 ID。 比如</p>
+<a name="1059611"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i SysMgmt.msi REMOVE=BRCM /qb</span>.<span class="screen"> </span></p>
+<a name="1059613"></a><p>此命令会运行 Dell OpenManage Systems Management 的安装，并只卸载 Broadcom 代理，模式为无人值守，但不是无提示。</p>
+<a name="1059615"></a><p>还可以选择运行 <b>msiexec.exe </b>程序一次性安装、重新安装和卸载功能。 比如</p>
+<a name="1062336"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i SysMgmt.msi ADDLOCAL=INTEL REINSTALL=OLD REMOVE=BRCM /qb</span></p>
+<a name="1074080"></a><p>此命令会运行 Managed System Software 的安装，并同时安装 Intel 代理，重新安装 Diagnostic Service 并卸载 Broadcom 代理程序。 将会在无人值守但不是无提示模式下执行。</p>
+<a name="1086602"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>全局唯一标识符 (GUID) 有 128 位长，用于生成 GUID 的算法保证了每个 GUID 是唯一的。 产品 GUID 唯一标识应用程序。 在这种情况下，Server Administrator 的产品 GUID 是 {89C7A9F7-2C31-4739-842D-F037B6C9B674}。</td>
+  </tr>
+</table><a name="1086603"></a><h3> MSI 返回代码
+</h3>
+<a name="1059767"></a><p>应用程序事件记录项记录在 <b>SysMgmt.log</b> 文件中。 <a href="instwin.htm#1067370">表&#160;6-3</a> 显示了 <b>msiexec.exe </b>Windows 安装程序引擎返回的一些错误代码。</p>
+<a name="1067405"></a>
+<p><p class="FigureTableTitle"><a name="1067370"></a>表 6-3.  Windows 安装程序返回代码&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1067376"> </a>
+<p><b>错误代码</b></p>
+
+
+</th><th valign="top" align="left"><a name="1067378"> </a>
+<p><b>值</b></p>
+
+
+</th><th valign="top" align="left"><a name="1067380"> </a>
+<p><b>说明</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><a name="1067382"></a><p class="screen">ERROR_SUCCESS
+</p></td><td valign="top" align="left"><a name="1067384"></a><p class="screen">0
+</p></td><td valign="top" align="left"><p><a name="1067386"></a>操作成功完成。</p></td></tr>
+<tr><td valign="top" align="left"><a name="1067388"></a><p class="screen">ERROR_INVALID_PARAMETER
+</p></td><td valign="top" align="left"><a name="1067390"></a><p class="screen">87
+</p></td><td valign="top" align="left"><p><a name="1067392"></a>其中一个参数无效。</p></td></tr>
+<tr><td valign="top" align="left"><a name="1067394"></a><p class="screen">ERROR_INSTALL_USEREXIT
+</p></td><td valign="top" align="left"><a name="1067396"></a><p class="screen">1602
+</p></td><td valign="top" align="left"><p><a name="1067398"></a>用户取消了安装。</p></td></tr>
+<tr><td valign="top" align="left"><a name="1067400"></a><p class="screen">ERROR_SUCCESS_REBOOT_REQUIRED
+</p></td><td valign="top" align="left"><a name="1067402"></a><p class="screen">3010
+</p></td><td valign="top" align="left"><p><a name="1067404"></a>需要重新启动以完成安装。 此信息表示成功安装。</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1059796"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>请参阅 <b>support.microsoft.com</b>，以详细了解 <b>msiexec.exe</b> 和 
+<b>InstMsi.exe</b> Windows 安装程序功能返回的所有错误代码。</td>
+  </tr>
+</table><a name="1059810"></a><h3> 卸载 Managed System Software
+</h3>
+<a name="1059811"></a><p>可以通过使用 <i>Dell PowerEdge Installation and Server Management</i> CD 或操作系统卸载 Managed System Software 功能。此外，您还可以在多个系统上同时执行无人值守卸载。</p>
+<a name="1083117"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>在 PowerEdge 1650、2650 和 4600 系统上卸载 Server Administrator 后，如果选择了卸载 Storage Management 服务，可能会要求重新引导系统。</td>
+  </tr>
+</table><a name="1059813"></a><h4> 使用 Installation and Server Management CD 卸载 Managed System Software</h4>
+<ol type="1">
+
+<li value="1"><a name="1064505"></a>将 <i>Dell PowerEdge Installation and Server Management </i>CD 插入系统的 CD 驱动器中。
+<br><br>
+ </ol>
+<a name="1073268"></a><p class="indent">如果 CD 没有自动启动安装程序，请转至系统桌面，依次双击<b>“My Computer”（我的电脑）</b>（或打开 Windows 资源管理器）、CD 驱动器图标、<b>srvadmin</b> 文件夹、<b>windows</b> 文件夹和 <b>setup.exe</b> 文件。</p>
+<a name="1073272"></a><p class="indent"><b>“Dell OpenManage Server Administrator prerequisite”（Dell OpenManage Server Administrator 前提条件）</b>状况屏幕会打开并为管理系统运行前提条件检查。 将会显示检查期间检测到的任何相关的通知、警告或错误信息。</p>
+<ol type="1">
+
+<li value="2"><a name="1059820"></a>单击<b>“Install, Modify, Repair, or Remove Server Administrator”（安装、修改、修复或删除 Server Administrator）</b>选项。
+<br><br>
+</ol>
+<a name="1063122"></a><p class="indent"><b>“Welcome to the Install Wizard for Dell OpenManage Server Administrator ”（欢迎使用 Dell OpenManage Server Administrator 安装向导）</b>屏幕将会打开。</p>
+<ol type="1">
+
+<li value="3"><a name="1059828"></a>单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1063126"></a><p class="indent"><b>“Program Maintenance”（程序维护）</b>对话框将会打开。 </p>
+<a name="1063130"></a><p class="indent">此对话框使您能够修改、修复或删除程序。</p>
+<ol type="1">
+
+<li value="4"><a name="1059834"></a>选择<b>“Remove”（删除）</b>选项并单击<b>“Next”（下一步）</b>。
+<br><br>
+</ol>
+<a name="1063131"></a><p class="indent"><b>“Remove the Program”（删除程序）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="5"><a name="1059838"></a>单击<b>“Remove”（删除）</b>。
+<br><br>
+</ol>
+<a name="1063135"></a><p class="indent"><b>“Uninstalling Dell OpenManage Server Administrator”（卸载 Dell OpenManage Server Administrator）</b>屏幕将会打开。 显示的信息会提供所卸载软件功能的状况和进程。 </p>
+<a name="1063139"></a><p class="indent">所选功能卸载后，<b>“Install Wizard Completed”（安装向导已完成）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="6"><a name="1059844"></a>单击<b>“Finish”（完成）</b>退出 Server Administrator 卸载。
+<br><br>
+ </ol>
+<a name="1066316"></a><p class="indent">如果提示重新引导系统，必须重新引导系统才能成功卸载。 如果提示重新引导系统，则选择一种重新引导选项： </p>
+<ul><ul>
+<li type="disc"><a name="1066318"></a><b>是，现在重新引导系统。</b><br><br></li>
+<li type="disc"><a name="1059854"></a><b>否，稍后重新引导系统。</b><br><br></li>
+</ul>
+</ul><a name="1059856"></a><p class="indent">将卸载所有 Server Administrator 功能。</p>
+<a name="1059859"></a><h4> 使用操作系统卸载 Managed System Software 功能</h4>
+<ol type="1">
+
+<li value="1"><a name="1059860"></a>单击<b>“Start”（开始）</b>按钮，指向<b>“Settings”（设置）</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">&#174;</font></span> <b>“Control Panel”（控制面板）</b>。
+
+<br><br>
+ <li value="2"><a name="1059862"></a>双击<b>“Add/Remove Programs”（添加/删除程序）</b>。
+
+<br><br>
+ <li value="3"><a name="1061324"></a>单击 <b>Dell OpenManage Server Administrator</b> 并单击<b>“Remove”（删除）</b>。
+<br><br>
+ </ol>
+<a name="1061326"></a><p class="indent"><b>“Add or Remove Programs”（添加或删除程序）</b>对话框将会打开。</p>
+<ol type="1">
+
+<li value="4"><a name="1059868"></a>单击<b>“Yes”（是）</b>确认卸载 Server Administrator。
+<br><br>
+ </ol>
+<a name="1059870"></a><p class="indent"><b>Dell OpenManage Server Administrator</b>屏幕将会打开。显示的信息会提供所卸载软件功能的状况和进程。</p>
+<a name="1063146"></a><p class="indent">如果提示重新引导系统，必须重新引导才能成功卸载。 如果提示重新引导系统，则选择一种重新引导选项： </p>
+<ul><ul>
+<li type="disc"><a name="1059878"></a><b>是，现在重新引导系统。</b><br><br></li>
+<li type="disc"><a name="1059880"></a><b>否，稍后重新引导系统。</b><br><br></li>
+</ul>
+</ul><a name="1059882"></a><p class="indent">将卸载所有 Server Administrator 功能。</p>
+<a name="1076089"></a><h4> 使用产品 GUID 进行无人值守卸载</h4>
+<a name="1076090"></a><p>如果卸载时没有可用的安装 CD 或 MSI 软件包，可使用以下命令行在运行 Windows 的管理系统或管理站上卸载 Dell OpenManage Systems Management Software。 对于这些情况，可使用软件包 GUID 卸载产品。</p>
+<a name="1076091"></a><p>对于管理系统，使用此命令：</p>
+<a name="1076092"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /x {89C7A9F7-2C31-4739-842D-F037B6C9B674}
+</span></p>
+<a name="1076093"></a><p>对于管理站，使用此命令：</p>
+<a name="1076094"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /x {6453394A-5BBE-4325-A854-1FD483612B8D}
+</span></p>
+<a name="1076087"></a><h4> 执行无人值守的 Managed System Software 卸载</h4>
+<a name="1059887"></a><p><i>Dell PowerEdge Installation and Server Management</i> CD 提供无人值守卸载程序。无人值守卸载使您可以从多个系统同时卸载 Managed System Software。 无人值守卸载软件包使用 ISV 软件分发工具分发至远程系统。 软件包分发完毕后，卸载脚本将执行软件卸载。</p>
+<a name="1059891"></a><h5> 分发无人值守卸载软件包</h5>
+<a name="1059892"></a><p><i>Dell PowerEdge Installation and Server Management</i> CD 经过预配置，可作为无人值守卸载软件包。要将该软件包分发至一个或多个系统，请执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1059894"></a>配置 ISV 分发软件在分发无人值守卸载软件包后执行 <b>msiexec.exe /x CD 
+Drive\srvadmin\windows\SystemsManagement\SysMgmt.msi /qb</b> 程序。<li value="2"><a name="1059896"></a>使用 ISV 软件分发软件将快速无人值守卸载软件包分发至远程系统。
+<br><br>
+ </ol>
+<a name="1059898"></a><p class="indent"><b>msiexec.exe /x CD Drive\srvadmin\windows\SystemsManagement\SysMgmt.msi /qb </b>程序会执行以在每个远程系统上卸载 Managed Systems Software。</p>
+<ol type="1">
+
+<li value="3"><a name="1059900"></a>重新引导每个远程系统以完成卸载过程。
+<br><br>
+ </ol>
+<a name="1059902"></a><h5> 无人值守卸载命令行设置</h5>
+<a name="1059903"></a><p><a href="instwin.htm#1060065">表&#160;6-1</a> 显示无人值守卸载可用的无人值守卸载命令行设置。 在命令行上，在 <span class="screen">msiexec.exe /x SysMgmt.msi</span> 后面键入可选的设置，各个设置间带一个空格。</p>
+<a name="1059905"></a><p>例如，运行 <span class="screen">msiexec.exe /x SysMgmt.msi /qb</span> 将会运行无人值守卸载，并在运行时显示无人值守安装状况。</p>
+<a name="1063162"></a><p>运行 <span class="screen">msiexec.exe /x SysMgmt.msi /qn</span> 将运行无人值守无提示（不显示窗口）的卸载。<b></b></p>
+<hr noshade size="1">
+<a name="1064678"></a><h2>使用第三方部署软件进行 Managed System Software 安装</h2>
+
+
+<a name="1071513"></a><p>可以使用第三方部署软件，比如 Altiris Deployment Solution，来将 Managed System Software 安装到所支持的 Dell 系统上。 要使用 Altiris 分发并安装 Server Administrator，请启动 Altiris 应用程序并导入 <b>OpenManage_Jobs.bin</b>（位于 <i>Dell&#160;PowerEdge Installation and Server Management</i> CD 上的 \<b>srvadmin\support\Altiris</b> 内）。指定将其导入到的工作文件夹。 可能需要修改<b>“Run Script”（运行脚本）</b>和<b>“Copy File”（复制文件）</b>任务来与部署环境相匹配。完成后，还可安排在 Altiris Deployment Solution 管理的支持的 Dell 系统上运行的工作。</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">返回目录页</a></p>
+
+
+<p>&#160;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

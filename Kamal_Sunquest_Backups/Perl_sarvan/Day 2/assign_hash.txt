@@ -1,0 +1,18 @@
+1. Create an hash table of empid and name.
+   a)	Display in the order of empid
+   b)	Given the empid, display the name
+   c)	Find if more than one person has the same name
+
+2. a) Check whether a given file of strings has duplicates
+   b) sort the file based on the length of strings
+
+3. Write a program to read a file with the following structure
+   House # : Area : # of people
+   Find
+   a) total number of people
+   b) total number of people in each area
+   c) max. number of people in a house
+
+4. a) Write a program to create a hash of dept names and corresponding 
+      value should be a list of employees in the dept.
+   b) Write a program to check which dept has the highest number of employees

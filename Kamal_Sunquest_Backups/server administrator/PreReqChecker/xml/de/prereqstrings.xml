@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PRCheckStringList [
+  <!ELEMENT CaptionString (#PCDATA)>
+  <!ATTLIST CaptionString cap_id ID #REQUIRED>
+  <!ELEMENT CaptionStringList (CaptionString+)>
+  <!ELEMENT DescriptionString (#PCDATA)>
+  <!ATTLIST DescriptionString des_id ID #REQUIRED>
+  <!ELEMENT DescriptionStringList (DescriptionString+)>
+  <!ELEMENT PRCheckStringList (StatusStringList,DescriptionStringList,CaptionStringList,URLStringList,LinkStringList,AllPassStringList,AllFailStringList,HeadingFeatureStringList,HeadingDescriptionStringList)>
+  <!ELEMENT StatusString (#PCDATA)>
+  <!ATTLIST StatusString stat_id ID #REQUIRED>
+  <!ELEMENT StatusStringList (StatusString+)>
+  <!ELEMENT URLString (#PCDATA)>
+  <!ATTLIST URLString url_id ID #REQUIRED>
+  <!ELEMENT URLStringList (URLString+)>
+  <!ELEMENT LinkString (#PCDATA)>
+  <!ATTLIST LinkString lnk_id ID #REQUIRED>
+  <!ELEMENT LinkStringList (LinkString+)>
+  <!ELEMENT AllPassString (#PCDATA)>
+  <!ATTLIST AllPassString alp_id ID #REQUIRED>
+  <!ELEMENT AllPassStringList (AllPassString+)>
+  <!ELEMENT AllFailString (#PCDATA)>
+  <!ATTLIST AllFailString alf_id ID #REQUIRED>
+  <!ELEMENT AllFailStringList (AllFailString+)>
+  <!ELEMENT HeadingFeatureString (#PCDATA)>
+  <!ATTLIST HeadingFeatureString hfs_id ID #REQUIRED>
+  <!ELEMENT HeadingFeatureStringList (HeadingFeatureString+)>
+  <!ELEMENT HeadingDescriptionString (#PCDATA)>
+  <!ATTLIST HeadingDescriptionString hds_id ID #REQUIRED>
+  <!ELEMENT HeadingDescriptionStringList (HeadingDescriptionString+)>
+]>
+<PRCheckStringList>
+	<StatusStringList>
+		<!--These are not used or displayed to the user-->
+		<StatusString stat_id="stat000">Erfolgreich</StatusString>
+		<StatusString stat_id="stat001">Informationen</StatusString>
+		<StatusString stat_id="stat002">Warnung</StatusString>
+		<StatusString stat_id="stat003">Fehler</StatusString>
+	</StatusStringList>
+	<DescriptionStringList>
+		<!--Start of Management Station and Server Administrator checks common to more than one feature-->
+		<DescriptionString des_id="desc_admin">Der derzeitige Benutzer besitzt keine administrativen Berechtigungen. Die Server Administrator-Software kann nur von einem Benutzer mit administrativen Berechtigungen installiert werden.</DescriptionString>
+		<DescriptionString des_id="desc_signinvalid">Das MSI-Paket enthält keine gültige Signatur.</DescriptionString>
+		<DescriptionString des_id="desc_oldom">Auf dem System wurde eine ältere Version der Server Administrator-Software oder der Management Station Software ermittelt. Diese Version kann erst installiert werden, wenn alle vorhergehenden Versionen dieser Anwendungen deinstalliert sind.</DescriptionString>
+		<DescriptionString des_id="desc_mncdfolder">Die Voraussetzungsprüfung hat ermittelt, dass Sie von einer CD ausführen. Das CD-Layout stimmt jedoch nicht mit dem Layout der offiziellen Server Administrator CD überein. Die Datei SysMgmt.msi muss unter dem Ordner \\srvadmin\\windows\\SystemsManagement erscheinen, da die Installation/Erweiterung sonst eventuell nicht funktioniert.</DescriptionString>
+		<DescriptionString des_id="desc_mscdfolder">Die Voraussetzungsüberprüfung hat ermittelt, dass Sie von einer CD ausführen. Das CD-Layout stimmt jedoch nicht mit dem Layout der offiziellen Management Station CD überein. Die Datei MgmtSt.msi muss unter dem Ordner \\windows\\ManagementStation erscheinen, da die Installation/Erweiterung sonst eventuell nicht funktioniert.</DescriptionString>
+		<DescriptionString des_id="desc_msiinprogress">Der Registrierungsschlüssel für den Windows Installer zeigt an, dass zurzeit eine Installation ausgeführt wird. Warten Sie, bis alle Installationen abgeschlossen sind, und versuchen Sie dann die Installation erneut. Wenn das Problem weiterhin besteht, auch wenn zurzeit keine Installation ausgeführt wird, verwenden Sie Regedit, um den \"InProgress\"-Registrierungsschlüssel manuell von folgendem Registrierungsstruktur-Standort zu entfernen: \"HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\".</DescriptionString>
+		<!--DFCT 16770 - Adding the description for MSI UPGRADE STATUS-->
+		<DescriptionString des_id="desc_msiupgradestatus">Das System muss neu gestartet werden, um wartende Vorgänge für Dateiumbenennungen zu entfernen. Beim Neustart entfernt das Betriebssystem automatisch den Registrierungsschlüssel \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\PendingFileRenameOperations\". Somit wird sichergestellt, dass die MSI-Erweiterung erfolgreich ist.</DescriptionString>
+		<!--This string will be used for any ids that are not found by the reporting utility -->
+		<DescriptionString des_id="desc_notfound">Zeichenkette wurde nicht gefunden</DescriptionString>
+		<!-- This string will be used if the executed attribute for a PRCheck element is false or if the status was not found for the PRCheck -->
+		<DescriptionString des_id="desc_error">Diese Voraussetzungsüberprüfung wurde nicht auf diesem System durchgeführt.</DescriptionString>
+		<!--Start of Array Manager checks -->
+		<!--End   of Array Manager checks -->
+		<!--End   of Management Station and Server Administrator checks common to more than one feature-->
+		<!--Start of Management Station checks -->
+		<!--Start of Management Station checks common to more than one feature-->
+		<DescriptionString des_id="desc_ita001">Der erforderliche SNMP-Dienst wurde auf diesem Host nicht gefunden. SNMP muss installiert und aktiviert sein, damit IT Assistant oder andere auf SNMP basierende Verwaltungskonsolen ordnungsgemäß funktionieren können.</DescriptionString>
+		<DescriptionString des_id="desc_autryupgradestation">Eine ältere Version von Management Station wurde auf dem System ermittelt. Das Management Station-Installationsprogramm wird zunächst alle vorhergehenden Management Station Applications entfernen und danach die ausgewählten Anwendungen installieren. ANMERKUNG: Alle Server Administrator-Anwendungen werden ebenfalls entfernt werden. Bei einem unterstützten Server können Sie, nach der Management Station-Installation, die Server Administrator-Anwendungen mithilfe der neuesten Version des Server Administrator-Installationsprogramms installieren.</DescriptionString>
+		<DescriptionString des_id="desc_curversionstation">Die aktuelle Version von Management Station (einige/alle Komponenten) ist bereits auf dem System installiert. Das Management Station-Installationsprogramm ermöglicht Ihnen, Management Station zu ändern, reparieren oder zu entfernen.</DescriptionString>
+		<DescriptionString des_id="desc_downgradestation">Es ist bereits eine neuere Version von Management Station (einige/alle Komponenten) auf diesem System installiert.</DescriptionString>
+		<!--End   of Management Station checks common to more than one feature-->
+		<!--Start of IT Assistant checks -->
+		<!--End   of Management Station checks common to more than one feature-->
+		<!--Start of IT Assistant checks -->
+		<DescriptionString des_id="desc_ita002">Es wurde eine vorhergehende Version des IT Assistant auf einem System ermittelt, das auf das Betriebssystem Microsoft(R) Windows(R) Server 2003 erweitert wurde. Die erforderlichen Anleitungen zur richtigen Erweiterung des IT Assistant finden Sie im Abschnitt \"Installation\" im \"IT Assistant-Benutzerhandbuch\".</DescriptionString>
+		<DescriptionString des_id="desc_ita003">IT Assistant-Dienste können nicht auf einem System installiert werden, auf dem die Anwendung Network Manager Version 1.0.x-1.4.x installiert ist.</DescriptionString>
+		<DescriptionString des_id="desc_ita004">IT Assistant kann nicht auf einem System installiert werden, auf dem das Microsoft(R) Windows(R) 2000-Betriebssystem über eine Terminalsitzung ausgeführt wird, in der Terminaldienste im Anwendungsmodus aktiviert sind. Führen Sie die Installation lokal auf dem System aus.</DescriptionString>
+		<DescriptionString des_id="desc_ita005">IT Assistant Version 6.2 oder höher wird zur Erweiterung in dieser Version unterstützt. Deinstallieren Sie die vorhandene IT Assistant-Version bevor Sie mit der Installation fortfahren.</DescriptionString>
+		<DescriptionString des_id="desc_ita008">IT Assistant kann nicht installiert werden, wenn die Komponenten \"Dell OpenManage Connection\", Version 2.1 und früher für HP OpenView, Version 1.1 und früher für Microsoft(R) Systems Management-Server oder Version 1.2 und früher für CA Unicenter TNG auf diesem System installiert sind.</DescriptionString>
+		<DescriptionString des_id="desc_ita009">Die auf diesem System installierte Version von Microsoft(R) SQL Server ist niedriger als 8.0. Installieren Sie Microsoft SQL Server Version 8.0 oder höher, um die Installation fortzuführen.</DescriptionString>
+		<DescriptionString des_id="desc_ita010">IT Assistant unterstützt keine nicht-standardmäßige Instanz von Microsoft(R) SQL-Server 2000. Die Installation kann nur fortgefahren werden, wenn Sie eine standardmäßige Instanz von Microsoft SQL Server 2000 installieren, oder die nicht-standardmäßige Instanz von Microsoft SQL Server 2000 deinstallieren.</DescriptionString>
+		<DescriptionString des_id="desc_ita011">Die Microsoft(R) SQL Client-Software wurde ermittelt. Deinstallieren Sie diese Software bevor Sie fortfahren.</DescriptionString>
+		<DescriptionString des_id="desc_ita012">Stellen Sie sicher, dass die Microsoft(R) SQL Server- oder Microsoft Database Engine-Dienste (MSDE) nicht beschädigt sind und starten können.</DescriptionString>
+		<DescriptionString des_id="desc_ita013">Das erforderliche TCP/IP-Protokoll wurde nicht gefunden.</DescriptionString>
+		<DescriptionString des_id="desc_ita014">IT Assistant kann nicht auf Firmenkunden-Servern installiert werden.</DescriptionString>
+		<DescriptionString des_id="desc_ita015">Es ist bereits eine neuere Version von IT Assistant auf diesem System installiert.</DescriptionString>
+		<DescriptionString des_id="desc_ita016">Microsoft(R) Database Engine (MSDE) ist auf diesem System nicht installiert. MSDE 2000 muss vor der Installation der IT Assistant-Funktion auf der Management Station installiert sein. Klicken Sie auf das folgende Link, um MSDE zu installieren:  </DescriptionString>
+		<DescriptionString des_id="desc_ita017">IT Assistant kann nicht auf einem System installiert werden, auf dem ein Microsoft(R) Windows(R) x64-Betriebssystem ausgeführt wird.</DescriptionString>
+		<!--End of IT Assistant checks -->
+		<!-- Start of Remote Access Controller checks -->
+		<DescriptionString des_id="desc_drac004">Die Remote Access Controller-Funktion des Server Administrator wurde ermittelt. Die Remote Access Controller-Funktion von Management Station wird nicht als benutzerdefinierte Option angeboten.</DescriptionString>
+		<DescriptionString des_id="desc_drac006">Die Remote Access Controller-Management Station kann nicht auf einem System installiert werden, auf dem ein Microsoft(R) Windows(R) x64-Betriebssystem ausgeführt wird.</DescriptionString>
+		<!-- End   of Remote Access Controller checks -->
+		<!-- Start of Active Directory checks -->
+		<DescriptionString des_id="desc_adem64t">Das Installationsprogramm der Management Station enthält die 32-Bit-Version des Active Directory-Snap-In-Dienstprogramms. Die 64-Bit-Version des Active Directory-Snap-In-Dienstprogramms kann vom Support-Verzeichnis auf der CD "Consoles" oder dem Windows Web-Download-Paket der Management Station installiert werden.</DescriptionString>
+		<!-- End of Active Directory checks -->
+		<!--End of Management Station checks -->
+		<!--End of Management Station checks -->
+		<!--Start of Managed System checks -->
+		<!--Start of Managed System checks common to more than one feature-->
+		<DescriptionString des_id="desc_curversionnode">Die aktuelle Version des Server Administrator ist bereits auf dem System installiert. Das Server Administrator-Installationsprogramm ermöglicht Ihnen, Server Administrator zu ändern, reparieren oder entfernen.</DescriptionString>
+		<DescriptionString des_id="desc_downgradenode">Es ist bereits eine neuere Version von Server Administrator auf diesem System installiert.</DescriptionString>
+		<!--End   of Managed System checks common to more than one feature-->
+		<!--Start of Server Administrator checks -->
+		<!--End   of Managed System checks common to more than one feature-->
+		<!--Start of Server Administrator checks -->
+		<DescriptionString des_id="desc_systemnotsupported">Die Systems Management Software kann auf diesem System nicht installiert werden.</DescriptionString>
+		<DescriptionString des_id="desc_oldsystem">Server Administrator wird auf diesem System nicht mehr unterstützt. Bitte verwenden Sie die CD Server Administrator Version 3.3.0, um die Server Administrator-Software auf diesem System zu installieren.</DescriptionString>
+		<DescriptionString des_id="desc_sa001">Die Betriebssystem-Unterstützung für SNMP ist nicht installiert. Sie können Server Administrator installieren, aber Sie können dieses System nicht über SNMP verwalten.</DescriptionString>
+		<DescriptionString des_id="desc_sa002">Die Server Administrator-Software kann auf Grund des Betriebssystems oder der Service Pack-Stufe nicht auf diesem System installiert werden. Die Server Administrator-Software kann nur auf Microsoft(R) Windows(R) 2000 mit Service Pack 4 oder höher, oder auf Windows 2003 mit Service Pack 1, installiert werden. </DescriptionString>
+		<DescriptionString des_id="desc_sa003">Server Administrator-Instrumentationstreiber können nicht auf Microsoft(R) Windows(R) 2000 installiert werden, wenn die lokale oder die Domänen-Sicherheitsregel keine unsignierte Nicht-Treiber-Installation unterstützt. Weitere Anleitungen zur korrekten Server Administrator-Installation finden Sie in der Installations-Infodatei (readme_ins.txt im Infodateiverzeichnis).</DescriptionString>
+		<DescriptionString des_id="desc_autryupgradenode">Eine ältere Version des Server Administrator wurde auf dem System ermittelt. Das Server Administrator-Installationsprogramm wird zunächst alle vorhergehenden Server Administrator-Anwendungen entfernen und danach die ausgewählten Anwendungen installieren. ANMERKUNG: Alle Management Station Applications werden ebenfalls entfernt werden. Nach der Installation des Server Administrator können Sie die Management Station Applications mithilfe der neuesten Version des Management Station-Installationsprogramms neu installieren.</DescriptionString>
+		<!--End   of Server Administrator checks -->
+		<!-- Start of Remote Access Controller checks -->
+		<DescriptionString des_id="desc_drac">Ein Remote Access Controller  III oder 4 konnte auf diesem Server nicht ermittelt werden. Dadurch wird die \"Schnell\"installation des Remote Access Controllers deaktiviert. Wenn Sie einen Remote Access Controller III oder 4 installiert haben, dann verwenden Sie später während der Installation den Setup-Typ \"Benutzerdefinierte\" Installation, um diese Funktion auszuwählen.</DescriptionString>
+		<DescriptionString des_id="desc_drac001">Remote Access Controller kann erst vollständig funktionieren, wenn Remote Access Service (RAS) installiert ist.</DescriptionString>
+		<DescriptionString des_id="desc_drac002">Für Remote Access Controller müssen Sie nach der Software-Installation eine PPP-Einwählverbindung konfigurieren.</DescriptionString>
+		<DescriptionString des_id="desc_drac003">Microsoft(R) Domain Name Services (DNS) oder Windows(R) Internet Name Service (WINS) wurden auf dem System ermittelt. Weitere Informationen können Sie in der INFODATEI des Server Administrator im Abschnitt PROBLEME BEIM REMOTE-ZUGRIFF nachlesen.</DescriptionString>
+		<DescriptionString des_id="desc_drac005">Die Remote Access Controller-Funktion von Management Station wurde ermittelt. Die Remote Access Controller-Funktion von Server Administrator wird nicht als benutzerdefinierte Option angeboten.</DescriptionString>
+		<!-- End   of Remote Access Controller checks -->
+		<!--Start of Array Manager checks -->
+		<DescriptionString des_id="desc_am009">Die Array Manager-Konsole kann nicht auf einem System installiert werden, auf dem ein Microsoft(R) Windows(R) x64-Betriebssystem ausgeführt wird.</DescriptionString>
+		<DescriptionString des_id="desc_am010">Array Manager kann nicht auf einem System installiert werden, auf dem ein Microsoft(R) Windows(R) x64-Betriebssystem ausgeführt wird.</DescriptionString>
+		<DescriptionString des_id="desc_NASRAIDError">Dieses System ist ein Software-RAID-NAS-Gerät, das mithilfe von Windows Disk Management sowohl Festplatten als auch Datenträger verwaltet. Dell OpenManage Array Manager wird auf Software-RAID-Konfigurationen von PV745N nicht unterstützt.  Array Manager kann mithilfe der Installationsoption "Schnell" nicht installiert werden.</DescriptionString>
+		<DescriptionString des_id="desc_NASAMInfo">Dieses System ist ein NAS-Gerät mit Hardware-RAID-Controller. Für Dell OpenManage Array Manager ist es erforderlich, Festplatten und Datenträger zu verwalten. Wählen Sie die Installationsoption "Benutzerdefiniert" und wählen Sie Array Manager zur Installation aus.</DescriptionString>
+		<DescriptionString des_id="desc_aminfo">Auf diesem System wurde Array Manager ermittelt. Es wird empfohlen, den erweiterten Storage Management Service von Server Administrator zu installieren, indem Sie nach der Software-Erweiterung zu \"Software\" wechseln. Weitere Informationen finden Sie in der Infodatei des Installationsprogramms (readme_ins.txt im Verzeichnis Readme).</DescriptionString>
+		<!--End   of Array Manager checks -->
+		<!--Start of OpenManage Storage Management checks -->
+		<DescriptionString des_id="desc_omsm001">Setup hat ermittelt, dass Array Manager auf dem System installiert ist.  Array Manager muss deinstalliert werden, bevor Dell OpenManage Storage Management installiert werden kann.</DescriptionString>
+		<DescriptionString des_id="desc_omsm002">Setup hat ermittelt, dass ein FAST-Paket auf dem System installiert ist.  Es wird empfohlen, das FAST-Paket vor der Installation von Storage Management oder Array Manager zu deinstallieren.</DescriptionString>
+		<DescriptionString des_id="desc_omsm003">Setup hat ermittelt, dass eine PERC-Konsole auf dem System installiert ist.  Es wird empfohlen, die PERC-Konsole vor der Installation von Storage Management zu deinstallieren.</DescriptionString>
+		<DescriptionString des_id="desc_omsm004">Einer oder mehrere der Speicher-Controller besitzen einen veralteten Treiber.  Weitere Informationen finden Sie nach der Installation unter dem Register Speichermedien.</DescriptionString>
+		<DescriptionString des_id="desc_omsm005">Einer oder mehrere der Speicher-Controller besitzen eine veraltete Firmware.  Weitere Informationen finden Sie nach der Installation unter dem Register Speichermedien.</DescriptionString>
+		<DescriptionString des_id="desc_omsm006">Bei der Erstinstallation des Storage Management auf dem System werden die Firmware- oder Gerätetreiber für PERC 2- oder PERC 3/Di-Controller möglicherweise nicht gefunden. Weitere Informationen finden Sie nach der Installation auf der graphischen Benutzeroberfläche (GUI) von Server Administrator unter der Registerkarte \"Speicher\".</DescriptionString>
+		<!--End   of OpenManage Storage Management checks -->
+		<!--Start of Intel network adapter checks -->
+		<DescriptionString des_id="desc_intel">Es wurde keine Intel(R)-NIC auf diesem System ermittelt.</DescriptionString>
+		<DescriptionString des_id="desc_intelem64t">Auf diesem System wurde eine Intel(R) NIC festgestellt. Die 64-Bit-Version des Intel-SNMP-Agenten sollte vom Support-Verzeichnis auf der CD \"Installation and Server Management\" oder dem Windows Web-Download-Paket des Server Administrator installiert werden.</DescriptionString>
+		<!--End   of Intel network adapter checks -->
+		<!--Start of Broadcom network adapter checks -->
+		<DescriptionString des_id="desc_brcm">Es wurde keine Broadcom-NIC auf diesem System ermittelt.</DescriptionString>
+		<DescriptionString des_id="desc_brcmem64t">Auf diesem System wurde eine Broadcoml(R) NIC festgestellt. Die 64-Bit-Version des Broadcom-SNMP-Agenten sollte vom Support-Verzeichnis auf der CD \"Installation and Server Management\" oder dem Windows Web-Download-Paket des Server Administrator installiert werden.</DescriptionString>
+		<!--End   of Broadcom network adapter checks -->
+		<!--Start of Instrumentation checks -->
+		<DescriptionString des_id="rbs_dataengine205">Um ordnungsgemäß zu funktionieren, müssen die auf diesem System installierten SNMP-Pakete für Hilfsprogramme aktualisiert werden, die SNMP-Vorgänge ausführen, um mit dem System zu kommunizieren.  Ein Beispiel eines solchen Hilfsprogramms ist IT Assistant.  Die neuesten SNMP-Errata-Pakete finden Sie auf der Red Hat(R)-Website unter "www.redhat.com/errata".</DescriptionString>
+		<DescriptionString des_id="rbs_disney051">Server Administrator unterstützt den ausgeführten Kernel nicht.  Weitere Informationen finden Sie unter Dynamische Kernel-Unterstützung in der Infodatei des Server Administrators.</DescriptionString>
+		<DescriptionString des_id="rbs_disney052">Der ucd-snmp-SNMP-Agent ist nicht installiert.  Installieren Sie das ucd-snmp-Paket aus der Red Hat(R)-Distribution und versuchen Sie es erneut.</DescriptionString>
+		<DescriptionString des_id="rbs_disney053">Der SMNP-Port wurde anscheinend durch die Firewall geschlossen. Die Remote-Verwaltung dieses Systems mit SNMP ist eventuell nicht möglich. Weitere Informationen finden Sie unter Firewall-Konfiguration in der Infodatei des Server Administrators.</DescriptionString>
+		<DescriptionString des_id="rbs_disney055">Das auf diesem System installierte e100 RPM-Paket ist nicht kompatibel mit dieser Version des Server Administrators. Sie müssen das e100 RPM-Paket mittels der CD Server Assistant Version 7.0.1 oder höher aktualisieren, bevor Sie Server Administrator installieren oder aktualisieren.</DescriptionString>
+		<!--End   of Instrumentation checks -->
+		<!--End   of Managed System checks -->
+		<DescriptionString des_id="desc_usesubscription">Dieses Installationspaket kann nicht zur Installation von Systems Management Software auf diesem System verwendet werden. Verwenden Sie eine Abonnementversion dieser Software oder laden Sie die neueste Version der Systems Management Software unter http://www.support.dell.com herunter.</DescriptionString>
+		<DescriptionString des_id="desc_majorupgradenode">In diesem System wurde eine ältere Version des Server Administrators ermittelt. Durch Fortfahren wird der Server Administrator erweitert. Funktionen, die nicht während der Erweiterung ausgewählt werden, werden entfernt, wenn diese derzeit installiert sind.</DescriptionString>
+		<DescriptionString des_id="desc_majorupgradestation">Auf diesem System wurde eine ältere Version der Management Station Software ermittelt. Ein Fortfahren wird die Management Station Software erweitern. Funktionen, die während der Erweiterung nicht ausgewählt werden, werden entfernt, wenn diese derzeit installiert sind.</DescriptionString>
+		<DescriptionString des_id="desc_mnamremoval">Array Manager wurde auf dem System erkannt. Wenn Sie fortfahren, wird Array Manager vom System entfernt und Dell OpenManage(TM) Server Administrator Storage Management installiert.</DescriptionString>
+		<DescriptionString des_id="desc_msamremoval">Auf diesem System wurde eine Array Manager-Konsole ermittelt. Wenn Sie Fortfahren, wird die Array Manager-Konsole entfernt.</DescriptionString>
+		<DescriptionString des_id="desc_msiengine">Sie müssen den Microsoft(R) Installer auf diesem System auf die Version 3.1 erweitern. Klicken Sie auf den folgenden Link, um den MSI zu erweitern:</DescriptionString>
+		<DescriptionString des_id="desc_r2nohwmgmt">Microsoft(R) Windows Server(TM) 2003 R2 ist derzeit auf dem System installiert, die optionale Hardwareverwaltungskomponente für R2 ist derzeit nicht installiert. Die Hardwareverwaltungskomponente enthält einen IPMI-Treiber. Weitere Informationen finden Sie in der Infodatei (readme_ins.txt im Verzeichnis Readme).</DescriptionString>
+		<DescriptionString des_id="desc_r2nodriver">Auf dem System ist derzeit die Hardwareverwaltungskomponente Microsoft(R) Windows Server(TM) 2003 R2 installiert, aber der mit der Hardwareverwaltungskomponente verbundene IPMI- Gerätetreiber ist derzeit nicht installiert. Weitere Informationen finden Sie in der Infodatei (readme_ins.txt im Verzeichnis Readme).</DescriptionString>
+		<DescriptionString des_id="desc_wssr2nohwmgmt">Microsoft(R) Windows(R) Speicherserver 2003 R2 ist derzeit auf dem System installiert. Die optionale Hardwareverwaltungskomponente für R2, die einen IPMI-Treiber enthält, ist derzeit jedoch nicht installiert. Weitere Informationen finden Sie in der Infodatei (\"readme_ins.txt\" im Verzeichnis Infodatei).</DescriptionString>
+		<DescriptionString des_id="desc_wssr2nodriver">Auf dem System ist derzeit die Hardwareverwaltungskomponente Microsoft(R) Windows(R) Speicherserver 2003 R2 installiert. Der mit der Hardwareverwaltungskomponente verbundene IPMI- Gerätetreiber ist derzeit jedoch nicht installiert. Weitere Informationen finden Sie in der Installations-Infodatei (\"readme_ins.txt\" im Verzeichnis Infodatei).</DescriptionString>
+	</DescriptionStringList>
+	<CaptionStringList>
+		<CaptionString cap_id="cap_ads">Active Directory Service</CaptionString>
+		<CaptionString cap_id="cap_all">Alle Funktionen</CaptionString>
+		<CaptionString cap_id="cap_amcheck">Array Manager</CaptionString>
+		<CaptionString cap_id="cap_amcon">Array Manager-Konsole</CaptionString>
+		<CaptionString cap_id="cap_bmc">Baseboard-Verwaltungskonsole</CaptionString>
+		<CaptionString cap_id="cap_broadcomcheck">Broadcom(R)-SMNP-Agent</CaptionString>
+		<CaptionString cap_id="cap_draccheck">Remote Access Controller</CaptionString>
+		<CaptionString cap_id="cap_draccheckMS">Remote Access Controller Management Station</CaptionString>
+		<CaptionString cap_id="cap_intelcheck">Intel(R)-SNMP-Agent</CaptionString>
+		<CaptionString cap_id="cap_itacheck">IT Assistant</CaptionString>
+		<CaptionString cap_id="cap_iws">Server Administrator-Web-Service</CaptionString>
+		<CaptionString cap_id="cap_old">Onlinediagnose</CaptionString>
+		<CaptionString cap_id="cap_omssam">Storage Management und Array Manager</CaptionString>
+		<CaptionString cap_id="cap_omsscheck">OpenManage Storage Management</CaptionString>
+		<CaptionString cap_id="cap_sa">Server Administrator</CaptionString>
+	</CaptionStringList>
+	<URLStringList>
+		<URLString url_id="url_MSDE">omsetup/de/Install_MSDE.htm</URLString>
+		<URLString url_id="url_MSI">omsetup/de/Install_MSI.htm</URLString>
+	</URLStringList>
+	<LinkStringList>
+		<LinkString lnk_id="lnk_MSDE">MSDE installieren</LinkString>
+		<LinkString lnk_id="lnk_MSI">Microsoft(R) Installer (MSI) erweitern</LinkString>
+	</LinkStringList>
+	<AllPassStringList>
+		<AllPassString alp_id="alp_allpass">Die Voraussetzungsprüfung fand keine Probleme mit diesem System.</AllPassString>
+	</AllPassStringList>
+	<AllFailStringList>
+		<AllFailString alf_id="alf_allfail">Die Voraussetzungsprüfungen konnten nicht auf diesem System ausgeführt werden. Weitere Informationen dazu finden Sie im Benutzerhandbuch.</AllFailString>
+		<AllFailString alf_id="alf_tmpldoc">Die Voraussetzungsprüfungen wurden auf dem System nicht ausgeführt, da es nicht möglich war, die Datei prereqreporttemplate.xml zu laden.</AllFailString>
+		<AllFailString alf_id="alf_reportdoc">Die Voraussetzungsprüfungen wurden auf dem System nicht ausgeführt, da es nicht möglich war, die Datei omprereqcheck.xml zu laden.</AllFailString>
+		<AllFailString alf_id="alf_nomn_file">Die Voraussetzungsprüfungen wurden auf dem System nicht ausgeführt, da es nicht möglich war, die Datei prereq_mn.xml zu laden.</AllFailString>
+		<AllFailString alf_id="alf_noms_file">Die Voraussetzungsprüfungen wurden auf dem System nicht ausgeführt, da es nicht möglich war, die Datei prereq_ms.xml zu laden.</AllFailString>
+		<AllFailString alf_id="alf_registry">Die Voraussetzungsprüfungen wurden auf dem System nicht ausgeführt, da der Registrierungsschlüssel HKEY_LOCAL_MACHINE\\SOFTWARE\\Dell Computer Corporation nicht die notwendigen Berechtigungseinstellungen hat.  Weitere Informationen können Sie in der Dokumentation nachlesen.</AllFailString>
+	</AllFailStringList>
+	<HeadingFeatureStringList>
+		<HeadingFeatureString hfs_id="hfs_feature">Funktion</HeadingFeatureString>
+	</HeadingFeatureStringList>
+	<HeadingDescriptionStringList>
+		<HeadingDescriptionString hds_id="hds_description">Beschreibung</HeadingDescriptionString>
+	</HeadingDescriptionStringList>
+</PRCheckStringList>

@@ -1,0 +1,18 @@
+# Assignment :
+# Files
+
+1. Find # of char, # of lines and # of words in a file.
+2. Break a file into no. of words. Find the number of occurrences of each word. Output words in the decreasing
+order of frequency.
+3. Break a file into words. Generate an index. Output the line numbers on which each word occurs. Please note that
+the word can occur more than once in a file, that word can also occur more than once on the same line.
+
+4. Compare two sorted files. Indicate the differences. 
+5. Given a line number, display the file.
+6. Given a number of files, check for the occurrence of a
+pattern,
+	a) goto next file once the pattern is found in a file - skip remaining processing
+	B) display n lines above and n lines below once the
+ match is found
+
+	 

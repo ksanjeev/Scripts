@@ -1,0 +1,1014 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<meta name="SUBJECT" content="system">
+<meta name="REVISION" content="A00">
+<meta name="MS.LOCALE" content="EN">
+
+<title>Dell OpenManage ソフトウェアクイックインストールガイド </title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+<script language="javascript" src="/oma/js/disable-action.js"></script>
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table1">
+	<tr>
+		<td class="top-separator" align="left" bgcolor="#ffffcc" width="18">
+		<img border="0" src="topcurve.gif" width="18" height="30"></td>
+		<td class="top-separator" align="left" bgcolor="#ffffcc" nowrap="nowrap">
+		<span style="font-weight: 700; background-color: rgb(255, 255, 204);">
+		<font face="Arial" size="4">&#160;</font><font face="Arial" size="3"> Dell OpenManage&#8482; ソフトウェアクイックインストールガイド</font></span></td>
+	</tr>
+</table>
+<p class="title">&#160;</p>
+<table border="0" cellpadding="4" cellspacing="0" width="100%" id="table2">
+	<tr>
+		<td valign="top" width="3%">
+		<img border="0" src="bullet.gif" width="12" height="12"></td>
+		<td valign="top" width="49%">
+		<a href="#wp1111863">Dell&#8482; PowerEdge&#8482; システムの最大活用法</a> </td>
+		<td valign="top" width="1%">
+		<img border="0" src="bullet.gif" width="12" height="12">
+  
+  		</td>
+		<td valign="top" width="44%">
+		<a href="#wp1125684">管理ステーションへの Systems Management Software のインストール</a></td>
+	</tr>
+	<tr>
+		<td valign="top" width="3%">
+		<img border="0" src="bullet.gif" width="12" height="12"></td>
+		<td valign="top" width="49%">
+		<a href="#wp1112608">Dell OpenManage Systems Management Software Kit の内容確認</a></td>
+		<td valign="top" width="1%">
+		<img border="0" src="bullet.gif" width="12" height="12">
+  
+  		</td>
+		<td valign="top" width="44%">
+		<a href="#wp1125580">ドライバおよびユーティリティのアップデート</a></td>
+	</tr>
+	<tr>
+		<td valign="top" width="3%">
+		<img border="0" src="bullet.gif" width="12" height="12"></td>
+		<td valign="top" width="49%">
+		<a href="#wp1124551">Systems Management Software の概要</a> </td>
+		<td valign="top" width="1%">
+		<img border="0" src="bullet.gif" width="12" height="12">
+  
+   
+   		</td>
+		<td valign="top" width="44%">
+		<a href="#wp1112241">セキュリティ
+	パッチとホットフィックス</a>		  
+ </td>
+	</tr>
+	<tr>
+		<td valign="top" width="3%">
+		<img border="0" src="bullet.gif" width="12" height="12"></td>
+		<td valign="top" width="49%">
+		<a href="#wp1125034">Server Assistant を使用したオペレーティングシステムのインストール</a> </td>
+		<td valign="top" width="1%">
+		<img border="0" src="bullet.gif" width="12" height="12">
+  		</td>
+		<td valign="top" width="44%">
+		<a href="#wp1125735">テクニカルサポートのご利用について</a></td>
+	</tr>
+	<tr>
+		<td valign="top" width="3%">
+		<img border="0" src="bullet.gif" width="12" height="12"> </td>
+		<td valign="top" width="49%">
+		<a href="#wp1125722">管理下システムへの Systems Management Software のインストール</a> </td>
+		<td valign="top" width="1%">
+		&#160;</td>
+		<td valign="top" width="44%">
+		&#160;</td>
+	</tr>
+</table>
+<p>『クイックインストールガイド』 は、『Dell PowerEdge Installation and Server Management CD』、『Dell Systems Management Consoles CD』、『Dell PowerEdge Documentation CD』から、英語、フランス語、ドイツ語、スペイン語、日本語、簡体字中国語で入手できます。</p>
+<hr>
+
+
+<a name="wp1111863"></a>
+<h3>Dell&#8482; PowerEdge&#8482; システムの最大活用法</h3>
+
+
+
+<p>システムをすぐに起動するには、付属の CD をお使いください。 一貫性と信頼性のある結果と、問題のないオペレーションを実現します。 このCD は次の機能を提供しています。</p>
+
+
+<ul><li><a name="1126372"></a><span style="font-style: normal; font-weight: bold">オペレーティングシステムの円滑なインストール</span> &#8212; わかりやすい順を追ったプロセスによって、Microsoft<span style="font-style: normal; font-weight: normal">&#174; </span>Windows<span style="font-style: normal; font-weight: normal">&#174;</span>、Red Hat<span style="font-style: normal; font-weight: normal">&#174; </span>Enterprise Linux、および SUSE<span style="font-style: normal; font-weight: normal">&#174; </span>Linux Enterprise Server オペレーティングシステムのインストール時間が短縮されます。 <br><br></li><li><a name="1111866"></a><span style="font-style: normal; font-weight: bold">セットアップと設定</span> &#8212; PowerEdge システムとそのソフトウェアの設定に必要なツールを提供します。 これらのツールは、デル提供の RAID コントローラとネットワークアダプタを自動検出して設定します。<br><br> </li><li><a name="1111867"></a><span style="font-style: normal; font-weight: bold">	 	 ユーティリティ、ドライバ、診断</span> &#8212; Dell ソフトウェアのドライバと診断ディスケットの作成や表示ができます。<br><br> </li><li><a name="1111868"></a><span style="font-style: normal; font-weight: bold">	 	 Systems Management</span> &#8212; システムの信頼性と可用性が最大となるように Dell OpenManage&#8482; ソフトウェアアプリケーションをインストールします。 これらのアプリケーションは、システムをリモートからモニタ、診断、アップデートするために必要なツールを提供します。<br><br> </li><li><a name="1112574"></a><span style="font-style: normal; font-weight: bold">	 	 マニュアル</span> &#8212; 使用可能なシステム、Systems Management Software、RAID コントローラ、周辺機器などのマニュアルに、対応言語で簡単にアクセスできます。<br><br> </li></ul><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>Red Hat Enterprise Linux または SUSE LINUX Enterprise Server オペレーティングシステム実行中のシステムでマニュアルを表示するには、該当する言語ディレクトリから<b>index.htm</b> を起動します。</td>
+</tr>
+</table><br>
+<a href="index.htm">トップに戻る</a><br><hr><a name="wp1112608"></a><h3>Dell OpenManage Systems Management Software Kit の内容確認</h3>
+
+
+
+<p>Systems Management Software Kit には次のコンポーネントが含まれています。 </p>
+
+
+<ul><li><a name="1112641"></a><i></i>『Dell PowerEdge Installation and Server Management CD』はブータブル CD で、システムの設定とオペレーティングシステムのインストールに必要なツールを提供します。 この CD には、Dell OpenManage Server Administrator Diagnostics、Storage Management、Remote Access Service などを含む最新の Systems Management Software 製品が入っています。<br><br> </li><li><a name="1111885"></a>『Dell Systems Management Console<span style="font-style: italic; font-weight: normal"> </span>CD』には Dell OpenManage IT Assistant を含む最新のデルのシステム管理コンソール製品の全てが入っています。<br><br></li><li><a name="1111886"></a>『Dell PowerEdge Service and Diagnostic Utilities CD』には、システムを設定するツールを提供し、最新の診断、デル用に最適化されたドライバなどが含まれています。<br><br></li><li><a name="1129265"></a>『Dell PowerEdge Update CD』は Subscription Service Kit にのみ含まれており、Dell OpenManage Server Update Utility (SUU) と Dell Update Packages (DUP) を通じてシステムの最新ソフトウェアバージョンを提供します。 
+	SUU は Microsoft Windows 用と Linux 用、それぞれ個別のCDで提供されます。<br><br></li><li><a name="1111887"></a><i></i>『Dell PowerEdge Documentation CD』からは、システム、Systems Management Software 製品、周辺機器、および RAID コントローラの最新マニュアルにアクセスできます。<br><br> </li></ul>
+
+<p>また、これらほとんどの CD には <b>readme</b> ファイルが含まれ、製品に関する最新情報が記載されています。</p>
+
+
+
+
+<p>システムアクセサリボックスの内容を、システムに添付される梱包内容明
+細書または送り状と照らし合わせてください。 コンポーネントに不足や損傷があった場合は、送り状の日付から 30 日以内にデルまでお電話いただくと無償で交換いたします。 詳細については、「<a href="index.htm#wp1125735">テクニカルサポートのご利用について</a>」を参照してください。<br>
+<br>
+<a href="index.htm">トップに戻る</a></p>
+<hr>
+
+<a name="wp1124551"></a><h3>Systems Management Software の概要</h3>
+
+
+
+<p>Dell OpenManage Systems Management ソフトウェアは PowerEdge および 
+Dell&#8482; PowerVault&#8482; システム用のアプリケーションプログラムのソフトウェアスィートです。 このソフトウェアを使用すると、問題を未然に防ぐモニタ、診断、通知、リモートアクセスなどの機能を使ってシステムを管理できます。</p>
+
+
+
+
+<p>Dell OpenManage ソフトウェア製品で管理する個々のシステムを<u>管理下システム</u>と呼びます。 <u>管理下システム</u>用アプリケーションには Server Administrator やRemote Access Controller (RAC) ソフトウェアなどが含まれます。</p>
+
+
+
+
+<p><i></i><u>管理ステーション</u>は、中央から 1 台または複数台の<u>管理下システム</u>をリモートで管理するために使用します。<i></i></p>
+
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>Windows 環境下では、Dell OpenManage Array Manager コンソール（管理ステーション用）は、前の Dell OpenManage 
+Management Station Software（Array Manager コンソールがインストールされた状態で）が検知された場合にのみ使用可能です。できるのはアップグレードだけです。 </td>
+</tr>
+</table>
+
+<p><a href="index.htm#wp1113601">図 &#160;1-1</a> は、管理ステーションと管理下システムの関係を示しています。 <a href="index.htm#wp1113601">図 &#160;1-1</a> また、管理システムにインストールできるオペレーティングシステムと Dell OpenManage ソフトウェア製品も示しています。</p>
+
+
+<p class="FigureTableTitle"><a name="wp1113601"></a>図 1-1.  管理ステーションと管理システムの例</p>
+<a name="wp1115010"> </a><p>
+</p><div>
+	<img src="cc149eb6.jpg" height="469" width="577" align="center" border="0" hspace="0" vspace="0">
+</div><p>
+
+</p>
+
+
+<p>表 1-1  は、Dell OpenManage 製品を説明しています。</p>
+
+
+<a name="wp1125037"> </a><p>
+<p class="FigureTableTitle"><a name="wp1126807"></a>表 1-1.  Dell OpenManage Systems Management Software
+アプリケーション&#160;</p>
+
+
+
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="wp1126818"></a>
+<p align="Left"><b>機能</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1126820"></a>
+<p align="Left"><b>ソフトウェア製品</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1126822"></a>
+<p align="Left"><b>CD</b></p>
+
+
+</th><th valign="top" align="left"><a name="wp1126824"></a>
+<p align="Left"><b>説明</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p>サーバーの設定とオペレーションシステムのインストール</p>
+
+
+</td><td valign="top" align="left"><p>Server Assistant</p>
+
+
+<p>&#160;</p>
+
+
+</td><td valign="top" align="left"><p>Installation and Server Management</p>
+
+
+<p>&#160;</p>
+
+
+</td><td valign="top" align="left"><p>このユーティリティは次の機能を提供します。</p>
+
+
+<ul><li><a name="1126835"></a>RAID コントローラとネットワークインターフェースを含む順を追ったシステム設定</li><li><a name="1126836"></a>Windows、 Red Hat Enterprise Linux およびSUSE LINUX Enterprise Server オペレーティングシステムのためのインストールサポート</li><li><a name="1126837"></a>PowerEdge システム用の Dell 最適化デバイスドライバ</li></ul></td></tr>
+<tr><td valign="top" align="left"><p>ローカルシステムの管理（RAID の設定と管理を含む）</p>
+
+
+</td><td valign="top" align="left"><p>Server Administrator</p>
+
+
+</td><td valign="top" align="left"><p>Installation and Server Management</p>
+
+
+</td><td valign="top" align="left"><p>個々の Dell システムを一貫した方法で総合的にモニタ、設定、管理する PowerEdge システム用の管理ソリューションです。</p>
+
+
+<p>Server Administrator は次の機能を提供しています。</p>
+
+
+<ul><li><a name="1126847"></a>セキュリティ管理</li><li><a name="1126848"></a>コマンドラインインタフェース（CLI）</li><li><a name="1126849"></a>広範囲のログ収集</li><li><a name="1126850"></a>ホストベース RAID サブシステムの設定と状態のレビューとレポート</li>
+	<li>システムの作動中にハードウェア問題を分離する診断ツール</li>
+	<li>ユーザーインターフェースに表示されたエラーとパフォーマンス詳細情報へのクイックアクセス</li>
+	<li>ローカルシステムのローカル管理の許可とリモート管理のサポート</li>
+	<li>システムにローカルに取り付けられた RAID および 非 RAID ディスクストレージ
+            の設定機能の強化</li>
+	<li>内蔵グラフィカル表示内の Storage Management 情報<br>
+	監視下システムに取り付けられたローカルおよびリモートのストレージの状態</li>
+	<li>SAS、SCSI、SATA、ATA のサポート（ファイバチャネルを除く）</li></ul></td></tr>
+<tr><td valign="top" align="left"><p><span style="font-style: normal; font-weight: normal">
+	ローカルおよびリモートシステムの管理</span></p>
+
+
+</td><td valign="top" align="left"><p><span style="font-style: normal; font-weight: normal">
+	Remote Access Controller（DRAC 5、DRAC 4、DRAC III、DRAC III/XT、DRAC/MC、ERA、ERA/O、ERA/MC）</span></p>
+
+
+</td><td valign="top" align="left"><p><span style="font-style: font-weight: normal">Installation and Server Management</span></p>
+
+
+</td><td valign="top" align="left"><p>これらのハードウェアおよびソフトウェア
+        ソリューションは、次の機能を実行
+        します。</p>
+
+
+<ul><li><a name="1127861"></a>システムに関する警告メッセージを発行し、リモートからのシステム管理を可能にしてシステム管理者がシステムを直接チェックする必要性を削減する</li><li><a name="1127862"></a>総括的な Dell システムの可用性を向上させる</li><li><a name="1127863"></a>作動不能システムにリモートアクセスを提供して、ローカルコンソールの完全制御を可能にする</li><li><a name="1127846"></a>監視下システムのリモート管理（BIOS 設定、シャットダウン、起動、
+         RAC セキュリティを含む）</li>
+	<li>コントローラ BIOS ユーティリティを使わずに 1 つのグラフィカルインタフェース
+        または CLI によって、対応する RAID / 非 RAID のコントローラとエンクロージャすべてのために
+        コントローラとエンクロージャの機能を実行する機能</li>
+	<li>データ冗長性の設定、ホットスペアの割り当て、エラーのあるドライブの再構成によって
+        データを保護する機能</li></ul></td></tr>
+<tr><td valign="top" align="left"><p>状態とその報告</p>
+
+
+</td><td valign="top" align="left"><p>IT Assistant</p>
+
+
+</td><td valign="top" align="left"><p>Systems Management Consoles</p>
+
+
+</td><td valign="top" align="left"><p>Systems Management コンソールプログラム。通常 1 台の管理ステーションにインストールされ、情報の収集や管理システムの一覧表示ができます。 IT Assistant は次の機能を実行します。</p>
+
+
+<ul><li><a name="1126882"></a>ディスク、メモリ、電圧、ファン、温度状態のイベントを、電子メール、コンソール警告などでシステム管理者に通知するエラー監視機能</li><li><a name="1126883"></a>サービスタグ番号、所有コスト情報、BIOS、マイクロプロセッサ、メモリの詳細などのインベントリと資産の報告</li>
+	<li>Server Administrator、Remote Access コンソール、Dell PowerConnect&#8482; スイッチコンソール、デジタル KVM コンソールなどのデバイス専用ツールのインコンテキスト起動</li></ul></td></tr>
+<tr><td valign="top" align="left"><p>リモート管理</p>
+
+
+<p>&#160;</p>
+
+
+</td><td valign="top" align="left"><p>Remote Access Controller Utility</p>
+
+
+</td><td valign="top" align="left"><p>Systems Management Consoles</p>
+
+
+</td><td valign="top" align="left"><p>このソフトウェアは以下の機能を実行します。</p>
+
+
+<ul><li><a name="1126902"></a>総括的な Dell システムの可用性を向上させる</li><li><a name="1126903"></a>作動不能システムにリモートアクセスを提供して、ローカルコンソールの完全制御を可能にする</li><li><a name="1127377"></a>監視下システムのリモート管理（BIOS 設定、シャットダウン、起動、
+         RAC セキュリティを含む）</li></ul></td></tr>
+<tr><td valign="top" align="left"><p>&#160;</p>
+
+
+</td><td valign="top" align="left"><p>BMC
+ 管理ユーティリティ</p>
+
+
+</td><td valign="top" align="left"><p>Systems Management Consoles</p>
+
+
+</td><td valign="top" align="left"><p>IPMI プロトコルを使って、ベースボード管理コントローラ（BMC）搭載コンピュータのリモート管理と設定を行うユーティリティ。</p>
+
+
+</td></tr>
+<tr><td valign="top" align="left"><p>Dell 専用 Microsoft Active Directory<sup class="cSuperscript">&#174;</sup> オブジェクトの管理</p>
+
+
+</td><td valign="top" align="left"><p>Active Directory スナップインユーティリティ</p>
+
+
+<p>&#160;</p>
+
+
+</td><td valign="top" align="left"><p>Systems Management Consoles</p>
+
+
+<p>&#160;</p>
+
+
+</td><td valign="top" align="left"><p>Microsoft Active Directory の [Active Directory ユーザーとコンピュータ] スナップインに拡張スナップインを提供して、Dell 特定の Active Directory オブジェクトを管理します。 Dell-仕様のスキーマクラス定義およびそのインストールも、この
+    CD に含まれています。</p>
+
+
+<p>Dell 専用のスキーマクラスが Active Directory スキーマに追加されているときにこのオプションを使用できます。</p>
+
+
+</td></tr>
+<tr><td valign="top" align="left"><p>ドライバの識別とインストール</p>
+
+
+</td><td valign="top" align="left"><p>システムソフトウェア解凍ユーティリティ</p>
+
+
+</td><td valign="top" align="left"><p>Service and Diagnostic Utilities</p>
+
+
+</td><td valign="top" align="left"><p>システムのアップデートのためのデバイスドライバとユーティリティの提供</p>
+
+
+</td></tr>
+<tr><td valign="top" align="left"><p>ソフトウェアアップデート</p>
+
+
+</td><td valign="top" align="left"><p>Server Update Utility および Dell Update Packages</p>
+
+
+</td><td valign="top" align="left"><p>Updates</p>
+	<span class=notes>メモ：</span>Subscription Service Kit と併せてのみ提供</p>
+
+
+</td><td valign="top" align="left"><p>Server Update Utility および Dell Update Packages を通じてシステムの新しいソフトウェアバージョンを提供</p>
+
+
+</td></tr>
+
+</table>
+</p>&#160;<p><a href="index.htm">トップに戻る</a></p><hr>
+<a name="wp1125034"></a>
+
+<h3>Server Assistant を使用したオペレーティングシステムのインストール</h3>
+
+
+
+<p>オペレーティングシステムをインストール済みかどうかの確認は次の手順で
+行います。</p>
+
+
+<ol type="1">
+<a name="wp1112004"></a>
+
+<li value="1">キーボード、マウス、およびモニタの接続を確認してから、システムの電源を入れます。<br><br><a name="wp1112005"></a>
+
+<li value="2">ソフトウェア使用許諾契約書を読み、
+その内容を承諾して処理を継続します。
+<br><br>
+ </ol>
+
+<p class="indent">ブート可能なドライブがない、またはオペレーティング
+システムが見つからない旨のメッセージが表示された場合、そのシステムには
+オペレーティングシステムがインストールされていません。 『オペレーティングシステム CD』を用意して、次の手順から処理を継続します。 </p>
+
+
+<p class="indent">オペレーティングシステムをインストール済みの場合、この作業は不要です。 システムに添付されるオペレーティングシステムの <i></i><u>インストール手順</u> に関するマニュアルを用意し、それに従ってインストール作業を実行します。</p>
+
+
+
+<p>次の手順でシステムにオペレーティングシステムをインストールします。 </p>
+
+
+<ol type="1">
+<a name="wp1127423"></a>
+
+<li value="1">『Dell PowerEdge Installation and Server Management<span style="font-style: italic; font-weight: normal"> 
+</span>CD』を挿入してシステムを再起動します。
+<br><br></ol>
+
+<p class="indent">システムの起動時には以下のオプションが使用可能です。</p>
+
+<ul><ul><li type="disc"><a name="1127350"></a>Server Assistant &#8212; CDからの起動。<br><br></li><li type="disc"><a name="1127351"></a>CD メディア確認を伴う Server Assistant &#8212; CD が正しく作成されたかどうかの確認と内容の有効性の確認。<br><br></li><li type="disc"><a name="1127352"></a>CD による起動の省略 - ハードドライブから起動 &#8212; ハードドライブから起動してシステムにオペレーティングシステムがインストールされているかの確認。 オペレーティングシステムがシステムにインストールされていない場合、CD から起動します。<br><br></li></ul></ul>
+
+<table class="indent" border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>10 秒以内にこのオプションを選択しない場合、システムは CD から自動的に起動します。</td>
+</tr>
+</table>
+
+<ol type="1">
+<a name="wp1112009"></a>
+
+<li value="2"><b>Server Assistant</b><span style="font-style: normal; font-weight: bold"></span> のメインページにある <b>サーバー設定</b> を選択します。
+<br><br><a name="wp1112010"></a>
+
+<li value="3">各手順に従って、ハードウェアの設定とオペレーティングシステム
+のインストールを継続します。
+<br><br>
+</ol>
+
+
+<p><i></i>RAID のインストールの詳細については、『Documentation CD』の「RAID 入門」を参照してください。</p>
+
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>Server Assistant を使ってサポートされているオペレーティングシステムをインストールすると、Server Assistant によってシステム管理に関連したソフトウェアのインストールに必要なファイルがハードドライブに自動的にコピーされ、<b>Server Administrator のインストール</b> および <b>Server Administrator インストールファイルの削除</b> アイコンがデスクトップに表示されます。 </td>
+</tr>
+</table><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span><b>Server Administrator のインストール</b> アイコンを使用すると、インストール CD を使用せずに Server Administrator をインストールできます。 Windows を実行しているシステムでは、このアイコンをクリックすると、標準のインストールインタフェースが表示されます。 Red Hat Enterprise Linux または SUSE Linux Enterprise Server を実行中のシステムでは、このアイコンをクリックすることで <b>Server Administrator</b> のカスタムインストールスクリプトが実行されます。Server Administrator をインストールしない場合は、<b>Server Administrator インストールファイルの削除</b> アイコンをクリックすると、インストールファイルを削除できます。 続行を許可すると、アイコンを含め、Server Administrator のすべてのファイルが削除されます。</td>
+</tr>
+</table><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>Windows オペレーティングシステムのインストールでは、
+    4 GB 以上の物理メモリがインストールされている場合、ハードウェア設定によっては
+    オペレーティングシステムのインストール後に追加手順を実行してすべてのメモリを活用できるようにする
+    必要があります。 物理アドレス拡張（PAE）の詳細については、次を参照してください。</td>
+</tr>
+</table><li type="square"><a name="1117965"></a>www.microsoft.com/windows2000/en/advanced/help/PAE_checklist.htm<br><br>
+</li><li type="square"><a name="1117981"></a>www.microsoft.com/resources/documentation/windowsserv/2003/enterprise/proddocs/en-us/paex86_2.asp<br><br>
+</li><li type="square"><a name="1117982"></a>www.support.microsoft.com/default.aspx?scid=kb;en-us;283037<br><br>
+</li>
+<a href="index.htm">トップに戻る</a><br><hr><a name="wp1125722"></a>
+<h3>管理下システムへの Systems Management Software のインストール</h3>
+
+
+
+<p>セットアッププログラムでは <b>簡易セットアップ</b> と <b>カスタムセットアップ</b> の両オプションが表示されます。 <b>簡易セットアップ</b> オプション（推奨）では、システム管理に必要と検知されたソフトウェアコンポーネントがすべて自動的にインストールされます。 <b>カスタムセットアップ</b> オプションで
+は、インストールするソフトウェアコンポーネントを自由に選択できます。 このマニュアルの手順は <b>簡易セットアップ</b> オプションに基づいています。 <i></i><b>カスタムセットアップ</b> の詳細については、『Dell OpenManage インストールおよびセキュリティユーザーズガイド』を参照してください。</p>
+
+
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="notice.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">注意：</span>Dell OpenManage Array Manager は現在はサポートされていません。Array Manager がインストールされたシステム（Dell OpenManage バージョン 4.3 以降をインストール）をアップグレードする場合、Array Manager はアップグレードのプロセスで削除されます。代わりに、
+Server Administrator Storage Management サービス を使用できます。</td>
+</tr>
+</table>
+
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span><span style="font-style: italic; font-weight: normal"></span>カスタムインストールとその他詳細については、『インストールとセキュリティユーザーズガイド』を参照してください。 Management Station と Managed System Software は同じか、または別のディレクトリにインストールできます。 インストールのディレクトリは選択することができます。</td>
+</tr>
+</table><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>現在サポートされているシステムの一覧は、<i></i>『Installation and Server Management CD』 にあるインストールの readme ファイルを参照してください。 
+インストールの readme ファイルと <b>Readme_ins.txt</b> は CD の中の <b>srvadmin/docs/Readme</b> ディレクトリにあります。</td>
+</tr>
+</table><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span> Systems Management Software の 4.2 または
+    それ以前のバージョン（&gt;=3.0）がシステムにインストールされている場合、直接 5.0 バージョンにアップグレードできません。 以前の設定を維持するためには、まず
+    4.3 バージョンにアップグレードしてから 5.0 バージョンにアップグレードして、最新のソフトウェアにアップデートします。 バージョン 4.3 は、Dell サポートサイト（<b>support.jp.dell.com</b>）で入手できます。</td>
+</tr>
+</table><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>管理システムに Managed System Software をインストールする前に、オペレーティングシステムのメディアを使って SNMP エージェントをインストールします。</td>
+</tr>
+</table><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span> <i></i>Server Assistant
+    の起動を避けるため、システムを再起動する場合は、『Installation <span style="font-style: italic; font-weight: normal"></span>and Server Management CD』を取り出してください。</td>
+</tr>
+</table><a name="wp1127741"></a>
+<h4>対応 Microsoft Windows オペレーティングシステムへの Managed System Software のインストール
+</h4><ol type="1">
+<a name="wp1118534"></a>
+
+<li value="1">システム管理者特権で対応 Windows オペレーティングシステムを実行しているシステムにログオンし、Managed System コンポーネントをそのシステムにインストールします。<br><br><a name="wp1112061"></a>
+
+<li value="2">システムにサポートされているブラウザがインストールされていることを確認します。<br><br>
+<a name="wp1112062"></a>
+
+<li value="3">RAID コントローラがインストールされているシステムにストレージ管理機能をインストールする場合は、各 RAID コントローラ用にデバイスドライバがインストールされているか確認してください。
+<br><br>
+ </ol>
+
+<p class="indent"><i></i>デバイスドライバは『Service and Diagnostic Utilities CD』に入っています。<span style="font-style: italic; font-weight: normal"></span> デバイスドライバを確認するには、Windows で <b>マイコンピュｰタ</b> を右クリックし、<b>管理</b> を選択して <b>デバイスマネージャ</b> をクリックします。</p>
+
+<ol type="1">
+<a name="wp1112073"></a>
+
+<li value="4">	 <i></i>『Installation and Server Management CD』を CD ドライブに挿入します。
+<br><br>
+</ol>
+
+<p class="indent">自動的にセットアッププログラムが起動します。 起動しない場合は、<b>スタート</b> ボタン、
+<b>ファイル名を指定して実行</b> の順にクリックし、<span class="screen">x:&yen;srvadmin&yen;windows&yen;setup.exe</span> とタイプします（<span class="screen">x</span> は CD ドライブのドライブレター）。 セットアッププログラムによって必要条件チェッカーユーティリティが起動します。 </p>
+
+<ol type="1">
+<a name="wp1116920"></a>
+
+<li value="5">必要条件チェックの結果を確認し、リストに表示された状態を
+    解決します。<br><br><a name="wp1116902"></a>
+
+<li value="6"><b>Server Administrator のインストール</b><span style="font-style: normal; font-weight: bold">、</span><b>変更</b><span style="font-style: normal; font-weight: bold">、</span><b>修正</b><span style="font-style: normal; font-weight: bold">、または </span><b>削除</b> ボタンをクリックします。<br><br><a name="wp1112075"></a>
+
+<li value="7"><b>ようこそ</b> 画面の <b>次へ</b> をクリックします。<br><br><a name="wp1112076"></a>
+
+<li value="8">使用許諾契約に同意して <b>次へ</b> をクリックします。<br><br><a name="wp1112077"></a>
+
+<li value="9"><b>簡易</b> セットアップを選択して <b>次へ</b> をクリックします。<br><br><a name="wp1112078"></a>
+
+<li value="10"><b>インストール</b> をクリックしてインストールプロセスを続行します。
+<br><br>
+ </ol>
+
+<p class="indent">セットアッププログラムによって、ハードウェアに
+すべてのManaged System Software が自動的にインストールされます。</p>
+
+<ol type="1">
+<a name="wp1112079"></a>
+
+<li value="11">インストールが完了したら、<b>完了</b> をクリックし、プロンプトが表示された場合はソフトウェアを使用する前にシステムを再起動してください。
+<br><br>
+</ol>
+<a name="wp1112081"></a>
+<h4>Red Hat Enterprise 
+Linux オペレーティングシステム または SUSE Linux Enterprise サーバー オペレーティングシステム対応の Managed System ソフトウェアのインストール
+</h4><ol type="1">
+<a name="wp1112082"></a>
+
+<li value="1">root 権限で 対応Red Hat Enterprise Linux またはSUSE LINUX Enterrprise Server オペレーティングシステムを実行しているシステムにログオンし、Managed System コンポーネントをそのシステムにインストールします。<br><br>
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>SUSE Linux 
+Enterprise サーバーオペレーティングシステムは PowerEdge 1800、1850、
+2800、および 2850 システムにのみ対応しています。</td>
+</tr>
+</table><br>
+
+<a name="wp1128147"></a>
+
+<li value="2"><i></i>『Installation and Server Management CD』を CD ドライブに挿入します。<br><br><a name="wp1128148"></a>
+
+<li value="3">必要に応じて、<b>mount /dev/cdrom /media/cdrom</b> 
+コマンド または同様のコマンド（Red Hat Enterprise Linux 4 および SUSE LINUX 
+Enterprise Server 9用）を使用して CD をマウントするか、もしくは<span style="font-style: normal; font-weight: 700"> 
+mount /dev/cdrom /mnt/cdrom</span><span style="font-style: normal; font-weight: bold"> </span><span style="font-style: normal; font-weight: normal">または同様のコマンド（
+Red Hat Enterprise Linux 3用）</span>でマウントします。.<b>
+</b><br><br>
+<a name="wp1127979"></a>
+
+<li value="4"><b>srvadmin-install.sh</b> スクリプトを次のディレクトリから実行します。
+<br><br>
+</ol>
+
+<p class="indent"><b>/srvadmin/linux/supportscripts </b>ディレクトリからの実行方法</p>
+
+
+<p class="indent"><font face="Courier New">sh srvadmin-install.sh --express</font></p>
+
+
+<p class="indent">または</p>
+
+
+<p class="indent"><font face="Courier New">sh srvadmin-install.sh -x</font></p>
+
+
+<p class="indent">スクリプトがシステム構成用の一般的なソフトウェアスィートをインストールします。 <br></p>
+
+
+
+<table class="indent" border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>RPM インストールの出力をログするには、上記のシェルスクリプトの実行に <span class="screen">2&gt;&amp;1 | tee &#8211;a /var/log/srvadmin.log</span> を追加します。 その結果のコマンドは
+<font face="Courier New"> <span style="font-style: normal; font-weight: normal">sh srvadmin-install.sh</span></font><span class="screen"> 2&gt;&amp;1|tee &#8211;a /var/log/srvadmin.log</span> になります。</td>
+</tr>
+</table>
+
+<ol type="1">
+<a name="wp1127044"></a>
+
+<li value="5"><b>sh srvadmin-services.sh</b> start コマンドでサービスを開始します。
+<br><br>
+</ol>
+<h5>VMware ESX サーバーソフトウェア上での Dell OpenManage の使い方</h5>
+
+<p>Dell OpenManage を VMware ESX Server ソフトウェアと一緒にインストールするには、特別の手順が必要になります。 この特別手順は Dell OpenManage のバージョンと ESX Server のバージョンによって異なり、サポートされるのは両バージョンの限られた組み合わせに限ります。 詳細については、<b>www.dell.com/vmware</b> のリソースセンターにある VMware の『Systems Compatibility Guide（システム互換性ガイド）』および VMware の『ESX Server Deployment Guide（ESX Server 導入ガイド）』を参照してください。 Dell OpenManage の対応バージョンをインストールする手順は『ESX Server Deployment Guide（ESX Server 導入ガイド）』にあります。</p>
+
+
+<p><a href="index.htm">トップに戻る</a></p>
+<hr>
+<a name="wp1125684"></a><h3>管理ステーションへの Systems Management Software のインストール</h3>
+
+
+
+<p>簡易設定インストールは IT Assistant および RAC コンソールをインストールします。 どちらか一方だけをインストールする場合、または BMC 管理ユーティリティなど、その他の機能をインストールする場合は、『Dell OpenManage インストールとセキュリティユーザーズガイド』のカスタムインストールの項を参照してください。</p>
+
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes"></span>Management Station と Managed System Software は同じか、または別のディレクトリにインストールできます。 インストールのディレクトリは選択することができます。</td>
+</tr>
+</table><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>
+管理ステーションのアプリケーションはWindows XP Professional、
+Windows 2000 Professional（SP4）、Windows Server&#8482; 2003 ファミリー（Small Business
+ Server [SBS] を含む）、および Windows 2000 Server ファミリー（SBS を含む）を実行しているシステムのみで稼動し、
+対応する Windows、Red Hat Enterprise Linux および SUSE LINUX Enterprise Server オペレーティングシステムを実行しているシステムのみを管理できます。 しかし、IT Assistant は、Windows Server 2003 SBS または Windows 2000 Server SBS オペレーティングシステムではサポートされていません。 </td>
+</tr>
+</table><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>Red Hat Enterprise Linux オペレーティングシステム およびSUSE Linux Enterprise Server オペレーティングシステムでは RAC コンソールおよび BMC 管理ユーティリティのみが対応しています。</td>
+</tr>
+</table>
+
+
+<a name="wp1127794"></a>
+<h4>Microsoft Windows オペレーティングシステムへの Management Station Software のインストール
+</h4><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>IT Assistant は Windows Server 2003 
+Standard および Windows Server 2003 Enterprise Editions の 64 ビットバージョンには対応していません。</td>
+</tr>
+</table><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>IT Assistant のインストールは、バージョン 4.3 以前のSystems Management Software を登載したシステムではサポートされていません。 システムに Systems Management Software の 4.2 またはそれ以前のバージョン（&gt;=3.0）がインストールされている場合、直接 5.0 バージョンにアップグレードできません。 以前の設定を維持するためには、まず 4.3 バージョンにアップグレードしてから 5.0 バージョンにアップグレードして、最新のソフトウェアにアップデートします。 バージョン 4.3 は、Dell サポートサイト（<b>support.jp.dell.com</b>）で入手できます。</td>
+</tr>
+</table><table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>IT Assistant を正しくインストールするには、Management Station Software をインストールする前に、『Systems Management Consoles CD』 を使用して管理ステーションに MSDE データベース（まだインストールされていない場合）をインストールする必要があります。</td>
+</tr>
+</table>
+
+<p>管理ステーションにアプリケーションをインストールするには、次の手順を実行してください。 </p>
+
+
+<ol type="1">
+<a name="wp1112201"></a>
+
+<li value="1">Management Station Applications をインストールする Windows システムにシステム管理者の権限でログオンします。<br><br><a name="wp1112202"></a>
+
+<li value="2"><i></i>『Systems Management Consoles CD』を CD ドライブにセットします。
+<br><br>
+ </ol>
+
+<p class="indent">自動的にセットアッププログラムが起動します。 起動しない場合は、<b>スタート</b> ボタン、
+<b>ファイル名を指定して実行</b> の順にクリックし、<span class="screen">x:&yen;windows&yen;setup.exe </span>とタイプ入力します（<span style="font-style: italic; font-weight: normal">x</span> はCD ドライブのドライブレター）。 セットアッププログラムによって必要条件チェッカーユーティリティが起動します。 </p>
+
+<ol type="1">
+<a name="wp1116971"></a>
+
+<li value="3">必要条件チェックの結果を確認し、リストに表示された状態を
+    解決します。<br><br><a name="wp1112203"></a>
+
+<li value="4"><b>インストール</b><span style="font-style: normal; font-weight: bold">、</span><b>変更</b><span style="font-style: normal; font-weight: bold">、</span><b>修正</b><span style="font-style: normal; font-weight: bold">、または <b>Management Station の削除</b></span> ボタンをクリックします。
+<br><br>
+</ol>
+
+<p class="indent"><b>ようこそ</b> 画面が表示されます。</p>
+
+<ol type="1">
+<a name="wp1112205"></a>
+
+<li value="5"><b>次へ</b> をクリックします。
+<br><br>
+</ol>
+
+<p class="indent"><b>使用許諾契約</b> 画面が表示されます。</p>
+
+<ol type="1">
+<a name="wp1112207"></a>
+
+<li value="6"><b>[同意する]</b> を選択して <b>次へ</b> をクリックします。
+<br><br>
+</ol>
+
+<p class="indent"><b>セットアップの種類</b> 画面が表示されます。</p>
+
+<ol type="1">
+<a name="wp1112209"></a>
+
+<li value="7"><b>簡易設定</b> を選択して <b>次へ</b> をクリックします。
+<br><br>
+</ol>
+
+<p class="indent"><b>インストールの準備完了</b> 画面が表示されます。</p>
+
+<ol type="1">
+<a name="wp1112211"></a>
+
+<li value="8"><b>インストール</b> をクリックして選択した機能を受け入れ、インストールを開始します。
+<br><br>
+</ol>
+
+<p class="indent"><b>Dell OpenManage Management Station のインストール</b> 画面が表示されます。 メッセージが開き、インストールしているソフトウェアコンポーネントの状態と進行状況が表示されます。 </p>
+
+
+<p class="indent">選択したコンポーネントがインストールされると、<b>インストールウィザードの完了</b> ダイアログボックスが表示されます。</p>
+
+<ol type="1">
+<a name="wp1112214"></a>
+
+<li value="9"><b>終了</b> をクリックして <b>Dell OpenManage Management Station</b> インストールを終了します。
+<br><br>
+</ol>
+<a name="wp1112216"></a>
+<h4>Red Hat Enterprise 
+Linux オペレーティングシステムまたは SUSE Linux Enterprise Server オペレーティングシステム対応の Management Station ソフトウェアのインストール
+</h4>
+
+<p>Red Hat Enterprise Linux または SUSE LINUX Enterprise Server オペレーティングシステムを実行している管理ステーションでは、管理ステーションのソフトウェアスィートの中のBMC 管理ユーティリティおよび RAC コンポーネントを使用することができます。</p>
+<p>
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ: </span>SUSE Linux 
+Enterprise サーバーオペレーティングシステムは PowerEdge 1800、1850、
+2800、および 2850 システムにのみ対応しています。</td>
+</tr>
+</p>
+
+
+
+
+<p>管理ステーションに BMC 管理ユーティリティをインストールするには、
+次の手順を実行してインストールプログラムを
+起動します。</p>
+
+
+<ol type="1">
+<a name="wp1112218"></a>
+
+<li value="1">管理ステーションコンポーネントをインストールする Windows システムにルート権限でログオンします。<br><br><a name="wp1112219"></a>
+
+<li value="2">必要に応じて、<b>mount /dev/cdrom /media/cdrom</b> 
+コマンド または同様のコマンド（Red Hat Enterprise Linux 4 および SUSE LINUX 
+Enterprise Server 9用）を使用してCDをマウントするか、もしくは<span style="font-style: normal; "> 
+<b>mount /dev/cdrom /mnt/cdrom</b></span><span style="font-style: normal; font-weight: normal"> </span>または同様のコマンド（
+Red Hat Enterprise Linux <span style="font-style: normal; font-weight: normal">3用）</span>でマウントします。<br><br>
+<a name="wp1129133"></a>
+
+<li value="3"><b>/linux/bmc </b>ディレクトリを検索し、オペレーティングシステム専用の RPM コマンドを使用して BMC 
+ソフトウェアをインストールします。<br><br>
+<ul><li type="disc"><a name="1129175"></a>Red Hat Enterprise Linux を実行しているシステムでは osabmcutil*-RHEL-*.rpm を使用します。例：rpm-Uvh osabmcutil*-RHEL-*.rpm。<br><br></li><li type="disc"><a name="1129144"></a>SUSE LINUX Enterprise Serverを実行しているシステムでは osabmcutil*-SUSE-*.rpm を使用します。例：rpm -Uvh osabmcutil*-SUSE-*.rpm。<br><br></li></ul></ol>
+
+
+<p>RAC Management Station コンポーネントをインストールする場合、以下の手順で
+インストールプログラムを起動してください。 </p>
+
+
+<ol type="1">
+<a name="wp1116487"></a>
+
+<li value="1">管理ステーションコンポーネントをインストールする Windows システムにルート権限でログオンします。<br><br><a name="wp1117027"></a>
+
+<li value="2">必要に応じて、<b>mount /dev/cdrom /media/cdrom</b> 
+コマンド または同様のコマンド（Red Hat Enterprise Linux 4 および SUSE LINUX 
+Enterprise Server 9用）を使用してCDをマウントするか、もしくは<span style="font-style: normal; font-weight: 700"> 
+mount /dev/cdrom /mnt/cdrom</span><span style="font-style: normal; font-weight: bold"></span><span style="font-style: normal; font-weight: normal"> </span>または同様のコマンド（
+Red Hat Enterprise Linux <span style="font-style: normal; font-weight: normal">3用）</span>でマウントします。<br><br>
+<a name="wp1127088"></a>
+
+<li value="3"><b>/linux/rac</b> ディレクトリに移動し、<br><b>rpm -ivh *.rpm </b>コマンドを実行します。
+<br><br>
+</ol>
+<p><a href="index.htm">トップに戻る</a></p>
+<hr>
+<a name="wp1125580"></a><h3>ドライバおよびユーティリティのアップデート</h3>
+
+
+
+<p><i></i>『Service and Diagnostic Utilities CD』には、システムのアップデートに使用するデバイスドライバとユーティリティが含まれています。 ドライバとユーティリティを使用するには、ディスケットかハードドライブにコピーする必要があります。 </p>
+
+
+
+
+<p>ドライバ、および Dell OpenManage アプリケーションの最新の製品情報を入手するには、デルサポートウェブサイトの <span style="font-style: normal; font-weight: bold">support.dell.com</span> にアクセスしてください。</p>
+
+
+<table border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>『Service and Diagnostic Utilities CD』は Windows を実行しているシステムでのみ実行できます。 cvRed Hat Enterprise Linux または SUSE LINUX Enterprise Server オペレーティングシステムを実行しているシステム用のドライバを抽出するには、Windows を実行しているシステムで『Service and Diagnostic Utilities CD』を使用して、選択したファイルを最終的な送信先システムにコピーするか共有する必要があります。</td>
+</tr>
+</table><ol type="1">
+<a name="wp1112236"></a>
+
+<li value="1"><i></i>『Service and Diagnostic Utilities CD』を Windows を実行しているシステムの CD ドライブに挿入します。
+<br><br>
+ </ol>
+
+<p class="indent">自動的にセットアッププログラムが起動します。 起動しない場合は、<b>スタート</b> ボタン、<b>ファイル名を指定して実行</b> の順にクリックし、<span class="screen">x:&yen;setup.exe </span>とタイプ入力します（<span class="screen">x</span> はCD ドライブのドライブレター）。</p>
+
+<ol type="1">
+<a name="wp1112237"></a>
+
+<li value="2">システムを選択し、<b>ドライバ / ユーティリティのセットを選択</b> から、アップデートするファイルセットを選択して <b>続行</b> をクリックします。<br><br><a name="wp1128346"></a>
+
+<li value="3"><b>ドライバおよびユーティリティのページ</b> から、デバイス名のリンクをクリックしてアップデートするユーティリティやドライバのファイルを選択します。
+<br><br>
+ </ol>
+
+<p class="indent">システムがファイルを保存する場所をプロンプトします。 ファイルは圧縮フォーマットで配信されます。 ファームウェアファイルの場合は通常、抽出用のディスケットが必要です。</p>
+
+<ol type="1">
+<a name="wp1112239"></a>
+
+<li value="4">ファイルを抽出します。
+<br><br>
+</ol>
+
+
+<p><i></i>ドライバ、および Dell OpenManage アプリケーションバージョンの詳細については、『Dell OpenManage Server Administrator 互換性ガイド』を参照してください。</p>
+
+
+
+
+<p>『Dell PowerEdge Update CD』は Subscription Kit と併せてのみ出荷されており、 Server Update Utility (SUU) と Dell Update Packages (DUP) を通じてシステムの最新ソフトウェアバージョンを提供します。
+SUU は Microsoft Windows 用と Linux 用、それぞれ個別の CD で提供されます。</p>
+
+
+<ol type="1">
+<a name="wp1129262"></a>
+
+<li value="1">『Updates CD』を 
+Windows、Red Hat Enterprise Linux または SUSE LINUX Enterprise Server 
+オペレーティングシステムを実行しているシステムのCD ドライブに挿入します。<br>
+<a name="wp1129227"></a>
+
+<li value="2">Server Update Utility は自動的にスタートします。 起動しない場合は、<b>スタート </b>ボタン、<b>ファイル名を指定して実行</b> の順にクリックして、<span class="screen">cmd</span> とタイプし、<b>Enter</b> を押します。 コマンドプロンプトが表示されたら、ディレクトリを CD ドライブのルートに変更します。 <span class="screen">suu -g</span>（
+graphical モード用）または <span class="screen">suu -h</span> （ヘルプオプションの表示用）とタイプします。
+<br><br>
+</ol>
+
+
+<table class="indent" border=0 cellpadding="4">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>Red Hat 
+Enterprise Linux または SUSE LINUX Enterprise Server オペレーティングシステムでは、-g 
+（graphical モード）オプションは X Window システムからのみ使用可能です。.</td>
+</tr>
+</table><br>
+
+<ol type="1">
+<a name="wp1129233"></a>
+
+<li value="3">GUI の初期化に失敗した場合は、最新バージョンの OpenIPMI ドライバをインストールする必要があります。 最新バージョンの OpenIPMIdriver をインストールするには、<font face="Courier New">suu -g -installIPMI</font> とタイプします。<br>
+&#160;
+
+<table border=0 cellpadding="4" width="944">
+<tr>
+<td valign="top" align="left">
+<img src="note.gif" align="top">
+</td>
+<td valign="top" align="left"><span class="notes">メモ：</span>IPMI に基づく情報
+および機能を提供するには、Server Administrator の Server Administrator Instrumentation Service には OpenIPMI デバイスドライバの最小バージョンが必要です。必要となる最小バージョンはオペレーティングシステムに基づいて決定されます。 詳細に関しては『インストールとセキュリティユーザーズガイド』を参照してください。</td>
+</tr>
+</table><br>
+
+<li>GUI上でリポジトリの比較を表示するには、左側のツリーに表示されたサーバーのホスト名をクリックします。 SUU がそのリポジトリで使用可能なコンポーネントのバージョンとサーバー上のコンポーネントを比較します。 サーバー上にあり、SUU リポジトリのバージョンと一致する全てのコンポーネントについて、SUU は緑色のチェックマークのアイコンを表示します。 サーバー上の、バージョンが古く、かつSUUを使用してアップデートできるコンポーネントについては、黄色の警告アイコンが表示されます。 アップデート可能なコンポーネントが検索された場合は、画面の右上の <b>アップデート </b>ボタンが使用可能になります。
+<br><br>
+<a name="wp1129234"></a>
+
+<li value="5"><b>アップデート </b>をクリックして、サーバー用にリストされた全てのアップデートを適用します。 適用するアップデートを選択することはできません。 SUU が、リストされたコンポーネントをアップデートすることの確認のダイアログボックスを提示します。 <b>はい</b> をクリックして続行します。
+<br><br>
+<a name="wp1129235"></a>
+
+<li value="6">SUU と DUP のアップデートが正しく実行されたことを知らせる <b>アップデート完了</b> ウィンドウが表示され、アップデートを完了するためにシステムを再起動するよう、プロンプトが表示されることがあります。
+<br><br>
+</ol>
+
+
+<p>Dell Update Packages</p>
+
+
+
+
+<p>SUU 上で <b>アップデート</b> をクリックすると、SUU がシステムに該当する Dell Update Packages を判断して自動的にインストールします。 </p>
+
+
+
+
+<p>追加情報については『Dell OpenManage Server Update Utility ユーザーズガイド』を参照してください。<br>
+<br>
+<a href="index.htm">トップに戻る</a></p>
+<hr>
+<a name="wp1112241"></a><h3>セキュリティ
+	パッチとホットフィックス</h3>
+
+
+
+<p>インストール完了後すぐに、お使いのオペレーションシステム用の最新セキュリティパッチ、
+ホットフィックス、サービス、サポートパック
+などをダウンロードしてインストールすることをお勧めします。 オペレーションシステムのダウンロードは、<b>www.microsoft.com</b><span style="font-style: normal; font-weight: bold">、</span><b>www.redhat.com</b><span style="font-style: normal; font-weight: bold">、</span>
+または<b>
+www.novell.com</b> <span style="font-style: normal; font-weight: bold"></span>からできます。<br>
+<a href="index.htm">トップに戻る</a>
+</p>
+<hr>
+
+<a name="wp1125735"></a><h3>テクニカルサポートのご利用について</h3>
+
+
+
+<p>デルのテクニカルサポートにお問い合わせになる前に、デルのサポートウェブサイト <b>support.dell.com</b> を参照してください。 サポートに関する詳しい情報は、システムに付属の『ハードウェアオーナーズマニュアル』の「困ったときは」を参照し、国や地域別の電話、ファックス、インターネットでのデルへのお問い合わせ方法を入手してください。</p>
+
+
+
+
+<p>Antes de entrar em contato com a Dell para obter assist&#234;ncia t&#233;cnica, consulte o site de suporte na Web: <b>support.dell.com</b>. Voc&#234; precisar&#225; do n&#250;mero da sua etiqueta de servi&#231;o para identifica&#231;&#227;o de seu equipamento. Caso necessite de suporte t&#233;cnico adicional, &#233; fornecida assist&#234;ncia t&#233;cnica para hardware ao propriet&#225;rio original do equipamento. Esse servi&#231;o est&#225; dispon&#237;vel de segunda a sexta-feira, das 7 &#224;s 19:00h, em portugu&#234;s. Telefone: 0800-90-3355.</p>
+
+
+
+
+<p>デルのエンタープライズとレーニングまたは資格プログラムについては、<span style="font-style: normal; font-weight: bold"><a href="http://www.dell.com/training"></a></span><b>www.dell.com/training</b> を参照してください。
+このサービスは地域によっては提供されていない場合があります。<br>
+<br>
+<a href="index.htm">トップに戻る</a></p>
+
+
+<hr noshade size="1">
+
+<p class="copyright"><b>このマニュアルに記載される内容は予告なしに変更される場合があります。<br></b><b>
+&#169; 2006 すべての著作権は Dell Inc. にあります。</b> </p>
+<p class="copyright">Dell Inc の書面による許可なしには、いかなる方法においても、このマニュアルの複写、転写を禁じます。</p>
+<p class="copyright"><i></i><i></i>このマニュアルで使用した商標：Dell、DELL ロゴ、Dell OpenManage、PowerEdge、PowerVault、および PowerConnect は Dell Inc.の商標です。Windows Server は Microsoft Corporation の商標で、Microsoft、Windows､および Active Directory は Microsoft Corporation の登録商標です。Red Hat は Red Hat, Inc.の登録商標です。SUSE は Novell Inc. の登録商標です。<i></i></p>
+<p class="copyright">商標または製品の権利を主張する事業体を表すためにその他の商標および社名が使用されていることがあります。 これらの商標や会社名は Dell Inc. に所属するものではありません。</p>
+<p class="copyright">2006 年 1 月 </p>
+
+<p class="copyright">&#160;</p>
+
+
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+
+
+</body>
+</html>

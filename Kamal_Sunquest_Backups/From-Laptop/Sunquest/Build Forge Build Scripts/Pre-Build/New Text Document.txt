@@ -1,0 +1,10 @@
+vb6,c:\LAB_BLD_VIEW\LAB_CS\Components\SDMBridge\,SDMBridge.vbp
+omake,c:\LAB_BLD_VIEW\LAB_CS\Components\SDMBridge\,V_SDMBridge.mak
+copy,c:\LAB_BLD_VIEW\LAB_CS\Components\SDMBridge\SDMBridge.dll,P:\Build Files\Laboratory\6.4Rel\Windows Files\CommonMHS
+Un-Register,c:\LAB_BLD_VIEW\LAB_CS\Components\SDMBridge\,SDMBridge.dll
+copy,c:\LAB_BLD_VIEW\LAB_CS\Components\SDMBridge\SDMBridge.dll,W:\dll
+copy,c:\LAB_BLD_VIEW\LAB_CS\Components\SDMBridge\SDMBridge.lib,W:\lib
+Un-Register,c:\Program Files\Common Files\Misys\Hosp\,SDMBridge.dll
+copy,c:\LAB_BLD_VIEW\LAB_CS\Components\SDMBridge\SDMBridge.dll,c:\Program Files\Common Files\Misys\Hosp
+Register,c:\Program Files\Common Files\Misys\Hosp\,SDMBridge.dll
+;

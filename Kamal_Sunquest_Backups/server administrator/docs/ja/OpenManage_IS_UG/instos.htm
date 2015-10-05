@@ -1,0 +1,106 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;  charset=shift_jis">
+
+<title>Server Assistant を使用したオペレーティングシステムのインストール：Dell OpenManage バージョン 5.0 インストールとセキュリティユーザーズガイド</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">目次ページに戻る</a> </p>
+<a name="1043338"></a><h1> Server Assistant を使用したオペレーティングシステムのインストール </h1>
+<p class="title">Dell OpenManage&#8482; バージョン 5.0 インストールおよびセキュリティユーザーズガイド</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1054353">概要</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1057175">はじめに</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1054353"></a><h2>概要</h2>
+
+
+<a name="1058278"></a><p>Dell OpenManage&#8482; Server Assistant は、操作手順をわかりやすく説明してオペレーティングシステムのインストールを能率化するため、Microsoft&#174; Windows&#174;、Red Hat&#174; Enterprise Linux、および SUSE&#174; 
+Linux Enterprise Server オペレーティングシステムのインストール時間が大幅に短縮されます。 Server Assistant は管理下システムとしてインストールされているシステムに、オペレーティングシステムをインストールします。</p>
+<a name="1058214"></a><p>Server Assistant を使用して Windows、Red Hat Enterprise Linux、または SUSE Linux Enterprise Server オペレーティングシステムをインストールすると、Dell&#160;OpenManage Server Administrator の関連インストールファイルがハードドライブに自動的にコピーされて、<b>Install Server Administrator</b> と <b>Delete Server Administrator インストールファイル</b> のアイコンがデスクトップに配置されます。</p>
+<a name="1057173"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>Red Hat Enterprise Linux または SUSE Linux Enterprise Server オペレーティングシステムを実行しているシステムでは、
+オペレーティングシステムをインストールしてから最初に起動したとき、Server Administrator をインストールするプロンプトが表示されます。
+</td>
+  </tr>
+</table><hr noshade size="1">
+<a name="1057175"></a><h2>はじめに</h2>
+
+
+<a name="1057854"></a><h3> インストール要件
+</h3>
+<a name="1057855"></a><p>以下に、管理下システムの一般的な必要条件について説明します。 オペレーティングシステムに固有のインストール要件は、インストール手順に含まれています。 </p>
+<a name="1057856"></a><h4> 対応オペレーティングシステム（最少必要条件）</h4>
+<ul><li><a name="1056878"></a>Red Hat Enterprise Linux AS、ES、WS、（バージョン 3）x86、アップデート 6<br><br></li>
+<li><a name="1057523"></a>Red Hat Enterprise Linux AS、ES、WS、（バージョン 3）（Intel&#174; Extended Memory 64 Technology（Intel EM64T）アップデート 6 用）<br><br></li>
+<li><a name="1057527"></a>Red Hat Enterprise Linux AS、ES、および WS (バージョン 4)（Intel x86）<br><br></li>
+<li><a name="1057511"></a>Red Hat Enterprise Linux AS、ES、および WS (バージョン 4)（Intel EM64T）<br><br></li>
+<li><a name="1057537"></a>Windows 2000 Server SP4（Server と Advanced Server を含む）<br><br></li>
+<li><a name="1056899"></a>Windows Server&#8482; 2003 R2（Standard および Enterprise エディションを含む）<br><br></li>
+<li><a name="1059392"></a>Windows Server 2003 SP1（Web エディション）<br><br></li>
+<li><a name="1059410"></a>Windows SBS 2003 SP1（IT Assistant を除く）<br><br></li>
+<li><a name="1060162"></a>Windows Server 2003 x64 R2（Standard および Enterprise エディションを含む）<br><br></li>
+<li><a name="1060431"></a>Windows Storage Server 2003 R2（Express、Standard、Workgroup、および Enterprise エディションを含む）<br><br></li>
+<li><a name="1059412"></a>SUSE Linux Enterprise Server（バージョン 9）（Intel EM64T 用）<br><br></li>
+</ul><a name="1056758"></a><h3> オペレーティングシステムのインストール
+</h3>
+<a name="1056900"></a><p>システムにオペレーティングシステムがインストールされているかどうかを確認するには、以下の手順に従ってください。 </p>
+<ol type="1">
+
+<li value="1"><a name="1056735"></a>キーボード、マウス、モニターがシステムに接続していることを確認し、システムをオンにします。
+
+<br><br>
+ <li value="2"><a name="1056736"></a>ソフトウェアライセンス契約を読んで、条項に同意してから続行します。
+<br><br>
+</ol>
+<a name="1056765"></a><p class="indent">起動可能なドライブが存在しない、またはオペレーティングシステムが見つからないというメッセージが表示された場合は、システムにオペレーティングシステムがインストールされていません。 オペレーティングシステムの CD を用意して、次のステップに進みます。 </p>
+<a name="1056737"></a><p class="indent">オペレーティングシステムがシステムにプレインストールされている場合は、この処理を続ける必要はありません。 システムと一緒に提供されるオペレーティングシステムの『インストール手順』マニュアルの説明に従ってインストールを完了します。 </p>
+<a name="1056738"></a><p>システムにオペレーティングシステムをインストールするには、以下の操作を実行します。 </p>
+<ol type="1">
+
+<li value="1"><a name="1056739"></a>『Dell&#8482; PowerEdge&#8482; Installation and Server Management CD』を CD ドライブに挿入してシステムを再起動します。
+
+<br><br>
+
+<li value="2"><a name="1056740"></a><b>Server Assistant </b> メインページで <b>サーバのセットアップ</b> を選択します。
+
+<br><br>
+ <li value="3"><a name="1056741"></a>手順に従って、ハードウェアを構成してオペレーティングシステムをインストールします。
+<br><br>
+ </ol>
+<a name="1057245"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">メモ：</span>システムを再起動する場合は CD を取り出します。そうしない場合は、Server Assistant が再起動します。
+</td>
+  </tr>
+</table><a name="1056732"></a><p>RAID のインストールの詳細については、『Documentation CD』の『RAID 入門』を参照してください。</p>
+<a name="1058225"></a><p><b>Server Administrator のインストール</b> アイコンを使うと、インストール CD を使用せずに Server Administrator をインストールできます。 Windows を実行しているシステムでこのアイコンをクリックすると、標準インストールインタフェースが表示されます。 Red Hat Enterprise Linux または SUSE Linux Enterprise Server オペレーティングシステムを実行しているシステムでは、このアイコンをクリックすると Server Administrator のカスタムインストールスクリプトが起動します。</p>
+<a name="1058226"></a><p>Server Administrator をインストールしない場合、またはインストールファイルを削除する場合は、<b>Server Administrator インストールファイルの削除</b> アイコンをクリックします。 続行することを確認したら、Server Administrator のすべてファイルがアイコンと共に削除されます。</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">目次ページに戻る</a></p>
+
+
+<p>&#160;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<title>Voraussetzungsprüfung: Dell OpenManage-Version 5.0: Installations- und Sicherheitsbenutzerhandbuch</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">Zurück zum Inhaltsverzeichnis</a> </p>
+<a name="1053126"></a><h1> Voraussetzungsprüfung </h1>
+<p class="title">Dell OpenManage&#8482;-Version 5.0: Installations- und Sicherheitsbenutzerhandbuch</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1053464">Befehlszeilenbetrieb der Voraussetzungsprüfung
+</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1053464"></a><h2>Befehlszeilenbetrieb der Voraussetzungsprüfung</h2>
+
+
+<a name="1054236"></a><p>Sie können die Voraussetzungsprüfung automatisch ausführen, indem Sie RunPreReqChecks.exe /s	 vom Verzeichnis <b>srvadmin\windows\PreReqChecker</b> ausführen. Nach Ausführung der Voraussetzungsprüfung wird eine html-Datei im Verzeichnis <b>%Temp%</b> erstellt. Die Datei hat den Namen <b>omprereq.htm</b> und enthält die Ergebnisse der Voraussetzungsprüfung. Das Verzeichnis <b>Temp</b> ist normalerweise nicht <b>X:\Temp</b> sondern <b>X:\Dokumente und Einstellungen\Benutzername\lokale Einstellungen\Temp</b>. Um <b>%TEMP%</b> zu finden, geben Sie in die Befehlszeile <span class="screen">echo %TEMP%</span> ein.</p>
+<a name="1053465"></a><p>Die Ergebnisse der Voraussetzungsprüfung werden unter dem Registrierungsschlüssel zur Registrierung der Management Station geschrieben:</p>
+<a name="1053466"></a><p><b>HKEY_LOCAL_MACHINE\Software\Dell Computer Corporation\OpenManage\PreReqChecks\MS\</b></p>
+<a name="1054253"></a><p>Sie stehen für ein Managed System unter dem folgenden Schlüssel:</p>
+<a name="1054254"></a><p><b>HKEY_LOCAL_MACHINE\Software\Dell Computer Corporation\OpenManage\PreReqChecks\MN\</b></p>
+<a name="1053467"></a><p>Bei Ausführung der Voraussetzungsprüfung im Hintergrundmodus ist der Rückgabecode von <b>runprereqchecks</b>.exe die Zahl, die mit dem höchsten Schweregradzustand aller Softwareprodukte verbunden ist. Die Zahlen des Rückgabecodes sind die gleichen, wie diejenigen, die in der Registrierung verwendet werden. <a href="prereqch.htm#1053477">Tabelle 9-1</a> gibt eine ausführliche Beschreibung der zurückgegeben Codes.</p>
+<a name="1053540"></a>
+<p><p class="FigureTableTitle"><a name="1053477"></a>Tabelle  9-1.  Rückgabecodes der im Hintergrund ausgeführten Voraussetzungsprüfung </p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1053481"> </a>
+<p><b>Rückgabecode</b></p>
+
+
+</th><th valign="top" align="left"><a name="1053483"> </a>
+<p><b>Beschreibung</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1053485"></a>0</p></td><td valign="top" align="left"><p><a name="1053487"></a>Kein Zustand bzw. keine Zustände sind mit der Software verbunden.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053489"></a>1</p></td><td valign="top" align="left"><p><a name="1053491"></a>Ein Informationszustand bzw. -zustände sind mit der Software verbunden. Dies verhindert die Installation des Softwareprodukts nicht.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053493"></a>2</p></td><td valign="top" align="left"><p><a name="1053495"></a>Ein Warnungszustand bzw. -zustände sind mit der Software verbunden. Es wird empfohlen, dass Sie die Zustände beheben, die die Warnung verursachen, bevor Sie mit der Installation der Software fortfahren.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053497"></a>3</p></td><td valign="top" align="left"><p><a name="1053499"></a>Ein Fehlerzustand bzw. -zustände sind mit der Software verbunden. Es ist notwendig, diese Zustände zu beheben, die den Fehler verursachen, bevor Sie mit der Installation dieser Software fortfahren. Wenn Sie die Probleme nicht lösen, wird die Software nicht installiert.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053501"></a>-1</p></td><td valign="top" align="left"><p><a name="1053503"></a>Ein Microsoft® Windows® Script Host (WSH)-Fehler. Die Voraussetzungsprüfung wird nicht ausgeführt.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053505"></a>-2</p></td><td valign="top" align="left"><p><a name="1053507"></a>Das Betriebssystem wird nicht unterstützt. Die Voraussetzungsprüfung wird nicht ausgeführt.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053509"></a>-3</p></td><td valign="top" align="left"><p><a name="1053511"></a>Der Benutzer hat keine Administratorrechte. Die Voraussetzungsprüfung wird nicht ausgeführt.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053513"></a>-4</p></td><td valign="top" align="left"><p><a name="1053515"></a>Kein durchgeführter Rückgabecode.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053517"></a>-5</p></td><td valign="top" align="left"><p><a name="1053519"></a>Der Benutzer konnte das Arbeitsverzeichnis nicht zu <b>%TEMP%</b> ändern. Die Voraussetzungsprüfung wird nicht ausgeführt.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053521"></a>-6</p></td><td valign="top" align="left"><p><a name="1053523"></a>Das Zielverzeichnis existiert nicht. Die Voraussetzungsprüfung wird nicht ausgeführt.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053525"></a>-7</p></td><td valign="top" align="left"><p><a name="1053527"></a>Ein interner Fehler ist aufgetreten. Die Voraussetzungsprüfung wird nicht ausgeführt.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053529"></a>-8</p></td><td valign="top" align="left"><p><a name="1053531"></a>Die Software wird bereits ausgeführt. Die Voraussetzungsprüfung wird nicht ausgeführt.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053533"></a>-9</p></td><td valign="top" align="left"><p><a name="1053535"></a>Der Windows Script Host ist beschädigt, ist eine falsche Version oder ist nicht installiert. Die Voraussetzungsprüfung wird nicht ausgeführt.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053537"></a>-10</p></td><td valign="top" align="left"><p><a name="1053539"></a>Ein Fehler ist bei der Scripting-Umgebung aufgetreten. Die Voraussetzungsprüfung wird nicht ausgeführt.</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054272"></a><p>Jedes Softwareprodukt hat nach Ausführung der Voraussetzungsprüfung einen verbundenen Wertsatz: <a href="prereqch.htm#1054118">Tabelle 9-2</a>  und <a href="prereqch.htm#1054148">Tabelle 9-3</a> enthalten die Liste von Funktions-IDs für jede Software-Funktion. Die Funktionskennung besteht aus einer 2 bis 5
+Zeichen langen Bezeichnung.</p>
+<a name="1054214"></a>
+<p><p class="FigureTableTitle"><a name="1054118"></a>Tabelle 9-2.  Funktions-IDs von Management Station</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054122"> </a>
+<p><b>Funktions-ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054124"> </a>
+<p><b>Beschreibung</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054126"></a>ADS</p></td><td valign="top" align="left"><p><a name="1054128"></a>Microsoft Active Directory® Snap-In-Dienstprogramm</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054134"></a>BMC</p></td><td valign="top" align="left"><p><a name="1054136"></a>Baseboard-Verwaltungs-Controller Verwaltungsdienstprogramm</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054138"></a>ITA</p></td><td valign="top" align="left"><p><a name="1054140"></a>Dell OpenManage&#8482; IT Assistant</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054142"></a>RACMS</p></td><td valign="top" align="left"><p><a name="1054144"></a>Remote Access Controller </p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054201"></a>
+<p><p class="FigureTableTitle"><a name="1054148"></a>Tabelle 9-3.  Softwarefunktions-IDs </p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054152"> </a>
+<p><b>Funktions-ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054154"> </a>
+<p><b>Beschreibung</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054156"></a>ALLE</p></td><td valign="top" align="left"><p><a name="1054158"></a>Alle Funktionen</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054164"></a>BRCM</p></td><td valign="top" align="left"><p><a name="1054166"></a>Broadcom NIC-Agent</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054168"></a>INTEL</p></td><td valign="top" align="left"><p><a name="1054170"></a>Intel® NIC-Agent</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054172"></a>IWS</p></td><td valign="top" align="left"><p><a name="1054174"></a>Dell OpenManage Server Administrator Web Server</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054176"></a>OLD</p></td><td valign="top" align="left"><p><a name="1054178"></a>Server Administrator Diagnostic Service</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054180"></a>OMSM</p></td><td valign="top" align="left"><p><a name="1054182"></a>Server Administrator Storage Management-Dienst</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054184"></a>RAC3</p></td><td valign="top" align="left"><p><a name="1054186"></a>Remote Access Controller (DRAC III)</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054188"></a>RAC4</p></td><td valign="top" align="left"><p><a name="1054190"></a>Remote Access Controller (DRAC 4)</p></td></tr>
+<tr><td valign="top" align="left">RAC5</td><td valign="top" align="left">Remote Access Controller (DRAC 5)</td></tr>
+
+<tr><td valign="top" align="left"><p><a name="1054192"></a>SA</p></td><td valign="top" align="left"><p><a name="1054194"></a>Server Administrator</p></td></tr>
+
+</table>
+
+
+
+
+
+</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">Zurück zum Inhaltsverzeichnis</a></p>
+
+
+<p> </p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

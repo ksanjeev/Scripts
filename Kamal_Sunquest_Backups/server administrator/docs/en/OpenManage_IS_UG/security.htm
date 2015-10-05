@@ -1,0 +1,357 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<title>Dell OpenManage&#153; Security: Dell OpenManage Version 5.0
+ Installation and Security User's Guide</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">Back to Contents Page</a> </p>
+<a name="1039152"></a><h1> Dell OpenManage&#153; Security </h1>
+<p class="title">Dell OpenManage&#153; Version 5.0
+ Installation and Security User's Guide</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1047585">Security Features</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1047254">Built-in Security Features</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1047307">Security Management</A></P>
+
+
+<br>
+<hr noshade size="1">
+<a name="1047585"></a><h2>Security Features</h2>
+
+
+<a name="1047586"></a><p>The Dell OpenManage systems management software components provide the following security&nbsp;features:</p>
+<ul><li><a name="1047587"></a>Authentication for users through hardware-stored user IDs and passwords, or by using the optional Microsoft&#174; Active Directory&#174;.<br><br></li>
+<li><a name="1047588"></a>Role-based authority that allows specific privileges to be configured for each user.<br><br></li>
+<li><a name="1047589"></a>User ID and password configuration through the Web-based interface or the command line interface (CLI), in most cases.<br><br></li>
+<li><a name="1047590"></a>SSL encryption of 128 bit and 40 bit (for countries where 128 bit is not acceptable).<br><br></li>
+</ul><a name="1047595"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTE: </span> Telnet does not support SSL encryption.
+</td>
+  </tr>
+</table>
+<ul><li><a name="1047596"></a>Session time-out configuration (in minutes) through the Web-based interface or CLI.<br><br></li>
+<li><a name="1047597"></a>Configuration of many of the commonly known ports.<br><br></li>
+</ul><hr noshade size="1">
+<a name="1047254"></a><h2>Built-in Security Features</h2>
+
+
+<a name="1047255"></a><h3> Ports
+</h3>
+<a name="1053479"></a><p><a href="security.htm#1064529">Table&nbsp;2-1</a> lists the ports used by the Dell OpenManage systems management software, other standard operating system services, and other agent applications. Correctly configured ports are necessary to allow Dell OpenManage systems management software to connect to a remote device through firewalls. If the attempt to communicate with a remote device fails, you may have specified an incorrect port number.</p>
+<a name="1061991"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>"Version" in <a href="security.htm#1064529">Table&nbsp;2-1</a> refers to the minimum product version that uses the port (or explicit version 
+if&nbsp;specified).
+</td>
+  </tr>
+</table><a name="1063625"></a>
+<p><p class="FigureTableTitle"><a name="1064529"></a>Table 2-1.&#32; Dell OpenManage UDP/TCP Ports Default Locations&nbsp;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1064545"> </a>
+<p><b>Port #</b></p>
+
+
+</th><th valign="top" align="left"><a name="1064547"> </a>
+<p><b>Protocol</b></p>
+
+
+</th><th valign="top" align="left"><a name="1064549"> </a>
+<p><b>Port Type</b></p>
+
+
+</th><th valign="top" align="left"><a name="1064551"> </a>
+<p><b>Version</b></p>
+
+
+</th><th valign="top" align="left"><a name="1064553"> </a>
+<p><b>Max. Encryption Level</b></p>
+
+
+</th><th valign="top" align="left"><a name="1064555"> </a>
+<p><b>Direction</b></p>
+
+
+</th><th valign="top" align="left"><a name="1064557"> </a>
+<p><b>Usage</b></p>
+
+
+</th><th valign="top" align="left"><a name="1064559"> </a>
+<p><b>Configurable</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left" colspan=8 rowspan=1><p><a name="1064561"></a><b>Dell OpenManage Baseboard Management Controller - PowerEdge&#153; </b><b>x8xx</b><b> systems</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064577"></a>623</p></td><td valign="top" align="left"><p><a name="1064580"></a>RMCP</p></td><td valign="top" align="left"><p><a name="1064582"></a>UDP</p></td><td valign="top" align="left"><p><a name="1064584"></a>PowerEdge <i>x800 </i>systems only</p></td><td valign="top" align="left"><p><a name="1064586"></a>None</p></td><td valign="top" align="left"><p><a name="1064588"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064590"></a>IPMI access via LAN</p></td><td valign="top" align="left"><p><a name="1064592"></a>No</p></td></tr>
+<tr><td valign="top" align="left" colspan=8 rowspan=1><p><a name="1064594"></a><b>Dell OpenManage Baseboard Management Utility</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064610"></a>623</p></td><td valign="top" align="left"><p><a name="1064612"></a>Telnet</p></td><td valign="top" align="left"><p><a name="1064614"></a>TCP</p></td><td valign="top" align="left"><p><a name="1064616"></a>1.<i>x</i></p></td><td valign="top" align="left"><p><a name="1064618"></a>None</p></td><td valign="top" align="left"><p><a name="1064620"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064622"></a>Accepts incoming Telnet connections</p></td><td valign="top" align="left"><p><a name="1064624"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064626"></a>623</p></td><td valign="top" align="left"><p><a name="1064629"></a>RMCP</p></td><td valign="top" align="left"><p><a name="1064631"></a>UDP</p></td><td valign="top" align="left"><p><a name="1064633"></a>1.<i>x</i></p></td><td valign="top" align="left"><p><a name="1064635"></a>None</p></td><td valign="top" align="left"><p><a name="1064637"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064639"></a>Basic BMC commands: server status, power up/down, and so on.</p></td><td valign="top" align="left"><p><a name="1064641"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064643"></a>623</p></td><td valign="top" align="left"><p><a name="1064646"></a>RMCP</p></td><td valign="top" align="left"><p><a name="1064648"></a>UDP</p></td><td valign="top" align="left"><p><a name="1064650"></a>1.<i>x</i></p></td><td valign="top" align="left"><p><a name="1064652"></a>None</p></td><td valign="top" align="left"><p><a name="1064654"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064656"></a>Basic BMC commands and console redirection</p></td><td valign="top" align="left"><p><a name="1064658"></a>No</p></td></tr>
+<tr><td valign="top" align="left" colspan=8 rowspan=1><p><a name="1064660"></a><b>Dell OpenManage Client Connector </b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064676"></a>135</p></td><td valign="top" align="left"><p><a name="1064679"></a>RPC</p></td><td valign="top" align="left"><p><a name="1064681"></a>TCP/UDP</p></td><td valign="top" align="left"><p><a name="1064683"></a>2.0</p></td><td valign="top" align="left"><p><a name="1064685"></a>None</p></td><td valign="top" align="left"><p><a name="1064687"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064689"></a>Viewing of client management data</p></td><td valign="top" align="left"><p><a name="1064691"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064693"></a>389</p></td><td valign="top" align="left"><p><a name="1064696"></a>LDAP</p></td><td valign="top" align="left"><p><a name="1064698"></a>TCP</p></td><td valign="top" align="left"><p><a name="1064700"></a>2.0</p></td><td valign="top" align="left"><p><a name="1064702"></a>128 bit</p></td><td valign="top" align="left"><p><a name="1064704"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064706"></a>Domain authentication</p></td><td valign="top" align="left"><p><a name="1064708"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064710"></a>4995</p></td><td valign="top" align="left"><p><a name="1064713"></a>HTTPS</p></td><td valign="top" align="left"><p><a name="1064715"></a>TCP</p></td><td valign="top" align="left"><p><a name="1064717"></a>2.0</p></td><td valign="top" align="left"><p><a name="1064719"></a>128 bit SSL</p></td><td valign="top" align="left"><p><a name="1064721"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064723"></a>Web GUI</p></td><td valign="top" align="left"><p><a name="1064725"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064727"></a> 1024 - 65535<br>(Dynamically assigned)</p></td><td valign="top" align="left"><p><a name="1064730"></a>DCOM</p></td><td valign="top" align="left"><p><a name="1064732"></a>TCP/UDP</p></td><td valign="top" align="left"><p><a name="1064734"></a>2.0</p></td><td valign="top" align="left"><p><a name="1064736"></a>None</p></td><td valign="top" align="left"><p><a name="1064738"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064740"></a>Viewing of client management data</p></td><td valign="top" align="left"><p><a name="1064742"></a>Port range can be restricted.</p></td></tr>
+<tr><td valign="top" align="left" colspan=8 rowspan=1><p><a name="1064744"></a><b>Dell OpenManage Client Instrumentation</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064760"></a>20</p></td><td valign="top" align="left"><p><a name="1064763"></a>HTTP and FTP</p></td><td valign="top" align="left"><p><a name="1064766"></a>TCP</p></td><td valign="top" align="left"><p><a name="1064768"></a>6<i>.x, </i>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1064770"></a>None</p></td><td valign="top" align="left"><p><a name="1064772"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064774"></a>Flash BIOS communication</p></td><td valign="top" align="left"><p><a name="1064776"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064778"></a>21</p></td><td valign="top" align="left"><p><a name="1064781"></a>HTTP and FTP</p></td><td valign="top" align="left"><p><a name="1064784"></a>TCP</p></td><td valign="top" align="left"><p><a name="1064786"></a>6<i>.x, </i>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1064788"></a>None</p></td><td valign="top" align="left"><p><a name="1064790"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064792"></a>Flash BIOS communication</p></td><td valign="top" align="left"><p><a name="1064794"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064796"></a>80</p></td><td valign="top" align="left"><p><a name="1064799"></a>HTTP and FTP</p></td><td valign="top" align="left"><p><a name="1064802"></a>TCP</p></td><td valign="top" align="left"><p><a name="1064804"></a>6<i>.x, </i>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1064806"></a>None</p></td><td valign="top" align="left"><p><a name="1064808"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064810"></a>Flash BIOS communication</p></td><td valign="top" align="left"><p><a name="1064812"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064814"></a>135</p></td><td valign="top" align="left"><p><a name="1064817"></a>DCOM</p></td><td valign="top" align="left"><p><a name="1064819"></a>TCP/UDP</p></td><td valign="top" align="left"><p><a name="1064821"></a>6<i>.x, </i>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1064823"></a>None</p></td><td valign="top" align="left"><p><a name="1064825"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064827"></a>Monitoring and configuration via WMI</p></td><td valign="top" align="left"><p><a name="1064829"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064831"></a>135</p></td><td valign="top" align="left"><p><a name="1064834"></a>DCOM</p></td><td valign="top" align="left"><p><a name="1064836"></a>TCP</p></td><td valign="top" align="left"><p><a name="1064838"></a>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1064840"></a>None</p></td><td valign="top" align="left"><p><a name="1064842"></a>Out</p></td><td valign="top" align="left"><p><a name="1064844"></a>Event transmission via WMI</p></td><td valign="top" align="left"><p><a name="1064846"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064848"></a>162</p></td><td valign="top" align="left"><p><a name="1064851"></a>SNMP</p></td><td valign="top" align="left"><p><a name="1064853"></a>UDP</p></td><td valign="top" align="left"><p><a name="1064855"></a>6<i>.x</i></p></td><td valign="top" align="left"><p><a name="1064857"></a>None</p></td><td valign="top" align="left"><p><a name="1064859"></a>Out</p></td><td valign="top" align="left"><p><a name="1064861"></a>Event transmission via SNMP</p></td><td valign="top" align="left"><p><a name="1064863"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064865"></a>1024-65535<br>(Dynamically assigned)</p></td><td valign="top" align="left"><p><a name="1064868"></a>DCOM</p></td><td valign="top" align="left"><p><a name="1064870"></a>TCP/UDP</p></td><td valign="top" align="left"><p><a name="1064872"></a>6<i>.x, </i>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1064874"></a>None</p></td><td valign="top" align="left"><p><a name="1064876"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064878"></a>Monitoring and configuration via WMI</p></td><td valign="top" align="left"><p><a name="1064880"></a>&nbsp;</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064882"></a>&gt; 32780<br>(Dynamically assigned)</p></td><td valign="top" align="left"><p><a name="1064885"></a>DMI</p></td><td valign="top" align="left"><p><a name="1064887"></a>TCP/UDP</p></td><td valign="top" align="left"><p><a name="1064889"></a>6<i>.x</i></p></td><td valign="top" align="left"><p><a name="1064891"></a>None</p></td><td valign="top" align="left"><p><a name="1064893"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064895"></a>Monitoring and configuration via DMI</p></td><td valign="top" align="left"><p><a name="1064897"></a>Varies from one system to another.</p></td></tr>
+<tr><td valign="top" align="left" colspan=8 rowspan=1><p><a name="1064899"></a><b>Dell OpenManage IT Assistant</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066176"></a>20</p></td><td valign="top" align="left"><p><a name="1066178"></a>FTP</p></td><td valign="top" align="left"><p><a name="1066180"></a>TCP</p></td><td valign="top" align="left"><p><a name="1066182"></a>6<i>.x</i></p></td><td valign="top" align="left"><p><a name="1066184"></a>None</p></td><td valign="top" align="left"><p><a name="1066186"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1066188"></a>Flash BIOS</p></td><td valign="top" align="left"><p><a name="1066190"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064915"></a>22</p></td><td valign="top" align="left"><p><a name="1064918"></a>SSH</p></td><td valign="top" align="left"><p><a name="1064920"></a>TCP</p></td><td valign="top" align="left"><p><a name="1064922"></a>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1064924"></a>128 bit</p></td><td valign="top" align="left"><p><a name="1064926"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064928"></a>IT Assistant contextual application launch &#151; SSH client</p><p><a name="1064929"></a>Remote software updates to Server Administrator &#151; For systems supporting Linux</p></td><td valign="top" align="left"><p><a name="1064931"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064933"></a>23</p></td><td valign="top" align="left"><p><a name="1064936"></a>Telnet</p></td><td valign="top" align="left"><p><a name="1064938"></a>TCP</p></td><td valign="top" align="left"><p><a name="1064940"></a>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1064942"></a>None</p></td><td valign="top" align="left"><p><a name="1064944"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064946"></a>IT Assistant contextual application launch &#151; Telnet to Linux device</p></td><td valign="top" align="left"><p><a name="1064948"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064950"></a>25</p></td><td valign="top" align="left"><p><a name="1064953"></a>SMTP</p></td><td valign="top" align="left"><p><a name="1064955"></a>TCP</p></td><td valign="top" align="left"><p><a name="1064957"></a>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1064959"></a>None</p></td><td valign="top" align="left"><p><a name="1064961"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064963"></a>Optional e-mail alert action from IT Assistant</p></td><td valign="top" align="left"><p><a name="1064965"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064967"></a>68</p></td><td valign="top" align="left"><p><a name="1064970"></a>UDP</p></td><td valign="top" align="left"><p><a name="1064972"></a>UDP</p></td><td valign="top" align="left"><p><a name="1064974"></a>6<i>.x, </i>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1064976"></a>None</p></td><td valign="top" align="left"><p><a name="1064978"></a>Out</p></td><td valign="top" align="left"><p><a name="1064980"></a>Wake-on-LAN</p></td><td valign="top" align="left"><p><a name="1064982"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066210"></a>80</p></td><td valign="top" align="left"><p><a name="1066212"></a>HTTP</p></td><td valign="top" align="left"><p><a name="1066214"></a>TCP</p></td><td valign="top" align="left"><p><a name="1066216"></a>6<i>.x</i></p></td><td valign="top" align="left"><p><a name="1066218"></a>None</p></td><td valign="top" align="left"><p><a name="1066220"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1066222"></a>Flash BIOS</p></td><td valign="top" align="left"><p><a name="1066224"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064984"></a>80</p></td><td valign="top" align="left"><p><a name="1064987"></a>HTTP</p></td><td valign="top" align="left"><p><a name="1064989"></a>TCP</p></td><td valign="top" align="left"><p><a name="1064991"></a>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1064993"></a>None</p></td><td valign="top" align="left"><p><a name="1064995"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1064997"></a>IT Assistant contextual application launch &#151; PowerConnect&#153; console</p></td><td valign="top" align="left"><p><a name="1064999"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065001"></a>135</p></td><td valign="top" align="left"><p><a name="1065004"></a>RPC</p></td><td valign="top" align="left"><p><a name="1065006"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065008"></a>6<i>.x, </i>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1065010"></a>None</p></td><td valign="top" align="left"><p><a name="1065012"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065014"></a>Event reception via CIM from Server Administrator &#151; For systems supporting Windows&#174;</p></td><td valign="top" align="left"><p><a name="1065016"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066246"></a>135</p></td><td valign="top" align="left"><p><a name="1066248"></a>RPC</p></td><td valign="top" align="left"><p><a name="1066250"></a>TCP/UDP</p></td><td valign="top" align="left"><p><a name="1066252"></a>6<i>.x</i></p></td><td valign="top" align="left"><p><a name="1066254"></a>None</p></td><td valign="top" align="left"><p><a name="1066256"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1066258"></a>DMI discovery of remote systems</p></td><td valign="top" align="left"><p><a name="1066260"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065018"></a>135</p></td><td valign="top" align="left"><p><a name="1065021"></a>RPC</p></td><td valign="top" align="left"><p><a name="1065023"></a>TCP/UDP</p></td><td valign="top" align="left"><p><a name="1065025"></a>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1065027"></a>None</p></td><td valign="top" align="left"><p><a name="1065029"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065031"></a>Remote software update transfer to Server Administrator &#151; For systems supporting Windows</p><p><a name="1065032"></a>Remote Command Line &#151; For systems supporting Windows</p></td><td valign="top" align="left"><p><a name="1065034"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066286"></a>161</p></td><td valign="top" align="left"><p><a name="1066288"></a>SNMP</p></td><td valign="top" align="left"><p><a name="1066290"></a>UDP</p></td><td valign="top" align="left"><p><a name="1066292"></a>6<i>.x, </i>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1066294"></a>None</p></td><td valign="top" align="left"><p><a name="1066296"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1066298"></a>SNMP query management</p></td><td valign="top" align="left"><p><a name="1066300"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065036"></a>162</p></td><td valign="top" align="left"><p><a name="1065039"></a>SNMP</p></td><td valign="top" align="left"><p><a name="1065041"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065043"></a>6<i>.x, </i>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1065045"></a>None</p></td><td valign="top" align="left"><p><a name="1065047"></a>In</p></td><td valign="top" align="left"><p><a name="1065049"></a>Event reception via SNMP</p></td><td valign="top" align="left"><p><a name="1065051"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065053"></a>162</p></td><td valign="top" align="left"><p><a name="1065055"></a>SNMP</p></td><td valign="top" align="left"><p><a name="1065057"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065059"></a>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1065061"></a>None</p></td><td valign="top" align="left"><p><a name="1065063"></a>Out</p></td><td valign="top" align="left"><p><a name="1065065"></a>SNMP trap forwarding action from IT Assistant</p></td><td valign="top" align="left"><p><a name="1065067"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065069"></a>389</p></td><td valign="top" align="left"><p><a name="1065072"></a>LDAP</p></td><td valign="top" align="left"><p><a name="1065074"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065076"></a>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1065078"></a>128 bit</p></td><td valign="top" align="left"><p><a name="1065080"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065082"></a>Domain authentication for IT Assistant log on</p></td><td valign="top" align="left"><p><a name="1065084"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065086"></a>1433</p></td><td valign="top" align="left"><p><a name="1065088"></a>Proprietary</p></td><td valign="top" align="left"><p><a name="1065090"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065092"></a>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1065094"></a>None</p></td><td valign="top" align="left"><p><a name="1065096"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065098"></a>Optional remote SQL server access</p></td><td valign="top" align="left"><p><a name="1065100"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066343"></a>2606</p></td><td valign="top" align="left"><p><a name="1066345"></a>Proprietary</p></td><td valign="top" align="left"><p><a name="1066347"></a>TCP</p></td><td valign="top" align="left"><p><a name="1066349"></a>6<i>.x, </i>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1066351"></a>None</p></td><td valign="top" align="left"><p><a name="1066353"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1066355"></a>Network monitoring service communication port</p></td><td valign="top" align="left"><p><a name="1066357"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065102"></a>2607</p></td><td valign="top" align="left"><p><a name="1065105"></a>HTTPS</p></td><td valign="top" align="left"><p><a name="1065107"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065109"></a>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1065111"></a>128 bit SSL</p></td><td valign="top" align="left"><p><a name="1065113"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065115"></a>IT Assistant web GUI </p></td><td valign="top" align="left"><p><a name="1065117"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065119"></a>3389</p></td><td valign="top" align="left"><p><a name="1065122"></a>RDP</p></td><td valign="top" align="left"><p><a name="1065124"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065126"></a>7<i>.x</i></p></td><td valign="top" align="left"><p><a name="1065128"></a>128 bit SSL</p></td><td valign="top" align="left"><p><a name="1065130"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065132"></a>IT Assistant contextual application launch &#151; Remote desktop to Windows terminal services</p></td><td valign="top" align="left"><p><a name="1065134"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066387"></a>11487/11489</p></td><td valign="top" align="left"><p><a name="1066389"></a>Proprietary</p></td><td valign="top" align="left"><p><a name="1066391"></a>TCP/UDP</p></td><td valign="top" align="left"><p><a name="1066393"></a>6<i>.x</i></p></td><td valign="top" align="left"><p><a name="1066395"></a>None</p></td><td valign="top" align="left"><p><a name="1066397"></a>Out</p></td><td valign="top" align="left"><p><a name="1066399"></a>Flash BIOS</p></td><td valign="top" align="left"><p><a name="1066401"></a>No</p></td></tr>
+<tr><td valign="top" align="left" colspan=8 rowspan=1><p><a name="1065136"></a><b>Dell OpenManage Server Administrator</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065152"></a>22</p></td><td valign="top" align="left"><p><a name="1065155"></a>SSH</p></td><td valign="top" align="left"><p><a name="1065157"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065159"></a>2.0</p></td><td valign="top" align="left"><p><a name="1065161"></a>128 bit</p></td><td valign="top" align="left"><p><a name="1065163"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065165"></a>Remote Server Administrator Command Line (for IT Assistant). Remote Software Update feature (for Linux).</p></td><td valign="top" align="left"><p><a name="1065167"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065169"></a>25</p></td><td valign="top" align="left"><p><a name="1065172"></a>SMTP</p></td><td valign="top" align="left"><p><a name="1065174"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065176"></a>2.0</p></td><td valign="top" align="left"><p><a name="1065178"></a>None</p></td><td valign="top" align="left"><p><a name="1065180"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065182"></a>Optional e-mail alert messages from Server Administrator</p></td><td valign="top" align="left"><p><a name="1065184"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065186"></a>135</p></td><td valign="top" align="left"><p><a name="1065189"></a>RPC</p></td><td valign="top" align="left"><p><a name="1065191"></a>TCP/UDP</p></td><td valign="top" align="left"><p><a name="1065193"></a>2.0</p></td><td valign="top" align="left"><p><a name="1065195"></a>None</p></td><td valign="top" align="left"><p><a name="1065197"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065199"></a>CIM management queries</p></td><td valign="top" align="left"><p><a name="1065201"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065203"></a>135</p></td><td valign="top" align="left"><p><a name="1065206"></a>RPC</p></td><td valign="top" align="left"><p><a name="1065208"></a>TCP/UDP</p></td><td valign="top" align="left"><p><a name="1065210"></a>2.0</p></td><td valign="top" align="left"><p><a name="1065212"></a>None</p></td><td valign="top" align="left"><p><a name="1065214"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065216"></a>Remote Server Administrator Command Line (for IT Assistant). Remote software update feature (for Windows).</p></td><td valign="top" align="left"><p><a name="1065218"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065220"></a>139</p></td><td valign="top" align="left"><p><a name="1065223"></a>NetBIOS</p></td><td valign="top" align="left"><p><a name="1065225"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065227"></a>2.0</p></td><td valign="top" align="left"><p><a name="1065229"></a>None</p></td><td valign="top" align="left"><p><a name="1065231"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065233"></a>Remote Server Administrator Command Line (for IT Assistant). Remote Software Update (for Windows).</p></td><td valign="top" align="left"><p><a name="1065235"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065237"></a>161</p></td><td valign="top" align="left"><p><a name="1065240"></a>SNMP</p></td><td valign="top" align="left"><p><a name="1065242"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065244"></a>1.<i>x</i>, 2.0</p></td><td valign="top" align="left"><p><a name="1065246"></a>None</p></td><td valign="top" align="left"><p><a name="1065248"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065250"></a>SNMP query management</p></td><td valign="top" align="left"><p><a name="1065252"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065254"></a>162</p></td><td valign="top" align="left"><p><a name="1065257"></a>SNMP</p></td><td valign="top" align="left"><p><a name="1065259"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065261"></a>1.<i>x</i>, 2.0</p></td><td valign="top" align="left"><p><a name="1065263"></a>None</p></td><td valign="top" align="left"><p><a name="1065265"></a>Out</p></td><td valign="top" align="left"><p><a name="1065267"></a>SNMP trap event</p></td><td valign="top" align="left"><p><a name="1065269"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065271"></a>445</p></td><td valign="top" align="left"><p><a name="1065273"></a>NetBIOS</p></td><td valign="top" align="left"><p><a name="1065275"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065277"></a>2.0</p></td><td valign="top" align="left"><p><a name="1065279"></a>None</p></td><td valign="top" align="left"><p><a name="1065281"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065283"></a>Remote software updates to Server Administrator (for Windows)</p></td><td valign="top" align="left"><p><a name="1065285"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065287"></a>1311</p></td><td valign="top" align="left"><p><a name="1065290"></a>HTTPS</p></td><td valign="top" align="left"><p><a name="1065292"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065294"></a>1.<i>x</i></p></td><td valign="top" align="left"><p><a name="1065296"></a>128 bit SSL</p></td><td valign="top" align="left"><p><a name="1065298"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065300"></a>Web GUI</p></td><td valign="top" align="left"><p><a name="1065302"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065304"></a>11487</p></td><td valign="top" align="left"><p><a name="1065306"></a>Proprietary</p></td><td valign="top" align="left"><p><a name="1065308"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065310"></a>1.<i>x</i></p></td><td valign="top" align="left"><p><a name="1065312"></a>None</p></td><td valign="top" align="left"><p><a name="1065314"></a>In</p></td><td valign="top" align="left"><p><a name="1065316"></a>Remote Flash BIOS update initiation from IT Assistant</p></td><td valign="top" align="left"><p><a name="1065318"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065320"></a>11489</p></td><td valign="top" align="left"><p><a name="1065322"></a>Proprietary</p></td><td valign="top" align="left"><p><a name="1065324"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065326"></a>1.<i>x</i></p></td><td valign="top" align="left"><p><a name="1065328"></a>None</p></td><td valign="top" align="left"><p><a name="1065330"></a>In</p></td><td valign="top" align="left"><p><a name="1065332"></a>Remote Flash BIOS update file transfer from IT Assistant</p></td><td valign="top" align="left"><p><a name="1065334"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065336"></a>1024 -65535</p></td><td valign="top" align="left"><p><a name="1065339"></a>DCOM</p></td><td valign="top" align="left"><p><a name="1065341"></a>TCP/UDP</p></td><td valign="top" align="left"><p><a name="1065343"></a>2.0</p></td><td valign="top" align="left"><p><a name="1065345"></a>None</p></td><td valign="top" align="left"><p><a name="1065347"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065349"></a>CIM/WMI query management</p></td><td valign="top" align="left"><p><a name="1065351"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left" colspan=8 rowspan=1><p><a name="1065353"></a><b>Dell Remote Access Controller (DRAC): DRAC III, DRAC III/XT, ERA, and ERA/O</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065369"></a>21</p></td><td valign="top" align="left"><p><a name="1065372"></a>FTP</p></td><td valign="top" align="left"><p><a name="1065374"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065376"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065378"></a>None</p></td><td valign="top" align="left"><p><a name="1065380"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065382"></a>Firmware update via FTP and certificate upload/download</p></td><td valign="top" align="left"><p><a name="1065384"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065386"></a>23</p></td><td valign="top" align="left"><p><a name="1065389"></a>Telnet</p></td><td valign="top" align="left"><p><a name="1065391"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065393"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065395"></a>None</p></td><td valign="top" align="left"><p><a name="1065397"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065399"></a>Optional Telnet-based CLI management</p></td><td valign="top" align="left"><p><a name="1065401"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065403"></a>25</p></td><td valign="top" align="left"><p><a name="1065406"></a>SMTP</p></td><td valign="top" align="left"><p><a name="1065408"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065410"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065412"></a>None</p></td><td valign="top" align="left"><p><a name="1065414"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065416"></a>Optional e-mail alert messages</p></td><td valign="top" align="left"><p><a name="1065418"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065420"></a>68</p></td><td valign="top" align="left"><p><a name="1065423"></a>DHCP</p></td><td valign="top" align="left"><p><a name="1065425"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065427"></a>1.2</p></td><td valign="top" align="left"><p><a name="1065429"></a>None</p></td><td valign="top" align="left"><p><a name="1065431"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065433"></a>DHCP assigned IP address</p></td><td valign="top" align="left"><p><a name="1065435"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065437"></a>69</p></td><td valign="top" align="left"><p><a name="1065440"></a>TFTP</p></td><td valign="top" align="left"><p><a name="1065442"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065444"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065446"></a>None</p></td><td valign="top" align="left"><p><a name="1065448"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065450"></a>Firmware update via Trivial FTP. <br>Remote floppy boot via TFTP</p></td><td valign="top" align="left"><p><a name="1065452"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065454"></a>80</p></td><td valign="top" align="left"><p><a name="1065457"></a>HTTP</p></td><td valign="top" align="left"><p><a name="1065459"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065461"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065463"></a>None</p></td><td valign="top" align="left"><p><a name="1065465"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065467"></a>Web GUI redirected to HTTPS </p></td><td valign="top" align="left"><p><a name="1065469"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065471"></a>162</p></td><td valign="top" align="left"><p><a name="1065474"></a>SNMP</p></td><td valign="top" align="left"><p><a name="1065476"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065478"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065480"></a>None</p></td><td valign="top" align="left"><p><a name="1065482"></a>Out</p></td><td valign="top" align="left"><p><a name="1065484"></a>SNMP trap event</p></td><td valign="top" align="left"><p><a name="1065486"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065488"></a>443</p></td><td valign="top" align="left"><p><a name="1065491"></a>HTTPS</p></td><td valign="top" align="left"><p><a name="1065493"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065495"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065497"></a>128 bit SSL</p></td><td valign="top" align="left"><p><a name="1065499"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065501"></a>Web management GUI </p></td><td valign="top" align="left"><p><a name="1065503"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065505"></a>443</p></td><td valign="top" align="left"><p><a name="1065508"></a>HTTPS</p></td><td valign="top" align="left"><p><a name="1065510"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065512"></a>3.2</p></td><td valign="top" align="left"><p><a name="1065514"></a>128 bit SSL</p></td><td valign="top" align="left"><p><a name="1065516"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065518"></a>Remote racadm CLI utility</p></td><td valign="top" align="left"><p><a name="1065520"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065522"></a>5869</p></td><td valign="top" align="left"><p><a name="1065524"></a>Proprietary</p></td><td valign="top" align="left"><p><a name="1065526"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065528"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065530"></a>None</p></td><td valign="top" align="left"><p><a name="1065532"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065534"></a>Remote racadm CLI utility</p></td><td valign="top" align="left"><p><a name="1065536"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065538"></a>5900</p></td><td valign="top" align="left"><p><a name="1065541"></a>VNC</p></td><td valign="top" align="left"><p><a name="1065543"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065545"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065547"></a>56 bit DES</p></td><td valign="top" align="left"><p><a name="1065549"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065551"></a>Video redirection</p></td><td valign="top" align="left"><p><a name="1065553"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065555"></a>5900</p></td><td valign="top" align="left"><p><a name="1065558"></a>VNC</p></td><td valign="top" align="left"><p><a name="1065560"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065562"></a>3.2</p></td><td valign="top" align="left"><p><a name="1065564"></a>128 bit RC </p></td><td valign="top" align="left"><p><a name="1065566"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065568"></a>Video redirection</p></td><td valign="top" align="left"><p><a name="1065570"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065572"></a>5981</p></td><td valign="top" align="left"><p><a name="1065575"></a>VNC</p></td><td valign="top" align="left"><p><a name="1065577"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065579"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065581"></a>None</p></td><td valign="top" align="left"><p><a name="1065583"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065585"></a>Video redirection</p></td><td valign="top" align="left"><p><a name="1065587"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065589"></a>random and &gt; 32768</p></td><td valign="top" align="left"><p><a name="1065591"></a>Proprietary</p></td><td valign="top" align="left"><p><a name="1065593"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065595"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065597"></a>None</p></td><td valign="top" align="left"><p><a name="1065599"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065601"></a>Firmware update from the Web GUI</p></td><td valign="top" align="left"><p><a name="1065603"></a>No</p></td></tr>
+<tr><td valign="top" align="left" colspan=8 rowspan=1><p><a name="1065605"></a><b>DRAC 4</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065621"></a>22</p></td><td valign="top" align="left"><p><a name="1065623"></a>SSHv2</p></td><td valign="top" align="left"><p><a name="1065625"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065627"></a>1.30</p></td><td valign="top" align="left"><p><a name="1065629"></a>128 bit</p></td><td valign="top" align="left"><p><a name="1065631"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065633"></a>Optional Secure Shell (SSH) CLI management</p></td><td valign="top" align="left"><p><a name="1065635"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065637"></a>23</p></td><td valign="top" align="left"><p><a name="1065640"></a>Telnet</p></td><td valign="top" align="left"><p><a name="1065642"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065644"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065646"></a>None</p></td><td valign="top" align="left"><p><a name="1065648"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065650"></a>Optional Telnet CLI management</p></td><td valign="top" align="left"><p><a name="1065652"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065654"></a>25</p></td><td valign="top" align="left"><p><a name="1065657"></a>SMTP</p></td><td valign="top" align="left"><p><a name="1065659"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065661"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065663"></a>None</p></td><td valign="top" align="left"><p><a name="1065665"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065667"></a>Optional e-mail alert messages</p></td><td valign="top" align="left"><p><a name="1065669"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065671"></a>53</p></td><td valign="top" align="left"><p><a name="1065674"></a>DNS</p></td><td valign="top" align="left"><p><a name="1065676"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065678"></a>1.20</p></td><td valign="top" align="left"><p><a name="1065680"></a>None</p></td><td valign="top" align="left"><p><a name="1065682"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065684"></a>Dynamic Domain name server (DNS) registration of the host name assigned within DRAC </p></td><td valign="top" align="left"><p><a name="1065686"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065688"></a>68</p></td><td valign="top" align="left"><p><a name="1065691"></a>DHCP</p></td><td valign="top" align="left"><p><a name="1065693"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065695"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065697"></a>None</p></td><td valign="top" align="left"><p><a name="1065699"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065701"></a>DHCP assigned IP address</p></td><td valign="top" align="left"><p><a name="1065703"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065705"></a>69</p></td><td valign="top" align="left"><p><a name="1065708"></a>TFTP</p></td><td valign="top" align="left"><p><a name="1065710"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065712"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065714"></a>None</p></td><td valign="top" align="left"><p><a name="1065716"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065718"></a>Firmware update via Trivial FTP</p></td><td valign="top" align="left"><p><a name="1065720"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065722"></a>80</p></td><td valign="top" align="left"><p><a name="1065725"></a>HTTP</p></td><td valign="top" align="left"><p><a name="1065727"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065729"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065731"></a>None</p></td><td valign="top" align="left"><p><a name="1065733"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065735"></a>Web GUI redirected to HTTPS</p></td><td valign="top" align="left"><p><a name="1065737"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065739"></a>161</p></td><td valign="top" align="left"><p><a name="1065742"></a>SNMP</p></td><td valign="top" align="left"><p><a name="1065744"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065746"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065748"></a>None</p></td><td valign="top" align="left"><p><a name="1065750"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065752"></a>SNMP query management</p></td><td valign="top" align="left"><p><a name="1065754"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065756"></a>162</p></td><td valign="top" align="left"><p><a name="1065759"></a>SNMP</p></td><td valign="top" align="left"><p><a name="1065761"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065763"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065765"></a>None</p></td><td valign="top" align="left"><p><a name="1065767"></a>Out</p></td><td valign="top" align="left"><p><a name="1065769"></a>SNMP trap event</p></td><td valign="top" align="left"><p><a name="1065771"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065773"></a>443</p></td><td valign="top" align="left"><p><a name="1065776"></a>HTTPS</p></td><td valign="top" align="left"><p><a name="1065778"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065780"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065782"></a>128 bit SSL</p></td><td valign="top" align="left"><p><a name="1065784"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065786"></a>Web management GUI and remote racadm CLI utility</p></td><td valign="top" align="left"><p><a name="1065788"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065790"></a>636</p></td><td valign="top" align="left"><p><a name="1065793"></a>LDAPS</p></td><td valign="top" align="left"><p><a name="1065795"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065797"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065799"></a>128 bit SSL</p></td><td valign="top" align="left"><p><a name="1065801"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065803"></a>Optional Active Directory Services (ADS) authentication</p></td><td valign="top" align="left"><p><a name="1065805"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065807"></a>3269</p></td><td valign="top" align="left"><p><a name="1065810"></a>LDAPS</p></td><td valign="top" align="left"><p><a name="1065812"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065814"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065816"></a>128 bit SSL</p></td><td valign="top" align="left"><p><a name="1065818"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065820"></a>Optional Active Directory Services (ADS) authentication</p></td><td valign="top" align="left"><p><a name="1065822"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065824"></a>3668</p></td><td valign="top" align="left"><p><a name="1065826"></a>Proprietary</p></td><td valign="top" align="left"><p><a name="1065828"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065830"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065832"></a>None</p></td><td valign="top" align="left"><p><a name="1065834"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065836"></a>CD/diskette virtual media service</p></td><td valign="top" align="left"><p><a name="1065838"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065840"></a>5869</p></td><td valign="top" align="left"><p><a name="1065842"></a>Proprietary</p></td><td valign="top" align="left"><p><a name="1065844"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065846"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065848"></a>None</p></td><td valign="top" align="left"><p><a name="1065850"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065852"></a>Remote racadm</p></td><td valign="top" align="left"><p><a name="1065854"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065856"></a>5900</p></td><td valign="top" align="left"><p><a name="1065858"></a>Proprietary</p></td><td valign="top" align="left"><p><a name="1065860"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065862"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065864"></a>128bit RC4, Keyboard/mouse traffic only</p></td><td valign="top" align="left"><p><a name="1065866"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065868"></a>Video redirection</p></td><td valign="top" align="left"><p><a name="1065870"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left" colspan=8 rowspan=1><p><a name="1065872"></a><b>DRAC/MC</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065888"></a>23</p></td><td valign="top" align="left"><p><a name="1065891"></a>Telnet</p></td><td valign="top" align="left"><p><a name="1065893"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065895"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065897"></a>None</p></td><td valign="top" align="left"><p><a name="1065899"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065901"></a>Optional Telnet CLI management</p></td><td valign="top" align="left"><p><a name="1065903"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065905"></a>25</p></td><td valign="top" align="left"><p><a name="1065908"></a>SMTP</p></td><td valign="top" align="left"><p><a name="1065910"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065912"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065914"></a>None</p></td><td valign="top" align="left"><p><a name="1065916"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065918"></a>Optional e-mail alert messages</p></td><td valign="top" align="left"><p><a name="1065920"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065922"></a>53</p></td><td valign="top" align="left"><p><a name="1065925"></a>DNS</p></td><td valign="top" align="left"><p><a name="1065927"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065929"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065931"></a>None</p></td><td valign="top" align="left"><p><a name="1065933"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065935"></a>Dynamic DNS registration of host name assigned within DRAC</p></td><td valign="top" align="left"><p><a name="1065937"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065939"></a>68</p></td><td valign="top" align="left"><p><a name="1065942"></a>DHCP</p></td><td valign="top" align="left"><p><a name="1065944"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065946"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065948"></a>None</p></td><td valign="top" align="left"><p><a name="1065950"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065952"></a>DHCP assigned IP address</p></td><td valign="top" align="left"><p><a name="1065954"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065956"></a>69</p></td><td valign="top" align="left"><p><a name="1065959"></a>TFTP</p></td><td valign="top" align="left"><p><a name="1065961"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065963"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065965"></a>None</p></td><td valign="top" align="left"><p><a name="1065967"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065969"></a>Firmware update via Trivial FTP</p></td><td valign="top" align="left"><p><a name="1065971"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065973"></a>80</p></td><td valign="top" align="left"><p><a name="1065976"></a>HTTP</p></td><td valign="top" align="left"><p><a name="1065978"></a>TCP</p></td><td valign="top" align="left"><p><a name="1065980"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065982"></a>None</p></td><td valign="top" align="left"><p><a name="1065984"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1065986"></a>Web GUI redirected to HTTPS</p></td><td valign="top" align="left"><p><a name="1065988"></a>Yes</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1065990"></a>161</p></td><td valign="top" align="left"><p><a name="1065993"></a>SNMP</p></td><td valign="top" align="left"><p><a name="1065995"></a>UDP</p></td><td valign="top" align="left"><p><a name="1065997"></a>1.0</p></td><td valign="top" align="left"><p><a name="1065999"></a>None</p></td><td valign="top" align="left"><p><a name="1066001"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1066003"></a>SNMP query management</p></td><td valign="top" align="left"><p><a name="1066005"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066007"></a>162</p></td><td valign="top" align="left"><p><a name="1066010"></a>SNMP </p></td><td valign="top" align="left"><p><a name="1066012"></a>UDP</p></td><td valign="top" align="left"><p><a name="1066014"></a>1.0</p></td><td valign="top" align="left"><p><a name="1066016"></a>None</p></td><td valign="top" align="left"><p><a name="1066018"></a>Out</p></td><td valign="top" align="left"><p><a name="1066020"></a>SNMP trap event</p></td><td valign="top" align="left"><p><a name="1066022"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066024"></a>389</p></td><td valign="top" align="left"><p><a name="1066027"></a>LDAP</p></td><td valign="top" align="left"><p><a name="1066029"></a>TCP</p></td><td valign="top" align="left"><p><a name="1066031"></a>1.0</p></td><td valign="top" align="left"><p><a name="1066033"></a>None</p></td><td valign="top" align="left"><p><a name="1066035"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1066037"></a>Optional Active Directory Services (ADS) authentication</p></td><td valign="top" align="left"><p><a name="1066039"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066041"></a>443</p></td><td valign="top" align="left"><p><a name="1066044"></a>HTTPS</p></td><td valign="top" align="left"><p><a name="1066046"></a>TCP</p></td><td valign="top" align="left"><p><a name="1066048"></a>1.0</p></td><td valign="top" align="left"><p><a name="1066050"></a>128 bit SSL </p></td><td valign="top" align="left"><p><a name="1066052"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1066054"></a>Web management GUI and remote racadm CLI utility</p></td><td valign="top" align="left"><p><a name="1066056"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066058"></a>636</p></td><td valign="top" align="left"><p><a name="1066061"></a>LDAPS</p></td><td valign="top" align="left"><p><a name="1066063"></a>TCP</p></td><td valign="top" align="left"><p><a name="1066065"></a>1.0</p></td><td valign="top" align="left"><p><a name="1066067"></a>128 bit SSL</p></td><td valign="top" align="left"><p><a name="1066069"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1066071"></a>Optional Active Directory Services (ADS) authentication</p></td><td valign="top" align="left"><p><a name="1066073"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066075"></a>3269</p></td><td valign="top" align="left"><p><a name="1066078"></a>LDAPS</p></td><td valign="top" align="left"><p><a name="1066080"></a>TCP</p></td><td valign="top" align="left"><p><a name="1066082"></a>1.0</p></td><td valign="top" align="left"><p><a name="1066084"></a>128 bit SSL</p></td><td valign="top" align="left"><p><a name="1066086"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1066088"></a>Optional Active Directory Services (ADS) authentication</p></td><td valign="top" align="left"><p><a name="1066090"></a>No</p></td></tr>
+<tr><td valign="top" align="left" colspan=8 rowspan=1><p><a name="1066092"></a><b>Digital KVM</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066108"></a>2068</p></td><td valign="top" align="left"><p><a name="1066110"></a>Proprietary</p></td><td valign="top" align="left"><p><a name="1066112"></a>TCP</p></td><td valign="top" align="left"><p><a name="1066114"></a>1.0</p></td><td valign="top" align="left"><p><a name="1066116"></a>128 bit SSL</p></td><td valign="top" align="left"><p><a name="1066118"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1066120"></a>Video Redirection &#151; Keyboard/Mouse</p></td><td valign="top" align="left"><p><a name="1066122"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066124"></a>3668</p></td><td valign="top" align="left"><p><a name="1066126"></a>Proprietary</p></td><td valign="top" align="left"><p><a name="1066128"></a>TCP</p></td><td valign="top" align="left"><p><a name="1066130"></a>1.0</p></td><td valign="top" align="left"><p><a name="1066132"></a>None</p></td><td valign="top" align="left"><p><a name="1066134"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1066136"></a>Virtual Media</p></td><td valign="top" align="left"><p><a name="1066138"></a>No</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066140"></a>8192</p></td><td valign="top" align="left"><p><a name="1066142"></a>Proprietary</p></td><td valign="top" align="left"><p><a name="1066144"></a>TCP</p></td><td valign="top" align="left"><p><a name="1066146"></a>1.0</p></td><td valign="top" align="left"><p><a name="1066148"></a>None</p></td><td valign="top" align="left"><p><a name="1066150"></a>In/Out</p></td><td valign="top" align="left"><p><a name="1066152"></a>Video redirection to client viewer</p></td><td valign="top" align="left"><p><a name="1066154"></a>No</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1048035"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>CIM ports are dynamic. See the Microsoft knowledge base at <b>support.microsoft.com</b> for information on 
+CIM port usage.
+</td>
+  </tr>
+</table><a name="1052259"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>If you are using a firewall, you must open all of the ports listed in <a href="security.htm#1064529">Table&nbsp;2-1</a> to ensure that IT Assistant and 
+other Dell OpenManage applications function properly.
+</td>
+  </tr>
+</table><hr noshade size="1">
+<a name="1047307"></a><h2>Security Management</h2>
+
+
+<a name="1047308"></a><p>Dell provides security and access administration through role-based access control (RBAC), authentication, and encryption, or through Active Directory for both the Web-based and command line interfaces.</p>
+<a name="1047309"></a><h3> Role-Based Access Control (RBAC)
+</h3>
+<a name="1047310"></a><p>RBAC manages security by determining the operations that can be executed by users in specific roles. Each user is assigned one or more roles, and each role is assigned one or more user privileges that are permitted to users in that role. With RBAC, security administration can correspond closely to an organization's structure. For information about setting up Dell OpenManage users, see "<a href="setup.htm#1044105">Assigning User Privileges</a>."</p>
+<a name="1047312"></a><h4> User Privileges</h4>
+<a name="1047313"></a><p>Server Administrator grants different access rights based on the user's assigned group privileges. The&nbsp;three user levels are <i>User</i>, <i>Power User</i>, and <i>Administrator</i>.</p>
+<a name="1047314"></a><p><i>Users</i> can view most information.</p>
+<a name="1047315"></a><p><i>Power Users</i> can set warning threshold values, run diagnostic tests, and configure which alert actions are to be taken when a warning or failure event occurs.</p>
+<a name="1047316"></a><p><i>Administrators</i> can configure and perform shutdown actions, configure Auto Recovery actions in case a system has a hung operating system, and clear hardware, event, and command logs. Administrators can also send e-mail.</p>
+<a name="1047317"></a><p>Server Administrator grants read-only access to users logged in with User privileges; read and write access to users logged in with Power User privileges; and read, write, and administrator access to users logged in with Administrator privileges. See <a href="security.htm#1047327">Table&nbsp;2-2</a>.</p>
+<a name="1047374"></a>
+<p><p class="FigureTableTitle"><a name="1047327"></a>Table 2-2.&#32; User Privileges&nbsp;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1047335"> </a>
+<p><b>User Privileges</b></p>
+
+
+</th><th valign="top" align="left" colspan=3 rowspan=1><a name="1047337"> </a>
+<p><b>Access Type</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><a name="1047343"> </a>
+<p><b>&nbsp;</b></p>
+
+
+</td><td valign="top" align="left"><a name="1047345"> </a>
+<p><b>Admin</b></p>
+
+
+</td><td valign="top" align="left"><a name="1047347"> </a>
+<p><b>Write</b></p>
+
+
+</td><td valign="top" align="left"><a name="1047349"> </a>
+<p><b>Read</b></p>
+
+
+</td></tr>
+<tr><td valign="top" align="left"><p><a name="1047351"></a><b>User</b></p></td><td valign="top" align="left"><p><a name="1047353"></a>&nbsp;</p></td><td valign="top" align="left"><p><a name="1047355"></a>&nbsp;</p></td><td valign="top" align="left"><p><a name="1047357"></a>X</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1047359"></a><b>Power User</b></p></td><td valign="top" align="left"><p><a name="1047361"></a>&nbsp;</p></td><td valign="top" align="left"><p><a name="1047363"></a>X</p></td><td valign="top" align="left"><p><a name="1047365"></a>X</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1047367"></a><b>Administrator</b></p></td><td valign="top" align="left"><p><a name="1047369"></a>X</p></td><td valign="top" align="left"><p><a name="1047371"></a>X</p></td><td valign="top" align="left"><p><a name="1047373"></a>X</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1050126"></a><p><i>Admin</i> access allows you to shut down the managed system.</p>
+<a name="1047375"></a><p><i>Write</i> access allows you to modify or set the values on the managed system.</p>
+<a name="1050124"></a><p><i>Read</i> access allows you to view the data reported by Server Administrator. Read access does not allow you to change or set the values on the managed system.</p>
+<a name="1047379"></a><h5> Privilege Levels to Access Server Administrator Services</h5>
+<a name="1047383"></a><p><a href="security.htm#1047390">Table&nbsp;2-3</a> summarizes which user levels have privileges to access and manage Server Administrator&nbsp;Services.</p>
+<a name="1047437"></a>
+<p><p class="FigureTableTitle"><a name="1047390"></a>Table 2-3.&#32; Server Administrator User Privilege Levels&nbsp;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1047396"> </a>
+<p><b>Service</b></p>
+
+
+</th><th valign="top" align="left" colspan=2 rowspan=1><a name="1047398"> </a>
+<p><b>User Privilege Level Required</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><a name="1047402"> </a>
+<p><b>&nbsp;</b></p>
+
+
+</td><td valign="top" align="left"><a name="1047404"> </a>
+<p><b>View</b></p>
+
+
+</td><td valign="top" align="left"><a name="1047406"> </a>
+<p><b>Manage</b></p>
+
+
+</td></tr>
+<tr><td valign="top" align="left"><p><a name="1047408"></a>Instrumentation</p></td><td valign="top" align="left"><p><a name="1047410"></a>U, P, A</p></td><td valign="top" align="left"><p><a name="1047412"></a>P, A</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1047414"></a>Remote Access</p></td><td valign="top" align="left"><p><a name="1047416"></a>U, P, A</p></td><td valign="top" align="left"><p><a name="1047418"></a>A</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1047420"></a>Diagnostics</p></td><td valign="top" align="left"><p><a name="1047422"></a>P, A</p></td><td valign="top" align="left"><p><a name="1047424"></a>P, A</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1047426"></a>Update </p></td><td valign="top" align="left"><p><a name="1047428"></a>U, P, A </p></td><td valign="top" align="left"><p><a name="1047430"></a>A </p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1047432"></a>Storage Management </p></td><td valign="top" align="left"><p><a name="1047434"></a>U, P, A </p></td><td valign="top" align="left"><p><a name="1047436"></a>A </p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1047444"></a><p><a href="security.htm#1047451">Table&nbsp;2-4</a> defines the user privilege level abbreviations used in <a href="security.htm#1047390">Table&nbsp;2-3</a>.</p>
+<a name="1047470"></a>
+<p><p class="FigureTableTitle"><a name="1047451"></a>Table 2-4.&#32; Legend for Server Administrator User Privilege Levels&nbsp;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><td valign="top" align="left"><p><a name="1047455"></a><b>U</b></p></td><td valign="top" align="left"><p><a name="1047457"></a>User</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1047459"></a><b>P</b></p></td><td valign="top" align="left"><p><a name="1047461"></a>Power User</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1047463"></a><b>A</b></p></td><td valign="top" align="left"><p><a name="1047465"></a>Administrator </p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1047471"></a><h4> Authentication</h4>
+<a name="1047472"></a><p>The Server Administrator authentication scheme ensures that the correct access types are assigned to the correct user privileges. Additionally, when you invoke the CLI, the Server Administrator authentication scheme validates the context within which the current process is running. This authentication scheme ensures that all Server Administrator functions, whether accessed through the Server Administrator home page or CLI, are properly authenticated.</p>
+<a name="1047473"></a><h5> Microsoft Windows Authentication</h5>
+<a name="1047474"></a><p>For supported Windows operating systems, Server Administrator authentication uses Integrated Windows Authentication (formerly called NTLM) to authenticate. This authentication system allows Server Administrator security to be incorporated in an overall security scheme for your network. </p>
+<a name="1047475"></a><h5> Red Hat&#174; Enterprise Linux and SUSE&#174; Linux Enterprise Server Authentication</h5>
+<a name="1047476"></a><p>For supported Red Hat Enterprise Linux and SUSE Linux Enterprise Server operating systems, Server Administrator authentication is based on the Pluggable Authentication Modules (PAM) library. This&nbsp;documented library of functions allows an administrator to determine how individual applications authenticate users.</p>
+<a name="1047479"></a><h4> Encryption</h4>
+<a name="1047480"></a><p>Server Administrator is accessed over a secure HTTPS connection using secure socket layer (SSL) technology to ensure and protect the identity of the system being managed. Java Secure Socket Extension (JSSE) is used by supported Windows, Red Hat Enterprise Linux, and SUSE Linux Enterprise Server operating systems to protect the user credentials and other sensitive data that is transmitted over the socket connection when a user accesses the Server Administrator home page. </p>
+<a name="1047256"></a><h3> Microsoft Active Directory
+</h3>
+<a name="1050436"></a><p>The Active Directory service software acts as the central authority for network security, letting the operating system readily verify a user's identity and control that user's access to network resources for Dell OpenManage applications running on supported Windows platforms. Dell provides schema extensions for customers to modify their Active Directory database to support remote management authentication and authorization. IT Assistant, Server Administrator, and Dell remote access controllers can now interface with Active Directory to add and control users and privileges from one central database. For information about using Active Directory, see "<a href="mad.htm#1055432">Using Microsoft&#174; Active Directory&#174;</a>."</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">Back to Contents Page</a></p>
+
+
+<p>&nbsp;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

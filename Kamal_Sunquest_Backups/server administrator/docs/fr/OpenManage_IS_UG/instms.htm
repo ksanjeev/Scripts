@@ -1,0 +1,759 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<title>Installation de Management Station Software - Guide de sécurité et d'installation de Dell OpenManage, version 5.0</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">Retour à la page du sommaire</a> </p>
+<a name="1043338"></a><h1> Installation de Management Station Software  </h1>
+<p class="title">Guide de sécurité et d'installation de Dell OpenManage&#8482;, version 5.0</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1054353">Présentation générale</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1054367">Spécifications pour l'installation</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1058223">Installation, mise à niveau et désinstallation de Management Station Software sur un </a>
+<br><a href="#1058223">système fonctionnant sous un système d'exploitation Windows pris en charge</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1064437">Installation, mise à niveau et désinstallation de Management Station Software </a>
+<br><a href="#1064437">sur un système fonctionnant sous un système d'exploitation Red Hat Enterprise Linux ou SUSE Linux Enterprise Server pris en charge</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1054353"></a><h2>Présentation générale</h2>
+
+
+<a name="1054354"></a><p>Le CD <i>Dell&#8482; Systems Management Consoles </i>fournit un programme d'installation pour installer, mettre à niveau et désinstaller le logiciel Dell OpenManage&#8482; Management Station Software sur votre système.</p>
+<a name="1054356"></a><p>En utilisant le programme d'installation sur le CD <i>Dell Systems Management Consoles</i>, vous pouvez installer et mettre à niveau le logiciel Management Station Software sur un système fonctionnant sous le système d'exploitation Microsoft® Windows®. Vous pouvez désinstaller Dell OpenManage Management Station Software avec le CD <i>Dell Systems Management Consoles </i>ou via le système d'exploitation sur un système fonctionnant sous un système d'exploitation Windows pris en charge.</p>
+<a name="1081981"></a><p>Les applications Management Station sont Dell OpenManage IT Assistant, RAC Management Station, la console BMC et l'utilitaire snap-in Microsoft Active Directory®.</p>
+<a name="1081984"></a><p>Certaines applications Management Station Applications exécutent également sur systèmes d'exploitation Red Hat® Enterprise Linux et SUSE® Linux Enterprise Server. Voir «&nbsp;<a href="instms.htm#1064437">Installation, mise à niveau et désinstallation de Management Station Software sur un système fonctionnant sous un système d'exploitation Red Hat Enterprise Linux ou SUSE Linux Enterprise Server pris en charge</a>&nbsp;» pour des informations plus spécifiques. </p>
+<a name="1060730"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Consultez le <i>Guide d'utilisation Dell OpenManage IT Assistant </i>pour des informations supplémentaires sur l'installation et la configuration.
+</td>
+  </tr>
+</table><hr noshade size="1">
+<a name="1054367"></a><h2>Spécifications pour l'installation</h2>
+
+
+<a name="1054368"></a><p>Voici les spécifications générales qui s'appliquent aux stations de gestion. Les prérequis d'installation spécifiques aux systèmes d'exploitation sont répertoriés ci-dessous en tant que partie des procédures d'installation pour les applications respectives. </p>
+<a name="1054373"></a><h4> Systèmes d'exploitation pris en charge</h4>
+<a name="1054374"></a><p>Le logiciel Management Station Software s'exécute, au minimum, sous chacun des systèmes d'exploitation suivants&nbsp;: </p>
+<ul><li><a name="1079651"></a>Red Hat Enterprise Linux AS, ES et WS, (version 3) x86 et Intel® Extended Memory 64 Technology (EM64T), mise à jour 6 (utilitaire de gestion du contrôleur BMC et RAC Management Station)<br><br></li>
+<li><a name="1067423"></a>Red Hat Enterprise Linux AS, ES et WS, (version 4) pour Intel x86 et Intel EM64T, (utilitaire de gestion du contrôleur BMC et RAC Management Station)<br><br></li>
+<li><a name="1079659"></a>Windows 2000 Server SP4 (inclut Server et Advanced Server)<br><br></li>
+<li><a name="1079649"></a>Windows 2000 Professionnel SP4<br><br></li>
+<li><a name="1062907"></a> Windows Server&#8482; 2003 R2 (y compris les éditions Standard et Enterprise)<br><br></li>
+<li><a name="1071859"></a>Windows Server 2003 SP1 (Web Edition)<br><br></li>
+<li><a name="1081578"></a>Windows SBS 2003 SP1 (sauf IT Assistant)<br><br></li>
+<li><a name="1083302"></a>Windows Server 2003 Standard et Enterprise x64 R2 (excepté 'IT Assistant)<br><br></li>
+<li><a name="1083303"></a>Windows Storage Server 2003 R2 (inclut les éditions Express, Standard, Workgroup et Enterprise)<br><br></li>
+<li><a name="1083304"></a>Windows XP SP1 et SP2<br><br></li>
+<li><a name="1078374"></a>SUSE Linux Enterprise Server (version 9), SP3 (utilitaire de gestion du contrôleur BMC et RAC Management Station)<br><br></li>
+</ul><a name="1069988"></a><p>Pour des spécifications supplémentaires sur les systèmes d'exploitation spécifiques aux applications, consultez la documentation de ces applications.</p>
+<a name="1054382"></a><h3> Spécifications système
+ </h3>
+<a name="1054383"></a><p>Sur les systèmes Windows, le programme d'installation (<b>setup.exe</b>) lance la <b>vérification des prérequis</b> sur le CD Dell Systems Management Consoles afin d'analyser automatiquement votre système et déterminer si les spécifications du système ont été respectées. (consultez la section «&nbsp;<a href="instms.htm#1079984">Vérification des prérequis</a>&nbsp;»). </p>
+<a name="1079912"></a><h3>Spécifications Management Station
+</h3>
+<a name="1079937"></a><p>Microsoft Software Installer (MSI) version 3.0 ou ultérieure est requis sur votre système. Le logiciel Dell OpenManage détecte la version MSI de votre système. Si cette version est antérieure à la version 3.1, 
+la vérification des prérequis vous invite à mettre au niveau de la version 3.1 de MSI.</p>
+<a name="1079939"></a><h3> Activation de la sécurité et de la découverte CIM dans IT Assistant
+</h3>
+<a name="1054446"></a><p>Certaines applications, comme IT Assistant, peuvent utiliser le protocole du modèle commun d'informations (CIM) . Si vous utilisez le protocole CIM, soyez sûr qu'il est installé et activé. Pour des informations détaillées sur la configuration de CIM pour IT Assistant, consultez le <i>Guide d'utilisation de Dell OpenManage IT Assistant</i>.</p>
+<a name="1056706"></a><h3> Installation de SNMP
+</h3>
+<a name="1080364"></a><p>Le service SNMP doit être installé et s'exécuter sur le système IT Assistant. SNMP (ou CIM) doit aussi être installé sur les systèmes que vous souhaitez détecter et gérer. Si vous essayez d'installer IT Assistant sur un système sans SNMP, le programme d'installation s'arrête et vous invite à installer SNMP. De plus, si vous arrêtez le service SNMP, les services IT Assistant s'arrêtent également.</p>
+<a name="1060009"></a><p>Pour des informations sur l'installation du protocole SNMP sur la station de gestion avec IT Assistant, consultez le <i>Guide d'utilisation d'IT Assistant</i> Dell OpenManage.</p>
+<hr noshade size="1">
+<a name="1058223"></a><h2>Installation, mise à niveau et désinstallation de Management Station Software sur un système fonctionnant sous un système d'exploitation Windows pris en charge</h2>
+
+
+<a name="1056724"></a><p>Cette section explique comment installer, mettre à niveau et désinstaller Management Station Software sur un système qui exécute un système d'exploitation Windows pris en charge. Si les prérequis sont remplis sur un système, les composants qui sont installés par défaut sont IT Assistant et la console Remote Access Controller.</p>
+<a name="1080295"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>L'utilitaire de gestion du contrôleur BMC est mis à niveau par défaut s'il est déjà installé sur votre système.
+</td>
+  </tr>
+</table><a name="1079982"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>La console Dell OpenManage Array Manager n'est pas disponible pour Windows si Management Station Software (avec la console Array Manager installée) n'est pas détecté. Elle peut seulement être mise à niveau. La console Array Manager ne sera plus prise en charge dans les versions prochaines.
+ </td>
+  </tr>
+</table><a name="1079984"></a><h4> Vérification des prérequis</h4>
+<a name="1072193"></a><p>Le programme d'installation (setup.exe) lance le programme de vérification des prérequis. Le programme d'installation est situé dans le répertoire <b>windows </b>sur le CD Dell Systems Management Consoles. Le programme de vérification des prérequis examine les prérequis nécessaires pour les composants logiciels sans lancer l'installation réelle. Ce programme affiche une fenêtre de condition qui fournit des informations sur le matériel et le logiciel système qui pourraient affecter l'installation et l'utilisation des composants logiciels. </p>
+<a name="1068442"></a><p>La vérification des prérequis affiche trois types de messages&nbsp;: informatif, d'avertissement et d'erreur.</p>
+<ul><li><a name="1068443"></a>Un message informatif décrit une condition que vous devez connaître. Il n'empêche pas l'installation d'un composant.<br><br></li>
+<li><a name="1068444"></a>Un message d'avertissement décrit une condition qui empêche un logiciel d'être installé au cours de l'installation <b>rapide</b>. Il est recommandé que vous résolviez la condition provoquant l'avertissement avant de poursuivre l'installation du logiciel. Si vous décidez de continuer, vous pouvez sélectionner et installer le logiciel en utilisant l'installation <b>personnalisée</b>.<br><br></li>
+<li><a name="1068445"></a>Un message d'erreur décrit une condition qui empêche l'installation de la fonctionnalité du logiciel. Vous devez résoudre le problème provoquant l'erreur avant de poursuivre l'installation du logiciel. Si vous ne résolvez pas le problème, le composant logiciel ne sera pas installé.<br><br></li>
+</ul><a name="1068446"></a><p>Vous pouvez exécuter la vérification des prérequis en arrière plan à partir du répertoire <b>\windows\PreReqChecker</b> en exécutant <span class="screen">RunPreReqChecks.exe /s</span>. Pour plus de détails sur la manière d'exécuter la vérification des prérequis en arrière plan, consultez la section «&nbsp;<a href="prereqch.htm#1053126">Vérification des prérequis</a>&nbsp;».</p>
+<a name="1070573"></a><h3> Installation et mise à niveau de Management Station Software
+</h3>
+<a name="1068209"></a><p>Cette section explique comment installer Management Station Software et le mettre à niveau. Le options d'installation sont les suivantes&nbsp;:</p>
+<ul><li><a name="1068210"></a>Utilisez le programme d'installation sur le CD Dell Systems Management Consoles pour installer ou mettre à niveau IT Assistant et les autres logiciels Management Station Software.<br><br></li>
+<li><a name="1058239"></a>Utilisez la méthode d'installation automatique via le moteur Windows Installer msiexec.exe (voir <a href="instms.htm#1068484">tableau 5-1</a>) pour installer IT Assistant et d'autres logiciels Management Station Software sur plusieurs systèmes.<br><br> </li>
+</ul><a name="1058254"></a><h3> Installations rapide et personnalisée
+</h3>
+<a name="1058259"></a><p>Le CD Dell Systems Management Consoles  comprend une option d'<b>installation rapide</b> et une option d'<b>installation personnalisée</b> pour installer IT Assistant et les autres logiciels Management Station Software.</p>
+<a name="1071914"></a><p>Quand vous insérez le CD Dell Systems Management Consoles dans le lecteur de CD de votre système, le programme d'installation lance la vérification des prérequis pour fournir des informations sur le matériel et les logiciels de votre système qui pourraient affecter l'installation et le fonctionnement des composants.</p>
+<a name="1073567"></a><p>Vous pouvez installer tous les logiciels Management Station Software qui sont déjà installés sur votre système en suivant les étapes suivantes&nbsp;:</p>
+<ol type="1">
+
+<li value="1"><a name="1075414"></a>Lancez le programme d'installation de Management Station.
+
+<br><br>
+ <li value="2"><a name="1075421"></a>Cliquez sur <b>Installer, modifier, réparer ou supprimer Management Station</b> puis cliquez sur<b> Suivant</b>.
+
+<br><br>
+<li value="3"><a name="1075540"></a>Sélectionnez l'option <b>Installation rapide</b>.
+<br><br>
+</ol>
+<a name="1075418"></a><p>Si les prérequis sont remplis, lT Assistant et RAC Management Station sont installés par défaut, alors que l'utilitaire snap-in d'Active Directory et la console BMC ne sont pas sélectionnés par défaut et peuvent être installés en utilisant l'option <b>Installation personnalisée</b> (pour plus d'informations sur la réalisation d'une <b>installation rapide</b>, consultez le Guide d'installation rapide du logiciel, auquel vous pouvez accéder en cliquant sur <b>Infos</b> dans la barre des tâches du programme d'installation).</p>
+<a name="1066381"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span><b></b>Au cours d'une <b>installation rapide</b>, les services individuels de Management Station ne seront pas installés sur les systèmes gérés qui ne répondent pas aux spécifications d'installation matérielles ou logicielles de ces services. Par exemple, le module logiciel du service d'accès à distance de Dell OpenManage Server Administrator ne sera pas installé au cours d'une installation <b>rapide</b> si un contrôleur Remote Access Controller n'est pas installé sur le système géré. Un utilisateur, cependant, peut aller dans l'<b>installation personnalisée </b>et sélectionner le module logiciel du service d'accès à distance pour l'installer.
+</td>
+  </tr>
+</table><a name="1056759"></a><p>Si vous sélectionnez l'option <b>Installation personnalisée</b>, vous pouvez désélectionner un ou plusieurs composants logiciels que le programme d'installation a identifié comme appropriés pour les options installées sur votre système. Pendant une <b>installation rapide</b>, vous ne pouvez pas ajouter des entrées à la liste des composants à installer car tous les composants correspondant à la configuration matérielle sont présélectionnés.</p>
+<a name="1058289"></a><p>Les sections qui suivent illustrent l'option d'installation personnalisée en utilisant une installation et une mise à niveau d'IT Assistant comme exemple. Vous pouvez installer d'autres logiciels Management Station Software en utilisant l'installation personnalisée.</p>
+<a name="1056766"></a><h3> Installation personnalisée
+</h3>
+<a name="1068476"></a><p>La méthode d'installation personnalisée vous permet de choisir des composants logiciels spécifiques à installer.</p>
+<a name="1078495"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Les service Management Station et Managed System peuvent être installés dans le même répertoire ou dans des répertoires différents. Vous pouvez sélectionner le répertoire d'installation.
+</td>
+  </tr>
+</table><a name="1078496"></a><h4> Installation de Management Station</h4>
+<ol type="1">
+
+<li value="1"><a name="1056769"></a>Ouvrez une session avec des privilèges d'administrateur sur le système où vous souhaitez installer les composants de Management Station Software.
+
+<br><br>
+ <li value="2"><a name="1056771"></a>Quittez toutes les applications ouvertes.
+
+<br><br>
+ <li value="3"><a name="1056773"></a>Insérez le CD <i>Dell Systems Management Consoles</i> dans le lecteur de CD de votre système.
+<br><br>
+ </ol>
+<a name="1063338"></a><p class="indent">Si le programme d'installation ne démarre pas automatiquement, naviguez jusqu'au répertoire <b>windows</b> du CD et double-cliquez sur le fichier<b> setup.exe</b>.</p>
+<a name="1063344"></a><p class="indent">L'écran <b>Condition des prérequis de Dell OpenManage Management Station </b>s'ouvre et démarre la vérification des prérequis sur Management Station. L'option <b>Condition des prérequis</b> affiche tout message utile d'informations, d'avertissement ou d'erreur. Lisez les messages et, si nécessaire, résolvez tout message d'avertissement ou d'erreur avant de poursuivre l'installation.</p>
+<ol type="1">
+
+<li value="4"><a name="1063340"></a>Cliquez sur l'option <b>Installer, modifier, réparer ou supprimer Management Station</b>.
+<br><br>
+ </ol>
+<a name="1056782"></a><p class="indent">L'écran <b>Bienvenue sur l'assistant d'installation de Dell OpenManage Management Station</b> s'affiche.</p>
+<ol type="1">
+
+<li value="5"><a name="1056783"></a>Cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1056784"></a><p class="indent">Le contrat de licence de logiciel Dell&#8482; apparaît.</p>
+<ol type="1">
+
+<li value="6"><a name="1056785"></a>Cliquez sur <b>Accepter</b> si vous acceptez les termes de ce contrat.
+<br><br>
+ </ol>
+<a name="1056788"></a><p class="indent">La boîte de dialogue <b>Type d'installation</b> s'ouvre. </p>
+<ol type="1">
+
+<li value="7"><a name="1056790"></a>Sélectionnez <b>Installation personnalisée</b> et cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1056791"></a><p class="indent">La boîte de dialogue <b>Installation personnalisée</b> s'ouvre.</p>
+<a name="1056795"></a><p class="indent">Pour sélectionner une application spécifique de Management Station Software, cliquez sur la flèche vers le bas à côté du composant répertorié et choisissez d'installer ou non l'application.</p>
+<a name="1062227"></a><p class="indent">À côté d'un composant sélectionné se trouve l'icône d'un disque dur. À côté d'un composant désélectionné se trouve un <b>X</b> rouge. Par défaut, si la vérification des prérequis trouve des composants logiciels pour lesquels le matériel correspondant n'est pas présent, ceux-ci sont désélectionnés.</p>
+<a name="1080095"></a><p class="indent">Pour accepter le chemin par défaut du répertoire d'installation du logiciel Management Station Software, cliquez sur <b>Suivant</b>. Sinon, cliquez sur <b>Modifier</b> et naviguez jusqu'au répertoire où vous souhaitez installer le logiciel Management Station Software, puis cliquez sur <b>Suivant</b> </p>
+<a name="1080096"></a><p class="indent">Assurez-vous que<b> Dell OpenManage IT Assistant </b>est<b> </b>sélectionné.</p>
+<ol type="1">
+
+<li value="8"><a name="1056800"></a>Cliquez sur <b>Suivant</b> pour accepter les composants logiciels sélectionnés pour qu'ils soient installés.
+<br><br>
+</ol>
+<a name="1056801"></a><p class="indent">La boîte de dialogue <b>Paramètres personnalisés d'IT Assistant</b> apparaît.</p>
+<ol type="1">
+
+<li value="9"><a name="1056802"></a>Apportez les modifications souhaitées aux champs de <b>Paramètres personnalisés d'IT Assistant</b>.
+
+<br><br>
+<li value="10"><a name="1056803"></a>Cliquez sur <b>Suivant</b> pour accepter les paramètres personnalisés d'IT Assistant.
+<br><br>
+ </ol>
+<a name="1056805"></a><p class="indent">La boîte de dialogue <b>Prêt à installer le programme</b> apparaît.</p>
+<a name="1059468"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Vous pouvez annuler le processus d'installation en cliquant sur <b>Annuler</b>. L'installation annule les modifications que vous avez faites. Si vous cliquez sur <b>Annuler</b> à un stade ultérieur du processus d'installation, il se peut que l'installation ne puisse pas revenir en arrière correctement, laissant le système avec une installation incomplète. Consultez la section «&nbsp;<a href="instms.htm#1056882">Récupération de système en cas d'échec d'installation</a>&nbsp;» pour des informations supplémentaires.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="11"><a name="1059464"></a>Cliquez sur <b>Installer</b> pour installer les composants logiciels sélectionnés.
+<br><br>
+ </ol>
+<a name="1058388"></a><p class="indent">L'écran <b>Installation de Dell OpenManage Management Station</b> apparaît. </p>
+<a name="1056816"></a><p class="indent">Quand les composants sélectionnés sont installés, la boîte de dialogue <b>Fin de l'assistant d'installation</b> apparaît.</p>
+<ol type="1">
+
+<li value="12"><a name="1056818"></a>Cliquez sur <b>Terminer</b> pour quitter l'installation de Management Station.
+<br><br>
+ </ol>
+<a name="1056819"></a><h3> Mise à niveau
+</h3>
+<a name="1056821"></a><p>Le CD <i>Dell Systems Management Consoles </i>comprend une option de <b>mise à niveau</b> pour mettre à niveau IT Assistant et les autres logiciels Management Station Software.</p>
+<a name="1056823"></a><p>Quand vous insérez le CD <i>Dell Systems Management Consoles </i>dans le lecteur de CD de votre système, le programme de vérification des prérequis vérifie votre système.</p>
+<a name="1074708"></a><p>Pour mettre à niveau tous les logiciels Management Station Software qui sont installés sur votre système, cliquez sur <b>Installer, modifier, réparer ou supprimer Management Station</b> et sélectionnez <b>Suivant</b>.</p>
+<a name="1074725"></a><p>Pendant la mise à niveau, vous ne pouvez pas ajouter de composants à la liste des composants de Management Station à installer. Tous les composants appropriés pour votre système sont présélectionnés durant une mise à niveau.</p>
+<a name="1056829"></a><p>Les procédures suivantes décrivent comment mettre à niveau IT Assistant et d'autres logiciels de station de gestion.</p>
+<a name="1056831"></a><h4> Mise à niveau personnalisée</h4>
+<ol type="1">
+
+<li value="1"><a name="1056833"></a>Insérez le CD <i>Dell Systems Management Consoles</i> dans le lecteur de CD de votre système.
+<br><br>
+ </ol>
+<a name="1056834"></a><p class="indent">Si le programme d'installation ne démarre pas automatiquement, naviguez jusqu'au répertoire <b>windows</b> sur le CD et double-cliquez sur le fichier <b>setup.exe</b>.</p>
+<a name="1063423"></a><p class="indent">L'écran <b>Condition des prérequis de Dell OpenManage Management Station </b>s'ouvre et démarre la vérification des prérequis sur Management Station. L'option <b>Condition des prérequis</b> affiche tout message utile d'informations, d'avertissement ou d'erreur. Lisez les messages et, si nécessaire, résolvez les problèmes avant de passer à l'installation.</p>
+<ol type="1">
+
+<li value="2"><a name="1056836"></a>Cliquez sur l'option <b>Installer, modifier, réparer ou supprimer Management Station</b>.
+<br><br>
+</ol>
+<a name="1056837"></a><p class="indent">L'écran <b>Bienvenue sur l'assistant d'installation de Dell OpenManage Management Station</b> s'affiche.</p>
+<ol type="1">
+
+<li value="3"><a name="1056838"></a>Cliquez sur Suivant.
+<br><br>
+</ol>
+<a name="1056839"></a><p class="indent">L'écran <b>Installation de Dell OpenManage Management Station</b> apparaît. Des messages indiquent la condition et la progression des composants logiciels installés ou mis à niveau. </p>
+<a name="1067910"></a><p class="indent">Quand les composants sélectionnés sont installés ou mis à niveau, la boîte de dialogue  Assistant d'installation terminé s'affiche.</p>
+<ol type="1">
+
+<li value="4"><a name="1067912"></a>Cliquez sur <b>Terminer</b> pour quitter l'installation de Management Station. 
+<br><br>
+</ol>
+<a name="1067913"></a><h3> Modification personnalisée
+</h3>
+<ol type="1">
+
+<li value="1"><a name="1056852"></a>Cliquez sur le bouton <b>Démarrer</b> et pointez sur <b>Paramètres</b> <span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b>Panneau de configuration</b>. 
+<br><br>
+
+<li value="2"><a name="1056853"></a>Double-cliquez sur <b>Ajout/Suppression de programmes</b>.
+
+<br><br>
+ <li value="3"><a name="1056854"></a>Cliquez sur <b>Dell OpenManage Management Station</b>, puis sur <b>Modifier</b>.
+<br><br>
+ </ol>
+<a name="1056855"></a><p class="indent">La boîte de dialogue <b>Bienvenue sur l'assistant d'installation de Dell OpenManage Management Station</b> s'affiche.</p>
+<ol type="1">
+
+<li value="4"><a name="1056856"></a>Cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1056857"></a><p class="indent">La boîte de dialogue <b>Maintenance de programme</b> s'ouvre.</p>
+<ol type="1">
+
+<li value="5"><a name="1056858"></a>Sélectionnez l'option <b>Modification</b> et cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1066734"></a><p class="indent">La boîte de dialogue <b>Installation personnalisée</b> s'ouvre. </p>
+<ol type="1">
+
+<li value="6"><a name="1066735"></a>Pour sélectionner une application spécifique de Management Station Software, cliquez sur la flèche vers le bas à côté du composant répertorié et choisissez d'installer ou non l'application.
+<br><br>
+</ol>
+<a name="1056861"></a><p class="indent">À côté d'un composant sélectionné se trouve l'icône d'un disque dur. À côté d'un composant sélectionné se trouve un X rouge. Par défaut, si la vérification des prérequis trouve des composants logiciels pour lesquels le matériel correspondant n'est pas présent, ceux-ci sont désélectionnés.</p>
+<ol type="1">
+
+<li value="7"><a name="1056862"></a>Cliquez sur <b>Suivant</b> pour accepter les composants logiciels sélectionnés pour qu'ils soient installés.
+<br><br>
+ </ol>
+<a name="1056863"></a><p class="indent">La boîte de dialogue <b>Prêt à modifier le programme</b> apparaît.</p>
+<ol type="1">
+
+<li value="8"><a name="1056864"></a>Cliquez sur <b>Installer</b> pour installer les composants logiciels sélectionnés.
+<br><br>
+ </ol>
+<a name="1056865"></a><p class="indent">L'écran <b>Installation de Dell OpenManage Management Station</b> apparaît. Des messages donnent la condition et la progression des composants logiciels installés. </p>
+<a name="1056866"></a><p class="indent">Quand les composants sélectionnés sont installés, la boîte de dialogue <b>Fin de l'assistant d'installation</b> apparaît.</p>
+<ol type="1">
+
+<li value="9"><a name="1056867"></a>Cliquez sur <b>Terminer</b> pour quitter l'installation de Management Station. 
+<br><br>
+</ol>
+<a name="1056868"></a><h3> Réparation personnalisée
+</h3>
+<ol type="1">
+
+<li value="1"><a name="1056869"></a>Cliquez sur le bouton <b>Démarrer</b> et pointez sur <b>Paramètres</b> <span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b>Panneau de configuration</b>.
+<br><br>
+
+<li value="2"><a name="1056870"></a>Double-cliquez sur <b>Ajout/Suppression de programmes</b>.
+
+<br><br>
+ <li value="3"><a name="1056871"></a>Cliquez sur <b>Dell OpenManage Management Station</b>, puis sur <b>Modifier</b>.
+<br><br>
+ </ol>
+<a name="1056872"></a><p class="indent">La boîte de dialogue <b>Bienvenue sur l'assistant d'installation de Dell OpenManage Management Station</b> s'affiche.</p>
+<ol type="1">
+
+<li value="4"><a name="1056873"></a>Cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1056874"></a><p class="indent">La boîte de dialogue <b>Maintenance de programme</b> s'ouvre.</p>
+<ol type="1">
+
+<li value="5"><a name="1056875"></a>Sélectionnez l'option <b>Réparation</b> et cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1056876"></a><p class="indent">La boîte de dialogue <b>Prêt à réparer le programme</b> apparaît.</p>
+<ol type="1">
+
+<li value="6"><a name="1056877"></a>Cliquez sur <b>Installer</b> pour installer les composants logiciels sélectionnés.
+<br><br>
+ </ol>
+<a name="1056878"></a><p class="indent">L'écran <b>Installation de Dell OpenManage Management Station</b> apparaît. Des messages donnent la condition et la progression des composants logiciels installés. </p>
+<a name="1056879"></a><p class="indent">Quand les composants sélectionnés sont installés, la boîte de dialogue <b>Fin de l'assistant d'installation</b> apparaît.</p>
+<ol type="1">
+
+<li value="7"><a name="1056880"></a>Cliquez sur <b>Terminer</b> pour quitter l'installation de Management Station. 
+<br><br>
+</ol>
+<a name="1056882"></a><h3> Récupération d'un système en cas d'échec de l'installation
+</h3>
+<a name="1056883"></a><p>Si un utilitaire d'installation de logiciel rencontre une erreur irrécupérable pendant l'installation, votre système risque de devenir instable. Pour résoudre ce problème, les programmes d'installation de Dell OpenManage offrent la possibilité de restaurer à l'état précédent, c'est-à-dire de rétablir le système dans son état de fonctionnement complet avant l'installation qui a échoué. </p>
+<a name="1056884"></a><p>Le service Windows Installer offre aux programmes d'installation Dell OpenManage la capacité de revenir en arrière en conservant une opération «&nbsp;d'<i>annulation</i>&nbsp;» pour chaque opération effectuée pendant une installation, une désinstallation ou n'importe quelle autre modification de configuration. Si une partie de l'installation échoue, le service Windows Installer peut ramener le système dans l'état précis où il était précédemment. Cette fonctionnalité comprend le rétablissement de fichiers supprimés ou écrasés, les clés de registre et d'autres ressources. Les fichiers qui sont supprimés ou écrasés au cours d'une installation ou d'une suppression sont provisoirement enregistrés dans un emplacement de sauvegarde, de façon à pouvoir être restaurés si nécessaire. Quand une installation s'est terminée, tous les fichiers de sauvegarde temporaires sont supprimés.</p>
+<a name="1071200"></a><p>Une installation ne peut pas être annulée une fois qu'elle est terminée. Une installation négociée est conçue comme un filet de sécurité qui protège l'ordinateur pendant une session d'installation donnée. Si vous voulez supprimer une application installée, par exemple, vous devez simplement désinstaller cette application. </p>
+<a name="1071201"></a><p>Lorsque vous mettez Dell OpenManage software, version 4.3, au niveau de la version 4.<i>x</i>, une erreur restaure le système à son état d'origine.</p>
+<a name="1060068"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Les installations, désinstallations et mises à niveau annulées par l'administrateur pendant le nettoyage du programme d'installation ou après que l'installation est terminée ne permettra pas un retour en arrière.
+</td>
+  </tr>
+</table><a name="1056893"></a><h3> Réalisation d'une installation automatique du logiciel Management Station Software
+ </h3>
+<a name="1056895"></a><p>Le CD <i>Dell Systems Management Consoles </i> comprend une option <b>Installation rapide</b> et une option <b>Installation personnalisée</b> pour la procédure d'installation automatique.</p>
+<a name="1056897"></a><p>L'installation automatique vous permet d'installer Management Station Software sur plusieurs systèmes à la fois. Vous pouvez effectuer une installation automatique en créant un progiciel d'installation automatique qui contient tous les fichiers nécessaires de Management Station. L'option d'installation automatique fournit aussi plusieurs fonctionnalités qui vous permettent de configurer, de vérifier et d'afficher des informations sur les installations automatiques.</p>
+<a name="1056899"></a><p>Le progiciel d'installation automatique est distribué aux systèmes distants avec un outil de distribution logicielle provenant d'un fournisseur de logiciel indépendant (ISV). Quand le progiciel est distribué, le script d'installation installe le logiciel.</p>
+<a name="1067277"></a><h4> Fonctionnalités de l'installation automatique</h4>
+<a name="1067278"></a><p>L'installation automatique fournit les fonctionnalités suivantes&nbsp;:</p>
+<ul><li><a name="1067279"></a>	 	 Un ensemble de paramètres de ligne de commande facultatifs pour personnaliser une installation automatique<br><br></li>
+<li><a name="1067280"></a>Des paramètres de personnalisation pour indiquer des composants logiciels spécifiques à installer<br><br> </li>
+<li><a name="1067281"></a>Un programme de vérification des prérequis qui examine l'état des dépendances des composants logiciels sélectionnés sans avoir à effectuer une véritable installation<br><br> </li>
+</ul><a name="1056901"></a><h4> Création et distribution du progiciel d'installation automatique rapide</h4>
+<a name="1056903"></a><p>L'option d'installation automatique <b>Installation rapide </b>utilise le CD <i>Dell Systems Management Consoles </i>comme progiciel d'installation automatique. La commande <b>msiexec.exe/i MgmtSt.msi/qb</b> accède au CD <i> Systems Management Consoles</i> pour accepter l'accord de licence de logiciel et installer tous les produits Management Station Software requis sur les systèmes distants sélectionnés. La commande <b>msiexec.exe /i MgmtSt.msi /qb</b> installe Management Station Software sur chaque système distant en fonction de la configuration matérielle et logicielle du système.</p>
+<a name="1058431"></a><p>Vous pouvez mettre l'image du CD <i>Dell Systems Management Consoles</i> à la disposition du système distant en diffusant le contenu du CD dans son intégralité ou en adressant un lecteur du système cible à l'emplacement de l'image du CD. </p>
+<a name="1056907"></a><h4> Adressage d'un lecteur pour agir comme progiciel d'installation automatique rapide</h4>
+<a name="1074815"></a><p>Pour adresser un lecteur pour qu'il agisse en tant que progiciel d'installation automatique rapide, suivez les étapes suivantes&nbsp;:</p>
+<ol type="1">
+
+<li value="1"><a name="1056909"></a>Partagez une image du CD <i>Dell Systems Management Consoles</i> avec chaque système distant sur lequel vous voulez installer Management Station.
+<br><br>
+ </ol>
+<a name="1056911"></a><p class="indent">Vous pouvez accomplir cette tâche en partageant directement le CD ou en copiant tout le CD sur un lecteur et en partageant la copie.</p>
+<ol type="1">
+
+<li value="2"><a name="1056913"></a>Créez un script qui adresse un lecteur des systèmes distants au lecteur partagé décrit à l'étape 1. 
+Ce script devrait exécuter la commande suivante une fois que vous avez mappé le lecteur&nbsp;:
+<br><br>
+</ol>
+<a name="1064818"></a><p class="indent"><b>msiexec.exe /i</b> <b>Lecteur mappé\windows\ManagementStation\MgmtSt.msi /qb</b> </p>
+<ol type="1">
+
+<li value="3"><a name="1056915"></a>Configurez votre logiciel de distribution ISV pour qu'il puisse distribuer et exécuter le script créé à l'étape 2.
+
+<br><br>
+ <li value="4"><a name="1056917"></a>Distribuez ce script aux systèmes cibles en utilisant les outils de distribution de logiciel ISV.
+<br><br>
+ </ol>
+<a name="1056919"></a><p class="indent">La commande <b>msiexec.exe /i</b> <b>Lecteur mappé\windows\ManagementStation\MgmtSt.msi /qb</b> installe ensuite Management Station sur chaque système distant.</p>
+<a name="1056922"></a><h4> Distribution de tout le CD comme progiciel d'installation automatique rapide </h4>
+<a name="1074821"></a><p>Pour distribuer la totalité du CD en tant que progiciel d'installation automatique rapide, suivez les étapes suivantes&nbsp;:</p>
+<ol type="1">
+
+<li value="1"><a name="1056924"></a>Distribuez l'image intégrale du CD <i>Dell Systems Management Consoles</i> aux systèmes cibles. 
+<br><br>
+
+<li value="2"><a name="1056926"></a>Configurez votre logiciel de distribution ISV pour qu'il exécute la commande <b>msiexec.exe /i CD 
+Drive\windows\ManagementStation\MgmtSt.msi /qb</b> à partir de l'image du CD <i>Dell Systems 
+Management Consoles</i>. 
+<br><br>
+</ol>
+<a name="1056928"></a><p>La commande <b>msiexec.exe /i CD Drive\windows\ManagementStation\MgmtSt.msi /qb</b> s'exécute depuis le CD pour l'installation de Management Station sur chaque système distant.</p>
+<a name="1074805"></a><h4> Création et distribution des progiciels d'installation automatique personnalisée</h4>
+<a name="1056934"></a><p>Pour créer un logiciel d'installation automatique personnalisée pour distribution, copiez simplement le répertoire <b>windows</b> depuis le CD sur le disque dur du système.</p>
+<a name="1056935"></a><p>Créez un script batch qui exécutera l'installation en utilisant le moteur Windows Installer (<b>MSIExec.exe</b>). Par exemple&nbsp;:</p>
+<a name="1075736"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i MgmtSt.msi ADDLOCAL=ITA,RACMS,ADS /qb</span></p>
+<a name="1060123"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Pour une installation automatique personnalisée, chaque composant requis doit être inclus comme paramètre de ligne de commande (CLI) pour être installé.
+</td>
+  </tr>
+</table><a name="1076475"></a><p>Placez également le script de traitement par lot dans le répertoire <b>windows</b> du disque dur du système.</p>
+<a name="1056943"></a><p>Consultez la section «&nbsp;<a href="instms.htm#1057093">Paramètres de personnalisation</a>&nbsp;» pour des détails supplémentaires et l'identification des composants disponibles.</p>
+<a name="1056948"></a><h4> Distribution des progiciels d'installation automatique personnalisée</h4>
+<a name="1071251"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Le progiciel d'installation <b>MgmtSt.msi </b>utilisé pour Management Station dans l'<b>installation personnalisée</b> automatique décrite dans la section précédente, se trouve dans le répertoire <b>\windows\ManagementStation</b>.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1071252"></a>Configurez votre logiciel de distribution ISV pour qu'il exécute le script de traitement par lot une fois que votre logiciel d'installation a été distribué.
+
+<br><br>
+ <li value="2"><a name="1056960"></a>Utilisez le logiciel de distribution ISV pour distribuer le progiciel d'installation automatique personnalisée aux systèmes distants.
+<br><br>
+ </ol>
+<a name="1056962"></a><p>La commande suivante s'exécute à partir du script pour installer Management Station et des composants spécifiques sur chaque système distant&nbsp;:</p>
+<a name="1075751"></a>
+<p class="screenindent">msiexec.exe /i <i>lecteur du système</i>\windows\ManagementStation\MgmtSt.msi ADDLOCAL=ITA,RACMS,ADS /qb
+</p>
+<a name="1064740"></a><h4> Spécification des emplacements des fichiers de journalisation</h4>
+<a name="1064765"></a><p>Exécutez la commande suivante pour effectuer une installation automatique en spécifiant l'emplacement du fichier de journalisation&nbsp;:</p>
+<a name="1064742"></a>
+<p class="screenindent">Msiexec.exe /i MgmtSt.msi /l*v &quot;C:\openmanage\logs\MgmtSt.log&quot;
+</p>
+<a name="1056979"></a><h4> Paramètres facultatifs de la ligne de commande</h4>
+<a name="1060754"></a><p>Le <a href="instms.htm#1068484">tableau 5-1</a> répertorie les lignes de commande optionnelles disponibles pour <b>msiexec.exe</b>. Tapez les paramètres facultatifs sur la ligne de commande après <b>msiexec.exe</b> en mettant un espace entre chaque paramètre.</p>
+<a name="1068480"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Visitez le site <b>support.microsoft.com </b>pour des informations détaillées sur les options de la  ligne de commande de Microsoft Windows Installer.
+</td>
+  </tr>
+</table><a name="1068519"></a>
+<p><p class="FigureTableTitle"><a name="1068484"></a>Tableau 5-1.  Paramètres de ligne de commande pour MSI Installer </p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1068488"> </a>
+<p><b>Paramètre</b></p>
+
+
+</th><th valign="top" align="left"><a name="1068490"> </a>
+<p><b>Résultats</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1068492"></a><span class="screen">/i &lt;Progiciel|Code produit&gt;</span></p></td><td valign="top" align="left"><p><a name="1068494"></a>Installe et configure un produit.</p><p><a name="1068495"></a><span class="screen">/i MgmtSt.msi </span>&nbsp;: cette commande installe le logiciel Server Administrator.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1068497"></a><span class="screen">/x &lt;Progiciel|Code produit&gt;</span></p><p><a name="1068498"></a></p></td><td valign="top" align="left"><p><a name="1071469"></a>Désinstalle un produit. </p><p><a name="1068501"></a><span class="screen">/i MgmtSt.msi </span>&nbsp;: cette commande désinstalle le logiciel Server Administrator.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1068503"></a><span class="screen">/q&lt;n|b|r|f&gt;</span></p></td><td valign="top" align="left"><p><a name="1068505"></a>Définit le niveau de l'interface utilisateur. </p><p><a name="1068506"></a><b>/q</b> ou <b>/qn</b>&nbsp;: pas d'interface utilisateur. Cette option est utilisée pour une installation en arrière plan et automatique.<br><b>/qb</b>&nbsp;: interface utilisateur standard. Cette option est utilisée pour une installation automatique mais pas en arrière plan.<br><b>/qr</b>&nbsp;: interface utilisateur réduite. Cette option est utilisée pour une installation automatique en affichant une boîte de dialogue modale montrant la progression de l'installation.<br><b>/qf</b><span class="screen"> </span>&nbsp;: interface utilisateur complète. Cette option est utilisée pour l'installation interactive standard. </p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1068508"></a><span class="screen">/f&lt;[p|o|e|d|c|a|u|m|s|v]</span>Progiciel|CodeProduit<span class="screen">&gt;</span></p></td><td valign="top" align="left"><p><a name="1077160"></a>Répare un produit.</p><p><a name="1077167"></a><b>/fp</b>&nbsp;: réinstalle un produit seulement si un fichier fait défaut.</p><p><a name="1077173"></a><b>/fo</b>&nbsp;: réinstalle un produit si un fichier fait défaut ou si une version plus ancienne d'un fichier est installée.</p><p><a name="1068513"></a><b>/fe</b> réinstalle un produit si un fichier fait défaut ou si une version plus ancienne d'un fichier est installée.</p><p><a name="1068514"></a><b>/fd</b>&nbsp;: réinstalle un produit si un fichier fait défaut ou si une version plus ancienne d'un fichier est installée.</p><p><a name="1068515"></a><b>/fc</b>&nbsp;: réinstalle un produit si un fichier manque ou que la valeur de somme de contrôle stockée ne correspond pas à la valeur calculée.</p><p><a name="1069825"></a><b>/fa</b>&nbsp;: force la réinstallation de tous les fichiers.</p><p><a name="1069826"></a><b>/fu</b>&nbsp;: réécrit toutes les entrées de registre obligatoires spécifiques à l'utilisateur.</p><p><a name="1068518"></a><b>/fm</b>&nbsp;: réécrit toutes les entrées de registre obligatoires spécifiques au système.</p><p><a name="1078661"></a><b>/fs</b>&nbsp;: cette option écrase tout raccourci existant.</p><p><a name="1078659"></a><b>/fv</b>&nbsp;: cette option s'exécute à partir de la source et remet le progiciel local en mémoire cache. N'utilisez pas l'option de réinstallation <b>/fv</b> pour la première installation d'une application ou d'une fonctionnalité.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1071605"></a>INSTALLDIR=&lt;chemin&gt;</p></td><td valign="top" align="left"><p><a name="1072894"></a>Cette commande installe un produit dans un emplacement spécifique. Si vous spécifiez un répertoire d'installation avec cette commande, vous devez le créer manuellement avant d'exécuter les commandes d'installation de la CLI, sinon l'installation échouera sans qu'un message d'erreur ne s'affiche pour vous en expliquer la raison.</p><p><a name="1071634"></a><span class="screen">/i MgmtSt.msi INSTALLDIR=c:\OpenManage /qn</span>&nbsp;: cette commande installe un produit dans un emplacement spécifique en utilisant «&nbsp;<b>c:\OpenManage</b>&nbsp;» comme emplacement d'installation.</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1068520"></a><p>Un exemple de commande avec MSI est <span class="screen">msiexec.exe /i MgmtSt.msi /qn</span>. Cette commande installe les composants de Management Station sur chaque système distant, en fonction de la configuration matérielle et logicielle du système, en arrière plan et de façon non interactive.</p>
+<a name="1057029"></a><h3> Désinstallation de Management Station Software
+</h3>
+<a name="1057030"></a><p>Vous pouvez désinstaller les composants du logiciel Management Station Software en utilisant le CD <i>Dell Systems Management Consoles</i> ou votre système d'exploitation. Vous pouvez également effectuer une désinstallation automatique simultanément sur plusieurs systèmes.</p>
+<a name="1057032"></a><h4> Désinstallation du logiciel Management Station Software avec le CD Dell Systems Management Consoles</h4>
+<a name="1074849"></a><p>Pour désinstaller Management Station Software avec le CD <i>Dell Systems Management Consoles</i>, suivez les étapes suivantes&nbsp;:</p>
+<ol type="1">
+
+<li value="1"><a name="1057034"></a>Insérez le CD <i>Dell Systems Management Consoles</i> dans le lecteur de CD de votre système.
+<br><br>
+ </ol>
+<a name="1058884"></a><p class="indent">Si le CD ne démarre pas le programme d'installation automatiquement, allez sur le bureau de votre système, double-cliquez sur <b>Poste de travail</b>, double-cliquez sur l'icône du <b>lecteur de CD</b>, double-cliquez sur le dossier <b>windows</b> et double-cliquez sur le fichier <b>setup.exe</b>.</p>
+<a name="1063526"></a><p class="indent">L'écran <b>Condition des prérequis de Dell OpenManage Management Station </b>s'ouvre et démarre la vérification des prérequis sur Management Station. L'option <b>Condition des prérequis</b> affiche tout message utile d'informations, d'avertissement ou d'erreur.</p>
+<ol type="1">
+
+<li value="2"><a name="1057037"></a>Cliquez sur l'option <b>Installer, modifier, réparer ou supprimer Management Station</b>.
+<br><br>
+</ol>
+<a name="1057038"></a><p class="indent">L'écran <b>Bienvenue sur l'assistant d'installation de Dell OpenManage Management Station</b> s'affiche.</p>
+<ol type="1">
+
+<li value="3"><a name="1057039"></a>Cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1057040"></a><p class="indent">La boîte de dialogue <b>Maintenance de programme</b> s'ouvre. Cette boîte de dialogue permet de modifier, de réparer ou de supprimer le programme.</p>
+<ol type="1">
+
+<li value="4"><a name="1057042"></a>Sélectionnez l'option <b>Supprimer</b> et cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1057043"></a><p class="indent"><b></b>La boîte de dialogue <b>Supprimer le programme</b> s'ouvre.</p>
+<ol type="1">
+
+<li value="5"><a name="1057044"></a>Cliquez sur <b>Supprimer</b>.
+<br><br>
+</ol>
+<a name="1057045"></a><p class="indent">L'écran <b>Désinstallation de Dell OpenManage Management Station</b> apparaît. Des messages donnent la condition et la progression des composants logiciels désinstallés. </p>
+<a name="1057046"></a><p class="indent">Quand les composants sélectionnés sont désinstallés, la boîte de dialogue <b>Assistant d'installation terminé</b> apparaît.</p>
+<ol type="1">
+
+<li value="6"><a name="1057047"></a>Cliquez sur <b>Terminer</b> pour fermer le programme d'installation de Management Station.
+<br><br>
+ </ol>
+<a name="1057048"></a><p class="indent">Tous les composants de Management Station seront désinstallés.</p>
+<a name="1057049"></a><h4> Désinstallation des composants de Management Station Software avec le système d'exploitation Microsoft Windows</h4>
+<a name="1074852"></a><p>Pour désinstaller des composants de Management Station Software avec Windows, suivez les étapes suivantes&nbsp;:</p>
+<ol type="1">
+
+<li value="1"><a name="1057051"></a>Cliquez sur le bouton <b>Démarrer</b> et pointez sur <b>Paramètres</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b>Panneau de configuration</b>.
+<br><br>
+
+<li value="2"><a name="1057053"></a>Double-cliquez sur <b>Ajout/Suppression de programmes</b>.
+
+<br><br>
+ <li value="3"><a name="1057055"></a>Cliquez sur <b>Dell OpenManage Management Station</b>, puis sur <b>Supprimer</b>.<br> 
+La boîte de dialogue <b>Ajout/Suppression de programmes</b> apparaît.
+
+<br><br>
+<li value="4"><a name="1057059"></a>Cliquez sur <b>Oui</b> pour confirmer la désinstallation de Management Station.
+<br><br>
+ </ol>
+<a name="1060584"></a><p class="indent">L'écran <b>Résumé de la désinstallation</b> apparaît. Des messages donnent la condition et la progression des composants logiciels désinstallés.</p>
+<a name="1060576"></a><p class="indent">Tous les composants de Management Station seront désinstallés.</p>
+<a name="1057065"></a><h3> Réalisation d'une désinstallation automatique du logiciel Management Station Software
+</h3>
+<a name="1057067"></a><p>Le CD <i>Dell Systems Management Consoles </i>contient une procédure de désinstallation automatique de Management Station Software.</p>
+<a name="1057069"></a><p>La désinstallation automatique vous permet de désinstaller Management Station software de plusieurs systèmes à la fois. Le progiciel de désinstallation automatique est distribué aux systèmes distants avec un outil de distribution de logiciel provenant d'un ISV. Quand le progiciel est distribué, le script de désinstallation s'exécute et désinstalle le logiciel.</p>
+<a name="1057071"></a><h4> Distribution du progiciel de désinstallation automatique</h4>
+<a name="1057073"></a><p>Le CD <i>Dell Systems Management Consoles</i> est préconfiguré pour agir comme progiciel de désinstallation automatique. Pour distribuer le progiciel à un ou plusieurs systèmes, effectuez les étapes suivantes&nbsp;:</p>
+<ol type="1">
+
+<li value="1"><a name="1057075"></a>Configurez le logiciel de distribution ISV pour qu'il exécute la commande <b>msiexec.exe /x CD 
+Drive\windows\ManagementStation\MgmtSt.msi /qb</b> après la distribution du progiciel de désinstallation automatique.
+<br><br>
+
+<li value="2"><a name="1057077"></a>Utilisez le logiciel de distribution de logiciel ISV pour qu'il distribue le progiciel de désinstallation rapide aux systèmes distants.
+
+<br><br>
+ <li value="3"><a name="1057079"></a>La commande <b>msiexec.exe /x CD Drive\windows\ManagementStation\MgmtSt.msi /qb</b> s'exécute pour désinstaller IT Assistant et les autres logiciels station de gestion sur tous les systèmes distants
+<br><br>
+</ol>
+<a name="1057081"></a><h4> Paramètres de la ligne de commande de désinstallation automatique</h4>
+<a name="1058797"></a><p>Le <a href="instms.htm#1068484">tableau 5-1 </a> répertorie les paramètres de la ligne de commande de désinstallation automatique disponibles pour une désinstallation automatique. Tapez les paramètres facultatifs sur la ligne de commande après <br><span class="screen">msiexec.exe /x MgmtSt.msi</span> en mettant un espace entre chaque paramètre.</p>
+<a name="1057087"></a><p>Par exemple, l'exécution de <span class="screen">msiexec.exe /x MgmtSt.msi /qb</span> lance la désinstallation automatique et affiche la condition d'installation automatique pendant son exécution.</p>
+<a name="1058604"></a><p>Le fait d'exécuter <span class="screen">msiexec.exe /x MgmtSt.msi /qn</span> lance la désinstallation automatique, mais en arrière-plan (sans afficher la condition).</p>
+<a name="1057093"></a><h4> Paramètres de personnalisation</h4>
+<a name="1057095"></a><p>Les paramètres de ligne de commande ADDLOCAL, REINSTALL et REMOVE fournissent un moyen de spécifier les composants logiciels précis à installer, réinstaller, désinstaller lors d'une exécution en arrière plan ou automatique. Avec les paramètres de personnalisation, vous pouvez, de façon sélective, installer, réinstaller ou désinstaller des composants logiciels pour différents systèmes en utilisant le même progiciel d'installation automatique. Par exemple, vous pouvez choisir d'installer IT Assistant mais pas Remote Access Controller Management Station sur un groupe spécifique de systèmes. Vous pouvez aussi choisir de désinstaller un ou plusieurs composants sur un groupe spécifique de systèmes.</p>
+<a name="1075282"></a>
+<p><p class="FigureTableTitle"><a name="1075259"></a>Tableau 5-2.  ID des composants de Management Station</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1075263"> </a>
+<p><b>ID du composant</b></p>
+
+
+</th><th valign="top" align="left"><a name="1075265"> </a>
+<p><b>Description</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1075267"></a>ADS</p></td><td valign="top" align="left"><p><a name="1075269"></a>Utilitaire snap-in d'Active Directory</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1075271"></a>BMU</p></td><td valign="top" align="left"><p><a name="1075273"></a>Utilitaire de gestion du contrôleur de gestion de la carte mère</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1075275"></a>ITA</p></td><td valign="top" align="left"><p><a name="1075277"></a>IT Assistant</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1075279"></a>RACMS</p></td><td valign="top" align="left"><p><a name="1075281"></a>Remote Access Controller Management Station</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1071432"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Vous devez taper les paramètres ADDLOCAL, REINSTALL et REMOVE CLI avec des majuscules.
+</td>
+  </tr>
+</table><a name="1075143"></a><p>Vous pouvez inclure le paramètre de personnalisation ADDLOCAL sur la ligne de commande, et attribuer l'ID (ou les ID) des composants logiciels que vous voulez installer. Par exemple&nbsp;:</p>
+<a name="1071104"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i MgmtSt.msi ADDLOCAL=ITA /qb</span>
+ </p>
+<a name="1057100"></a><p>Cette commande exécute le programme d'installation de Dell OpenManage Management Station et n'installe qu'IT Assistant en mode automatique et commenté (avec messages)</p>
+<a name="1057101"></a><p>Vous pouvez inclure le paramètre de personnalisation REINSTALL sur la ligne de commande, et attribuer l'ID (ou les ID) des composants logiciels que vous voulez réinstaller. Par exemple&nbsp;:</p>
+<a name="1057102"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i MgmtSt.msi REINSTALL=RACMS /qb</span></p>
+<a name="1057103"></a><p>Cette commande n'exécute l'installation que pour la station de gestion et réinstalle Remote Access Controller Management Station, en mode automatique et commenté.</p>
+<a name="1057104"></a><p>Vous pouvez inclure le paramètre de personnalisation REMOVE sur la ligne de commande, et lui attribuer l'ID (ou les ID) des composants logiciels que vous voulez désinstaller. Par exemple&nbsp;:</p>
+<a name="1057105"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i MgmtSt.msi REMOVE=RACMS /qb </span></p>
+<a name="1057106"></a><p>Cette commande n'exécute l'installation que pour la station de gestion et désinstalle Remote Access Controller Management Station, en mode automatique et commenté.</p>
+<a name="1057107"></a><p>Vous pouvez aussi choisir d'installer, de réinstaller et de désinstaller des composants avec une seule exécution du programme <b>msiexec.exe</b>. Par exemple&nbsp;:</p>
+<a name="1073158"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i MgmtSt.msi ADDLOCAL=ADS REINSTALL=ITA REMOVE=BMC /qb </span></p>
+<a name="1073159"></a><p>Cette commande exécute le programme d'installation de Management Station et installe simultanément l'utilitaire snap-in d'Active Directory, réinstalle IT Assistant et désinstalle le contrôleur de gestion de la carte mère. Cette exécution se produira dans le mode automatique et commenté.</p>
+<a name="1060369"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Un identificateur global unique (GUID) Dell OpenManage a 128 bits. Le GUID de produit identifie de façon unique l'application. Dans ce cas, le GUID de produit pour Dell OpenManage Management Station est {6453394A-5BBE-4325-
+A854-1FD483612B8D}.
+</td>
+  </tr>
+</table><a name="1057197"></a><h3> Gestion prise en charge et agents d'alerte
+ </h3>
+<a name="1057198"></a><p>Dans le contexte des logiciels Dell OpenManage, <i>agent</i> est un terme général qui s'applique aux composants logiciels de l'instrumentation Systems Management. Le degré de prise en charge varie en fonction des agents. Par exemple, IT Assistant procède automatiquement à la découverte, à l'affichage et à la réception d'alertes à partir des systèmes gérés par Server Administrator, et peut réaliser des actions sur ceux-ci, mais IT Assistant peut uniquement recevoir des alertes en provenance de certains agents de périphériques de stockage. Consultez le <i>Guide d'utilisation de Dell OpenManage IT Assistant</i> pour la liste des agents pris en charge par IT Assistant.</p>
+<a name="1057621"></a><h3> Mise à niveau d'IT Assistant après une migration vers Windows Server 2003
+</h3>
+<a name="1057622"></a><p>Si un système sur lequel IT Assistant est installé est migré vers Windows Server 2003, puis mis à niveau vers une version plus récente d'IT Assistant, un problème peut se produire à cause de différentes de cryptage entre Windows Server 2003 et des versions antérieures de Windows.</p>
+<a name="1057626"></a><p>Après une mise à niveau sur un système qui a été migré vers Windows Server 2003, les systèmes configurés avec le protocole CIM peuvent ne plus être découverts. Si ce problème se reproduit, changez le mot de passe de l'utilisateur CIM. Dans l'interface utilisateur d'IT Assistant, pointez vers <b>Découverte et surveillance</b>, sélectionnez <b>Plages</b> et cliquez-droite sur <b>Plages à inclure</b>. Cliquez sur <b>Nouvelle </b><b>plage à inclure</b> pour exécuter l'Assistant Nouvelle découverte, où vous pouvez spécifier le nouveau nom d'utilisateur CIM dans la fenêtre <b>Configuration CIM</b>. Pour plus d'informations, consultez l'aide en ligne d'IT Assistant.</p>
+<a name="1075585"></a><h3> Autres problèmes connus pour les installations Microsoft
+</h3>
+<ul><li><a name="1057630"></a>	 	 Après l'installation de MSDE par le programme d'installation d'IT Assistant et le redémarrage du système, le visualiseur d'événements de Windows 2000 indique un événement <b>ERREUR</b> avec une valeur <b>Serveur </b>pour la variable <b>Source</b>, une valeur <b>Aucun</b> pour la variable <b>Catégorie</b>, une valeur <b>2056 </b>pour la variable<b> Événement</b> et un message d'erreur indiquant&nbsp;:<br><br></li>
+</ul><a name="1060388"></a><p class="indent">La valeur appelée <b>MaxMpxCt</b> dans la clé de registre du système <b>LanmanServer\Paramètres</b> était invalide. La valeur a été ignorée, et le traitement a été poursuivi.</p>
+<a name="1060389"></a><p class="indent"><b>MaxMpxCt </b>est une clé de registre de type <b>REG_ DWORD</b> avec des valeurs de 1 à 100. Elle fournit un maximum suggéré aux systèmes clients pour le nombre de requêtes simultanées en suspens pour ce serveur. Une valeur plus élevée peut augmenter la performance du serveur mais nécessite une utilisation plus importante des éléments de travail du serveur. La valeur par défaut est 50. Après l'installation de MSDE 2000 ou SQL Server 2000 sur un système doté de Windows 2000, la clé de registre <b>MaxMpxCt</b> est créée avec la valeur <b>0x000001ff</b> (511), qui est supérieure à la valeur maximale. Une fois que vous redémarrez le système, un système Windows 2000 comporte une entrée d'événement de type <b>ERREUR</b> dans le Journal système du visualiseur d'événements. Si vous supprimez MSDE 2000 ou SQL Server 2000 du système, la clé de registre sera supprimée, elle aussi. </p>
+<ul><li><a name="1057632"></a>	 	 Des répertoires peuvent être abandonnés pendant une désinstallation pour des raisons comme des violations de partage ou des connexions d'interface utilisateur ouvertes. Il est recommandé que vous fermiez toutes les sessions d'interface ouvertes avant d'effectuer une désinstallation. Supprimez manuellement les répertoires abandonnés dans le répertoire d'installation par défaut ou le répertoire d'installation spécifié par l'utilisateur. Il se peut également que vous deviez supprimer manuellement des entrées de registre sous <b>HKEY _LOCAL_MACHINE\SOFTWARE\Dell Computer Corporation\Dell OpenManage IT Assistant</b>.<br><br> </li>
+</ul><hr noshade size="1">
+<a name="1064437"></a><h2>Installation, mise à niveau et désinstallation de Management Station Software sur un système fonctionnant sous un système d'exploitation Red Hat Enterprise Linux ou SUSE Linux Enterprise Server pris en charge</h2>
+
+
+<a name="1078898"></a><h3> Installation de Management Station Software
+</h3>
+<a name="1081354"></a><p>Seuls les composants BMC et RAC de la suite logicielle Management Station peuvent être utilisés sur une station de gestion dotée de Red Hat Enterprise Linux.et SUSE Linux Enterprise Server.</p>
+<a name="1081384"></a><p>Pour installer les composants de l'utilitaire de gestion du contrôleur BMC sur une station de gestion, effectuez les étapes suivantes&nbsp;:</p>
+<ol type="1">
+
+<li value="1"><a name="1082892"></a>Ouvrez une session en tant que <span class="screen">root</span> sur le système où vous souhaitez installer les composants de Management Station.
+<br><br>
+
+<li value="2"><a name="1082893"></a>Si nécessaire, montez le CD <i>Dell Systems Management Consoles</i> à l'aide de la commande 
+<span class="screen">mount/dev/cdrom/media/cdrom</span> ou d'une commande similaire [pour Red Hat Enterprise 
+Linux (version 4) et SUSE Linux Enterprise Server (version 9)] ou 
+<span class="screen">mount/dev/cdrom/mnt/cdrom</span> ou une commande semblable pour Red Hat Enterprise Linux (version 3).
+<br><br>
+
+<li value="3"><a name="1081618"></a>Naviguez jusqu'au répertoire <b>/linux/bmc</b><span class="screen"> </span> et installez le logiciel BMC en utilisant les commandes rpm spécifiques 
+au système d'exploitation&nbsp;:
+<br><br>
+<ul>
+<li type="disc"><a name="1082794"></a>Pour les systèmes exécutant Red Hat Enterprise Linux, utilisez <span class="screen">osabmcutil*-RHEL-*.rpm, </span>par exemple, <span class="screen">rpm -Uvh osabmcutil*-RHEL-*.rpm</span>.<br><br></li>
+<li type="disc"><a name="1082795"></a>Pour les systèmes exécutant SUSE Linux Enterprise Server, utilisez <span class="screen">osabmcutil*-SUSE-*.rpm, </span>par exemple, <span class="screen">rpm -Uvh osabmcutil*-SUSE-*.rpm.</span><br><br></li>
+</ul>
+</ol>
+<a name="1082796"></a><p>Pour installer le composant RAC Management Station, effectuez les étapes suivantes&nbsp;:</p>
+<ol type="1">
+
+<li value="1"><a name="1082499"></a>Ouvrez une session en tant que <span class="screen">root</span> sur le système où vous souhaitez installer les composants de Management Station.
+<br><br>
+
+<li value="2"><a name="1082500"></a>Si nécessaire, montez le CD à l'aide de la commande <span class="screen">mount/dev/cdrom/media/cdrom</span> ou 
+d'une commande semblable [pour Red Hat Enterprise Linux (version 4) et SUSE Linux Enterprise Server 
+(version 9)] ou <span class="screen">mount/dev/cdrom/mnt/cdrom</span> ou une commande semblable pour Red Hat Enterprise 
+Linux (version 3).
+<br><br>
+
+<li value="3"><a name="1082501"></a>Naviguez jusqu'au répertoire <b>/linux/rac</b><span class="screen"> </span> et installez le logiciel RAC à l'aide de la commande <span class="screen">rpm -ivh *.rpm</span>.
+<br><br>
+</ol>
+<a name="1078902"></a><h3>Mise à niveau de Management Station Software
+</h3>
+<a name="1078908"></a><p>Pour mettre à niveau l'utilitaire de gestion du contrôleur BMC sur une station de gestion, effectuez les étapes suivantes&nbsp;:</p>
+<ol type="1">
+
+<li value="1"><a name="1078909"></a>Ouvrez une session en tant que <span class="screen">root</span> sur le système où vous souhaitez mettre à niveau les composants de Management Station.
+<br><br>
+
+<li value="2"><a name="1083027"></a>Si nécessaire, montez le CD<i> Dell Systems Management Consoles</i> à l'aide de la commande 
+<span class="screen">mount/dev/cdrom/media/cdrom</span><b> </b>ou d'une commande semblable [pour Red Hat Enterprise 
+Linux (version 4) et SUSE Linux Enterprise Server (version 9)] ou 
+<span class="screen">mount/dev/cdrom/mnt/cdrom</span> ou une commande semblable pour Red Hat Enterprise Linux (version 3).
+<br><br>
+
+<li value="3"><a name="1082640"></a>Naviguez jusqu'au répertoire <b>/linux/bmc </b> et mettez à niveau le logiciel BMC en utilisant les commandes rpm spécifiques 
+au système d'exploitation&nbsp;:
+<br><br>
+<ul>
+<li type="disc"><a name="1082641"></a>Pour les systèmes exécutant Red Hat Enterprise Linux, utilisez <span class="screen">osabmcutil*-RHEL-*.rpm, </span>par exemple, <span class="screen">rpm -Uvh osabmcutil*-RHEL-*.rpm</span>.<br><br></li>
+<li type="disc"><a name="1082633"></a>Pour les systèmes exécutant SUSE Linux Enterprise Server, utilisez <span class="screen">osabmcutil*-SUSE-*.rpm, </span>par exemple, <span class="screen">rpm -Uvh osabmcutil*-SUSE-*.rpm.</span><br><br></li>
+</ul>
+</ol>
+<a name="1082634"></a><p>Pour mettre à niveau le composant RAC Management Station, effectuez les étapes suivantes&nbsp;:</p>
+<ol type="1">
+
+<li value="1"><a name="1078916"></a>Ouvrez une session en tant que <span class="screen">root</span> sur le système où vous souhaitez mettre à niveau les composants de Management Station.
+<br><br>
+
+<li value="2"><a name="1078917"></a>Si nécessaire, montez le CD à l'aide de la commande <span class="screen">mount/dev/cdrom/media/cdrom</span> ou 
+une commande semblable [pour Red Hat Enterprise Linux (version 4) et SUSE Linux Enterprise Server 
+(version 9)] ou <span class="screen">mount/dev/cdrom/mnt/cdrom </span>ou une commande semblable pour Red Hat Enterprise 
+Linux (version 3).
+<br><br>
+
+<li value="3"><a name="1078918"></a>Naviguez vers le répertoire <b>/linux/rac</b> et mettez à niveau logiciel du RAC à l'aide de la commande <span class="screen">rpm -Uvh *.rpm</span>.
+<br><br>
+</ol>
+<a name="1078906"></a><h3> Désinstallation de Management Station Software
+</h3>
+<a name="1079051"></a><p>Pour désinstaller l'utilitaire de gestion du contrôleur BMC sur une station de gestion, effectuez les étapes suivantes&nbsp;:</p>
+<ol type="1">
+
+<li value="1"><a name="1079052"></a>Ouvrez une session en tant que <span class="screen">root</span> sur le système où vous souhaitez installer les composants de Management Station.
+<br><br>
+
+<li value="2"><a name="1080723"></a>Utilisez la commande de requête rpm pour déterminer la version de l'utilitaire de gestion du contrôleur BMC installée. Utilisez la commande<b> </b><span class="screen">rpm -qa | grep osabmcutil</span>.
+<br><br>
+
+<li value="3"><a name="1082018"></a>Vérifiez qu'il s'agit de la version à désinstaller, et dans l'affirmative, désinstallez le composant à l'aide de la commande <span class="screen">rpm -e `rpm 
+-qa | grep osabmcutil `</span>.
+<br><br>
+</ol>
+<a name="1082019"></a><p>Pour désinstaller le composant RAC Management Station, effectuez les étapes suivantes&nbsp;:</p>
+<ol type="1">
+
+<li value="1"><a name="1079059"></a>Ouvrez une session en tant que <span class="screen">root</span> sur le système où vous souhaitez installer les composants de Management Station.
+<br><br>
+
+<li value="2"><a name="1079159"></a>Utilisez la commande de requête rpm pour déterminer la version de RAC de Management Station installée. Utilisez la commande <span class="screen">rpm -qa | grep mgmtst-racadm</span>.
+<br><br>
+
+<li value="3"><a name="1079160"></a>Vérifiez qu'il s'agit de la version à désinstaller et dans l'affirmative, désinstallez le composant à l'aide de la commande <span class="screen">rpm -e `rpm 
+-qa | grep mgmtst-racadm `</span>.
+<br><br>
+</ol>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">Retour à la page du sommaire</a></p>
+
+
+<p> </p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

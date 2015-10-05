@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PRCheckStringList [
+  <!ELEMENT CaptionString (#PCDATA)>
+  <!ATTLIST CaptionString cap_id ID #REQUIRED>
+  <!ELEMENT CaptionStringList (CaptionString+)>
+  <!ELEMENT DescriptionString (#PCDATA)>
+  <!ATTLIST DescriptionString des_id ID #REQUIRED>
+  <!ELEMENT DescriptionStringList (DescriptionString+)>
+  <!ELEMENT PRCheckStringList (StatusStringList,DescriptionStringList,CaptionStringList,URLStringList,LinkStringList,AllPassStringList,AllFailStringList,HeadingFeatureStringList,HeadingDescriptionStringList)>
+  <!ELEMENT StatusString (#PCDATA)>
+  <!ATTLIST StatusString stat_id ID #REQUIRED>
+  <!ELEMENT StatusStringList (StatusString+)>
+  <!ELEMENT URLString (#PCDATA)>
+  <!ATTLIST URLString url_id ID #REQUIRED>
+  <!ELEMENT URLStringList (URLString+)>
+  <!ELEMENT LinkString (#PCDATA)>
+  <!ATTLIST LinkString lnk_id ID #REQUIRED>
+  <!ELEMENT LinkStringList (LinkString+)>
+  <!ELEMENT AllPassString (#PCDATA)>
+  <!ATTLIST AllPassString alp_id ID #REQUIRED>
+  <!ELEMENT AllPassStringList (AllPassString+)>
+  <!ELEMENT AllFailString (#PCDATA)>
+  <!ATTLIST AllFailString alf_id ID #REQUIRED>
+  <!ELEMENT AllFailStringList (AllFailString+)>
+  <!ELEMENT HeadingFeatureString (#PCDATA)>
+  <!ATTLIST HeadingFeatureString hfs_id ID #REQUIRED>
+  <!ELEMENT HeadingFeatureStringList (HeadingFeatureString+)>
+  <!ELEMENT HeadingDescriptionString (#PCDATA)>
+  <!ATTLIST HeadingDescriptionString hds_id ID #REQUIRED>
+  <!ELEMENT HeadingDescriptionStringList (HeadingDescriptionString+)>
+]>
+<PRCheckStringList>
+	<StatusStringList>
+		<!--These are not used or displayed to the user-->
+		<StatusString stat_id="stat000">成功</StatusString>
+		<StatusString stat_id="stat001">信息</StatusString>
+		<StatusString stat_id="stat002">警告</StatusString>
+		<StatusString stat_id="stat003">错误</StatusString>
+	</StatusStringList>
+	<DescriptionStringList>
+		<!--Start of Management Station and Server Administrator checks common to more than one feature-->
+		<DescriptionString des_id="desc_admin">当前用户没有管理权限。Server Administrator 软件只能由具有管理权限的用户安装。</DescriptionString>
+		<DescriptionString des_id="desc_signinvalid">此 MSI 软件包不包含有效的签名。</DescriptionString>
+		<DescriptionString des_id="desc_oldom">在本系统上检测到了旧版本的 Server Administrator 或 Management Station 软件。您必须卸载所有以前版本的应用程序之后才能安装这一版本。</DescriptionString>
+		<DescriptionString des_id="desc_mncdfolder">前提条件检查程序检测到您正从 CD 运行，但是该 CD 布局与正式的 Server Administrator CD 布局不匹配。SysMgmt.msi 文件必须在文件夹 \\srvadmin\\windows\\SystemsManagement 下，否则安装/升级可能不会工作。</DescriptionString>
+		<DescriptionString des_id="desc_mscdfolder">前提条件检查程序检测到您正从 CD 运行，但是该 CD 布局与正式的 Management Station CD 布局不匹配。MgmtSt.msi 文件必须在文件夹 \\windows\\ManagementStation 下，否则安装/升级可能不工作。</DescriptionString>
+		<DescriptionString des_id="desc_msiinprogress">Windows Installer 的注册表项指出安装当前正在进行。请等待所有安装结束，然后重试此安装。如果此问题仍然存在，即使安装当前没有运行，也需要使用 regedit 从下列注册表树的位置中手动删除 \"InProgress\" 注册表项：\"HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\"。</DescriptionString>
+		<!--DFCT 16770 - Adding the description for MSI UPGRADE STATUS-->
+		<DescriptionString des_id="desc_msiupgradestatus">必须重新引导系统以移除任何暂挂的文件重命名操作。在重新引导时，操作系统会自动移除注册表项 \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\PendingFileRenameOperations\"。这将确保 MSI 升级成功。</DescriptionString>
+		<!--This string will be used for any ids that are not found by the reporting utility -->
+		<DescriptionString des_id="desc_notfound">未找到字符串</DescriptionString>
+		<!-- This string will be used if the executed attribute for a PRCheck element is false or if the status was not found for the PRCheck -->
+		<DescriptionString des_id="desc_error">该前期条件检查未能在此系统上执行。</DescriptionString>
+		<!--Start of Array Manager checks -->
+		<!--End   of Array Manager checks -->
+		<!--End   of Management Station and Server Administrator checks common to more than one feature-->
+		<!--Start of Management Station checks -->
+		<!--Start of Management Station checks common to more than one feature-->
+		<DescriptionString des_id="desc_ita001">在此主机上找不到所需的 SNMP 服务。必须安装并激活 SNMP 以便 IT Assistant 或其它基于 SNMP 的管理控制台能够正常运行。</DescriptionString>
+		<DescriptionString des_id="desc_autryupgradestation">在本系统上检测到旧版本的 Management Station 或 Server Administrator。Management Station 安装程序会先删除以前版本的系统管理应用程序，之后安装您所选择的 Management Station 应用程序。注：如果以前已安装，所有 Management Station 应用程序和/或 Server Administrator 应用程序也将被删除。安装 Management Station 之后，您可以使用最新版本的 Server Administrator 安装程序安装 Server Administrator 应用程序。</DescriptionString>
+		<DescriptionString des_id="desc_curversionstation">此系统上已装有当前版本的 Management Station（一些或所有组件）。Management Station 安装程序将允许您修改、修复或删除 Management Station。</DescriptionString>
+		<DescriptionString des_id="desc_downgradestation">此系统上已装有更新版本的 Management Station（一些或所有组件）。</DescriptionString>
+		<!--End   of Management Station checks common to more than one feature-->
+		<!--Start of IT Assistant checks -->
+		<!--End   of Management Station checks common to more than one feature-->
+		<!--Start of IT Assistant checks -->
+		<DescriptionString des_id="desc_ita002">在已升级到 Microsoft(R) Windows(R) Server 2003 操作系统的系统上检测到以前版本的 IT Assistant。请参阅 \"IT Assistant 用户指南\" 中的 \"安装\" 部分以了解有关正确升级 IT Assistant 的重要说明。</DescriptionString>
+		<DescriptionString des_id="desc_ita003">IT Assistant 服务无法安装在装有 Network Manager 版本 1.0.x-1.4.x 应用程序的系统上。</DescriptionString>
+		<DescriptionString des_id="desc_ita004">IT Assistant 不会在终端服务启用应用程序模式的情况下，通过终端会话安装在运行 Microsoft(R) Windows(R) 2000 操作系统的系统上。请在系统上本地运行安装程序。</DescriptionString>
+		<DescriptionString des_id="desc_ita005">IT Assistant 6.2 或更高版本可以升级到本版本。应先卸载现有的 IT Assistant 版本，然后才能继续安装。</DescriptionString>
+		<DescriptionString des_id="desc_ita008">如果系统上装有 \"Dell OpenManage Connection\" 组件的以下版本：用于 HP OpenView 的 2.1 和更早版本，用于 Microsoft(R) Systems Management Server 的 1.1 和更早版本，或者用于 CA Unicenter TNG 的 1.2 和更早版本，则不能安装 IT Assistant。</DescriptionString>
+		<DescriptionString des_id="desc_ita009">本系统上装有 Microsoft(R) SQL Server 8.0 以前的版本。请安装 Microsoft SQL Server 8.0 或更高版本后再继续安装。</DescriptionString>
+		<DescriptionString des_id="desc_ita010">IT Assistant 不支持 Microsoft(R) SQL Server 2000 的非默认实例。要继续安装，应安装 Microsoft SQL Server 2000 的默认实例，或卸载 Microsoft SQL Server 2000 的非默认实例。</DescriptionString>
+		<DescriptionString des_id="desc_ita011">检测到 Microsoft(R) SQL Client 软件。先卸载该软件，然后再继续。</DescriptionString>
+		<DescriptionString des_id="desc_ita012">请确保 Microsoft(R) SQL Server 或 Microsoft Database Engine (MSDE) 服务未损坏并且可以启动。</DescriptionString>
+		<DescriptionString des_id="desc_ita013">未找到所需的 TCP/IP 协议。</DescriptionString>
+		<DescriptionString des_id="desc_ita014">IT Assistant 不能安装在 Small Business Server 上。</DescriptionString>
+		<DescriptionString des_id="desc_ita015">此系统上已装有更新版本的 IT Assistant。</DescriptionString>
+		<DescriptionString des_id="desc_ita016">Microsoft(R) Database Engine (MSDE) 没有安装在本系统上。必须先安装 MSDE 2000，然后才能安装 Management Station 的 IT Assistant 功能。单击以下链接安装 MSDE：</DescriptionString>
+		<DescriptionString des_id="desc_ita017">IT Assistant 无法安装在运行 Microsoft(R) Windows(R) x64 操作系统的系统上。</DescriptionString>
+		<!--End of IT Assistant checks -->
+		<!-- Start of Remote Access Controller checks -->
+		<DescriptionString des_id="desc_drac004">已安装 Server Administrator Remote Access Controller 功能。 Management Station Remote Access Console 功能将不能被安装且会被禁用。</DescriptionString>
+		<DescriptionString des_id="desc_drac006">Remote Access Controller Management Station 无法安装在运行 Microsoft(R) Windows(R) x64 操作系统的系统上。</DescriptionString>
+		<!-- End   of Remote Access Controller checks -->
+		<!-- Start of Active Directory checks -->
+		<DescriptionString des_id="desc_adem64t">Management Station 安装程序包含 32 位版本的 Active Directory 管理单元公用程序。您可以从 “Consoles”CD 上的支持目录或 Management Station Windows Web 下载软件包安装 64 位版本的 Active Directory 管理单元公用程序。</DescriptionString>
+		<!-- End of Active Directory checks -->
+		<!--End of Management Station checks -->
+		<!--End of Management Station checks -->
+		<!--Start of Managed System checks -->
+		<!--Start of Managed System checks common to more than one feature-->
+		<DescriptionString des_id="desc_curversionnode">本系统上已经安装了最新版本的 Server Administrator。Server Administrator 安装程序将允许您修改、修复或删除 Server Administrator。</DescriptionString>
+		<DescriptionString des_id="desc_downgradenode">此系统上已装有更新版本的 Server Administrator。</DescriptionString>
+		<!--End   of Managed System checks common to more than one feature-->
+		<!--Start of Server Administrator checks -->
+		<!--End   of Managed System checks common to more than one feature-->
+		<!--Start of Server Administrator checks -->
+		<DescriptionString des_id="desc_systemnotsupported">将无法在此系统上安装 Systems Management Software。</DescriptionString>
+		<DescriptionString des_id="desc_oldsystem">在此系统上不再支持 Server Administrator。请使用 Server Administrator CD 版本 3.3.0 在此系统上安装 Server Administrator 软件。</DescriptionString>
+		<DescriptionString des_id="desc_sa001">未安装 SNMP 的操作系统支持。您可以安装 Server Administrator，但无法使用 SNMP 来管理本系统。</DescriptionString>
+		<DescriptionString des_id="desc_sa002">Server Administrator 软件由于操作系统或 Service Pack 级别而无法安装在此系统上。Server Administrator 软件只能安装在装有 Service Pack 4 或更高版本的 Microsoft(R) Windows(R) 2000，或装有 Service pack 1 的 Windows 2003 上。</DescriptionString>
+		<DescriptionString des_id="desc_sa003">在本地或域安全策略不允许未签名非驱动程序安装时，Server Administrator 设备驱动程序不能安装在 Microsoft(R) Windows(R) 2000 上。请参阅安装自述文件（readme 目录下的 readme_ins.txt）详细了解如何正确安装 Server Administrator。</DescriptionString>
+		<DescriptionString des_id="desc_autryupgradenode">在本系统上检测到旧版本的 Management Station 或 Server Administrator。Server Administrator 安装程序会先删除以前版本的系统管理应用程序，之后安装您所选择的 Server Administrator 应用程序。注：如果以前已安装，所有 Management Station 应用程序和/或 Server Administrator 应用程序也将被删除。在安装 Server Administrator 之后，您可以使用最新版本的 Management Station 安装程序重新安装 Management Station 应用程序。</DescriptionString>
+		<!--End   of Server Administrator checks -->
+		<!-- Start of Remote Access Controller checks -->
+		<DescriptionString des_id="desc_drac">没有在本服务器上检测到 Remote Access Controller III 或 4。这将会禁用 Remote Access Controller 的\"快速\"安装。如果装有 Remote Access Controller III 或 4，请稍后在安装过程中使用\"自定义\"安装类型选择此功能。</DescriptionString>
+		<DescriptionString des_id="desc_drac001">只有安装 Remote Access Service (RAS) 后 Remote Access Controller 才能完全发挥其功能。</DescriptionString>
+		<DescriptionString des_id="desc_drac002">安装软件之后，Remote Access Controller 要求配置 PPP 拨号连接。</DescriptionString>
+		<DescriptionString des_id="desc_drac003">在本系统上检测到了 Microsoft(R) 域名服务 (DNS) 或 Windows(R) Internet 名称服务 (WINS)。请查阅 Server Administrator 自述文件中的“远程访问问题”部分了解详情。</DescriptionString>
+		<DescriptionString des_id="desc_drac005">已安装 Management Station Remote Access Console 功能。 Server Administrator Remote Access Controller 功能将不能被安装且会被禁用。</DescriptionString>
+		<!-- End   of Remote Access Controller checks -->
+		<!--Start of Array Manager checks -->
+		<DescriptionString des_id="desc_am009">Array Manager 控制台无法安装在运行 Microsoft(R) Windows(R) x64 操作系统的系统上。</DescriptionString>
+		<DescriptionString des_id="desc_am010">Array Manager 无法安装在运行 Microsoft(R) Windows(R) x64 操作系统的系统上。</DescriptionString>
+		<DescriptionString des_id="desc_NASRAIDError">该系统是一种软件 RAID NAS 设备，它使用 Windows 磁盘管理兼管磁盘和卷。PV745N 的软件 RAID 配置不支持 Dell OpenManage Array Manager。“快速”安装选项将不会安装 Array Manager。</DescriptionString>
+		<DescriptionString des_id="desc_NASAMInfo">该系统是一种带有硬件 RAID 控制器的 NAS 设备。需要使用 Dell OpenManage Array Manager 来管理磁盘和卷。 选择“自定义”安装选项, 然后选择要安装的 Array Manager。</DescriptionString>
+		<DescriptionString des_id="desc_aminfo">已在本系统上检测到 Array Manager。建议您在升级软件后，通过运行\"添加/删除\"程序安装 Server Administrator 增强型 Storage Management Service。请参阅安装自述文件（自述文件目录下的 readme_ins.txt）了解更多信息。</DescriptionString>
+		<!--End   of Array Manager checks -->
+		<!--Start of OpenManage Storage Management checks -->
+		<DescriptionString des_id="desc_omsm001">安装程序检测到系统上装有 Array Manager。需要先卸载 Array Manager，然后再安装 Dell OpenManage Storage Management。</DescriptionString>
+		<DescriptionString des_id="desc_omsm002">安装程序检测到系统上装有 FAST 软件包。建议先卸载 FAST 软件包，然后再安装 Storage Management 或 Array Manager。</DescriptionString>
+		<DescriptionString des_id="desc_omsm003">安装程序检测到系统上装有 PERC 控制台。建议先卸载 PERC 控制台，然后再安装 Storage Management。</DescriptionString>
+		<DescriptionString des_id="desc_omsm004">一个或多个存储控制器具有过期的驱动程序。请在安装后查看存储选项卡了解详情。</DescriptionString>
+		<DescriptionString des_id="desc_omsm005">一个或多个存储控制器具有过期的固件。请在安装后查看存储选项卡了解详情。</DescriptionString>
+		<DescriptionString des_id="desc_omsm006">如果第一次在系统上安装 Storage Management，安装过程可能无法检测到系统上任何 PERC 2 或 PERC 3/Di 控制器的固件或设备驱动程序，请在安装后参阅 Server Administrator 图形用户界面 (GUI) 中的\"Storage\"（存储）选项卡了解详情。</DescriptionString>
+		<!--End   of OpenManage Storage Management checks -->
+		<!--Start of Intel network adapter checks -->
+		<DescriptionString des_id="desc_intel">没有在此系统上检测到 Intel(R) NIC。</DescriptionString>
+		<DescriptionString des_id="desc_intelem64t">在此系统上检测到 Intel(R) NIC。您应该从“Installation and Server Management”CD 上的支持目录或 Server Administrator Windows Web 下载软件包安装 64 位版本的 Intel SNMP 代理。</DescriptionString>
+		<!--End   of Intel network adapter checks -->
+		<!--Start of Broadcom network adapter checks -->
+		<DescriptionString des_id="desc_brcm">没有在此系统上检测到 Broadcom NIC。</DescriptionString>
+		<DescriptionString des_id="desc_brcmem64t">在此系统上检测到 Broadcom(R) NIC。您应该从“Installation and Server Management”CD 上的支持目录或 Server Administrator Windows Web 下载软件包安装 64 位版本的 Broadcom SNMP 代理。</DescriptionString>
+		<!--End   of Broadcom network adapter checks -->
+		<!--Start of Instrumentation checks -->
+		<DescriptionString des_id="rbs_dataengine205">必须更新此系统上安装的 SNMP 软件包，才能确保那些使用 SNMP 操作与系统进行通讯的工具能够发挥正常功能。IT Assistant 就属于这种工具。请参阅 Red Hat(R) 网站的 \"www.redhat.com/errata\" 网页以了解最新的 SNMP errata 软件包。</DescriptionString>
+		<DescriptionString des_id="rbs_disney051">Server Administrator 不支持正在运行的内核。请参阅 Server Administrator 自述文件中的“动态内核支持”。</DescriptionString>
+		<DescriptionString des_id="rbs_disney052">未安装 ucd-snmp SNMP 代理。请安装随 Red Hat(R) 版本附带的 ucd-snmp 软件包，然后再试一次。</DescriptionString>
+		<DescriptionString des_id="rbs_disney053">SNMP 端口似乎已由防火墙关闭。您可能无法使用 SNMP 来远程管理此系统。请参阅 Server Administrator 自述文件中的“防火墙配置”。</DescriptionString>
+		<DescriptionString des_id="rbs_disney055">本系统上安装的 e100 RPM 软件包与 Server Administrator 版本不兼容。必须先使用 Server Assistant CD 版本 7.0.1 或更高版本升级 e100 RPM 软件包，然后再安装或升级 Server Administrator。</DescriptionString>
+		<!--End   of Instrumentation checks -->
+		<!--End   of Managed System checks -->
+		<DescriptionString des_id="desc_usesubscription">本安装软件包不能用于在本系统上安装 Systems Management Software。订购该软件或从 http://www.support.dell.com 下载最新版本的 Systems Management Software。</DescriptionString>
+		<DescriptionString des_id="desc_majorupgradenode">在本系统上检测到较旧版本的 Server Administrator。继续将会升级 Server Administrator。当前安装的但是升级过程中没有选择的功能将会被删除。</DescriptionString>
+		<DescriptionString des_id="desc_majorupgradestation">在本系统上检测到较旧版本的 Management Station 软件。继续将会升级 Management Station 软件。当前安装的但是升级过程中没有选择的功能将会被删除。</DescriptionString>
+		<DescriptionString des_id="desc_mnamremoval">此系统上检测到 Array Manager。继续操作将卸下 Array Manager 并安装 Dell OpenManage(TM) Server Administrator Storage Management。</DescriptionString>
+		<DescriptionString des_id="desc_msamremoval">在本系统上检测到 Array Manager 控制台。继续将会卸下 Array Manager 控制台。</DescriptionString>
+		<DescriptionString des_id="desc_msiengine">必须在本系统上升级 Microsoft(R) Installer 引擎到版本 3.1。单击以下链接升级 MSI 引擎：</DescriptionString>
+		<DescriptionString des_id="desc_r2nohwmgmt">当前，Microsoft(R) Windows Server(TM) 2003 R2 安装在系统中，但是可选的 R2 的硬件管理组件却没有安装。硬件管理组件包含 IPMI 驱动程序。请参阅安装自述文件（自述文件目录下的 readme_ins.txt）了解详情。</DescriptionString>
+		<DescriptionString des_id="desc_r2nodriver">当前，Microsoft(R) Windows Server(TM) 2003 R2 的硬件管理组件安装在系统中，但是与硬件管理组件相关的 IPMI 设备驱动程序没有安装。请参阅安装自述文件（自述文件目录下的 readme_ins.txt）了解详情。</DescriptionString>
+		<DescriptionString des_id="desc_wssr2nohwmgmt">Microsoft(R) Windows(R) Storage Server 2003 R2 当前安装在您的系统中。但是当前没有安装包含 IPMI 驱动程序的 R2 的可选硬件管理组件。请参阅安装自述文件（自述目录下的 \"readme_ins.txt\"）了解详情。</DescriptionString>
+		<DescriptionString des_id="desc_wssr2nodriver">当前，Microsoft(R) Windows(R) Storage Server 2003 R2 的硬件管理组件安装在系统中，但是与硬件管理组件相关的 IPMI 设备驱动程序没有安装。请参阅安装自述文件（自述文件目录下的\“readme_ins.txt\”）了解详情。</DescriptionString>
+	</DescriptionStringList>
+	<CaptionStringList>
+		<CaptionString cap_id="cap_ads">Active Directory 服务</CaptionString>
+		<CaptionString cap_id="cap_all">所有功能</CaptionString>
+		<CaptionString cap_id="cap_amcheck">Array Manager	</CaptionString>
+		<CaptionString cap_id="cap_amcon">Array Manager 控制台</CaptionString>
+		<CaptionString cap_id="cap_bmc">底板管理控制台</CaptionString>
+		<CaptionString cap_id="cap_broadcomcheck">Broadcom(R) SNMP 代理</CaptionString>
+		<CaptionString cap_id="cap_draccheck">Remote Access Controller</CaptionString>
+		<CaptionString cap_id="cap_draccheckMS">Remote Access Controller Management Station</CaptionString>
+		<CaptionString cap_id="cap_intelcheck">Intel(R) SNMP 代理</CaptionString>
+		<CaptionString cap_id="cap_itacheck">IT Assistant</CaptionString>
+		<CaptionString cap_id="cap_iws">Server Administrator Web 服务</CaptionString>
+		<CaptionString cap_id="cap_old">联机诊断程序</CaptionString>
+		<CaptionString cap_id="cap_omssam">Storage Management 和 Array Manager</CaptionString>
+		<CaptionString cap_id="cap_omsscheck">OpenManage Storage Management</CaptionString>
+		<CaptionString cap_id="cap_sa">Server Administrator</CaptionString>
+	</CaptionStringList>
+	<URLStringList>
+		<URLString url_id="url_MSDE">omsetup/zh/Install_MSDE.htm</URLString>
+		<URLString url_id="url_MSI">omsetup/zh/Install_MSI.htm</URLString>
+	</URLStringList>
+	<LinkStringList>
+		<LinkString lnk_id="lnk_MSDE">安装 MSDE</LinkString>
+		<LinkString lnk_id="lnk_MSI">升级 Microsoft(R) Installer Engine (MSI)</LinkString>
+	</LinkStringList>
+	<AllPassStringList>
+		<AllPassString alp_id="alp_allpass">此系统没有前提条件检查冲突。</AllPassString>
+	</AllPassStringList>
+	<AllFailStringList>
+		<AllFailString alf_id="alf_allfail">前提条件检查未能在此系统上执行。请参阅用户指南了解详情。</AllFailString>
+		<AllFailString alf_id="alf_tmpldoc">由于无法载入 prereqreporttemplate.xml 文件，前提条件检查没有在此系统上执行。</AllFailString>
+		<AllFailString alf_id="alf_reportdoc">由于无法载入 omprereqcheck.xml 文件，前提条件检查没有在此系统上执行。</AllFailString>
+		<AllFailString alf_id="alf_nomn_file">由于无法载入 prereq_mn.xml 文件，前提条件检查没有在此系统上执行。</AllFailString>
+		<AllFailString alf_id="alf_noms_file">由于无法载入 prereq_ms.xml 文件，前提条件检查没有在此系统上执行。</AllFailString>
+		<AllFailString alf_id="alf_registry">由于注册表项 HKEY_LOCAL_MACHINE\\SOFTWARE\\Dell Computer Corporation 没有适当的权限设置，前提条件检查没有在此系统上执行。请查阅说明文件了解详情。</AllFailString>
+	</AllFailStringList>
+	<HeadingFeatureStringList>
+		<HeadingFeatureString hfs_id="hfs_feature">功能</HeadingFeatureString>
+	</HeadingFeatureStringList>
+	<HeadingDescriptionStringList>
+		<HeadingDescriptionString hds_id="hds_description">说明</HeadingDescriptionString>
+	</HeadingDescriptionStringList>
+</PRCheckStringList>

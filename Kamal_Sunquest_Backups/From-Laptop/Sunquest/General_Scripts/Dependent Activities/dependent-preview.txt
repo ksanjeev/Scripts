@@ -1,0 +1,40 @@
+Script supports to check from SQI_DEV to SQI_BRIDGE streams from SQI Vob servers (Since the target stream is mastered in SQI)
+--------------------------------------------------------------------------------
+
+To check for status if alternate stream
+
+M:\vob_admin_LAB_6.4_MHI_int>cleartool deliver -preview -s -stream LAB_6.4_MHI_BRIDGE@\LAB_PVOB
+No activities to deliver from stream "LAB_6.4_MHI_BRIDGE" to target stream "LAB_6.4_MHU_INT".
+
+Script supports to check from SQI_BRidge to SQU_DEV and from SQU_DEV to SQU_INT streams from SQU Vob servers (Since the target streams are mastered in SQU)
+-----------------------------------------------------------------------------------------------------------
+
+
+M:\vob_admin_RAD_5.1_SQI_BRIDGE>cleartool deliver -preview -s -stream RAD_5.1_SQU_DEV@\RAD_PVOB
+Changes to be DELIVERED to default target stream in project "RAD_5.1_SQU":
+          FROM: stream "RAD_5.1_SQU_DEV"
+          TO: stream "RAD_5.1_SQU_INT"
+Activities included in this operation:
+        activity:RAD00001281@\RAD_PVOB
+        activity:activity080923.034406@\RAD_PVOB
+        activity:RAD00001309@\RAD_PVOB
+        activity:RAD00001327@\RAD_PVOB
+        activity:RAD00001239@\RAD_PVOB
+        activity:RAD00001307@\RAD_PVOB
+        activity:RAD00001310@\RAD_PVOB
+        activity:RAD00001318@\RAD_PVOB
+
+Message when delivery is in progress
+------------------------------------
+
+M:\vob_admin_LAB_6.4_RELEASE_SQI_int>cleartool deliver -preview -s -str LAB_6.4_RELEASE_SQI_BRIDGE@\LAB_PVOB
+cleartool: Error: Deliver operation already in progress on stream "LAB_6.4_RELEASE_SQI_BRIDGE".
+cleartool: Error: Use cancel, resume or complete options to reconcile the deliver operation.
+
+
+M:\vob_admin_LAB_6.3.0_MHI_int>cleartool deliver -preview -s -str LAB_6.3.0_MHI_BRIDGE@\LAB_PVOB
+Changes will be POSTED to default target stream in project "LAB_6.3.0_MHU":
+          FROM: stream "LAB_6.3.0_MHI_BRIDGE"
+          TO: stream "LAB_6.3.0_MHU_INT"
+Activities included in this operation:
+        activity:LAB00005851@\LAB_PVOB

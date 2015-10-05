@@ -1,0 +1,462 @@
+Job.Begin
+    Job.Id: 1
+    Job.Name: "Daily VOB Pool Scrubbing"
+    Job.Description.Begin:
+Scrub the cleartext and derived object storage pools of all local VOBs.
+    Job.Description.End:
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 2008-03-13
+    Job.Schedule.FirstStartTime: 04:30:00
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 3
+    # Job.Task: "VOB Pool Scrubber"
+    Job.Args: 
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.Predefined: TRUE
+    Job.NextRunTime: 2008-11-11T04:30:00+05:30
+    Job.LastCompletionInfo.ProcessId: 18080
+    Job.LastCompletionInfo.Started: 2008-11-10T04:30:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T04:30:57+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+    Job.LastCompletionInfo.Messages.Begin:
+ClearCase scrubber failed.  Some VOBs were NOT scrubbed.  See C:\Program Files\Rational\ClearCase\var\log\scrubber_log.
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 2
+    Job.Name: "Daily VOB Snapshots"
+    Job.Description.Begin:
+Copy the VOB database for all local VOBs that enabled for snapshots.
+    Job.Description.End:
+    Job.Schedule.Sequential.FollowsJob: 1
+    # Job.Schedule.Sequential.FollowsJob: "Daily VOB Pool Scrubbing"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 5
+    # Job.Task: "VOB Snapshot"
+    Job.Args: 
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.Predefined: TRUE
+    Job.LastCompletionInfo.ProcessId: 31576
+    Job.LastCompletionInfo.Started: 2008-11-10T04:30:57+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T04:31:20+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 3
+    Job.Name: "Daily Registry Backup"
+    Job.Description.Begin:
+Copy the ClearCase Registry.
+    Job.Description.End:
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 2008-04-17
+    Job.Schedule.FirstStartTime: 10:00:00
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 6
+    # Job.Task: "Registry Backup"
+    Job.Args: 
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-04-17T14:29:03+05:30 by SUNQUESTINFO\vob_admin@mhicc-ms
+    Job.Predefined: TRUE
+    Job.NextRunTime: 2008-11-11T10:00:00+05:30
+    Job.LastCompletionInfo.ProcessId: 16748
+    Job.LastCompletionInfo.Started: 2008-11-10T10:00:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T10:00:00+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 4
+    Job.Name: "Daily Local Tasks"
+    Job.Description.Begin:
+Run the daily local customizations.
+Note, custom jobs may be directly added to the schedule
+instead of / in addition to modifying the standard local task script.
+    Job.Description.End:
+    Job.Schedule.Sequential.FollowsJob: 3
+    # Job.Schedule.Sequential.FollowsJob: "Daily Registry Backup"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 100
+    # Job.Task: "Daily Local Tasks"
+    Job.Args: 
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.Predefined: TRUE
+    Job.LastCompletionInfo.ProcessId: 
+    Job.LastCompletionInfo.Started: 2008-11-10T10:00:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T10:00:00+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+    Job.LastCompletionInfo.Messages.Begin:
+Job's task program ("ccase_local_day.bat") is not installed -- skipping scheduled execution.
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 5
+    Job.Name: "Daily View Space"
+    Job.Description.Begin:
+Determine the space consumed by all local views.
+    Job.Description.End:
+    Job.Schedule.Sequential.FollowsJob: 4
+    # Job.Schedule.Sequential.FollowsJob: "Daily Local Tasks"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 11
+    # Job.Task: "View Space"
+    Job.Args: 
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.Predefined: TRUE
+    Job.LastCompletionInfo.ProcessId: 27964
+    Job.LastCompletionInfo.Started: 2008-11-10T10:00:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T10:01:14+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 6
+    Job.Name: "Daily VOB Space"
+    Job.Description.Begin:
+Determine the space consumed by all local VOBs.
+    Job.Description.End:
+    Job.Schedule.Sequential.FollowsJob: 5
+    # Job.Schedule.Sequential.FollowsJob: "Daily View Space"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 10
+    # Job.Task: "VOB Space"
+    Job.Args: 
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.Predefined: TRUE
+    Job.LastCompletionInfo.ProcessId: 9648
+    Job.LastCompletionInfo.Started: 2008-11-10T10:01:14+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T10:17:58+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+    Job.LastCompletionInfo.Messages.Begin:
+cleartool: Error: Error from VOB database: "\AZ_COMLAB_AP".
+cleartool: Error: Trouble opening VOB database: "\AZ_COMLAB_AP".
+cleartool: Error: Error from VOB database: "\AZ_COMLAB_AP".
+cleartool: Error: Trouble opening VOB database: "\AZ_COMLAB_AP".
+cleartool: Error: Error from VOB database: "\AZ_COMLAB_ARCHIVE".
+cleartool: Error: Trouble opening VOB database: "\AZ_COMLAB_ARCHIVE".
+cleartool: Error: Error from VOB database: "\AZ_COMLAB_BASE".
+cleartool: Error: Trouble opening VOB database: "\AZ_COMLAB_BASE
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 7
+    Job.Name: "Weekly Log Scrubbing"
+    Job.Description.Begin:
+Scrub the ClearCase Logs.
+    Job.Description.End:
+    Job.Schedule.Weekly.Frequency: 1
+    Job.Schedule.Weekly.Days: Wed,Sun
+    Job.Schedule.StartDate: 2008-03-13
+    Job.Schedule.FirstStartTime: 00:30:00
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 7
+    # Job.Task: "Log Scrubber"
+    Job.Args: 
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-03-14T13:25:44+05:30 by SUNQUESTINFO\VOB_Admin@mhicc-ms
+    Job.Predefined: TRUE
+    Job.NextRunTime: 2008-11-12T00:30:00+05:30
+    Job.LastCompletionInfo.ProcessId: 19512
+    Job.LastCompletionInfo.Started: 2008-11-09T00:30:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-09T00:30:00+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+    Job.LastCompletionInfo.Messages.Begin:
+Error: Could not unlink 20081015.log: Permission denied
+End of MultiSite log scrubbing: 385 files removed.
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 8
+    Job.Name: "Weekly VOB Database Scrubbing"
+    Job.Description.Begin:
+Scrub the VOB database of all local VOBs.
+    Job.Description.End:
+    Job.Schedule.Sequential.FollowsJob: 7
+    # Job.Schedule.Sequential.FollowsJob: "Weekly Log Scrubbing"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 4
+    # Job.Task: "VOB DB Scrubber"
+    Job.Args: 
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.Predefined: TRUE
+    Job.LastCompletionInfo.ProcessId: 11768
+    Job.LastCompletionInfo.Started: 2008-11-09T00:30:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-09T01:22:15+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 9
+    Job.Name: "Weekly Local Tasks"
+    Job.Description.Begin:
+Run the weekly local customizations.
+Note, custom jobs may be directly added to the schedule
+instead of / in addition to modifying the standard local task script.
+    Job.Description.End:
+    Job.Schedule.Sequential.FollowsJob: 8
+    # Job.Schedule.Sequential.FollowsJob: "Weekly VOB Database Scrubbing"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 101
+    # Job.Task: "Weekly Local Tasks"
+    Job.Args: 
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.Predefined: TRUE
+    Job.LastCompletionInfo.ProcessId: 
+    Job.LastCompletionInfo.Started: 2008-11-09T01:22:15+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-09T01:22:15+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+    Job.LastCompletionInfo.Messages.Begin:
+Job's task program ("ccase_local_wk.bat") is not installed -- skipping scheduled execution.
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 10
+    Job.Name: "Weekly VOB DO Space"
+    Job.Description.Begin:
+Determine the DO space consumed by all local VOBs.
+    Job.Description.End:
+    Job.Schedule.Sequential.FollowsJob: 9
+    # Job.Schedule.Sequential.FollowsJob: "Weekly Local Tasks"
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 12
+    # Job.Task: "VOB DO Space"
+    Job.Args: 
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.Predefined: TRUE
+    Job.LastCompletionInfo.ProcessId: 21008
+    Job.LastCompletionInfo.Started: 2008-11-09T01:22:15+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-09T01:22:31+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+    Job.LastCompletionInfo.Messages.Begin:
+cleartool: Error: Error from VOB database: "\AZ_COMLAB_ARCHIVE".
+cleartool: Error: Trouble opening VOB database: "\AZ_COMLAB_ARCHIVE".
+cleartool: Error: Error from VOB database: "\AZ_COMLAB_ARCHIVE".
+cleartool: Error: Trouble opening VOB database: "\AZ_COMLAB_ARCHIVE".
+cleartool: Error: Error from VOB database: "\AZ_COMLAB_BASE".
+cleartool: Error: Trouble opening VOB database: "\AZ_COMLAB_BASE".
+cleartool: Error: Error from VOB database: "\AZ_COMLAB_BASE".
+cleartool: Error: Trouble opening VOB database: "\
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 11
+    Job.Name: "Daily MultiSite Export"
+    Job.Description.Begin:
+For each replicated VOB on this host, create an update packet for that replica's siblings
+    Job.Description.End:
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 1994-07-03
+    Job.Schedule.FirstStartTime: 20:00:00
+    Job.Schedule.StartTimeRestartFrequency: 01:00:00
+    Job.Schedule.LastStartTime: 23:59:59
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 13
+    # Job.Task: "MultiSite Sync Export"
+    Job.Args: -quiet 1 -all
+    Job.NotifyInfo.OnEvents: JobEndOKWithMsgs,JobEndFail
+    Job.NotifyInfo.Using: email
+    Job.NotifyInfo.Recipients: ms_admin
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-03-14T13:26:17+05:30 by SUNQUESTINFO\VOB_Admin@mhicc-ms
+    Job.NextRunTime: 2008-11-10T20:00:00+05:30
+    Job.LastCompletionInfo.ProcessId: 31288
+    Job.LastCompletionInfo.Started: 2008-11-10T10:29:22+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T10:31:10+05:30
+    Job.LastCompletionInfo.ExitStatus: 0xd7
+    Job.LastCompletionInfo.Messages.Begin:
+ERROR: unable to get replica oid from 'replica:mhicc-vob_COMLAB_BASE@\AZ_COMLAB_BASE'.
+   Export of replica 'mhicc-vob_COMLAB_BASE' not attempted.
+ERROR: unable to get replica oid from 'replica:az-ccmulti1_COMLAB_CUSTOM@\AZ_COMLAB_CUSTOM'.
+   Export of replica 'az-ccmulti1_COMLAB_CUSTOM' not attempted.
+ERROR: unable to get replica oid from 'replica:az-ccvob1_COMLAB_CUSTOM@\AZ_COMLAB_CUSTOM'.
+   Export of replica 'az-ccvob1_COMLAB_CUSTOM' not attempted.
+ERROR: unable to get replica oid from 'replica:mhicc-v
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 12
+    Job.Name: "Daily MultiSite Shipping Poll"
+    Job.Description.Begin:
+Every three hours, send all pending shipping orders to their next host.
+    Job.Description.End:
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 1994-07-03
+    Job.Schedule.LastDate: 1994-07-03
+    Job.Schedule.FirstStartTime: 00:00:00
+    Job.Schedule.StartTimeRestartFrequency: 03:00:00
+    Job.Schedule.LastStartTime: 23:59:59
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 13
+    # Job.Task: "MultiSite Sync Export"
+    Job.Args: -quiet 1 -poll
+    Job.NotifyInfo.OnEvents: JobEndOKWithMsgs,JobEndFail
+    Job.NotifyInfo.Using: email
+    Job.NotifyInfo.Recipients: ms_admin
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.NextRunTime: <schedule completed>
+    Job.LastCompletionInfo.ProcessId: 24776
+    Job.LastCompletionInfo.Started: 2008-09-18T10:08:51+05:30
+    Job.LastCompletionInfo.Ended: 2008-09-18T10:08:51+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 13
+    Job.Name: "Daily MultiSite Receive"
+    Job.Description.Begin:
+Apply all pending replica update packets
+    Job.Description.End:
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 1994-07-03
+    Job.Schedule.FirstStartTime: 01:00:00
+    Job.Schedule.StartTimeRestartFrequency: 01:00:00
+    Job.Schedule.LastStartTime: 23:59:59
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 14
+    # Job.Task: "MultiSite Sync Receive"
+    Job.Args: -quiet 1
+    Job.NotifyInfo.OnEvents: JobEndOKWithMsgs,JobEndFail
+    Job.NotifyInfo.Using: email
+    Job.NotifyInfo.Recipients: ms_admin
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-03-14T13:26:34+05:30 by SUNQUESTINFO\VOB_Admin@mhicc-ms
+    Job.NextRunTime: 2008-11-10T14:00:00+05:30
+    Job.LastCompletionInfo.ProcessId: 15992
+    Job.LastCompletionInfo.Started: 2008-11-10T13:00:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T13:00:00+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End
+
+Job.Begin
+    Job.Id: 14
+    Job.Name: "Daily CC MultiSite Family Health Generation"
+    Job.Description.Begin:
+Generate family health for a single ClearCase family
+    Job.Description.End:
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 1994-07-03
+    Job.Schedule.FirstStartTime: 01:00:00
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 16
+    # Job.Task: "CC MultiSite Generate Family Health"
+    Job.Args: <vob tag>
+    Job.NotifyInfo.OnEvents: JobEndOKWithMsgs,JobEndFail
+    Job.NotifyInfo.Using: email
+    Job.NotifyInfo.Recipients: ms_admin
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-03-14T13:26:43+05:30 by SUNQUESTINFO\VOB_Admin@mhicc-ms
+    Job.NextRunTime: 2008-11-11T01:00:00+05:30
+    Job.LastCompletionInfo.ProcessId: 6040
+    Job.LastCompletionInfo.Started: 2008-11-10T01:00:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T01:00:00+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x1
+    Job.LastCompletionInfo.Messages.Begin:
+The syntax of the command is incorrect.
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 15
+    Job.Name: "Daily MultiSite Syncmgr DB Scrubber"
+    Job.Description.Begin:
+Scrubs old job data from the MultiSite syncmgr database.
+    Job.Description.End:
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 1994-07-03
+    Job.Schedule.FirstStartTime: 22:00:00
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 17
+    # Job.Task: "MultiSite Syncmgr DB Scrubber"
+    Job.Args: -partial 14 -complete 90
+    Job.NotifyInfo.OnEvents: JobEndOKWithMsgs,JobEndFail
+    Job.NotifyInfo.Using: email
+    Job.NotifyInfo.Recipients: ms_admin
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-03-14T13:26:55+05:30 by SUNQUESTINFO\VOB_Admin@mhicc-ms
+    Job.NextRunTime: 2008-11-10T22:00:00+05:30
+    Job.LastCompletionInfo.ProcessId: 25224
+    Job.LastCompletionInfo.Started: 2008-11-09T22:00:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-09T22:00:00+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+    Job.LastCompletionInfo.Messages.Begin:
+"C:\Program Files\Rational\ClearCase\bin\syncmgr_scrubber" -partial 14 -complete 90
+
+Successfully scrubbed requested jobs.
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 16
+    Job.Name: "Daily MultiSite Sync Manager Export"
+    Job.Description.Begin:
+For each replicated VOB on this host, create an update packet for that replica's siblings
+    Job.Description.End:
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 1994-07-03
+    Job.Schedule.FirstStartTime: 20:00:00
+    Job.Schedule.StartTimeRestartFrequency: 01:00:00
+    Job.Schedule.LastStartTime: 23:59:59
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 18
+    # Job.Task: "MultiSite Sync Manager Export"
+    Job.Args: -quiet 1 -all
+    Job.NotifyInfo.OnEvents: JobEndOKWithMsgs,JobEndFail
+    Job.NotifyInfo.Using: email
+    Job.NotifyInfo.Recipients: ms_admin
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-03-14T13:27:08+05:30 by SUNQUESTINFO\VOB_Admin@mhicc-ms
+    Job.NextRunTime: 2008-11-10T20:00:00+05:30
+    Job.LastCompletionInfo.ProcessId: 5232
+    Job.LastCompletionInfo.Started: 2008-11-10T10:29:25+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T10:31:03+05:30
+    Job.LastCompletionInfo.ExitStatus: 0xc3
+    Job.LastCompletionInfo.Messages.Begin:
+ERROR: command '.\bin\multitool syncreplica -export   -fship -wait_forever        replica:mhicc-vob_COMLAB_IX@\AZ_COMLAB_IX >&2' encountered error.
+ERROR: command '.\bin\multitool syncreplica -export   -fship -wait_forever        replica:az-ccmulti1_COMLAB_PMICRO@\AZ_COMLAB_PMICRO >&2' encountered error.
+ERROR: command '.\bin\multitool syncreplica -export   -fship -wait_forever        replica:az-ccvob1_COMLAB_PMICRO@\AZ_COMLAB_PMICRO >&2' encountered error.
+ERROR: command '.\bin\multitool syncreplica -expo
+    Job.LastCompletionInfo.Messages.End:
+Job.End
+
+Job.Begin
+    Job.Id: 17
+    Job.Name: "Daily MultiSite Sync Manager Receive"
+    Job.Description.Begin:
+Apply all pending replica update packets
+    Job.Description.End:
+    Job.Schedule.Daily.Frequency: 1
+    Job.Schedule.StartDate: 1994-07-03
+    Job.Schedule.FirstStartTime: 01:00:00
+    Job.Schedule.StartTimeRestartFrequency: 01:00:00
+    Job.Schedule.LastStartTime: 23:59:59
+    Job.DeleteWhenCompleted: FALSE
+    Job.Task: 19
+    # Job.Task: "MultiSite Sync Manager Receive"
+    Job.Args: -quiet 1
+    Job.NotifyInfo.OnEvents: JobEndOKWithMsgs,JobEndFail
+    Job.NotifyInfo.Using: email
+    Job.NotifyInfo.Recipients: ms_admin
+    Job.Created: 2008-03-13T14:55:07+05:30 by SUNQUESTINFO\ClearCase_ALBD@mhicc-ms
+    Job.LastModified: 2008-03-14T13:27:15+05:30 by SUNQUESTINFO\VOB_Admin@mhicc-ms
+    Job.NextRunTime: 2008-11-10T14:00:00+05:30
+    Job.LastCompletionInfo.ProcessId: 18508
+    Job.LastCompletionInfo.Started: 2008-11-10T13:00:00+05:30
+    Job.LastCompletionInfo.Ended: 2008-11-10T13:00:00+05:30
+    Job.LastCompletionInfo.ExitStatus: 0x0
+Job.End

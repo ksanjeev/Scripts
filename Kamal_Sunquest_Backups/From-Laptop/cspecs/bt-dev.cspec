@@ -1,0 +1,120 @@
+#This template is used to generate the config spec to retrieve source used for Trianz build.
+
+element * CHECKEDOUT
+
+#Shared staging VOB
+element \dpe_onyx /main/LATEST
+element \dpe_onyx\cue-components /main/LATEST
+element \dpe_onyx\cue-installation /main/LATEST
+
+element \dcs_shared\cue-components\fc\... /main/bt_dev_main/LATEST
+element \dcs_shared\cue-components\fc\... /main/LATEST -mkbranch bt_dev_main
+element \dcs_shared\cue-components\fc\... /main/0 -mkbranch bt_dev_main
+element \dcs_shared\cue-components\bt .../main/bt_dev_main/LATEST
+element \dcs_shared\cue-components\bt .../main/LATEST -mkbranch bt_dev_main
+element \dcs_shared\cue-components\bt .../main/0 -mkbranch bt_dev_main
+element \dcs_shared\cue-components\bt\... .../main/bt_dev_main/LATEST
+element \dcs_shared\cue-components\bt\... .../main/LATEST -mkbranch bt_dev_main
+element \dcs_shared\cue-components\bt\... .../main/0 -mkbranch bt_dev_main
+element \dcs_shared\cue-components\nd .../nd_dev_main/LATEST
+element \dcs_shared\cue-components\nd\... .../nd_dev_public/LATEST
+element \dcs_shared\cue-components\nd\... .../nd_dev_main/LATEST
+
+element \dpe_onyx\ndtaj\... .../nd_dev_public/LATEST
+
+element \dpe_onyx\bttaj .../main/bt_dev_main/LATEST
+element \dpe_onyx\bttaj .../main/LATEST -mkbranch bt_dev_main
+element \dpe_onyx\bttaj .../main/0 -mkbranch bt_dev_main
+element \dpe_onyx\bttaj\... .../main/bt_dev_main/LATEST
+element \dpe_onyx\bttaj\... .../main/LATEST -mkbranch bt_dev_main
+element \dpe_onyx\bttaj\... .../main/0 -mkbranch bt_dev_main
+
+element \dpe_onyx\btapp .../main/bt_dev_main/LATEST
+element \dpe_onyx\btapp .../main/LATEST -mkbranch bt_dev_main
+element \dpe_onyx\btapp .../main/0 -mkbranch bt_dev_main
+element \dpe_onyx\btapp\... .../main/bt_dev_main/LATEST
+element \dpe_onyx\btapp\... .../main/LATEST -mkbranch bt_dev_main
+element \dpe_onyx\btapp\... .../main/0 -mkbranch bt_dev_main
+
+element \dpe_onyx\ndtaj .../nd_dev_main/LATEST
+element \dpe_onyx\ndtaj\... .../nd_dev_main/LATEST
+
+
+#Trianz shared MergeModules
+element \dpe_onyx\cue-installation\built\mergeModules\bt .../main/bt_dev_main/LATEST
+element \dpe_onyx\cue-installation\built\mergeModules\bt .../main/LATEST -mkbranch bt_dev_main
+element \dpe_onyx\cue-installation\built\mergeModules\bt .../main/0 -mkbranch bt_dev_main
+element \dpe_onyx\cue-installation\built\mergeModules\bt\... .../main/bt_dev_main/LATEST
+element \dpe_onyx\cue-installation\built\mergeModules\bt\... .../main/LATEST -mkbranch bt_dev_main
+element \dpe_onyx\cue-installation\built\mergeModules\bt\... .../main/0 -mkbranch bt_dev_main
+element \dpe_onyx\cue-installation\built\mergeModules\fc\... .../main/fc_dev_main/LATEST
+
+#Trianz VOBs
+
+#element \btappres .../bt_dev_main/LATEST
+
+element \btappres\contentPackages .../sd_dev_main/dpe_baloo_stab/LATEST
+element \btappres\contentPackages\... .../sd_dev_main/dpe_baloo_stab/LATEST
+element \btappres\contentPackages .../sd_dev_main/LATEST
+element \btappres\contentPackages\... .../sd_dev_main/LATEST
+
+element \btappres\Resources .../sd_dev_main/dpe_baloo_stab/LATEST
+element \btappres\Resources\Common\... .../sd_dev_main/dpe_baloo_stab/LATEST
+element \btappres\Resources .../sd_dev_main/LATEST
+element \btappres\Resources\Common\... .../sd_dev_main/LATEST
+element \btappres\Resources\project-resources\... .../bt_dev_main/LATEST
+element \btappres\Resources\... .../sd_dev_main/dpe_baloo_stab/LATEST
+element \btappres\Resources\... .../sd_dev_main/LATEST
+
+element \btappres\l10n-files\projectfiles\... .../sd_dev_l10n/LATEST
+element \btappres\l10n-files\... .../bt_dev_main/LATEST
+
+element \btappres\... .../bt_dev_main/LATEST
+
+element \btapp\... .../bt_dev_main/LATEST
+element \bttaj\ProjectEngine .../bt_dev_main/sd_dev_main/LATEST
+element \bttaj\ProjectEngine\... .../bt_dev_main/sd_dev_main/LATEST
+element \bttaj\ProjectEngine\... .../sd_dev_main/LATEST
+element \bttaj\... .../bt_dev_main/LATEST
+element \btbuild\... .../bt_dev_main/LATEST
+
+#Shared build VOB
+element \sdtajscripts\... .../sd_dev_main/bt_dev_main/LATEST
+element \sdtajscripts\... .../sd_dev_main/LATEST -mkbranch bt_dev_main
+element \sdtajscripts\... .../sd_dev_main/0 -mkbranch bt_dev_main
+element \sdtajscripts\... .../sd_dev_main/LATEST
+element \3rdparty3\... .../main/LATEST
+
+#Scicom source and build VOBs (not required most of the time unless reqd for debugging).
+element \ndtaj\... .../nd_dev_public/LATEST
+element \ndapp\... .../nd_dev_main/LATEST
+element \ndtajres\... .../nd_dev_public/LATEST
+element \ndbuild\scripts\... .../nd_dev_main/bt_dev_main/LATEST
+element \ndbuild\... .../nd_dev_main/LATEST 
+
+#rule to branch off for elements in other VOBs
+element * ...\main\LATEST -mkbranch bt_dev_main
+element * ...\main\0 -mkbranch bt_dev_main
+load \3rdparty3\Qt\4.1.1\4.1.1_VS2005\bin
+load \3rdparty3\OpenSSL
+load \3rdparty3\Abale\5.0
+load \3rdparty3\LeadTools\v14.5_HP\CurrentBuild
+load \sdtajscripts
+load \bttajres
+load \bttaj
+load \btbuild
+load \btappres
+load \btapp
+load \ndbuild
+load \ndtaj
+load \dpe_onyx\btapp
+load \dpe_onyx\bttaj
+load \dpe_onyx\ndtaj
+load \dpe_onyx\cue-components\SharedBin
+load \dpe_onyx\cue-components\SharedInc
+load \dpe_onyx\cue-components\SharedLib
+load \dpe_onyx\cue-components\bt
+load \dpe_onyx\cue-components\nd
+load \dpe_onyx\cue-components\fc
+load \dpe_onyx\cue-installation
+load \dcs_shared\cue-components

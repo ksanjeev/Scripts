@@ -1,0 +1,664 @@
+<?xml version="1.0"?>
+<project name="Photosmart Premier">
+
+  <!--
+
+        Copyright 2005 Hewlett-Packard . All Rights Reserved.
+        This software is the confidential and proprietary information of
+        Hewlett-Packard. Use is subject to license terms.
+
+        $RCSfile: default.build,v $ $Revision: 1.4 $
+        $Date: 2005/10/11 10:26:34 $
+
+        NAnt version : 0.85 Release Candidate 3 (Build 0.85.1932.0 rc3 4/16/2005)
+        http://www.swoogan.com/nantgui.html  : NAnt-Gui-1.2.4-rc6.exe
+
+        NOTE : This script is intended to be used as shortcut build script by development team.
+        This script should not contain any task other than invoking set of targets in existing  NAnt script files.
+    -->
+  <property name="vsnet.buildflag" value="build" overwrite="false"/>
+  <property name="imgmgr.buildflag" value="false" overwrite="false"/>
+  <include buildfile="s:/btbuild/scripts/psp-bt.build" />
+  <include buildfile="s:/btbuild/scripts/default-nd.build" />
+  <property name="solution.isDebug" value="true" overwrite="false"/>
+  <property name="testharness.buildflag" value="false" overwrite="false"/>
+
+
+  <target name="src.backup" description="Can be used to take local backup of only source code">
+    <property name="src.backup.dir" value="d:/ruby/src_backups" overwrite="false"/>
+    <tstamp property="backup.timestamp" pattern="dd-MMM-yyyy.HH_mm" verbose="true"/>
+    <property name="zipfile.name" value="${src.backup.dir}/Ruby_source_backup_${backup.timestamp}.zip" overwrite="true"/>
+    <zip zipfile="${zipfile.name}" ziplevel="9">
+      <fileset basedir="s:/btapp" prefix="btapp">
+        <include name="**/**"/>
+        <exclude name="**/lost+found/**"/>
+        <exclude name="**/*Test*/**"/>
+        <exclude name="**/*.suo"/>
+        <exclude name="**/*.ncb"/>
+        <exclude name="**/*.ccscc"/>
+        <exclude name="**/*.swp"/>
+        <exclude name="**/*.swo"/>
+      </fileset>
+      <fileset basedir="s:/bttaj" prefix="bttaj">
+        <include name="**/**"/>
+        <exclude name="**/lost+found/**"/>
+        <exclude name="**/*Test*/**"/>
+        <exclude name="**/*.suo"/>
+        <exclude name="**/*.ncb"/>
+        <exclude name="**/*.ccscc"/>
+        <exclude name="**/*.swp"/>
+        <exclude name="**/*.swo"/>
+      </fileset>
+      <fileset basedir="s:/btbuild" prefix="btbuild">
+        <include name="**/**"/>
+        <exclude name="**/lost+found/**"/>
+        <exclude name="**/*Test*/**"/>
+        <exclude name="**/*.suo"/>
+        <exclude name="**/*.ncb"/>
+        <exclude name="**/*.ccscc"/>
+        <exclude name="**/*.swp"/>
+        <exclude name="**/*.swo"/>
+      </fileset>
+      <fileset basedir="s:/btappres" prefix="btappres">
+        <include name="**/**"/>
+        <exclude name="**/lost+found/**"/>
+        <exclude name="**/*.suo"/>
+        <exclude name="**/*.ncb"/>
+        <exclude name="**/*.ccscc"/>
+        <exclude name="**/*.swp"/>
+        <exclude name="**/*.swo"/>
+      </fileset>
+      <fileset basedir="s:/sdtajscripts" prefix="sdtajscripts">
+        <include name="**/**"/>
+        <exclude name="**/lost+found/**"/>
+        <exclude name="**/*.suo"/>
+        <exclude name="**/*.ncb"/>
+        <exclude name="**/*.ccscc"/>
+        <exclude name="**/*.swp"/>
+        <exclude name="**/*.swo"/>
+        <exclude name="**/tools/*"/>
+        <exclude name="**/docs/*"/>
+      </fileset>
+      <fileset basedir="s:/cue_ruby/cue-components" prefix="cue_ruby/cue-components">
+        <include name="nd/**/**"/>
+        <include name="fc/**/**"/>
+        <include name="SharedBin/**/**"/>
+        <include name="SharedInc/**/**"/>
+        <include name="SharedLib/**/**"/>
+        <exclude name="**/lost+found/**"/>
+        <exclude name="**/*.suo"/>
+        <exclude name="**/*.ncb"/>
+        <exclude name="**/*.ccscc"/>
+        <exclude name="**/*.swp"/>
+        <exclude name="**/*.swo"/>
+      </fileset>
+      <fileset basedir="s:/3rdparty3" prefix="3rdparty3">
+          <include name="LeadTools/v14.5_HP/build007/bin/hp*.dll"/>
+          <include name="Abale/5.0/**/**"/>
+      </fileset>
+      <fileset basedir="s:/ndbuild" prefix="ndbuild">
+          <include name="scripts/*Ruby*.*"/>
+      </fileset>
+    </zip>
+
+    <echo message="The backup file is !!!!! ${zipfile.name}"/>
+  </target>
+
+  <!-- Project useful tasks start-->
+
+  <target name="psutils">
+    <call target="psp.src.psutils.compile"/>
+    <call target="psp.src.psutils.deploy"/>
+    <call target="psp.src.psutils.share"/>
+    <if test="${testharness.buildflag}">
+        <call target="psp.src.test.psutils.compile"/>
+    </if>
+  </target>
+
+  <target name="plt">
+    <call target="psp.src.platform.compile"/>
+    <call target="psp.src.platform.deploy"/>
+    <call target="psp.src.platform.share"/>
+    <if test="${testharness.buildflag}">
+        <call target="psp.src.test.platform.compile"/>
+    </if>
+  </target>
+
+  <target name="uigfx">
+    <call target="psp.src.uigfx.compile"/>
+    <call target="psp.src.uigfx.deploy"/>
+    <call target="psp.src.uigfx.share"/>
+  </target>
+
+  <target name="cc4">
+    <call target="psp.src.cc4.compile"/>
+    <call target="psp.src.cc4.deploy"/>
+    <call target="psp.src.cc4.share"/>
+  </target>
+ 
+  <target name="slideshow">
+    <call target="psp.src.slideshow.compile"/>
+    <call target="psp.src.slideshow.deploy"/>
+    <call target="psp.src.slideshow.share"/>
+  </target>
+
+  <target name="psapputils">
+    <call target="psp.src.psapputils.compile"/>
+    <call target="psp.src.psapputils.deploy"/>
+    <call target="psp.src.psapputils.share"/>
+  </target>
+
+  <target name="uifx">
+    <call target="psp.src.ui.framework.compile"/>
+    <call target="psp.src.ui.framework.deploy"/>
+    <call target="psp.src.ui.framework.share"/>
+  </target>
+
+  <target name="tbutils">
+    <call target="psp.src.tbutils.compile"/>
+    <call target="psp.src.tbutils.deploy"/>
+    <call target="psp.src.tbutils.share"/>
+  </target>
+
+
+  <target name="crm">
+    <call target="psp.src.crmwidget.compile"/>
+    <call target="psp.src.crmwidget.deploy"/>
+    <call target="psp.src.crmwidget.share"/>
+  </target>
+
+  <target name="libifc">
+    <call target="psp.src.libraryinterfaces.compile"/>
+    <call target="psp.src.libraryinterfaces.share"/>
+  </target>
+  
+  <target name="lib">
+    <call target="psp.src.library.compile"/>
+    <call target="psp.src.library.deploy"/>
+    <call target="psp.src.library.share"/>
+  </target>
+
+  <target name="edit">
+    <call target="psp.src.edit.compile"/>
+    <call target="psp.src.edit.deploy"/>
+    <call target="psp.src.edit.share"/>
+  </target>
+
+  <target name="prfx">
+    <call target="psp.src.printinterfaces.compile"/>
+    <call target="psp.src.printinterfaces.deploy"/>
+    <call target="psp.src.printinterfaces.share"/>
+    <call target="psp.src.printuiframework.compile"/>
+    <call target="psp.src.printuiframework.deploy"/>
+    <call target="psp.src.printuiframework.share"/>
+  </target>
+
+  <target name="print">
+    <call target="psp.src.printappscommon.compile"/>
+    <call target="psp.src.printappscommon.deploy"/>
+    <call target="psp.src.printappscommon.share"/>
+    <call target="psp.src.quickprint.compile"/>
+    <call target="psp.src.quickprint.deploy"/>
+    <call target="psp.src.quickprint.share"/>
+    <call target="psp.src.phototemplate.compile"/>
+    <call target="psp.src.phototemplate.deploy"/>
+    <call target="psp.src.phototemplate.share"/>
+  </target>
+<!--
+  <target name="ordmgmt">
+    <call target="psp.src.ordmgmt.compile"/>
+    <call target="psp.src.ordmgmt.deploy"/>
+    <call target="psp.src.ordmgmt.share"/>
+  </target>
+  
+  -->
+
+  <target name="projectengine">
+    <call target="psp.src.projectuiinterfaces.compile"/>
+    <call target="psp.src.projectuiinterfaces.share"/>
+
+    <call target="psp.src.projectengineinterfaces.compile"/>
+    <call target="psp.src.projectengineinterfaces.share"/>
+
+    <call target="psp.src.projectengine.compile"/>
+    <call target="psp.src.projectengine.deploy"/>
+    <call target="psp.src.projectengine.share"/>
+
+	<call target="psp.src.projectmanagerbase.compile"/>
+	<call target="psp.src.projectmanagerbase.share"/>
+    <call target="psp.src.genericproject.compile"/>
+    <call target="psp.src.genericproject.deploy"/>
+    <call target="psp.src.genericproject.share"/>
+
+    <if test="${testharness.buildflag}">
+        <call target="psp.src.test.projectengine.compile"/>
+    </if>
+
+  </target>
+
+  <target name="prjmgrbase">
+    <call target="psp.src.projectmanagerbase.compile"/>
+    <call target="psp.src.projectmanagerbase.share"/>
+  </target>
+
+	<!-- 
+	<target name="cdlblintprj">
+    <call target="psp.src.cdlabelinterfaces.compile"/>
+    <call target="psp.src.cdlabelinterfaces.share"/>
+
+    <call target="psp.src.cdlabel.compile"/>
+    <call target="psp.src.cdlabelprojectmanager.deploy"/>
+  </target> -->
+      
+  <target name="photobookengine">
+        <call target="psp.src.photobookengineinterfaces.compile"/>
+        <call target="psp.src.photobookengineinterfaces.share"/>
+
+        <call target="psp.src.photobookengine.compile"/>
+        <call target="psp.src.photobookengine.deploy"/>
+        <call target="psp.src.photobookengine.share"/>
+
+  </target>
+  <target name="genericproject">
+    <call target="psp.src.genericproject.compile"/>
+    <call target="psp.src.genericproject.deploy"/>
+    <call target="psp.src.genericproject.share"/>
+  </target>
+  
+  <target name="prjfx">
+
+    <call target="psp.src.creative.interfaces.compile"/>
+    <call target="psp.src.creative.interfaces.deploy"/>
+    <call target="psp.src.creative.interfaces.share"/>
+    
+    <call target="psp.src.creative.projects.compile"/>
+    <call target="psp.src.creative.projects.deploy"/>
+    <call target="psp.src.creative.projects.share"/>
+  </target>
+
+  <target name="cdlabel">
+	  <call target="psp.src.projectmanagerbase.compile"/>
+	  <call target="psp.src.projectmanagerbase.share"/>
+
+	  <call target="psp.src.cdlabelinterfaces.compile"/>
+	  <call target="psp.src.cdlabelinterfaces.share"/>
+
+	  <call target="psp.src.cdlabelprojectmanager.compile"/>
+	  <call target="psp.src.cdlabelprojectmanager.deploy"/>
+	  <call target="psp.src.cdlabelprojectmanager.share"/>
+
+
+	 <!-- <call target="psp.src.creative.cdlabel.compile"/>
+	  <call target="psp.src.creative.cdlabel.deploy"/> -->
+
+  </target>
+
+  <target name="album">
+    <call target="psp.src.creative.album.compile"/>
+    <call target="psp.src.creative.album.deploy"/>
+    <call target="psp.src.creative.album.share"/>
+  </target>
+
+  <target name="albeng">
+    <call target="psp.src.albumengine.compile"/>
+    <call target="psp.src.albumengine.deploy"/>
+    <call target="psp.src.albumengine.share"/>
+  </target>
+
+  <target name="albengint">
+    <call target="psp.src.albumengineinterfaces.compile"/>
+    <call target="psp.src.albumengineinterfaces.deploy"/>
+    <call target="psp.src.albumengineinterfaces.share"/>
+  </target>
+
+
+  <target name="app">
+    <call target="psp.src.psp-app.compile"/>
+    <call target="psp.src.psp-app.deploy"/>
+    <call target="psp.src.psp-app.share"/>
+  </target>
+
+  <target name="imgmgr2">
+
+	<call target="psp.src.hpdiimagedatabase.compile"/>
+    <call target="psp.src.imgmgr.compile"/>
+    <call target="psp.src.defaulttags.deploy"/>
+    <call target="psp.src.imgmgr.deploy"/>
+    <call target="psp.src.imgmgr.share"/>
+
+  </target> 
+  
+  <target name="imgmgr">
+    
+    <call target="psp.src.psutils.compile"/>
+    <call target="psp.src.psutils.deploy"/>
+    <call target="psp.src.psutils.share"/>
+
+	<call target="psp.src.hpdiimagedatabase.compile"/>
+    <call target="psp.src.imgmgr.compile"/>
+    <call target="psp.src.defaulttags.deploy"/>
+    <call target="psp.src.imgmgr.deploy"/>
+    <call target="psp.src.imgmgr.share"/>
+	
+    <call target="psp.src.imgmgrcbk.compile"/>
+    <call target="psp.src.imgmgrcbk.deploy"/>
+    <call target="psp.src.imgmgrcbk.share"/>
+
+
+    <call target="psp.src.fsyswchr.compile"/>
+    <call target="psp.src.fsyswchr.deploy"/>
+    <call target="psp.src.fsyswchr.share"/>
+
+    <call target="psp.src.hpdiimagedatabasemd.compile"/>
+    <call target="psp.src.dbconversion.compile"/>
+    <call target="psp.src.dbconversion.deploy"/>
+    <call target="psp.src.dbconversion.share"/>
+    
+  </target>
+
+  <target name="dbconversion">
+	  <call target="psp.src.hpdiimagedatabase.compile"/>
+	  <call target="psp.src.hpdiimagedatabasemd.compile"/>
+	  <call target="psp.src.dbconversion.compile"/>
+	  <call target="psp.src.dbconversion.deploy"/>
+	  <call target="psp.src.dbconversion.share"/>  
+  </target>
+  <target name="fsyswchr">
+	 
+    <call target="psp.src.fsyswchr.compile"/>
+    <call target="psp.src.fsyswchr.deploy"/>
+    <call target="psp.src.fsyswchr.share"/>
+    <if test="${testharness.buildflag}">
+        <call target="psp.src.test.fsyswchr.compile"/>
+    </if>
+  </target>
+  <target name="vlt">
+    <call target="psp.src.imgvlt.compile"/>
+    <call target="psp.src.imgvlt.deploy"/>
+    <call target="psp.src.imgvlt.share"/>
+
+  </target>
+  <target name="cbviewer">
+    <call target="psp.src.cbviewer.compile"/>
+  </target>
+
+  <target name="tray">
+    <call target="psp.src.tray.compile"/>
+    <call target="psp.src.tray.deploy"/>
+    <call target="psp.src.tray.share"/>
+    <if test="${testharness.buildflag}">
+        <call target="psp.src.test.tray.compile"/>
+    </if>
+  </target>
+  <!--
+  <target name="shareimx">
+    <call target="psp.src.shareIMX.compile"/>
+    <call target="psp.src.shareIMX.deploy"/>
+    <call target="psp.src.shareIMX.share"/>
+  </target>
+  -->
+  <target name="albsubsys">
+    <call target="psp.src.albumsubsys.compile"/>
+    <call target="psp.src.albumsubsys.deploy"/>
+    <call target="psp.src.albumsubsys.share"/>
+  </target>
+
+  <target name="share">
+    <call target="psp.src.share.compile"/>
+    <call target="psp.src.share.deploy"/>
+    <call target="psp.src.share.share"/>
+  </target>
+
+  <target name="import">
+    <call target="psp.src.importui.compile"/>
+    <call target="psp.src.importui.deploy"/>
+    <call target="psp.src.importui.share"/>
+  </target>
+
+  <target name="vaccumscr">
+    <call target="psp.src.vaccumscr.compile"/>
+    <call target="psp.src.vaccumscr.deploy"/>
+    <call target="psp.src.vaccumscr.share"/>
+  </target>
+
+    <target name="nd.all">
+       <call target="psp.vendor.nd.src.build.compile"/>
+    </target>   
+
+  <target name="all">
+    <if test="${solution.config=='Release'}">
+        <property name="assembly.type" value="" overwrite="true"/>
+    </if>
+    <call target="psp.vendor.src.build.compile"/>
+  </target>
+
+  <target name="clean">
+    <call target="psp.vendor.bt.src.clean"/>
+  </target>
+
+  <target name="ruby_deploy">
+    <call target="psp.init.cue"/>
+  </target>
+  
+  <target name="clean.keep">
+    <echo message="cleaning all the .keep files in snapshot view..."/>
+    <foreach item="File" property="keepfile">
+      <in>
+        <items basedir="${source.drive}\">
+          <include name="**/*.keep"/>
+          <include name="**/*.keep.*"/>
+          <include name="**/*.hijacked*"/>
+          <include name="**/*.contrib*"/>
+          <include name="**/*.checkedout*"/>
+        </items>
+      </in>
+      <do>
+        <delete file="${keepfile}" failonerror="false"/>
+      </do>
+    </foreach>
+  </target>
+    
+    <target name="all2">
+        <if test="${solution.config=='Release'}">
+            <property name="assembly.type" value="" overwrite="true"/>
+        </if>
+        <!-- 
+       <call target="plt"/>
+       <call target="imgmgr"/>
+       <call target="tray"/>
+       <call target="projectengine"/>
+       <call target="prjmgrbase"/>
+       <call target="photobookengine"/>
+       <call target="genericproject"/>
+
+       <call target="uigfx"/>
+       <call target="cc4"/>
+       <call target="psapputils"/>
+       <call target="uifx"/>
+       <call target="tbutils"/>
+       <call target="vaccumscr"/>
+       <call target="slideshow"/>
+       <call target="edit"/>
+       <call target="prjfx"/>
+       <call target="albsubsys"/>-->
+       <call target="share"/>
+       <call target="libifc"/>
+       <call target="import"/>
+       <call target="crm"/>
+       <call target="prfx"/>
+       <call target="print"/>
+       <call target="lib"/>
+      
+       <call target="album"/>
+       <call target="app"/>
+       <call target="cdlabel"/>
+      <!--
+       <call target="shareimx"/>
+      <call target="ordmgmt"/>
+       -->
+    </target>
+
+    <target  name="ccase.findcheckouts">
+        <property name="ccase_out.filename" value="${system.env.TEMP}/ccase_files.out"/>
+        <if test="${file::exists(ccase_out.filename)}">
+            <delete file="${ccase_out.filename}"/>
+        </if>
+      <exec program="${ccase.cleartool}" output="${ccase_out.filename}">
+          <arg value="ls"/>
+          <arg value="-r"/>
+          <arg value="${folder.name}"/>
+      </exec>
+      <echo message=" "/>
+      <echo message=" "/>
+      <echo message=" "/>
+      <echo message="************PLEASE CHECK BELOW FOR CHECKEDOUT/HIJACKED/PRIVATE FILES IN YOUR WORKING VIEW***********"/>
+      <echo message=" "/>
+      <echo message=" "/>
+      <property name="delete.flag.private" value="false" overwrite="false"/>
+      <foreach item="Line" in="${ccase_out.filename}" property="ccase.entry">
+          <property name="param.ccase.type" value="private file" overwrite="true"/>
+          <if test="${not string::contains(ccase.entry, 'Rule:')}">
+              <!-- list private files -->
+                <!-- show for only  following extensions : .h, .cpp, .ts, .vcproj, .sln, .build, .ism, .list-->
+                <if test="${string::contains(ccase.entry, '.h')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+
+                <if test="${string::contains(ccase.entry, '.cpp')}">
+                    <if test="${not string::contains(ccase.entry, 'moc_')}">
+                        <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                    </if>
+                </if>
+                
+                <if test="${string::contains(ccase.entry, '.ts')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+                
+                <if test="${string::contains(ccase.entry, '.pro')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+
+                <if test="${string::contains(ccase.entry, '.vcproj')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+                 
+                <if test="${string::contains(ccase.entry, '.sln')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+
+                <if test="${string::contains(ccase.entry, '.build')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+                
+                <if test="${string::contains(ccase.entry, '.ism')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+                
+                <if test="${string::contains(ccase.entry, '.list')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+
+                <if test="${delete.flag.private}">
+                    <delete file="${ccase.entry}" failonerror="false"/>
+                    <echo message="deleted ${ccase.entry} "/>
+                </if>
+          </if>
+          <property name="param.ccase.type" value="checkout files" overwrite="true"/>
+          <if test="${string::contains(ccase.entry, 'Rule: CHECKEDOUT')}">
+              <!-- list checked out files -->
+                <!-- show for only  following extensions : .h, .cpp, .ts, .vcproj, .sln, .build, .ism, .list-->
+                <if test="${string::contains(ccase.entry, '.h')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+
+                <if test="${string::contains(ccase.entry, '.cpp')}">
+                    <if test="${not string::contains(ccase.entry, 'moc_')}">
+                        <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                    </if>
+                </if>
+                
+                <if test="${string::contains(ccase.entry, '.ts')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+                
+                <if test="${string::contains(ccase.entry, '.pro')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+
+                <if test="${string::contains(ccase.entry, '.vcproj')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+                 
+                <if test="${string::contains(ccase.entry, '.sln')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+
+                <if test="${string::contains(ccase.entry, '.build')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+                
+                <if test="${string::contains(ccase.entry, '.ism')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+                
+                <if test="${string::contains(ccase.entry, '.list')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+          </if>
+          <property name="param.ccase.type" value="hijacked files" overwrite="true"/>
+          <if test="${string::contains(ccase.entry, '[hijacked]')}">
+              <!-- list hijacked files -->
+                <!-- show for only  following extensions : .h, .cpp, .ts, .vcproj, .sln, .build, .ism, .list-->
+                <if test="${string::contains(ccase.entry, '.h')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+
+                <if test="${string::contains(ccase.entry, '.cpp')}">
+                    <if test="${not string::contains(ccase.entry, 'moc_')}">
+                        <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                    </if>
+                </if>
+                
+                <if test="${string::contains(ccase.entry, '.ts')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+                
+                <if test="${string::contains(ccase.entry, '.pro')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+
+                <if test="${string::contains(ccase.entry, '.vcproj')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+                 
+                <if test="${string::contains(ccase.entry, '.sln')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+
+                <if test="${string::contains(ccase.entry, '.build')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+                
+                <if test="${string::contains(ccase.entry, '.ism')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+                
+                <if test="${string::contains(ccase.entry, '.list')}">
+                <echo message="${param.ccase.type} : ${ccase.entry}"/>
+                </if>
+          </if>
+      </foreach>
+    </target>
+
+    <target name="taj_all2">
+       <property name="testharness.buildflag" value="true" overwrite="true"/>
+       <call target="psutils"/>
+       <call target="plt"/>
+       <call target="imgmgr2"/>
+       <call target="fsyswchr"/>
+       <call target="tray"/>
+       <call target="projectengine"/>
+       <call target="prjmgrbase"/>
+       <call target="genericproject"/>
+    </target>
+</project>

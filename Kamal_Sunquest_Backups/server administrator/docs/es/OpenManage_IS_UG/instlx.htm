@@ -1,0 +1,981 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<title>Instalación del software Managed System en sistemas operativos Red Hat® Enterprise Linux y SUSE® LINUX: Guía del usuario de instalación y seguridad de Dell OpenManage versión 5.0</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">Regresar a la página de contenido</a> </p>
+<a name="1054425"></a><h1> Instalación del software Managed System en sistemas operativos Red Hat® Enterprise Linux y SUSE® Linux </h1>
+<p class="title">Guía del usuario de instalación y seguridad de Dell OpenManage&#8482; versión 5.0</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1054423">Descripción general</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1054408">Antes de comenzar</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1054608">Requisitos para la instalación</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1054645">Procedimientos de instalación</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1070108">Utilización de Dell OpenManage con software de VMware ESX Server</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1072268">Instalación de Managed System Software usando software de implementación de terceros</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1054423"></a><h2>Descripción general</h2>
+
+
+<a name="1081730"></a><p>Puede instalar el software Managed System por medio de uno de los dos métodos. El CD <i>Dell&#8482; PowerEdge&#8482; Installation and Server Management</i> incluye secuencias de comandos de instalación y paquetes RPM para instalar, actualizar y desinstalar Dell OpenManage&#8482; Server Administrator y otros componentes del software Managed System en el sistema administrado. Además, Server Administrator se puede instalar en múltiples sistemas en una red mediante una instalación desatendida. </p>
+<a name="1081732"></a><p>El primer método de instalación utiliza la secuencia de comandos de instalación personalizada que se incluye, <b>srvadmin-install.sh</b>. Esta secuencia de comandos permite la instalación rápida desatendida y la instalación personalizada, desatendida o interactiva. Al incluir la secuencia de comandos <b>srvadmin-install.sh</b> en las secuencias de comandos de Linux se puede instalar Server Administrator en uno o varios sistemas, en modo interactivo o desatendido, así como de manera local o a través de la red. </p>
+<a name="1079984"></a><p>El segundo método de instalación utiliza los paquetes RPM de Server Administrator que se incluyen en los directorios personalizados y el comando <b>rpm</b> de Linux. Esto permite la instalación interactiva personalizada. Se pueden escribir secuencias de comandos de Linux que instalen Server Administrator en uno o varios sistemas por medio de una instalación desatendida de manera local o a través de la red.</p>
+<a name="1079990"></a><p>No se recomienda combinar los dos métodos de instalación y tal combinación puede requerir que usted instale manualmente los paquetes RPM necesarios de Server Administrator que se incluyen en los directorios personalizados, usando el comando <b>rpm</b> de Linux. </p>
+<a name="1054440"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Consulte el archivo <b>readme_ins.txt</b> en el CD <i>Dell PowerEdge Installation and Server Management</i> para ver una lista de los sistemas admitidos actualmente.
+</td>
+  </tr>
+</table><a name="1054403"></a><h3> Instalación desatendida y silenciosa con secuencia de comandos
+ </h3>
+<a name="1054404"></a><p>Puede usar el CD <i>Dell PowerEdge Installation and Server Management</i> para realizar una instalación desatendida y silenciosa del software Managed System con una secuencia de comandos por medio de la línea de comandos (usando paquetes RPM) en los sistemas que ejecutan sistemas operativos Red Hat Enterprise Linux y SUSE Linux Enterprise Server admitidos.</p>
+<hr noshade size="1">
+<a name="1054408"></a><h2>Antes de comenzar</h2>
+
+
+<ul><li><a name="1054409"></a>Lea los requisitos de instalación para asegurarse de que su sistema cumple o excede los requisitos mínimos.<br><br> </li>
+<li><a name="1054410"></a>Lea la <i>Guía de compatibilidad de Server Administrator de Dell OpenManage</i>. Esta guía contiene información de compatibilidad acerca de la instalación y operación de Server Administrator en diversas plataformas de hardware que ejecutan los sistemas operativos admitidos de Microsoft® Windows®, Red Hat Enterprise Linux y SUSE Linux Enterprise Server.<br>
+  <br> </li>
+<li><a name="1054411"></a>Lea el archivo de instalación de Dell OpenManage <b>readme_ins.txt</b> en el CD <i>Dell PowerEdge Installation and Server Management</i>. Este archivo contiene la información más reciente acerca de las nuevas funciones, correcciones y requisitos de hardware, además de la información de los problemas conocidos.<br><br> </li>
+<li><a name="1054412"></a>Lea el archivo léame de Server Administrator en el CD <i>Dell PowerEdge</i> <i>Installation and Server Management</i>. Este archivo contiene la información más reciente acerca de las versiones del software, firmware y controladores, además de información relacionada con problemas conocidos.<br><br> </li>
+<li><a name="1054600"></a>Lea las instrucciones para la instalación del sistema operativo.<br><br></li>
+</ul><hr noshade size="1">
+<a name="1054608"></a><h2>Requisitos para la instalación</h2>
+
+
+<a name="1054609"></a><p>En las secciones siguientes se describen los requisitos generales de Managed System Software. </p>
+<a name="1054613"></a><h3> Versiones de los sistemas operativos admitidos
+ </h3>
+<a name="1054614"></a><p>Managed System Software se ejecuta como mínimo en los siguientes sistemas operativos: </p>
+<ul><li><a name="1054617"></a>Red Hat Enterprise Linux AS, ES y WS (versión 3) x86, actualización 6<br><br></li>
+<li><a name="1076383"></a>Red Hat Enterprise Linux AS, ES y WS, (versión 3) para la tecnología Intel® de memoria extendida 64 (Intel EM64T), actualización 6<br><br></li>
+<li><a name="1066212"></a>Red Hat Enterprise Linux AS, ES y WS (versión 4) para Intel x86<br><br></li>
+<li><a name="1066210"></a>Red Hat Enterprise Linux AS, ES y WS (versión 4) para Intel EM64T<br><br></li>
+<li><a name="1074925"></a>SUSE Linux Enterprise Server (versión 9) SP3 para Intel EM64T<br><br></li>
+</ul><a name="1054728"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Consulte el archivo &quot;léame&quot; de Server Administrator en el CD <i>Dell PowerEdge Installation and Server Management</i> o la <i>Guía de compatibilidad de Server Administrator de Dell OpenManage</i> en el CD <i>Documentation</i> para obtener la lista detallada más reciente de los servicios de Server Administrator que son compatibles con cada sistema operativo admitido.
+ </td>
+  </tr>
+</table><a name="1054622"></a><h3> Requisitos del sistema
+ </h3>
+<a name="1054623"></a><p>Managed System Software debe estar instalado en cada uno de los sistemas que se van a administrar. Se pueden administrar entonces todos los sistemas que ejecutan el Managed System Software en forma local o remota mediante un explorador web admitido.</p>
+<a name="1054627"></a><h4> Requisitos del sistema administrado</h4>
+<ul><li><a name="1054628"></a>Una de las versiones admitidas de los sistemas operativos.<br><br> </li>
+<li><a name="1054629"></a>Mínimo de 64 MB de RAM.<br><br> </li>
+<li><a name="1054630"></a>Mínimo de 256 MB de espacio libre en la unidad de disco duro.<br><br> </li>
+<li><a name="1084236"></a>Derechos de administrador.<br><br> </li>
+<li><a name="1084237"></a>Conexión TCP/IP en el sistema supervisado y en el sistema remoto para facilitar la administración de sistemas remotos.<br><br> </li>
+<li><a name="1054633"></a>El protocolo simple de gestión de red (SNMP).<br><br> </li>
+<li><a name="1054634"></a>Mouse, teclado y monitor para administrar un sistema localmente. El monitor requiere una resolución de pantalla mínima de 800 x 600. La configuración para la resolución recomendada es 1024 x 768.<br><br> </li>
+<li><a name="1054635"></a>El servicio de acceso remoto de Server Administrator requiere que haya un Remote Access Controller  (RAC) instalado en el sistema que se va a administrar.<br><br> </li>
+</ul><a name="1076501"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTA: </span>Consulte la <i>Guía del usuario de Dell Remote Access Controller 4</i>, la <i>Guía del usuario de Dell Remote Access Controller 5</i> o la <i>Guía del usuario del controlador de acceso remoto incorporado/MC de Dell</i> para ver los requisitos completos de software y de hardware.
+</td>
+  </tr>
+</table>
+<ul><li><a name="1054636"></a>El Storage Management Service de Server Administrator requiere que Dell OpenManage Storage Management está instalado en el sistema para que pueda ser administrado correctamente. Consulte la <i>Guía del usuario de Dell OpenManage Server Administrator </i>para ver la lista completa de los requisitos de software y hardware.<br><br> </li>
+</ul><a name="1054638"></a><h4> Estándares de protocolos de Systems Management admitidos</h4>
+<a name="1054785"></a><p>Un protocolo estándar admitido debe estar instalado en el sistema administrado antes de instalar el Server Administrator. En los sistemas operativos Red Hat Enterprise Linux y SUSE Linux Enterprise Server compatibles, Server Administrator sólo admite el estándar SNMP de administración de sistemas. Se debe instalar el paquete SNMP proporcionado con el sistema operativo. El CIM y el WMI no están disponibles.</p>
+<a name="1054761"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Para obtener más información sobre la instalación de un protocolo de Systems Management admitido en el sistema administrado, consulte la documentación del sistema operativo.
+ </td>
+  </tr>
+</table><hr noshade size="1">
+<a name="1054645"></a><h2>Procedimientos de instalación</h2>
+
+
+<a name="1054809"></a><p>Esta sección explica cómo instalar, actualizar y desinstalar Server Administrator en un sistema que ejecuta un sistema operativo compatible Red Hat Enterprise Linux o SUSE Linux Enterprise Server. Server Administrator se puede instalar y actualizar a partir del CD <i>Dell PowerEdge Installation and Server Management</i> utilizando secuencias de comandos o comandos RPM.</p>
+<a name="1054811"></a><p>Además, Server Administrator incluye la compatibilidad con el núcleo dinámico (DKS), una función que creará automáticamente un controlador de dispositivo para un núcleo en ejecución si Server Administrator detecta que ninguno de sus controladores de dispositivo preinstalado admite ese núcleo. Esta sección incluye los siguientes temas: </p>
+<ul><li><a name="1054813"></a>Compatibilidad con el núcleo dinámico (DKS)<br><br></li>
+<li><a name="1081263"></a>Controlador de dispositivos OpenIPMI<br><br></li>
+<li><a name="1081265"></a>Instalación y actualización de Managed System Software<br><br> </li>
+<li><a name="1054815"></a>Realización de una instalación desatendida de Managed System Software<br><br> </li>
+<li><a name="1081992"></a>Actualización de versiones anteriores<br><br></li>
+<li><a name="1054816"></a>Desinstalación de Server Administrator<br><br> </li>
+</ul><a name="1054826"></a><h4> Contrato de licencia de software</h4>
+<a name="1084240"></a><p>La licencia de software de la versión del software Dell OpenManage para Red Hat Enterprise Linux y SUSE Linux Enterprise Server se encuentra en el directorio raíz del CD. Lea el archivo <b>license.htm</b>. Si instala o copia cualquiera de los archivos de este CD, significa que usted está de acuerdo con los términos que este archivo contiene. El archivo se copiará también al directorio raíz del árbol de software en donde usted decida instalar el software de Dell OpenManage.</p>
+<a name="1054829"></a><h3> Compatibilidad con el núcleo dinámico (DKS)
+</h3>
+<a name="1054830"></a><p>Server Administrator proporciona controladores de dispositivos precompilados para los núcleos precompilados enumerados en el archivo &quot;léame&quot; de Server Administrator del CD <i>Dell </i>PowerEdge <i>Installation and Server Management</i>. Si el núcleo en ejecución no es uno de los núcleos precompilados listados en el archivo léame, o si el núcleo en ejecución se reconfigura y se recompila de forma que ninguno de los controladores de dispositivos precompilados de Server Administrator admita el núcleo recompilado, es posible que Server Administrator deba utilizar la función de compatibilidad con el núcleo dinámico para admitir el núcleo en ejecución. </p>
+<a name="1061078"></a><p>Si aparece el siguiente mensaje durante el inicio de los controladores de dispositivos de Server Administrator, significa que Server Administrator intentó utilizar la función de compatibilidad con el núcleo dinámico, pero no pudo hacerlo porque no se cumplieron ciertos requisitos previos:</p>
+<a name="1054838"></a>
+<p class="screenindent"><span class="screen">Building &lt;driver&gt; using DKS... [FAILED]<br><br>(Generando &lt;<i>archivo controlador</i>&gt; con DKS... [FALLÓ])</span></p>
+<a name="1078931"></a><p class="indent">donde <span class="screen">&lt;<i>archivo controlador</i>&gt;</span> es <span class="screen">dcdbas</span> o <span class="screen">dell_rbu</span></p>
+<a name="1068647"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Server Administrator registra los mensajes en el archivo de registro <b>/var/log/messages</b>.
+ </td>
+  </tr>
+</table><a name="1068649"></a><p>Para usar la compatibilidad con el núcleo dinámico (DKS), se debe identificar el núcleo que se está ejecutando y después verificar los requisitos previos del mismo.</p>
+<a name="1057063"></a><h4> Determinación del núcleo en ejecución</h4>
+<ol type="1">
+
+<li value="1"><a name="1054846"></a>Iniciar una sesión como  <span class="screen">root</span>.
+
+<br><br>
+ <li value="2"><a name="1054848"></a>Escriba el comando siguiente en la consola y presione &lt;Entrar&gt;:
+<br><br>
+</ol>
+<a name="1083403"></a>
+<p class="screenindent"><span class="screen">uname -r 
+</span></p>
+<a name="1054852"></a><p>El sistema muestra un mensaje que identifica el núcleo en ejecución. Si no es uno de los que aparecen en la lista del archivo &quot;léame&quot; de Managed System Software, es posible que Managed System Software deba usar la DKS para admitirlo. </p>
+<a name="1054858"></a><h4> Requisitos previos de la compatibilidad con el núcleo dinámico</h4>
+<a name="1066532"></a><p>Para que Managed System Software pueda usar la DKS, las siguientes dependencias se deben cumplir antes de iniciar Server Administrator. </p>
+<ul><li><a name="1066534"></a>El núcleo en ejecución debe admitir módulo cargable activado.<br><br> </li>
+<li><a name="1066631"></a>El origen para construir módulos de núcleo para el núcleo en ejecución debe estar disponible a partir de <b>/lib/modules/`uname -r`/build</b>. En sistemas que ejecutan Red Hat Enterprise Linux (versión 3) y SUSE Linux Enterprise Server (versión 9), el RPM <b>kernel-source</b> proporciona la fuente necesaria del núcleo. En sistemas que ejecutan Red Hat Enterprise Linux (versión 4), los RPM <b>kernel*-devel</b> proporcionan el origen necesario del núcleo para generar módulos de núcleo.<br><br> </li>
+<li><a name="1054864"></a>La utilidad para la creación de GNU debe estar instalada. El RPM <b>make</b> proporciona esta utilidad.<br><br> </li>
+<li><a name="1054865"></a>El compilador GNU C (gcc) debe estar instalado. El RPM <b>gcc</b> proporciona este compilador.<br><br> </li>
+<li><a name="1054866"></a>El vinculador GNU (ld) debe estar instalado. El RPM <b>binutils</b> proporciona este vinculador.<br><br> </li>
+</ul><a name="1054867"></a><p>Cuando se hayan cumplido estos requisitos previos, la compatibilidad con el núcleo dinámico (DKS) generará automáticamente un controlador de dispositivos cuando sea necesario durante el inicio de Server Administrator. </p>
+<a name="1055373"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Los <i>núcleos no admitidos</i> son aquellos núcleos que no son compatibles con un controlador de dispositivos precompilado. Si usted está ejecutando un núcleo admitido, vea &quot;<a href="instlx.htm#1080745">Instalación y actualización de Managed System Software</a>&quot;.
+</td>
+  </tr>
+</table><a name="1054875"></a><h4> Uso de la compatibilidad con el núcleo dinámico después de la instalación de Server Administrator</h4>
+<a name="1054876"></a><p>Para permitir que Server Administrator admita un núcleo no admitido por un controlador de dispositivos precompilado y que se ha cargado después de instalar el Server Administrator, realice los pasos siguientes: </p>
+<ol type="1">
+
+<li value="1"><a name="1054878"></a>Asegúrese de que los requisitos previos de DKS se cumplan en el sistema que se va a administrar.
+
+<br><br>
+ <li value="2"><a name="1054880"></a>Inicie el nuevo núcleo en el sistema.
+<br><br>
+</ol>
+<a name="1054882"></a><p>Server Administrator crea un controlador de dispositivos para el núcleo que se está ejecutando en el sistema la primera vez que se inicia después de cargar el núcleo. De manera predeterminada, el Server Administrator se inicia al iniciar el sistema.</p>
+<a name="1079009"></a><h4> Copia de un controlador de dispositivos creado dinámicamente en sistemas que ejecutan el mismo núcleo</h4>
+<a name="1079010"></a><p>Cuando Server Administrator genera dinámicamente un controlador de dispositivo para el núcleo en ejecución, lo instala en el directorio <b>/lib/modules/</b><b><i>&lt;núcleo&gt;</i></b><b>/kernel/drivers/firmware</b>, donde <b><i>&lt;núcleo&gt;</i></b> es el nombre del núcleo (que se obtiene al escribir <span class="screen">uname -r</span>). Si tiene un sistema que ejecuta el mismo núcleo para el que se generó un controlador de dispositivo, puede copiar el controlador de dispositivo recién generado al directorio <b>/var/omsa/dks/</b><b><i>&lt;núcleo&gt;</i></b><b> </b>en el otro sistema para que lo use Server Administrator. Esta acción permite que Server Administrator utilice la función de DKS en varios sistemas sin tener que instalar el origen del núcleo en cada uno de ellos.</p>
+<a name="1054887"></a><p>Un ejemplo es el escenario siguiente: el sistema A ejecuta un núcleo que no es compatible con uno de los controladores de dispositivos precompilados de Server Administrator. El sistema B ejecuta el mismo núcleo. Realice los siguientes pasos para crear un controlador de dispositivo en el sistema A y copiarlo en el sistema B para que lo utilice Server Administrator:</p>
+<ol type="1">
+
+<li value="1"><a name="1054889"></a>Asegúrese de que los requisitos previos de DKS se cumplan en el sistema A.
+
+<br><br>
+ <li value="2"><a name="1054891"></a>Inicie el Server Administrator en el sistema A.
+<br><br>
+</ol>
+<a name="1064947"></a><p class="indent">Server Administrator crea un controlador de dispositivos para el núcleo que se está ejecutando en el sistema A durante el inicio. </p>
+<ol type="1">
+
+<li value="3"><a name="1066669"></a>Escriba <span class="screen">uname -r</span> en el sistema A para determinar el nombre del núcleo en ejecución.
+
+<br><br>
+ <li value="4"><a name="1066670"></a>Copie todos los archivos <b>dcdbas.*</b> o <b>dell_rbu.*</b> en el directorio <b>/lib/modules/</b><b><i>&lt;núcleo&gt;</i></b><b>/</b><b>kernel/drivers/firmware</b> 
+del sistema A al directorio <b>/var/omsa/dks/</b><b><i>&lt;núcleo&gt;</i></b><b> </b>del sistema B, donde <b><i>&lt;núcleo&gt;</i></b> es el nombre de núcleo 
+que se obtuvo escribiendo <span class="screen">uname -r </span>en el paso 3.
+<br><br>
+</ol>
+<a name="1079039"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTA: </span> Es posible que el directorio <b>/lib/modules/</b><b><i>&lt;núcleo&gt;</i></b><b>/kernel/drivers/firmware</b> contenga uno o varios 
+de los archivos siguientes: <b>dcdbas.*</b> o <b>dell_rbu.*
+</b></td>
+  </tr>
+</table>
+<a name="1054900"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTA: </span>Es posible que deba crear el directorio <b>/var/omsa/dks/</b><b><i>&lt;núcleo&gt;</i></b><b> </b>en el sistema B. Por ejemplo, si el nombre del núcleo es 1.2.3-4smp, usted puede crear el directorio escribiendo <span class="screen">mkdir -p /var/omsa/dks/1.2.3-4smp</span>.</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="5"><a name="1054903"></a>Inicie el Server Administrator en el sistema B.
+<br><br>
+</ol>
+<a name="1057710"></a><p class="indent">Server Administrator detecta que el controlador de dispositivo que copió en el directorio <b>/var/omsa/dks/</b><b><i>&lt;núcleo&gt;</i></b> admite el núcleo en ejecución y utiliza ese controlador de dispositivo.</p>
+<a name="1054908"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">NOTA: </span>También se puede usar este procedimiento cuando se actualiza Server Administrator si la nueva versión del mismo no admite el núcleo en ejecución con un controlador de dispositivos precompilado.
+ </td>
+  </tr>
+</table>
+<a name="1077096"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTA: </span> Cuando haya desinstalado Server Administrator del sistema B, no se eliminarán los archivos <b>/var/omsa/dks/</b><i><b>&lt;núcleo&gt;</b></i>/*<b>.</b> que usted copió al sistema B. Usted debe eliminar los archivos si ya no se requieren.
+ </td>
+  </tr>
+</table>
+<a name="1079430"></a><h4> Cómo forzar la compatibilidad con el núcleo dinámico en las versiones de actualización de Red Hat Enterprise Linux cuando el núcleo está dañado</h4>
+<a name="1079436"></a><p>Server Administrator proporciona controladores de dispositivos precompilados para las versiones principales de los sistemas operativos compatibles Red Hat Enterprise Linux. Red Hat Enterprise Linux es compatible con la carga de controladores de dispositivos creados para la versión principal, en las versiones de actualización. Esto significa que Server Administrator no tiene que enviar controladores de dispositivos precompilados para cada versión de actualización de Red Hat Enterprise Linux y los usuarios no están obligados a usar el DKS para ejecutar Server Administrator en cada sistema que ejecuta una versión de actualización de Red Hat Enterprise Linux. Sin embargo, si se carga de un controlador de dispositivos que fue creado para la versión principal de Red Hat Enterprise Linux (versión 3) en una versión de actualización, es posible que se dañe el núcleo. Si el núcleo de un sistema que ejecuta una versión de actualización de Red Hat Enterprise Linux (versión 3) ha resultado dañado por este proceso de carga de controlador de dispositivo, se puede usar el comando <b>restart-forcekernelmatch</b> de la secuencia de comandos de inicio de Server Administrator para forzar el uso del DKS en esta situación. El DKS generará controladores de dispositivos que no dañen el núcleo en ejecución.</p>
+<a name="1079475"></a><h5> Cómo determinar si el núcleo en ejecución está dañado</h5>
+<a name="1079477"></a><p>Después de que los servicios de Server Administrator se hayan iniciado, realice los siguientes pasos en las versiones de actualización de Red Hat Enterprise Linux para determinar si el núcleo ha sido dañado:</p>
+<ol type="1">
+
+<li value="1"><a name="1079481"></a>Iniciar una sesión como  <span class="screen">root</span>.
+
+<br><br>
+<li value="2"><a name="1079483"></a>Ejecute el comando siguiente:
+<br><br>
+</ol>
+<a name="1079485"></a>
+<p class="screenindent">lsmod
+</p>
+<a name="1079610"></a><p>Si usted ve Dañado: GF en la primera línea del mensaje, como se muestra en el mensaje siguiente, el núcleo en ejecución está dañado:</p>
+<a name="1079611"></a><p class="indent"><span class="screen">Module Size Used by Tainted: GF <br><br>(Tamaño del módulo utilizado por Dañado: GF)</span></p>
+<a name="1079612"></a><p>El estado &quot;dañado&quot; puede deberse al proceso de carga del controlador de dispositivos de Server Administrator.</p>
+<a name="1079646"></a><h5> Cómo forzar la compatibilidad con el núcleo dinámico en las versiones de actualización de Red Hat Enterprise Linux</h5>
+<a name="1079648"></a><p>Después de la instalación de Server Administrator, realice los pasos a continuación para forzar el uso del DKS en las versiones de actualización de Red Hat Enterprise Linux a fin de generar controladores de dispositivos para el núcleo en ejecución, si son necesarios, de manera que estos no dañen el núcleo:</p>
+<ol type="1">
+
+<li value="1"><a name="1079652"></a>Asegúrese que se cumplan los requisitos previos del DKS.
+
+<br><br>
+<li value="2"><a name="1079654"></a>Ejecute el comando siguiente:
+<br><br>
+</ol>
+<a name="1079656"></a>
+<p class="screenindent">/etc/init.d/instsvcdrv restart-forcekernelmatch
+</p>
+<a name="1079658"></a><p>Este comando detendrá primero los controladores de dispositivos de Server Administrator. Después realizará una búsqueda de los controladores de dispositivos precompilados a cargar, revisando los controladores de dispositivos precompilados que fueron generados para un núcleo cuyo nombre sea una coincidencia exacta del nombre del núcleo en ejecución. Si no encuentra una coincidencia exacta, utilizará el DKS para generar controladores de dispositivos para el núcleo en ejecución. Finalmente, el comando reiniciará los controladores de dispositivos de Server Administrator.</p>
+<a name="1079748"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>El sistema debe ser reiniciado para borrar el estado &quot;dañado&quot; del núcleo.
+</td>
+  </tr>
+</table><a name="1079432"></a><h3> Controlador de dispositivos OpenIPMI
+</h3>
+<a name="1077108"></a><p>El servicio Instrumentation Service de Server Administrator necesita del controlador de dispositivos OpenIPMI para poder proporcionar la información y las funciones basadas en IPMI. También requiere de una versión mínima del controlador de dispositivos OpenIPMI. La versión mínima que se requiere está en base al sistema operativo Red Hat Enterprise Linux o SUSE Linux Enterprise Server.</p>
+<a name="1077109"></a><p>Server Administrator revisa y aplica este requisito en tres instancias. Dos de las instancias son durante la instalación y la tercera es un paso del tiempo de ejecución. Las instancias son:</p>
+<ul><li><a name="1077110"></a>	 Durante la instalación personalizada de Server Administrator por medio de la secuencia de comandos de shell <b>srvadmin-install.sh</b>.<br><br></li>
+<li><a name="1077111"></a>	 Durante la instalación de Server Administrator mediante RPM.<br><br></li>
+<li><a name="1077112"></a>	 Al tiempo de ejecución, cuando se inicia Server Administrator Instrumentation Service.<br><br></li>
+</ul><a name="1077113"></a><h4> Bloqueo durante la instalación personalizada de Server Administrator con la secuencia de comandos de shell srvadmin-install.sh</h4>
+<a name="1077114"></a><p>Durante la instalación personalizada de Server Administrator por medio de la secuencia de comandos de shell <b>srvadmin-install.sh</b>, esta última ejecuta automáticamente otra secuencia de comandos de shell denominada <b>srvadmin-openipmi.sh</b>, para asegurarse que ya esté instalada en el sistema una versión aceptable del controlador de dispositivos OpenIPMI (por ejemplo, una versión que sea igual o mayor que la versión mínima del controlador de dispositivos OpenIPMI requerida por Server Administrator Instrumentation Service). Si no se encuentra una versión aceptable, la secuencia de comandos de shell <b>srvadmin-install.sh</b> ejecuta nuevamente la secuencia de comandos de shell <b>srvadmin-openipmi.sh</b> para intentar la instalación de una versión aceptable. Si el intento falla por cualquier motivo, aparecerá un mensaje de error correspondiente con instrucciones que describen cómo resolver el error. Usted debe resolver los errores que haya antes de ejecutar nuevamente la secuencia de comandos de shell <b>srvadmin-install.sh</b> para<b> </b>instalar Server Administrator.</p>
+<a name="1077115"></a><h4> Bloqueo durante la instalación de Server Administrator con RPM</h4>
+<a name="1084843"></a><p>Para ayudar a seguir el orden correcto de la instalación con RPM, el RPM <b>srvadmin-hapi</b> depende de uno de los RPM <b>srvadmin-ipmi</b>. Cada RPM <b>srvadmin-ipmi</b> está destinado a una distribución específica y depende de un RPM de OpenIPMI para una distribución específica. El RPM <b>srvadmin-hapi</b> no se instalará a menos que se cumplan las dependencias del RPM.</p>
+<a name="1084841"></a><p>Durante la instalación de Server Administrator por medio de RPM, el RPM <b>srvadmin-hapi</b> revisará si ya está instalada en el sistema una versión aceptable del controlador de dispositivos OpenIPMI. Si no se encuentra una versión aceptable, el RPM <b>srvadmin-hapi</b> no podrá instalarse y mostrará un mensaje de error indicando que usted debe instalar o actualizar el controlador de dispositivos OpenIPMI. En este caso, los RPM que dependen del RPM <b>srvadmin-hapi</b> tampoco podrán instalarse. En dichos casos, usted deberá instalar o actualizar el archivo controlador OpenIPMI por medio de los siguientes pasos adicionales:</p>
+<ol type="1">
+
+<li value="1"><a name="1077118"></a>	 Navegue al directorio <b>srvadmin/linux/supportscripts</b>.
+
+<br><br>
+<li value="2"><a name="1077120"></a>	 Ejecute la siguiente secuencia de comandos de shell <b>srvadmin-openipmi.sh</b>:
+<br><br>
+</ol>
+<a name="1077121"></a>
+<p class="screenindent"><span class="screen">sh srvadmin-openipmi.sh install
+</span></p>
+<a name="1077236"></a><p>Intente instalar nuevamente el RPM <b>srvadmin-hapi</b> y los demás RPM que no se pudieron instalar debido a que dependen del RPM <b>srvadmin-hapi</b>. Realice los pasos a continuación:</p>
+<ol type="1">
+
+<li value="1"><a name="1077237"></a>	 Desplácese al directorio <b>srvadmin/linux/custom/*</b> en el que estaba anteriormente.
+
+<br><br>
+<li value="2"><a name="1077126"></a>	 Ejecute el siguiente comando para ver qué paquetes de Server Administrator se instalaron bien anteriormente.
+<br><br>
+</ol>
+<a name="1077127"></a>
+<p class="screenindent"><span class="screen">rpm -qa | grep srvadmin</span></p>
+<a name="1077128"></a><p class="indent">La consulta muestra una lista de todos los paquetes instalados de Server Administrator.</p>
+<ol type="1">
+
+<li value="3"><a name="1077130"></a>	 Instale cada uno de los RPM en el directorio en el que no pudieron instalarse, debido a que dependen del RPM <b>srvadmin-
+hapi</b> que tampoco pudo instalarse, ejecutando el siguiente comando:
+<br><br>
+</ol>
+<a name="1077131"></a>
+<p class="screenindent"><span class="screen">rpm &#8211;ihv srvadmin-hapi*.rpm srvadmin-isvc*.rpm srvadmin-omhip*.rpm 
+srvadmin-&lt;los_demás_paquetes&gt;*.rpm
+</span></p>
+<a name="1077132"></a><p>Alternativamente, durante la instalación del RPM <b>srvadmin-hapi</b> con RPM, si ya está instalado en el sistema el RPM de OpenIPMI para una versión del archivo controlador OpenIPMI que cumpla con la versión mínima del archivo controlador OpenIPMI requerido por Server Administrator, pero los módulos de controlador de OpenIPMI aún no han sido generados e instalados para la versión dada del archivo controlador OpenIPMI debido a que el RPM <b>kernel-source</b> se necesita pero no está instalado actualmente, el RPM <b>srvadmin-hapi</b> no se podrá instalar y mostrará un mensaje de error. El mensaje de error le indicará que debe instalar el RPM <b>kernel-source</b> y generar el archivo controlador de OpenIPMI. En este caso, todos los RPM que dependen del RPM <b>srvadmin-hapi</b> tampoco podrán instalarse. Usted deberá instalar entonces el RPM <b>kernel-source</b>, y generar e instalar los módulos de controlador de OpenIPMI, realizando los siguientes pasos adicionales:</p>
+<ol type="1">
+
+<li value="1"><a name="1077134"></a>	 Para los sistemas que ejecutan Red Hat Enterprise Linux (versión 3), consiga una copia del RPM <b>kernel-source</b> adecuada 
+para ejecutar el núcleo a partir de los CD de instalación del sistema operativo (o de alguna otra fuente).
+<br><br>
+</ol>
+<a name="1078269"></a><p class="indent">En sistemas que ejecutan Red Hat Enterprise Linux (versión 4) y SUSE Linux Enterprise Server, los RPM <b>kernel*-devel</b> proporcionan la fuente necesaria para generar módulos de núcleo.</p>
+<ol type="1">
+
+<li value="2"><a name="1077281"></a>	 Instale el RPM <b>kernel-source</b> o los RPM <b>kernel*-devel</b> ejecutando el siguiente comando desde donde 
+encontró o copió los RPM:
+<br><br>
+</ol>
+<a name="1077282"></a>
+<p class="screenindent"><span class="screen">rpm &#8211;ihv kernel*.rpm
+</span></p>
+<ol type="1">
+
+<li value="3"><a name="1077283"></a>	 Navegue al directorio <b>srvadmin/linux/supportscripts</b>.
+
+<br><br>
+<li value="4"><a name="1077140"></a>	 Ejecute la secuencia de comandos de shell <b>srvadmin-openipmi.sh</b> como se muestra a continuación. Esto generará e instalará los módulos de controlador de OpenIPMI.
+<br><br>
+</ol>
+<a name="1077141"></a>
+<p class="screenindent">sh srvadmin-openipmi.sh install
+</p>
+<a name="1077142"></a><p>Intente instalar nuevamente el RPM <b>srvadmin-hapi</b> y todos los RPM que no se pudieron instalar debido a que dependen del RPM <b>srvadmin-hapi</b>.</p>
+<a name="1077143"></a><h4> Degradación de la funcionalidad cuando se inicia Server Administrator Instrumentation Service</h4>
+<a name="1077144"></a><p>Después de que Server Administrator está instalado, Instrumentation Service de Server Administrator realizará siempre una revisión de tiempo de ejecución del controlador de dispositivos OpenIPMI al iniciar. Server Administrator Instrumentation Service se inicia siempre que usted ejecute el comando de reinicio <span class="screen"> </span>srvadmin-services.sh o srvadmin-services.sh, o cuando se reinicie el sistema (reinicio durante el cual se iniciará Server Administrator Instrumentation Service).</p>
+<a name="1077145"></a><p>Aunque la instalación de Server Administrator se bloquea cuando no hay una versión aceptable del controlador de dispositivos OpenIPMI ya instalada en el sistema, existe aún la posibilidad, aunque no es común, que un usuario pueda desinstalar o reemplazar una versión aceptable del controlador de dispositivos OpenIPMI después de que se instaló Server Administrator. Server Administrator no puede prevenir que esto ocurra.</p>
+<a name="1077146"></a><p>Para detectar si un usuario ha desinstalado o reemplazado una versión aceptable del controlador de dispositivos OpenIPMI después de que Server Administrator ha sido instalado, Instrumentation Service de Server Administrator siempre revisa la versión del controlador de dispositivos OpenIPMI al iniciar. Si no se encuentra una versión aceptable del controlador de dispositivos OpenIPMI, Instrumentation Service de Server Administrator se degradará a sí mismo para no proporcionar ninguna información o funcionalidad basadas en IPMI. Esto significa, principalmente, que no proporcionará ningún dato de sondas (por ejemplo, datos de sondas de ventiladores, de temperaturas y de voltaje).</p>
+<a name="1077147"></a><p>Si sabe o sospecha que el controlador de dispositivos OpenIPMI del sistema no es aceptable, puede ejecutar la secuencia de comandos de shell <b>srvadmin-openipmi.sh </b>en el CD <i>Dell PowerEdge Installation and Server Management</i> para instalar una versión aceptable realizando nuevamente los pasos siguientes:</p>
+<ol type="1">
+
+<li value="1"><a name="1077148"></a>	 Navegue al directorio <b>srvadmin/linux/supportscripts</b>.
+
+<br><br>
+<li value="2"><a name="1077150"></a>	 Ejecute la secuencia de comandos de shell <b>srvadmin-openipmi.sh</b> como se muestra a continuación.
+<br><br>
+</ol>
+<a name="1077151"></a>
+<p class="screenindent">sh srvadmin-openipmi.sh install
+</p>
+<a name="1077152"></a><p>Si no está seguro si el controlador de dispositivos OpenIPMI del sistema es aceptable, ejecute el comando <b>srvadmin-openipmi.sh status</b> en vez del anterior. En vez de intentar la instalación o actualización del controlador de dispositivos OpenIPMI, que es lo que hace el comando <b>srvadmin-openipmi.sh install</b>, si es necesario, el comando <b>srvadmin-openipmi.sh status</b> le informa si el controlador de dispositivos OpenIPMI del sistema es aceptable o no. Después de ejecutar el comando de estado <b>srvadmin-openipmi.sh</b>, usted puede decidir entonces si necesita y desea ejecutar el comando <b>srvadmin-openipmi.sh install</b>.</p>
+<a name="1080745"></a><h3> Instalación y actualización de Managed System Software
+</h3>
+<a name="1083520"></a><p>Esta sección explica como instalar y actualizar el Managed System Software usando las siguientes opciones de instalación:</p>
+<ul><li><a name="1083521"></a>Utilice la secuencia de comandos de shell <b>srvadmin-install.sh</b> para las instalaciones rápidas o personalizadas, en modo interactivo o desatendido<br><br> </li>
+<li><a name="1054922"></a>Utilice los comandos RPM para las instalaciones personalizadas, en modo interactivo o desatendido<br><br></li>
+</ul><a name="1054923"></a><h4> Requisitos previos para instalar Managed System Software</h4>
+<ul><li><a name="1054924"></a>Se debe iniciar la sesión como <span class="screen">root</span>.<br><br> </li>
+<li><a name="1054925"></a>El núcleo en ejecución debe admitir módulo cargable activado.<br><br> </li>
+<li><a name="1054926"></a>El directorio <b>/opt</b> debe tener al menos 250 MB de espacio libre y los directorios <b>/tmp</b> y <b>/var</b> deben tener al menos 20 MB de espacio libre cada uno. Si decide usar un directorio no predeterminado para la instalación, éste también debe tener al menos 250 MB de espacio libre.<br><br></li>
+<li><a name="1054927"></a>El paquete <b>ucd-snmp</b> o <b>net-snmp</b> que se incluye con el sistema operativo se deberá instalar si usted utiliza SNMP para administrar el servidor. Si desea utilizar agentes de asistencia para el agente <b>ucd-snmp</b> o <b>net-snmp</b>, debe instalar la asistencia del sistema operativo para el estándar SNMP antes de instalar Server Administrator. Para más información sobre la instalación de SNMP, consulte las instrucciones de instalación del sistema operativo que se esté ejecutando en el sistema.<br><br> </li>
+</ul><a name="1084286"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTA: </span> Al instalar un paquete RPM en Red Hat Enterprise Linux o SUSE Linux Enterprise Server, para 
+evitar las advertencias acerca de la clave RPM-GPG, importe la clave con un comando similar al siguiente:
+</td>
+  </tr>
+</table>
+<a name="1084289"></a>
+<p class="screenindent"><span class="screen">rpm --import /mnt/cdrom/srvadmin/linux/RPM-GPG-KEY</span></p>
+<ul><li><a name="1075567"></a>Debe instalar todos los RPM requeridos como requisito previo para una instalación satisfactoria.<br><br></li>
+</ul><a name="1075568"></a><p class="indent">Si su sistema viniera con un sistema operativo Red Hat Enterprise Linux (versiones 3 y 4) o SUSE Linux Enterprise Server (versión 9) instalados de fábrica, consulte el archivo léame de la instalación de Server Administrator (readme_ins.txt) en el CD <i>Dell PowerEdge Installation and Server Management</i> para obtener información sobre los RPM que se deben instalar manualmente antes de instalar el software Managed System. En la mayoría de los casos usted no necesitará instalar manualmente los RPM. Para asegurarse, consulte el archivo léame.</p>
+<a name="1084531"></a><p class="indent">Si su sistema no viniera con el sistema operativo de Linux instalado de fábrica, y usted no instaló un sistema operativo Red Hat Enterprise Linux (versiones 3 y 4) o SUSE Linux Enterprise Server (versión 9) por medio de Server Assistant, entonces usted tendrá que instalar manualmente los RPM de prerrequisito antes de la instalación del software Managed System. Para su comodidad, estos archivos RPM se incluyen en el paquete o CD <i>Dell PowerEdge Installation and Server Management</i>. Diríjase al subdirectorio <b>/srvadmin/linux/RPMS/</b><b><i>sistema_operativo</i></b> de la versión específica del sistema operativo Red Hat Enterprise Linux (versiones 3 y 4) o SUSE Linux Enterprise Server (versión 9) y ejecute<br><span class="screen">rpm -Uvh * </span>para instalar estos archivos RPM antes de instalar el software Managed System.</p>
+<a name="1075563"></a><h4> Instalación de Managed System Software usando el CD Dell PowerEdge Installation and Server 
+Management</h4>
+<a name="1069113"></a><p>El CD <i>Dell PowerEdge Installation and Server Management</i> usa RPM para instalar cada componente. El CD está dividido en subdirectorios para facilitar las instalaciones personalizadas.</p>
+<a name="1062171"></a><p>Si desea examinar el software antes de instalarlo, siga este procedimiento:</p>
+<ol type="1">
+
+<li value="1"><a name="1061638"></a>Cargue el CD <i>Dell PowerEdge</i> <i>Installation and Server Management</i> en la unidad de CD del sistema.
+
+<br><br>
+ <li value="2"><a name="1061773"></a>Si es necesario, use la línea de comandos para montar el CD usando un comando como:<br>
+<span class="screen">mount /dev/cdrom /mnt/cdrom
+</span>
+
+<br><br><li value="3"><a name="1070750"></a>Cuando se haya montado el CD, usted puede navegarle a el mediante el comando <br>
+<span class="screen">cd/mnt/cdrom/srvadmin/linux/ 
+</span>
+
+<br><br><li value="4"><a name="1061774"></a>Obtenga un listado de los directorios con<span class="screen"> ls</span>.
+<br><br>
+</ol>
+<a name="1061710"></a><p class="indent">Los directorios en el CD relacionados a Red Hat Enterprise Linux son los siguientes:</p>
+<a name="1061671"></a>
+<p class="screenindent">srvadmin/linux
+</p>
+<a name="1061674"></a>
+<p class="screenindent">srvadmin/linux/personalizado
+</p>
+<a name="1061675"></a>
+<p class="screenindent">srvadmin/linux/RPMS
+</p>
+<a name="1061676"></a>
+<p class="screenindent">srvadmin/linux/supportscripts
+</p>
+<a name="1054987"></a><h5> Instalación rápida</h5>
+<a name="1075485"></a><p>Utilice la secuencia de comandos de shell proporcionada para realizar la instalación rápida en modo silencioso y desatendido.</p>
+<ol type="1">
+
+<li value="1"><a name="1063351"></a>Inicie sesión como <span class="screen">root</span> en el sistema que ejecuta el sistema operativo compatible Red Hat Enterprise Linux 
+o SUSE Linux Enterprise Server 
+donde desea instalar los componentes de Managed System.
+
+<br><br>
+<li value="2"><a name="1061819"></a>Inserte el CD  <i>Dell PowerEdge Installation and Server Management</i> en la unidad correspondiente del sistema. <br>
+<br>
+<li value="3"><a name="1061824"></a>Si es necesario, use la línea de comandos para montar el CD usando un comando como:<br>
+<span class="screen">mount /dev/cdrom /mnt/cdrom
+</span>
+
+<br><br><li value="4"><a name="1061826"></a>Navegue al directorio  <span class="screen"> srvadmin/linux/supportscripts</span>.
+
+<br><br>
+<li value="5"><a name="1061828"></a>Ejecute la secuencia de comandos de shell  <b>srvadmin-install.sh</b> como se muestra a continuación, la cual realiza una instalación rápida, silenciosa 
+y desatendida. Todos los componentes serán instalados, incluso los componentes aplicables del software de Remote Access Controller (DRAC III, DRAC 4 o DRAC 5).
+<br><br>
+</ol>
+<a name="1061832"></a><p class="indent"><span class="screen">sh srvadmin-install.sh --express</span></p>
+<a name="1061833"></a><p class="indent">o</p>
+<a name="1061834"></a><p class="indent"><span class="screen">sh srvadmin-install.sh -x</span></p>
+<a name="1075627"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTA: </span> Justo antes de que se instalen los RPM de Server Administrator, la secuencia de comandos de shell <b>srvadmin-install.sh</b> 
+ejecuta automáticamente la secuencia de comandos de shell <b>srvadmin-openipmi.sh</b> para asegurarse haya una versión aceptable del archivo controlador OpenIPMI 
+ya instalada en el sistema. Si no se encuentra una versión aceptable, la secuencia de comandos de shell <b>srvadmin-install.sh</b> ejecutará la secuencia de comandos de shell <b>srvadmin-openipmi.sh</b> para intentar la instalación de una versión aceptable. Si el intento falla por cualquier motivo, aparecerá un mensaje de error correspondiente con instrucciones que describen cómo resolver el error. Después de resolver los errores, debe ejecutar nuevamente la secuencia de comandos de shell <b>srvadmin-install.sh</b> para instalar 
+los componentes de Managed System.
+</td>
+  </tr>
+</table>
+<a name="1075628"></a><p class="indent">Los servicios de Server Administrator no se  inician automáticamente.</p>
+<ol type="1">
+
+<li value="6"><a name="1065112"></a>Inicie los servicios de Server Administrator después de la instalación utilizando la secuencia de comando <b>srvadmin-services.sh</b> 
+usando el comando de inicio <b>sh</b> <b>srvadmin-services</b>.
+<br><br>
+</ol>
+<a name="1054995"></a><h5> Instalación personalizada</h5>
+<a name="1071112"></a><p>Managed System Software proporciona dos rutas de acceso para la instalación personalizada. Una está basada en RPM, con directorios personalizados preconfigurados, y la otra se basa en una secuencia de comandos de shell.</p>
+<a name="1071116"></a><p>Utilización de <b>Directorios personalizados preconfigurados</b> para realizar la instalación personalizada</p>
+<a name="1073410"></a><p>Consulte la <a href="instlx.htm#1077561">tabla 7-1</a> para obtener detalles acerca del uso de RPM para realizar una instalación personalizada usando directorios personalizados preconfigurados.</p>
+<a name="1077619"></a>
+<p><p class="FigureTableTitle"><a name="1077561"></a>Tabla 7-1.  Instalación personalizada usando directorios preconfigurados </p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1077565"> </a>
+<p><b>Directorio</b></p>
+
+
+</th><th valign="top" align="left"><a name="1077567"> </a>
+<p><b>Detalles</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1077571"></a>Para facilitar una instalación personalizada basada en RPM, agregue los RPM desde el siguiente directorio:</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077575"></a><b>/srvadmin/linux/custom/srvadmin-base</b></p></td><td valign="top" align="left"><p><a name="1077577"></a>Contiene el Server Administrator básico con interfaz de línea de comandos</p></td></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1077580"></a>Luego personalice la instalación agregando los RPM desde los siguientes directorios:</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077584"></a><b>/srvadmin/linux/custom/add-diagnostics</b></p></td><td valign="top" align="left"><p><a name="1077586"></a>Paquetes de componentes de diagnóstico</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077588"></a><b>/srvadmin/linux/custom/add-RAC3</b></p></td><td valign="top" align="left"><p><a name="1077590"></a>Paquetes de componentes de DRAC III</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077592"></a><b>/srvadmin/linux/custom/add-RAC4</b></p></td><td valign="top" align="left"><p><a name="1077594"></a>Paquetes componentes de DRAC 4</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1084709"></a><b>/srvadmin/linux/custom/add-RAC5</b></p></td><td valign="top" align="left"><p><a name="1084711"></a>Paquetes componentes de DRAC 5</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077600"></a><b>/srvadmin/linux/custom/add-storageservices</b></p></td><td valign="top" align="left"><p><a name="1077602"></a>Paquetes de componentes de Storage Management</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077604"></a><b>/srvadmin/linux/custom/add-webserver</b></p></td><td valign="top" align="left"><p><a name="1077606"></a>Paquetes de componentes de Web Server</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077608"></a><b>/srvadmin/linux/custom/add-openipmi-RHEL3</b></p></td><td valign="top" align="left"><p><a name="1077610"></a>Paquetes RPM de IPMI para Red Hat Enterprise Linux (versión 3)</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077612"></a><b>/srvadmin/linux/custom/add-openipmi-RHEL4</b></p></td><td valign="top" align="left"><p><a name="1077614"></a>Paquetes RPM de IPMI para Red Hat Enterprise Linux (versión 4)</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077616"></a><b>	 	 /srvadmin/linux/custom/add-openipmi-SLES9</b></p></td><td valign="top" align="left"><p><a name="1077618"></a>Paquetes RPM de IPMI para SUSE Linux Enterprise Server (versión 9)</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1077620"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Los paquetes <b>add-RAC3</b>, <b>add-RAC4</b>,<b> </b>y<b> add-RAC5 </b>son mutuamente excluyentes.
+ </td>
+  </tr>
+</table><a name="1077621"></a><p>El siguiente es un ejemplo de una instalación personalizada de Server Administrator basada en RPM, incluyendo la instalación de componentes de Storage Management Service y de Diagnostics Service.</p>
+<ol type="1">
+
+<li value="1"><a name="1062303"></a>Inicie sesión como <span class="screen">root</span> en el sistema que ejecuta el sistema operativo compatible Red Hat Enterprise Linux 
+o SUSE Linux Enterprise Server 
+donde desea instalar los componentes de Managed System.
+
+<br><br>
+<li value="2"><a name="1062306"></a>Inserte el CD  <i>Dell PowerEdge Installation and Server Management</i> en la unidad correspondiente del sistema.<br>
+<br>
+<li value="3"><a name="1062311"></a>Si es necesario, monte el CD usando un comando como: <span class="screen">mount /dev/cdrom /mnt/cdrom</span>.
+
+<br><br>
+<li value="4"><a name="1062313"></a>Navegue al directorio  <span class="screen"> srvadmin/linux/custom</span>.
+
+<br><br>
+<li value="5"><a name="1062315"></a>Escriba el comando siguiente.
+<br><br>
+</ol>
+<a name="1062317"></a>
+<p class="screenindent"><span class="screen">rpm -ihv srvadmin-base/*.rpm add-diagnostics/*.rpm add-storageservices/*.rpm</span></p>
+<a name="1062323"></a><p class="indent">Los servicios de Server Administrator no se  inician automáticamente.</p>
+<ol type="1">
+
+<li value="6"><a name="1067259"></a>Después de la instalación, inicie los servicios de Server Administrator con el comando:
+<br><br>
+</ol>
+<a name="1081488"></a>
+<p class="screenindent"><span class="screen">sh srvadmin-services start
+</span></p>
+<a name="1081491"></a><p><b>Utilización de la secuencia de comandos Shell para realizar la instalación personalizada</b> </p>
+<a name="1063103"></a><p>Puede ejecutar secuencias de comandos de instalación personalizada Server Administrator en modo interactivo o en el modo silencioso y desatendido.</p>
+<a name="1062331"></a><p>El uso básico de la secuencia de comandos es: </p>
+<a name="1063123"></a>
+<p class="screenindent">srvadmin-install.sh [OPCIÓN]...
+</p>
+<a name="1062332"></a><p>Utilidad de instalación personalizada de Server Administrator</p>
+<a name="1062333"></a><p>Esta utilidad se ejecutará en el modo interactivo si usted no especifica ninguna opción y se ejecutará silenciosamente si  proporciona una o más opciones.</p>
+<a name="1062336"></a><p>Las opciones son:</p>
+<a name="1062337"></a><p><b>[-x|--express]</b> instala todos los componentes, incluyendo RAC. Cualquier otra opción pasada será ignorada.</p>
+<a name="1062339"></a><p><b>[-b|--base]</b> instala los componentes de Base.</p>
+<a name="1062340"></a><p><b>[-d|--diags]</b> instala los componentes de diagnóstico, incluyendo Base.</p>
+<a name="1062341"></a><p><b>[-s|--storage]</b> instala los componentes de almacenamiento, incluyendo Base.</p>
+<a name="1067622"></a><p><b>[-r|--rac]</b><span class="screen"> </span>instala los componentes de RAC aplicables, incluyendo Base.</p>
+<a name="1076617"></a><p><b>[-w|--web]</b> instala los componentes de Web Server, incluyendo Base.</p>
+<a name="1076618"></a><p>[<b>--prefix RUTA_DE_ACCESO</b>] instala los componentes seleccionados en la &quot;RUTA_DE_ACCESO&quot; especificada. Esta opción no se aplica a los RPM OpenIPMI, pues con estos no se puede cambiar de lugar.</p>
+<a name="1076619"></a><p><b>Utilización de secuencias de comando de instalación personalizada para en modo  Silencioso y Desatendido</b></p>
+<a name="1063579"></a><p>El siguiente es un ejemplo de una instalación personalizada silenciosa y desatendida usando la secuencia de comandos de shell <b>srvadmin-install.sh</b>.</p>
+<ol type="1">
+
+<li value="1"><a name="1062349"></a>Inicie sesión como <span class="screen">root</span> en el sistema que ejecuta el sistema operativo compatible Red Hat Enterprise Linux 
+o SUSE Linux Enterprise Server 
+donde desea instalar los componentes de Managed System.
+
+<br><br>
+<li value="2"><a name="1062352"></a>Inserte el CD  <i>Dell PowerEdge Installation and Server Management</i> en la unidad correspondiente del sistema.
+
+<br><br>
+<li value="3"><a name="1062357"></a>Si es necesario, monte el CD usando un comando como: <span class="screen">mount /dev/cdrom /mnt/cdrom</span>.
+
+<br><br>
+<li value="4"><a name="1062359"></a>Navegue al directorio  <span class="screen"> srvadmin/linux/supportscripts</span>.
+
+<br><br>
+<li value="5"><a name="1062361"></a>Para instalar los componentes de Diagnostic Service y de Storage Management, escriba 
+el comando siguiente.
+<br><br>
+</ol>
+<a name="1062364"></a><p class="indent"><span class="screen">sh srvadmin-install.sh --diags --storage</span> (estas son opciones largas)</p>
+<a name="1062365"></a><p class="indent">o</p>
+<a name="1062366"></a><p class="indent"><span class="screen">sh srvadmin-install.sh-ds</span> (éstas son opciones cortas)</p>
+<a name="1062368"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">NOTA: </span>Las opciones largas pueden ser combinadas con opciones cortas y viceversa.
+</td>
+  </tr>
+</table>
+<a name="1075728"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTA: </span> Justo antes de que se instalen los RPM de Server Administrator, la secuencia de comandos de shell <b>srvadmin-install.sh</b> 
+ejecuta automáticamente la secuencia de comandos de shell <b>srvadmin-openipmi.sh</b> para asegurarse haya una versión aceptable del archivo controlador OpenIPMI 
+ya instalada en el sistema. Si no se encuentra una versión aceptable, la secuencia de comandos de shell <b>srvadmin-install.sh</b> ejecutará la secuencia de comandos de shell <b>srvadmin-openipmi.sh</b> para intentar la instalación de una versión aceptable. Si el intento falla por cualquier motivo, aparecerá un mensaje de error correspondiente con instrucciones que describen cómo resolver el error. Después de resolver los errores, debe ejecutar nuevamente la secuencia de comandos de shell <b>srvadmin-install.sh</b> para instalar 
+los componentes de Managed System.
+</td>
+  </tr>
+</table>
+<a name="1062370"></a><p class="indent">Los servicios de Server Administrator no se  inician automáticamente.</p>
+<ol type="1">
+
+<li value="6"><a name="1065139"></a>Después de la instalación, inicie los servicios de Server Administrator con el comando:
+<br><br>
+</ol>
+<a name="1083419"></a>
+<p class="screenindent"><span class="screen">sh srvadmin-services start
+</span></p>
+<a name="1075040"></a><p><b>Utilización de la secuencia de comandos de Shell para realizar la instalación personalizada en modo interactivo</b></p>
+<a name="1064030"></a><p>Este procedimiento usa la secuencia de comandos de instalación de Shell para pedirle los componentes específicos durante la instalación.</p>
+<ol type="1">
+
+<li value="1"><a name="1062377"></a>Inicie sesión como <span class="screen">root</span> en el sistema que ejecuta el sistema operativo compatible Red Hat Enterprise Linux 
+o SUSE Linux Enterprise Server 
+donde desea instalar los componentes de Managed System.
+
+<br><br>
+<li value="2"><a name="1062380"></a>Inserte el CD  <i>Dell PowerEdge Installation and Server Management</i> en la unidad correspondiente del sistema.
+
+<br><br>
+<li value="3"><a name="1062385"></a>Si es necesario, monte el CD usando el comando <span class="screen">mount /dev/cdrom /mnt/cdrom</span>.
+
+<br><br>
+<li value="4"><a name="1062387"></a>Navegue al directorio  <span class="screen"> srvadmin/linux/supportscripts</span>.
+
+<br><br>
+<li value="5"><a name="1062389"></a>Ejecute la secuencia de comandos con comando <b>sh srvadmin-install.sh</b>, que muestra una lista 
+de opciones de componentes. Si cualquiera de los componentes está ya  instalado, entonces dichos componentes son puestos en una lista por separado con una marca a su lado. Aparecen las opciones de la 
+instalación personalizada de Server Administrator.
+
+<br><br>
+<li value="6"><a name="1062394"></a>Seleccione <b>C</b> para copiar, <b>I</b> para instalar, <b>R</b> para restablecer y comenzar de nuevo o <b>Q</b> para salir.
+<br><br>
+<ul>
+<li type="disc"><a name="1062396"></a>Si elige <b>C</b>, entonces se le pedirá que introduzca la ruta de destino absoluta.<br><br></li>
+<li type="disc"><a name="1062398"></a>Si elige <b>I</b>, un mensaje indicará que los RPM serán instalados en el directorio <b>/opt/dell/srvadmin</b>. En ese momento puede elegir <b>Y</b> para cambiar, o &lt;Entrar&gt; para usar la ruta de instalación predeterminada.<br><br></li>
+</ul>
+</ol>
+<a name="1062402"></a><p class="indent">Cuando la instalación se complete, la secuencia de comandos ofrecerá la opción de iniciar los servicios.</p>
+<a name="1075790"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTA: </span> Justo antes de que se instalen los RPM de Server Administrator, la secuencia de comandos de shell <b>srvadmin-install.sh</b> 
+ejecuta automáticamente la secuencia de comandos de shell <b>srvadmin-openipmi.sh</b> para asegurarse haya una versión aceptable del archivo controlador OpenIPMI 
+ya instalada en el sistema. Si no se encuentra una versión aceptable, la secuencia de comandos de shell <b>srvadmin-install.sh</b> ejecutará la secuencia de comandos de shell <b>srvadmin-openipmi.sh</b> para intentar la instalación de una versión aceptable. Si el intento falla por cualquier motivo, aparecerá un mensaje de error correspondiente con instrucciones que describen cómo resolver el error. Después de resolver los errores, debe ejecutar nuevamente la secuencia de comandos de shell <b>srvadmin-install.sh</b> para instalar 
+los componentes de Managed System.
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="7"><a name="1065257"></a>Elija <b>N </b>para iniciar los servicios manualmente.
+<br><br>
+</ol>
+<a name="1055038"></a><h3> Instalación desatendida del software de sistema administrado
+ </h3>
+<a name="1055039"></a><p>Puede usar las opciones en el CD <i>Dell PowerEdge Installation and Server Management </i> <b>Instalación rápida</b> e <b>Instalación personalizada </b>para el procedimiento de instalación desatendida.</p>
+<a name="1055041"></a><p>La instalación desatendida permite instalar simultáneamente el Server Administrator en varios sistemas. Se puede realizar una instalación desatendida creando un paquete de instalación desatendida que contenga todos los archivos de software del sistema administrado que se necesitan.</p>
+<a name="1078723"></a><p>El paquete de instalación desatendida se distribuye a los sistemas remotos mediante una herramienta de distribución de software de un proveedor independiente de software. Después de que se distribuya el paquete, el RPM instalará el software. </p>
+<a name="1078725"></a><p>El paquete de instalación desatendida personalizada se encuentra en el directorio que usted creó según lo descrito en la sección &quot;<a href="instlx.htm#1075040">Utilización de la secuencia de comandos de Shell para realizar la instalación personalizada en modo interactivo</a>&quot;. Este directorio contiene todos los RPM para los componentes del software Managed System que se van a distribuir.</p>
+<ol type="1">
+
+<li value="1"><a name="1076714"></a>Configure el software de distribución de software, que obtuvo de un proveedor independiente de software, para ejecutar el comando <span class="screen">rpm -1 *.rpm</span> una vez que el paquete de instalación desatendida se ha distribuido.
+
+<br><br>
+<li value="2"><a name="1076716"></a>Utilice el software de distribución de un proveedor independiente de software para distribuir el paquete de instalación desatendida a sistemas remotos. El comando RPM instala Server Administrator en cada sistema remoto.
+<br><br>
+</ol>
+<a name="1076719"></a><h4> Revisión de dependencias</h4>
+<a name="1076778"></a><p>El RPM tiene una función de prueba que verifica las dependencias de software sin instalar realmente el software. Para ejecutar esta verificación dependencias, escriba <span class="screen">rpm -ihv *.rpm &#8211;-test</span>. Este comando es válido para todos los tipos de instalación.</p>
+<a name="1076814"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>La función del comando rpm <span class="screen">&#8211;-test</span> no realiza ninguna verificación del hardware. Sólo verificará las dependencias de software del RPM.
+</td>
+  </tr>
+</table><a name="1076827"></a><h4> Creación y distribución del paquete de instalación desatendida rápida</h4>
+<a name="1055046"></a><p>La opción de instalación desatendida <b>Instalación rápida</b> utiliza los subdirectorios <b>/srvadmin/linux/supportscripts</b> y los subdirectorios <b>/srvadmin/linux/RPMS</b> del CD <i>Dell PowerEdge Installation and Server Management</i> como el paquete de instalación desatendida. EL RPM accede al CD <i>Dell PowerEdge</i> <i>Installation and Server Management</i> para instalar todos los componentes requeridos de Server Administrator en los sistemas remotos seleccionados. </p>
+<a name="1055050"></a><h5> Distribución del subdirectorio Express-Install como paquete de instalación desatendida rápida</h5>
+<ol type="1">
+
+<li value="1"><a name="1055051"></a>Distribuya los 	 subdirectorios <b>/srvadmin/linux/supportscripts</b><b> </b>y<b> </b><b>/srvadmin/linux/RPMS</b> del 
+CD <i>Dell PowerEdge Installation and Server Management</i> a los sistemas de destino.
+
+<br><br>
+ <li value="2"><a name="1055053"></a>Configure la aplicación de distribución de software de su proveedor independiente de software para que ejecute <span class="screen">	 sh srvadmin-install.sh -x 
+</span>del subdirectorio <b>supportscripts</b>.
+<br><br>
+</ol>
+<a name="1055055"></a><p class="indent">Cuando se ejecuta el software del proveedor independiente (ISV), éste ejecuta los RPM para instalar Server Administrator en cada sistema remoto. </p>
+<a name="1077662"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTA: </span> Si no hay una versión aceptable del archivo controlador OpenIPMI ya instalada en los sistemas remotos, 
+el RPM <b>srvadmin-hapi</b> no podrá instalarse y mostrará un mensaje de error informando que se debe instalar o actualizar 
+el archivo controlador OpenIPMI. En este caso, todos los RPM que dependen del RPM <b>srvadmin-hapi</b> tampoco podrán instalarse. 
+En estos casos, usted debe distribuir también los archivos RPM relacionados con OpenIPMI en 
+el subdirectorio <b>srvadmin/linux/custom/add-openipmi</b>-sistema_operativo<b> </b>que se aplique a su sistema operativo. Copie los RPM 
+del subdirectorio aplicable de OpenIPMI al mismo directorio en los sistemas de destino desde donde distribuye 
+el paquete de instalación desatendida personalizada.
+</td>
+  </tr>
+</table>
+<a name="1077656"></a><h4> Creación y distribución del paquete de instalación desatendida personalizada</h4>
+<a name="1077708"></a><p>La opción de instalación desatendida de <b>Configuración personalizada</b> crea un paquete de instalación desatendida en un directorio en la unidad de disco duro del sistema. Para crear un paquete de instalación desatendido, utilice la capacidad de copia que se describe en la sección &quot;<a href="instlx.htm#1075040">Utilización de la secuencia de comandos shell para realizar la instalación personalizada en modo interactivo</a>&quot; para crear un directorio personalizado con los RPM que desea instalar. Este directorio será el directorio de instalación desatendida. Copie los RPM del subdirectorio aplicable de OpenIPMI al mismo directorio en los sistemas de destino donde distribuye 
+el paquete de instalación desatendida personalizada.</p>
+<a name="1077704"></a><h5> Distribución de paquetes de instalación desatendida</h5>
+<a name="1084537"></a><p>El paquete de instalación desatendida personalizada se encuentra en el directorio creado en el paso 6 de la instalación personalizada (consulte  &quot;<a href="instlx.htm#1054995">Instalación personalizada</a>&quot;). Este directorio contiene todos los RPM para los componentes del software del sistema administrado que se van a distribuir.</p>
+<ol type="1">
+
+<li value="1"><a name="1055063"></a>Configure el software de distribución de software, que obtuvo de un proveedor independiente de software, para ejecutar el comando <span class="screen">rpm -1 *.rpm</span> una vez que el paquete de instalación desatendida se ha distribuido.
+
+<br><br>
+ <li value="2"><a name="1055065"></a>Utilice el software de distribución de un proveedor independiente de software para distribuir el paquete de instalación desatendida a sistemas remotos. El comando RPM instala Server Administrator en cada sistema remoto.
+<br><br>
+</ol>
+<a name="1067145"></a><h3> Actualización de versiones anteriores
+</h3>
+<a name="1067146"></a><p>Si su sistema está ejecutando el software Dell OpenManage anterior a la versión 4.2, desinstale la versión actual antes de intentar instalar la nueva versión.</p>
+<a name="1067147"></a><h4> Actualización de la versión 4.3 y posteriores</h4>
+<a name="1067957"></a><p>Para las versiones 4.3 y posteriores del software de Dell OpenManage, puede actualizar su sistema usando comandos RPM o la secuencia de comandos de shell <span class="screen">srvadmin-install.sh</span>. Asegúrese que todos los componentes instalados estén actualizados cuando realice cualquiera de estos procedimientos.</p>
+<a name="1076539"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Se recomienda usar la secuencia de comandos de instalación, <b>srvadmin-install.sh</b>.
+</td>
+  </tr>
+</table><a name="1067150"></a><h5> Uso de los RPM</h5>
+<ol type="1">
+
+<li value="1"><a name="1067151"></a>Inicie sesión como <span class="screen">root</span> en el sistema que ejecuta Red Hat Enterprise Linux o SUSE Linux Enterprise Server que requiere los componentes de sistema administrado actualizados.
+
+<br><br>
+ <li value="2"><a name="1067152"></a>Inserte el CD <i>Dell PowerEdge</i> <i>Installation and Server Management</i> en la unidad de CD del sistema.
+<br><br>
+</ol>
+<a name="1067969"></a><p class="indent">Si el CD no se monta automáticamente, use un comando similar al siguiente:</p>
+<a name="1070024"></a>
+<p class="screenindent"><span class="screen">	 	 	 	 	 mount /dev/cdrom /mnt/cdrom</span></p>
+<a name="1070045"></a>
+<p class="screenindent"><span class="screen">mount /dev/cdrom /media/cdrom</span></p>
+<ol type="1">
+
+<li value="3"><a name="1067153"></a>Después de que el CD se monta, desplácese al directorio <b>RPMS</b> usando un comando similar al siguiente:
+<br><br>
+</ol>
+<a name="1067976"></a><p class="indent"><span class="screen">cd /mnt/cdrom/srvadmin/linux/RPMS</span></p>
+<a name="1070044"></a><p class="indent"><span class="screen">cd /media/cdrom/srvadmin/linux/RPMS</span></p>
+<ol type="1">
+
+<li value="4"><a name="1068392"></a>Actualice el sistema Red Hat Enterprise Linux o SUSE Linux Enterprise Server con un solo comando grande o con archivos RPM individuales. El comando sencillo largo es una combinación de RPM y se puede ejecutar escribiendo 
+sólo un comando.
+<br><br>
+</ol>
+<a name="1068393"></a><p class="indent">Para actualizar todos los paquetes de instalación previos con un comando sencillo, escriba: </p>
+<a name="1067156"></a><p class="indent"><span class="screen">rpm -Uhv `rpm -q --queryformat &quot;%{NOMBRE}* &quot; \`rpm -qa | grep srvadmin\``</span></p>
+<a name="1067157"></a><p class="indent">Para actualizar todos los paquetes instalados previamente usando RPM individuales, realice los pasos siguientes:</p>
+<ol type="a">  <ol type="a">
+
+<li value="1"><a name="1067158"></a>Consulte la base de datos de rpm para todos los paquetes srvadmin instalados escribiendo:  
+<br><br>
+</ol>
+</ol><a name="1068002"></a><p class="Indentsub"><span class="screen">rpm -qa | grep srvadmin</span></p>
+<a name="1068012"></a><p class="Indentsub">La consulta muestra una lista de todos los paquetes instalados, incluyendo los existentes o versiones anteriores.</p>
+<a name="1068056"></a><p class="Indentsub">Por ejemplo:</p>
+<a name="1068015"></a><p class="Indentsub"><span class="screen">srvadmin-omilcore-4.3.0-1.386.rpm<br>srvadmin-hapi-4.3.0-1.386.rpm<br>srvadmin-deng-4.3.0-1.386.rpm<br>srvadmin-isvc-4.3.0-1.386.rpm<br>...</span></p>
+<ol type="1">
+  <ol type="a">
+
+<li value="2"><a name="1067159"></a>Escriba el comando de actualización RPM, incorporando los paquetes devueltos en el <a href="instlx.htm#1067158">paso a</a>. Este 
+comando actualiza los componentes de software de Dell OpenManage instalados.  
+<br><br>
+</ol>
+</ol>
+<a name="1068025"></a><p class="Indentsub">Por ejemplo:</p>
+<a name="1083627"></a><p class="Indentsub"><span class="screen">rpm -Uhv srvadmin-omilcore-4.3.0-1.386.rpm srvadmin-hapi-4.3.0-1.386.rpm srvadmin-deng-4.3.0-1.386.rpm srvadmin-isvc-4.3.0-1.386.rpm</span></p>
+<a name="1083628"></a><p>Si el archivo controlador OpenIPMI no está instalado actualmente en el sistema, o si la versión del archivo controlador OpenIPMI que está instalada en el sistema es inferior a la versión mínima requerida por Server Administrator, el RPM <b>srvadmin-hapi </b>no podrá actualizarse y mostrará un mensaje de error informando que se debe instalar o actualizar el archivo controlador OpenIPMI. En este caso, todos los RPM que dependen del RPM <b>srvadmin-hapi</b> tampoco podrán actualizarse. En dichos casos, usted deberá instalar o actualizar el archivo controlador OpenIPMI por medio de los siguientes pasos adicionales:</p>
+<ol type="1">
+
+<li value="1"><a name="1075956"></a>	 Navegue al directorio <b>srvadmin/linux/supportscripts</b>.
+
+<br><br>
+<li value="2"><a name="1075958"></a>	 Ejecute la secuencia de comandos de shell <b>srvadmin-openipmi.sh</b> como se muestra a continuación.
+<br><br>
+</ol>
+<a name="1075959"></a><p class="indent"><span class="screen">sh srvadmin-openipmi.sh install</span></p>
+<a name="1078763"></a><p>Intente actualizar nuevamente el RPM <b>srvadmin-hapi</b> y los demás RPM que no se pudieron actualizar debido a que dependen del RPM <b>srvadmin-hapi</b>. Realice los pasos a continuación:</p>
+<ol type="1">
+
+<li value="1"><a name="1084340"></a>	 Regrese al directorio en el que estaba anteriormente.
+
+<br><br>
+<li value="2"><a name="1084341"></a>	 Ejecute los siguientes comandos para ver qué paquetes de Server Administrator se actualizaron bien anteriormente.
+<br><br>
+</ol>
+<a name="1075965"></a>
+<p class="screenindent">rpm -qa | grep srvadmin
+</p>
+<a name="1075966"></a><p class="indent">La consulta muestra una lista de todos los paquetes instalados de Server Administrator. Los que ya estén actualizados mostrarán el número de la nueva versión. Los que aún no estén actualizados mostrarán el número de la versión anterior.</p>
+<ol type="1">
+
+<li value="3"><a name="1075968"></a>	 Actualice cada uno de los RPM del directorio que no fueron actualizados anteriormente, debido a que 
+el RPM <b>srvadmin-hapi 
+</b><b> </b>no pudo actualizarse anteriormente, ejecutando el siguiente comando:
+<br><br>
+</ol>
+<a name="1075969"></a>
+<p class="screenindent">rpm -Uhv srvadmin-hapi*.rpm srvadmin-isvc*.rpm srvadmin-omhip*.rpm 
+srvadmin-&lt;cualesquier_otros_paquetes&gt;*.rpm
+</p>
+<a name="1076147"></a><p>Si ya está instalado en el sistema el RPM de OpenIPMI para una versión del archivo controlador OpenIPMI que cumpla con la versión mínima del archivo controlador OpenIPMI requerido por Server Administrator, pero los módulos de controlador de OpenIPMI aún no han sido generados e instalados para la versión dada del archivo controlador OpenIPMI debido a que el RPM <b>kernel-source</b> se necesita pero no está instalado actualmente, el RPM <b>srvadmin-hapi</b> no se podrá actualizar y mostrará un mensaje de error. El mensaje de error le indicará que debe instalar el RPM <b>kernel-source</b> y generar el archivo controlador de OpenIPMI. En este caso, todos los RPM que dependen del RPM <b>srvadmin-hapi</b> tampoco podrán actualizarse. Usted deberá instalar el RPM <b>kernel-source</b>, y generar e instalar los módulos de controlador de OpenIPMI, realizando los siguientes pasos adicionales:</p>
+<ol type="1">
+
+<li value="1"><a name="1076153"></a>	 Para los sistemas que ejecutan Red Hat Enterprise Linux (versión 3), instale una copia del RPM <b>kernel-source</b> adecuada 
+para el núcleo que está ejecutándose, a partir de los CD de instalación del sistema operativo (o de alguna otra fuente). En sistemas que ejecutan Red Hat Enterprise Linux (versión 4) y SUSE Linux Enterprise Server, los RPM <b>kernel*-devel</b> proporcionan la fuente necesaria para generar módulos de núcleo.
+
+<br><br>
+<li value="2"><a name="1076171"></a>	 Instale el RPM <b>kernel-source</b> o los RPM <b>kernel*-devel</b> ejecutando el siguiente comando desde donde 
+encontró o copió los RPM:
+<br><br>
+</ol>
+<a name="1076172"></a>
+<p class="screenindent">rpm -ihv kernel*.rpm
+</p>
+<ol type="1">
+
+<li value="3"><a name="1076173"></a>	 Navegue al directorio <b>srvadmin/linux/supportscripts</b>.
+
+<br><br>
+<li value="4"><a name="1076159"></a>	 Ejecute la secuencia de comandos de shell <b>srvadmin-openipmi.sh</b> como se muestra a continuación. Esto generará e instalará los módulos de controlador de OpenIPMI.
+<br><br>
+</ol>
+<a name="1076160"></a>
+<p class="screenindent">sh srvadmin-openipmi.sh install
+</p>
+<a name="1076339"></a>
+<p>Intente actualizar nuevamente el RPM <b>srvadmin-hapi</b> y los RPM que no se pudieron actualizar debido a que dependen del RPM <b>srvadmin-hapi</b>. Realice los pasos descritos en <a href="instlx.htm#1075956">esta sección</a>.</p>
+<a name="1076149"></a><h5> Uso de la secuencia de comandos de shell srvadmin-install</h5>
+<ol type="1">
+
+<li value="1"><a name="1067162"></a>Inicie sesión como <span class="screen">root</span> en el sistema que ejecuta Red Hat Enterprise Linux y que requiere la actualización.
+
+<br><br>
+<li value="2"><a name="1067163"></a>Inserte el CD <i>Dell PowerEdge</i> <i>Installation and Server Management</i> en la unidad de CD del sistema. 
+Si el CD no se monta automáticamente, escriba <span class="screen">mount /dev/cdrom /mnt/cdrom</span>.
+
+<br><br><li value="3"><a name="1067165"></a>Después de que el CD se monte, navegue al subdirectorio que contiene la secuencia de comandos de shell en el CD, escribiendo uno 
+de los siguientes comandos:
+<br><br>
+</ol>
+<a name="1068080"></a><p class="indent"><span class="screen">cd /mnt/cdrom/srvadmin/linux/supportscripts<br>cd /media/cdrom/srvadmin/linux/supportscripts</span>. </p>
+<ol type="1">
+
+<li value="4"><a name="1067166"></a>Ejecute la secuencia de comandos siguiente:
+<br><br>
+</ol>
+<a name="1067167"></a><p class="indent"><span class="screen">sh srvadmin-install.sh </span></p>
+<a name="1067168"></a><p class="indent">La secuencia de comandos descubre cualquier versión anterior de Server Administrator. Si hay una versión anterior instalada, aparece un mensaje mostrando la versión actual y los componentes instalados.</p>
+<a name="1068092"></a><p class="indent">Por ejemplo:</p>
+<a name="1067170"></a><p class="indent"><span class="screen">Server Administrator version 4.4.0 is currently installed.<br>Installed components are:<br>(La versión 4.4.0 de Server Administrator está instalada actualmente.<br>
+Los componentes instalados son:)<br>- srvadmin-omilcore<br>- srvadmin-hapi<br>- srvadmin-deng<br>- srvadmin-isvc</span></p>
+<a name="1082828"></a><p class="indent">Después, la secuencia de comandos aparece con el mensaje siguiente:</p>
+<a name="1067177"></a><p class="indent"><span class="screen">Do you want to upgrade Server Administrator to 5.0?<br>Press ('y' for yes | 'Enter' to exit):<br><br>(¿Desea actualizar Server Administrator a la versión 5.0?<br>Presione ['S' para sí o 'Entrar' para salir]:)</span></p>
+<ol type="1">
+
+<li value="5"><a name="1067143"></a>Seleccione <b>y</b> para actualizar el sistema.
+<br><br>
+</ol>
+<a name="1068129"></a><p class="indent">Server Administrator se ha actualizado a la versión 5.0. </p>
+<a name="1076246"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Justo antes de que se actualicen los RPM de Server Administrator, la secuencia de comandos de shell <b>srvadmin-install.sh</b> 
+ejecuta automáticamente la secuencia de comandos de shell <b>srvadmin-openipmi.sh</b> para asegurarse haya una versión aceptable del archivo controlador OpenIPMI 
+ya instalada en el sistema. Si no se encuentra una versión aceptable, la secuencia de comandos de shell <b>srvadmin-install.sh</b> ejecutará la secuencia de comandos de shell <b>srvadmin-openipmi.sh</b> para intentar la instalación de una versión aceptable. Si el intento falla por cualquier motivo, aparecerá un mensaje de error correspondiente con instrucciones que describen cómo resolver el error. Después de resolver los errores, debe ejecutar nuevamente la secuencia de comandos de shell <b>srvadmin-install.sh</b> para actualizar 
+los componentes de Managed System.
+</td>
+  </tr>
+</table><a name="1076247"></a><h3> Desinstalación de Managed System Software
+ </h3>
+<a name="1055077"></a><p>Puede desinstalar el software Managed System desde la línea de comandos de Red Hat Enterprise Linux o SUSE Linux Enterprise Server. Además, se puede realizar una desinstalación desatendida en varios sistemas a la vez. </p>
+<a name="1055079"></a><h4> Requisitos previos para desinstalar Managed System Software</h4>
+<a name="1055080"></a><p>Se debe iniciar sesión como <span class="screen">root</span>.</p>
+<a name="1070127"></a><h4> Desinstalación del software Managed System desde la línea de comandos de Red Hat Enterprise Linux o SUSE Linux Enterprise Server.</h4>
+<a name="1055083"></a><p>Cuando se instala Server Administrator, también se instala una secuencia de comandos de desinstalación. Usted puede ejecutar la secuencia de comandos si escribe <span class="screen">srvadmin-uninstall.sh</span> y después presiona &lt;Entrar&gt;.</p>
+<a name="1076435"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Cuando se ejecuta, <b>srvadmin-uninstall.sh</b> no intentará desinstalar el archivo controlador OpenIPMI aun cuando 
+el archivo controlador OpenIPMI haya sido instalado o actualizado durante alguna ejecución anterior de la secuencia de comandos <b>srvadmin-install.sh</b> 
+o la secuencia de comandos <b>srvadmin-openipmi.sh</b>.
+</td>
+  </tr>
+</table><a name="1056679"></a><h4> Desinstalación personalizada de componentes específicos</h4>
+<a name="1064162"></a><p>Es posible desinstalar componentes individuales de Dell OpenManage sin desinstalar todo Dell OpenManage. Los siguientes son ejemplos:</p>
+<a name="1064173"></a><p>Para desinstalar únicamente el Web Server, use el comando:</p>
+<a name="1064174"></a>
+<p class="screenindent"><span class="screen">rpm &#8211;e `rpm -qa | grep srvadmin-iws`
+</span></p>
+<a name="1064178"></a><p>Para desinstalar diagnósticos, use el comando:</p>
+<a name="1064179"></a>
+<p class="screenindent"><span class="screen">rpm &#8211;e `rpm -qa | grep srvadmin-old`
+</span></p>
+<a name="1064180"></a><p>Para desinstalar el almacenamiento, use el comando:</p>
+<a name="1069022"></a>
+<p class="screenindent"><span class="screen">rpm &#8211;e `rpm -qa | grep srvadmin-storage`
+</span></p>
+<hr noshade size="1">
+<a name="1070108"></a><h2>Utilización de Dell OpenManage con el software VMware ESX Server&#8482;</h2>
+
+
+<a name="1070113"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>La instalación de Dell OpenManage con software de VMware ESX Server requiere pasos especiales. Estos pasos varían según la versión de la versión de Dell OpenManage y de la versión de ESX Server; sólo se admite un número limitado de combinaciones.
+</td>
+  </tr>
+</table><a name="1070104"></a><p>Consulte la <i>Guía de compatibilidad con sistemas VMware</i>, localizada en el Centro de recursos, en <b>www.dell.com/vmware</b>, para determinar las versiones de software de ESX Server compatibles con esta versión de Dell OpenManage. Cada versión de ESX Server de Dell tiene una <i>Guía de implementación</i> de Dell VMware ESX Server asociada, que también está publicada en esta ubicación de web. Las instrucciones para instalar las versiones admitidas de Dell OpenManage disponibles en el momento de la publicación de esa versión de ESX Server se encuentran en la <i>Guía de implementación</i> de esa versión de ESX Server. Las instrucciones para instalar cualquier versión admitida publicada posteriormente de Dell OpenManage están publicadas en la misma ubicación, en documento separado y claramente etiquetado. </p>
+<hr noshade size="1">
+<a name="1072268"></a><h2>Instalación de Managed System Software usando 
+software de implementación de terceros</h2>
+
+
+<a name="1064685"></a><p>Puede usar el software de iniciación de terceros, como Altiris Deployment Solution, para instalar Managed System Software en servidores Dell admitidos. Para distribuir e instalar el software Managed System usando Altiris, inicie la aplicación Altiris e importe el archivo <b>OpenManage_Jobs.bin</b> que se localiza en el CD <i>Dell PowerEdge Installation and Server Management</i> en <b>\srvadmin\support\Altiris</b>. Especifique la carpeta de trabajo a la cual lo desea importar. Es posible que tenga que modificar las tareas <b>Ejecutar secuencia de comandos</b> y <b>Copiar archivo</b> para que correspondan con el entorno de instalación utilizado. Una vez terminado, podrá programar la ejecución del trabajo en los sistemas Dell admitidos que son administrados desde Altiris Deployment Solution.</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">Regresar a la página de contenido</a></p>
+
+
+<p> </p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

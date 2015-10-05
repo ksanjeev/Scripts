@@ -1,0 +1,242 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<title>Introducción: Guía del usuario de instalación y seguridad de Dell OpenManage versión 5.0</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">Regresar a la página de contenido</a> </p>
+<a name="1039152"></a><h1> Introducción </h1>
+<p class="title">Guía del usuario de instalación y seguridad de Dell OpenManage&#8482; versión 5.0</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1043589">Descripción general</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1045837">Componentes del software de Dell OpenManage Systems Management</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1043763">Otros documentos que puede necesitar</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1045381">Obtención de asistencia técnica</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1043589"></a><h2>Descripción general</h2>
+
+
+<a name="1046101"></a><p>Esta guía contiene información para ayudarle a instalar el software Dell OpenManage&#8482; en las estaciones de administración y en los sistemas administrados. Un <i>sistema administrado</i> es un sistema que tiene instrumentación o agentes instalados que permiten que el sistema sea descubierto y encuestado acerca de su estado. Una <i>estación de administración</i> se usa para administrar uno o más sistemas administrados de manera remota desde una ubicación central. Consulte la <a href="intro.htm#1052269">figura 1-1</a> para ver una estación de administración y sus sistemas administrados. Además, esta guía contiene información e instrucciones para configurar los sistemas antes y en el transcurso de una instalación o actualización. Se abordan los siguientes temas:</p>
+<ul><li><a name="1047395"></a><a href="security.htm#1039152"> Seguridad de Dell OpenManage&#8482;</a><br><br></li>
+<li><a name="1047396"></a><a href="setup.htm#1059954">Configuración y administración</a><br><br></li>
+<li><a name="1047400"></a><a href="instos.htm#1043338">Uso de Server Assistant para instalar un sistema operativo</a><br><br></li>
+<li><a name="1059416"></a><a href="instms.htm#1043338">Instalación del software Management Station</a><br><br></li>
+<li><a name="1059476"></a><a href="instwin.htm#1056417">Instalación de Managed System Software en sistemas operativos Microsoft® Windows®</a><br><br></li>
+<li><a name="1059489"></a><a href="instlx.htm#1054425">Instalación del software Managed System en sistemas operativos Red Hat® Enterprise Linux y SUSE® Linux</a><br><br></li>
+<li><a name="1059491"></a><a href="mad.htm#1055432">Utilización de Microsoft® Active Directory®</a><br><br></li>
+<li><a name="1059492"></a><a href="prereqch.htm#1053126">Verificador de prerrequisitos</a><br><br></li>
+<li><a name="1055067"></a><a href="faq.htm#1055187">Preguntas frecuentes</a><br><br></li>
+</ul><a name="1046215"></a><h3> Descripción general del software Systems Management
+</h3>
+<a name="1046216"></a><p>El software de administración de sistemas de Dell OpenManage es un conjunto de programas de aplicación para sistemas Dell&#8482; PowerEdge&#8482; y para algunos sistemas Dell PowerVault&#8482;. Este software le permite administrar sus sistemas con supervisión, diagnóstico, notificaciones y acceso remoto proactivos. </p>
+<a name="1051819"></a><p>Cada sistema administrado por el software Dell OpenManage Systems Management se denomina sistema administrado. Usted puede administrar un sistema administrado de manera local o remota. Las aplicaciones de software que se pueden instalar en los sistemas administrados incluyen Dell OpenManage Server Administrator (que incluye el servicio Storage Management, Diagnostic Service y Web Server de Server Administrator), los agentes SNMP para tarjetas de interfaz de red (NIC) de Intel® o de Broadcom y el software del controlador de acceso remoto (RAC).</p>
+<a name="1051809"></a><p>Una estación de administración se puede utilizar para configurar uno o más sistemas administrados de manera remota desde una ubicación central. Dell OpenManage IT Assistant y las otras aplicaciones de Management Station le permiten administrar de uno a miles de sistemas administrados. Por ejemplo, una estación de administración se puede usar para desplegar imágenes de medios físicos a medios virtuales en muchos sistemas administrados.</p>
+<a name="1054174"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Si instala el software de Management Station y de Managed System en el mismo sistema, instale versiones idénticas de software para evitar conflictos de sistema.
+</td>
+  </tr>
+</table><a name="1054179"></a><p>La <a href="intro.htm#1052269">figura 1-1</a> ilustra la relación entre una estación de administración y los sistemas administrados. La <a href="intro.htm#1052269">figura 1-1</a> también muestra los sistemas operativos y los productos de software de Dell OpenManage que se pueden instalar en el sistema administrado. Se puede tener acceso al CD de documentación desde cualquier sistema que tenga monitor, teclado y mouse.</p>
+<a name="1052261"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>El CD <i>Dell PowerEdge Updates</i> sólo está incluido en el juego de servicio de suscripción de Dell OpenManage; no está incluido en el juego de software de Dell OpenManage Systems Management.
+</td>
+  </tr>
+</table><p class="FigureTableTitle"><a name="1052269"></a>Figura 1-1.  Ejemplo de una estación de administración y los sistemas administrados
+</p>
+
+<a name="1052352"></a>
+<p><img src="introa.jpg" height="469" width="577" align="center" border="0" hspace="0" vspace="0">
+</p><a name="1052092"></a><h3> Contenido del juego de software de Dell OpenManage Systems Management
+</h3>
+<a name="1052093"></a><p>El paquete de Dell OpenManage Systems Management Software incluye los siguientes componentes, entre otros: </p>
+<ul><li><a name="1052095"></a>La <i>Guía de instalación rápida del software Dell OpenManage</i> proporciona una descripción general de las aplicaciones que se pueden instalar en la estación de administración (consola) y en los sistemas administrados. Esta guía, que se encuentra en el CD <i>Documentation</i>, también contiene procedimientos para instalar la consola y las aplicaciones de sistema administrado en los equipos que ejecutan los sistemas operativos compatibles.<br><br></li>
+<li><a name="1047679"></a>El CD <i>Dell PowerEdge Systems Management Consoles</i>, contiene los productos de consola de Dell Systems Management para las estaciones de administración. El CD incluye IT Assistant y otras aplicaciones para la administración de sistemas.<br><br> </li>
+<li><a name="1047680"></a>CD <i>Dell PowerEdge Installation and Server Management</i>: proporciona las herramientas que se requieren para instalar un sistema operativo y configurar los sistemas administrados, incluyendo los servicios de instrumentación, diagnósticos, Storage Management y acceso remoto de Server Administrator.<br><br> </li>
+<li><a name="1047681"></a>CD <i>Dell PowerEdge Service and Diagnostic Utilities</i>: proporciona las herramientas para configurar los sistemas administrados, incluyendo las versiones más recientes de los diagnósticos y controladores optimizados por Dell para los sistemas administrados.<br><br> </li>
+<li><a name="1047682"></a>CD <i>Dell PowerEdge Documentation:</i> le ayuda a mantenerse al día con la documentación de los sistemas, productos de software de administración de sistemas, periféricos y controladores RAID.<br><br></li>
+<li><a name="1055075"></a>CD <i>Dell PowerEdge Updates</i>: contiene la utilidad de actualización de servidor (SUU), que es una aplicación basada en CD para identificar y aplicar actualizaciones a su sistema. La SUU viene en CD separados para Microsoft® Windows® y Linux.<br><br></li>
+</ul><a name="1050002"></a><p>La mayor parte de estos CD también contienen archivos léame, que proporcionan la información más reciente del producto.</p>
+<a name="1049973"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>El CD <i>Dell PowerEdge Updates</i> sólo está disponible como la parte del juego de servicio de suscripción o del sitio web de asistencia de Dell en <b>support.dell.com</b>.
+</td>
+  </tr>
+</table><a name="1049525"></a><p>Compare el contenido de la caja de accesorios de sistema con la lista de empaque o la factura que se adjunta al sistema. Si falta algún componente, o está dañado, llame a Dell en el transcurso de los 30 días a partir de la fecha de factura para solicitar un reemplazo gratuito. Para más información, consulte &quot;<a href="intro.htm#1045381">Obtención de asistencia técnica</a>&quot;.</p>
+<a name="1056894"></a><h3> Lo nuevo
+</h3>
+<ul><li><a name="1057114"></a>Compatibilidad con los sistemas PowerEdge 1900, 1955, 2900 y 2950<br><br></li>
+<li><a name="1060458"></a>Compatibilidad con SUSE® Linux Enterprise Server (versión 9), SP3 para la tecnología Intel de memoria extendida 64 (Intel EM64T)<br><br></li>
+<li><a name="1060558"></a>Compatibilidad con Windows Storage Server 2003 R2 (incluye las ediciones Express, Standard, Workgroup y Enterprise)<br><br> </li>
+<li><a name="1060559"></a>Compatibilidad con el Dell Remote Access Controller 5 (DRAC 5)<br><br></li>
+<li><a name="1060199"></a>Compatibilidad con el controlador RAID de Dell PowerEdge 5 (PERC 5)<br><br></li>
+<li><a name="1060467"></a>Dell OpenManage Array Manager ha sido reemplazado por Storage Management de Server Administrator<br><br></li>
+</ul><a name="1060208"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">NOTA: </span>La consola Array Manager de Dell OpenManage no está disponible en Windows si no se detecta ningún software de Management Station anterior (con la consola Array Manager instalada). Sólo está disponible para actualización.
+</td>
+  </tr>
+</table>
+<a name="1056896"></a><p>Para obtener más información, consulte el sitio web de Dell OpenManage en <b>www.dell.com/openmanage</b>.</p>
+<hr noshade size="1">
+<a name="1045837"></a><h2>Componentes del software de Dell OpenManage 
+Systems Management</h2>
+
+
+<a name="1044096"></a><h3> Software de instalación (CD Dell PowerEdge Installation and Server Management)
+</h3>
+<a name="1048146"></a><p>Para sistemas administrados, Dell OpenManage Server Assistant proporciona una instalación optimizada del sistema operativo, reduciendo el tiempo necesario para la instalación de los sistemas operativos Windows, Red Hat® Enterprise Linux y SUSE Linux Enterprise Server mediante indicaciones que muestran un proceso comprensible y paso a paso. </p>
+<a name="1046148"></a><p>Además, Server Assistant brinda las herramientas necesarias para instalar y configurar el software y los sistemas PowerEdge. Las herramientas permiten el descubrimiento y la configuración de los adaptadores de red y controladores RAID proporcionados por Dell. </p>
+<a name="1046123"></a><h3> Management Station Software (CD Dell Systems Management Consoles)
+</h3>
+<a name="1046746"></a><h4> IT Assistant</h4>
+<a name="1051590"></a><p>IT Assistant es una interfaz gráfica para el usuario (GUI) basada en la web que proporciona un punto central de acceso para supervisar y administrar sistemas en una red de área local (LAN) o en una red de área extensa (WAN). Al proporcionar una vista completa de toda la empresa, IT Assistant puede aumentar el tiempo de operación de sistema, reducir tareas reiterativas y prevenir la interrupción durante operaciones comerciales importantes. </p>
+<a name="1051577"></a><p>Mediante IT Assistant, usted puede:</p>
+<ul><li><a name="1046752"></a>Identificar los grupos de sistemas que desea administrar de manera remota.<br><br></li>
+<li><a name="1046753"></a>Consolidar la visualización de todos los sistemas, proporcionando un punto de lanzamiento central para la administración de sistemas<br><br></li>
+<li><a name="1046754"></a>Crear filtros y acciones de alerta que le notificarán automáticamente cuando se afecte el tiempo de operación del sistema<br><br></li>
+<li><a name="1046756"></a>Crear informes personalizados para toda la empresa que muestran el estado de cada sistema, incluyendo interruptores, dispositivos de almacenamiento, BIOS, firmware y versiones de controladores<br><br></li>
+<li><a name="1051268"></a>Crear tareas personalizadas que le permitan coordinar la administración de configuraciones a lo largo de toda la empresa, incluyendo la realización de actualizaciones de software, el apagado y la activación, así como la ejecución de líneas de comandos.<br><br></li>
+<li><a name="1053086"></a>Ver una presentación gráfica de los dispositivos en su red, desde la que puede iniciar aplicaciones, actualizar inventarios y estados y solucionar problemas<br><br></li>
+<li><a name="1053087"></a>Iniciar las siguientes aplicaciones para la administración de sistemas de Dell: Server Administrator, Consola de acceso remoto, Dell PowerConnect&#8482; y KVM digital (teclado/vídeo/mouse)<br><br></li>
+<li><a name="1053105"></a>Cargar Dell Update Packages y conjuntos de actualización del sistema en un repositorio central y luego comparar los paquetes con las versiones de software que se ejecutan actualmente en sus sistemas empresariales<br><br></li>
+</ul><a name="1051272"></a><h4> Dell Remote Access Controller Management Station</h4>
+<a name="1051283"></a><p>La consola de Dell Remote Access Controller (RAC) es el software de la estación de administración diseñado para proporcionar capacidades de administración remotas para sistemas PowerEdge. Usted puede conectarse de manera remota al hardware de RAC que usa el software de la estación de administración de RAC. Las siguientes funciones de RAC están implementadas en el hardware y están disponibles usando un explorador o mediante el racadm de la CLI: </p>
+<ul><li><a name="1051301"></a>Monitores sensores de hardware, como temperatura, voltaje, y ventiladores<br><br></li>
+<li><a name="1051302"></a>Acceso a hardware y registros de alertas<br><br></li>
+<li><a name="1051303"></a>La capacidad de generar alertas, aun cuando el sistema está apagado<br><br></li>
+<li><a name="1051329"></a>Encendido y apagado remoto del sistema<br><br></li>
+<li><a name="1051330"></a>Operaciones de inicio remoto por disco<br><br></li>
+</ul><a name="1054097"></a><p>Consulte la <i>Guía del usuario de Dell Remote Access Controller 4</i> o la <i>Guía del usuario de Dell Remote Access Controller 5 </i>para obtener más información sobre cómo usar la CLI de racadm para conectarse a un sistema administrado a fin de ejecutar comandos racadm desde una consola remota, o bien, para conectarse a una estación de administración que usa la dirección IP de la estación administrada.</p>
+<a name="1051332"></a><h4> Utilidad de administración del controlador de administración de la placa base (BMC)</h4>
+<a name="1051276"></a><p>La utilidad de administración de BMC proporciona una estación de administración remota, basada en líneas de comando, para administrar todas las funciones de BMC admitidas. Use la utilidad de administración de BMC para administrar un BMC desde una estación de administración remota y como consola de administración de emergencia del sistema administrado. La utilidad le da la opción de usar ya sea una interfaz de línea de comandos (interfaz de administración de plataformas inteligente, [núcleo IPMI]) o un proxy de comunicación en serie sobre la LAN (proxy de SOL) para tener acceso al BMC y administrarlo.</p>
+<a name="1046872"></a><p>El BMC supervisa el sistema en busca de sucesos críticos, comunicándose con diversos sensores de la placa base y enviando alertas, y registra sucesos cuando ciertos parámetros sobrepasan los umbrales preconfigurados. El BMC admite la especificación estándar de industria IPMI, permitiéndole configurar, supervisar y recuperar sistemas remotamente. </p>
+<a name="1051598"></a><p>El BMC proporciona las siguientes funciones:</p>
+<ul><li><a name="1051601"></a>Acceso a la administración por medio del NIC integrado y el puerto serie del sistema<br><br></li>
+<li><a name="1051604"></a>Registro de fallas y envío de alertas de SNMP<br><br></li>
+<li><a name="1050318"></a>Acceso al registro de sucesos de sistema (SEL) y al estado de los sensores<br><br></li>
+<li><a name="1046876"></a>Controles de funciones del sistema, incluyendo encendido y apagado<br><br></li>
+<li><a name="1051337"></a>Compatibilidad que no depende del estado de operación o alimentación del sistema<br><br></li>
+<li><a name="1051339"></a>Redirección de la consola de texto para configuración de sistema, utilidades de texto y consolas de sistema operativo<br><br></li>
+<li><a name="1051341"></a>Acceso a las interfaces de consola serie de Red Hat Enterprise Linux y SUSE Linux Enterprise Server mediante comunicación en serie en la LAN (SOL)<br><br></li>
+</ul><a name="1050482"></a><h4> Utilidad complemento de Active Directory</h4>
+<a name="1050489"></a><p>La utilidad complemento Microsoft Active Directory proporciona un complemento de extensión al complemento Usuarios y equipos de Microsoft Active Directory, lo que le permite administrar los objetos de Active Directory específicos de Dell</p>
+<a name="1050491"></a><p>Puede usar esta opción cuando las clases de esquema específicas de Dell hayan sido agregadas al esquema de Active Directory.</p>
+<a name="1050485"></a><h3> Managed System Software (CD Dell PowerEdge Installation and Server Management)
+</h3>
+<a name="1047098"></a><h4> Server Administrator</h4>
+<a name="1049546"></a><p>Server Administrator proporciona una solución de administración de sistemas completa e individualizada, utilizando una GUI integrada basada en explorador de web (la página de inicio de Server Administrator) o una función de interfaz de línea de comandos (CLI). Server Administrator incluye los  siguientes servicios y funciones integrados:</p>
+<a name="1055497"></a><h5> Instrumentation Service</h5>
+<a name="1047126"></a><p>El Instrumentation Service proporciona acceso rápido a información detallada de fallas y rendimiento recopilada por agentes de administración de sistemas y permite la administración remota de sistemas supervisados, incluyendo apagado, inicio y seguridad. </p>
+<a name="1047127"></a><h5> Servicio de acceso remoto</h5>
+<a name="1060098"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>El servicio de acceso remoto no está disponible en sistemas modulares. Debe conectarse directamente al RAC en un sistema modular. Consulte la <i>Guía del usuario del Acceso remoto incorporado/MC de Dell</i>, la <i>Guía del usuario de Dell Remote Access Controller 4</i> o la <i>Guía del usuario de Dell Remote Access Controller 5 </i>para obtener más información.
+</td>
+  </tr>
+</table><a name="1060100"></a><p>El servicio de acceso remoto proporciona las siguientes funciones:</p>
+<ul><li><a name="1051655"></a>Acceso remoto a un sistema inoperable, permitiéndole apagarse, para reiniciarse y para conseguir que el sistema esté encendido y operando tan rápido como sea posible<br><br></li>
+<li><a name="1051650"></a>La notificación de alerta cuando un sistema está apagado<br><br></li>
+<li><a name="1051651"></a>Los registros de caída de sistema que registran la causa probable de la falla del sistema y guardan la pantalla del incidente más reciente<br><br></li>
+</ul><a name="1051645"></a><p>Debe tener Server Administrator en su sistema para instalar el servicio de acceso remoto. </p>
+<a name="1053113"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>El servicio de acceso remoto de Server Administrator y Management Station de Remote Access Controller no se pueden instalar en un sistema al mismo tiempo. Si tanto Server Administrator como Management Station se instalan al mismo tiempo y se requiere compatibilidad con el RAC, instale el servicio de acceso remoto de Server Administrator. 
+Esto proporciona toda la funcionalidad de la Management Station de Remote Access Controller.
+</td>
+  </tr>
+</table><a name="1050144"></a><h5> Servicio de administración de almacenamiento</h5>
+<a name="1047135"></a><p>El servicio Storage Management proporciona funciones mejoradas para administrar el almacenamiento en discos RAID o no RAID de conexión local de un sistema. </p>
+<a name="1051668"></a><p>El servicio de Storage Management proporciona las características siguientes:</p>
+<ul><li><a name="1047139"></a>Le permite ver el estado de almacenamiento local y remoto adjunto a un sistema supervisado<br><br></li>
+<li><a name="1047140"></a>Es compatible con SAS, SCSI, SATA y ATA, pero no es compatible con Fibre Channel<br><br></li>
+<li><a name="1047144"></a>Le permite realizar funciones de controlador y de gabinete para todos los controladores y gabinetes RAID y no RAID compatibles desde una sola interfaz gráfica o desde una CLI, sin usar utilidades del BIOS del controlador<br><br></li>
+<li><a name="1049051"></a>Protege los datos mediante la configuración de la redundancia de datos, la asignación de repuestos dinámicos o la reconstrucción de unidades fallidas<br><br></li>
+</ul><a name="1053169"></a><h5> Diagnostic Service</h5>
+<a name="1053175"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Diagnostic Service no está disponible en sistemas modulares.
+</td>
+  </tr>
+</table><a name="1053177"></a><p>Diagnostic Service proporciona un conjunto de programas de diagnóstico que se ejecutan localmente en el sistema o que están controlados de manera remota por una estación de administración conectada a la red. Diagnostic Service diagnostica problemas en sistemas individuales y se ejecuta al mismo tiempo que todas las demás aplicaciones que se ejecutan en el sistema que se está probando.</p>
+<a name="1051015"></a><h3> Diagnósticos (CD Dell PowerEdge Service and Diagnostic Utilities)
+</h3>
+<a name="1057629"></a><p>Los Diagnósticos de Dell PowerEdge es un paquete de programas de diagnóstico, o módulos de prueba, que se ejecutan de forma local en el sistema. Puede seleccionar que las pruebas de diagnóstico adecuadas se ejecuten desde el árbol <b>Selección de diagnóstico</b> el cual contiene el hardware que los Diagnósticos de PowerEdge descubren en el sistema.</p>
+<a name="1057632"></a><h3> Archivos controladores (CD Dell PowerEdge Service and Diagnostic Utilities)
+</h3>
+<a name="1057634"></a><p>La utilidad de extracción le permite ver y crear discos flexibles de diagnóstico y controladores de software de Dell. </p>
+<a name="1047112"></a><h3> Administración de cambios (CD Dell PowerEdge Updates)
+</h3>
+<a name="1047120"></a><p>El CD <i>Dell PowerEdge Updates</i> incluye la utilidad de actualización de servidor (SUU). SUU es una aplicación basada en CD para identificar y aplicar actualizaciones al sistema. SUU es una aplicación de doble propósito y es fácil de usar. Puede usar la SUU para actualizar el servidor PowerEdge o para ver las actualizaciones disponibles para cualquier sistema que aparezca en la lista del repositorio.</p>
+<a name="1058172"></a><p>La SUU facilita la administración de cambios, ya que le permite actualizar componentes del sistema mediante una aplicación que compara la versión de los componentes instalados actualmente con los componentes actualizados empaquetados en un CD y almacenados en un repositorio. Una sesión completa de la SUU normalmente realizará un inventario de los componentes instalados y sus versiones, proporcionará un informe comparativo entre lo que está instalado actualmente en el sistema y las versiones más recientes de los componentes que están en el repositorio y le dará la oportunidad de decidir si desea aplicar el conjunto de actualización del sistema para componentes de Dell para actualizar el sistema o no. Usted puede personalizar los paquetes que desea actualizar. Puede revertir las versiones más recientes de los componentes en el sistema a la versión correspondiente del componente que está contenida en el CD <i>Dell PowerEdge Updates</i>. La SUU viene en CD separados para Microsoft Windows y Linux.</p>
+<hr noshade size="1">
+<a name="1043763"></a><h2>Otros documentos que puede necesitar</h2>
+
+
+<a name="1043764"></a><p>Además de esta <i>guía</i>, podrá encontrar las siguientes guías ya sea en el sitio web de asistencia Dell Support en <b>support.dell.com</b> o en el CD <i>Documentation</i>:</p>
+<ul><li><a name="1053190"></a>La <i>Guía de instalación rápida del software Dell OpenManage</i> proporciona una descripción general de las aplicaciones que se pueden instalar en Management Station, o consola, y en los sistemas administrados. También tiene procedimientos para instalar la consola y las aplicaciones de los sistemas administrados.<br><br></li>
+<li><a name="1059974"></a>La <i>Guía del usuario de Dell OpenManage Server Administrator </i>describe la instalación y el uso de Server Administrator. Server Administrator proporciona una forma de administrar y gestionar fácilmente sistemas locales y remotos mediante un conjunto completo de servicios de administración integrados.<br><br></li>
+<li><a name="1059977"></a>La <i>Guía de compatibilidad de Dell OpenManage Server Administrator</i> ofrece información de compatibilidad acerca de la instalación y operación de Server Administrator en varias plataformas de hardware (o sistemas) que ejecutan los sistemas operativos compatibles Microsoft Windows, Red Hat Enterprise Linux y SUSE Linux Enterprise Server.<br><br></li>
+<li><a name="1059979"></a>La <i>Guía de referencia de SNMP de Dell OpenManage Server Administrator</i> documenta la base de información de administración (MIB) del protocolo de administración de red sencillo (SNMP). MIB de SNMP define variables que extienden la MIB estándar para abarcar las capacidades de los agentes de administración de sistemas.<br><br></li>
+<li><a name="1043768"></a>La <i>Guía de referencia del CIM de Dell OpenManage Server Administrator</i>  documenta el proveedor del modelo común de información (CIM), que es una extensión del archivo de formato de objeto de administración (MOF) estándar. Esta guía explica las clases admitidas de objetos de administración.<br><br></li>
+<li><a name="1043769"></a>En la <i>Guía de referencia de mensajes de Dell OpenManage Server Administrator</i> se presenta una lista de mensajes que aparecen en el registro de alertas de la página de inicio de Server Administrator o en el visor de sucesos del sistema operativo. En esta guía se explica el texto, la gravedad y la causa de cada uno de los mensajes de alerta que envíe el Server Administrator.<br><br></li>
+<li><a name="1043770"></a>La <i>Guía del usuario de la interfaz de línea de comandos de Dell OpenManage Server Administrator</i> documenta la interfaz de línea de comandos completa para Server Administrator, incluyendo una explicación de los comandos de la CLI para ver el estado del sistema, acceder a registros, crear informes, configurar diversos parámetros de componentes y establecer umbrales críticos.<br><br></li>
+<li><a name="1049666"></a>La Guía del usuario de Dell OpenManage IT Assistant contiene información sobre la instalación, la configuración y la utilización de IT Assistant. IT Assistant proporciona un punto central de acceso para supervisar y administrar sistemas en una red de área local (LAN) o en una red de área extensa (WAN). Al proporcionar al administrador una vista completa de toda la empresa, IT Assistant puede aumentar el tiempo de operación de sistema, automatizar tareas repetitivas y evitar la interrupción durante operaciones comerciales importantes.<br><br></li>
+<li><a name="1053704"></a>La <i>Guía del usuario de Dell Remote Access Controller 4</i> brinda información completa acerca de la instalación y configuración de un controlador DRAC 4 y cómo utilizar el DRAC 4 para tener acceso de manera remota a un sistema que ha dejado de funcionar.<br><br></li>
+<li><a name="1060511"></a>La <i>Guía del usuario de Dell Remote Access Controller 5</i> brinda información completa acerca de la instalación y configuración de un controlador DRAC 5 y cómo utilizar el DRAC 5 para tener acceso de manera remota a un sistema que ha dejado de funcionar.<br><br></li>
+<li><a name="1047541"></a>La <i>Guía del usuario de Dell Remote Access Controller/MC</i> proporciona la información completa acerca de la instalación y configuración de un controlador DRAC/MC y de cómo utilizar el DRAC/MC para tener acceso de manera remota a un sistema que ha dejado de funcionar.<br><br></li>
+<li><a name="1043801"></a>La <i>Guía de instalación y configuración del controlador de acceso remoto de Dell</i> proporciona información completa sobre la instalación y configuración de un controlador DRAC III, DRAC III/XT o ERA/O, la configuración de un controlador ERA y el uso de un RAC para acceder de manera remota a un sistema que no funciona.<br><br></li>
+<li><a name="1043773"></a>La <i>Guía del usuario de racadm de Dell  Remote Access Controller</i> proporciona información sobre la utilización de la utilidad de línea de comando racadm para administrar controladores de DRAC III, DRAC III/XT, ERA y ERA/O.<br><br></li>
+<li><a name="1044268"></a>La <i>Guía del usuario del controlador Embedded Remote Access/MC de Dell</i> proporciona información completa sobre la configuración y el uso de un controlador ERA/MC para administrar y supervisar remotamente el sistema modular y sus recursos compartidos mediante una red.<br><br></li>
+<li><a name="1049686"></a>La <i>Guía del usuario de los paquetes de actualización de Dell</i> proporciona información acerca de cómo obtener y usar los paquetes de actualización de Dell como parte de su estrategia de actualización del sistema.<br><br></li>
+<li><a name="1049673"></a>Los CD <i>Dell PowerEdge Installation and Server Management</i> y <i>Systems Management Consoles</i> contienen archivos léame para la mayoría de las aplicaciones que se encuentran en ellos.<br><br></li>
+</ul><hr noshade size="1">
+<a name="1045381"></a><h2>Obtención de asistencia técnica</h2>
+
+
+<a name="1045382"></a><p>Si en algún momento no entiende un procedimiento descrito en esta guía, o si el producto no funciona como se espera, hay distintos tipos de ayuda a su disposición. Para obtener más información, consulte &quot;Obtención de ayuda&quot; en el <i>Manual del propietario del hardware</i> de su sistema.</p>
+<a name="1043149"></a><p>Además, la certificación y capacitación Dell Enterprise está disponible; para obtener más información consulte <b>www.dell.com/training</b>. Es posible que este servicio no se ofrezca en todas las localidades.</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">Regresar a la página de contenido</a></p>
+
+
+<p> </p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

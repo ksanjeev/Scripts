@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<project name="Photosmart Premier" default="psp.init">
+
+    <!--
+
+        Copyright 2005 Hewlett-Packard . All Rights Reserved.
+        This software is the confidential and proprietary information of
+        Hewlett-Packard. Use is subject to license terms.
+
+        $RCSfile: psp-init.build,v $ $Revision: 1.7 $
+        $Date: 2005/10/03 12:26:17 $
+
+        NAnt version : 0.85 Release Candidate 3 (Build 0.85.1932.0 rc3 4/16/2005)
+        http://www.swoogan.com/nantgui.html  : NAnt-Gui-1.2.4-rc6.exe
+
+        NOTE : This script is not intended to be modified by anyone other than the build team.
+        Author: Gopinath M.R. (mgopinath@trianz.com)
+        -->
+
+        <property name="assembly.type" value="d" overwrite="false"/>
+
+        <target name="psp.init.dir">
+            <mkdir dir="${psp.deploy.dir}"/>
+            <mkdir dir="${psp.deploy.dir}/bin"/>
+            <mkdir dir="${psp.deploy.dir}/Graphics"/>
+            <mkdir dir="${psp.deploy.dir}/Graphics/en"/>
+            <mkdir dir="${psp.deploy.dir}/Graphics/Fonts"/>
+            <mkdir dir="${psp.deploy.dir}/Data"/>
+            <mkdir dir="${psp.deploy.dir}/Skins"/>
+            <mkdir dir="${psp.deploy.dir}/Plugins"/>
+            <mkdir dir="${build.output.log.dir}"/>
+            <mkdir dir="${build.output.trace.dir}"/>
+			<mkdir dir="${psp.deploy.dir}/HPPSE/Data"/>
+			<mkdir dir="${psp.deploy.dir}/Data"/>
+			<mkdir dir="${psp.deploy.dir}/Data/Projects"/>
+			<mkdir dir="${psp.deploy.dir}/Data/Projects/ContentPackages"/>
+			<mkdir dir="${psp.deploy.dir}/Data/Projects/Configuration"/>
+            
+          <if test="${solution.config=='Release'}">
+                <property name="assembly.type" value="" overwrite="true"/>
+            </if>
+        </target>
+        
+        <target name="psp.init.cue">
+            <!-- copy third party DLLs -->
+            <property name="thirdparty-list.file" value="${source.drive}/sdtajscripts/scripts/3rdpartyBinaries_ruby.txt" overwrite="true"/>
+            <if test="${file::exists(thirdparty-list.file)}">
+
+                <foreach item="Line" in="${thirdparty-list.file}" property="src.file">
+                    <copy overwrite="true" file="${src.file}" todir="${psp.deploy.bin.dir}" failonerror="false"/>
+              </foreach>
+            </if>
+            <!-- copy scocom DLLs -->
+            
+            <!-- Execute Ruby_ND_Deploy.bat file-->
+            <call target="psp.ruby.nd.deploy"/>
+           <!-- copy common CUE DLLs -->
+           <copy todir="${psp.deploy.bin.dir}" overwrite="true">
+               <fileset
+                   basedir="${psp.cue.hp.taj.shared.bin.dir}">
+                   <include name="*.dll"/>
+                   <include name="*.exe"/>
+               </fileset>
+           </copy>
+
+          <!--  Copy hpqKwdgp_<language>.dat  -->	
+	<copy todir="${psp.deploy.dir}/Data" overwrite="true">               <fileset basedir="S:\bttaj\ImageManager">
+                   <include name="*.dat"/>
+               </fileset>
+           </copy>
+
+	<!--  Copy InstalledLang.dat  -->	
+	<copy todir="${psp.deploy.dir}/Data" overwrite="true">
+               <fileset basedir="q:\btapp\data">
+                   <include name="*.dat"/>
+               </fileset>
+           </copy>
+
+
+        </target>
+
+      <!-- Deploy Scicom components-->
+      <target name="psp.ruby.nd.deploy" description="Deploy Scicom components alongwith Fermat and LeadTools">
+        
+        <if test="${file::exists('s:\btbuild\scripts\pse-dev-install.reg')}">
+            <!-- create registry entry -->
+            <exec program = "${system.env.windir}/system32/regedt32.exe">
+                <arg value="/s"/>
+                <arg value="s:\btbuild\scripts\pse-dev-install.reg"/>
+            </exec>
+        </if>
+        <if test="${file::exists('s:\ndbuild\scripts\ruby_nd_deploy.bat')}">
+            <exec program = "s:\ndbuild\scripts\ruby_nd_deploy.bat">
+              <arg value="s:\btapp\Hewlett-Packard"/>
+              <arg value="s:\btapp\Hewlett-Packard"/>
+            </exec>
+        </if>
+      </target>
+        
+        <target name="psp.init.graphics">
+           <property name="graphics.dir" value="${source.drive}/btappres/Resources" overwrite="true"/>
+           <mkdir dir="${psp.deploy.dir}/Graphics" failonerror="false"/>
+           <copy todir="${psp.deploy.dir}/Graphics" overwrite="true">
+               <fileset basedir="s:/btapp/PSPApp/PSPApp/Resources">
+                   <include name="*.*"/>
+               </fileset>
+           </copy>
+               
+            <if test="${directory::exists(graphics.dir)}">
+               <copy todir="${psp.deploy.dir}/Graphics" overwrite="true">
+                   <fileset basedir="${graphics.dir}">
+                       <include name="*.*"/>
+                   </fileset>
+               </copy>
+               <copy todir="${psp.deploy.dir}/Graphics" overwrite="true">
+                   <fileset basedir="${graphics.dir}/Common">
+                       <include name="*.*"/>
+                   </fileset>
+               </copy>
+            </if>
+           <!-- Copy the fonts file from btappres\fonts\* to deploy directory-->
+           <copy todir="${psp.deploy.dir}/Graphics/Fonts" overwrite="true"  failonerror="false">
+               <fileset basedir="s:/btappres/fonts">
+                   <include name="*.*"/>
+               </fileset>
+           </copy>
+        </target>
+	
+	<!-- Copy Content Packages target starts-->
+		<target name="psp.init.contentpackages">
+		<property name="contentpackages.dir" value="${source.drive}/btappres/contentPackages" overwrite="true"/>
+		<mkdir dir="${psp.deploy.dir}/Data/Projects/ContentPackages" failonerror="false"/>
+		<property name="contentpackages.disklabel.dir" value="${contentpackages.dir}/DiscLabel_DailyLife_General_Pictorial01" overwrite="true"/>
+		<if test="${directory::exists(contentpackages.disklabel.dir)}">
+			<!--
+			<copy todir="${psp.deploy.dir}/Data/Projects/ContentPackages" overwrite="true">
+				<fileset basedir="${contentpackages.dir}/Basic.NoBackground.BlackBorder.500">
+					<include name="*.*"/>
+				</fileset>
+			</copy>
+			<copy todir="${psp.deploy.dir}/Data/Projects/ContentPackages" overwrite="true">
+				<fileset basedir="${contentpackages.dir}/Basic.NoBackground.NoBorder.500">
+					<include name="*.*"/>
+				</fileset>
+			</copy>
+			-->
+            <copy todir="${psp.deploy.dir}/Data/Projects/ContentPackages" overwrite="true">
+				<fileset basedir="${contentpackages.dir}/DiscLabel_SpecialEvents_Birthday_Modern01">
+					<include name="*.*"/>
+				</fileset>
+			</copy>
+            <copy todir="${psp.deploy.dir}/Data/Projects/ContentPackages" overwrite="true">
+				<fileset basedir="${contentpackages.dir}/DiscLabel_Kids_BabyBoy_Playful01">
+					<include name="*.*"/>
+				</fileset>
+			</copy>
+            <copy todir="${psp.deploy.dir}/Data/Projects/ContentPackages" overwrite="true">
+				<fileset basedir="${contentpackages.dir}/DiscLabel_Kids_Birthday_Playful01">
+					<include name="*.*"/>
+				</fileset>
+			</copy>
+            <copy todir="${psp.deploy.dir}/Data/Projects/ContentPackages" overwrite="true">
+				<fileset basedir="${contentpackages.dir}/DiscLabel_Kids_BabyGirl_Playful01">
+					<include name="*.*"/>
+				</fileset>
+			</copy>
+            <copy todir="${psp.deploy.dir}/Data/Projects/ContentPackages" overwrite="true">
+				<fileset basedir="${contentpackages.dir}/DiscLabel_Kids_Kids_Modern01">
+					<include name="*.*"/>
+				</fileset>
+			</copy>
+            <copy todir="${psp.deploy.dir}/Data/Projects/ContentPackages" overwrite="true">
+				<fileset basedir="${contentpackages.dir}/DiscLabel_SpecialEvents_Party_Playful01">
+					<include name="*.*"/>
+				</fileset>
+			</copy>
+            <copy todir="${psp.deploy.dir}/Data/Projects/ContentPackages" overwrite="true">
+				<fileset basedir="${contentpackages.dir}/DiscLabel_DailyLife_General_Pictorial01">
+					<include name="*.*"/>
+				</fileset>
+			</copy>
+            <copy todir="${psp.deploy.dir}/Data/Projects/ContentPackages" overwrite="true">
+				<fileset basedir="${contentpackages.dir}/DiscLabel_DailyLife_Sports_Modern01">
+					<include name="*.*"/>
+				</fileset>
+			</copy>
+            <copy todir="${psp.deploy.dir}/Data/Projects/ContentPackages" overwrite="true">
+				<fileset basedir="${contentpackages.dir}/DiscLabel_SpecialEvents_Travel_Modern01">
+					<include name="*.*"/>
+				</fileset>
+			</copy>
+            <copy todir="${psp.deploy.dir}/Data/Projects/ContentPackages" overwrite="true">
+				<fileset basedir="${contentpackages.dir}/DiscLabel_SpecialEvents_Wedding_Modern01">
+					<include name="*.*"/>
+				</fileset>
+			</copy>
+            <copy todir="${psp.deploy.dir}/Data/Projects/ContentPackages" overwrite="true">
+				<fileset basedir="${contentpackages.dir}/Photobook_Everyday_General_Pictorial01">
+					<include name="*.*"/>
+				</fileset>
+			</copy>
+		</if>
+	   </target>
+	<!-- Copy Content Packages target ends-->
+	
+	<!-- Copy project files target starts-->
+	<target name="psp.init.projectfiles">
+		<property name="projectfiles.dir" value="${source.drive}/btappres/l10n-files/projectfiles/en" overwrite="true"/>
+		<mkdir dir="${psp.deploy.dir}/Data/Projects/Configuration" failonerror="false"/>
+		<if test="${directory::exists(projectfiles.dir)}">
+			<copy todir="${psp.deploy.dir}/Data/Projects/Configuration" overwrite="true">
+				<fileset basedir="${projectfiles.dir}">
+					<include name="*.*"/>
+				</fileset>
+			</copy>
+		</if>
+	</target>
+	<!-- Copy project files target ends-->
+
+	<!-- Copy project resources target starts-->
+	<target name="psp.init.projectresources">
+		<property name="projectresources.dir" value="${source.drive}/btappres/Resources/project-resources" overwrite="true"/>
+		<mkdir dir="${psp.deploy.dir}/Graphics" failonerror="false"/>
+		<if test="${directory::exists(projectresources.dir)}">
+			<copy todir="${psp.deploy.dir}/Graphics" overwrite="true">
+				<fileset basedir="${projectresources.dir}">
+					<include name="*.*"/>
+				</fileset>
+			</copy>
+		</if>
+	</target>
+	<!-- Copy project resources target ends-->
+	
+	<target name="psp.init.l10n-files">
+            <foreach item="File" property="src.file">
+                <in>
+                    <items basedir="s:/btapp">
+                        <include name="**/*.ts"/>
+                    </items>
+                </in>
+                <do>
+                    <property name="dest.file" value="${psp.deploy.dir}/Graphics/en/${path::get-file-name-without-extension(src.file)}.qm" overwrite="true"/>
+                    <exec program="${tools.qt.lrelease}" workingdir="${psp.deploy.bin.dir}" verbose="true" failonerror="false">
+                        <arg value="-verbose"/>
+                        <arg value="${src.file}"/>
+                        <arg value="-qm"/>
+                        <arg value="${dest.file}"/>
+                    </exec>
+                </do>
+            </foreach>
+           <copy todir="${psp.deploy.dir}/Graphics/en-pseudo" overwrite="true"  failonerror="false">
+               <fileset basedir="s:/btappres/l10n-binaries/en-pseudo">
+                   <include name="**/*"/>
+               </fileset>
+           </copy>
+        </target>
+        
+        <!-- overall initialization -->
+        <target name="psp.init" description="Initializes the development environment with required files">
+            <call target="psp.init.dir"/>
+            <call target="psp.init.cue"/>
+            <call target="psp.init.graphics"/>
+			<call target="psp.init.contentpackages"/>
+			<call target="psp.init.projectfiles"/>
+			<call target="psp.init.projectresources"/>
+			<call target="psp.init.l10n-files"/>
+            
+            <!-- copy trcf files -->
+           <copy todir="${psp.deploy.bin.dir}" overwrite="true"  failonerror="false">
+               <fileset basedir="s:/btbuild/trcf-files">
+                   <include name="**/*"/>
+               </fileset>
+           </copy>
+
+            <!--
+            <call target="psp.init.ctxmgr"/>
+            <call target="psp.init.framework"/>
+            <call target="psp.init.lead"/>
+            <call target="psp.init.skins"/>
+            <call target="psp.init.view"/>
+            <call target="psp.init.editor"/>
+            <call target="psp.init.print"/>
+            <call target="psp.init.create"/>
+            <call target="psp.init.backup"/>
+            <call target="psp.init.share"/>
+            -->
+        </target>
+        
+        <target name="psp.init.deploy" description="Initializes the development environment with required files from deployment files" depends="psp.init.copy, psp.init.register">
+        </target>
+        
+        <target name="psp.init.copy">
+            <foreach item="Line" in="s:/btapp/deploy_list.txt" property="deploy.file">
+                <copy file="${deploy.replicate.dir}/${deploy.file}"
+                    tofile="${psp.deploy.dir}/${deploy.file}" overwrite="true"/>
+            </foreach>
+        </target>
+        
+        <target name="psp.init.register">
+            <echo message="TODO: still need to write the things to be done for registration"/>
+        </target>
+</project>

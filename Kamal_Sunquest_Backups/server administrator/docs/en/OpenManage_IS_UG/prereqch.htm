@@ -1,0 +1,134 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<title>Prerequisite Checker: Dell OpenManage Version 5.0
+ Installation and Security User's Guide</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">Back to Contents Page</a> </p>
+<a name="1053126"></a><h1> Prerequisite Checker </h1>
+<p class="title">Dell OpenManage&#153; Version 5.0
+ Installation and Security User's Guide</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1053464">Command Line Operation of the Prerequisite Checker</A></P>
+
+
+<br>
+<hr noshade size="1">
+<a name="1053464"></a><h2>Command Line Operation of the Prerequisite Checker</h2>
+
+
+<a name="1054236"></a><p>You can run the prerequisite check silently by executing runprereqchecks.exe /s from the <b>\windows\PreReqChecker</b> directory. After running the prerequisite check, an HTML file will be created in the <b>%Temp%</b> directory. The file is named <b>omprereq.htm</b>, and it contains the results of the prerequisite check. The <b>Temp</b> directory is not usually <b>X:\Temp</b>, but <b>X:\Documents and Settings\username\Local Settings\Temp</b>. To find <b>%TEMP%</b>, go to a command line prompt and type <span class="screen">echo %TEMP%</span>.</p>
+<a name="1053465"></a><p>The results of the Prerequisite Checker are written to the registry for the Management Station under the registry key:</p>
+<a name="1053466"></a><p><b>HKEY_LOCAL_MACHINE\Software\Dell Computer Corporation\OpenManage&nbsp; \PreReqChecks\MS\</b></p>
+<a name="1054253"></a><p>The are written under the following key for a Managed System:</p>
+<a name="1054254"></a><p><b>HKEY_LOCAL_MACHINE\Software\Dell Computer Corporation\OpenManage&nbsp; \PreReqChecks\MN\</b></p>
+<a name="1053467"></a><p>When running the Prerequisite Check silently, the return code from <b>runprereqchecks</b>.exe will be the number associated with the highest severity condition for all of the software products. The return code numbers are the same as those used in the registry. <a href="prereqch.htm#1053477">Table&nbsp;9-1</a> details the codes that are&nbsp;returned.</p>
+<a name="1053540"></a>
+<p><p class="FigureTableTitle"><a name="1053477"></a>Table 9-1.&#32; Return Codes While Running the Prerequisite Check Silently&nbsp;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1053481"> </a>
+<p><b>Return Code</b></p>
+
+
+</th><th valign="top" align="left"><a name="1053483"> </a>
+<p><b>Description</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1053485"></a>0</p></td><td valign="top" align="left"><p><a name="1053487"></a>No condition, or conditions, is associated with the software.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053489"></a>1</p></td><td valign="top" align="left"><p><a name="1053491"></a>An informational condition, or conditions, is associated with the software. It does not prevent a software product from being installed.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053493"></a>2</p></td><td valign="top" align="left"><p><a name="1053495"></a>A warning condition, or conditions, is associated with the software. It is recommended that you resolve the conditions causing the warning before you proceed with the installation of the software.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053497"></a>3</p></td><td valign="top" align="left"><p><a name="1053499"></a>An error condition, or conditions, is associated with the software. It is required that you resolve the conditions causing the error before proceeding with the installation of that software. If you do not resolve the issues, the software will not be installed.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053501"></a>-1</p></td><td valign="top" align="left"><p><a name="1053503"></a>A Microsoft&#174; Windows&#174; Script Host (WSH) error. The Prerequisite Checker will not run.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053505"></a>-2</p></td><td valign="top" align="left"><p><a name="1053507"></a>The operating system is not supported. The Prerequisite Checker will not run.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053509"></a>-3</p></td><td valign="top" align="left"><p><a name="1053511"></a>The user does not have Administrator privileges. The Prerequisite Checker will not&nbsp;run.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053513"></a>-4</p></td><td valign="top" align="left"><p><a name="1053515"></a>Not an implemented return code.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053517"></a>-5</p></td><td valign="top" align="left"><p><a name="1053519"></a>The user failed to change the working directory to <b>%TEMP%</b>. The Prerequisite Checker will&nbsp;not run.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053521"></a>-6</p></td><td valign="top" align="left"><p><a name="1053523"></a>The destination directory does not exist. The Prerequisite Checker will not run.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053525"></a>-7</p></td><td valign="top" align="left"><p><a name="1053527"></a>An internal error has occurred. The Prerequisite Checker will not run.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053529"></a>-8</p></td><td valign="top" align="left"><p><a name="1053531"></a>The software is already running. The Prerequisite Checker will not run.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053533"></a>-9</p></td><td valign="top" align="left"><p><a name="1053535"></a>The Windows Script Host is corrupted, is a wrong version, or is not installed. The Prerequisite Checker will not run.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053537"></a>-10</p></td><td valign="top" align="left"><p><a name="1053539"></a>An error has occurred with the scripting environment. The Prerequisite Checker will not run.</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054272"></a><p>Each software product has an associated value set after running the prerequisite check. <a href="prereqch.htm#1054118">Table&nbsp;9-2</a>&nbsp; and <a href="prereqch.htm#1054148">Table&nbsp;9-3</a> provide the list of feature IDs for each software feature. The feature ID is a 2-&nbsp;to&nbsp;5-character designation.</p>
+<a name="1054214"></a>
+<p><p class="FigureTableTitle"><a name="1054118"></a>Table 9-2.&#32; Feature IDs for the Management Station</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054122"> </a>
+<p><b>Feature ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054124"> </a>
+<p><b>Description</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054126"></a>ADS</p></td><td valign="top" align="left"><p><a name="1054128"></a>Microsoft Active Directory&#174; Snap-in Utility</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054134"></a>BMC</p></td><td valign="top" align="left"><p><a name="1054136"></a>Baseboard Management Controller Management Utility</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054138"></a>ITA</p></td><td valign="top" align="left"><p><a name="1054140"></a>Dell OpenManage&#153; IT Assistant</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054142"></a>RACMS</p></td><td valign="top" align="left"><p><a name="1054144"></a>Remote Access Controller </p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054201"></a>
+<p><p class="FigureTableTitle"><a name="1054148"></a>Table 9-3.&#32; Software Feature IDs&nbsp;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054152"> </a>
+<p><b>Feature ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054154"> </a>
+<p><b>Description</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054156"></a>ALL</p></td><td valign="top" align="left"><p><a name="1054158"></a>All features</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054164"></a>BRCM</p></td><td valign="top" align="left"><p><a name="1054166"></a>Broadcom NIC Agent</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054168"></a>INTEL</p></td><td valign="top" align="left"><p><a name="1054170"></a>Intel&#174; NIC Agent</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054172"></a>IWS</p></td><td valign="top" align="left"><p><a name="1054174"></a>Dell OpenManage Server Administrator Web Server</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054176"></a>OLD</p></td><td valign="top" align="left"><p><a name="1054178"></a>Server Administrator Diagnostic Service</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054180"></a>OMSM</p></td><td valign="top" align="left"><p><a name="1054182"></a>Server Administrator Storage Management Service</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054184"></a>RAC3</p></td><td valign="top" align="left"><p><a name="1054186"></a>Remote Access Controller (DRAC III)</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054188"></a>RAC4</p></td><td valign="top" align="left"><p><a name="1054190"></a>Remote Access Controller (DRAC 4)</p></td></tr>
+<tr><td valign="top" align="left">RAC5</td><td valign="top" align="left">Remote 
+	Access Controller (DRAC 5)</td></tr>
+
+<tr><td valign="top" align="left"><p><a name="1054192"></a>SA</p></td><td valign="top" align="left"><p><a name="1054194"></a>Server Administrator</p></td></tr>
+
+</table>
+
+
+
+
+
+</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">Back to Contents Page</a></p>
+
+
+<p>&nbsp;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

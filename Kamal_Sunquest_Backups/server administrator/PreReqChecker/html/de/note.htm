@@ -1,0 +1,153 @@
+﻿<?xml version="1.0"?>
+<!-- This template is used by the Pre Requisite Check tool to report pre
+     requisite failures to the customer.  Use this template as input to the
+     prgen.vbs script along with the prereq.xml output file.  The result will
+     be an html document printed to standard out.
+
+     Normally an xsl transform would be used to accomplish the xml-to-html
+     transition, but W2K has proven a bit incosistent with its MSXML installed
+     version, so in this case it's easier to use something homegrown and avoid
+     these problems.  It would still be nice to use xsl, however.
+-->
+<!--
+	 The html elements contained within this Feature element will be created
+     for any feature that has a PRCheck whose status is non-zero.
+     Any occurance of %FeatureName% in the html below will be replaced with
+     the Feature's name attribute.  The html elements contained within the
+     PRCheck element will be created for any PRCheck that has a non-zero status.
+     Any occurance of %CaptionID%, %DescriptionID%, or %URLID% will be replaced
+     with the respective string from the xml strings file (prereqstrings.xml) -->
+<!--
+	 Right now, the Feature and PRCheck elements should only contain a single child
+	 element (which may contain its own children).  Right now these are table and tr,
+	 respectively
+-->
+<PRReportTemplate>
+	<html>
+		<head>
+			<title>Legend</title>
+			<link href="../oma.css" type="text/css" rel="stylesheet"/>
+			<script language="javascript">
+				<!--
+				var bOdd = true;
+				var allcol = "100%";
+				var col1 = 25;
+				var col1_header = 35; //add 10 since we can't use cell padding
+				var col2 = "30%";
+				var col3 = "70%";
+				var source_path = top.document.location.href;
+				function outTD(text,ncols,width)
+				{
+					document.write('<td width="' + width + '" class="data-area-canvas');
+					if( bOdd == true )
+					{
+						document.write('-odd');
+					}
+					document.write('" valign="top"');
+					if( ncols > 1 )
+					{
+					document.write(' colspan="' + ncols + '"');
+					}
+					document.write('>' + ' ' + text + '</td>');
+				}
+				function init()
+				{
+					var button;
+					button = document.getElementById("optional_button_area");
+					if( top != this )
+					{
+						button.style.visibility = 'visible';
+					}
+					else
+					{
+						button.style.visibility = 'hidden';
+					}
+				}
+			-->
+			</script>
+		</head>
+		<body onload="init()" tabindex="-1">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td width="10"><script language="javascript">document.write('<img src="../images/data_tl.gif"/>');</script></td>
+					<td class="data-area-canvas"><script language="javascript">document.write('<img src="../images/blank.gif" width="10"/>');</script></td>
+					<td width="10"><script language="javascript">document.write('<img src="../images/data_tr.gif"/>');</script></td>
+				</tr>
+				<tr>
+					<td class="data-area-canvas"><script language="javascript">document.write('<img src="../images/blank.gif" width="10"/>');</script></td>
+					<td>
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tr>
+								<th align="left" class="data-area-canvas" width="25"><img src="../images/blank.gif" width="35" height="10"/></th>
+								<HeadingTemplate>
+									<script language="javascript">
+									document.write('<th align="left" class="data-area-canvas" tabindex="-1" width="30%"><strong><span id="feature_header">');
+									document.write('<HeadingFeatureElement>Legende</HeadingFeatureElement>');
+									document.write('</span></strong></th>');
+									document.write('<th align="left" class="data-area-canvas" width="70%"><strong><span id="desc_header">');
+									document.write('<HeadingDescriptionElement></HeadingDescriptionElement>');
+									document.write('</span></strong></th>');
+								</script>
+								</HeadingTemplate>
+							</tr>
+							<tr>
+								<td colspan="3" height="2" width="100%" bgcolor="#000000"><script language="javascript">document.write('<img src="../images/blank.gif" height="2"/>');</script></td>
+							</tr>
+						</table>
+					</td>
+					<td class="data-area-canvas"><script language="javascript">document.write('<img src="../images/blank.gif" width="10" tabindex="-1"/>');</script></td>
+				</tr>
+				<tr>
+					<td class="data-area-canvas"><script language="javascript">document.write('<img src="../images/blank.gif" width="10" tabindex="-1"/>');</script></td>
+					<td>
+						<table border="0" cellpadding="5" cellspacing="0" width="100%">
+							<tr>
+							<script language="javascript">
+								outTD('<img src="../images/information.gif"/>', 1, col1);
+								outTD('<CaptionID>Informationsmeldung</CaptionID>',1,col2);
+								var outDesc = "<DescriptionID>Eine Informationsmeldung beschreibt einen Zustand, auf den Sie aufmerksam gemacht werden sollen. Eine solche Meldung verhindert nicht, dass eine Funktion installiert wird.</DescriptionID>";
+								outTD(  outDesc, 1, col3);
+								bOdd=!bOdd;
+							</script>
+							</tr>
+							<tr>
+							<script language="javascript">
+								outTD('<img src="../images/non-critical.gif"/>', 1, col1);
+								outTD('<CaptionID>Warnungsmeldung</CaptionID>',1,col2);
+								var outDesc = "<DescriptionID>Eine Warnungsmeldung beschreibt einen Zustand, der die Installation eines Softwareprodukts während einer Schnellinstallation verhindert. Verwenden Sie die \"benutzerdefinierte\" Installation, um diese Funktion auszuwählen.</DescriptionID>";
+								outTD(  outDesc, 1, col3);
+								bOdd=!bOdd;
+							</script>
+							</tr>
+							<tr>
+							<script language="javascript">
+								outTD('<img src="../images/non-recoverable.gif"/>', 1, col1);
+								outTD('<CaptionID>Fehlermeldung</CaptionID>',1,col2);
+								var outDesc = "<DescriptionID>Eine Fehlermeldung beschreibt einen Zustand, auf den Sie aufmerksam gemacht werden sollen. Dieser Zustand verhindert die Installation der Software.</DescriptionID>";
+								outTD(  outDesc, 1, col3);
+								bOdd=!bOdd;
+							</script>
+							</tr>
+						</table>
+					</td>
+					<td class="data-area-canvas" tabindex="-1"><script language="javascript">document.write('<img src="../images/blank.gif" width="10"/>');</script></td>
+				</tr>
+				<tr>
+					<td width="10"><script language="javascript">document.write('<img src="../images/data_bl.gif"/>');</script></td>
+					<td class="data-area-canvas"><script language="javascript">document.write('<img src="../images/blank.gif" width="10"/>');</script></td>
+					<td width="10"><script language="javascript">document.write('<img src="../images/data_br.gif"/>');</script></td>
+				</tr>
+			</table>
+<br/>
+
+
+			<script language="javascript">
+				bOdd=true;
+			</script>
+			</table>
+			<div id="optional_button_area" style="visibility:hidden">
+				<br/>
+			</div>
+		</body>
+	</html>
+</PRReportTemplate>

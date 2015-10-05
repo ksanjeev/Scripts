@@ -1,0 +1,253 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<title>Introduction: Dell OpenManage Version 5.0
+ Installation and Security User's Guide</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">Back to Contents Page</a> </p>
+<a name="1039152"></a><h1> Introduction </h1>
+<p class="title">Dell OpenManage&#153; Version 5.0
+ Installation and Security User's Guide</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1043589">Overview</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1045837">Dell OpenManage Systems Management Software Components</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1043763">Other Documents You Might Need</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1045381">Obtaining Technical Assistance</A></P>
+
+
+<br>
+<hr noshade size="1">
+<a name="1043589"></a><h2>Overview</h2>
+
+
+<a name="1046101"></a><p>This guide contains information to help you install Dell OpenManage&#153; software on management stations and their managed systems. A <i>managed system</i> is a system that has supported instrumentation or agents installed that allow the system to be discovered and polled for status. A&nbsp;<i>management station</i> is used to remotely manage one or more managed systems from a central location. See <a href="intro.htm#1052269">Figure&nbsp;1-1</a> for a view of a management station and its managed systems. In addition, this guide provides information and instructions for configuring your systems before and during a deployment or upgrade. The following topics are&nbsp;covered:</p>
+<ul><li><a name="1047395"></a><a href="security.htm#1039152">Dell OpenManage&#153; Security</a><br><br></li>
+<li><a name="1047396"></a><a href="setup.htm#1059954">Setup and Administration</a><br><br></li>
+<li><a name="1047400"></a><a href="instos.htm#1043338"><a href="instos.htm#1043338">Using Server Assistant to Install an Operating&nbsp;System</a></a><br><br></li>
+<li><a name="1059416"></a><a href="instms.htm#1043338">Installing Management Station Software</a><br><br></li>
+<li><a name="1059476"></a><a href="instwin.htm#1056417">Installing Managed System Software on Microsoft&#174; Windows&#174; Operating Systems</a><br><br></li>
+<li><a name="1059489"></a><a href="instlx.htm#1054425">Installing Managed System Software on Red Hat&#174; Enterprise Linux and SUSE&#174; Linux Operating Systems</a><br><br></li>
+<li><a name="1059491"></a><a href="mad.htm#1055432">Using Microsoft&#174; Active Directory&#174;</a><br><br></li>
+<li><a name="1059492"></a><a href="prereqch.htm#1053126">Prerequisite Checker</a><br><br></li>
+<li><a name="1055067"></a><a href="faq.htm#1055187">Frequently Asked Questions</a><br><br></li>
+</ul><a name="1046215"></a><h3> Systems Management Software Overview
+</h3>
+<a name="1046216"></a><p>Dell OpenManage systems management software is a suite of application programs for Dell&#153;&nbsp;PowerEdge&#153; systems and some Dell PowerVault&#153; systems. This software enables you to manage your systems with proactive monitoring, diagnosis, notification, and remote access. </p>
+<a name="1051819"></a><p>Each system managed by Dell OpenManage systems management software is called a managed system. You can manage a managed system either locally or remotely. Software applications that you may install onto the managed systems include Dell OpenManage Server Administrator (which includes the Storage Management Service, Diagnostic Service, and the Server Administrator Web server), SNMP agents for Intel&#174; or Broadcom network interface cards (NICs), and remote access controller (RAC) software.</p>
+<a name="1051809"></a><p>A management station can be used to remotely configure and maintain one or more managed systems from a central location. Dell OpenManage IT Assistant and the other management station applications enable you to manage from one to thousands of managed systems. For instance, a management station can be used to deploy images of physical media to virtual media at many managed systems.</p>
+<a name="1054174"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>If you install management station and managed system software on the same system, install identical 
+software versions to avoid system conflicts.
+</td>
+  </tr>
+</table><a name="1054179"></a><p><a href="intro.htm#1052269">Figure&nbsp;1-1</a> illustrates the relationship between a management station and its managed systems. Also, <a href="intro.htm#1052269">Figure&nbsp;1-1</a> shows the operating systems and the Dell OpenManage software products that you can install on the managed systems. The documentation CD can be accessed from any system with a monitor, keyboard, and mouse.</p>
+<a name="1052261"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>The <i>Dell PowerEdge Updates</i> CD is included in the Dell OpenManage Subscription Service Kit only; it is not 
+included in the Dell OpenManage Systems Management Software Kit.
+</td>
+  </tr>
+</table><p class="FigureTableTitle"><a name="1052269"> </a>
+Figure 1-1.&#32; Example of a Management Station and Managed Systems
+</p>
+
+<a name="1052352"></a>
+<p><img src="introa.jpg" height="469" width="577" align="center" border="0" hspace="0" vspace="0">
+</p><a name="1052092"></a><h3> Dell OpenManage Systems Management Software Kit Contents
+</h3>
+<a name="1052093"></a><p>The Dell OpenManage Systems Management Software Kit includes, but is not limited to, the following&nbsp;components: </p>
+<ul><li><a name="1052095"></a><i>Dell OpenManage Software Quick Installation Guide</i> &#151; Provides an overview of applications that you can install on your management station (console) and on your managed systems. This guide&#151;located on the <i>Documentation</i> CD&#151;also contains procedures for installing your console and managed system applications on systems running supported operating systems.<br><br></li>
+<li><a name="1047679"></a><i>Dell Systems Management Consoles </i>CD &#151; Contains the Dell systems management console products for your management stations. The CD includes IT Assistant and other systems management applications. <br><br></li>
+<li><a name="1047680"></a><i>Dell PowerEdge Installation and Server Management</i> CD &#151; Provides the tools that you need to install an operating system and configure your managed systems, including Server Administrator Instrumentation, Diagnostics, Storage Management, and Remote Access services. <br><br></li>
+<li><a name="1047681"></a><i>Dell PowerEdge Service and Diagnostic Utilities</i> CD &#151; Provides tools to configure your managed systems and delivers the latest diagnostics and Dell-optimized drivers for your managed systems. <br><br></li>
+<li><a name="1047682"></a><i>Dell PowerEdge Documentation</i> CD &#151; Helps you stay current with documentation for systems, systems management software products, peripherals, and RAID controllers.<br><br></li>
+<li><a name="1055075"></a><i>Dell PowerEdge Updates</i> CD - Contains the Server Update Utility (SUU), which is a CD-based application for identifying and applying updates to your system. SUU is delivered on separate CDs for Microsoft&#174; Windows&#174; and Linux.<br><br></li>
+</ul><a name="1050002"></a><p>Most of these CDs also contain readme files, which provide the latest product information.</p>
+<a name="1049973"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>The <i>Dell PowerEdge Updates</i> CD is only available as part of the Subscription Service kit or from the Dell 
+Support website at <b>support.dell.com</b>.
+</td>
+  </tr>
+</table><a name="1049525"></a><p>Compare the contents of your system accessories box with the packing slip or invoice enclosed with your system. If any components are missing or damaged, call Dell within 30 days of the invoice date for a free replacement. For more information, see "<a href="intro.htm#1045381">Obtaining Technical Assistance</a>."</p>
+<a name="1056894"></a><h3> What's New
+</h3>
+<ul><li><a name="1057114"></a>Support for PowerEdge 1900, 1955, 2900, and 2950 systems<br><br></li>
+<li><a name="1060458"></a>Support for SUSE&#174; Linux Enterprise Server (version 9), SP3 for Intel Extended Memory 64 Technology (Intel EM64T)<br><br></li>
+<li><a name="1060558"></a>Support for Windows Storage Server 2003 R2 (Express, Standard, Workgroup, and Enterprise editions) <br><br></li>
+<li><a name="1060559"></a>Support for Dell Remote Access Controller 5 (DRAC 5)<br><br></li>
+<li><a name="1060199"></a>Support for Dell PowerEdge RAID Controller 5 (PERC 5)<br><br></li>
+<li><a name="1060467"></a>Dell OpenManage Array Manager is now replaced by Server Administrator Storage Management<br><br></li>
+</ul><a name="1060208"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTE: </span> Dell OpenManage Array Manager Console is not available under Windows if no previous 	 
+Management Station software (with Array Manager Console installed) is detected. It is only available for upgrade.
+</td>
+  </tr>
+</table>
+<a name="1056896"></a><p>For more information, see the Dell OpenManage website at <b>www.dell.com/openmanage</b>.</p>
+<hr noshade size="1">
+<a name="1045837"></a><h2>Dell OpenManage Systems Management Software Components</h2>
+
+
+<a name="1044096"></a><h3> Deployment Software (Dell PowerEdge Installation and Server Management CD)
+</h3>
+<a name="1048146"></a><p>For managed systems, Dell OpenManage Server Assistant provides streamlined operating system installation, reducing the time required for the installation of Windows, Red Hat&#174; Enterprise Linux, and SUSE Linux Enterprise Server operating systems by guiding you through an easy-to-follow, step-by-step process. </p>
+<a name="1046148"></a><p>In addition, Server Assistant provides the necessary tools for setting up and configuring PowerEdge systems and software. The tools permit discovery and configuration of Dell-provided RAID controllers and network adapters. </p>
+<a name="1046123"></a><h3> Management Station Software (Dell Systems Management Consoles CD)
+</h3>
+<a name="1046746"></a><h4> IT Assistant</h4>
+<a name="1051590"></a><p>IT Assistant is a Web-based graphical user interface (GUI) that provides a central point of access to monitor and manage systems on a local area network (LAN) or a wide area network (WAN). By providing a comprehensive view across the enterprise, IT Assistant can increase system uptime, reduce repetitive tasks, and prevent interruption during critical business operations. </p>
+<a name="1051577"></a><p>Using IT Assistant, you can:</p>
+<ul><li><a name="1046752"></a>Identify the groups of systems that you want to manage remotely<br><br></li>
+<li><a name="1046753"></a>Consolidate your view of all systems, providing a central launch point for systems&nbsp;management<br><br></li>
+<li><a name="1046754"></a>Create alert filters and actions that will automatically notify you when system uptime is&nbsp;affected<br><br></li>
+<li><a name="1046756"></a>Create custom enterprise-wide reports that show the status of each system, including switches, storage devices, BIOS, firmware, and driver versions<br><br></li>
+<li><a name="1051268"></a>Create customized tasks that allow you to coordinate configuration management across the entire enterprise, including performing software updates, shutdown and wakeup, and command line execution<br><br></li>
+<li><a name="1053086"></a>View a graphical presentation of the devices in your network, from which you can launch applications, refresh inventory and status, and perform troubleshooting<br><br></li>
+<li><a name="1053087"></a>Launch the following Dell systems management applications: Server Administrator, Remote Access Console, Dell PowerConnect&#153;, and Digital KVM (keyboard/video/mouse)<br><br></li>
+<li><a name="1053105"></a>Load Dell Update Packages and System Update Sets into a central repository, then compare the packages to the versions of the software currently running on your enterprise systems<br><br></li>
+</ul><a name="1051272"></a><h4> Dell Remote Access Controller Management Station</h4>
+<a name="1051283"></a><p>The Dell Remote Access Controller (RAC) console is management station software designed to provide remote management capabilities for PowerEdge systems. You can remotely connect to RAC hardware using the RAC management station software. The following RAC features are implemented in the hardware and are available either by using a browser or by way of the racadm&nbsp;CLI: </p>
+<ul><li><a name="1051301"></a>Hardware sensor monitors, such as temperature, voltage, and fans<br><br></li>
+<li><a name="1051302"></a>Access to hardware and alert logs<br><br></li>
+<li><a name="1051303"></a>Ability to generate alerts, even when the system is down<br><br></li>
+<li><a name="1051329"></a>Remote system power up and power down<br><br></li>
+<li><a name="1051330"></a>Remote floppy boot operations<br><br></li>
+</ul><a name="1054097"></a><p>See the <i>Dell Remote Access Controller 4 User's Guide</i> or <i>Dell Remote Access Controller 5 User's Guide </i>for more information about how to use the racadm CLI to connect to a managed system to execute racadm commands from a remote console, or to connect to a management station using the IP address of the managed station.</p>
+<a name="1051332"></a><h4> Baseboard Management Controller (BMC) Management Utility</h4>
+<a name="1051276"></a><p>The BMC Management Utility provides a command line based remote management station to manage all supported BMC functions. Use the BMC Management Utility to manage a BMC from a remote management station, and as a managed system's emergency management console. The utility gives you the option of using either a command line interface (Intelligent Platform Management Interface [IPMI shell] or a Serial-Over-LAN proxy [SOL Proxy]) to access and manage the BMC.</p>
+<a name="1046872"></a><p>The BMC monitors the system for critical events by communicating with various sensors on the system board and sending alerts and logs events when certain parameters exceed their preset thresholds. The&nbsp;BMC supports the industry-standard IPMI specification, enabling you to configure, monitor, and recover systems remotely. </p>
+<a name="1051598"></a><p>The BMC provides the following features:</p>
+<ul><li><a name="1051601"></a>Management access through the system's serial port and integrated NIC<br><br></li>
+<li><a name="1051604"></a>Fault logging and SNMP alerting<br><br></li>
+<li><a name="1050318"></a>Access to the system event log (SEL) and sensor status<br><br></li>
+<li><a name="1046876"></a>System function controls, including power on and off<br><br></li>
+<li><a name="1051337"></a>Support that is independent of the system's power or operating state<br><br></li>
+<li><a name="1051339"></a>Text console redirection for system setup, text-based utilities, and operating system consoles<br><br></li>
+<li><a name="1051341"></a>Access to Red Hat Enterprise Linux and SUSE Linux Enterprise Server serial console interfaces using&nbsp;SOL<br><br></li>
+</ul><a name="1050482"></a><h4> Active Directory Snap-in Utility</h4>
+<a name="1050489"></a><p>The Microsoft Active Directory Snap-in utility provides an extension snap-in to the Microsoft Active Directory Users Active Directory and Computers snap-in, which allows you to manage Dell-specific Active Directory objects.</p>
+<a name="1050491"></a><p>You can use this option when the Dell-specific schema classes have been added to the Active Directory&nbsp;schema.</p>
+<a name="1050485"></a><h3> Managed System Software (Dell PowerEdge Installation and Server Management CD)
+</h3>
+<a name="1047098"></a><h4> Server Administrator</h4>
+<a name="1049546"></a><p>Server Administrator provides a comprehensive, one-to-one systems management solution using an integrated Web browser-based GUI (the Server Administrator home page) or a command line interface (CLI) feature. Server Administrator includes the following integrated services and features:</p>
+<a name="1055497"></a><h5> Instrumentation Service</h5>
+<a name="1047126"></a><p>The Instrumentation Service provides rapid access to detailed fault and performance information gathered by systems management agents and allows remote administration of monitored systems, including shutdown, startup, and security. </p>
+<a name="1047127"></a><h5> Remote Access Service</h5>
+<a name="1060098"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>The Remote Access Service is not available on modular systems. You must directly connect to the RAC on 
+a modular system. See the <i>Dell Embedded Remote Access/MC User's Guide, </i>the <i>Dell Remote Access Controller 4 
+User's Guide, </i>or the<i> Dell Remote Access Controller 5 User's Guide </i>for more information.
+</td>
+  </tr>
+</table><a name="1060100"></a><p>The Remote Access Service provides the following features:</p>
+<ul><li><a name="1051655"></a>Remote access to an inoperable system, allowing you to shut down, restart, and get the system up and running as quickly as possible<br><br></li>
+<li><a name="1051650"></a>Alert notification when a system is down<br><br></li>
+<li><a name="1051651"></a>System crash logs that record the probable cause of system crashes and saves the most recent crash screen<br><br></li>
+</ul><a name="1051645"></a><p>You must have Server Administrator on your system to install the Remote Access Service. </p>
+<a name="1053113"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>The Server Administrator Remote Access Service and Remote Access Controller Management Station 
+cannot be installed on a system at the same time. If both Server Administrator and Management Station are 
+installed at the same time and RAC support is required, install Server Administrator Remote Access Service. 
+It&nbsp;provides all the functionality of the Remote Access Controller Management Station.
+</td>
+  </tr>
+</table><a name="1050144"></a><h5> Storage Management Service</h5>
+<a name="1047135"></a><p>The Storage Management Service provides enhanced features for managing a system's locally-attached RAID and non-RAID disk storage. </p>
+<a name="1051668"></a><p>The Storage Management Service provides the following features:</p>
+<ul><li><a name="1047139"></a>Enables you to view the status of local and remote storage attached to a monitored system<br><br></li>
+<li><a name="1047140"></a>Supports SAS, SCSI, SATA, and ATA, but does not support Fibre Channel<br><br></li>
+<li><a name="1047144"></a>Allows you to perform controller and enclosure functions for all supported RAID and non-RAID controllers and enclosures from a single graphical interface or a CLI, without the use of the controller BIOS utilities<br><br></li>
+<li><a name="1049051"></a>Protects your data by configuring data redundancy, assigning hot spares, or rebuilding failed&nbsp;drives<br><br></li>
+</ul><a name="1053169"></a><h5> Diagnostic Service</h5>
+<a name="1053175"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>The Diagnostic Service is not available on modular systems.
+</td>
+  </tr>
+</table><a name="1053177"></a><p>The Diagnostic Service provides a suite of diagnostic programs that run locally on your system or are controlled remotely by a management station connected to the network. The Diagnostic Service diagnoses problems on individual systems and runs concurrently with all other applications running on the tested system.</p>
+<a name="1051015"></a><h3> Diagnostics (Dell PowerEdge Service and Diagnostic Utilities CD)
+</h3>
+<a name="1057629"></a><p>The Dell PowerEdge Diagnostics is a suite of diagnostic programs, or test modules, that run locally on your system. You can select the appropriate diagnostics tests to run from the <b>Diagnostic Selection</b> tree containing the hardware that PowerEdge Diagnostics discovers on your system.</p>
+<a name="1057632"></a><h3> Drivers (Dell PowerEdge Service and Diagnostic Utilities CD)
+</h3>
+<a name="1057634"></a><p>The Extraction Utility enables you to view and create Dell software driver and diagnostic floppy&nbsp;disks. </p>
+<a name="1047112"></a><h3> Change Management (Dell PowerEdge Updates CD)
+</h3>
+<a name="1047120"></a><p>The <i>Dell PowerEdge Updates</i> CD includes the Server Update Utility (SUU). SUU is a CD-based application for identifying and applying updates to your system. SUU is a dual-purpose application and is easy to use. You can use SUU to update your PowerEdge server or to view the updates available for any system listed in the Repository.</p>
+<a name="1058172"></a><p>SUU facilitates change management by allowing you to update system components using an application that compares the version of currently installed components with updated components packaged on a CD and stored in a Repository. A full session of SUU would typically run an inventory of installed components and their versions, provide a comparison report between what is installed currently on the system and what the latest component versions are in the Repository, and leave to you the decision whether to apply the Dell component System Update Set to update the system or not. You can customize the packages you want to upgrade. You can rollback newer versions of components on your system to the corresponding component version contained on the <i>Dell PowerEdge Updates</i> CD. SUU is delivered on separate CDs for Microsoft Windows and Linux.</p>
+<hr noshade size="1">
+<a name="1043763"></a><h2>Other Documents You Might Need</h2>
+
+
+<a name="1043764"></a><p>Besides this <i>guide</i>, you can find the following guides either on the Dell Support website at <b>support.dell.com</b> or on the <i>Documentation</i> CD:</p>
+<ul><li><a name="1053190"></a>The <i>Dell OpenManage Software Quick Installation Guide</i> provides an overview of applications that you can install on your management station, or console, and on your managed systems. It also has procedures for installing your console and managed system applications.<br><br></li>
+<li><a name="1059974"></a>The <i>Dell OpenManage Server Administrator User's Guide </i>describes the installation and use of Server Administrator. Server Administrator provides easy-to-use management and administration of local and remote systems through a comprehensive set of integrated management services.<br><br></li>
+<li><a name="1059977"></a>The <i>Dell OpenManage Server Administrator Compatibility Guide</i> provides compatibility information about Server Administrator installation and operation on various hardware platforms (or systems) running supported Microsoft Windows, Red Hat Enterprise Linux, and SUSE Linux Enterprise Server operating systems.<br><br></li>
+<li><a name="1059979"></a>The <i>Dell OpenManage Server Administrator SNMP Reference Guide</i> documents the Simple Network Management Protocol (SNMP) management information base (MIB). The SNMP MIB defines variables that extend the standard MIB to cover the capabilities of systems management agents.<br><br></li>
+<li><a name="1043768"></a>The <i>Dell OpenManage Server Administrator CIM Reference Guide</i> documents the Common Information Model (CIM) provider, which is an extension of the standard management object format (MOF) file. This guide explains the supported classes of management objects.<br><br></li>
+<li><a name="1043769"></a>The <i>Dell OpenManage Server Administrator Messages Reference Guide</i> lists the messages that are displayed in the Server Administrator home page Alert log, or on your operating system's event viewer. This guide explains the text, severity, and cause of each alert message that Server Administrator issues.<br><br></li>
+<li><a name="1043770"></a>The <i>Dell OpenManage Server Administrator Command Line Interface User's Guide</i> documents the complete command line interface for Server Administrator, including an explanation of CLI&nbsp;commands to view system status, access logs, create reports, configure various component parameters, and set critical thresholds.<br><br></li>
+<li><a name="1049666"></a>The Dell OpenManage IT Assistant User's Guide has information about installing, configuring, and using IT Assistant. IT Assistant provides a central point of access to monitor and manage systems on a local area network (LAN) or wide area network (WAN). By allowing an administrator a comprehensive view across the enterprise, IT Assistant can increase system uptime, automate repetitive tasks, and prevent interruption in critical business operations.<br><br></li>
+<li><a name="1053704"></a>The <i>Dell Remote Access Controller 4 User's Guide</i> provides complete information about installing and configuring a DRAC 4 controller and using DRAC 4 to remotely access an inoperable system.<br><br></li>
+<li><a name="1060511"></a>The <i>Dell Remote Access Controller 5 User's Guide</i> provides complete information about installing and configuring a DRAC 5 controller and using DRAC 5 to remotely access an inoperable system.<br><br></li>
+<li><a name="1047541"></a>The <i>Dell Remote Access Controller/MC User's Guide</i> provides complete information about installing and configuring a DRAC/MC controller and using DRAC/MC to remotely access an inoperable system.<br><br></li>
+<li><a name="1043801"></a>The <i>Dell Remote Access Controller Installation and Setup Guide</i> provides complete information about installing and configuring a DRAC III, DRAC III/XT, or ERA/O controller, configuring an ERA&nbsp;controller, and using a RAC to remotely access an inoperable system.<br><br></li>
+<li><a name="1043773"></a>The <i>Dell Remote Access Controller Racadm User's Guide</i> provides information about using the racadm command line utility to manage DRAC III, DRAC III/XT, ERA, and ERA/O controllers.<br><br></li>
+<li><a name="1044268"></a>The <i>Dell Embedded Remote Access/MC Controller User's Guide</i> provides complete information about configuring and using an ERA/MC controller to remotely manage and monitor your modular system and its shared resources through a network.<br><br></li>
+<li><a name="1049686"></a>The <i>Dell Update Packages User's Guide</i> provides information about obtaining and using Dell&nbsp;Update Packages as part of your system update strategy.<br><br></li>
+<li><a name="1049673"></a>The <i>Dell PowerEdge Installation and Server Management</i> and <i>Systems Management Consoles </i>CDs contain readme files for most applications found on the CDs.<br><br></li>
+</ul><hr noshade size="1">
+<a name="1045381"></a><h2>Obtaining Technical Assistance</h2>
+
+
+<a name="1045382"></a><p>If at any time you do not understand a procedure described in this guide, or if your product does not perform as expected, different types of help are available. For more information, see "Getting Help" in your system's <i>Hardware Owner's Manual</i>.</p>
+<a name="1043149"></a><p>Additionally, Dell Enterprise Training and Certification is available; see <b>www.dell.com/training</b> for more information. This service might not be offered in all locations.</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">Back to Contents Page</a></p>
+
+
+<p>&nbsp;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

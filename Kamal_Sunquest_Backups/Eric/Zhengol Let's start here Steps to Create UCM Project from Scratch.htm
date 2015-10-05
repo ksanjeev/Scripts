@@ -1,0 +1,679 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0073)http://zhengol.blogspot.com/2007/11/steps-to-create-ucm-project-from.html -->
+<HTML dir=ltr><HEAD><TITLE>Zhengol: Let's start here: Steps to Create UCM Project from Scratch</TITLE>
+<SCRIPT type=text/javascript>(function() { var a=window;function d(){this.t={};this.tick=function(b,c){this.t[b]=[(new Date).getTime(),c]};this.tick("start")}var e=new d;a.jstiming={Timer:d,load:e};if(a.external&&a.external.pageT)a.jstiming.pt=a.external.pageT;function f(b){var c=0;if(b.offsetParent){do c+=b.offsetTop;while(b=b.offsetParent)}return c}a.tickAboveFold=function(b){f(b)<=750&&a.jstiming.load.tick("aft")};var g=false;function h(){if(!g){g=true;a.jstiming.load.tick("firstScrollTime")}}a.addEventListener?a.addEventListener("scroll",h,false):a.attachEvent("onscroll",h); })();</SCRIPT>
+
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META content=true name=MSSmartTagsPreventParsing>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR><LINK 
+href="http://www.blogger.com/favicon.ico" type=image/vnd.microsoft.icon 
+rel=icon><LINK title="Zhengol: Let's start here - Atom" 
+href="http://zhengol.blogspot.com/feeds/posts/default" type=application/atom+xml 
+rel=alternate><LINK title="Zhengol: Let's start here - RSS" 
+href="http://zhengol.blogspot.com/feeds/posts/default?alt=rss" 
+type=application/rss+xml rel=alternate><LINK 
+title="Zhengol: Let's start here - Atom" 
+href="http://www.blogger.com/feeds/4956808384161899942/posts/default" 
+type=application/atom+xml rel=service.post><LINK title=RSD 
+href="http://www.blogger.com/rsd.g?blogID=4956808384161899942" 
+type=application/rsd+xml rel=EditURI><LINK 
+title="Zhengol: Let's start here - Atom" 
+href="http://zhengol.blogspot.com/feeds/7593714539291532139/comments/default" 
+type=application/atom+xml rel=alternate>
+<STYLE id=page-skin-1 type=text/css>BODY {
+	BACKGROUND: #ccc; MARGIN: 0px; FONT: small Trebuchet MS, Verdana, Arial, Sans-serif; COLOR: #000000; TEXT-ALIGN: center
+}
+#outer-wrapper {
+	MARGIN: 0px auto; FONT: 100% 'Trebuchet MS',Verdana,Arial,Sans-serif; WIDTH: 740px; TEXT-ALIGN: left
+}
+#main-wrap1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 97%; BACKGROUND: url(http://www1.blogblog.com/rounders2/corners_main_bot.gif) #ffffff no-repeat left bottom; FLOAT: left; PADDING-BOTTOM: 10px; MARGIN: 15px 0px 0px; OVERFLOW: hidden; WIDTH: 485px; COLOR: #000000; LINE-HEIGHT: 1.5em; PADDING-TOP: 0px; WORD-WRAP: break-word
+}
+#main-wrap2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(http://www1.blogblog.com/rounders2/corners_main_top.gif) no-repeat left top; FLOAT: left; PADDING-BOTTOM: 0px; WIDTH: 100%; PADDING-TOP: 10px
+}
+#main {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(http://www.blogblog.com/rounders2/rails_main.gif) repeat-y left 50%; PADDING-BOTTOM: 0px; WIDTH: 485px; PADDING-TOP: 0px
+}
+#sidebar-wrap {
+	FONT-SIZE: 97%; FLOAT: right; MARGIN: 15px 0px 0px; OVERFLOW: hidden; WIDTH: 240px; LINE-HEIGHT: 1.5em; WORD-WRAP: break-word
+}
+.main .widget {
+	PADDING-RIGHT: 13px; MARGIN-TOP: 4px; PADDING-LEFT: 13px; PADDING-BOTTOM: 0px; WIDTH: 468px; PADDING-TOP: 0px
+}
+.main .Blog {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 484px; PADDING-TOP: 0px
+}
+A:link {
+	COLOR: #bb3300
+}
+A:visited {
+	COLOR: #cc6633
+}
+A:hover {
+	COLOR: #cc6633
+}
+A IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+#header-wrapper {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(http://www2.blogblog.com/rounders2/corners_cap_top.gif) #771100 no-repeat left top; PADDING-BOTTOM: 0px; MARGIN: 22px 0px 0px; COLOR: #ffffff; PADDING-TOP: 8px
+}
+#header {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 15px; BACKGROUND: url(http://www.blogblog.com/rounders2/corners_cap_bot.gif) no-repeat left bottom; PADDING-BOTTOM: 8px; PADDING-TOP: 0px
+}
+#header H1 {
+	PADDING-RIGHT: 30px; PADDING-LEFT: 30px; PADDING-BOTTOM: 5px; MARGIN: 0px; FONT: bold 200% 'Trebuchet MS',Verdana,Arial,Sans-serif; PADDING-TOP: 10px
+}
+#header A {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+#header A:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+#header .description {
+	PADDING-RIGHT: 30px; PADDING-LEFT: 30px; PADDING-BOTTOM: 10px; MARGIN: 0px; FONT: 100% 'Trebuchet MS',Verdana,Arial,Sans-serif; PADDING-TOP: 5px
+}
+H2.date-header {
+	FONT-SIZE: 85%; MARGIN: 0px 28px 0px 43px; TEXT-TRANSFORM: uppercase; COLOR: #881100; LINE-HEIGHT: 2em; LETTER-SPACING: 0.2em
+}
+.post {
+	BORDER-RIGHT: #bbbbbb 0px dotted; PADDING-RIGHT: 13px; BORDER-TOP: #bbbbbb 1px dotted; PADDING-LEFT: 13px; PADDING-BOTTOM: 0px; MARGIN: 0.3em 0px 25px; BORDER-LEFT: #bbbbbb 0px dotted; PADDING-TOP: 0px; BORDER-BOTTOM: #bbbbbb 1px dotted
+}
+.post H3 {
+	BORDER-RIGHT: #bbbbbb 1px dotted; PADDING-RIGHT: 14px; BORDER-TOP: #bbbbbb 0px dotted; DISPLAY: block; PADDING-LEFT: 29px; BACKGROUND: url(http://www2.blogblog.com/rounders2/icon_arrow.gif) no-repeat 10px 0.5em; PADDING-BOTTOM: 2px; MARGIN: 0px; FONT: bold 135% 'Trebuchet MS',Verdana,Arial,Sans-serif; BORDER-LEFT: #bbbbbb 1px dotted; COLOR: #333333; PADDING-TOP: 2px; BORDER-BOTTOM: #bbbbbb 1px dotted
+}
+.post H3 A {
+	COLOR: #333333; TEXT-DECORATION: none
+}
+.post H3 A:visited {
+	COLOR: #333333; TEXT-DECORATION: none
+}
+A.title-link:hover {
+	COLOR: #000000; BACKGROUND-COLOR: #bbbbbb
+}
+.post-body {
+	BORDER-RIGHT: #bbbbbb 1px dotted; PADDING-RIGHT: 14px; BORDER-TOP: #bbbbbb 0px dotted; PADDING-LEFT: 29px; PADDING-BOTTOM: 1px; BORDER-LEFT: #bbbbbb 1px dotted; PADDING-TOP: 10px; BORDER-BOTTOM: #ffffff 1px dotted
+}
+UNKNOWN {
+	BORDER-BOTTOM-WIDTH: 0px
+}
+.post-body {
+	MARGIN: 0px 0px 0.75em
+}
+.post-body BLOCKQUOTE {
+	LINE-HEIGHT: 1.3em
+}
+.post-footer {
+	BORDER-RIGHT: #bbbbbb 1px dotted; PADDING-RIGHT: 14px; BORDER-TOP: #bbbbbb 1px dotted; PADDING-LEFT: 29px; FONT-SIZE: 100%; BACKGROUND: #eee; PADDING-BOTTOM: 2px; MARGIN: 0px; BORDER-LEFT: #bbbbbb 1px dotted; COLOR: #666; LINE-HEIGHT: 1.5em; PADDING-TOP: 2px; BORDER-BOTTOM: #bbbbbb 1px dotted
+}
+.post-footer-line-1 {
+	MIN-HEIGHT: 1.5em; HEIGHT: 1.5em
+}
+.post-footer P {
+	MARGIN: 0px
+}
+UNKNOWN {
+	BORDER-BOTTOM-COLOR: transparent
+}
+.uncustomized-post-template .post-footer {
+	TEXT-ALIGN: right
+}
+.uncustomized-post-template .post-author {
+	DISPLAY: block; FLOAT: left; MARGIN-RIGHT: 4px; TEXT-ALIGN: left
+}
+.uncustomized-post-template .post-timestamp {
+	DISPLAY: block; FLOAT: left; MARGIN-RIGHT: 4px; TEXT-ALIGN: left
+}
+.post-footer A {
+	COLOR: #bb3300
+}
+.post-footer A:hover {
+	COLOR: #cc6633
+}
+A.comment-link {
+	PADDING-LEFT: 14px; BACKGROUND: url(http://www.blogblog.com/rounders/icon_comment_left.gif) no-repeat left 45%
+}
+UNKNOWN {
+	PADDING-LEFT: 14px; BACKGROUND: url(http://www.blogblog.com/rounders2/icon_comment_left.gif) no-repeat left 45%
+}
+.post IMG {
+	BORDER-RIGHT: #bbbbbb 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: #bbbbbb 1px solid; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; MARGIN: 0px 0px 5px; BORDER-LEFT: #bbbbbb 1px solid; PADDING-TOP: 4px; BORDER-BOTTOM: #bbbbbb 1px solid
+}
+BLOCKQUOTE {
+	BORDER-RIGHT: #bbbbbb 0px dotted; PADDING-RIGHT: 15px; BORDER-TOP: #bbbbbb 1px dotted; PADDING-LEFT: 15px; PADDING-BOTTOM: 5px; MARGIN: 0.75em 0px; BORDER-LEFT: #bbbbbb 0px dotted; COLOR: #881100; PADDING-TOP: 5px; BORDER-BOTTOM: #bbbbbb 1px dotted
+}
+.post BLOCKQUOTE P {
+	MARGIN: 0.5em 0px
+}
+#blog-pager-newer-link {
+	FLOAT: left; MARGIN-LEFT: 13px
+}
+#blog-pager-older-link {
+	FLOAT: right; MARGIN-RIGHT: 13px
+}
+#blog-pager {
+	TEXT-ALIGN: center
+}
+.feed-links {
+	CLEAR: both; MARGIN-LEFT: 13px; LINE-HEIGHT: 2.5em
+}
+#comments {
+	BORDER-RIGHT: #bbbbbb 1px dotted; PADDING-RIGHT: 0px; BORDER-TOP: #bbbbbb 0px dotted; PADDING-LEFT: 0px; PADDING-BOTTOM: 15px; MARGIN: -25px 13px 0px; BORDER-LEFT: #bbbbbb 1px dotted; PADDING-TOP: 20px; BORDER-BOTTOM: #bbbbbb 1px dotted
+}
+#comments H4 {
+	PADDING-RIGHT: 14px; PADDING-LEFT: 29px; FONT-SIZE: 120%; PADDING-BOTTOM: 2px; MARGIN: 0px 0px 10px; COLOR: #333333; LINE-HEIGHT: 1.4em; PADDING-TOP: 0px; BORDER-BOTTOM: #bbbbbb 1px dotted
+}
+#comments-block {
+	MARGIN: 0px 15px 0px 9px
+}
+.comment-author {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 20px; FONT-WEIGHT: bold; BACKGROUND: url(http://www.blogblog.com/rounders2/icon_comment_left.gif) no-repeat 2px 0.3em; PADDING-BOTTOM: 0px; MARGIN: 0.5em 0px; PADDING-TOP: 0px
+}
+.comment-body {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 20px; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 1.25em; PADDING-TOP: 0px
+}
+.comment-body P {
+	MARGIN: 0px 0px 0.5em
+}
+.comment-footer {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 20px; PADDING-BOTTOM: 0.75em; MARGIN: 0px 0px 0.5em; PADDING-TOP: 0px
+}
+.comment-footer A:link {
+	COLOR: #000000
+}
+.deleted-comment {
+	COLOR: gray; FONT-STYLE: italic
+}
+.comment-form {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 20px
+}
+#comments .comment-form H4 {
+	PADDING-LEFT: 0px
+}
+.profile-img {
+	BORDER-RIGHT: #ffffff 4px solid; BORDER-TOP: #ffffff 4px solid; FLOAT: left; MARGIN: 5px 5px 5px 0px; BORDER-LEFT: #ffffff 4px solid; BORDER-BOTTOM: #ffffff 4px solid
+}
+.profile-datablock {
+	MARGIN: 0px 15px 0.5em 0px; PADDING-TOP: 8px
+}
+.profile-link {
+	PADDING-LEFT: 15px; FONT-WEIGHT: bold; BACKGROUND: url(http://www.blogblog.com/rounders2/icon_profile_left.gif) no-repeat left 0.1em
+}
+.profile-textblock {
+	CLEAR: both; MARGIN: 0px
+}
+.sidebar .clear {
+	CLEAR: both
+}
+.main .widget .clear {
+	CLEAR: both
+}
+#sidebartop-wrap {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(http://www.blogblog.com/rounders2/corners_prof_bot.gif) #999999 no-repeat left bottom; PADDING-BOTTOM: 10px; MARGIN: 0px 0px 15px; COLOR: #ffffff; PADDING-TOP: 0px
+}
+#sidebartop-wrap2 {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BACKGROUND: url(http://www2.blogblog.com/rounders2/corners_prof_top.gif) no-repeat left top; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 10px; BORDER-RIGHT-WIDTH: 0px
+}
+#sidebartop H2 {
+	MARGIN-BOTTOM: 0.5em; FONT: bold 100% 'Trebuchet MS',Verdana,Arial,Sans-serif; COLOR: #ffffff; BORDER-BOTTOM: #ffffff 1px dotted
+}
+#sidebartop A {
+	COLOR: #ffffff
+}
+#sidebartop A:hover {
+	COLOR: #dddddd
+}
+#sidebartop A:visited {
+	COLOR: #dddddd
+}
+.sidebar .widget {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0.5em 13px 1.25em; PADDING-TOP: 0px
+}
+.widget-content {
+	MARGIN-TOP: 0.5em
+}
+#sidebarbottom-wrap1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(http://www.blogblog.com/rounders2/corners_side_top.gif) #ffffff no-repeat left top; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 15px; COLOR: #000000; PADDING-TOP: 10px
+}
+#sidebarbottom-wrap2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(http://www1.blogblog.com/rounders2/corners_side_bot.gif) no-repeat left bottom; PADDING-BOTTOM: 8px; PADDING-TOP: 0px
+}
+.sidebar H2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0.2em; MARGIN: 0px; FONT: bold 100% 'Trebuchet MS',Verdana,Arial,Sans-serif; PADDING-TOP: 0px
+}
+.sidebar UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 1.25em; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.sidebar UL LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 16px; BACKGROUND: url(http://www2.blogblog.com/rounders2/icon_arrow_sm.gif) no-repeat 2px 0.25em; PADDING-BOTTOM: 3px; MARGIN: 0px 0px 3px; LINE-HEIGHT: 1.4em; PADDING-TOP: 0px; BORDER-BOTTOM: #bbbbbb 1px dotted
+}
+.sidebar P {
+	MARGIN: 0px 0px 0.6em
+}
+#sidebar H2 {
+	COLOR: #333333; BORDER-BOTTOM: #333333 1px dotted
+}
+#footer-wrap1 {
+	CLEAR: both; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 10px; PADDING-TOP: 15px
+}
+#footer-wrap2 {
+	BACKGROUND: url(http://www2.blogblog.com/rounders2/corners_cap_top.gif) #771100 no-repeat left top; COLOR: #ffffff
+}
+#footer {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 15px; BACKGROUND: url(http://www.blogblog.com/rounders2/corners_cap_bot.gif) no-repeat left bottom; PADDING-BOTTOM: 8px; PADDING-TOP: 8px
+}
+#footer HR {
+	DISPLAY: none
+}
+#footer P {
+	MARGIN: 0px
+}
+#footer A {
+	COLOR: #ffffff
+}
+#footer .widget-content {
+	MARGIN: 0px
+}
+BODY#layout #main-wrap1 {
+	MARGIN-TOP: 0px
+}
+BODY#layout #sidebar-wrap {
+	MARGIN-TOP: 0px
+}
+BODY#layout #header-wrapper {
+	MARGIN-TOP: 0px
+}
+BODY#layout #header {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+BODY#layout #header-wrapper {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+BODY#layout #outer-wrapper {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+BODY#layout #outer-wrapper {
+	WIDTH: 730px
+}
+BODY#layout #footer-wrap1 {
+	PADDING-TOP: 0px
+}
+</STYLE>
+<LINK 
+href="Zhengol Let's start here Steps to Create UCM Project from Scratch_files/2300090209-widget_css_bundle.css" 
+type=text/css rel=stylesheet><LINK 
+href="Zhengol Let's start here Steps to Create UCM Project from Scratch_files/3727950723-blog_controls.css" 
+type=text/css rel=stylesheet><LINK 
+href="Zhengol Let's start here Steps to Create UCM Project from Scratch_files/authorization.css" 
+type=text/css rel=stylesheet>
+<STYLE type=text/css>#navbar-iframe {
+	DISPLAY: block
+}
+</STYLE>
+</HEAD>
+<BODY>
+<DIV class="navbar section" id=navbar>
+<DIV class="widget Navbar" id=Navbar1>
+<SCRIPT type=text/javascript>
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener("load",
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </SCRIPT>
+<IFRAME id=navbar-iframe title="Blogger Navigation and Search" marginWidth=0 
+marginHeight=0 
+src="Zhengol Let's start here Steps to Create UCM Project from Scratch_files/navbar.htm" 
+frameBorder=0 width="100%" scrolling=no height=30></IFRAME>
+<DIV></DIV></DIV></DIV>
+<DIV id=outer-wrapper>
+<DIV id=header-wrapper>
+<DIV class="header section" id=header>
+<DIV class="widget Header" id=Header1>
+<DIV id=header-inner 
+style="BACKGROUND-POSITION: left 50%; MIN-HEIGHT: 120px; BACKGROUND-IMAGE: url(http://1.bp.blogspot.com/_jv5mJqcnSPc/SKe1Tx1MoDI/AAAAAAAADIM/uMyR8A8235c/S1600-R/222.jpg); WIDTH: 710px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 120px">
+<DIV class=titlewrapper 
+style="BACKGROUND: none transparent scroll repeat 0% 0%">
+<H1 class=title 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px"><A 
+href="http://zhengol.blogspot.com/">Zhengol: Let's start here</A> </H1></DIV>
+<DIV class=descriptionwrapper>
+<P class=description><SPAN></SPAN></P></DIV></DIV></DIV></DIV></DIV>
+<DIV id=crosscol-wrapper style="TEXT-ALIGN: center">
+<DIV class="crosscol section" id=crosscol></DIV></DIV>
+<DIV id=main-wrap1>
+<DIV id=main-wrap2>
+<DIV class="main section" id=main>
+<DIV class="widget Profile" id=Profile1>
+<H2>About Me</H2>
+<DIV class=widget-content><A 
+href="http://www.blogger.com/profile/00847477265238671590"><IMG 
+class=profile-img height=53 alt="My Photo" 
+src="Zhengol Let's start here Steps to Create UCM Project from Scratch_files/y1pt2qI3-VA0P1lXFv3rsAOYv6SBeEiUbk3Ns07Pti9paRbKWwwNsFhZpZabZcPMJCA.jpg" 
+width=80></A> 
+<DL class=profile-datablock>
+  <DT class=profile-data>OO </DT></DL><A class=profile-link 
+href="http://www.blogger.com/profile/00847477265238671590">View my complete 
+profile</A> 
+<DIV class=clear></DIV><SPAN class=widget-item-control><SPAN 
+class="item-control blog-admin"><A class=quickedit title=Edit 
+onclick='return _WidgetManager._PopupConfig(document.getElementById("Profile1"));' 
+href="http://www.blogger.com/rearrange?blogID=4956808384161899942&amp;widgetType=Profile&amp;widgetId=Profile1&amp;action=editWidget" 
+target=configProfile1><IMG height=18 alt="" 
+src="Zhengol Let's start here Steps to Create UCM Project from Scratch_files/icon18_wrench_allbkg.png" 
+width=18> </A></SPAN></SPAN>
+<DIV class=clear></DIV></DIV></DIV>
+<DIV class="widget Blog" id=Blog1>
+<DIV class="blog-posts hfeed"><!-- google_ad_section_start -->
+<H2 class=date-header>Monday, November 26, 2007</H2>
+<DIV class="post hentry"><A name=7593714539291532139></A>
+<H3 class="post-title entry-title"><A 
+href="http://zhengol.blogspot.com/2007/11/steps-to-create-ucm-project-from.html">Steps 
+to Create UCM Project from Scratch</A> </H3>
+<DIV class=post-header-line-1></DIV>
+<DIV class="post-body entry-content"><!-- Converted from text/rtf format -->
+<P align=center><B><FONT face=Arial size=2>Steps to Create UCM Project from 
+Scratch</FONT></B></P>
+<P><FONT face=Arial size=2>Here are the standard steps to create UCM 
+project</FONT> </P>
+<P><B><FONT face=Arial size=2>1. Create PVOB</FONT></B> 
+<OL type=a>
+  <LI><FONT face=Arial size=2>Open<I> Create VOB</I>. </FONT>
+  <LI><FONT face=Arial size=2>In</FONT><I> <FONT face=Arial size=2>Name and 
+  Major Parameters</FONT></I> <FONT face=Arial size=2>page, enter the PVOB name 
+  and set the option "Create as a UCM project VOB" and clear the option "This 
+  VOB will contain UCM components and click Next button</FONT> 
+  <LI><FONT face=Arial size=2>In</FONT><I> <FONT face=Arial 
+  size=2>Storage</FONT></I><FONT face=Arial size=2> page, select one location to 
+  input the PVOB and click Next</FONT> 
+  <LI><FONT face=Arial size=2>In</FONT><I> <FONT face=Arial 
+  size=2>Options</FONT></I><FONT face=Arial size=2> page, select none in the 
+  administrative VOB list and set the option "Reconnect to this VOB at login 
+  time" and click Finish.</FONT> <BR></LI></OL>
+<P><B><FONT face=Arial size=2>2. Create one VOB without any component</FONT></B> 
+
+<OL type=a>
+  <LI><FONT face=Arial size=2>Open</FONT><I> <FONT face=Arial size=2>Create 
+  VOB.</FONT></I> 
+  <LI><FONT face=Arial size=2>In</FONT><I> <FONT face=Arial size=2>Name and 
+  Major Parameters</FONT></I><FONT face=Arial size=2> page, enter the VOB name 
+  and clear the option "Create as a UCM project VOB" and set the option "This 
+  VOB will contain UCM components and click Next button.</FONT> 
+  <LI><FONT face=Arial size=2>In the</FONT><I> <FONT face=Arial 
+  size=2>Components</FONT></I><FONT face=Arial size=2> page, set the option 
+  "Allow this VOB to contain multiple components" and click Next. Pls note that 
+  if the option "This VOB will contain UCM components" in step b, the Components 
+  page does not display. In the Components page, there is one option "Create VOB 
+  as a single VOB-lever component. If select the option, one component with the 
+  same name of the VOB will be created after the VOB creation. In this scenario, 
+  we do not want to system to create one component but we manual create them 
+  later.</FONT> 
+  <LI><FONT face=Arial size=2>In</FONT><I> <FONT face=Arial 
+  size=2>Storge</FONT></I><FONT face=Arial size=2> page, select one location to 
+  input the VOB and click Next.</FONT> 
+  <LI><FONT face=Arial size=2>In</FONT><I> <FONT face=Arial 
+  size=2>Options</FONT></I><FONT face=Arial size=2> page, select the PVOB name 
+  created in above step from the administrative VOB list and set the option 
+  "Reconnect to this VOB at login time" and click Finish.</FONT> <BR></LI></OL>
+<P><B><FONT face=Arial size=2>3. Create UCM Project</FONT></B> 
+<OL type=a>
+  <LI><FONT face=Arial size=2>Open</FONT><I> <FONT face=Arial size=2>ClearCase 
+  Project Explorer</FONT></I><FONT face=Arial size=2>.</FONT> 
+  <LI><FONT face=Arial size=2>Right click the PVOB we created in step 1 and 
+  select New-&gt;Project</FONT> 
+  <LI><FONT face=Arial size=2>In the</FONT><I> <FONT face=Arial size=2>New 
+  project -Step 1</FONT></I> <FONT face=Arial size=2>window, input the project 
+  and integration stream name and click&nbsp; Next.</FONT> 
+  <LI><FONT face=Arial size=2>In the</FONT><I> <FONT face=Arial size=2>Step 
+  2</FONT></I> <FONT face=Arial size=2>window, select option "No" and click 
+  Next.</FONT> 
+  <LI><FONT face=Arial size=2>In the</FONT><I> <FONT face=Arial size=2>Step 
+  3</FONT></I> <FONT face=Arial size=2>window, click Next and ignore the warning 
+  message since we have no component for the PVOB.</FONT> 
+  <LI><FONT face=Arial size=2>in the</FONT><I> <FONT face=Arial size=2>Step 
+  4</FONT></I> <FONT face=Arial size=2>window, click Next without any 
+  changes.</FONT> 
+  <LI><FONT face=Arial size=2>In the</FONT><I> <FONT face=Arial size=2>Step 
+  5</FONT></I> <FONT face=Arial size=2>window, click Finish since we will not 
+  integrate with CQ so far.</FONT> <BR></LI></OL>
+<P><B><FONT face=Arial size=2>4. Create Integration View</FONT></B> 
+<OL type=a>
+  <LI><FONT face=Arial size=2>Open</FONT><I> <FONT face=Arial size=2>ClearCase 
+  Project Explorer</FONT></I> 
+  <LI><FONT face=Arial size=2>Right click the integration stream we created in 
+  step 3 and select Create view.</FONT> 
+  <LI><FONT face=Arial size=2>In the</FONT><I> <FONT face=Arial size=2>View 
+  Creation Wizard -Review Types of Views</FONT></I> <FONT face=Arial 
+  size=2>page, select "Dynamic" and click Next.</FONT> 
+  <LI><FONT face=Arial size=2>In the</FONT><I> <FONT face=Arial size=2>View 
+  Creation Wizard-Choose Name and Drive for a Dynamic View</FONT></I><FONT 
+  face=Arial size=2>, input the integration view name and its location and click 
+  Finish.</FONT> <BR></LI></OL>
+<P><B><FONT face=Arial size=2>5. Create components</FONT></B> 
+<UL>
+  <OL type=a>
+    <LI><FONT face=Arial size=2>Open</FONT><I> <FONT face=Arial size=2>ClearCase 
+    Project Explorer</FONT></I> 
+    <LI><FONT face=Arial size=2>Right click the components under the PVOB 
+    created in step 1 and select New-&gt;Component in a VOB.&nbsp; There are 2 
+    types of components. One is Component in a VOB and another is component 
+    without a VOB. If the component without a VOB means the component can not 
+    have any elements. This kind of component is used to store the composite 
+    baseline.</FONT> 
+    <LI><FONT face=Arial size=2>In</FONT><I> <FONT face=Arial size=2>the Create 
+    a Component in a VOB</FONT></I> <FONT face=Arial size=2>window, select the 
+    VOB created in step 2, input the component name and root directory and click 
+    Ok.</FONT><B> <FONT face=Arial size=2>Pls note that the Root Directory name 
+    should begin with "\" (a must)</FONT></B> 
+    <LI><FONT face=Arial size=2>In the</FONT><I> <FONT face=Arial size=2>Choose 
+    a view</FONT></I> <FONT face=Arial size=2>window, select the integration 
+    view created in step 4 and click Ok.</FONT> <BR></LI></OL></UL>
+<P><B><FONT face=Arial size=2>6. Add component to the project</FONT></B> 
+<OL type=a>
+  <LI><FONT face=Arial size=2>Open</FONT><I> <FONT face=Arial size=2>ClearCase 
+  Project Explorer</FONT></I> 
+  <LI><FONT face=Arial size=2>Right click the integration stream created in step 
+  3, b and choose Prosperities</FONT> 
+  <LI><FONT face=Arial size=2>In the</FONT><I> <FONT face=Arial 
+  size=2>Properties</FONT></I><FONT face=Arial size=2> window, click 
+  Configuration tab and add the component to the project and click OK.</FONT> 
+  <LI><FONT face=Arial size=2>After step c, Rebase Stream Preview window pops 
+  up. Select the init baseline and click OK button.</FONT> 
+  <LI><FONT face=Arial size=2>In the end of rebase action, click Complete and 
+  close button.</FONT> 
+  <LI><FONT face=Arial size=2>In the</FONT><I> <FONT face=Arial size=2>ClearCase 
+  Project Explorer</FONT></I><FONT face=Arial size=2>, right click the project 
+  created in step 3 and select Policies. In the Policies window, check the 
+  component we added in above step to let us can modify the component.</FONT> 
+  <BR><BR></LI></OL>
+<P><FONT face=Arial size=2>After the project setup, cc admin/project managers 
+can create development stream and add the source code the the CC VOB and other 
+daily development tasks.</FONT></P><BR><BR><BR><BR>
+<DIV style="CLEAR: both"></DIV></DIV>
+<DIV class=post-footer>
+<DIV class="post-footer-line post-footer-line-1"><SPAN 
+class="post-author vcard">Posted by <SPAN class=fn>OO</SPAN> </SPAN><SPAN 
+class=post-timestamp>at <A class=timestamp-link title="permanent link" 
+href="http://zhengol.blogspot.com/2007/11/steps-to-create-ucm-project-from.html" 
+rel=bookmark><ABBR class=published title=2007-11-26T17:01:00+08:00>5:01 
+PM</ABBR></A> </SPAN><SPAN class=post-comment-link></SPAN><SPAN 
+class=post-icons><SPAN class=item-action><A title="Email Post" 
+href="http://www.blogger.com/email-post.g?blogID=4956808384161899942&amp;postID=7593714539291532139"><IMG 
+class=icon-action height=13 alt="" 
+src="Zhengol Let's start here Steps to Create UCM Project from Scratch_files/icon18_email.gif" 
+width=18> </A></SPAN><SPAN class="item-control blog-admin pid-1453504744"><A 
+title="Edit Post" 
+href="http://www.blogger.com/post-edit.g?blogID=4956808384161899942&amp;postID=7593714539291532139"><IMG 
+class=icon-action height=18 alt="" 
+src="Zhengol Let's start here Steps to Create UCM Project from Scratch_files/icon18_edit_allbkg.gif" 
+width=18> </A></SPAN></SPAN></DIV>
+<DIV class="post-footer-line post-footer-line-2"><SPAN class=post-labels>Labels: 
+<A href="http://zhengol.blogspot.com/search/label/ClearCase" 
+rel=tag>ClearCase</A>, <A href="http://zhengol.blogspot.com/search/label/SCM" 
+rel=tag>SCM</A>, <A href="http://zhengol.blogspot.com/search/label/Technical" 
+rel=tag>Technical</A> </SPAN></DIV>
+<DIV class="post-footer-line post-footer-line-3"><SPAN 
+class=post-location></SPAN></DIV></DIV></DIV>
+<DIV class=comments id=comments><A name=comments></A>
+<H4>0 comments: </H4>
+<DL id=comments-block></DL>
+<P class=comment-footer><A onclick="" 
+href="https://www.blogger.com/comment.g?blogID=4956808384161899942&amp;postID=7593714539291532139">Post 
+a Comment</A> </P>
+<DIV id=backlinks-container>
+<DIV id=Blog1_backlinks-container></DIV></DIV></DIV><!-- google_ad_section_end --></DIV>
+<DIV class=blog-pager id=blog-pager><SPAN id=blog-pager-newer-link><A 
+class=blog-pager-newer-link id=Blog1_blog-pager-newer-link title="Newer Post" 
+href="http://zhengol.blogspot.com/2007/11/login-cq-testing-db-with-cq-web.html">Newer 
+Post</A> </SPAN><SPAN id=blog-pager-older-link><A class=blog-pager-older-link 
+id=Blog1_blog-pager-older-link title="Older Post" 
+href="http://zhengol.blogspot.com/2007/11/difference-between-clearcase-and_21.html">Older 
+Post</A> </SPAN><A class=home-link href="http://zhengol.blogspot.com/">Home</A> 
+</DIV>
+<DIV class=clear></DIV>
+<DIV class=post-feeds>
+<DIV class=feed-links>Subscribe to: <A class=feed-link 
+href="http://zhengol.blogspot.com/feeds/7593714539291532139/comments/default" 
+target=_blank type=application/atom+xml>Post Comments (Atom)</A> 
+</DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV id=sidebar-wrap>
+<DIV id=sidebartop-wrap>
+<DIV id=sidebartop-wrap2>
+<DIV class="sidebar section" id=sidebartop>
+<DIV class="widget Slideshow" id=Slideshow1>
+<H2 class=title>Slideshow</H2>
+<DIV class=widget-content>
+<DIV class=slideshow-container id=Slideshow1_slideshow><SPAN 
+class=slideshow-status>Loading...</SPAN> </DIV></DIV>
+<DIV class=clear></DIV><SPAN class=widget-item-control><SPAN 
+class="item-control blog-admin"><A class=quickedit title=Edit 
+onclick='return _WidgetManager._PopupConfig(document.getElementById("Slideshow1"));' 
+href="http://www.blogger.com/rearrange?blogID=4956808384161899942&amp;widgetType=Slideshow&amp;widgetId=Slideshow1&amp;action=editWidget" 
+target=configSlideshow1><IMG height=18 alt="" 
+src="Zhengol Let's start here Steps to Create UCM Project from Scratch_files/icon18_wrench_allbkg.png" 
+width=18> </A></SPAN></SPAN>
+<DIV class=clear></DIV></DIV></DIV></DIV></DIV>
+<DIV id=sidebarbottom-wrap1>
+<DIV id=sidebarbottom-wrap2>
+<DIV class="sidebar section" id=sidebar>
+<DIV class="widget TextList" id=TextList1>
+<H2>Xiaoxiao's photo</H2>
+<DIV class=widget-content>
+<UL>
+  <LI><A href="http://picasaweb.google.com/zheng.oliver" 
+  target=_new>http://picasaweb.google.com/zheng.oliver</A> </LI></UL>
+<DIV class=clear></DIV><SPAN class=widget-item-control><SPAN 
+class="item-control blog-admin"><A class=quickedit title=Edit 
+onclick='return _WidgetManager._PopupConfig(document.getElementById("TextList1"));' 
+href="http://www.blogger.com/rearrange?blogID=4956808384161899942&amp;widgetType=TextList&amp;widgetId=TextList1&amp;action=editWidget" 
+target=configTextList1><IMG height=18 alt="" 
+src="Zhengol Let's start here Steps to Create UCM Project from Scratch_files/icon18_wrench_allbkg.png" 
+width=18> </A></SPAN></SPAN>
+<DIV class=clear></DIV></DIV></DIV>
+<DIV class="widget BlogArchive" id=BlogArchive1>
+<H2>Blog Archive</H2>
+<DIV class=widget-content>
+<DIV id=ArchiveList>
+<DIV id=BlogArchive1_ArchiveList>
+<UL>
+  <LI class=archivedate><A 
+  href="http://zhengol.blogspot.com/2009_02_01_archive.html">February</A> (2) 
+  <LI class=archivedate><A 
+  href="http://zhengol.blogspot.com/2008_12_01_archive.html">December</A> (12) 
+  <LI class=archivedate><A 
+  href="http://zhengol.blogspot.com/2008_11_01_archive.html">November</A> (6) 
+  <LI class=archivedate><A 
+  href="http://zhengol.blogspot.com/2008_10_01_archive.html">October</A> (2) 
+  <LI class=archivedate><A 
+  href="http://zhengol.blogspot.com/2008_09_01_archive.html">September</A> (1) 
+  <LI class=archivedate><A 
+  href="http://zhengol.blogspot.com/2008_08_01_archive.html">August</A> (1) 
+  <LI class=archivedate><A 
+  href="http://zhengol.blogspot.com/2008_07_01_archive.html">July</A> (2) 
+  <LI class=archivedate><A 
+  href="http://zhengol.blogspot.com/2008_06_01_archive.html">June</A> (2) 
+  <LI class=archivedate><A 
+  href="http://zhengol.blogspot.com/2008_05_01_archive.html">May</A> (5) 
+  <LI class=archivedate><A 
+  href="http://zhengol.blogspot.com/2008_01_01_archive.html">January</A> (1) 
+  <LI class=archivedate><A 
+  href="http://zhengol.blogspot.com/2007_12_01_archive.html">December</A> (3) 
+  <LI class=archivedate><A 
+  href="http://zhengol.blogspot.com/2007_11_01_archive.html">November</A> (10) 
+  <LI class=archivedate><A 
+  href="http://zhengol.blogspot.com/2007_08_01_archive.html">August</A> (12) 
+  <LI class=archivedate><A 
+  href="http://zhengol.blogspot.com/2007_07_01_archive.html">July</A> (14) 
+</LI></UL></DIV></DIV>
+<DIV class=clear></DIV><SPAN class=widget-item-control><SPAN 
+class="item-control blog-admin"><A class=quickedit title=Edit 
+onclick='return _WidgetManager._PopupConfig(document.getElementById("BlogArchive1"));' 
+href="http://www.blogger.com/rearrange?blogID=4956808384161899942&amp;widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=editWidget" 
+target=configBlogArchive1><IMG height=18 alt="" 
+src="Zhengol Let's start here Steps to Create UCM Project from Scratch_files/icon18_wrench_allbkg.png" 
+width=18> </A></SPAN></SPAN>
+<DIV class=clear></DIV></DIV></DIV>
+<DIV class="widget Label" id=Label1>
+<H2>Labels</H2>
+<DIV class=widget-content>
+<UL>
+  <LI><A dir=ltr href="http://zhengol.blogspot.com/search/label/Angel">Angel 
+  </A><SPAN dir=ltr>(1)</SPAN> 
+  <LI><A dir=ltr 
+  href="http://zhengol.blogspot.com/search/label/ClearCase">ClearCase </A><SPAN 
+  dir=ltr>(10)</SPAN> 
+  <LI><A dir=ltr 
+  href="http://zhengol.blogspot.com/search/label/ClearQuest">ClearQuest 
+  </A><SPAN dir=ltr>(31)</SPAN> 
+  <LI><A dir=ltr href="http://zhengol.blogspot.com/search/label/CMMI">CMMI 
+  </A><SPAN dir=ltr>(2)</SPAN> 
+  <LI><A dir=ltr href="http://zhengol.blogspot.com/search/label/English">English 
+  </A><SPAN dir=ltr>(12)</SPAN> 
+  <LI><A dir=ltr href="http://zhengol.blogspot.com/search/label/Family">Family 
+  </A><SPAN dir=ltr>(1)</SPAN> 
+  <LI><A dir=ltr href="http://zhengol.blogspot.com/search/label/Perl">Perl 
+  </A><SPAN dir=ltr>(9)</SPAN> 
+  <LI><A dir=ltr href="http://zhengol.blogspot.com/search/label/SCM">SCM 
+  </A><SPAN dir=ltr>(28)</SPAN> 
+  <LI><A dir=ltr 
+  href="http://zhengol.blogspot.com/search/label/Social%20Issues">Social Issues 
+  </A><SPAN dir=ltr>(3)</SPAN> 
+  <LI><A dir=ltr 
+  href="http://zhengol.blogspot.com/search/label/Technical">Technical </A><SPAN 
+  dir=ltr>(38)</SPAN> 
+  <LI><A dir=ltr href="http://zhengol.blogspot.com/search/label/ç¬ç¬">笑笑 
+  </A><SPAN dir=ltr>(1)</SPAN> </LI></UL>
+<DIV class=clear></DIV><SPAN class=widget-item-control><SPAN 
+class="item-control blog-admin"><A class=quickedit title=Edit 
+onclick='return _WidgetManager._PopupConfig(document.getElementById("Label1"));' 
+href="http://www.blogger.com/rearrange?blogID=4956808384161899942&amp;widgetType=Label&amp;widgetId=Label1&amp;action=editWidget" 
+target=configLabel1><IMG height=18 alt="" 
+src="Zhengol Let's start here Steps to Create UCM Project from Scratch_files/icon18_wrench_allbkg.png" 
+width=18> </A></SPAN></SPAN>
+<DIV class=clear></DIV></DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV id=footer-wrap1>
+<DIV id=footer-wrap2>
+<DIV class="footer section" id=footer></DIV></DIV></DIV></DIV>
+<SCRIPT 
+src="Zhengol Let's start here Steps to Create UCM Project from Scratch_files/1011696215-widgets.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>
+_WidgetManager._Init('http://www.blogger.com/rearrange?blogID=4956808384161899942', 'http://zhengol.blogspot.com/2007/11/steps-to-create-ucm-project-from.html','4956808384161899942');
+_WidgetManager._SetPageActionUrl('http://www.blogger.com/display?blogID=4956808384161899942', '8wTwjjl15OziP9nZ5RQn4PzF8Wk:1236293907715');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'title': 'Zhengol: Let\47s start here', 'pageType': 'item', 'url': 'http://zhengol.blogspot.com/2007/11/steps-to-create-ucm-project-from.html', 'homepageUrl': 'http://zhengol.blogspot.com/', 'pageName': 'Steps to Create UCM Project from Scratch', 'pageTitle': 'Zhengol: Let\47s start here: Steps to Create UCM Project from Scratch', 'encoding': 'UTF-8', 'isPrivate': false, 'languageDirection': 'ltr', 'feedLinks': '\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Zhengol: Let\47s start here - Atom\42 href\75\42http://zhengol.blogspot.com/feeds/posts/default\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/rss+xml\42 title\75\42Zhengol: Let\47s start here - RSS\42 href\75\42http://zhengol.blogspot.com/feeds/posts/default?alt\75rss\42 /\76\n\74link rel\75\42service.post\42 type\75\42application/atom+xml\42 title\75\42Zhengol: Let\47s start here - Atom\42 href\75\42http://www.blogger.com/feeds/4956808384161899942/posts/default\42 /\76\n\74link rel\75\42EditURI\42 type\75\42application/rsd+xml\42 title\75\42RSD\42 href\75\42http://www.blogger.com/rsd.g?blogID\0754956808384161899942\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Zhengol: Let\47s start here - Atom\42 href\75\42http://zhengol.blogspot.com/feeds/7593714539291532139/comments/default\42 /\76\n', 'meTag': '', 'openIdOpTag': '', 'latencyHeadScript': '\74script type\75\42text/javascript\42\76(function() { var a\75window;function d(){this.t\75{};this.tick\75function(b,c){this.t[b]\75[(new Date).getTime(),c]};this.tick(\42start\42)}var e\75new d;a.jstiming\75{Timer:d,load:e};if(a.external\46\46a.external.pageT)a.jstiming.pt\75a.external.pageT;function f(b){var c\0750;if(b.offsetParent){do c+\75b.offsetTop;while(b\75b.offsetParent)}return c}a.tickAboveFold\75function(b){f(b)\74\075750\46\46a.jstiming.load.tick(\42aft\42)};var g\75false;function h(){if(!g){g\75true;a.jstiming.load.tick(\42firstScrollTime\42)}}a.addEventListener?a.addEventListener(\42scroll\42,h,false):a.attachEvent(\42onscroll\42,h); })();\74/script\076'}}]);
+_WidgetManager._SetSystemMarkup({'layout': {'varName': '', 'template': '\74div class\75\47widget-wrap1\47\76\n\74div class\75\47widget-wrap2\47\76\n\74div class\75\47widget-wrap3\47\76\n\74div class\75\47widget-content\47\76\n\74div class\75\47layout-title\47\76\74data:layout-title\76\74/data:layout-title\76\74/div\76\n\74a class\75\47editlink\47 expr:href\75\47data:widget.quickEditUrl\47 expr:onclick\75\47\46quot;return _WidgetManager._PopupConfig(document.getElementById(\\\46quot;\46quot; +       data:widget.instanceId + \46quot;\\\46quot;));\46quot;\47 target\75\47chooseWidget\47\76\74data:edit-link\76\74/data:edit-link\76\74/a\76\n\74/div\76\n\74/div\76\n\74/div\76\n\74/div\076'}, 'quickedit': {'varName': '', 'template': '\74div class\75\47clear\47\76\74/div\76\n\74span class\75\47widget-item-control\47\76\n\74span class\75\47item-control blog-admin\47\76\n\74a class\75\47quickedit\47 expr:href\75\47data:widget.quickEditUrl\47 expr:onclick\75\47\46quot;return _WidgetManager._PopupConfig(document.getElementById(\\\46quot;\46quot; +       data:widget.instanceId + \46quot;\\\46quot;));\46quot;\47 expr:target\75\47\46quot;config\46quot; + data:widget.instanceId\47 expr:title\75\47data:edit-link\47\76\n\74img alt\75\47\47 height\75\04718\47 src\75\47http://img1.blogblog.com/img/icon18_wrench_allbkg.png\47 width\75\04718\47/\76\n\74/a\76\n\74/span\76\n\74/span\76\n\74div class\75\47clear\47\76\74/div\076'}, 'all-head-content': {'varName': 'page', 'template': '\74data:blog.latencyHeadScript\76\74/data:blog.latencyHeadScript\76\n\74meta expr:content\75\47\46quot;text/html; charset\75\46quot; + data:page.encoding\47 http-equiv\75\47Content-Type\47/\76\n\74meta content\75\47true\47 name\75\47MSSmartTagsPreventParsing\47/\76\n\74meta content\75\47blogger\47 name\75\47generator\47/\76\n\74link href\75\47http://www.blogger.com/favicon.ico\47 rel\75\47icon\47 type\75\47image/vnd.microsoft.icon\47/\76\n\74data:blog.feedLinks\76\74/data:blog.feedLinks\76\n\74data:blog.meTag\76\74/data:blog.meTag\76\n\74data:blog.openIdOpTag\76\74/data:blog.openIdOpTag\76\n\74b:if cond\75\47data:page.isPrivate\47\76\n\74meta content\75\47NOINDEX,NOFOLLOW\47 name\75\47robots\47/\76\n\74/b:if\076'}});
+_WidgetManager._RegisterWidget('_SlideshowView', new _WidgetInfo('Slideshow1', 'sidebartop',{'main': {'varName': '', 'template': '\74b:if cond\75\47data:title !\75 \46quot;\46quot;\47\76\n\74h2 class\75\47title\47\76\74data:title\76\74/data:title\76\74/h2\76\n\74/b:if\76\n\74div class\75\47widget-content\47\76\n\74div class\75\47slideshow-container\47 expr:id\75\47data:widget.instanceId + \46quot;_slideshow\46quot;\47\76\n\74span class\75\47slideshow-status\47\76Loading...\74/span\76\n\74/div\76\n\74/div\76\n\74b:include name\75\47quickedit\47\76\74/b:include\076'}}, document.getElementById('Slideshow1'), {'title': 'Slideshow', 'computedFeed': 'http://picasaweb.google.com/data/feed/base/user/zheng.oliver/albumid/5271710864649358897?alt\75rss\46hl\75en_US', 'linkNewWindow': false}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_TextListView', new _WidgetInfo('TextList1', 'sidebar',{'main': {'varName': '', 'template': '\74h2\76\74data:title\76\74/data:title\76\74/h2\76\n\74div class\75\47widget-content\47\76\n\74ul\76\n\74b:loop values\75\47data:items\47 var\75\47item\47\76\n\74li\76\74data:item\76\74/data:item\76\74/li\76\n\74/b:loop\76\n\74/ul\76\n\74b:include name\75\47quickedit\47\76\74/b:include\76\n\74/div\076'}}, document.getElementById('TextList1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebar',{'main': {'varName': '', 'template': '\74b:if cond\75\47data:title\47\76\n\74h2\76\74data:title\76\74/data:title\76\74/h2\76\n\74/b:if\76\n\74div class\75\47widget-content\47\76\n\74div id\75\47ArchiveList\47\76\n\74div expr:id\75\47data:widget.instanceId + \46quot;_ArchiveList\46quot;\47\76\n\74b:if cond\75\47data:style \75\75 \46quot;HIERARCHY\46quot;\47\76\n\74b:include data\75\47data\47 name\75\47interval\47\76\74/b:include\76\n\74/b:if\76\n\74b:if cond\75\47data:style \75\75 \46quot;FLAT\46quot;\47\76\n\74b:include data\75\47data\47 name\75\47flat\47\76\74/b:include\76\n\74/b:if\76\n\74b:if cond\75\47data:style \75\75 \46quot;MENU\46quot;\47\76\n\74b:include data\75\47data\47 name\75\47menu\47\76\74/b:include\76\n\74/b:if\76\n\74/div\76\n\74/div\76\n\74b:include name\75\47quickedit\47\76\74/b:include\76\n\74/div\076'}, 'flat': {'varName': 'data', 'template': '\74ul\76\n\74b:loop values\75\47data:data\47 var\75\47i\47\76\n\74li class\75\47archivedate\47\76\n\74a expr:href\75\47data:i.url\47\76\74data:i.name\76\74/data:i.name\76\74/a\76 (\74data:i.post-count\76\74/data:i.post-count\76)\n      \74/li\76\n\74/b:loop\76\n\74/ul\076'}, 'menu': {'varName': 'data', 'template': '\74select expr:id\75\47data:widget.instanceId + \46quot;_ArchiveMenu\46quot;\47\76\n\74option value\75\47\47\76\74data:title\76\74/data:title\76\74/option\76\n\74b:loop values\75\47data:data\47 var\75\47i\47\76\n\74option expr:value\75\47data:i.url\47\76\74data:i.name\76\74/data:i.name\76 (\74data:i.post-count\76\74/data:i.post-count\76)\74/option\76\n\74/b:loop\76\n\74/select\076'}, 'interval': {'varName': 'intervalData', 'template': '\74b:loop values\75\47data:intervalData\47 var\75\47i\47\76\n\74ul\76\n\74li expr:class\75\47\46quot;archivedate \46quot; + data:i.expclass\47\76\n\74b:include data\75\47i\47 name\75\47toggle\47\76\74/b:include\76\n\74a class\75\47post-count-link\47 expr:href\75\47data:i.url\47\76\74data:i.name\76\74/data:i.name\76\74/a\76\n\74span class\75\47post-count\47 dir\75\47ltr\47\76(\74data:i.post-count\76\74/data:i.post-count\76)\74/span\76\n\74b:if cond\75\47data:i.data\47\76\n\74b:include data\75\47i.data\47 name\75\47interval\47\76\74/b:include\76\n\74/b:if\76\n\74b:if cond\75\47data:i.posts\47\76\n\74b:include data\75\47i.posts\47 name\75\47posts\47\76\74/b:include\76\n\74/b:if\76\n\74/li\76\n\74/ul\76\n\74/b:loop\076'}, 'toggle': {'varName': 'interval', 'template': '\74b:if cond\75\47data:interval.toggleId\47\76\n\74b:if cond\75\47data:interval.expclass \75\75 \46quot;expanded\46quot;\47\76\n\74a class\75\47toggle\47 expr:href\75\47data:widget.actionUrl + \46quot;\46amp;action\75toggle\46quot; +       \46quot;\46amp;dir\75close\46amp;toggle\75\46quot; + data:interval.toggleId +       \46quot;\46amp;toggleopen\75\46quot; + data:toggleopen\47\76\n\74span class\75\47zippy toggle-open\47\76\46#9660; \74/span\76\n\74/a\76\n\74b:else\76\74/b:else\76\n\74a class\75\47toggle\47 expr:href\75\47data:widget.actionUrl + \46quot;\46amp;action\75toggle\46quot; +         \46quot;\46amp;dir\75open\46amp;toggle\75\46quot; + data:interval.toggleId +         \46quot;\46amp;toggleopen\75\46quot; + data:toggleopen\47\76\n\74span class\75\47zippy\47\76\n\74b:if cond\75\47data:blog.languageDirection \75\75 \46quot;rtl\46quot;\47\76\n              \46#9668;\n            \74b:else\76\74/b:else\76\n              \46#9658;\n            \74/b:if\76\n\74/span\76\n\74/a\76\n\74/b:if\76\n\74/b:if\076'}, 'posts': {'varName': 'posts', 'template': '\74ul class\75\47posts\47\76\n\74b:loop values\75\47data:posts\47 var\75\47i\47\76\n\74li\76\74a expr:href\75\47data:i.url\47\76\74data:i.title\76\74/data:i.title\76\74/a\76\74/li\76\n\74/b:loop\76\n\74/ul\076'}}, document.getElementById('BlogArchive1'), {'languageDirection': 'ltr'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label1', 'sidebar',{'main': {'varName': '', 'template': '\74b:if cond\75\47data:title\47\76\n\74h2\76\74data:title\76\74/data:title\76\74/h2\76\n\74/b:if\76\n\74div class\75\47widget-content\47\76\n\74ul\76\n\74b:loop values\75\47data:labels\47 var\75\47label\47\76\n\74li\76\n\74b:if cond\75\47data:blog.url \75\75 data:label.url\47\76\n\74span expr:dir\75\47data:blog.languageDirection\47\76\n\74data:label.name\76\74/data:label.name\76\n\74/span\76\n\74b:else\76\74/b:else\76\n\74a expr:dir\75\47data:blog.languageDirection\47 expr:href\75\47data:label.url\47\76\n\74data:label.name\76\74/data:label.name\76\n\74/a\76\n\74/b:if\76\n\74span dir\75\47ltr\47\76(\74data:label.count\76\74/data:label.count\76)\74/span\76\n\74/li\76\n\74/b:loop\76\n\74/ul\76\n\74b:include name\75\47quickedit\47\76\74/b:include\76\n\74/div\076'}}, document.getElementById('Label1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header'));
+_WidgetManager._RegisterWidget('_NavbarView', new _WidgetInfo('Navbar1', 'navbar'));
+_WidgetManager._RegisterWidget('_ProfileView', new _WidgetInfo('Profile1', 'main',{'main': {'varName': '', 'template': '\74b:if cond\75\47data:title !\75 \46quot;\46quot;\47\76\n\74h2\76\74data:title\76\74/data:title\76\74/h2\76\n\74/b:if\76\n\74div class\75\47widget-content\47\76\n\74b:if cond\75\47data:team \75\75 \46quot;true\46quot;\47\76\n\74ul\76\n\74b:loop values\75\47data:authors\47 var\75\47i\47\76\n\74li\76\74a expr:href\75\47data:i.userUrl\47\76\74data:i.display-name\76\74/data:i.display-name\76\74/a\76\74/li\76\n\74/b:loop\76\n\74/ul\76\n\74b:else\76\74/b:else\76\n\74b:if cond\75\47data:photo.url !\75 \46quot;\46quot;\47\76\n\74a expr:href\75\47data:userUrl\47\76\74img class\75\47profile-img\47 expr:alt\75\47data:photo.alt\47 expr:height\75\47data:photo.height\47 expr:src\75\47data:photo.url\47 expr:width\75\47data:photo.width\47/\76\74/a\76\n\74/b:if\76\n\74dl class\75\47profile-datablock\47\76\n\74dt class\75\47profile-data\47\76\74data:displayname\76\74/data:displayname\76\74/dt\76\n\74b:if cond\75\47data:showlocation \75\75 \46quot;true\46quot;\47\76\n\74dd class\75\47profile-data\47\76\74data:location\76\74/data:location\76\74/dd\76\n\74/b:if\76\n\74b:if cond\75\47data:aboutme !\75 \46quot;\46quot;\47\76\74dd class\75\47profile-textblock\47\76\74data:aboutme\76\74/data:aboutme\76\74/dd\76\74/b:if\76\n\74/dl\76\n\74a class\75\47profile-link\47 expr:href\75\47data:userUrl\47\76\74data:viewProfileMsg\76\74/data:viewProfileMsg\76\74/a\76\n\74/b:if\76\n\74b:include name\75\47quickedit\47\76\74/b:include\76\n\74/div\076'}}, document.getElementById('Profile1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main',{'main': {'varName': 'top', 'template': '\74div class\75\47blog-posts hfeed\47\76\n\74b:include data\75\47top\47 name\75\47status-message\47\76\74/b:include\76\n\74data:adStart\76\74/data:adStart\76\n\74b:loop values\75\47data:posts\47 var\75\47post\47\76\n\74b:if cond\75\47data:post.dateHeader\47\76\n\74h2 class\75\47date-header\47\76\74data:post.dateHeader\76\74/data:post.dateHeader\76\74/h2\76\n\74/b:if\76\n\74b:include data\75\47post\47 name\75\47post\47\76\74/b:include\76\n\74b:if cond\75\47data:blog.pageType \75\75 \46quot;item\46quot;\47\76\n\74b:include data\75\47post\47 name\75\47comments\47\76\74/b:include\76\n\74/b:if\76\n\74b:if cond\75\47data:post.includeAd\47\76\n\74data:adEnd\76\74/data:adEnd\76\n\74data:adCode\76\74/data:adCode\76\n\74data:adStart\76\74/data:adStart\76\n\74/b:if\76\n\74b:if cond\75\47data:post.trackLatency\47\76\n\74data:post.latencyJs\76\74/data:post.latencyJs\76\n\74/b:if\76\n\74/b:loop\76\n\74data:adEnd\76\74/data:adEnd\76\n\74/div\76\n\74b:include name\75\47nextprev\47\76\74/b:include\76\n\74b:include name\75\47feedLinks\47\76\74/b:include\76\n\74b:if cond\75\47data:top.showStars\47\76\n\74script src\75\47http://www.google.com/jsapi\47 type\75\47text/javascript\47\76\74/script\76\n\74script type\75\47text/javascript\47\76\n      google.load(\46quot;annotations\46quot;, \46quot;1\46quot;, {\46quot;locale\46quot;: \46quot;\74data:top.languageCode\76\74/data:top.languageCode\76\46quot;});\n      function initialize() {\n        google.annotations.setApplicationId(\74data:top.blogspotReviews\76\74/data:top.blogspotReviews\76);\n        google.annotations.createAll();\n        google.annotations.fetch();\n      }\n      google.setOnLoadCallback(initialize);\n    \74/script\76\n\74/b:if\076'}, 'nextprev': {'varName': '', 'template': '\74div class\75\47blog-pager\47 id\75\47blog-pager\47\76\n\74b:if cond\75\47data:newerPageUrl\47\76\n\74span id\75\47blog-pager-newer-link\47\76\n\74a class\75\47blog-pager-newer-link\47 expr:href\75\47data:newerPageUrl\47 expr:id\75\47data:widget.instanceId + \46quot;_blog-pager-newer-link\46quot;\47 expr:title\75\47data:newerPageTitle\47\76\74data:newerPageTitle\76\74/data:newerPageTitle\76\74/a\76\n\74/span\76\n\74/b:if\76\n\74b:if cond\75\47data:olderPageUrl\47\76\n\74span id\75\47blog-pager-older-link\47\76\n\74a class\75\47blog-pager-older-link\47 expr:href\75\47data:olderPageUrl\47 expr:id\75\47data:widget.instanceId + \46quot;_blog-pager-older-link\46quot;\47 expr:title\75\47data:olderPageTitle\47\76\74data:olderPageTitle\76\74/data:olderPageTitle\76\74/a\76\n\74/span\76\n\74/b:if\76\n\74b:if cond\75\47data:blog.homepageUrl !\75 data:blog.url\47\76\n\74a class\75\47home-link\47 expr:href\75\47data:blog.homepageUrl\47\76\74data:homeMsg\76\74/data:homeMsg\76\74/a\76\n\74b:else\76\74/b:else\76\n\74b:if cond\75\47data:newerPageUrl\47\76\n\74a class\75\47home-link\47 expr:href\75\47data:blog.homepageUrl\47\76\74data:homeMsg\76\74/data:homeMsg\76\74/a\76\n\74/b:if\76\n\74/b:if\76\n\74/div\76\n\74div class\75\47clear\47\76\74/div\076'}, 'post': {'varName': 'post', 'template': '\74div class\75\47post hentry\47\76\n\74a expr:name\75\47data:post.id\47\76\74/a\76\n\74b:if cond\75\47data:post.title\47\76\n\74h3 class\75\47post-title entry-title\47\76\n\74b:if cond\75\47data:post.link\47\76\n\74a expr:href\75\47data:post.link\47\76\74data:post.title\76\74/data:post.title\76\74/a\76\n\74b:else\76\74/b:else\76\n\74b:if cond\75\47data:post.url\47\76\n\74a expr:href\75\47data:post.url\47\76\74data:post.title\76\74/data:post.title\76\74/a\76\n\74b:else\76\74/b:else\76\n\74data:post.title\76\74/data:post.title\76\n\74/b:if\76\n\74/b:if\76\n\74/h3\76\n\74/b:if\76\n\74div class\75\47post-header-line-1\47\76\74/div\76\n\74div class\75\47post-body entry-content\47\76\n\74data:post.body\76\74/data:post.body\76\n\74div style\75\47clear: both;\47\76\74/div\76\n\74/div\76\n\74div class\75\47post-footer\47\76\n\74div class\75\47post-footer-line post-footer-line-1\47\76\74span class\75\47post-author vcard\47\76\n\74b:if cond\75\47data:top.showAuthor\47\76\n\74data:top.authorLabel\76\74/data:top.authorLabel\76\n\74span class\75\47fn\47\76\74data:post.author\76\74/data:post.author\76\74/span\76\n\74/b:if\76\n\74/span\76\n\74span class\75\47post-timestamp\47\76\n\74b:if cond\75\47data:top.showTimestamp\47\76\n\74data:top.timestampLabel\76\74/data:top.timestampLabel\76\n\74b:if cond\75\47data:post.url\47\76\n\74a class\75\47timestamp-link\47 expr:href\75\47data:post.url\47 rel\75\47bookmark\47 title\75\47permanent link\47\76\74abbr class\75\47published\47 expr:title\75\47data:post.timestampISO8601\47\76\74data:post.timestamp\76\74/data:post.timestamp\76\74/abbr\76\74/a\76\n\74/b:if\76\n\74/b:if\76\n\74/span\76\n\74span class\75\47post-comment-link\47\76\n\74b:if cond\75\47data:blog.pageType !\75 \46quot;item\46quot;\47\76\n\74b:if cond\75\47data:post.allowComments\47\76\n\74a class\75\47comment-link\47 expr:href\75\47data:post.addCommentUrl\47 expr:onclick\75\47data:post.addCommentOnclick\47\76\74b:if cond\75\47data:post.numComments \75\75 1\47\0761 \74data:top.commentLabel\76\74/data:top.commentLabel\76\74b:else\76\74/b:else\76\74data:post.numComments\76\74/data:post.numComments\76\n\74data:top.commentLabelPlural\76\74/data:top.commentLabelPlural\76\74/b:if\76\74/a\76\n\74/b:if\76\n\74/b:if\76\n\74/span\76\n\74span class\75\47post-icons\47\76\n\74b:if cond\75\47data:post.emailPostUrl\47\76\n\74span class\75\47item-action\47\76\n\74a expr:href\75\47data:post.emailPostUrl\47 expr:title\75\47data:top.emailPostMsg\47\76\n\74img alt\75\47\47 class\75\47icon-action\47 height\75\04713\47 src\75\47http://www.blogger.com/img/icon18_email.gif\47 width\75\04718\47/\76\n\74/a\76\n\74/span\76\n\74/b:if\76\n\74b:include data\75\47post\47 name\75\47postQuickEdit\47\76\74/b:include\76\n\74/span\76\n\74/div\76\n\74div class\75\47post-footer-line post-footer-line-2\47\76\74span class\75\47post-labels\47\76\n\74b:if cond\75\47data:post.labels\47\76\n\74data:postLabelsLabel\76\74/data:postLabelsLabel\76\n\74b:loop values\75\47data:post.labels\47 var\75\47label\47\76\n\74a expr:href\75\47data:label.url\47 rel\75\47tag\47\76\74data:label.name\76\74/data:label.name\76\74/a\76\74b:if cond\75\47data:label.isLast !\75 \46quot;true\46quot;\47\76,\74/b:if\76\n\74/b:loop\76\n\74/b:if\76\n\74/span\76\n\74/div\76\n\74div class\75\47post-footer-line post-footer-line-3\47\76\74span class\75\47post-location\47\76\n\74b:if cond\75\47data:top.showLocation\47\76\n\74b:if cond\75\47data:post.location\47\76\n\74data:postLocationLabel\76\74/data:postLocationLabel\76\n\74a expr:href\75\47data:post.location.mapsUrl\47 target\75\47_blank\47\76\74data:post.location.name\76\74/data:post.location.name\76\74/a\76\n\74/b:if\76\n\74/b:if\76\n\74/span\76\n\74/div\76\n\74/div\76\n\74/div\076'}, 'postQuickEdit': {'varName': 'post', 'template': '\74b:if cond\75\47data:post.editUrl\47\76\n\74span expr:class\75\47\46quot;item-control \46quot; + data:post.adminClass\47\76\n\74a expr:href\75\47data:post.editUrl\47 expr:title\75\47data:top.editPostMsg\47\76\n\74img alt\75\47\47 class\75\47icon-action\47 height\75\04718\47 src\75\47http://www.blogger.com/img/icon18_edit_allbkg.gif\47 width\75\04718\47/\76\n\74/a\76\n\74/span\76\n\74/b:if\076'}, 'commentDeleteIcon': {'varName': 'comment', 'template': '\74span expr:class\75\47\46quot;item-control \46quot; + data:comment.adminClass\47\76\n\74a expr:href\75\47data:comment.deleteUrl\47 expr:title\75\47data:top.deleteCommentMsg\47\76\n\74img src\75\47http://www.blogger.com/img/icon_delete13.gif\47/\76\n\74/a\76\n\74/span\076'}, 'backlinkDeleteIcon': {'varName': 'backlink', 'template': '\74span expr:class\75\47\46quot;item-control \46quot; + data:backlink.adminClass\47\76\n\74a expr:href\75\47data:backlink.deleteUrl\47 expr:title\75\47data:top.deleteBacklinkMsg\47\76\n\74img src\75\47http://www.blogger.com/img/icon_delete13.gif\47/\76\n\74/a\76\n\74/span\076'}, 'comments': {'varName': 'post', 'template': '\74div class\75\47comments\47 id\75\47comments\47\76\n\74a name\75\47comments\47\76\74/a\76\n\74b:if cond\75\47data:post.allowComments\47\76\n\74h4\76\n\74b:if cond\75\47data:post.numComments \75\75 1\47\76\n          1 \74data:commentLabel\76\74/data:commentLabel\76:\n        \74b:else\76\74/b:else\76\n\74data:post.numComments\76\74/data:post.numComments\76\n\74data:commentLabelPlural\76\74/data:commentLabelPlural\76:\n        \74/b:if\76\n\74/h4\76\n\74b:if cond\75\47data:post.commentPagingRequired\47\76\n\74span class\75\47paging-control-container\47\76\n\74a expr:class\75\47data:post.oldLinkClass\47 expr:href\75\47data:post.oldestLinkUrl\47\76\74data:post.oldestLinkText\76\74/data:post.oldestLinkText\76\74/a\76\n          \46#160;\n          \74a expr:class\75\47data:post.oldLinkClass\47 expr:href\75\47data:post.olderLinkUrl\47\76\74data:post.olderLinkText\76\74/data:post.olderLinkText\76\74/a\76\n          \46#160;\n          \74data:post.commentRangeText\76\74/data:post.commentRangeText\76\n          \46#160;\n          \74a expr:class\75\47data:post.newLinkClass\47 expr:href\75\47data:post.newerLinkUrl\47\76\74data:post.newerLinkText\76\74/data:post.newerLinkText\76\74/a\76\n          \46#160;\n          \74a expr:class\75\47data:post.newLinkClass\47 expr:href\75\47data:post.newestLinkUrl\47\76\74data:post.newestLinkText\76\74/data:post.newestLinkText\76\74/a\76\n\74/span\76\n\74/b:if\76\n\74dl id\75\47comments-block\47\76\n\74b:loop values\75\47data:post.comments\47 var\75\47comment\47\76\n\74dt expr:class\75\47\46quot;comment-author \46quot; + data:comment.authorClass\47 expr:id\75\47data:comment.anchorName\47\76\n\74a expr:name\75\47data:comment.anchorName\47\76\74/a\76\n\74b:if cond\75\47data:comment.authorUrl\47\76\n\74a expr:href\75\47data:comment.authorUrl\47 rel\75\47nofollow\47\76\74data:comment.author\76\74/data:comment.author\76\74/a\76\n\74b:else\76\74/b:else\76\n\74data:comment.author\76\74/data:comment.author\76\n\74/b:if\76\n\74data:commentPostedByMsg\76\74/data:commentPostedByMsg\76\n\74/dt\76\n\74dd class\75\47comment-body\47\76\n\74b:if cond\75\47data:comment.isDeleted\47\76\n\74span class\75\47deleted-comment\47\76\74data:comment.body\76\74/data:comment.body\76\74/span\76\n\74b:else\76\74/b:else\76\n\74p\76\74data:comment.body\76\74/data:comment.body\76\74/p\76\n\74/b:if\76\n\74/dd\76\n\74dd class\75\47comment-footer\47\76\n\74span class\75\47comment-timestamp\47\76\n\74a expr:href\75\47data:comment.url\47 title\75\47comment permalink\47\76\n\74data:comment.timestamp\76\74/data:comment.timestamp\76\n\74/a\76\n\74b:include data\75\47comment\47 name\75\47commentDeleteIcon\47\76\74/b:include\76\n\74/span\76\n\74/dd\76\n\74/b:loop\76\n\74/dl\76\n\74b:if cond\75\47data:post.commentPagingRequired\47\76\n\74span class\75\47paging-control-container\47\76\n\74a expr:class\75\47data:post.oldLinkClass\47 expr:href\75\47data:post.oldestLinkUrl\47\76\n\74data:post.oldestLinkText\76\74/data:post.oldestLinkText\76\n\74/a\76\n\74a expr:class\75\47data:post.oldLinkClass\47 expr:href\75\47data:post.olderLinkUrl\47\76\n\74data:post.olderLinkText\76\74/data:post.olderLinkText\76\n\74/a\76\n          \46#160;\n          \74data:post.commentRangeText\76\74/data:post.commentRangeText\76\n          \46#160;\n          \74a expr:class\75\47data:post.newLinkClass\47 expr:href\75\47data:post.newerLinkUrl\47\76\n\74data:post.newerLinkText\76\74/data:post.newerLinkText\76\n\74/a\76\n\74a expr:class\75\47data:post.newLinkClass\47 expr:href\75\47data:post.newestLinkUrl\47\76\n\74data:post.newestLinkText\76\74/data:post.newestLinkText\76\n\74/a\76\n\74/span\76\n\74/b:if\76\n\74p class\75\47comment-footer\47\76\n\74b:if cond\75\47data:post.embedCommentForm\47\76\n\74b:if cond\75\47data:post.allowNewComments\47\76\n\74b:include data\75\47post\47 name\75\47comment-form\47\76\74/b:include\76\n\74b:else\76\74/b:else\76\n\74data:post.noNewCommentsText\76\74/data:post.noNewCommentsText\76\n\74/b:if\76\n\74b:else\76\74/b:else\76\n\74b:if cond\75\47data:post.allowComments\47\76\n\74a expr:href\75\47data:post.addCommentUrl\47 expr:onclick\75\47data:post.addCommentOnclick\47\76\74data:postCommentMsg\76\74/data:postCommentMsg\76\74/a\76\n\74/b:if\76\n\74/b:if\76\n\74/p\76\n\74/b:if\76\n\74div id\75\47backlinks-container\47\76\n\74div expr:id\75\47data:widget.instanceId + \46quot;_backlinks-container\46quot;\47\76\n\74b:if cond\75\47data:post.showBacklinks\47\76\n\74b:include data\75\47post\47 name\75\47backlinks\47\76\74/b:include\76\n\74/b:if\76\n\74/div\76\n\74/div\76\n\74/div\076'}, 'comment-form': {'varName': 'post', 'template': '\74div class\75\47comment-form\47\76\n\74a name\75\47comment-form\47\76\74/a\76\n\74h4 id\75\47comment-post-message\47\76\74data:postCommentMsg\76\74/data:postCommentMsg\76\74/h4\76\n\74p\76\74data:blogCommentMessage\76\74/data:blogCommentMessage\76\74/p\76\n\74data:blogTeamBlogMessage\76\74/data:blogTeamBlogMessage\76\n\74a expr:href\75\47data:post.commentFormIframeSrc\47 id\75\47comment-editor-src\47\76\74/a\76\n\74iframe allowtransparency\75\47true\47 class\75\47blogger-iframe-colorize\47 frameborder\75\0470\47 height\75\047275\47 id\75\47comment-editor\47 scrolling\75\47no\47 src\75\47\47 width\75\047100%\47\76\74/iframe\76\n\74data:post.iframeColorizer\76\74/data:post.iframeColorizer\76\n\74/div\076'}, 'backlinks': {'varName': 'post', 'template': '\74a name\75\47links\47\76\74/a\76\74h4\76\74data:post.backlinksLabel\76\74/data:post.backlinksLabel\76\74/h4\76\n\74b:if cond\75\47data:post.numBacklinks !\75 0\47\76\n\74dl class\75\47comments-block\47 id\75\47comments-block\47\76\n\74b:loop values\75\47data:post.backlinks\47 var\75\47backlink\47\76\n\74div class\75\47collapsed-backlink backlink-control\47\76\n\74dt class\75\47comment-title\47\76\n\74span class\75\47backlink-toggle-zippy\47\76\46#160;\74/span\76\n\74a expr:href\75\47data:backlink.url\47 rel\75\47nofollow\47\76\74data:backlink.title\76\74/data:backlink.title\76\74/a\76\n\74b:include data\75\47backlink\47 name\75\47backlinkDeleteIcon\47\76\74/b:include\76\n\74/dt\76\n\74dd class\75\47comment-body collapseable\47\76\n\74data:backlink.snippet\76\74/data:backlink.snippet\76\n\74/dd\76\n\74dd class\75\47comment-footer collapseable\47\76\n\74span class\75\47comment-author\47\76\74data:post.authorLabel\76\74/data:post.authorLabel\76\n\74data:backlink.author\76\74/data:backlink.author\76\74/span\76\n\74span class\75\47comment-timestamp\47\76\74data:post.timestampLabel\76\74/data:post.timestampLabel\76\n\74data:backlink.timestamp\76\74/data:backlink.timestamp\76\74/span\76\n\74/dd\76\n\74/div\76\n\74/b:loop\76\n\74/dl\76\n\74/b:if\76\n\74p class\75\47comment-footer\47\76\n\74a class\75\47comment-link\47 expr:href\75\47data:post.createLinkUrl\47 expr:id\75\47data:widget.instanceId + \46quot;_backlinks-create-link\46quot;\47 target\75\47_blank\47\76\74data:post.createLinkLabel\76\74/data:post.createLinkLabel\76\74/a\76\n\74/p\076'}, 'feedLinks': {'varName': '', 'template': '\74b:if cond\75\47data:blog.pageType !\75 \46quot;item\46quot;\47\76\n\74b:if cond\75\47data:feedLinks\47\76\n\74div class\75\47blog-feeds\47\76\n\74b:include data\75\47feedLinks\47 name\75\47feedLinksBody\47\76\74/b:include\76\n\74/div\76\n\74/b:if\76\n\74b:else\76\74/b:else\76\n\74div class\75\47post-feeds\47\76\n\74b:loop values\75\47data:posts\47 var\75\47post\47\76\n\74b:if cond\75\47data:post.allowComments\47\76\n\74b:if cond\75\47data:post.feedLinks\47\76\n\74b:include data\75\47post.feedLinks\47 name\75\47feedLinksBody\47\76\74/b:include\76\n\74/b:if\76\n\74/b:if\76\n\74/b:loop\76\n\74/div\76\n\74/b:if\076'}, 'feedLinksBody': {'varName': 'links', 'template': '\74div class\75\47feed-links\47\76\n\74data:feedLinksMsg\76\74/data:feedLinksMsg\76\n\74b:loop values\75\47data:links\47 var\75\47f\47\76\n\74a class\75\47feed-link\47 expr:href\75\47data:f.url\47 expr:type\75\47data:f.mimeType\47 target\75\47_blank\47\76\74data:f.name\76\74/data:f.name\76 (\74data:f.feedType\76\74/data:f.feedType\76)\74/a\76\n\74/b:loop\76\n\74/div\076'}, 'status-message': {'varName': '', 'template': '\74b:if cond\75\47data:navMessage\47\76\n\74div class\75\47status-msg-wrap\47\76\n\74div class\75\47status-msg-body\47\76\n\74data:navMessage\76\74/data:navMessage\76\n\74/div\76\n\74div class\75\47status-msg-border\47\76\n\74div class\75\47status-msg-bg\47\76\n\74div class\75\47status-msg-hidden\47\76\74data:navMessage\76\74/data:navMessage\76\74/div\76\n\74/div\76\n\74/div\76\n\74/div\76\n\74div style\75\47clear: both;\47\76\74/div\76\n\74/b:if\076'}}, document.getElementById('Blog1'), {}, 'displayModeFull'));
+</SCRIPT>
+</BODY></HTML>

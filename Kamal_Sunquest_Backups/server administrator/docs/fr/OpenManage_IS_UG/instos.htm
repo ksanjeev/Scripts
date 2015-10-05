@@ -1,0 +1,107 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<title>Utilisation de Server Assistant pour installer un système d'exploitation - Guide de sécurité et d'installation de Dell OpenManage version 5.0</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">Retour à la page du sommaire</a> </p>
+<a name="1043338"></a><h1> Utilisation de Server Assistant pour installer un système d'exploitation </h1>
+<p class="title">Guide de sécurité et d'installation de Dell OpenManage&#8482;, version 5.0</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1054353">Présentation générale</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1057175">Avant de commencer</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1054353"></a><h2>Présentation générale</h2>
+
+
+<a name="1058278"></a><p>Dell OpenManage&#8482; Server Assistant fournit un processus d'installation simplifiée et rapide des systèmes d'exploitation Microsoft® Windows®, Red Hat® Enterprise Linux et SUSE Linux Enterprise Server en vous indiquant une procédure détaillée facile à suivre. Server Assistant est utilisé pour installer des systèmes d'exploitation pour les systèmes qui sont installés en tant que systèmes gérés.</p>
+<a name="1058214"></a><p>Quand vous utilisez Server Assistant pour installer le système d'exploitation Windows, Red Hat Enterprise Linux ou SUSE Linux Enterprise Server, Server Assistant copie automatiquement les fichiers d'installation pertinents de Dell OpenManage Server Administrator sur le disque dur et place les icônes <b>Installer Server Administrator</b> et <b>Supprimer les fichiers d'installation de Server Administrator</b> sur le bureau.</p>
+<a name="1057173"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Sur un système exécutant un système d'exploitation Red Hat Enterprise Linux ou SUSE Linux Enterprise Server, 
+vous serez invités à installer Server Administrator au premier démarrage suivant l'installation du système d'exploitation.
+</td>
+  </tr>
+</table><hr noshade size="1">
+<a name="1057175"></a><h2>Avant de commencer</h2>
+
+
+<a name="1057854"></a><h3> Spécifications pour l'installation
+</h3>
+<a name="1057855"></a><p>Les sections suivantes décrivent les spécifications générales du système géré. Les prérequis d'installation en fonction des systèmes d'exploitation sont répertoriées dans les procédures d'installation. </p>
+<a name="1057856"></a><h4> Systèmes d'exploitation pris en charge (niveaux minimaux)</h4>
+<ul><li><a name="1056878"></a>Red Hat Enterprise Linux AS, ES et WS, (version 3) x86, mise à jour 6<br><br></li>
+<li><a name="1057523"></a>Red Hat Enterprise Linux AS, ES et WS (version 3) pour Intel® Extended Memory 64 Technology (Intel EM64T), mise à jour 6<br><br></li>
+<li><a name="1057527"></a>Red Hat Enterprise Linux AS, ES et WS, (version 4) pour Intel x86<br><br></li>
+<li><a name="1057511"></a>Red Hat Enterprise Linux AS, ES et WS, (version 4) pour Intel EM64T<br><br></li>
+<li><a name="1057537"></a>Windows 2000 Server SP4 (y compris Server et Advanced Server)<br><br></li>
+<li><a name="1056899"></a> Windows Server&#8482; 2003 R2 (y compris les éditions Standard et Enterprise)<br><br></li>
+<li><a name="1059392"></a>Windows Server 2003 SP1 (Web Edition)<br><br></li>
+<li><a name="1059410"></a>Windows SBS 2003 SP1 (sauf IT Assistant)<br><br></li>
+<li><a name="1060162"></a>Windows Server 2003 x64 R2 (y compris les éditions Standard et Enterprise) <br><br></li>
+<li><a name="1060431"></a>Windows Storage Server 2003 R2 (y compris les éditions Express, Standard, Workgroup et Enterprise)<br><br></li>
+<li><a name="1059412"></a>SUSE Linux Enterprise Server (version 9) SP3 pour Intel EM64T<br><br></li>
+</ul><a name="1056758"></a><h3> Installation de votre système d'exploitation
+</h3>
+<a name="1056900"></a><p>Effectuez les étapes suivantes pour déterminer si un système d'exploitation a été installé sur votre système&nbsp;: </p>
+<ol type="1">
+
+<li value="1"><a name="1056735"></a>Assurez-vous que le clavier, la souris et l'écran sont connectés à votre système et allumez 
+celui-ci.
+
+<br><br>
+ <li value="2"><a name="1056736"></a>Lisez et acceptez le contrat de licence du logiciel pour continuer.
+<br><br>
+</ol>
+<a name="1056765"></a><p class="indent">Si un message apparaît et indique qu'il n'y a pas de disques d'amorçage ou qu'aucun système d'exploitation n'a été trouvé, alors aucun système d'exploitation n'a été installé sur votre système. Assurez-vous que vous disposez du CD de votre système d'exploitation et passez aux étapes suivantes. </p>
+<a name="1056737"></a><p class="indent">Si un système d'exploitation a été pré-installé sur votre système, il n'est pas nécessaire de poursuivre cette procédure. Repérez le document comprenant les Instructions d'installation du système d'exploitation fourni avec votre système et suivez ces instructions pour terminer le processus d'installation. </p>
+<a name="1056738"></a><p>Effectuez les étapes suivantes pour installer un système d'exploitation sur votre système&nbsp;: </p>
+<ol type="1">
+
+<li value="1"><a name="1056739"></a>Insérez le CD <i>Dell&#8482; PowerEdge&#8482; Installation and Server Management</i> dans le lecteur de CD et redémarrez 
+votre système.
+<br><br>
+
+<li value="2"><a name="1056740"></a>Sélectionnez <b>Configuration du serveur</b> sur la   page principale de <b>Server Assistant</b>.
+
+<br><br>
+ <li value="3"><a name="1056741"></a>Suivez les instructions pas à pas pour configurer votre matériel et installer votre système 
+d'exploitation.
+<br><br>
+ </ol>
+<a name="1057245"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Enlevez le CD quand vous redémarrez le système, ou Server Assistant démarrera de nouveau.
+</td>
+  </tr>
+</table><a name="1056732"></a><p>Pour plus d'informations concernant l'installation du RAID, consultez la section <i>Initiation au RAID</i> sur le CD de <i>documentation</i>.</p>
+<a name="1058225"></a><p>Vous pouvez utiliser l'icône <b>Installer Server Administrator</b> pour installer Server Administrator, sans le CD d'installation. Sur un système fonctionnant sous Windows, l'interface d'installation standard s'affiche lorsque vous cliquez sur cette icône. Sur un système exécutant un système d'exploitation Red Hat Enterprise Linux ou SUSE Linux Enterprise Server, le fait de cliquer sur cette icône exécute le script de l'installation personnalisée de Server Administrator.</p>
+<a name="1058226"></a><p>Si vous ne voulez pas installer Server Administrator, ou si vous voulez supprimer les fichiers d'installation, vous pouvez cliquer sur l'icône «&nbsp;<b>Supprimer les fichiers d'installation de Server Administrator</b>&nbsp;». Après avoir confirmé que vous voulez continuer, tous les fichiers de Server Administrator, y compris les icônes, sont supprimés.</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">Retour à la page du sommaire</a></p>
+
+
+<p> </p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

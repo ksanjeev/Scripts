@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<project name="Photosmart Essential">
+
+  <!--
+
+        Copyright 2005 Hewlett-Packard . All Rights Reserved.
+        This software is the confidential and proprietary information of
+        Hewlett-Packard. Use is subject to license terms.
+
+        NAnt version : 0.85 Release Candidate 3 (Build 0.85.1932.0 rc3 4/16/2005)
+        http://www.swoogan.com/nantgui.html  : NAnt-Gui-1.2.4-rc6.exe
+
+        NOTE : This script is not intended to be modified by anyone other than the build team.
+        Author: Gopinath M.R. (mgopinath@trianz.com)
+    -->
+   <target name="psp.src.test.platform.compile">
+        <property name="param.solution.dir" value="${psp.bt.taj.src.dir}/Framework/Platform_TestHarness" overwrite="true"/>
+        <property name="param.solution.name" value="Platform_TestHarness" overwrite="true"/>
+        <call target="task.vcnet.compile"/>
+   </target>
+
+   <target name="psp.src.test.psutils.compile">
+        <property name="param.solution.dir" value="${psp.bt.taj.src.dir}/PSUtils" overwrite="true"/>
+        <property name="param.solution.name" value="Test_PSUtils" overwrite="true"/>
+        <call target="task.vcnet.compile"/>
+   </target>
+
+   <target name="psp.src.test.tray.compile">
+        <property name="param.solution.dir" value="${psp.bt.taj.src.dir}/Tray" overwrite="true"/>
+        <property name="param.solution.name" value="Test_TrayEngine" overwrite="true"/>
+        <call target="task.vcnet.compile"/>
+   </target>
+
+   <target name="psp.src.test.projectengine.compile">
+        <property name="param.solution.dir" value="${psp.bt.taj.src.dir}/ProjectEngine/TestHarness/ProjectEngine_TestHarness" overwrite="true"/>
+        <property name="param.solution.name" value="ProjectEngine_TestHarness" overwrite="true"/>
+        <call target="task.vcnet.compile"/>
+   </target>
+
+   <target name="psp.src.test.fsyswchr.compile">
+        <property name="param.solution.dir" value="${psp.bt.taj.src.dir}/FileSystemWatcher/FileSystemWatcher_TestHarness" overwrite="true"/>
+        <property name="param.solution.name" value="FileSystemWatcher_TestHarness" overwrite="true"/>
+        <call target="task.vcnet.compile"/>
+   </target>
+
+   <target name="psp.src.test.imgmgr.compile">
+        <property name="param.solution.dir" value="${psp.bt.taj.src.dir}/ImageManager/ImageManager_TestHarness" overwrite="true"/>
+        <property name="param.solution.name" value="TestHarness_App" overwrite="true"/>
+        <call target="task.vcnet.compile"/>
+   </target>
+    
+  <target name="psp.vendor.src.test.build.compile" description=" Build the Test Harness for the components owned by Trianz">
+    <call target="psp.src.test.platform.compile"/>
+    <call target="psp.src.test.psutils.compile"/>
+    <call target="psp.src.test.tray.compile"/>
+    <call target="psp.src.test.projectengine.compile"/>
+  </target>
+</project>

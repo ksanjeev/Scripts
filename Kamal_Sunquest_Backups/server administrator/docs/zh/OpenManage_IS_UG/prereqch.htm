@@ -1,0 +1,132 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+<title>前提条件检查程序：Dell OpenManage 5.0 版安装和安全性用户指南</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">返回目录页</a> </p>
+<a name="1053126"></a><h1> 前提条件检查程序 </h1>
+<p class="title">Dell OpenManage&#8482; 5.0 版安装和安全性用户指南</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1053464">前提条件检查程序的命令行操作
+</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1053464"></a><h2>前提条件检查程序的命令行操作</h2>
+
+
+<a name="1054236"></a><p>可以从 <b>\windows\PreReqChecker</b> 目录通过执行 runprereqchecks.exe /s 无提示运行前提条件检查。 运行前提条件检查后，将在 <b>%Temp%</b> 目录中创建一个 HTML 文件。 文件名为 <b>omprereq.htm</b>，它包含前提条件检查的结果。 <b>Temp</b> 目录并不通常意义上的 <b>X:\Temp</b>，而是 <b>X:\Documents and Settings\username\Local Settings\Temp</b>。要找到 <b>%TEMP%</b>，请转至命令行提示符并键入 <span class="screen">echo %TEMP%</span>。</p>
+<a name="1053465"></a><p>前提条件检查程序的结果会写入 Management Station 注册表的以下注册表项下：</p>
+<a name="1053466"></a><p><b>HKEY_LOCAL_MACHINE\Software\Dell Computer Corporation\OpenManage\PreReqChecks\MS\</b></p>
+<a name="1054253"></a><p>对于管理系统，它们在以下键下写入：</p>
+<a name="1054254"></a><p><b>HKEY_LOCAL_MACHINE\Software\Dell Computer Corporation\OpenManage\PreReqChecks\MN\</b></p>
+<a name="1053467"></a><p>无提示运行前提条件检查时，来自 <b>runprereqchecks</b>.exe 的返回代码将是与所有软件产品最高严重性情况相关的数字。 返回代码数字与注册表中使用的相同。 <a href="prereqch.htm#1053477">表&#160;9-1</a> 详细说明了返回的代码。</p>
+<a name="1053540"></a>
+<p><p class="FigureTableTitle"><a name="1053477"></a>表 9-1.  无提示运行前提条件检查时返回的代码&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1053481"> </a>
+<p><b>返回代码</b></p>
+
+
+</th><th valign="top" align="left"><a name="1053483"> </a>
+<p><b>说明</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1053485"></a>0</p></td><td valign="top" align="left"><p><a name="1053487"></a>没有条件与软件相关。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053489"></a>1</p></td><td valign="top" align="left"><p><a name="1053491"></a>某个通知条件（或多个条件）与软件相关。 它不阻止安装软件产品。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053493"></a>2</p></td><td valign="top" align="left"><p><a name="1053495"></a>某个警告条件（或多个条件）与软件相关。 建议解决引起警告的情况，然后再继续安装软件。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053497"></a>3</p></td><td valign="top" align="left"><p><a name="1053499"></a>某个错误条件（或多个条件）与软件相关。 需要解决引起错误的情况，然后才可继续安装该软件。 如果不解决问题，将不安装软件。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053501"></a>-1</p></td><td valign="top" align="left"><p><a name="1053503"></a>Microsoft&#174; Windows&#174; Script Host (WSH) 错误。 前提条件检查程序将不会运行。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053505"></a>-2</p></td><td valign="top" align="left"><p><a name="1053507"></a>操作系统不受支持。 前提条件检查程序将不会运行。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053509"></a>-3</p></td><td valign="top" align="left"><p><a name="1053511"></a>用户不具有管理员权限。 前提条件检查程序将不会运行。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053513"></a>-4</p></td><td valign="top" align="left"><p><a name="1053515"></a>不是一个实现的返回代码。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053517"></a>-5</p></td><td valign="top" align="left"><p><a name="1053519"></a>用户没有将工作目录更改为 <b>%TEMP%</b>。前提条件检查程序将不会运行。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053521"></a>-6</p></td><td valign="top" align="left"><p><a name="1053523"></a>目标目录不存在。 前提条件检查程序将不会运行。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053525"></a>-7</p></td><td valign="top" align="left"><p><a name="1053527"></a>出现内部错误。 前提条件检查程序将不会运行。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053529"></a>-8</p></td><td valign="top" align="left"><p><a name="1053531"></a>软件已在运行。 前提条件检查程序将不会运行。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053533"></a>-9</p></td><td valign="top" align="left"><p><a name="1053535"></a>Windows Script Host 损坏、版本错误或未安装。前提条件检查程序将不会运行。</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053537"></a>-10</p></td><td valign="top" align="left"><p><a name="1053539"></a>表示脚本环境出现错误。 前提条件检查程序将不会运行。</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054272"></a><p>运行完前提条件检查后，各个软件产品都设置了相关值。 <a href="prereqch.htm#1054118">表&#160;9-2</a>&#160; 和<a href="prereqch.htm#1054148">表&#160;9-3</a> 提供了每种软件功能的功能 ID 的列表。功能 ID 可以是 2 至 5 个字符的指定值。</p>
+<a name="1054214"></a>
+<p><p class="FigureTableTitle"><a name="1054118"></a>表 9-2.   Management Station 的功能 ID</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054122"> </a>
+<p><b>功能 ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054124"> </a>
+<p><b>说明</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054126"></a>ADS</p></td><td valign="top" align="left"><p><a name="1054128"></a>Microsoft Active Directory&#174; 管理单元公用程序</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054134"></a>BMC</p></td><td valign="top" align="left"><p><a name="1054136"></a>底板管理控制器管理公用程序</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054138"></a>ITA</p></td><td valign="top" align="left"><p><a name="1054140"></a>Dell OpenManage&#8482; IT Assistant</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054142"></a>RACMS</p></td><td valign="top" align="left"><p><a name="1054144"></a>Remote Access Controller </p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054201"></a>
+<p><p class="FigureTableTitle"><a name="1054148"></a>表 9-3.  软件功能 ID</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054152"> </a>
+<p><b>功能 ID</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054154"> </a>
+<p><b>说明</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054156"></a>ALL</p></td><td valign="top" align="left"><p><a name="1054158"></a>所有功能</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054164"></a>BRCM</p></td><td valign="top" align="left"><p><a name="1054166"></a>Broadcom NIC 代理</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054168"></a>INTEL</p></td><td valign="top" align="left"><p><a name="1054170"></a>Intel&#174; NIC 代理</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054172"></a>IWS</p></td><td valign="top" align="left"><p><a name="1054174"></a>Dell OpenManage Server Administrator Web Server</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054176"></a>OLD</p></td><td valign="top" align="left"><p><a name="1054178"></a>Server Administrator Diagnostic Service</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054180"></a>OMSM</p></td><td valign="top" align="left"><p><a name="1054182"></a>Server Administrator Storage Management Service</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054184"></a>RAC3</p></td><td valign="top" align="left"><p><a name="1054186"></a>Remote Access Controller (DRAC III)</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054188"></a>RAC4</p></td><td valign="top" align="left"><p><a name="1054190"></a>Remote Access Controller (DRAC 4)</p></td></tr>
+<tr><td valign="top" align="left">RAC5</td><td valign="top" align="left">Remote Access Controller (DRAC 5)</td></tr>
+
+<tr><td valign="top" align="left"><p><a name="1054192"></a>SA</p></td><td valign="top" align="left"><p><a name="1054194"></a>Server Administrator</p></td></tr>
+
+</table>
+
+
+
+
+
+</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">返回目录页</a></p>
+
+
+<p>&#160;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

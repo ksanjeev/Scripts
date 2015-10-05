@@ -1,0 +1,21 @@
+[MUMPS]
+Product=MCLM
+BuildDirectory=C:\MCLM_BLD_VIEW\
+VOB=MUMPS
+DB=MUMPS
+MUMPS_Folder=MM_30_M
+Components=RTN
+ExcludeFile=TD.GSA
+ExcludeMsqlFile=TD.GSA
+ExcludeFolderList=lost+found,MTRM
+ExcludeMsqlFolderList=
+BuildSeparateFolder=
+BuildSeparateFile=
+RoutineFiles=.rsa, .RSA
+GlobalFiles=
+MsqlRoutines=
+MsqlFiles=
+RoutineOutput=.ro
+GlobalOutput=
+MsqlRoutineOutput=
+MsqlOutput=

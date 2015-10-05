@@ -1,0 +1,31 @@
+#This config spec is used to retrieve latest localized files from vendor's branch to incorporate in Trianz build.
+
+element * CHECKEDOUT
+
+element \btappres .../bt_dev_main/LATEST
+
+element \btappres\contentPackages .../sd_dev_main/sd_kaa_stab/LATEST
+element \btappres\contentPackages .../sd_dev_main/LATEST
+element \btappres\contentPackages\... .../sd_dev_main/sd_kaa_stab/LATEST
+element \btappres\contentPackages\... .../sd_dev_main/LATEST
+element \btappres\Resources .../sd_dev_main/sd_kaa_stab/LATEST
+element \btappres\Resources .../sd_dev_main/LATEST
+element \btappres\Resources\... .../sd_dev_main/sd_kaa_stab/LATEST
+element \btappres\Resources\... .../sd_dev_main/LATEST
+
+element \btappres\l10n-files .../sd_dev_l10n/sd_kaa_stab/LATEST
+element \btappres\l10n-files .../sd_dev_l10n/LATEST
+element \btappres\l10n-files\... .../sd_dev_l10n/sd_kaa_stab/LATEST
+element \btappres\l10n-files\... .../sd_dev_l10n/LATEST
+element \btappres\... .../main/0 -mkbranch sd_kaa_stab
+element \btappres\... .../main/LATEST -mkbranch sd_kaa_stab
+
+#element \btappres\contentPackages .../sd_dev_main/LATEST
+#element \btappres\contentPackages\... .../sd_dev_main/LATEST
+#element \btappres\Resources .../sd_dev_main/LATEST
+#element \btappres\Resources\... .../sd_dev_main/LATEST
+
+#element \btappres\l10n-files .../sd_dev_l10n/LATEST
+#element \btappres\l10n-files\... .../sd_dev_l10n/LATEST
+#element \btappres\... .../main/0 -mkbranch sd_dev_l10n
+#element \btappres\... .../main/LATEST -mkbranch sd_dev_l10n

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prreporttemplate>
+	<html>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+			<title>OpenManage Install MS 操作系统错误</title>
+			<link href="../oma.css" type="text/css" rel="stylesheet" />
+			<script language="javascript">
+			<!--
+				var bOdd = true;
+				var allcol = "100%";
+				var col1 = 25;
+				var col1_header = 35; //add 10 since we can't use cell padding
+				var col2 = "30%";
+				var col3 = "70%";
+				var source_path = top.document.location.href;
+				function outTD(text,ncols,width)
+				{
+					document.write('<td width="' + width + '" class="data-area-canvas');
+					if( bOdd == true )
+					{
+						document.write('-odd');
+					}
+					document.write('" valign="top"');
+					if( ncols > 1 )
+					{
+						document.write(' colspan="' + ncols + '"');
+					}
+					document.write('>' + ' ' + text + '</td>');
+				}
+				function init()
+				{
+					var button;
+					button = document.getElementById("optional_button_area");
+					if( top != this )
+					{
+						button.style.visibility = 'visible';
+					}
+					else
+					{
+						button.style.visibility = 'hidden';
+					}
+				}
+			-->
+		</script>
+		</head>
+		<body onload="init()" tabindex="-1">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td width="10"><script language="javascript">document.write('<img src="../images/data_tl.gif" />');</script></td>
+					<td class="data-area-canvas"><script language="javascript">document.write('<img src="../images/blank.gif" width="10" />');</script></td>
+					<td width="10"><script language="javascript">document.write('<img src="../images/data_tr.gif" />');</script></td>
+				</tr>
+				<tr>
+					<td class="data-area-canvas"><script language="javascript">document.write('<img src="../images/blank.gif" width="10" />');</script></td>
+					<td>
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" >
+						<tr>
+							<th align="left" class="data-area-canvas" width="25"><img src="../images/blank.gif" width="35" height="10" /></th>
+							<headingtemplate>
+								<script language="javascript">
+									document.write('<th align="left" class="data-area-canvas"  tabindex="-1" width="30%"><strong><span id="feature_header">');
+									document.write('<HeadingFeatureElement>功能</HeadingFeatureElement>');
+									document.write('</span></strong></th>');
+									document.write('<th align="left" class="data-area-canvas" width="70%"><strong><span id="desc_header">');
+									document.write('<HeadingDescriptionElement>说明</HeadingDescriptionElement>');
+									document.write('</span></strong></th>');
+							</script>
+							</headingtemplate>
+						</tr>
+						<tr>
+							<td colspan="3" height="2" width="100%" bgcolor="#000000"><script language="javascript">document.write('<img src="../images/blank.gif" height="2" />');</script></td>
+						</tr>
+					</table>
+					</td>
+					<td class="data-area-canvas"><script language="javascript">document.write('<img src="../images/blank.gif" width="10" tabindex="-1" />');</script></td>
+				</tr>
+				<tr>
+					<td class="data-area-canvas"><script language="javascript">document.write('<img src="../images/blank.gif" width="10"  tabindex="-1"/>');</script></td>
+					<td>
+						<table border="0" cellpadding="5" cellspacing="0" width="100%">
+
+						<allfailtemplate>
+							<tr>
+								<script language="javascript">
+									outTD('<img src="../images/non-recoverable.gif"/>', 1, col1);
+									outTD('<CaptionID>所有选择的功能。</CaptionID>', 1, col2);
+									outTD('<AllFailTemplateElement>不支持这一操作系统。在 Microsoft<sup>&#174;</sup> Windows<sup>&#174;</sup> XP （SP1 或更高版本)、Windows 2000 （SP3 或更高版本) 和 Windows 2003 上 支持  Management Station 安装程序。</AllFailTemplateElement>',1,col3);
+								</script>
+							</tr>
+						</allfailtemplate>
+
+
+						</table>
+					</td>
+					<td class="data-area-canvas" tabindex="-1"><script language="javascript">document.write('<img src="../images/blank.gif" width="10" />');</script></td>
+				</tr>
+				<tr>
+					<td width="10"><script language="javascript">document.write('<img src="../images/data_bl.gif" />');</script></td>
+					<td class="data-area-canvas"><script language="javascript">document.write('<img src="../images/blank.gif" width="10" />');</script></td>
+					<td width="10"><script language="javascript">document.write('<img src="../images/data_br.gif" />');</script></td>
+				</tr>
+			</table>
+			<div id="optional_button_area" style="visibility:hidden">
+			<br />
+			</div>
+		</body>
+	</html>
+</prreporttemplate>

@@ -1,0 +1,22 @@
+[MUMPS]
+;Product=AI_30
+BuildDirectory=C:\AI_30_BLD_VIEW\
+DB=MUMPS
+MUMPS_Folder=AI_GENERIC
+;DB=CHACHE
+;VOB=MUMPS
+Components=RTN
+ExcludeFile=TD.GSA,ARC
+ExcludeMsqlFile=TD.GSA
+ExcludeFolderList=H,lost+found,Templates
+ExcludeMsqlFolderList=
+BuildSeparateFolder=
+BuildSeparateFile=
+RoutineFiles=.rsa, .RSA
+GlobalFiles=.gsa,.GSA
+MsqlRoutines=
+MsqlFiles=
+RoutineOutput=.ro
+GlobalOutput=
+MsqlRoutineOutput=
+MsqlOutput=

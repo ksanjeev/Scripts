@@ -1,0 +1,1299 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<title>Configuración y administración: Guía del usuario de instalación y seguridad de Dell OpenManage versión 5.0</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">Regresar a la página de contenido</a> </p>
+<a name="1059954"></a><h1> Configuración y administración  </h1>
+<p class="title">Guía del usuario de instalación y seguridad de Dell OpenManage&#8482; versión 5.0</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1065250">Antes de comenzar</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1063820">Requisitos para la instalación</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1079516">Dependencias y requisitos previos</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1060384">Configuración de un explorador de web compatible</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1044105">Asignación de privilegios de usuario</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1064797">Configuración del agente SNMP</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1093618">Configuración de seguridad y del servidor de puerto seguro</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1065250"></a><h2>Antes de comenzar</h2>
+
+
+<ul><li><a name="1063814"></a>Lea las instrucciones aplicables en este capítulo.<br><br></li>
+<li><a name="1063815"></a>Lea los requisitos de instalación para asegurarse de que su sistema cumple o supera los requisitos mínimos.<br><br></li>
+<li><a name="1100339"></a>Lea la <i>Guía de compatibilidad de Server Administrator de Dell OpenManage&#8482;</i>. Este documento contiene información de compatibilidad acerca de la instalación y operación del software de Dell OpenManage en diversas plataformas de hardware (sistemas) que ejecutan los sistemas operativos admitidos de Microsoft® Windows®, Red Hat® Enterprise Linux y SUSE® Linux Enterprise Server.<br><br></li>
+<li><a name="1100342"></a>Lea los archivos léame de Dell OpenManage aplicables en los CD de Dell OpenManage o en el sitio web de asistencia de Dell&#8482; en <b>support.dell.com</b>. Estos archivos contienen la información más actualizada sobre las versiones de software, firmware y archivos controladores, además de información acerca de los problemas conocidos. El archivo de instalación <b>readme_ins.txt</b> también contiene una lista de servidores admitidos.<br><br></li>
+<li><a name="1063818"></a>Lea las instrucciones para la instalación del sistema operativo.<br><br></li>
+</ul><hr noshade size="1">
+<a name="1063820"></a><h2>Requisitos para la instalación</h2>
+
+
+<a name="1063821"></a><p>Las secciones siguientes describen los requisitos generales de Dell OpenManage Systems Management Software. Sistema operativo: los requisitos previos de instalación específicos se enumeran como parte de los procedimientos de instalación. </p>
+<ul><li><a name="1063825"></a><a href="setup.htm#1063831">Sistemas operativos compatibles</a><br><br> </li>
+<li><a name="1063829"></a><a href="setup.htm#1092189">Requisitos del sistema</a><br><br></li>
+</ul><a name="1063831"></a><h3> Sistemas operativos compatibles
+</h3>
+<a name="1063832"></a><p>Dell OpenManage Systems Management Software se ejecuta, como mínimo, en cada uno de los siguientes sistemas operativos: </p>
+<ul><li><a name="1079024"></a>Familia Windows 2000 Server (con SP4): Incluye Windows 2000 Server, Windows 2000 Advanced Server y Windows 2000 Professional<br><br></li>
+<li><a name="1088430"></a>Familia Windows Server&#8482; 2003 (con R2): Incluye las ediciones Standard y Enterprise<br><br></li>
+<li><a name="1080964"></a>Windows Server 2003 x64 R2: Incluye las ediciones Standard y Enterprise (excepto IT Assistant)<br><br></li>
+</ul><a name="1089586"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">NOTA: </span>IT Assistant no se admite en sistemas que ejecutan Microsoft Windows Server 2003 x64.
+</td>
+  </tr>
+</table>
+<ul><li><a name="1094982"></a>Windows Server 2003 SP1 (edición Web)<br><br></li>
+<li><a name="1094986"></a>Windows SBS 2003 SP1 (excepto IT Assistant)<br><br></li>
+<li><a name="1096958"></a>Windows XP SP1 y SP2<br><br></li>
+<li><a name="1100878"></a>Windows Storage Server 2003 R2: Incluye las ediciones Express, Standard, Workgroup y Enterprise<br><br> </li>
+<li><a name="1080966"></a>Red Hat Enterprise Linux AS, ES y WS (versión 3) x86, actualización 6<br><br></li>
+</ul><a name="1063841"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">NOTA: </span>Para admitir núcleos actualizados publicados por Red Hat, y para versiones posteriores de Red Hat Enterprise Linux, es posible que se deba utilizar la compatibilidad con el núcleo dinámico (consulte &quot;<a href="instlx.htm#1054829">Compatibilidad con el núcleo dinámico (DKS)</a>&quot; para obtener una descripción de esta característica).
+</td>
+  </tr>
+</table>
+<ul><li><a name="1093940"></a>Red Hat Enterprise Linux AS, ES y WS (versión 3) para la tecnología Intel® de memoria extendida 64 (Intel EM64T), actualización 6<br><br></li>
+<li><a name="1076067"></a>Red Hat Enterprise Linux AS, ES y WS (versión 4) para Intel x86<br><br></li>
+<li><a name="1092186"></a>Red Hat Enterprise Linux AS, ES y WS (versión 4) para Intel EM64T<br><br></li>
+<li><a name="1092187"></a>SUSE Linux Enterprise Server (versión 9) SP3 para Intel EM64T<br><br></li>
+</ul><a name="1094163"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTA: </span> Para admitir núcleos actualizados publicados por Novell®, y para versiones posteriores de SUSE Linux Enterprise Server, es posible que se deba utilizar la compatibilidad con el núcleo dinámico (consulte &quot;<a href="instlx.htm#1054829">Compatibilidad con el núcleo dinámico (DKS)</a>&quot; para obtener una descripción de esta característica).
+</td>
+  </tr>
+</table>
+<a name="1092189"></a><h3> Requisitos del sistema
+</h3>
+<a name="1063854"></a><p>El software Dell OpenManage Server Administrator debe estar instalado en cada uno de los sistemas que se van a administrar. A continuación, se pueden administrar los sistemas que ejecutan el Server Administrator de forma local o remota mediante un explorador web compatible.</p>
+<a name="1065231"></a><h4> Requisitos del sistema administrado</h4>
+<ul><li><a name="1065235"></a>Uno de los <a href="setup.htm#1063831">Sistemas operativos compatibles</a><br><br></li>
+<li><a name="1065236"></a>Un mínimo de 64 MB de RAM<br><br></li>
+<li><a name="1063861"></a>Un mínimo de 256 MB de espacio libre en la unidad de disco duro<br><br></li>
+<li><a name="1063862"></a>Derechos de administrador<br><br></li>
+<li><a name="1063863"></a>Conexión TCP/IP en el sistema supervisado y en el sistema remoto para facilitar la administración de sistemas remotos<br><br></li>
+<li><a name="1075721"></a>Uno de los exploradores de web admitidos (consulte &quot;<a href="setup.htm#1063893">Requisitos mínimos de exploradores de web admitidos</a>&quot;)<br><br></li>
+<li><a name="1075725"></a>Uno de los <a href="setup.htm#1089702">estándares admitidos de protocolos de Systems Management</a> (consulte &quot;<a href="setup.htm#1089702">Estándares de protocolos de Systems Management admitidos</a>&quot;)<br><br></li>
+<li><a name="1075726"></a>Mouse, teclado y monitor para administrar sistemas localmente. El monitor requiere una resolución de pantalla mínima de 800 x 600. La resolución recomendada es 1024 x 768.<br><br></li>
+<li><a name="1100206"></a>El servicio de acceso remoto de Server Administrator requiere que haya un controlador de acceso remoto (RAC) instalado en el sistema que se va a administrar. Consulte la <i>Guía del usuario de Dell Remote Access Controller 4</i>, la <i>Guía del usuario de Dell Remote Access Controller 5</i> y la <i>Guía de instalación y configuración de Dell Remote Access Controller</i> o la <i>Guía del controlador de acceso remoto incorporado/MC de Dell</i> para conocer los requisitos completos de software y hardware.<br><br></li>
+</ul><a name="1063878"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+NOTA: </span> El software de RAC se instala como parte de las opciones de instalación <b>Configuración rápida</b> y <b>Configuración personalizada</b> al instalar Managed System Software desde el CD <i>Dell PowerEdge&#8482; Installation and Server Management</i>, siempre y cuando el sistema administrado cumpla con todos los requisitos previos de instalación del RAC. Consulte <a href="intro.htm#1047127">Servicio de acceso remoto</a> y la <i>Guía de instalación y configuración de Dell Remote Access Controller</i> o la <i>Guía del usuario de Dell Embedded Remote Access/MC Controller</i> para ver los requisitos de software y de hardware completos.
+ </td>
+  </tr>
+</table>
+<a name="1063888"></a><h4> Requisitos del sistema para la administración remota</h4>
+<ul><li><a name="1063889"></a>Uno de los exploradores compatibles de web para administrar un sistema de manera remota desde una interfaz gráfica de usuario (GUI)<br><br></li>
+<li><a name="1063890"></a>Conexión TCP/IP en el sistema supervisado y en el sistema remoto para facilitar la administración de sistemas remotos<br><br></li>
+<li><a name="1063891"></a>Resolución mínima de pantalla de 800 x 600. La resolución recomendada de la pantalla es de 1024 x 768.<br><br></li>
+</ul><a name="1063893"></a><h4> Requisitos mínimos de los exploradores de web admitidos</h4>
+<ul><li><a name="1089698"></a>Internet Explorer 6.0 SP1 y SP2 (para Windows solamente)<br><br></li>
+<li><a name="1089700"></a>Mozilla Firefox 1.07 (SUSE Linux Enterprise Server y Red Hat Enterprise Linux)<br><br></li>
+<li><a name="1092192"></a>Mozilla 1.7.8, 1.7.10 y 1.7.11 (SUSE Linux Enterprise Server y Red Hat Enterprise Linux)<br><br></li>
+</ul><a name="1089702"></a><h4> Estándares compatibles de protocolos de administración de sistemas</h4>
+<a name="1063910"></a><p>Debe haber un estándar del protocolo de Systems Management instalado en el sistema administrado antes de instalar el software de Management Station o Managed System. En los sistemas operativos Windows admitidos, el software de Dell OpenManage admite estos dos estándares de administración de sistemas: Modelo común de información/Instrumentación para administración de Windows (CIM/WMI) y Protocolo simple de administración de red (SNMP). En los sistemas operativos Red Hat Enterprise Linux y SUSE Linux Enterprise Server compatibles, el software Dell OpenManage admite el estándar SNMP de administración de sistemas.</p>
+<a name="1063915"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Para obtener más información acerca de la instalación de un estándar de protocolo de administración de sistemas compatible en el sistema administrado, consulte la documentación del sistema operativo.
+</td>
+  </tr>
+</table><a name="1063919"></a><p>La <a href="setup.htm#1063926">tabla 3-1</a> muestra la disponibilidad de los estándares de administración de sistemas para cada sistema operativo compatible.</p>
+<a name="1063955"></a>
+<p><p class="FigureTableTitle"><a name="1063926"></a>Tabla 3-1.  Disponibilidad de protocolos de administración de sistemas por sistema operativo </p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1063932"> </a>
+<p><b>Sistema operativo</b></p>
+
+
+</th><th valign="top" align="left"><a name="1063934"> </a>
+<p><b>SNMP</b></p>
+
+
+</th><th valign="top" align="left"><a name="1063936"> </a>
+<p><b>CIM/WMI</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1063938"></a>Sistemas operativos Windows compatibles.</p></td><td valign="top" align="left"><p><a name="1063940"></a>Disponible desde el medio de instalación del sistema operativo.</p></td><td valign="top" align="left"><p><a name="1063942"></a>Siempre instalado.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1063944"></a>Sistemas operativos Red Hat Enterprise Linux compatibles.</p></td><td valign="top" align="left"><p><a name="1063946"></a>Se debe instalar el paquete SNMP proporcionado con el sistema operativo.</p></td><td valign="top" align="left"><p><a name="1063948"></a>No disponible.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1092196"></a>Sistemas operativos SUSE Linux Enterprise Server compatibles.</p></td><td valign="top" align="left"><p><a name="1092198"></a>Se debe instalar el paquete SNMP proporcionado con el sistema operativo.</p></td><td valign="top" align="left"><p><a name="1092200"></a>No disponible.</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><hr noshade size="1">
+<a name="1079516"></a><h2>Dependencias y requisitos previos</h2>
+
+
+<a name="1079519"></a><h3> Actualización de Dell OpenManage Software versiones 1.<i>x, </i>2.<i>x</i> y 3.<i>x</i>&#8211;4.2
+</h3>
+<a name="1084514"></a><p>Las actualizaciones del software de Dell OpenManage versiones 1.<i>x</i>, 2.<i>x y 3.x</i> a <i> 4.2 </i> no se admiten. Debe desinstalar manualmente las versiones 1.<i>x,</i> 2.<i>x y 3.x </i>a<i> 4.2 </i>del software Dell OpenManage antes de iniciar la instalación de la nueva versión. El instalador le notificará si detecta las versiones de software de Dell OpenManage 1<i>.x </i>a<i> </i>4.2<i> </i>en el sistema. Otra forma de actualizar desde estas versiones es actualizar a la versión 4.3 primero y luego actualizar a la versión actual. En el caso de Microsoft Windows, se puede actualizar de la versión 4.3 a una versión posterior únicamente por medio de una instalación completa con el instalador de software de Microsoft (MSI).</p>
+<hr noshade size="1">
+<a name="1060384"></a><h2>Configuración de un explorador de web compatible</h2>
+
+
+<a name="1060296"></a><p>Las secciones siguientes ofrecen instrucciones para configurar los exploradores de web compatibles. Para ver una lista de exploradores de web admitidos, consulte  &quot;<a href="setup.htm#1063893">Requisitos mínimos de los exploradores de web admitidos</a>&quot;.</p>
+<a name="1060300"></a><h3> Configuración de Internet Explorer para conectarse a la interfaz basada en web
+</h3>
+<a name="1060301"></a><p>Si va a conectarse a una interfaz basada en Web desde una estación de administración que se conecta a Internet por medio de un servidor proxy, deberá configurar el explorador de Web para conectarse correctamente. Si está utilizando Microsoft Internet Explorer, siga estos pasos:</p>
+<ol type="1">
+
+<li value="1"><a name="1060302"></a>En la ventana principal de Internet Explorer, haga clic en <b>Herramientas</b> y luego haga clic en <b>Opciones de Internet</b>.
+
+<br><br>
+<li value="2"><a name="1060303"></a>En la ventana <b>Opciones de Internet</b>, haga clic en la ficha <b>Conexiones</b>.
+
+<br><br>
+<li value="3"><a name="1060304"></a>En <b>Configuración de la red de área local (LAN)</b>, haga clic en <b>Configuración de LAN</b>.
+
+<br><br>
+<li value="4"><a name="1060305"></a>Si la casilla <b>Usar un servidor proxy</b> está seleccionada, seleccione la casilla <b>No usar servidor proxy para direcciones locales</b>.
+
+<br><br>
+<li value="5"><a name="1060306"></a>Haga clic dos veces en <b>Aceptar</b>
+<br><br>
+</ol>
+<a name="1067173"></a><p>Configure los otros exploradores para el mismo funcionamiento.</p>
+<a name="1060308"></a><h3> Cómo ver las versiones traducidas de la interfaz basada en web
+</h3>
+<a name="1060309"></a><p>Cuando utilice Internet Explorer o Netscape Navigator en sistemas que ejecutan Windows, haga lo siguiente para ver las versiones traducidas de la interfaz basada en la web:</p>
+<ol type="1">
+
+<li value="1"><a name="1060310"></a>Abra el <b>Panel de control</b> de Windows y haga doble clic en el icono <b>Opciones regionales</b>.
+
+<br><br>
+<li value="2"><a name="1060292"></a>Seleccione la configuración regional deseada en el menú desplegable <b>Su idioma (ubicación)</b>.
+<br><br>
+</ol>
+<hr noshade size="1">
+<a name="1044105"></a><h2>Asignación de privilegios de usuario</h2>
+
+
+<a name="1044106"></a><p>Para asegurar la seguridad de componentes críticos del sistema, debe asignar privilegios de usuario correctamente a todos los usuarios de software de Dell OpenManage antes de instalar el software de Dell OpenManage.</p>
+<a name="1054177"></a><p>Las siguientes secciones ofrecen instrucciones paso a paso para crear usuarios y asignar privilegios de usuarios para cada sistema operativo admitido.</p>
+<ul><li><a name="1054181"></a><a href="setup.htm#1044126">Creación de usuarios para los sistemas operativos Windows admitidos</a><br><br></li>
+<li><a name="1054185"></a><a href="setup.htm#1073295">Creación de usuarios para los sistemas operativos Red Hat Enterprise Linux y SUSE Linux Enterprise Server compatibles</a><br><br></li>
+<li><a name="1054097"></a><a href="setup.htm#1061874">Microsoft Active Directory</a><br><br></li>
+</ul><a name="1066257"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">AVISO: </span>Para proteger el acceso a los componentes importantes del sistema, se debe asignar una contraseña a cada cuenta de usuario que pueda acceder al software Dell OpenManage.
+ </td>
+  </tr>
+</table>
+<a name="1044724"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">AVISO: </span>Se deben desactivar las cuentas de invitados de los sistemas operativos Windows compatibles para proteger el acceso a los componentes fundamentales del sistema. Consulte &quot;<a href="setup.htm#1079052">Desactivación de cuentas anónimas y de invitados en sistemas operativos Windows compatibles</a>&quot; para obtener instrucciones.
+</td>
+  </tr>
+</table>
+<a name="1044126"></a><h3> Creación de usuarios para los sistemas operativos Windows admitidos
+</h3>
+<a name="1044814"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Debe estar conectado al sistema con privilegios de administrador para realizar estos procedimientos.
+</td>
+  </tr>
+</table><a name="1060978"></a><p>Los procedimientos siguientes crean cuentas de usuario, asignan privilegios de usuario y agregan a usuarios a dominios.</p>
+<a name="1044136"></a><h4> Creación de usuarios y asignación de privilegios de usuario para sistemas operativos Windows Server 2003 compatibles</h4>
+<a name="1045082"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Si tiene alguna pregunta sobre la creación de usuarios y la asignación de privilegios de grupo de usuarios, o si desea obtener instrucciones más detalladas, consulte la documentación del sistema operativo.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1052789"></a>Haga clic en el botón <b>Inicio</b>, haga clic con el botón derecho del mouse en <b>Mi PC</b> y seleccione <b>Administrar</b>.
+
+<br><br>
+<li value="2"><a name="1044147"></a>En el árbol de consola, expanda <b>Usuarios y grupos locales</b> y luego haga clic en <b>Usuarios</b>.
+
+<br><br>
+ <li value="3"><a name="1044148"></a>Haga clic en <b>Acción</b> y luego en <b>Nuevo usuario</b>.
+
+<br><br>
+ <li value="4"><a name="1044149"></a>Escriba la información correspondiente en el cuadro de diálogo, seleccione o borre las casillas de marcación adecuadas y haga clic en <b>Crear</b>.
+<br><br>
+ </ol>
+<a name="1099265"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">AVISO: </span>Se debe asignar una contraseña a cada cuenta de usuario que pueda acceder al software Dell OpenManage para proteger el acceso a los componentes importantes del sistema. Adicionalmente, los usuarios que no tienen una contraseña asignada no pueden iniciar sesión en el software Dell OpenManage de un sistema que ejecute Windows Server 2003, debido a restricciones del sistema operativo.
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="5"><a name="1044159"></a>En el árbol de consola, en <b>Usuarios locales y grupos</b>, haga clic en <b>Grupos</b>.
+
+<br><br>
+ <li value="6"><a name="1044160"></a>Haga clic en el grupo al que desea agregar en nuevo usuario: <b>Usuarios</b>, <b>Usuarios avanzados</b> o <b>Administradores</b>.
+
+<br><br>
+ <li value="7"><a name="1095518"></a>Haga clic en <b>Acción</b> y luego en <b>Propiedades</b>.
+
+<br><br>
+ <li value="8"><a name="1095519"></a>Haga clic en <b>Agregar</b>.
+
+<br><br>
+ <li value="9"><a name="1095520"></a>Escriba el nombre de usuario que se está agregando y haga clic en <b>Comprobar nombres</b> para validarlo.
+
+<br><br>
+<li value="10"><a name="1044165"></a>Haga clic en <b>Aceptar</b>
+<br><br>
+</ol>
+<a name="1044166"></a><p class="indent">Los usuarios nuevos pueden iniciar sesión en el software Dell OpenManage con los privilegios de usuario de su grupo asignado.</p>
+<a name="1052910"></a><h4> Creación de usuarios y asignación de privilegios de usuario para sistemas operativos Windows 2000 compatibles</h4>
+<a name="1052915"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Si tiene alguna pregunta sobre la creación de usuarios y la asignación de privilegios de grupo de usuarios, o si desea obtener instrucciones más detalladas, consulte la documentación del sistema operativo.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1052916"></a>Haga clic con el botón derecho del mouse en <b>Mi PC</b> y seleccione <b>Administrar</b>.
+
+<br><br>
+<li value="2"><a name="1052917"></a>En el árbol de consola, expanda <b>Usuarios y grupos locales</b> y luego haga clic en <b>Usuarios</b>.
+
+<br><br>
+ <li value="3"><a name="1052918"></a>Haga clic en <b>Acción</b> y luego en <b>Nuevo usuario</b>.
+
+<br><br>
+ <li value="4"><a name="1052919"></a>Escriba la información correspondiente en el cuadro de diálogo, seleccione o borre las casillas de marcación adecuadas y haga clic en <b>Crear</b>.
+
+<br><br>
+ <li value="5"><a name="1052925"></a>En el árbol de consola, en <b>Usuarios locales y grupos</b>, haga clic en <b>Grupos</b>.
+
+<br><br>
+ <li value="6"><a name="1052926"></a>Haga clic en el grupo al que desea agregar en nuevo usuario: <b>Usuarios</b>, <b>Usuarios avanzados</b> o <b>Administradores</b>.
+
+<br><br>
+ <li value="7"><a name="1052927"></a>Haga clic en <b>Acción</b> y luego en <b>Propiedades</b>.
+
+<br><br>
+ <li value="8"><a name="1052928"></a>Haga clic en <b>Agregar</b>.
+
+<br><br>
+ <li value="9"><a name="1052929"></a>Haga clic en el nombre del usuario que se desea agregar y luego haga clic en <b>Agregar</b>.
+
+<br><br>
+ <li value="10"><a name="1052930"></a>Haga clic en <b>Comprobar nombres</b> para validar el nombre de usuario que se está agregando.
+
+<br><br>
+<li value="11"><a name="1052931"></a>Haga clic en <b>Aceptar</b>
+<br><br>
+</ol>
+<a name="1052932"></a><p class="indent">Los usuarios nuevos pueden iniciar sesión en el software Dell OpenManage con los privilegios de usuario de su grupo asignado.</p>
+<a name="1044167"></a><h4> Adición de usuarios a un dominio</h4>
+<a name="1045358"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Si tiene alguna pregunta sobre la creación de usuarios y la asignación de privilegios de grupo de usuarios, o si desea obtener instrucciones más detalladas, consulte la documentación del sistema operativo.
+</td>
+  </tr>
+</table><a name="1045375"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Debe tener Microsoft Active Directory® instalado en el sistema para realizar los siguientes procedimientos. 
+Consulte &quot;<a href="setup.htm#1061874">Microsoft Active Directory</a>&quot;para más información sobre utilización de Active Directory.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1044187"></a>Haga clic en el botón <b>Inicio</b> y luego apunte a <b>Panel de control</b><span style="FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> Herramientas administrativas</b><span style="FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> Usuarios y equipos de Active 
+Directory</b>.
+
+<br><br>
+ <li value="2"><a name="1056080"></a>En el árbol de la consola, haga clic con el botón derecho del mouse en <b>Usuarios</b> o haga clic con el botón derecho del mouse en el contenedor en el que desea agregar al nuevo usuario y luego apunte a <b>Nuevo</b><b>&#8594;</b><b> Usuario.</b>
+
+<br><br>
+ <li value="3"><a name="1056081"></a>Escriba la información de nombre de usuario adecuada en el cuadro de diálogo y luego haga clic en <b>Siguiente</b>.
+<br><br>
+ </ol>
+<a name="1044199"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">AVISO: </span>Se debe asignar una contraseña a cada cuenta de usuario que pueda acceder al software Dell OpenManage para proteger el acceso a los componentes importantes del sistema. Adicionalmente, los usuarios que no tienen una contraseña asignada no pueden iniciar sesión en el software Dell OpenManage de un sistema que ejecute Windows Server 2003, debido a restricciones del sistema operativo.
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="4"><a name="1044200"></a>Haga clic en <b>Siguiente</b> y luego en <b>Finalizar</b>.
+
+<br><br>
+<li value="5"><a name="1044201"></a>Haga doble clic en el icono que representa al usuario que acaba de crear.
+
+<br><br>
+<li value="6"><a name="1044202"></a>Haga clic en la ficha <b>Miembro de</b>.
+
+<br><br>
+<li value="7"><a name="1044203"></a>Haga clic en <b>Agregar</b>.
+
+<br><br>
+<li value="8"><a name="1044204"></a>Seleccione el grupo adecuado y haga clic en <b>Agregar</b>.
+
+<br><br>
+<li value="9"><a name="1044205"></a>Haga clic en <b>Aceptar</b> y luego en <b>Aceptar</b> otra vez.
+<br><br>
+</ol>
+<a name="1044206"></a><p class="indent">Los usuarios nuevos pueden iniciar sesión en el software Dell OpenManage con los privilegios de usuario de su dominio y grupo asignados.</p>
+<a name="1079052"></a><h4> Desactivación de cuentas anónimas y de invitados en sistemas operativos compatibles de Windows</h4>
+<a name="1079057"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Para realizar este procedimiento debe estar conectado con privilegios de administrador.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1079058"></a>Si su sistema está ejecutando Windows Server 2003, haga clic en el botón <b>Inicio</b>, haga clic con el botón derecho del mouse en <b>Mi PC</b> y seleccione <b>Administrar</b>.
+<br><br>
+ </ol>
+<a name="1081137"></a><p class="indent">Si su sistema ejecuta Windows 2000, haga clic con el botón derecho del mouse en <b>Mi PC</b> y seleccione <b>Administrar</b>.</p>
+<ol type="1">
+
+<li value="2"><a name="1079059"></a>En el árbol de consola, expanda <b>Usuarios y grupos locales</b> y haga clic en <b>Usuarios</b>.
+
+<br><br>
+ <li value="3"><a name="1079060"></a>Haga clic en <b>Invitado</b> o en la cuenta de usuario <b>IUSR</b><b>_</b><b>nombre del sistema</b>.
+
+<br><br>
+ <li value="4"><a name="1079061"></a>Haga clic en <b>Acción</b> y seleccione <b>Propiedades</b>.
+
+<br><br>
+ <li value="5"><a name="1079062"></a>Seleccione <b>Cuenta desactivada</b> y haga clic en <b>Aceptar</b>.
+<br><br>
+ </ol>
+<a name="1079063"></a><p class="indent">Aparecerá un círculo rojo con una X sobre el nombre de usuario. La cuenta está desactivada.</p>
+<a name="1079049"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Considere renombrar las cuentas de modo que las secuencias de comando remotas no activen las cuentas con ese nombre.
+</td>
+  </tr>
+</table><a name="1073295"></a><h3> Creación de usuarios para los sistemas operativos Red Hat Enterprise Linux y SUSE Linux Enterprise Server compatibles
+</h3>
+<a name="1073296"></a><p>Se asignan privilegios de acceso de administrador cuando un usuario se conecta  al sistema como <span class="screen">root</span>. Para crear usuarios con privilegios de usuario o de usuario avanzado, realice los siguientes pasos.</p>
+<a name="1045936"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Para realizar estos procedimientos, debe estar conectado como <span class="screen">root</span>.
+</td>
+  </tr>
+</table><a name="1057634"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Para realizar estos procedimientos debe tener la utilidad useradd instalada en el sistema.
+</td>
+  </tr>
+</table><a name="1044272"></a><h4> Creación de usuarios</h4>
+<a name="1045968"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Si tiene alguna pregunta sobre la creación de usuarios y la asignación de privilegios de grupo de usuarios, o si desea obtener instrucciones más detalladas, consulte la documentación del sistema operativo.
+</td>
+  </tr>
+</table><a name="1044282"></a><h5> Creación de usuarios con privilegios de usuario</h5>
+<ol type="1">
+
+<li value="1"><a name="1044292"></a>Ejecute el siguiente comando desde la línea de comando:
+<br><br>
+</ol>
+<a name="1044293"></a><p class="indent"><span class="screen">useradd -d </span><span class="screen"><i>inicio-directorio</i></span><span class="screen"> -g </span><span class="screen"><i>grupo</i></span><span class="screen"> </span><span class="screen"><i>nombre de usuario</i></span></p>
+<a name="1044294"></a><p class="indent">donde <span class="screen"><i>grupo</i></span> <i>no</i> es <span class="screen">root</span>.</p>
+<a name="1055571"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Si <span class="screen">grupo</span> no existe, usted deberá crearlo utilizando el comando <b>groupadd</b>.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="2"><a name="1044295"></a>Escriba <span class="screen">passwd</span>  <span class="screen"><i>nombre de usuario</i></span> y oprima &lt;Entrar&gt;.
+
+<br><br>
+<li value="3"><a name="1044296"></a>Cuando se le pida, introduzca una contraseña para el nuevo usuario.
+<br><br>
+</ol>
+<a name="1046142"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">AVISO: </span>Se debe asignar una contraseña a cada cuenta de usuario que pueda acceder al software Dell OpenManage para proteger el acceso a los componentes importantes del sistema.
+</td>
+  </tr>
+</table>
+<a name="1044306"></a><p class="indent">El nuevo usuario ahora puede iniciar sesión en el software Dell OpenManage con privilegios del grupo Usuarios.</p>
+<a name="1044307"></a><h5> Creación de usuarios con privilegios de usuario avanzado</h5>
+<ol type="1">
+
+<li value="1"><a name="1044317"></a>Ejecute el siguiente comando desde la línea de comando:
+<br><br>
+</ol>
+<a name="1044318"></a>
+<p class="screenindent">useradd -d <span class="screen"><i>inicio-directorio</i></span> -g root <span class="screen"><i>nombre de usuario</i></span></p>
+<a name="1046263"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">NOTA: </span>Debe establecer <span class="screen">root</span> como el grupo primario.
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="2"><a name="1044328"></a>Escriba <span class="screen">passwd</span>  <span class="screen"><i>nombre de usuario</i></span> y oprima &lt;Entrar&gt;.
+
+<br><br>
+<li value="3"><a name="1052344"></a>Cuando se le pida, introduzca una contraseña para el nuevo usuario.
+<br><br>
+</ol>
+<a name="1052349"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">AVISO: </span>Se debe asignar una contraseña a cada cuenta de usuario que pueda acceder al software Dell OpenManage para proteger el acceso a los componentes importantes del sistema.
+</td>
+  </tr>
+</table>
+<a name="1052350"></a><p class="indent">El nuevo usuario ahora puede iniciar sesión en el software Dell OpenManage con privilegios del grupo Usuarios avanzados.</p>
+<a name="1061874"></a><h3> Microsoft Active Directory
+</h3>
+<a name="1084529"></a><p>Si usa el software del servicio Active Directory, puede configurarlo para controlar el acceso a la red. Dell ha modificado la base de datos de Active Directory para admitir la administración y autorización de autentificación remota. IT Assistant y Server Administrator, así como Dell Remote Access Controller, cuentan ahora con una interfaz de Active Directory. Con esta herramienta, se pueden agregar y controlar los usuarios y privilegios desde una base de datos central. Si usted usa Active Directory para controlar el acceso de usuarios a su red, consulte &quot;<a href="mad.htm#1055432">Utilización de Microsoft® Active Directory®</a>&quot;.</p>
+<hr noshade size="1">
+<a name="1064797"></a><h2>Configuración del agente SNMP</h2>
+
+
+<a name="1094229"></a><p>El software de Dell OpenManage admite el estándar de administración de sistemas SNMP en todos los sistemas operativos compatibles. Es posible que compatibilidad para SNMP esté instalada, esto dependerá del sistema operativo y de la manera en la que éste fue instalado. Es necesario un estándar de protocolo de administración de sistemas, como SNMP, para poder instalar el software Dell OpenManage. Para obtener más información, consulte &quot;<a href="setup.htm#1063820">Requisitos de instalación</a>&quot;.</p>
+<a name="1089732"></a><p>Se puede configurar el agente SNMP para cambiar el nombre de comunidad, activar operaciones Set y enviar capturas a una estación de administración. Para configurar el agente SNMP para una interacción adecuada con las aplicaciones de administración, como IT Assistant, realice los procedimientos que se describen en las secciones siguientes.</p>
+<a name="1100522"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Para que IT Assistant obtenga información de administración de un sistema que ejecuta el Server Administrator, el nombre de comunidad utilizado por IT Assistant debe coincidir con el nombre de comunidad del sistema que ejecuta el Server Administrator. 
+Para que IT Assistant modifique información o realice acciones en un sistema que ejecuta Server Administrator, el nombre de comunidad utilizado por IT Assistant debe coincidir con el nombre de comunidad que permite operaciones Set en el sistema que ejecuta Server Administrator. Para que IT Assistant reciba capturas (notificaciones de suceso asíncronas) desde un sistema que ejecuta el Server Administrator, el sistema que ejecuta éste debe estar configurado para enviar capturas al sistema que ejecuta IT Assistant. Para obtener más información, consulte la <i>Guía del usuario de IT Assistant</i>.
+</td>
+  </tr>
+</table><a name="1082573"></a><p>Las siguientes secciones proporcionan instrucciones paso a paso para configurar el agente SNMP de cada sistema operativo compatible:</p>
+<ul><li><a name="1047647"></a><a href="setup.htm#1066278">Configuración del agente SNMP en sistemas que ejecutan sistemas operativos Windows compatibles</a><br><br></li>
+<li><a name="1047648"></a><a href="setup.htm#1047161">Configuración del agente SNMP en sistemas que ejecutan sistemas operativos Red Hat Enterprise Linux compatibles</a><br><br></li>
+<li><a name="1094244"></a><a href="setup.htm#1093653">Configuración del agente SNMP en sistemas que ejecutan sistemas operativos SUSE Linux Enterprise Server compatibles</a><br><br></li>
+</ul><a name="1066278"></a><h3> Configuración del agente SNMP en sistemas que ejecutan sistemas operativos Windows compatibles
+</h3>
+<a name="1066308"></a><p>El software Dell OpenManage utiliza los servicios SNMP proporcionados por el agente SNMP de Windows. (SNMP es uno de los dos modos admitidos de conectarse a una sesión de administrador de sistema; el otro es CIM/WMI.) Se puede configurar el agente SNMP para cambiar el nombre de comunidad, activar operaciones Set y enviar capturas a una estación de administración. Para configurar el agente SNMP para una interacción adecuada con las aplicaciones de administración, como IT Assistant, realice los procedimientos que se describen en las secciones siguientes.</p>
+<a name="1057516"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Consulte la documentación del sistema operativo para obtener detalles adicionales acerca de la configuración de SNMP.
+</td>
+  </tr>
+</table><a name="1057684"></a><h4> Activación del acceso de SNMP mediante hosts remotos en Windows Server 2003</h4>
+<a name="1057696"></a><p>De manera predeterminada, Windows Server 2003 no acepta paquetes de hosts remotos. Para sistemas que ejecutan Windows Server 2003, debe configurar el servicio SNMP para que acepte paquetes de SNMP de hosts remotos si planea administrar el sistema utilizando aplicaciones de administración de SNMP desde hosts remotos. Para activar el apagado remoto de un sistema desde IT Assistant, las operaciones SET de SNMP deben estar activadas.</p>
+<a name="1095473"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>El reinicio del sistema para la funcionalidad de administración de cambios no requiere de las operaciones Set de SNMP.
+</td>
+  </tr>
+</table><a name="1057701"></a><p>Para activar un sistema que ejecuta el sistema operativo Windows Server 2003 para que reciba paquetes de SNMP desde un host remoto, realice los pasos a continuación:</p>
+<ol type="1">
+
+<li value="1"><a name="1057711"></a>Haga cic en el botón <b>Inicio</b>, haga clic con el botón derecho del mouse en <b>Mi PC</b> y apunte a <b>Administrar</b>.
+<br><br>
+</ol>
+<a name="1058501"></a><p class="indent">Aparecerá la ventana <b>Administración de equipos</b>.</p>
+<ol type="1">
+
+<li value="2"><a name="1057734"></a>Si es necesario, expanda el icono <b>Administración de equipos</b> de la ventana.
+
+<br><br>
+<li value="3"><a name="1057739"></a>Expanda el icono <b>Servicios y aplicaciones</b> y haga clic en <b>Servicios</b>.
+
+<br><br>
+<li value="4"><a name="1057753"></a>Desplácese hacia abajo en la lista de servicios hasta encontrar <b>Servicio SNMP</b>,<b></b>haga clic con el botón derecho del mouse en el mismo y haga clic en <b>Propiedades</b>.
+<br><br>
+</ol>
+<a name="1058507"></a><p class="indent">Aparecerá la ventana <b>Propiedades del servicio SNMP</b>.</p>
+<ol type="1">
+
+<li value="5"><a name="1057767"></a>Haga clic en la ficha <b>Seguridad</b>.
+
+<br><br>
+<li value="6"><a name="1057782"></a>Seleccione <b>Aceptar paquetes SNMP de cualquier host</b> o agregue el host de IT Assistant
+a la lista <b>Aceptar paquetes SNMP de estos hosts</b>.
+<br><br>
+</ol>
+<a name="1057360"></a><h4> Cambio del nombre de la comunidad SNMP</h4>
+<a name="1047035"></a><p>La configuración de los nombres de las comunidades SNMP determina los equipos que pueden administrar su sistema mediante SNMP. El nombre de comunidad SNMP utilizado por las aplicaciones de administración debe coincidir con un nombre de comunidad SNMP configurado en el sistema del software Dell OpenManage, para que las aplicaciones de administración puedan recuperar la información de administración del software Dell OpenManage.</p>
+<ol type="1">
+
+<li value="1"><a name="1047058"></a>Si su sistema está ejecutando Windows Server 2003, haga clic en el botón <b>Inicio</b>, haga clic con el botón derecho del mouse en <b>Mi PC</b> y seleccione <b>Administrar</b>. Si su sistema ejecuta Windows 2000, haga clic con el botón derecho del mouse en <b>Mi PC</b> y seleccione <b>Administrar</b>.
+<br><br>
+</ol>
+<a name="1047063"></a><p class="indent">Aparecerá la ventana <b>Administración de equipos</b>.</p>
+<ol type="1">
+
+<li value="2"><a name="1047064"></a>Si es necesario, expanda el icono <b>Administración de equipos</b> de la ventana.
+
+<br><br>
+<li value="3"><a name="1047065"></a>Expanda el icono <b>Servicios y aplicaciones</b> y haga clic en <b>Servicios</b>.
+
+<br><br>
+<li value="4"><a name="1047066"></a>Desplácese hacia abajo en la lista de servicios hasta encontrar <b>Servicio SNMP</b>, haga clic con el botón derecho del mouse en el mismo y haga clic en <b>Propiedades</b>.
+<br>
+<br>
+</ol>
+<a name="1047067"></a><p class="indent">Aparecerá la ventana <b>Propiedades del servicio SNMP</b>.</p>
+<ol type="1">
+
+<li value="5"><a name="1086611"></a>Haga clic en la ficha <b>Seguridad</b> para agregar o editar un nombre de comunidad.  
+<br><br>
+<ol type="a">
+
+<li value="1"><a name="1048177"></a>Para agregar un nombre de comunidad, haga clic en <b>Agregar</b> en la lista <b>Nombres de comunidad aceptados</b>.  
+<br><br>
+ </ol>
+</ol>
+<a name="1048178"></a><p class="Indentsub">Aparecerá la ventana <b>Configuración del servicio SNMP</b>.</p>
+<ol type="1">
+  <ol type="a">
+
+<li value="2"><a name="1048179"></a>Escriba el nombre de comunidad de un equipo que pueda administrar su sistema (el nombre predeterminado es &quot;public&quot;) en el cuadro de texto <b>Nombre de comunidad</b> y haga clic en <b>Agregar</b>.  
+<br><br>
+ </ol>
+</ol>
+<a name="1048180"></a><p class="Indentsub">Aparecerá la ventana <b>Propiedades del servicio SNMP</b>.</p>
+<ol type="1">
+  <ol type="a">
+
+<li value="3"><a name="1048181"></a>Para cambiar un nombre de comunidad, seleccione uno en la lista <b>Nombres de comunidad aceptados</b> y haga clic en <b>Editar</b>.  
+<br><br>
+</ol>
+</ol>
+<a name="1048182"></a><p class="Indentsub">Aparecerá la ventana <b>Configuración del servicio SNMP</b>.</p>
+<ol type="1">
+  <ol type="a">
+
+<li value="4"><a name="1048183"></a>Haga todos los cambios necesarios al nombre de comunidad del equipo que puede administrar su sistema en el cuadro de texto <b>Nombre de comunidad</b> y luego haga clic en <b>Aceptar</b>.  
+<br><br>
+</ol>
+</ol>
+<a name="1048175"></a><p class="Indentsub">Aparecerá la ventana <b>Propiedades del servicio SNMP</b>.</p>
+<ol type="1">
+
+<li value="6"><a name="1047080"></a>Haga clic en <b>Aceptar</b> para guardar los cambios.
+<br><br>
+</ol>
+<a name="1047082"></a><h4> Activación de las operaciones Set de SNMP</h4>
+<a name="1099287"></a><p>Las operaciones Set de SNMP deben estar activadas en el sistema del software Dell OpenManage para poder cambiar los atributos de dicho software usando IT Assistant. Para activar el apagado remoto de un sistema desde IT Assistant, las operaciones SET de SNMP deben estar activadas.</p>
+<a name="1095417"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>El reinicio del sistema para la funcionalidad de administración de cambios no requiere de las operaciones Set de SNMP.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1047100"></a>Si su sistema está ejecutando Windows Server 2003, haga clic en el botón <b>Inicio</b>, haga clic con el botón derecho del mouse en <b>Mi PC</b> y seleccione <b>Administrar</b>. Si su sistema ejecuta Windows 2000, haga clic con el botón derecho del mouse en <b>Mi PC</b> y seleccione <b>Administrar</b>.
+<br><br>
+</ol>
+<a name="1047105"></a><p class="indent">Se abrirá la ventana <b>Administración de equipos</b>.</p>
+<ol type="1">
+
+<li value="2"><a name="1047106"></a>Si es necesario, expanda el icono <b>Administración de equipos</b> de la ventana.
+
+<br><br>
+<li value="3"><a name="1047107"></a>Expanda el icono <b>Servicios y aplicaciones</b> y luego haga clic en <b>Servicios</b>.
+
+<br><br>
+<li value="4"><a name="1047108"></a>Desplácese hacia abajo en la lista de servicios hasta encontrar <b>Servicio SNMP</b>, haga clic con el botón derecho del mouse en <b>Servicio SNMP</b> y haga clic en <b>Propiedades</b>.
+<br><br>
+</ol>
+<a name="1047109"></a><p class="indent">Aparecerá la ventana <b>Propiedades del servicio SNMP</b>.</p>
+<ol type="1">
+
+<li value="5"><a name="1047110"></a>Haga clic en la ficha <b>Seguridad</b> para cambiar los derechos de acceso para una comunidad.
+
+<br><br>
+<li value="6"><a name="1047111"></a>Seleccione un nombre de comunidad en la lista <b>Nombres de comunidad aceptados</b> y luego haga clic en <b>Editar</b>.
+<br><br>
+ </ol>
+<a name="1047112"></a><p class="indent">Se abrirá la ventana <b>Configuración del servicio SNMP</b>.</p>
+<ol type="1">
+
+<li value="7"><a name="1047113"></a>Establezca los <b>Derechos de comunidad</b> en <b>LECTURA Y ESCRITURA</b> o en <b>LECTURA Y CREACIÓN</b> y haga clic en <b>Aceptar</b>.
+<br><br>
+</ol>
+<a name="1047114"></a><p class="indent">Se abrirá la ventana <b>Propiedades del servicio SNMP</b>.</p>
+<ol type="1">
+
+<li value="8"><a name="1047115"></a>Haga clic en <b>Aceptar</b> para guardar los cambios.
+<br><br>
+</ol>
+<a name="1047117"></a><h4> Configuración del sistema para enviar capturas SNMP a una estación de administración</h4>
+<a name="1047118"></a><p>El software Dell OpenManage genera capturas SNMP en respuesta a cambios en el estado de los sensores y otros parámetros supervisados. Se debe configurar uno o varios destinos de capturas en el sistema de software Dell OpenManage para enviar las capturas SNMP a una estación de administración.</p>
+<ol type="1">
+
+<li value="1"><a name="1047139"></a>Si su sistema está ejecutando Windows Server 2003, haga clic en el botón <b>Inicio</b>, haga clic con el botón derecho del mouse en <b>Mi PC</b> y seleccione <b>Administrar</b>. Si su sistema ejecuta Windows 2000, haga clic con el botón derecho del mouse en <b>Mi PC</b> y seleccione <b>Administrar</b>.
+<br><br>
+</ol>
+<a name="1047144"></a><p class="indent">Se abrirá la ventana <b>Administración de equipos</b>.</p>
+<ol type="1">
+
+<li value="2"><a name="1047145"></a>Si es necesario, expanda el icono <b>Administración de equipos</b> de la ventana.
+
+<br><br>
+<li value="3"><a name="1047146"></a>Expanda el icono <b>Servicios y aplicaciones</b> y haga clic en <b>Servicios</b>.
+
+<br><br>
+<li value="4"><a name="1047147"></a>Desplácese hacia abajo en la lista de servicios hasta encontrar <b>Servicio SNMP</b>, haga clic con el botón derecho del mouse en <b>Servicio SNMP</b> y haga clic en <b>Propiedades</b>.
+<br><br>
+</ol>
+<a name="1047148"></a><p class="indent">Se abrirá la ventana <b>Propiedades del servicio SNMP</b>.</p>
+<ol type="1">
+
+<li value="5"><a name="1047149"></a>Haga clic en la ficha <b>Capturas</b> para agregar una comunidad para las capturas o un destino de captura para una comunidad de captura.  
+<br><br>
+<ol type="a">
+
+<li value="1"><a name="1048519"></a>Para agregar una comunidad para capturas, escriba el nombre de la comunidad en el cuadro <b>Nombre de la comunidad</b> y haga clic en <b>Agregar a la lista</b>, que se ubica al lado del cuadro <b>Nombre de la comunidad</b>.  
+<br><br>
+</ol>
+  <ol type="a">
+
+<li value="2"><a name="1048520"></a>Para agregar un destino de captura para una comunidad de captura, seleccione el nombre de la comunidad en el cuadro desplegable <b>Nombre de comunidad</b> y haga clic en <b>Agregar</b>, en el cuadro <b>Destinos de capturas</b>.  
+<br><br>
+</ol>
+</ol>
+<a name="1090976"></a><p class="Indentsub">Se abrirá la ventana <b>Configuración del servicio SNMP</b>. </p>
+<ol type="1">
+  <ol type="a">
+
+<li value="3"><a name="1048522"></a>Introduzca el destino de captura y haga clic en <b>Agregar</b>.  
+<br><br>
+</ol>
+</ol>
+<a name="1047157"></a><p class="Indentsub">Se abrirá la ventana <b>Propiedades del servicio SNMP</b>.</p>
+<ol type="1">
+
+<li value="6"><a name="1047158"></a>Haga clic en <b>Aceptar</b> para guardar los cambios.
+<br><br>
+</ol>
+<a name="1047161"></a><h3> Configuración del agente SNMP en sistemas que ejecutan sistemas operativos Red Hat Enterprise Linux compatibles
+</h3>
+<a name="1047162"></a><p>Server Administrator utiliza los servicios SNMP proporcionados por el agente ucd-snmp o net-snmp. Se puede configurar el agente SNMP para cambiar el nombre de comunidad, activar operaciones Set y enviar capturas a una estación de administración. Para configurar el agente SNMP para una interacción adecuada con las aplicaciones de administración, como IT Assistant, realice los procedimientos que se describen en las secciones siguientes.</p>
+<a name="1048607"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Consulte la documentación del sistema operativo para obtener detalles adicionales acerca de la configuración de SNMP.
+</td>
+  </tr>
+</table><a name="1093089"></a><h4> Configuración de Access Control para el agente SNMP</h4>
+<a name="1093095"></a><p>La rama de la base de información de administración (MIB) implementada por Server Administrator se identifica por la OID 1.3.6.1.4.1.674. Las aplicaciones de administración deben tener acceso a esta rama del árbol de MIB para administrar sistemas que ejecutan Server Administrator.</p>
+<a name="1093099"></a><p>Para los sistemas operativos Red Hat Enterprise Linux, la configuración predeterminada del agente SNMP proporciona acceso de sólo lectura para la comunidad &quot;public&quot; solamente para la rama &quot;system&quot; de MIB-II (identificada con la OID 1.3.6.1.2.1.1) del árbol MIB. Esta configuración no permite que las aplicaciones de administración recuperen o cambien Server Administrator ni otra información de administración de sistemas fuera de la rama &quot;sistema&quot; de MIB-II.</p>
+<a name="1093091"></a><h4> Acciones de instalación del agente de SNMP de Server Administrator</h4>
+<a name="1084581"></a><p>Si Server Administrator detecta esta configuración predeterminada de SNMP durante la instalación, intenta modificar la configuración del agente SNMP para proporcionar acceso de sólo lectura a todo el árbol MIB para la comunidad &quot;public&quot;. Server Administrator hace esto cambiando el archivo de configuración del agente SNMP, <b>/etc/snmp/snmpd.conf</b>, de dos maneras.</p>
+<a name="1057668"></a><p>El primer cambio es la creación de una vista de todo el árbol MIB, agregando la línea siguiente si no existe:</p>
+<a name="1057669"></a><p class="screen">view all included .1
+</p><a name="1057670"></a><p>El segundo cambio es modificar la línea de &quot;access&quot; predeterminada para proporcionar acceso de sólo lectura a todo el árbol MIB para la comunidad &quot;public&quot;. Server Administrator busca la línea siguiente:</p>
+<a name="1057671"></a><p class="screen">access notConfigGroup &quot;&quot; any noauth exact systemview none none
+</p><a name="1057672"></a><p>Si Server Administrator encuentra la línea anterior, la modifica para que diga:</p>
+<a name="1057673"></a><p class="screen">access notConfigGroup &quot;&quot; any noauth exact all none none
+</p><a name="1057674"></a><p>Estos cambios a la configuración predeterminada del agente SNMP proporcionan acceso de lectura solamente a todo el árbol MIB para la comunidad &quot;public&quot;. </p>
+<a name="1057675"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Para asegurar que Server Administrator pueda modificar la configuración del agente SNMP para proporcionar el acceso adecuado a los datos de Systems Management, se recomienda hacer cualquier otro cambio de la configuración del agente SNMP después de instalar Server Administrator.
+</td>
+  </tr>
+</table><a name="1093209"></a><p>El SNMP de Server Administrator se comunica con el agente SNMP por medio del protocolo de multiplexión SNMP (SMUX). Cuando el SNMP de Server Administrator se conecta al agente SNMP, envía un identificador de objeto al agente SNMP para identificarse como entidad par de SMUX. Como el identificador de objeto debe configurarse con el agente SNMP, Server Administrator agrega la línea siguiente al archivo de configuración del agente SNMP, <b>/etc/snmp/snmpd.conf</b>, durante la instalación, si ésta no existe:</p>
+<a name="1093879"></a>
+<p class="screenindent"><span class="screen">smuxpeer .1.3.6.1.4.1.674.10892.1
+</span></p>
+<a name="1093211"></a><h4> Cambio del nombre de la comunidad SNMP</h4>
+<a name="1094035"></a><p>La configuración de los nombres de las comunidades SNMP determina los equipos que pueden administrar su sistema mediante SNMP. El nombre de comunidad SNMP utilizado por las aplicaciones de administración debe coincidir con un nombre de comunidad SNMP configurado en el sistema del software Server Administrator, de manera que las aplicaciones de administración puedan recuperar la información de administración del software Server Administrator.</p>
+<a name="1047174"></a><p>Para cambiar el nombre de comunidad SNMP utilizado para recuperar información de administración desde un sistema que ejecuta Server Administrator, edite el archivo de configuración del agente SNMP, <b>/etc/snmp/snmpd.conf</b>, y realice los siguientes pasos:</p>
+<ol type="1">
+
+<li value="1"><a name="1047175"></a>Busque la línea siguiente:
+<br><br>
+ </ol>
+<a name="1047176"></a>
+<p class="screenindent"><span class="screen">com2sec publicsec default public</span>
+ </p>
+<a name="1047177"></a><p class="indent">o </p>
+<a name="1047178"></a>
+<p class="screenindent"><span class="screen">com2sec notConfigUser default public</span>
+ </p>
+<ol type="1">
+
+<li value="2"><a name="1082011"></a>Modifique esta línea, reemplazando <span class="screen">public</span> con el nuevo nombre de comunidad SNMP. Una vez modificada, la nueva línea debe ser la siguiente:
+<br><br>
+ </ol>
+<a name="1082012"></a>
+<p class="screenindent"><span class="screen">com2sec publicsec default </span><span class="screen"><i>nombre_de_comunidad</i></span>
+ </p>
+<a name="1082013"></a><p class="indent">o </p>
+<a name="1047182"></a>
+<p class="screenindent"><span class="screen">com2sec notConfigUser default</span> <i><span class="screen">nombre_de_comunidad</span></i></p>
+<ol type="1">
+
+<li value="3"><a name="1047183"></a>Para activar los cambios en la configuración SNMP, reinicie el agente SNMP, escribiendo:
+<br><br>
+ </ol>
+<a name="1047184"></a>
+<p class="screenindent"><span class="screen">service snmpd restart</span></p>
+<a name="1047185"></a><h4> Activación de las operaciones Set de SNMP</h4>
+<a name="1047186"></a><p>Las operaciones Set de SNMP deben estar activadas en el sistema que ejecuta Server Administrator para poder cambiar los atributos de dicho software usando IT Assistant. Para activar el apagado remoto de un sistema desde IT Assistant, las operaciones SET de SNMP deben estar activadas.</p>
+<a name="1095442"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>El reinicio del sistema para la funcionalidad de administración de cambios no requiere de las operaciones Set de SNMP.
+</td>
+  </tr>
+</table><a name="1047187"></a><p>Para activar las operaciones Set de SNMP en el sistema que ejecuta Server Administrator, modifique el archivo de configuración del agente SNMP, <b>/etc/snmp/snmpd.conf</b>, y realice los pasos siguientes:</p>
+<ol type="1">
+
+<li value="1"><a name="1047188"></a>Busque la línea siguiente:
+<br><br>
+ </ol>
+<a name="1047189"></a>
+<p class="screenindent"><span class="screen">access publicgroup &quot;&quot; any noauth exact all none</span> none
+</p>
+<a name="1047190"></a><p class="indent">o </p>
+<a name="1047191"></a>
+<p class="screenindent"><span class="screen">access notConfigGroup &quot;&quot; any noauth exact all none</span> none
+</p>
+<ol type="1">
+
+<li value="2"><a name="1047192"></a>Modifique esta línea, reemplazando el primer <span class="screen">none</span> con <span class="screen">all</span>. Una vez modificada, la nueva línea debe ser la siguiente:
+<br><br>
+ </ol>
+<a name="1047193"></a>
+<p class="screenindent"><span class="screen">access publicgroup &quot;&quot; any noauth exact all all none</span>
+ </p>
+<a name="1047194"></a><p class="indent">o </p>
+<a name="1047195"></a>
+<p class="screenindent">access notConfigGroup &quot;&quot; any noauth exact all all none
+ </p>
+<ol type="1">
+
+<li value="3"><a name="1047196"></a>Para activar los cambios en la configuración SNMP, reinicie el agente SNMP, escribiendo:
+<br><br>
+ </ol>
+<a name="1047197"></a>
+<p class="screenindent"><span class="screen">service snmpd restart</span></p>
+<a name="1047198"></a><h4> Configuración del sistema para enviar capturas a una estación de administración </h4>
+<a name="1047199"></a><p>Server Administrator genera capturas SNMP en respuesta a cambios en el estado de los sensores y otros parámetros supervisados. Se deben configurar uno o varios destinos de capturas en el sistema que ejecuta Server Administrator para enviar las capturas SNMP a una estación de administración. </p>
+<a name="1047200"></a><p>Para configurar el sistema que ejecuta Server Administrator para que envíe capturas a una estación de administración, edite el archivo de configuración del agente SNMP, <b>/etc/snmp/snmpd.conf</b>, y realice los pasos siguientes:</p>
+<ol type="1">
+
+<li value="1"><a name="1047201"></a>Agregue la línea siguiente al archivo:
+<br><br>
+ </ol>
+<a name="1047202"></a>
+<p class="screenindent"><span class="screen">trapsink</span> <i><span class="screen">dirección_IP nombre_de_comunidad</span></i></p>
+<a name="1047203"></a><p class="indent">donde <span class="screen"><i>dirección_IP</i></span> es la dirección IP de la estación de administración y <span class="screen"><i>nombre_de_comunidad</i></span> es el nombre de la comunidad SNMP</p>
+<ol type="1">
+
+<li value="2"><a name="1047204"></a>Para activar los cambios en la configuración SNMP, reinicie el agente SNMP, escribiendo:
+<br><br>
+ </ol>
+<a name="1084853"></a>
+<p class="screenindent"><span class="screen">service snmpd restart</span></p>
+<a name="1084854"></a><h4> Configuración del servidor de seguridad en equipos que ejecutan sistemas operativos admitidos de Red Hat Enterprise Linux</h4>
+<a name="1084858"></a><p>Si activa la seguridad mediante servidor de seguridad mientras instala Red Hat Enterprise Linux, el puerto SNMP en todas las interfaces de red externas estará cerrado de manera predeterminada. Para activar las aplicaciones de administración de SNMP, como IT Assistant, para descubrir y recuperar información de Server Administrator, el puerto SNMP debe estar abierto en por lo menos una interfaz de red externa. Si el Server Administrator detecta que el puerto SNMP no está abierto en el servidor de seguridad para ninguna interfaz de red externa, Server Administrator Service mostrará un mensaje de advertencia y escribirá un mensaje en el registro del sistema. Consulte &quot;<a href="security.htm#1047255">Puertos</a>&quot; para información adicional.</p>
+<a name="1084791"></a><p>Se puede abrir el puerto SNMP desactivando el servidor de seguridad, abriendo una interfaz de red externa completa en el servidor de seguridad o abriendo el puerto SNMP para al menos una interfaz de red externa en el servidor de seguridad. Se puede realizar esta acción antes o después de iniciar el Server Administrator.</p>
+<a name="1084792"></a><p>Para abrir el puerto SNMP usando uno de los métodos descritos anteriormente, realice los pasos siguientes:</p>
+<ol type="1">
+
+<li value="1"><a name="1084793"></a>En la petición de comando de Red Hat Enterprise Linux, escriba <span class="screen">setup</span> y oprima &lt;Entrar&gt; para iniciar la utilidad de configuración en modo de texto.
+<br><br>
+</ol>
+<a name="1084798"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">NOTA: </span>Este comando sólo estará disponible si se ha realizado una instalación predeterminada del sistema operativo.
+</td>
+  </tr>
+</table>
+<a name="1084799"></a><p class="indent">Se abrirá el menú <b>Elija una herramienta</b>.</p>
+<ol type="1">
+
+<li value="2"><a name="1084800"></a>Seleccione <b>Configuración del servidor de seguridad</b> usando la flecha hacia abajo y oprima &lt;Entrar&gt;.
+<br><br>
+</ol>
+<a name="1084801"></a><p class="indent">Se abrirá la pantalla <b>Configuración del servidor de seguridad</b>.</p>
+<ol type="1">
+
+<li value="3"><a name="1084802"></a>Seleccione el <b>Nivel de seguridad</b> oprimiendo la tecla de tabulación y oprimiendo la barra espaciadora. El <b>Nivel se seguridad</b> 
+seleccionado se indica con un asterisco.
+<br><br>
+</ol>
+<a name="1084807"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">NOTA: </span>Presione &lt;F1&gt; para obtener más información acerca de los niveles de seguridad de servidor de seguridad. El número de puerto SNMP predeterminado es <b>161</b>. 
+Si está usando la interfaz gráfica de usuario de Windows X, es posible que al presionar &lt;F1&gt; no aparezca la información sobre los niveles de seguridad de servidor de seguridad en las versiones más recientes del sistema operativo Red Hat Enterprise Linux.
+</td>
+  </tr>
+</table>
+<ol type="a">  <ol type="a">
+
+<li value="1"><a name="1084808"></a>Para desactivar el servidor de seguridad, seleccione <b>Sin servidor de seguridad</b> o <b>Desactivado</b> y vaya al paso 7.  
+<br><br>
+</ol>
+  <ol type="a">
+
+<li value="2"><a name="1084809"></a>Para abrir una interfaz de red completa o el puerto SNMP, seleccione <b>Alto, Medio </b>o 
+<b>Activado </b>y continúe con el paso 4.  
+<br><br>
+</ol>
+
+<li value="4"><a name="1084814"></a>Seleccione <b>Personalizar</b> con la tecla de tabulación y oprima &lt;Entrar&gt;.
+<br><br>
+</ol><a name="1084815"></a><p class="indent">Se abrirá la pantalla <b>Configuración de servidor de seguridad: personalizar</b>.</p>
+<ol type="1">
+
+<li value="5"><a name="1084816"></a>Seleccione si desea abrir la interfaz de red completa o sólo el puerto SNMP en todas las interfaces de red.  
+<br><br>
+<ol type="a">
+
+<li value="1"><a name="1084817"></a>Para abrir una interfaz de red completa, seleccione uno de los <b>Dispositivos confiables</b> usando la tecla de tabulación y oprima la barra espaciadora. 
+Un asterisco en la casilla a la izquierda del nombre del dispositivo indicará que se abrirá la interfaz completa.  
+<br><br>
+</ol>
+  <ol type="a">
+
+<li value="2"><a name="1084818"></a>Para abrir el puerto SNMP en todas las interfaces de red, seleccione <b>Otros puertos</b> usando la tecla de tabulación y escriba <span class="screen">snmp:udp</span>.  
+<br><br>
+</ol>
+
+<li value="6"><a name="1084819"></a>Seleccione <b>Aceptar</b> con la tecla de tabulación y oprima &lt;Entrar&gt;.
+<br><br>
+</ol>
+<a name="1084820"></a><p class="indent">Se abrirá la pantalla <b>Configuración del servidor de seguridad</b>.</p>
+<ol type="1">
+
+<li value="7"><a name="1084821"></a>Seleccione <b>Aceptar</b> con la tecla de tabulación y oprima &lt;Entrar&gt;.
+<br><br>
+</ol>
+<a name="1084822"></a><p class="indent">Se abrirá el menú <b>Elija una herramienta</b>.</p>
+<ol type="1">
+
+<li value="8"><a name="1093232"></a>Seleccione <b>Salir</b> con la tecla de tabulación y oprima &lt;Entrar&gt;.
+<br><br>
+</ol>
+<a name="1093653"></a><h3> Configuración del agente SNMP en sistemas que ejecutan sistemas operativos SUSE Linux Enterprise Server compatibles
+</h3>
+<a name="1093654"></a><p>Server Administrator utiliza los servicios SNMP proporcionados por el agente ucd-snmp o net-snmp. Usted puede configurar el agente SNMP para permitir el acceso SNMP de los hosts remotos, cambiar el nombre de comunidad, permitir operaciones Set y enviar capturas a una estación de administración. Para configurar el agente SNMP para una interacción adecuada con las aplicaciones de administración, como IT Assistant, realice los procedimientos que se describen en las secciones siguientes.</p>
+<a name="1093386"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Consulte la documentación del sistema operativo para obtener detalles adicionales acerca de la configuración de SNMP.
+</td>
+  </tr>
+</table><a name="1093275"></a><h4> Acciones de instalación de SNMP de Server Administrator</h4>
+<a name="1093411"></a><p>El SNMP de Server Administrator se comunica con el agente SNMP por medio del protocolo de multiplexión SNMP (SMUX). Cuando el SNMP de Server Administrator se conecta al agente SNMP, envía un identificador de objeto al agente SNMP para identificarse como entidad par de SMUX. Como el identificador de objeto debe configurarse con el agente SNMP, Server Administrator agrega la línea siguiente al archivo de configuración del agente SNMP, <b>/etc/snmpd.conf</b>, durante la instalación, si ésta no existe: </p>
+<a name="1093412"></a>
+<p class="screenindent">smuxpeer .1.3.6.1.4.1.674.10892.1
+</p>
+<a name="1093281"></a><h4> Activación del acceso SNMP desde los hosts remotos</h4>
+<a name="1093283"></a><p>La configuración predeterminada del agente SNMP en los sistemas operativos SUSE Linux Enterprise Server ofrece acceso de sólo lectura a todo el árbol de MIB para la comunidad &quot;public&quot; únicamente desde el host local. Esta configuración no permite que las aplicaciones de administración de SNMP, como IT Assistant, que se ejecutan en otros hosts descubran y administren correctamente los sistemas de Server Administrator. Si Server Administrator detecta esta configuración durante la instalación, registrará un mensaje en el archivo de registro del sistema operativo, <b>/var/log/messages</b>, para indicar que el acceso SNMP está restringido al host local. Deberá configurar el agente SNMP para habilitar el acceso SNMP de los hosts remotos si planea administrar el sistema usando las aplicaciones de administración de SNMP de los hosts remotos.</p>
+<a name="1095281"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Si es posible, y por motivos de seguridad, es aconsejable restringir el acceso SNMP a los hosts remotos específicos.
+</td>
+  </tr>
+</table><a name="1095271"></a><p>Para habilitar el acceso SNMP de un host remoto específico a un sistema que ejecuta Server Administrator, edite el archivo de configuración del agente SNMP, <b>/etc/snmp/snmpd.conf</b>, y realice los pasos siguientes:</p>
+<ol type="1">
+
+<li value="1"><a name="1095149"></a>Busque la línea siguiente:
+<br><br>
+</ol>
+<a name="1095150"></a>
+<p class="screenindent"><span class="screen">rocommunity public 127.0.0.1
+</span></p>
+<ol type="1">
+
+<li value="2"><a name="1095151"></a>Modifique o copie esta línea, sustituyendo 127.0.0.1 con la dirección IP del host remoto. Una vez modificada, la nueva línea debe ser la siguiente:
+<br><br>
+</ol>
+<a name="1095152"></a>
+<p class="screenindent"><span class="screen">rocommunity public </span><span class="screen">dirección_IP
+</span></p>
+<a name="1095230"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Puede permitir el acceso SNMP de varios host remotos específicos si agrega una directiva <span class="screen">rocommunity</span> 
+para cada host remoto.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="3"><a name="1095231"></a>Para activar los cambios en la configuración SNMP, reinicie el agente SNMP, escribiendo:
+<br><br>
+</ol>
+<a name="1095232"></a>
+<p class="screenindent"><span class="screen">/etc/init.d/snmpd restart
+</span></p>
+<a name="1093447"></a><p>Para habilitar el acceso SNMP de todos los hosts remotos a un sistema que ejecuta Server Administrator, edite el archivo de configuración del agente SNMP, <b>/etc/snmp/snmpd.conf</b>, y realice los pasos siguientes:</p>
+<ol type="1">
+
+<li value="1"><a name="1093448"></a>Busque la línea siguiente:
+<br><br>
+</ol>
+<a name="1093289"></a>
+<p class="screenindent">rocommunity public 127.0.0.1
+</p>
+<ol type="1">
+
+<li value="2"><a name="1093291"></a>Modifique esta línea quitando 127.0.0.1. Una vez modificada, la nueva línea debe ser la siguiente:
+<br><br>
+</ol>
+<a name="1093293"></a>
+<p class="screenindent">rocommunity public
+</p>
+<ol type="1">
+
+<li value="3"><a name="1093295"></a>Para activar los cambios en la configuración SNMP, reinicie el agente SNMP, escribiendo:
+<br><br>
+</ol>
+<a name="1093297"></a>
+<p class="screenindent">/etc/init.d/snmpd restart
+</p>
+<a name="1093299"></a><h4> Cambio del nombre de la comunidad SNMP</h4>
+<a name="1093301"></a><p>La configuración del nombre de comunidad SNMP determina los equipos que pueden administrar su sistema mediante SNMP. El nombre de comunidad SNMP utilizado por las aplicaciones de administración debe coincidir con un nombre de comunidad SNMP configurado en el sistema de Server Administrator, de manera que las aplicaciones de administración puedan recuperar la información de administración del software Server Administrator.</p>
+<a name="1093303"></a><p>Para cambiar el nombre predeterminado de comunidad SNMP que se utiliza para recuperar información de administración desde un sistema que ejecuta Server Administrator, edite el archivo de configuración del agente SNMP, <b>/etc/snmp/snmpd.conf</b>, y realice los siguientes pasos:</p>
+<ol type="1">
+
+<li value="1"><a name="1093305"></a>Busque la línea siguiente:
+<br><br>
+</ol>
+<a name="1093307"></a>
+<p class="screenindent">rocommunity public 127.0.0.1
+</p>
+<ol type="1">
+
+<li value="2"><a name="1093517"></a>Modifique esta línea, reemplazando <span class="screen">public</span> con el nuevo nombre de comunidad SNMP. Una vez modificada, la nueva línea debe ser la siguiente:
+<br><br>
+</ol>
+<a name="1093519"></a>
+<p class="screenindent">rocommunity nombre_de_comunidad 127.0.0.1
+</p>
+<ol type="1">
+
+<li value="3"><a name="1093313"></a>Para activar los cambios en la configuración SNMP, reinicie el agente SNMP, escribiendo:
+<br><br>
+</ol>
+<a name="1093315"></a>
+<p class="screenindent">/etc/init.d/snmpd restart
+</p>
+<a name="1093317"></a><h4> Activación de las operaciones Set de SNMP</h4>
+<a name="1093319"></a><p>Las operaciones Set de SNMP deben estar activadas en el sistema que ejecuta Server Administrator para poder cambiar los atributos de dicho software usando IT Assistant. Para activar el apagado remoto de un sistema desde IT Assistant, las operaciones SET de SNMP deben estar activadas.</p>
+<a name="1095492"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>El reinicio del sistema para la funcionalidad de administración de cambios no requiere de las operaciones Set de SNMP.
+</td>
+  </tr>
+</table><a name="1093321"></a><p>Para activar las operaciones Set de SNMP en el sistema que ejecuta Server Administrator, modifique el archivo de configuración del agente SNMP, <b>/etc/snmp/snmpd.conf</b>, y realice los pasos siguientes:</p>
+<ol type="1">
+
+<li value="1"><a name="1093323"></a>Busque la línea siguiente:
+<br><br>
+</ol>
+<a name="1093325"></a>
+<p class="screenindent">rocommunity public 127.0.0.1
+</p>
+<ol type="1">
+
+<li value="2"><a name="1093327"></a>Modifique esta línea sustituyendo <span class="screen">rocommunity</span> con <span class="screen">rwcommunity</span>. Una vez modificada, la nueva línea debe ser la siguiente:
+<br><br>
+</ol>
+<a name="1093329"></a>
+<p class="screenindent">rwcommunity public 127.0.0.1
+</p>
+<ol type="1">
+
+<li value="3"><a name="1093331"></a>Para activar los cambios en la configuración SNMP, reinicie el agente SNMP, escribiendo:
+<br><br>
+</ol>
+<a name="1093333"></a>
+<p class="screenindent">/etc/init.d/snmpd restart
+</p>
+<a name="1093335"></a><h4> Configuración del sistema para enviar capturas a una estación de administración</h4>
+<a name="1093337"></a><p>Server Administrator genera capturas SNMP en respuesta a cambios en el estado de los sensores y otros parámetros supervisados. Se deben configurar uno o varios destinos de capturas en el sistema que ejecuta Server Administrator para enviar las capturas SNMP a una estación de administración.</p>
+<a name="1093339"></a><p>Para configurar el sistema que ejecuta Server Administrator para que envíe capturas a una estación de administración, edite el archivo de configuración del agente SNMP, <b>/etc/snmp/snmpd.conf</b>, y realice los pasos siguientes:</p>
+<ol type="1">
+
+<li value="1"><a name="1093341"></a>Agregue la línea siguiente al archivo:
+<br><br>
+</ol>
+<a name="1093343"></a>
+<p class="screenindent">trapsink dirección_IP nombre_de_comunidad
+</p>
+<a name="1093345"></a><p class="indent">donde<span class="screen"> </span><span class="screen">dirección_IP</span> es la dirección IP de la estación de administración y <span class="screen">nombre_de_comunidad</span> es el nombre de la comunidad SNMP.</p>
+<ol type="1">
+
+<li value="2"><a name="1093347"></a>Para activar los cambios en la configuración SNMP, reinicie el agente SNMP, escribiendo:
+<br><br>
+</ol>
+<a name="1093349"></a>
+<p class="screenindent">/etc/init.d/snmpd restart
+</p>
+<hr noshade size="1">
+<a name="1093618"></a><h2>Configuración de seguridad y del servidor de puerto seguro</h2>
+
+
+<a name="1064459"></a><p>Esta sección contiene los siguientes temas:</p>
+<ul><li><a name="1064463"></a><a href="setup.htm#1064469">Configuración de preferencias del servidor y del usuario</a><br><br></li>
+<li><a name="1064467"></a><a href="setup.htm#1064516">Administración de certificados X.509</a><br><br></li>
+</ul><a name="1064469"></a><h3> Configuración las de preferencias del servidor y del usuario
+</h3>
+<a name="1084692"></a><p>Usted puede establecer el usuario y asegurar las preferencias del servidor de puerto para Server Administrator y para IT Assistant desde la página web respectiva <b>Preferencias</b>. Haga clic en <b>Configuración general</b> y luego haga clic ya sea en la ficha <b>Usuario</b> o en la ficha <b>Web Server</b>.</p>
+<a name="1088527"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Debe estar conectado con privilegios de administrador para establecer o restablecer las preferencias del servidor o del usuario.
+  	 	 	 	</td>
+  </tr>
+</table><a name="1088549"></a><p>Realice los pasos siguientes para configurar las preferencias del usuario:</p>
+<ol type="1">
+
+<li value="1"><a name="1064477"></a>Haga clic en <b>Preferencias</b> en la barra de navegación global.
+<br><br>
+</ol>
+<a name="1064478"></a><p class="indent">Aparecerá la página de inicio de <b>Preferencias</b>.</p>
+<ol type="1">
+
+<li value="2"><a name="1064479"></a>Haga clic en <b>Configuración general</b>.
+
+<br><br>
+<li value="3"><a name="1064480"></a>Para agregar un destinatario seleccionado previamente de correo electrónico, escriba la dirección de correo electrónico del contacto designado de servicio en el campo <b>Destinatario:</b> y haga clic en <b>Aplicar cambios</b>.
+<br><br>
+</ol>
+<a name="1064485"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">NOTA: </span>Al hacer clic en <b>Correo electrónico</b> en cualquier ventana, se envía un mensaje de correo electrónico con un archivo HTML de la ventana adjuntado a la dirección de correo electrónico designada.
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="4"><a name="1064486"></a>Para cambiar el aspecto de la página de inicio, seleccione otro valor en los campos <b>máscara</b> o <b>esquema</b> y haga clic en <b>Aplicar cambios</b>.
+<br><br>
+</ol>
+<a name="1084898"></a><p>Realice los pasos siguientes para configurar las preferencias del servidor de puerto seguro:</p>
+<ol type="1">
+
+<li value="1"><a name="1064488"></a>Haga clic en <b>Preferencias</b> en la barra de navegación global.
+<br><br>
+</ol>
+<a name="1064489"></a><p class="indent">Aparecerá la página de inicio de <b>Preferencias</b>.</p>
+<ol type="1">
+
+<li value="2"><a name="1064490"></a>Haga clic en <b>Configuración general</b> y luego en la ficha <b>Web Server</b>.
+
+<br><br>
+<li value="3"><a name="1064491"></a>En la ventana <b>Preferencias del servidor</b>, establezca las opciones necesarias.
+<br><br>
+<ul>
+<li type="disc"><a name="1064492"></a>Con la función <b>Se acabó el tiempo de espera de la sesión</b> se puede establecer un límite sobre la cantidad de tiempo que una sesión puede permanecer activa. Seleccione el botón de radio <b>Activar</b> para habilitar la expiración de tiempo si no hay interacción por parte del usuario durante un número determinado de minutos. Los usuarios cuyas sesiones agoten el tiempo de espera deberán volver a iniciar una sesión para continuar. Seleccione el botón de radio <b>Desactivar</b> para desactivar la función de tiempo de espera de sesión de Server Administrator.<br><br> </li>
+<li type="disc"><a name="1064493"></a>El campo <b>Puerto HTTPS</b> especifica el puerto seguro para Server Administrator. El puerto seguro predeterminado para el Server Administrator es 1311.<br><br></li>
+</ul>
+</ol>
+<a name="1064498"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">NOTA: </span>Si se cambia el número de puerto a uno no válido o a un número de puerto en uso, se puede impedir que otras aplicaciones o exploradores accedan al Server Administrator en el sistema administrado.
+</td>
+  </tr>
+</table>
+<ul><ul>
+<li type="disc"><a name="1064499"></a>El campo <b>Dirección IP a la cual enlazar</b> especifican las direcciones IP para el sistema administrado a las que se enlaza Server Administrator cuando inicia una sesión. Seleccione el botón de radio <b>Todas</b> para enlazar con todas las direcciones IP aplicables para el sistema. Seleccione el botón de radio <b>Específica</b> para enlazar con una dirección IP específica.<br><br></li>
+</ul>
+</ul><a name="1086988"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">NOTA: </span>Un usuario con privilegios de administrador no puede usar Server Administrator cuando se conecta al sistema de manera remota.
+</td>
+  </tr>
+</table>
+<a name="1064504"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">NOTA: </span>Si se cambia el valor de <b>Dirección IP a la cual enlazar</b> a un valor que no sea <b>Todas</b>, es posible que otras aplicaciones o exploradores no puedan acceder de manera remota a Server Administrator en el sistema administrado.
+</td>
+  </tr>
+</table>
+<ul><ul>
+<li type="disc"><a name="1064505"></a>Los campos <b>Nombre de servidor SMTP</b> y <b>Sufijo DNS para servidor SMTP</b> especifican el protocolo de transferencia simple de correo (SMTP) y el sufijo del servidor de nombres de dominio (DNS) de la empresa u organización. Para que el Server Administrator pueda enviar mensajes de correo electrónico, debe teclear la dirección IP y el sufijo DNS del servidor SMTP de la empresa u organización en los campos correspondientes.<br><br></li>
+</ul>
+</ul><a name="1064510"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">NOTA: </span>Por motivos de seguridad, es posible que la empresa u organización no permita que se envíen mensajes de correo electrónico a través del servidor SMTP a cuentas externas.
+</td>
+  </tr>
+</table>
+<ul><ul>
+<li type="disc"><a name="1064511"></a>El campo <b>Tamaño de registro de comandos</b> especifica el tamaño del archivo más grande en MB para el archivo de registro de comandos.<br><br></li>
+<li type="disc"><a name="1064512"></a>El campo <b>Vínculo de asistencia</b> especifica la dirección URL de la entidad empresarial que proporciona asistencia al sistema administrado.<br><br></li>
+<li type="disc"><a name="1064513"></a>El campo <b>Delimitador personalizado</b> especifica el carácter que se usa para separar los campos de datos en los archivos que se crearán mediante el botón <b>Exportar</b>. El carácter <b>;</b> es el delimitador predeterminado. Otras opciones son <b>!</b>, <b>@</b>, <b>#</b>, <b>$</b>, <b>%</b>, <b>^</b>, <b>*</b>, <b>~</b>, <b>?</b>, <b>: </b>, <b>|</b> y <b>,</b>.<br><br></li>
+</ul>
+
+<li value="4"><a name="1064514"></a>Cuando haya terminado de configurar las opciones en la ventana <b>Preferencias del servidor</b>, haga clic en <b>Aplicar cambios</b>.
+<br><br>
+</ul><a name="1064516"></a><h3> Administración de certificados X.509
+</h3>
+<a name="1064517"></a><p>Los certificados de web son necesarios para garantizar la identidad de un sistema remoto y para asegurar que la información intercambiada con el mismo no pueda ser vista ni cambiada por otros usuarios. Para garantizar la seguridad del sistema, se recomienda encarecidamente que se genere un nuevo certificado X.509, que se vuelva a utilizar uno existente o que se importe un certificado raíz o una cadena de certificados desde una autoridad de certificación (CA).</p>
+<a name="1064522"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTA: </span>Debe iniciar sesión con privilegios de administrador para llevar a cabo la administración de certificados.
+</td>
+  </tr>
+</table><a name="1084746"></a><p>Usted puede administrar certificados X.509 para Server Administrator y para IT Assistant desde la página web respectiva <b>Preferencias</b>. Haga clic en <b>Configuración general</b>, luego en la ficha <b>Web Server</b> y luego en <b>Certificado X.509</b>. </p>
+<a name="1064524"></a><p>Utilice la herramienta de certificados X.509 para generar un nuevo certificado X.509, volver a utilizar uno existente o importar un certificado raíz o una cadena de certificados desde una CA. Entre las CA autorizadas se incluyen Verisign, Entrust y Thawte.</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">Regresar a la página de contenido</a></p>
+
+
+<p> </p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

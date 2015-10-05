@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<project name="Photosmart Premier" default="psp.build">
+
+  <!--
+
+        Copyright 2005 Hewlett-Packard . All Rights Reserved.
+        This software is the confidential and proprietary information of
+        Hewlett-Packard. Use is subject to license terms.
+
+        NAnt version : 0.85 Release Candidate 3 (Build 0.85.1932.0 rc3 4/16/2005)
+        http://www.swoogan.com/nantgui.html  : NAnt-Gui-1.2.4-rc6.exe
+
+        NOTE : This script is not intended to be modified by anyone other than the build team.
+        Author: Gopinath M.R. (mgopinath@trianz.com)
+    -->
+  <include buildfile="s:/btbuild/scripts/psp-nd.build" />
+  
+  <target name="photobook">
+    <call target="psp.src.photobook.compile"/>
+    <call target="psp.src.photobook.deploy"/>
+  </target>
+
+  <target name="scicom-all">
+    <call target="psp.vendor.nd.src.build.compile"/>
+  </target>
+</project>

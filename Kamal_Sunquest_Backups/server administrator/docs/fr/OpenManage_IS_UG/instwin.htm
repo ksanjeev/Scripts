@@ -1,0 +1,950 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<title>Installation du logiciel Managed System Software sur un système d'exploitation Microsoft® Windows® - Guide de sécurité et d'installation de Dell OpenManage, version 5.0.</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">Retour à la page du sommaire</a> </p>
+<a name="1056417"></a><h1> Installation de Managed System Software sur un système d'exploitation Microsoft® Windows®  </h1>
+<p class="title">Guide de sécurité et d'installation de Dell OpenManage&#8482;, version 5.0</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1082457">Présentation générale</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1056441">Avant de commencer</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1056524">Spécifications pour l'installation</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1056568">Procédures d'installation</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">  <a href="#1064678">Installation de Managed System Software avec un logiciel de déploiement d'une tierce partie
+</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1082457"></a><h2>Présentation générale</h2>
+
+
+<a name="1082458"></a><p>Vous pouvez installer le logiciel Managed System Software de plusieurs façons. Le CD <i>Dell&#8482; PowerEdge&#8482; Installation and Server Management</i> offre un programme d'installation pour installer, mettre à niveau et désinstaller les composants logiciels de Managed System sur vos systèmes gérés. Vous pouvez installer le logiciel sur plusieurs systèmes en réalisant une installation automatique sur le réseau. </p>
+<a name="1067826"></a><p>Les composants Managed System que vous pouvez installer sont Dell OpenManage&#8482; Server Administrator, l'agent SNMP Intel®  et l'agent SNMP Broadcom.</p>
+<a name="1067834"></a><p>À partir de Server Administrator, vous pouvez choisir Server Administrator Web Server (si vous ne le choisissez pas, vous pourrez seulement utiliser Server Administrator à partir de son interface de ligne de commande), Diagnostic Service, Remote Access Service et les sous-composants de Storage Management Service.</p>
+<a name="1078412"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>DRAC III, DRAC 4 et DRAC 5 ne peuvent pas être utilisés ensemble.
+</td>
+  </tr>
+</table><a name="1056427"></a><h3>CD Dell PowerEdge Installation and Server Management 
+</h3>
+<a name="1056428"></a><p>Le CD <i>Dell PowerEdge Installation and Server Management</i> offre un programme d'installation pour installer, mettre à niveau et désinstaller les composants logiciels de Managed System sur vos systèmes gérés. Vous pouvez également installer les composants sur plusieurs systèmes en réalisant une installation automatique sur le réseau.</p>
+<a name="1056430"></a><p>En utilisant le programme d'installation dans le répertoire Windows sur le CD <i>Dell PowerEdge Installation and Server Management</i>, vous pouvez installer et mettre à niveau Server Administrator sur un système fonctionnant sous un système d'exploitation pris en charge. Sur les systèmes qui fonctionnent sous un système d'exploitation Microsoft Windows pris en charge, vous pouvez désinstaller les composants avec le système d'exploitation.</p>
+<a name="1071719"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Consultez le fichier lisez-moi <b>readme_ins.txt  </b>du CD <i>Dell PowerEdge Installation and Server Management</i> pour obtenir la liste des systèmes actuellement pris en charge.
+</td>
+  </tr>
+</table><a name="1071720"></a><h3> Installation automatique et en arrière plan indiquée par le script
+ </h3>
+<a name="1056437"></a><p>Vous pouvez utiliser le CD <i>Dell PowerEdge Installation and Server Management</i> pour effectuer une installation des composants de Managed System automatique et en arrière plan indiquée par le script sur les systèmes qui fonctionnent sous un système d'exploitation Windows pris en charge. Vous pouvez également installer et désinstaller les composants à partir de la ligne de commande sur les systèmes qui exécutent un système d'exploitation Windows pris en charge.</p>
+<hr noshade size="1">
+<a name="1056441"></a><h2>Avant de commencer</h2>
+
+
+<ul><li>Consultez ci-dessous la section sur les <a name="1056442">spécifications pour l'installation</a> pour vous assurer que votre système correspond au moins aux spécifications minimales.<br><br> </li>
+<li><a name="1056443"></a>Lisez le <i>Guide de compatibilité de Dell OpenManage Server Administrator</i>. Ce manuel fournit des informations concernant la compatibilité de l'installation et du fonctionnement de Server Administrator pour différentes plates-formes matérielles exécutant un système d'exploitation Microsoft® Windows®, Red Hat Enterprise Linux ou SUSE Linux Enterprise Server pris en charge. <br><br></li>
+<li><a name="1056444"></a>Lisez le fichier <b>lisez-moi_ins.txt</b> de l'installation sur le CD <i>Dell PowerEdge Installation and Server Management</i> Ce fichier lisez-moi contient les dernières informations concernant les nouvelles fonctionnalités, en plus des informations concernant des problèmes connus.<br><br> </li>
+<li><a name="1056445"></a>Lisez le fichier lisez-moi de Server Administrator sur le CD <i>Dell </i><i>PowerEdge</i> <i>Installation and Server Management</i>. Ce fichier lisez-moi contient les informations les plus récentes sur les versions de logiciel, de micrologiciel et de pilotes, ainsi que des informations sur les problèmes reconnus.<br><br> </li>
+<li><a name="1056446"></a>Lisez les instructions d'installation de votre système d'exploitation.<br><br> </li>
+</ul><hr noshade size="1">
+<a name="1056524"></a><h2>Spécifications pour l'installation</h2>
+
+
+<a name="1056525"></a><p>Les sections suivantes décrivent les spécifications générales pour Server Administrator. </p>
+<a name="1056529"></a><h3> Versions des systèmes d'exploitation prises en charge
+ </h3>
+<a name="1056607"></a><p>Server Administrator prend en charge chacun des systèmes d'exploitation suivants&nbsp;: </p>
+<ul><li><a name="1056608"></a>Windows 2000 Server SP4 (inclut Server et Advanced Server)<br><br></li>
+<li><a name="1080856"></a>Windows Server&#8482; 2003 R2 (y compris les éditions Standard et Enterprise) <br><br></li>
+<li><a name="1083506"></a>Windows Server 2003 SP1 (Web Edition)<br><br></li>
+<li><a name="1069654"></a>Windows Server 2003 Standard et Enterprise x64 R2 (excepté Remote Access Controller III et IT Assistant)<br><br></li>
+<li><a name="1087148"></a>Windows Storage Server 2003 R2 (y compris les éditions Express, Standard, Workgroup et Enterprise)<br><br></li>
+</ul><a name="1056639"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Consultez le fichier lisez-moi <b>readme_ins.txt</b> de Server Administrator sur le CD <i>Dell PowerEdge Installation and Server Management </i> ou le <i>Guide de compatibilité de Dell OpenManage Server Administrator</i> sur le <i>CD de documentation</i> pour obtenir la liste détaillée la plus récente des services de Server Administrator disponibles pour chaque système d'exploitation pris en charge. 
+</td>
+  </tr>
+</table><a name="1056540"></a><h3> Spécifications système
+ </h3>
+<a name="1056541"></a><p>Server Administrator doit être installé sur chaque système géré. Vous pouvez ensuite gérer localement ou à distance, en utilisant un navigateur Web pris en charge, chaque système exécutant Server Administrator.</p>
+<a name="1064085"></a><p>L'utilitaire <b>setup.exe</b> appelle la vérification des prérequis sur le CD pour déterminer si les spécifications système sont respectées (pour plus d'informations, consultez la section intitulée «&nbsp;<a href="prereqch.htm#1053126">Vérification des prérequis</a>&nbsp;»).</p>
+<a name="1056545"></a><h4> Spécifications du système géré</h4>
+<ul><li><a name="1056546"></a>Un des systèmes d'exploitation pris en charge.<br><br></li>
+<li><a name="1056547"></a>Un minimum de 64 Mo de RAM.<br><br></li>
+<li><a name="1056548"></a>Un minimum de 256 Mo d'espace libre sur le disque dur.<br><br></li>
+<li><a name="1056549"></a>Droits d'administrateur.<br><br></li>
+<li><a name="1056550"></a>Une connexion TCP/IP sur le système géré et sur la station de gestion pour faciliter la gestion du système distant.<br><br></li>
+<li><a name="1056551"></a>Une des normes de protocole de gestion de systèmes prises en charge. <br><br></li>
+<li><a name="1056552"></a>Une souris, un clavier et un moniteur pour gérer un système localement. L'écran doit avoir une résolution d'écran d'au moins 800 x 600. Le paramètre de résolution d'écran conseillé est 1024 x 768.<br><br> </li>
+<li><a name="1056553"></a>Pour utiliser le service d'accès à distance de Server Administrator, un Remote Access Controller (RAC) doit être installé sur le système à gérer. Consultez le <i>Guide d'utilisation de Dell  Remote Access Controller 4</i> ou le <i>Guide d'utilisation de Dell Embedded Remote Access Controller/MC </i>pour connaître toutes les spécifications logicielles et matérielles.<br><br></li>
+</ul><a name="1056554"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Le logiciel du RAC est installé avec les options <b>Installation rapide</b> et <b>Installation personnalisée</b> lors de l'installation du logiciel Managed System Software à partir du CD <i>Dell PowerEdge Installation and Server Management</i> , si le système géré satisfait à tous les prérequis d'installation du RAC. Consultez la section «&nbsp;Service d'accès à distance&nbsp;» et le <i>Guide de configuration et d'installation du Dell Remote Access Controller</i> ou le <i>Guide d'utilisation du Dell Embedded Remote Access/MC Controller </i>pour des spécifications matérielles et logicielles complètes.
+ </td>
+  </tr>
+</table><ul><li><a name="1056558"></a>Pour utiliser le service Server Administrator Storage Management, Dell OpenManageStorage Management doit être installé sur le système pour qu'il soit correctement géré. Consultez le <i>Guide d'utilisation de Dell OpenManage </i><i>Server Administrator </i>pour des informations sur toutes les spécifications matérielles et logicielles.<br><br> </li>
+<li><a name="1081456"></a>Microsoft Software Installer (MSI), version 3.0 ou ultérieure<br><br></li>
+</ul><a name="1081491"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">    
+REMARQUE&nbsp;: </span> Le logiciel Dell OpenManage détecte la version de MSI présente sur votre système. Si cette version est antérieure à la version 3.1, 
+la vérification des prérequis vous invite à mettre à niveau à la version 3.1 de MSI. 
+</td>
+  </tr>
+</table>
+<a name="1081487"></a><h3> Normes de protocole de gestion de systèmes prises en charge
+</h3>
+<a name="1056561"></a><p>Une norme de protocole de gestion de systèmes prise en charge doit être installée sur le système géré avant d'installer Server Administrator. Sur les systèmes d'exploitation Windows pris en charge, Server Administrator prend en charge le modèle commun d'informations/infrastructure de gestion Windows (CIM/WMI) et le protocole simplifié de gestion de réseau (SNMP). CIM et WMI sont toujours installés, et SNMP est disponible à partir du média d'installation du système d'exploitation.</p>
+<a name="1056563"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Pour des informations sur l'installation d'une norme de protocole de gestion de systèmes prise en charge sur votre système géré, consultez la documentation de votre système d'exploitation.
+ </td>
+  </tr>
+</table><a name="1082717"></a><h3>Windows Server 2003 R2 et le pilote de périphérique R2 IPMI
+</h3>
+<a name="1083396"></a><p>Les informations de cette section ne s'appliquent qu'aux systèmes PowerEdge <i>x8xx</i> et PowerEdge <i>x</i>9<i>xx</i>.</p>
+<a name="1083397"></a><p>Windows Server 2003 R2 et Windows Storage Server R2 comprennent un composant optionnel appelé Gestion du matériel. Ce composant contient un pilote IPMI. Pendant l'installation, le composant installe et active son pilote IPMI. </p>
+<a name="1082784"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Sur les systèmes PowerEdge<i> x8xx</i>, après installation du composant Gestion du matériel, vous devez effectuer 
+une étape supplémentaire pour installer le pilote IPMI R2.
+</td>
+  </tr>
+</table><a name="1083188"></a><p>Au démarrage de Server Administrator, il détermine d'abord si le pilote IPMI de Windows Server 2003 R2 est activé. Si oui, Server Administrator utilise le pilote IPMI de Windows Server 2003 R2 pour fournir sa fonctionnalité IPMI. Si le pilote IPMI de Windows Server 2003 R2 n'est pas activé, Server Administrator utilise sa propre prise en charge IPMI interne pour fournir sa fonctionnalité IPMI. Pour Server Administrator, il est recommandé d'utiliser le pilote IPMI de Windows Server 2003 R2 plutôt que la prise en charge IPMI interne. Si votre système exécute Windows Server 2003 R2 ou Windows Storage Server R2, il est recommandé d'installer également le composant Gestion de matériel optionnel R2 après l'installation ou la mise à niveau de Server Administrator.</p>
+<a name="1083262"></a><p>Pour installer le pilote IPMI de Windows Server 2003 R2 sur les systèmes PowerEdge <i>x8xx </i>, effectuez l'étape supplémentaire suivante&nbsp;: </p>
+<ul><li><a name="1083263"></a>À partir d'un environnement de commande, exécutez la commande suivante&nbsp;: <br><br></li>
+</ul><a name="1082745"></a>
+<p class="screenindent">Rundll32 ipmisetp.dll, AddTheDevice
+</p>
+<a name="1082747"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Cette étape n'est pas requise sur les systèmes PowerEdge <i>x</i>9<i>xx </i><i>.</i></td>
+  </tr>
+</table><a name="1087055"></a><p>Après l'installation du composant Gestion de matériel du système d'exploitation Windows Server 2003 R2 et l'exécution de l'étape supplémentaire d'installation du pilote IPMI de Windows Server 2003 R2 (sur les systèmes PowerEdge <i>x8xx</i>), vous devez aussi redémarrer le service de <b>Gestionnaire de données DSM SA</b> afin que Server Administrator puisse passer de l'utilisation de sa propre prise en charge IPMI interne à l'utilisation du pilote IPMI de Windows Server 2003 R2. Pour redémarrer le service, vous pouvez soit redémarrez manuellement le service ou redémarrer le système.</p>
+<a name="1082749"></a><p>Si vous désinstallez ultérieurement le pilote IPMI de Windows Server 2003 R2 directement en le désinstallant manuellement ou en désinstallant le composant Gestion de matériel (qui désinstallera le pilote), vous devez redémarrer le service <b>Gestionnaire de données DSM SA</b> afin que Server Administrator puisse passer de l'utilisation du pilote IPMI de Windows Server 2003 R2 à l'utilisation de sa propre prise en charge IPMI interne. Pour redémarrer le service, vous pouvez soit redémarrer manuellement le service ou redémarrer le système.</p>
+<a name="1066971"></a><h3> Certificats numériques
+</h3>
+<a name="1066972"></a><p>Tous les progiciels de Server Administrator pour Microsoft sont signés numériquement avec un certificat Dell qui aide à garantir l'intégrité des progiciels d'installation. Si ces progiciels sont reconstruits, modifiés ou manipulés d'autres façons, la signature numérique deviendra non valide. Ces manipulations créeront un progiciel d'installation qui n'est pas pris en charge et la vérification des prérequis ne vous permettra pas d'installer le logiciel.</p>
+<hr noshade size="1">
+<a name="1056568"></a><h2>Procédures d'installation</h2>
+
+
+<a name="1057210"></a><p>Cette section explique comment installer, mettre à niveau et désinstaller Server Administrator sur un système qui exécute un système d'exploitation Windows pris en charge. </p>
+<a name="1067552"></a><h3> Prérequis pour l'installation et la mise à niveau de Server Administrator
+</h3>
+<a name="1067554"></a><p>Vous devez avoir des privilèges d'administrateur. </p>
+<a name="1067555"></a><p>Si vous voulez utiliser des agents de prise en charge pour le protocole simplifié de gestion de réseau (SNMP), vous devez installer la prise en charge du système d'exploitation pour la norme SNMP avant ou après l'installation de Server Administrator. Pour des informations supplémentaires sur l'installation de SNMP, consultez les instructions d'installation du système d'exploitation que vous exécutez sur votre système. </p>
+<a name="1067560"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Au cours d'une installation rapide, les services individuels de Server Administrator ne seront pas installés sur les systèmes gérés qui ne répondent pas aux spécifications d'installation matérielles ou logicielles de ces services. Par exemple, le module logiciel du service d'accès à distance de Server Administrator ne sera pas installé au cours d'une installation rapide si un Remote Access Controller n'est pas installé sur le système géré. Vous pouvez, cependant, aller dans l'<b>installation personnalisée</b> et sélectionner le module logiciel du service d'accès à distance pour l'installer.
+</td>
+  </tr>
+</table><a name="1068061"></a><h4> Vérification des prérequis</h4>
+<a name="1071811"></a><p>Le programme d'installation (<b>setup.exe</b>) lance le programme de vérification des prérequis. Le programme d'installation est situé dans le répertoire <b>\srvadmin\Windows</b> sur le CD <i>Dell PowerEdge Installation and Server Management</i>. Le programme de vérification des prérequis examine les prérequis nécessaires pour les composants logiciels sans lancer l'installation réelle. Ce programme affiche une fenêtre de condition qui fournit des informations concernant le matériel et le logiciel système qui pourraient affecter l'installation et l'utilisation des composants logiciels. </p>
+<a name="1076415"></a><p>La vérification des prérequis affiche trois types de messages&nbsp;: informatif, d'avertissement et d'erreur.</p>
+<a name="1068065"></a><p>Un message informatif décrit une condition que vous devez connaître. Il n'empêche pas l'installation d'un composant.</p>
+<a name="1076780"></a><p>Un message d'avertissement décrit une condition qui empêche un logiciel d'être installé pendant l'installation rapide. Il est recommandé que vous résolviez la condition provoquant l'avertissement avant de poursuivre l'installation de ce logiciel. Si vous décidez de continuer, vous pouvez sélectionner et installer le logiciel en utilisant l'installation personnalisée. Par exemple, si une carte d'interface réseau Intel (NIC) n'est pas détectée sur le système, vous verrez le message suivant&nbsp;:</p>
+<a name="1073505"></a>
+<p class="screenindent">An Intel(R) NIC was not detected on this system. This will disable the &quot;Express&quot; installation of the Intel(R) SNMP Agent.<br><br>(Un NIC Intel(R) n'a pas été détecté sur ce système. Cela désactivera 
+l'installation «&nbsp;rapide&nbsp;» de l'agent SNMP d'Intel(R).)
+</p>
+<a name="1073507"></a>
+<p class="screenindent">Use the &quot;Custom&quot; installation setup type later during installation to select this feature if you have an Intel(R) NIC installed.<br><br>(Utilisez le type d'installation «&nbsp;personnalisée&nbsp;» pour sélectionner ce composant si vous avez un NIC Intel(R) installé.)
+</p>
+<a name="1072334"></a><p>Un message d'erreur décrit une condition qui empêche l'installation de la fonctionnalité du logiciel. Vous devez résoudre la condition provoquant l'erreur avant de poursuivre l'installation de la fonctionnalité du logiciel. Si vous ne résolvez pas le problème, la fonctionnalité du logiciel ne sera pas installé.</p>
+<a name="1077874"></a><p>Vous pouvez exécuter la vérification des prérequis en arrière plan en lançant <span class="screen">RunPreReqChecks.exe /s</span>	  à partir du répertoire <b>srvadmin\windows\PreReqChecker</b>. Pour plus de détails consultez la section «&nbsp;<a href="prereqch.htm#1053126">Vérification des prérequis</a>&nbsp;».</p>
+<a name="1077875"></a><h3> Installation et mise à niveau de Server Administrator
+ </h3>
+<a name="1057233"></a><p>Cette section explique comment installer et mettre à niveau Server Administrator en utilisant deux options d'installation&nbsp;:</p>
+<ul><li><a name="1057235"></a>Utilisez le programme d'installation dans le répertoire <b>windows</b> sur le CD <i>Dell PowerEdge Installation and Server Management</i> pour installer ou mettre à jour Server Administrator et les autres logiciels Managed System Software.<br><br> </li>
+<li><a name="1057236"></a>Utilisez la méthode d'installation automatique via le moteur Windows Installer <b>msiexec.exe</b> (consultez le <a href="instwin.htm#1060065">tableau 6-1</a> ci-dessous) pour installer Server Administrator et d'autres logiciels Managed System sur plusieurs systèmes.<br><br> </li>
+</ul><a name="1057237"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Pour des systèmes modulaires, vous devez installer Server Administrator sur chaque module de serveur installé dans le châssis.
+ </td>
+  </tr>
+</table><a name="1067106"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Vous pouvez aller à <b>Ajout/Suppression de programmes</b> pour voir quels composants sont installés.
+</td>
+  </tr>
+</table><a name="1081512"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Vous ne pouvez passer de la version 4.3 du logiciel Dell OpenManage à la version 5.0 que via une installation MSI complète.
+</td>
+  </tr>
+</table><a name="1083090"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Une fois Server Administrator installé sur les systèmes PowerEdge 1650, 2650 et 4600, vous pouvez être invité à redémarrer votre système si vous avez choisi d'installer Storage Management Service.
+</td>
+  </tr>
+</table><a name="1083091"></a><h4> Installations rapide et personnalisée</h4>
+<a name="1057251"></a><p>Le CD <i>Dell PowerEdge Installation and Server Management </i>contient une option <b>Installation rapide </b>et une option <b>Installation personnalisée </b>pour installer Server Administrator et les autres logiciels Managed System Software.</p>
+<a name="1057253"></a><p>Quand vous insérez le CD <i>Dell PowerEdge Installation and Server Management</i> dans le lecteur de CD de votre système, le programme d'installation lance la vérification des prérequis, qui utilise le bus PCI de votre système pour rechercher le matériel installé, par exemple les cartes contrôleurs.</p>
+<a name="1057255"></a><p>Quand vous lancez l'installation de Server Administrator à partir de la vérification des prérequis et que vous sélectionnez l'option <b>Installation rapide</b>, le programme d'installation installe ou met à niveau tous les composants logiciels de Managed System Software appropriés pour la configuration matérielle de votre système. Pour plus de détails sur la façon d'effectuer une <b>installation rapide</b>, consultez le <i>Guide d'installation rapide</i>. Vous pouvez accéder au <i>Guide d'installation rapide</i> en cliquant sur <b>Guide d'installation rapide</b> sur la barre de menu dans l'interface utilisateur du vérificateur de prérequis.</p>
+<a name="1057734"></a><p>Si vous sélectionnez l'option <b>Installation personnalisée</b>, vous pouvez désélectionner un ou plusieurs composants logiciels que le programme d'installation a identifié comme appropriés pour les options installées sur votre système. Pendant <b>une installation rapide</b>, vous ne pouvez pas faire d'ajouts à la liste des composants à installer car tous les composants correspondant à la configuration matérielle sont présélectionnés. Le service de Storage Management de Server Administrator est installé par défaut pendant l'<b>Installation rapide</b>.</p>
+<a name="1057265"></a><h5> Installation personnalisée</h5>
+<a name="1063084"></a><p>Les sections qui suivent vous montrent comment installer et mettre à niveau Server Administrator et les autres logiciels Managed System Software avec l'option <b>Installation personnalisée</b>.</p>
+<a name="1080989"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Les services Management Station et Managed System peuvent être installés dans le même répertoire ou dans des répertoires différents. Vous pouvez sélectionner le répertoire pour l'installation.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1057266"></a>Ouvrez une session avec des privilèges d'administrateur sur le système où vous souhaitez installer les composants logiciels de gestion du système.
+
+<br><br>
+ <li value="2"><a name="1057268"></a>Fermez toutes les applications ouvertes et désactivez tous vos logiciels de détection de virus.
+
+<br><br>
+ <li value="3"><a name="1057270"></a>Insérez le CD <i>Dell PowerEdge Installation and Server Management</i> dans le lecteur de CD de votre système.
+<br><br>
+ </ol>
+<a name="1073173"></a><p class="indent">Si le CD ne démarre pas le programme d'installation automatiquement, allez sur le bureau de votre système, double-cliquez sur <b>Poste de travail</b> (ou ouvrez l'explorateur Windows), double-cliquez sur l'icône du lecteur de CD, double-cliquez sur le dossier <b>srvadmin</b>, double-cliquez sur le dossier <b>windows</b> et double-cliquez sur le fichier <b>setup.exe</b>.</p>
+<a name="1064191"></a><p class="indent">L'écran de condition des <b>prérequis de </b>Dell OpenManage Server Administrator s'ouvre et exécute la vérification des prérequis pour la station gérée. Tout message utile d'information, d'avertissement ou d'erreur sera affiché.</p>
+<ol type="1">
+
+<li value="4"><a name="1057276"></a>Cliquez sur l'option <b>Installer, modifier, réparer ou supprimer Server Administrator</b>.
+<br><br>
+ </ol>
+<a name="1062876"></a><p class="indent">L'écran <b>Bienvenue dans l'assistant d'installation de Dell OpenManage Server Administrator</b> s'ouvre.</p>
+<ol type="1">
+
+<li value="5"><a name="1057280"></a>Cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1062880"></a><p class="indent">Le <b>Contrat de licence logiciel Dell</b> s'affiche.</p>
+<ol type="1">
+
+<li value="6"><a name="1057284"></a>Cliquez sur <b>Accepter</b> et <b>Suivant</b> si vous acceptez les termes du contrat.
+<br><br>
+ </ol>
+<a name="1062884"></a><p class="indent">La boîte de dialogue <b>Type d'installation</b> s'ouvre. </p>
+<ol type="1">
+
+<li value="7"><a name="1057288"></a>Sélectionnez <b>Personnalisée</b> et cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1057290"></a><p class="indent">La boîte de dialogue <b>Installation personnalisée</b> s'ouvre.</p>
+<a name="1062868"></a><p class="indent">Pour sélectionner une application logicielle spécifique de Managed System, cliquez sur la flèche vers le bas à côté du composant répertorié et choisissez d'installer ou non le logiciel.</p>
+<a name="1062869"></a><p class="indent">Un composant sélectionné a à côté de lui une icône de disque dur. Un composant désélectionné a à côté de lui un <b>X</b> rouge. Par défaut, si la vérification des prérequis trouve un composant logiciel pour lequel le matériel correspondant n'est pas présent, celui-ci est désélectionné.</p>
+<a name="1062870"></a><p class="indent">Pour accepter le chemin par défaut du répertoire d'installation du logiciel Managed System Software, cliquez sur <b>Suivant</b>.</p>
+<a name="1070229"></a><p class="indent">Sinon, cliquez sur <b>Modifier </b>et naviguez jusqu'au répertoire où vous souhaitez installer votre logiciel Managed System Software, puis cliquez sur <b>OK</b>. Vous reviendrez à la boîte de dialogue <b>Installation personnalisée</b>.</p>
+<ol type="1">
+
+<li value="8"><a name="1070230"></a>Cliquez sur <b>Suivant</b> pour accepter les composants logiciels sélectionnés pour qu'ils soient installés.
+<br><br>
+ </ol>
+<a name="1073177"></a><p class="indent">La boîte de dialogue <b>Prêt à installer le programme</b> apparaît.</p>
+<a name="1068314"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Vous pouvez annuler le processus d'installation en cliquant sur <b>Annuler</b>. L'installation annule les modifications que vous avez faites. Si vous cliquez sur <b>Annuler</b> à un stade ultérieur du processus d'installation, il se peut que l'installation ne puisse pas revenir en arrière correctement, laissant le système avec une installation incomplète. Consultez la section «&nbsp;<a href="instwin.htm#1081939">Récupération d'un système en cas d'échec de l'installation</a>&nbsp;».
+ </td>
+  </tr>
+</table><ol type="1">
+
+<li value="9"><a name="1068315"></a>Cliquez sur <b>Installer</b> pour installer les composants logiciels sélectionnés.
+<br><br>
+ </ol>
+<a name="1070259"></a><p class="indent">L'écran <b>Installation de Dell OpenManage Server Administrator</b> apparaît. Des messages donnent la condition et la progression des composants logiciels installés. Après que les composants sélectionnés ont été installés, la boîte de dialogue <b>Assistant d'installation terminé</b> apparaît.</p>
+<ol type="1">
+
+<li value="10"><a name="1057314"></a>Cliquez sur <b>Terminer</b> pour fermer le programme d'installation de Server Administrator.
+<br><br>
+ </ol>
+<a name="1062892"></a><p class="indent">Si on vous invite à redémarrer le système, vous devez le redémarrer pour que les services du logiciel Managed System Software  qui ont été installés puissent être utilisés. Si vous êtes invité à redémarrer le système, sélectionnez l'option de redémarrage&nbsp;: </p>
+<ul><ul>
+<li type="disc"><a name="1057322"></a><b>Oui, redémarrer le système maintenant.</b><br><br></li>
+<li type="disc"><a name="1057324"></a><b>Non, je redémarrerai le système plus tard.</b><br><br></li>
+</ul>
+</ul><a name="1057327"></a><h4> Installation de Server Administrator avec Citrix</h4>
+<a name="1057328"></a><p>Citrix redéfinit les lettres associées à vos disques durs lorsque vous l'installez. Par exemple, si vous installez Server Administrator sur le disque «&nbsp;<b>C:</b>» et que vous installez Citrix ensuite, Citrix changera votre lettre de disque de <b>C:</b> à <b>M:</b>. Ce remappage entraînera le mauvais fonctionnement de Server Administrator.</p>
+<a name="1057334"></a><p>Pour éviter ce problème, sélectionnez une de ces options&nbsp;:</p>
+<a name="1057336"></a><p>Possibilité 1&nbsp;:</p>
+<ol type="1">
+
+<li value="1"><a name="1057338"></a>Désinstallez Server Administrator
+
+<br><br>
+<li value="2"><a name="1057340"></a>Installez Citrix
+
+<br><br>
+<li value="3"><a name="1057342"></a>Réinstallez Server Administrator
+<br><br>
+</ol>
+<a name="1057344"></a><p>Possibilité 2&nbsp;:</p>
+<a name="1057346"></a><p>Après installation de Citrix, tapez la commande suivante&nbsp;:</p>
+<a name="1086157"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /fa SysMgmt.msi
+</span></p>
+<a name="1057349"></a><h4> Mise à niveau de Managed System Software</h4>
+<a name="1057350"></a><p>Le CD <i>Dell PowerEdge Installation and Server Management</i> propose une option <b>Mise à niveau</b> pour mettre à niveau Server Administrator et les autres logiciels Managed System Software.</p>
+<a name="1057352"></a><p>Quand vous insérez le CD <i>Dell PowerEdge Installation and Server Management</i> dans le lecteur de CD de votre système, le programme de vérification des prérequis utilise le bus PCI de votre système pour rechercher le matériel installé, par exemple les cartes contrôleurs.</p>
+<a name="1057354"></a><p>Le programme d'installation installe ou met à niveau tous les composants du logiciel Managed System appropriés à la configuration matérielle de votre système.</p>
+<a name="1082854"></a><p>Pendant la mise à niveau, vous ne pouvez pas faire d'ajout aux composants du logiciel Managed System Software à installer car tous les composants correspondant à votre système ont été présélectionnés.</p>
+<a name="1086792"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">
+    AVIS&nbsp;: </span>Dell OpenManage Array Manager n'est plus pris en charge. Si vous mettez à niveau un système (installé avec 
+la version 4.3 ou ultérieure de Dell OpenManage) où Array Manager est installé, Array Manager sera supprimé pendant 
+le processus de mise à niveau. Vous pouvez utiliser Storage Management Service à la place.
+</td>
+  </tr>
+</table>
+<a name="1067065"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Tous les paramètres d'utilisateur sont préservés pendant les mises à niveau.
+</td>
+  </tr>
+</table><a name="1057358"></a><p>Les procédures suivantes montrent comment mettre à niveau Server Administrator et d'autres logiciels Managed System Software.</p>
+<a name="1057360"></a><h5> Mise à niveau personnalisée</h5>
+<ol type="1">
+
+<li value="1"><a name="1064244"></a>Insérez le CD <i>Dell PowerEdge Installation and Server Management</i> dans le lecteur de CD de votre système.
+<br><br>
+ </ol>
+<a name="1073181"></a><p class="indent">Si le CD ne démarre pas le programme d'installation automatiquement, allez sur le bureau de votre système, double-cliquez sur <b>Poste de travail</b> (ou ouvrez l'explorateur Windows), double-cliquez sur l'icône du lecteur de CD, double-cliquez sur le dossier <b>srvadmin</b>, double-cliquez sur le dossier <b>windows</b> et double-cliquez sur le fichier <b>setup.exe</b>.</p>
+<a name="1065091"></a><p class="indent">L'écran de condition des <b>prérequis de Dell OpenManage Server Administrator</b> s'ouvre et exécute la vérification des prérequis pour la station gérée. Tout message utile d'information, d'avertissement ou d'erreur sera affiché.</p>
+<ol type="1">
+
+<li value="2"><a name="1057367"></a>Cliquez sur l'option <b>Installer, modifier, réparer ou supprimer Server Administrator</b>.<br>
+L'écran <b>Bienvenue dans l'assistant d'installation de Dell OpenManage Server Administrator</b> s'ouvre.
+<br><br>
+</ol>
+<a name="1065095"></a><p class="indent">Cet écran laisse ensuite place à l'écran <b>Continuation de l'assistant d'installation pour Dell OpenManage Server Administrator</b>.</p>
+<ol type="1">
+
+<li value="3"><a name="1057373"></a>Cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1070297"></a><p class="indent">L'écran <b>Installation de Dell OpenManage Server Administrator</b> apparaît. Des messages sont affichés, indiquant la condition et la progression des composants logiciels installés ou mis à niveau. </p>
+<a name="1065103"></a><p class="indent">Après que les composants sélectionnés ont été installés ou mis à niveau, la boîte de dialogue <b>Assistant d'installation terminé</b> apparaît.</p>
+<ol type="1">
+
+<li value="4"><a name="1057379"></a>Cliquez sur <b>Terminer</b> pour fermer le programme d'installation de Server Administrator.
+<br><br>
+</ol>
+<a name="1065104"></a><p class="indent">Si on vous invite à redémarrer le système, vous devez redémarrer le système pour que les services du logiciel Managed System Software qui ont été installés puissent être utilisés.</p>
+<a name="1065108"></a><p class="indent">Vous devez également redémarrer le système avant de changer votre disque de système d'exploitation, par exemple lorsque vous effectuez une mise à niveau d'un disque standard à un disque dynamique. Si vous êtes invité à redémarrer le système, sélectionnez l'option de redémarrage&nbsp;: </p>
+<ul><ul>
+<li type="disc"><a name="1057389"></a><b>Oui, redémarrer le système maintenant.</b><br><br></li>
+<li type="disc"><a name="1057391"></a><b>Non, je redémarrerai le système plus tard.</b><br><br></li>
+</ul>
+</ul><a name="1070645"></a><h5> Modification personnalisée</h5>
+<ol type="1">
+
+<li value="1"><a name="1057396"></a>Cliquez sur le bouton <b>Démarrer</b> et pointez sur <b>Paramètres</b> &#8594; <b>Panneau de configuration</b>. 
+<br><br>
+
+<li value="2"><a name="1057398"></a>Double-cliquez sur <b>Ajout/Suppression de programmes</b>.
+
+<br><br>
+ <li value="3"><a name="1057400"></a>Cliquez sur <b>Dell OpenManage Server Administrator</b>, puis sur <b>Changer</b>.
+<br><br>
+ </ol>
+<a name="1065109"></a><p class="indent">La boîte de dialogue <b>Bienvenue dans l'assistant d'installation de Dell OpenManage Server Administrator</b> s'ouvre.</p>
+<ol type="1">
+
+<li value="4"><a name="1057404"></a>Cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1065113"></a><p class="indent">La boîte de dialogue <b>Maintenance de programme</b> s'ouvre.</p>
+<ol type="1">
+
+<li value="5"><a name="1057408"></a>Sélectionnez l'option <b>Modifier</b> et cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1065117"></a><p class="indent">La boîte de dialogue <b>Installation personnalisée</b> s'ouvre. </p>
+<ol type="1">
+
+<li value="6"><a name="1073186"></a>Pour sélectionner une application spécifique du logiciel Managed System Software, cliquez sur la flèche vers le bas à côté 
+du composant répertorié et sélectionnez soit <b>Ce composant sera installé...</b> pour l'installer, soit <b>Ce composant ne sera pas disponible</b> pour ne pas l'installer.
+<br><br>
+</ol>
+<a name="1070341"></a><p class="indent">Un composant sélectionné a à côté de lui une icône de disque dur. À côté d'un composant désélectionné se trouve un <b>X</b> rouge. Par défaut, si la vérification des prérequis trouve un composant logiciel pour lequel le matériel correspondant n'est pas présent, celui-ci est désélectionné.</p>
+<ol type="1">
+
+<li value="7"><a name="1070342"></a>Cliquez sur <b>Suivant</b> pour accepter les composants logiciels sélectionnés pour qu'ils soient installés.
+<br><br>
+ </ol>
+<a name="1070343"></a><p class="indent">La boîte de dialogue <b>Prêt à modifier le programme</b> apparaît.</p>
+<ol type="1">
+
+<li value="8"><a name="1057420"></a>Cliquez sur <b>Installer</b> pour installer les composants logiciels sélectionnés.
+<br><br>
+ </ol>
+<a name="1065129"></a><p class="indent">L'écran <b>Installation de Dell OpenManage Server Administrator</b> apparaît. Des messages donnent la condition et la progression des composants logiciels installés. </p>
+<a name="1065133"></a><p class="indent">Quand les composants sélectionnés sont installés, la boîte de dialogue <b>Fin de l'assistant d'installation</b> apparaît.</p>
+<ol type="1">
+
+<li value="9"><a name="1057426"></a>Cliquez sur <b>Terminer</b> pour fermer le programme d'installation de Server Administrator.
+<br><br>
+</ol>
+<a name="1068364"></a><p class="indent">Si on vous invite à redémarrer le système, vous devez le faire pour que les services du logiciel Managed System Software qui ont été installés puissent être utilisés. Si vous êtes invité à redémarrer le système, sélectionnez l'option de redémarrage&nbsp;: </p>
+<ul><ul>
+<li type="disc"><a name="1057434"></a><b>Oui, redémarrer le système maintenant.</b><br><br></li>
+<li type="disc"><a name="1057436"></a><b>Non, je redémarrerai le système plus tard.</b><br><br></li>
+</ul>
+</ul><a name="1057440"></a><h5> Réparation personnalisée</h5>
+<ol type="1">
+
+<li value="1"><a name="1057441"></a>Cliquez sur le bouton <b>Démarrer</b> et pointez sur <b>Paramètres</b> &#8594; <b>Panneau de configuration</b>. 
+<br><br>
+
+<li value="2"><a name="1057443"></a>Double-cliquez sur <b>Ajout/Suppression de programmes</b>.
+
+<br><br>
+ <li value="3"><a name="1057445"></a>Cliquez sur <b>Dell Server Administrator</b>, puis sur <b>Changer</b>.
+<br><br>
+ </ol>
+<a name="1065139"></a><p class="indent">La boîte de dialogue <b>Bienvenue dans l'assistant d'installation de Dell OpenManage Server Administrator</b> s'ouvre.</p>
+<ol type="1">
+
+<li value="4"><a name="1057449"></a>Cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1065143"></a><p class="indent">La boîte de dialogue <b>Maintenance de programme</b> s'ouvre.</p>
+<ol type="1">
+
+<li value="5"><a name="1057453"></a>Sélectionnez l'option <b>Réparer</b> et cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1065147"></a><p class="indent">La boîte de dialogue <b>Prêt à réparer le programme</b> apparaît.</p>
+<ol type="1">
+
+<li value="6"><a name="1057457"></a>Cliquez sur <b>Installer</b> pour installer les composants logiciels sélectionnés.
+<br><br>
+ </ol>
+<a name="1070375"></a><p class="indent">L'écran <b>Installation de Dell OpenManage Server Administrator</b> apparaît. Des messages donnent la condition et la progression des composants logiciels installés. </p>
+<a name="1070376"></a><p class="indent">Quand les composants sélectionnés sont installés, la boîte de dialogue <b>Fin de l'assistant d'installation</b> apparaît.</p>
+<ol type="1">
+
+<li value="7"><a name="1057463"></a>Cliquez sur <b>Terminer</b> pour fermer le programme d'installation de Server Administrator.
+<br><br>
+ </ol>
+<a name="1076448"></a><p class="indent">Si vous êtes invité à redémarrer le système, sélectionnez l'option de redémarrage&nbsp;: </p>
+<ul><ul>
+<li type="disc"><a name="1057469"></a><b>Oui, redémarrer le système maintenant.</b><br><br></li>
+<li type="disc"><a name="1057471"></a><b>Non, je redémarrerai le système plus tard.</b><br><br></li>
+</ul>
+</ul><a name="1081939"></a><h3> Récupération d'un système en cas d'échec de l'installation
+</h3>
+<a name="1081940"></a><p>Microsoft Software Installer (MSI) offre la capacité de remettre un système dans son état de plein fonctionnement après l'échec d'une installation. Dans ce but, MSI conserve une opération d'annulation pour chaque action standard effectuée pendant une installation, une mise à niveau ou une désinstallation. Cette opération comprend le rétablissement de fichiers supprimés ou écrasés, les clés de registre et d'autres ressources. Windows enregistre temporairement tout fichier supprimé ou écrasé pendant une installation ou une suppression, de façon à ce qu'ils puissent être restaurés si nécessaire ce qui est un type de retour en arrière. Quand une installation est réussie, Windows supprime tous les fichiers de sauvegarde temporaires.</p>
+<a name="1064049"></a><p>En plus de la restauration pour les actions standard MSI, la bibliothèque Dell OpenManage a également la capacité d'annuler des commandes répertoriées dans le fichier INI de chaque application en cas de restauration. Tous les fichiers qui sont modifiés par les actions de Dell OpenManage Install seront restaurés à leur état d'origine en cas de restauration. </p>
+<a name="1064050"></a><p>Quand le moteur de Microsoft MSI parcourt la séquence d'installation, il ignore toutes les actions qui sont programmées comme actions de restauration. Si une action personnalisée, une action standard MSI ou une action de Dell OpenManage Install échoue, alors une restauration est lancée. </p>
+<a name="1064983"></a><p>Une installation ne peut plus être annulée une fois qu'elle est terminée ; ce système est conçu comme un filet de sécurité qui protège le système pendant une session d'installation. Si vous voulez supprimer une application installée, par exemple, vous devez simplement désinstaller cette application.</p>
+<a name="1057482"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>L'installation et la suppression de pilotes ne font pas partie de l'opération d'installation et pour cette raison ne peuvent pas être annulées si une erreur irrécupérable se produit pendant l'exécution.
+ </td>
+  </tr>
+</table><a name="1058678"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Les installations, désinstallations et mises à niveau que vous annulez pendant le nettoyage du programme d'installation ou après que l'installation est terminée ne permettront pas de restauration.
+ </td>
+  </tr>
+</table><a name="1068721"></a><h3> Échec des mises à niveau
+</h3>
+<a name="1070394"></a><p>Les correctifs et les mises à niveau de MSI proposées par les fournisseurs doivent être appliquées aux progiciels MSI d'origine du fournisseur. Si vous recréez un progiciel MSI intentionnellement ou par accident, ou si vous le modifiez directement, les correctifs et les mises à niveau peuvent échouer. Les progiciels MSI ne doivent pas être reconstruits ; cela modifierait la structure des composants et les GUID, ce qui rend inutilisables les correctifs ou les mises à niveau fournies. Lorsqu'il est nécessaire de faire une modification à un progiciel MSI proposé par un fournisseur, un fichier transformé <b>.mst</b> doit toujours être utilisée.</p>
+<a name="1057503"></a><h3> Journalisation de Windows Installer
+</h3>
+<a name="1081694"></a><p>Windows comprend un service de journalisation activé par le registre pour aider à diagnostiquer les problèmes de Windows Installer. Pour activer ce service de journalisation au cours d'une installation en arrière-plan, ouvrez le registre avec <b>Regedt32.exe</b> et créez le chemin et les clés suivants&nbsp;: </p>
+<a name="1081695"></a><p><span class="screen">HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer<br>Reg_SZ: Logging<br>Value: voicewarmup </span></p>
+<a name="1081696"></a><p>Les lettres dans le champ des valeurs peuvent se suivre dans n'importe quel ordre. Chaque lettre active un mode de journalisation différent. La fonction réelle de chaque lettre est la suivante pour MSI version 3.1&nbsp;: </p>
+<a name="1081697"></a><p><span class="screen">v</span> - Sortie commentée<br><span class="screen">o</span> - Messages de dépassement de capacité de disque<br><span class="screen">i</span> - Messages de condition<br><span class="screen">c</span> - Paramètres initiaux d'interface utilisateur<br><span class="screen">e </span>- Tous les messages d'erreur<br><span class="screen">w</span> - Avertissement non irrécupérables<br><span class="screen">a </span>- Démarrage d'actions<br><span class="screen">r </span>- Enregistrements spécifiques aux actions<br><span class="screen">m</span> - Informations de dépassement de capacité mémoire ou de sortie irrécupérable<br><span class="screen">u </span>- Demandes de l'utilisateur<br><span class="screen">p</span> - Propriétés terminales<br><span class="screen">+</span> - Ajouter à la fin d'un fichier existant<br><span class="screen">! </span>- Vidage de chaque ligne dans le journal<br><span class="screen">&quot;*&quot;</span> - Caractère générique, enregistrement de toutes les informations dans le journal sauf pour l'option v. Pour inclure l'option v, spécifiez «&nbsp;/l*v&nbsp;».</p>
+<a name="1081698"></a><p>Une fois activés, vous pouvez trouver les fichiers journaux qui sont générés dans votre répertoire   %TEMP%. Certains fichiers journaux générés dans ce répertoire sont&nbsp;:</p>
+<ul><li><a name="1081699"></a><b>Installation de Managed System</b><br><br></li>
+<ul>
+<li type="disc"><a name="1081700"></a><b>SysMgmt.log</b><br><br></li>
+</ul>
+<li><a name="1081701"></a><b>Installation de Management Station</b><br><br></li>
+<ul>
+<li type="disc"><a name="1081702"></a><b>MgmtSt.log</b><br><br></li>
+<li type="disc"><a name="1081703"></a><b>Msdeinstall.log</b><br><br></li>
+</ul>
+</ul><a name="1057536"></a><p>Ces fichiers journaux particuliers sont créés par défaut si l'interface d'utilisateur de vérification des prérequis s'exécute. </p>
+<a name="1081823"></a><h3>Mise à niveau de MSI Engine
+</h3>
+<a name="1081818"></a><p>Le logiciel Dell OpenManage vous permet de mettre à niveau MSI Engine lors d'installations interactives. Pour les installations en arrière-plan, vous devez ajouter la commande appropriée aux scripts d'installation.</p>
+<a name="1082220"></a><p>Utilisez la commande suivante dans votre script de déploiement pour mettre à niveau MSI Engine (si nécessaire) et installer/mettre à niveau le logiciel Systems Management Software. </p>
+<a name="1082240"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Les programmes d'installation Dell OpenManage Systems Management et Management Station exigent la version 3.1 ou ultérieure de MSI. Mettez à jour MSI Engine si vous utilisez un système exécutant un système d'exploitation Windows Server 2003 (sans Service Pack), 
+Windows 2000 Server ou Windows XP. Si vous utilisez un système exécutant un système d'exploitation Windows Server 2003 SP1 
+ou Windows Server 2003 x64, vous ne devez pas mettre à jour MSI engine.
+</td>
+  </tr>
+</table><a name="1085518"></a><p><span class="screen">:retry<br>start /wait msiexec /i SysMgmt.msi /qn<br>if %errorlevel% == 1613 (<br>REM UPGRADE THE WINDOWS INSTALLER ENGINE<br>start /wait WindowsInstaller-KB893803-v2-x86.exe /quiet /norestart<br>goto retry<br>)<br>if %errorlevel% == 1638 (<br>REM THIS IS A MINOR UPGRADE<br>start /wait msiexec /i SysMgmt.msi REINSTALL=ALL REINSTALLMODE=vomus/qn<br>)</span></p>
+<a name="1081865"></a><h3> Réalisation d'une installation automatique du logiciel Managed System Software
+ </h3>
+<a name="1081866"></a><p>Le CD <i>Dell PowerEdge Installation and Server Management</i> comprend une option <b>Installation rapide</b> et une option <b>Installation personnalisée</b> pour la procédure d'installation automatique.</p>
+<a name="1057543"></a><p>L'installation automatique vous permet d'installer Server Administrator sur plusieurs systèmes à la fois. Vous pouvez effectuer une installation automatique en créant un progiciel d'installation automatique qui contient tous les fichiers du logiciel Managed System Software nécessaires. L'option d'installation automatique fournit aussi plusieurs fonctionnalités qui vous permettent de configurer, de vérifier et d'afficher des informations sur les installations automatiques.</p>
+<a name="1057545"></a><p>Le progiciel d'installation automatique est distribué aux systèmes distants avec un outil de distribution logicielle provenant d'un fournisseur de logiciel indépendant (ISV). Quand le progiciel est distribué, le script d'installation s'exécute et installe le logiciel.</p>
+<a name="1057547"></a><h4> Création et distribution du progiciel d'installation automatique rapide</h4>
+<a name="1057548"></a><p>L'option d'installation automatique <b>Installation rapide</b> utilise le CD <i>Dell PowerEdge Installation and Server Management</i> comme progiciel d'installation automatique. Le programme <b>msiexec.exe /i SysMgmt.msi /qb</b> accède au CD <i>Dell PowerEdge Installation and Server Management</i> pour accepter le contrat de licence du logiciel et installer tous les composants de Server Administrator nécessaires sur les systèmes distants sélectionnés. La commande <b>msiexec.exe /i SysMgmt.msi /qb</b> installe les composants de Server Administrator sur chaque système distant en fonction de la configuration matérielle du système. </p>
+<a name="1057549"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Une fois qu'une installation automatique est terminée, pour que vous puissiez utiliser la fonctionnalité d'interface de ligne de commande (CLI) de Server Administrator, vous devez ouvrir une nouvelle fenêtre de console et y exécuter les commandes CLI. L'exécution de commandes CLI dans la fenêtre de console par laquelle Server Administrator a été installé ne fonctionnera pas.
+</td>
+  </tr>
+</table><a name="1057556"></a><p>Vous pouvez mettre l'image du CD <i>Dell PowerEdge Installation and Server Management</i> à la disposition du système distant en diffusant le contenu du CD dans son intégralité ou en adressant un lecteur du système cible à l'emplacement de l'image du CD. </p>
+<a name="1057558"></a><h5> Adressage d'un lecteur pour agir comme progiciel d'installation automatique rapide</h5>
+<ol type="1">
+
+<li value="1"><a name="1057559"></a>Partagez une image du CD <i>Dell PowerEdge Installation and Server Management</i> avec chaque système distant sur 
+lequel vous souhaitez installer Server Administrator. 
+<br><br>
+</ol>
+<a name="1057561"></a><p class="indent">Vous pouvez accomplir cette tâche en partageant directement le CD ou en copiant tout le CD sur un lecteur et en partageant la copie.</p>
+<ol type="1">
+
+<li value="2"><a name="1057563"></a>Créez un script qui adresse un lecteur des systèmes distants au lecteur partagé décrit à 
+l'étape 1. Ce script doit exécuter <b>msiexec.exe /i Mapped 
+Drive\srvadmin\windows\SystemsManagement\SysMgmt.msi /qb</b> une fois le lecteur adressé. 
+<br><br>
+
+<li value="3"><a name="1057565"></a>Configurez votre logiciel de distribution ISV pour qu'il puisse distribuer et exécuter le script créé à l'étape 2.
+
+<br><br>
+ <li value="4"><a name="1057567"></a>Distribuez ce script aux systèmes cibles en utilisant les outils de distribution de logiciel ISV.
+<br><br>
+ </ol>
+<a name="1057569"></a><p class="indent">Le programme <b>msiexec.exe /i Mapped Drive\srvadmin\windows\SystemsManagement\SysMgmt.msi /qb</b> s'exécute pour installer Server Administrator sur chacun des systèmes distants.</p>
+<ol type="1">
+
+<li value="5"><a name="1057571"></a>Redémarrez tous les systèmes distants pour activer Server Administrator.
+<br><br>
+ </ol>
+<a name="1057573"></a><h5> Distribution de tout le CD comme progiciel d'installation automatique rapide</h5>
+<ol type="1">
+
+<li value="1"><a name="1057574"></a>Distribuez l'image intégrale du CD <i>Dell PowerEdge Installation and Server Management</i> aux systèmes 
+cibles. 
+<br><br>
+
+<li value="2"><a name="1057576"></a>Configurez le logiciel de distribution de votre ISV pour qu'il exécute le programme <b>msiexec.exe /i CD 
+Drive\srvadmin\windows\SystemsManagement\SysMgmt.msi /qb</b> à partir de l'image du CD <i>Dell PowerEdge Installation and Server Management</i>. 
+<br><br>
+</ol>
+<a name="1057578"></a><p class="indent">Le programme <b>msiexec.exe /i CD Drive\srvadmin\windows\SystemsManagement\SysMgmt.msi /qb</b> s'exécute pour installer Server Administrator sur chacun des systèmes distants.</p>
+<ol type="1">
+
+<li value="3"><a name="1057580"></a>Redémarrez tous les systèmes distants pour activer Server Administrator.
+<br><br>
+ </ol>
+<a name="1057582"></a><h4> Création et distribution des progiciels d'installation automatique personnalisée</h4>
+<a name="1057583"></a><p>Pour créer un progiciel d'installation personnalisée automatique, effectuez les étapes suivantes&nbsp;:</p>
+<ol type="1">
+
+<li value="1"><a name="1068396"></a>Copiez le répertoire <b>windows</b> du CD sur le disque dur du système.
+
+<br><br>
+<li value="2"><a name="1073229"></a>Créez un script batch qui exécutera l'installation en utilisant le moteur Windows Installer (<b>MSIExec.exe</b>).
+<br><br>
+ </ol>
+<a name="1073234"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">REMARQUE&nbsp;: </span>Pour une installation automatique personnalisée, chaque composant requis doit être inclus comme paramètre de ligne de commande (CLI) pour être installé.
+</td>
+  </tr>
+</table>
+<a name="1057590"></a><p class="indent">Exemple&nbsp;: <span class="screen">msiexec.exe /i SysMgmt.msi ADDLOCAL=SA,IWS,BRCM /qb</span><b>. </b>(consultez la section «&nbsp;<a href="instwin.htm#1059594">Paramètres de personnalisation</a>&nbsp;» ci-dessous pour obtenir plus de détails et les identifications de composant disponibles).</p>
+<ol type="1">
+
+<li value="3"><a name="1057595"></a>Placez le script de traitement par lot dans le répertoire <b>windows</b> du disque dur du système.
+<br><br>
+</ol>
+<a name="1057598"></a><h5> Distribution des progiciels d'installation automatique personnalisée</h5>
+<a name="1057600"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Le progiciel d'installation <b>SysMgmt.msi </b>utilisé pour Server Administrator dans l'<b>installation personnalisée </b>automatique (consultez la section «&nbsp;<a href="instwin.htm#1057582">Création et distribution de progiciels d'installation personnalisée automatiques</a>&nbsp;») se trouve dans le répertoire srvadmin\<b>windows\SystemsManagement</b>.
+ </td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1057603"></a>Configurez le logiciel de distribution de votre ISV pour qu'il exécute le script de traitement par lot une fois que votre progiciel 
+d'installation a été distribué.
+
+<br><br>
+ <li value="2"><a name="1057605"></a>Utilisez le logiciel de distribution de votre ISV pour distribuer le progiciel d'installation automatique personnalisée aux systèmes distants.<br> Le programme <b>msiexec.exe /i System Drive\srvadmin\windows\SystemsManagement\SysMgmt.msi 
+ADDLOCAL=SA,IWS,BRCM /qb</b> installe Server Administrator ainsi que 
+les composants spécifiés sur chacun des systèmes distants.
+<br><br>
+
+<li value="3"><a name="1057609"></a>Redémarrez tous les systèmes distants pour activer Server Administrator.
+<br><br>
+ </ol>
+<a name="1065050"></a><h4> Spécification des emplacements des fichiers journaux</h4>
+<a name="1065041"></a><p>Pour l'installation MSI de Managed System, exécutez la commande suivante pour effectuer une installation automatique en spécifiant l'emplacement du fichier journal&nbsp;:</p>
+<a name="1065030"></a>
+<p class="screenindent">Msiexec.exe /i SysMgmt.msi /l*v &quot;C:\openmanage\logs\SysMgmt.log&quot;
+</p>
+<a name="1065026"></a><h4> Fonctionnalités de l'installation automatique</h4>
+<a name="1057612"></a><p>L'installation automatique fournit les fonctionnalités suivantes&nbsp;:</p>
+<ul><ul>
+<li type="disc"><a name="1057614"></a>	 	 Un ensemble de paramètres de ligne de commande facultatifs pour personnaliser une installation automatique<br><br> </li>
+<li type="disc"><a name="1057615"></a>Des paramètres de personnalisation pour indiquer des composants logiciels spécifiques à installer<br><br> </li>
+<li type="disc"><a name="1057616"></a>Un programme de vérification des prérequis qui examine l'état des dépendances des composants logiciels sélectionnés sans avoir à effectuer une véritable installation<br><br> </li>
+</ul>
+</ul><a name="1059535"></a><h5> Paramètres facultatifs de la ligne de commande</h5>
+<a name="1059536"></a><p>Le <a href="instwin.htm#1060065">tableau 6-1</a> répertorie les paramètres optionnels disponibles pour MSI Installer <b>MSIExec.exe</b>. Tapez les paramètres facultatifs sur la ligne de commande après <b>msiexec.exe</b> en mettant un espace entre chaque paramètre.</p>
+<a name="1059539"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Visitez le site <b>support.microsoft.com </b>pour des informations détaillées sur les options de la ligne de commande de l'outil Windows Installer.
+</td>
+  </tr>
+</table><a name="1077126"></a>
+<p><p class="FigureTableTitle"><a name="1060065"></a>Tableau 6-1.  Paramètres de ligne de commande pour MSI Installer </p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1060069"> </a>
+<p><b>Paramètre</b></p>
+
+
+</th><th valign="top" align="left"><a name="1060071"> </a>
+<p><b>Résultats</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1060107"></a><span class="screen">/i&lt;Progiciel|Code produit&gt;</span></p></td><td valign="top" align="left"><p><a name="1060113"></a>Cette commande installe ou configure un produit.</p><p><a name="1060120"></a><b>/i SysMgmt.msi</b><span class="screen"> </span>&nbsp;: installe le logiciel Server Administrator.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1081753"></a><span class="screen">/i SysMgmt.msi/qn</span></p></td><td valign="top" align="left"><p><a name="1082112"></a>Cette commande rafraîchit l'installation de la version 5.0. Cette commande réalise aussi des mises à niveau importantes de la version 4.3 à la version 5.0. Vous devez mettre à jour MSI Engine avant d'exécuter cette commande si vous utilisez un système exécutant un système d'exploitation Windows Server 2003 (sans Service Pack), Windows 2000 Server ou Windows XP. Voir «&nbsp;<a href="instwin.htm#1081823">Mise à niveau de MSI Engine</a>&nbsp;» pour des informations sur la manière de mettre à niveau MSI Engine et d'installer/mettre à niveau Systems Management Software.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1081779"></a><span class="screen">/i SysMgmt.msi REINSTALL=ALL REINSTALLMODE=vomus /qn</span></p></td><td valign="top" align="left"><p><a name="1082131"></a>Cette commande réalise une mise à niveau mineure, par exemple de la version 4.3 à la version 4.4. Vous devez mettre à jour MSI Engine avant d'exécuter cette commande si vous utilisez un système exécutant un système d'exploitation Windows Server 2003 (sans Service Pack), Windows 2000 Server ou Windows XP. Voir «&nbsp;<a href="instwin.htm#1081823">Mise à niveau de MSI Engine</a>&nbsp;» pour des informations sur la manière de mettre à niveau MSI Engine et d'installer/mettre à niveau Systems Management Software.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1060127"></a><span class="screen">/x&lt;Progiciel|Code produit&gt;</span></p><p><a name="1060089"></a></p></td><td valign="top" align="left"><p><a name="1060134"></a>Cette commande désinstalle un produit. </p><p><a name="1060136"></a><b>/x SysMgmt.msi </b>&nbsp;: désinstalle le logiciel Server Administrator.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1060085"></a><span class="screen">/q&lt;n|b|r|f&gt;</span></p></td><td valign="top" align="left"><p><a name="1079167"></a>Cette commande définit le niveau de l'interface utilisateur. </p><p><a name="1079165"></a><b>/q</b> ou <b>/qn</b>&nbsp;: pas d'interface utilisateur. Cette option est utilisée pour l'installation en arrière plan et automatique.<br><b>/qb</b>&nbsp;: interface utilisateur standard. Cette option est utilisée pour une installation automatique mais pas en arrière plan.<br><b>/qr</b>&nbsp;: interface utilisateur réduite. Cette option est utilisée pour une installation automatique en affichant une boîte de dialogue modale montrant la progression de l'installation.<br><b>/qf</b><span class="screen"> </span>&nbsp;: interface utilisateur complète. Cette option est utilisée pour l'installation interactive standard. </p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1060185"></a><span class="screen">/f&lt;[p|o|e|d|c|a|u|m|s|v]Progiciel|CodeProduit></span></p></td><td valign="top" align="left"><p><a name="1060209"></a>Cette commande répare un produit.</p><p><a name="1060210"></a><b>/fp</b>&nbsp;: réinstalle un produit seulement si un fichier fait défaut.</p><p><a name="1060211"></a><b>/fo</b>&nbsp;: réinstalle un produit si un fichier fait défaut ou si une version plus ancienne d'un fichier est installée.</p><p><a name="1060212"></a><b>/fe</b> réinstalle un produit si un fichier fait défaut ou si une version plus ancienne d'un fichier est installée.</p><p><a name="1060213"></a><b>/fd</b>&nbsp;: réinstalle un produit si un fichier fait défaut ou si une version plus ancienne d'un fichier est installée.</p><p><a name="1060214"></a><b>/fc</b>&nbsp;: réinstalle un produit si un fichier manque ou que la valeur de somme de contrôle stockée ne correspond pas à la valeur calculée.</p><p><a name="1060215"></a><b>/fa</b>&nbsp;: force la réinstallation de tous les fichiers.</p><p><a name="1060216"></a><b>/fu</b>&nbsp;: réécrit toutes les entrées de registre obligatoires spécifiques à l'utilisateur.</p><p><a name="1081213"></a><b>/fm</b>&nbsp;: réécrit toutes les entrées de registre obligatoires spécifiques au système.</p><p><a name="1081217"></a><b>/fs</b>&nbsp;: Cette option écrase tout raccourci existant.</p><p><a name="1081218"></a><b>/fv</b>&nbsp;: Cette option s'exécute à partir de la source et remet le progiciel local en mémoire cache. N'utilisez pas l'option de réinstallation <b>/fv</b> pour la première installation d'une application ou d'une fonctionnalité.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1071276"></a>INSTALLDIR=&lt;chemin&gt;</p></td><td valign="top" align="left"><p><a name="1071278"></a>Cette commande installe un produit dans un emplacement spécifique. Si vous spécifiez un répertoire d'installation avec cette commande, vous devez le créer manuellement avant d'exécuter les commandes d'installation de la CLI, sinon l'installation échouera sans qu'un message d'erreur ne s'affiche pour vous en expliquer la raison.</p><p><a name="1071279"></a><b> /i SysMgmt.msi INSTALLDIR=c:\OpenManage /qn</b>&nbsp;: installe un produit dans un emplacement spécifique en utilisant «&nbsp;<b>c:\OpenManage</b>&nbsp;» comme emplacement d'installation.</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1059590"></a><p>Par exemple, l'exécution de <span class="screen">msiexec.exe /i SysMgmt.msi /qb</span> installe les composants de Server Administrator sur chaque ordinateur distant en fonction de la configuration matérielle du système. L'installation se fait automatiquement et en arrière plan.</p>
+<a name="1059594"></a><h4> Paramètres de personnalisation</h4>
+<a name="1076793"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Tapez les paramètres ADDLOCAL, REINSTALL et REMOVE CLI avec des majuscules.
+</td>
+  </tr>
+</table><a name="1076887"></a><p>Les paramètres de personnalisation de la ligne de commande <b>ADDLOCAL</b> , <b>REINSTALL,</b> et <b>REMOVE </b>fournissent un moyen de préciser quels composants logiciels installer, réinstaller ou désinstaller lors d'une exécution en arrière plan ou automatique. Avec les paramètres de personnalisation, vous pouvez, de façon sélective, installer, réinstaller ou désinstaller des composants logiciels pour différents systèmes en utilisant le même progiciel d'installation automatique. Par exemple, vous pouvez choisir d'installer Server Administrator, mais pas
+le service d'accès à distance sur un groupe de serveurs spécifique, et choisir d'installer Server
+Administrator, mais pas le service de Storage Management, sur un autre groupe de serveurs. Vous pouvez aussi choisir de désinstaller un ou plusieurs composants sur un groupe spécifique de serveurs.</p>
+<a name="1076933"></a>
+<p><p class="FigureTableTitle"><a name="1076890"></a>Tableau 6-2.  ID des composants logiciels</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1076894"> </a>
+<p><b>ID du composant</b></p>
+
+
+</th><th valign="top" align="left"><a name="1076896"> </a>
+<p><b>Description</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1076902"></a>BRCM</p></td><td valign="top" align="left"><p><a name="1076904"></a>Agent du NIC Broadcom</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076906"></a>INTEL</p></td><td valign="top" align="left"><p><a name="1076908"></a>Agent du NIC Intel</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076910"></a>IWS</p></td><td valign="top" align="left"><p><a name="1076912"></a>Server Administrator Web Server</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076914"></a>OLD</p></td><td valign="top" align="left"><p><a name="1076916"></a>Diagnostic Service</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076918"></a>OMSM</p></td><td valign="top" align="left"><p><a name="1076920"></a>Storage Management</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076922"></a>RAC3</p></td><td valign="top" align="left"><p><a name="1076924"></a>Remote Access Controller (DRAC III)</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076926"></a>RAC4</p></td><td valign="top" align="left"><p><a name="1076928"></a>Remote Access Controller (DRAC 4)</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1087109"></a>RAC5</p></td><td valign="top" align="left"><p><a name="1087111"></a>Remote Access Controller (DRAC 5)</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1076930"></a>SA</p></td><td valign="top" align="left"><p><a name="1076932"></a>Server Administrator</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1076935"></a><p>Vous pouvez inclure le paramètre de personnalisation <b>ADDLOCAL</b> sur la ligne de commande et attribuer les ID des composants logiciels que vous souhaiteriez installer. Par exemple&nbsp;:</p>
+<a name="1070467"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i SysMgmt.msi ADDLOCAL=BRCM /qb</span><span class="screen"></span></p>
+<a name="1059601"></a><p>Cette commande exécute l'installation de Dell OpenManage Systems Management et installe uniquement l'agent Broadcom, en mode automatique mais pas en arrière plan.</p>
+<a name="1059603"></a><p>Vous pouvez inclure le paramètre de personnalisation <b>REINSTALL</b> sur la ligne de commande et attribuer les ID des composants logiciels que vous souhaiteriez réinstaller. Par exemple&nbsp;:</p>
+<a name="1059605"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i SysMgmt.msi REINSTALL=BRCM /qb</span><span class="screen"></span></p>
+<a name="1059607"></a><p>Cette commande exécutera l'installation de Dell OpenManage Systems Management, et réinstallera uniquement l'agent Broadcom, en mode automatique mais pas en arrière plan.</p>
+<a name="1059609"></a><p>Vous pouvez inclure le paramètre de personnalisation <b>SUPPRIMER</b> sur la ligne de commande et attribuer les ID des composants logiciels que vous souhaiteriez désinstaller. Par exemple&nbsp;:</p>
+<a name="1059611"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i SysMgmt.msi REMOVE=BRCM /qb</span><span class="screen"></span></p>
+<a name="1059613"></a><p>Cette commande exécute l'installation de Dell OpenManage Systems Management et désinstalle uniquement l'agent Broadcom, en mode automatique mais pas en arrière plan.</p>
+<a name="1059615"></a><p>Vous pouvez aussi choisir d'installer, de réinstaller et de désinstaller des composants avec une seule exécution du programme <b>msiexec.exe</b>. Par exemple&nbsp;:</p>
+<a name="1062336"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /i SysMgmt.msi ADDLOCAL=INTEL REINSTALL=OLD REMOVE=BRCM /qb</span></p>
+<a name="1074080"></a><p>Cette commande exécute l'installation de Managed System Software, et simultanément installe l'agent Intel, réinstalle Diagnostic Service et désinstalle l'agent Broadcom. Cette exécution se fera en mode automatique mais pas en arrière plan.</p>
+<a name="1086602"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Un identificateur global unique (GUID) a 128 bits, et l'algorithme utilisé pour le générer garantit que chaque GUID est unique. Le GUID de produit identifie de façon unique l'application. Ici, le GUID de produit pour Server Administrator est {89C7A9F7-2C31-4739-842D-F037B6C9B674}.
+</td>
+  </tr>
+</table><a name="1086603"></a><h3> Code de retour MSI
+</h3>
+<a name="1059767"></a><p>Une entrée du journal des événements de l'application est enregistrée dans le fichier <b>SysMgmt.log</b>. Le <a href="instwin.htm#1067370">tableau 6-3</a> montre certains des codes d'erreur retournés par le moteur Windows Installer <b>MsiExec.exe</b>.</p>
+<a name="1067405"></a>
+<p><p class="FigureTableTitle"><a name="1067370"></a>Tableau 6-3.  Codes retournés par Windows Installer </p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1067376"> </a>
+<p><b>Code d'erreur</b></p>
+
+
+</th><th valign="top" align="left"><a name="1067378"> </a>
+<p><b>Valeur</b></p>
+
+
+</th><th valign="top" align="left"><a name="1067380"> </a>
+<p><b>Description</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><a name="1067382"></a><p class="screen">ERROR_SUCCESS
+</p></td><td valign="top" align="left"><a name="1067384"></a><p class="screen">0
+</p></td><td valign="top" align="left"><p><a name="1067386"></a>L'action est terminée.</p></td></tr>
+<tr><td valign="top" align="left"><a name="1067388"></a><p class="screen">ERROR_INVALID_PARAMETER
+</p></td><td valign="top" align="left"><a name="1067390"></a><p class="screen">87
+</p></td><td valign="top" align="left"><p><a name="1067392"></a>Un des paramètres était non valide.</p></td></tr>
+<tr><td valign="top" align="left"><a name="1067394"></a><p class="screen">ERROR_INSTALL_USEREXIT
+</p></td><td valign="top" align="left"><a name="1067396"></a><p class="screen">1602
+</p></td><td valign="top" align="left"><p><a name="1067398"></a>L'utilisateur a annulé l'installation.</p></td></tr>
+<tr><td valign="top" align="left"><a name="1067400"></a><p class="screen">ERROR_SUCCESS_REBOOT_REQUIRED
+</p></td><td valign="top" align="left"><a name="1067402"></a><p class="screen">3010
+</p></td><td valign="top" align="left"><p><a name="1067404"></a> Un redémarrage est nécessaire pour terminer l'installation. Ce message indique une installation réussie.</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1059796"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Visitez le site <b>support.microsoft.com</b> pour les détails complets sur tous les codes d'erreur renvoyés par les fonctions Windows Installer <b>msiexec.exe</b> et <b>InstMsi.exe</b>.
+</td>
+  </tr>
+</table><a name="1059810"></a><h3> Désinstallation de Managed System Software
+</h3>
+<a name="1059811"></a><p>Vous pouvez désinstaller les composants du logiciel Managed System Software en vous servant du CD <i>Dell PowerEdge Installation and Server Management</i> ou de votre système d'exploitation. Vous pouvez également effectuer une désinstallation automatique simultanément sur plusieurs systèmes.</p>
+<a name="1083117"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">REMARQUE&nbsp;: </span>Une fois Server Administrator désinstallé sur les systèmes PowerEdge 1650, 2650 et 4600, vous pouvez être invité à 
+redémarrer votre système si vous avez choisi de désinstaller Storage Management Service.
+</td>
+  </tr>
+</table><a name="1059813"></a><h4> Désinstallation de Managed System Software à l'aide du CD Installation and Server Management</h4>
+<ol type="1">
+
+<li value="1"><a name="1064505"></a>Insérez le CD <i>Dell PowerEdge Installation and Server Management</i> dans le lecteur de CD de votre système.
+<br><br>
+ </ol>
+<a name="1073268"></a><p class="indent">Si le CD ne démarre pas le programme d'installation automatiquement, allez sur le bureau de votre système, double-cliquez sur <b>Poste de travail</b> (ou ouvrez l'explorateur Windows), double-cliquez sur l'icône du lecteur de CD, double-cliquez sur le dossier <b>srvadmin</b>, double-cliquez sur le dossier <b>windows</b> et double-cliquez sur le fichier <b>setup.exe</b>.</p>
+<a name="1073272"></a><p class="indent">L'écran de condition des <b>prérequis de Dell OpenManage Server Administrator</b> s'ouvre et exécute la vérification des prérequis pour le système géré. Tout message d'information, d'avertissement ou d'erreur pertinent détecté pendant la vérification sera affiché.</p>
+<ol type="1">
+
+<li value="2"><a name="1059820"></a>Cliquez sur l'option <b>Installer, modifier, réparer ou supprimer Server Administrator</b>.
+<br><br>
+</ol>
+<a name="1063122"></a><p class="indent">L'écran <b>Bienvenue dans l'assistant d'installation de Dell OpenManage Server Administrator</b> s'ouvre.</p>
+<ol type="1">
+
+<li value="3"><a name="1059828"></a>Cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1063126"></a><p class="indent">La boîte de dialogue <b>Maintenance de programme</b> s'ouvre. </p>
+<a name="1063130"></a><p class="indent">Cette boîte de dialogue permet de modifier, de réparer ou de supprimer le programme.</p>
+<ol type="1">
+
+<li value="4"><a name="1059834"></a>Sélectionnez l'option <b>Supprimer</b> et cliquez sur <b>Suivant</b>.
+<br><br>
+</ol>
+<a name="1063131"></a><p class="indent">La boîte de dialogue <b>Supprimer le programme</b> s'ouvre.</p>
+<ol type="1">
+
+<li value="5"><a name="1059838"></a>Cliquez sur <b>Supprimer</b>.
+<br><br>
+</ol>
+<a name="1063135"></a><p class="indent">L'écran <b>Désinstallation de Dell OpenManage Server Administrator</b> apparaît. Des messages donnent la condition et la progression des composants logiciels désinstallés. </p>
+<a name="1063139"></a><p class="indent">Quand les composants sélectionnés sont désinstallés, la boîte de dialogue <b>Assistant d'installation terminé</b> apparaît.</p>
+<ol type="1">
+
+<li value="6"><a name="1059844"></a>Cliquez sur <b>Terminer</b> pour fermer le programme de désinstallation de Server Administrator.
+<br><br>
+ </ol>
+<a name="1066316"></a><p class="indent">Si on vous invite à redémarrer le système, vous devez le redémarrer pour que la désinstallation se termine correctement. Si vous êtes invité à redémarrer le système, sélectionnez l'option de redémarrage&nbsp;: </p>
+<ul><ul>
+<li type="disc"><a name="1066318"></a><b>Oui, redémarrer le système maintenant.</b><br><br></li>
+<li type="disc"><a name="1059854"></a><b>Non, je redémarrerai le système plus tard.</b><br><br></li>
+</ul>
+</ul><a name="1059856"></a><p class="indent">Tous les composants de Server Administrator sont désinstallés.</p>
+<a name="1059859"></a><h4> Désinstallation de composants de Managed System Software avec le système d'exploitation</h4>
+<ol type="1">
+
+<li value="1"><a name="1059860"></a>Cliquez sur le bouton <b>Démarrer</b> et pointez sur <b>Paramètres</b> <span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b>Panneau de configuration</b>.
+
+<br><br>
+ <li value="2"><a name="1059862"></a>Double-cliquez sur <b>Ajout/Suppression de programmes</b>.
+
+<br><br>
+ <li value="3"><a name="1061324"></a>Cliquez sur <b>Dell OpenManage Server Administrator</b>, puis sur <b>Supprimer</b>.
+<br><br>
+ </ol>
+<a name="1061326"></a><p class="indent">La boîte de dialogue <b>Ajout/Suppression de programmes</b> apparaît.</p>
+<ol type="1">
+
+<li value="4"><a name="1059868"></a>Cliquez sur <b>Oui</b> pour confirmer la désinstallation de Server Administrator.
+<br><br>
+ </ol>
+<a name="1059870"></a><p class="indent">L'écran <b>Dell OpenManage Server Administrator</b> apparaît. Des messages donnent la condition et la progression des composants logiciels désinstallés.</p>
+<a name="1063146"></a><p class="indent">Si on vous invite à redémarrer le système, vous devez le faire pour que la désinstallation se termine correctement. Si vous êtes invité à redémarrer le système, sélectionnez l'option de redémarrage&nbsp;: </p>
+<ul><ul>
+<li type="disc"><a name="1059878"></a><b>Oui, redémarrer le système maintenant.</b><br><br></li>
+<li type="disc"><a name="1059880"></a><b>Non, je redémarrerai le système plus tard.</b><br><br></li>
+</ul>
+</ul><a name="1059882"></a><p class="indent">Tous les composants de Server Administrator sont désinstallés.</p>
+<a name="1076089"></a><h4> Désinstallation automatique avec le GUID de produit</h4>
+<a name="1076090"></a><p>Si le CD d'installation ou le progiciel MSI ne sont pas disponibles pendant une désinstallation, vous pouvez utiliser la ligne de commande suivante pour désinstaller Dell OpenManage Systems Management Software sur des systèmes gérés ou des stations de gestion sous Windows. Dans ces cas, vous pouvez utiliser les GUID de progiciel pour désinstaller le produit.</p>
+<a name="1076091"></a><p>Pour les systèmes gérés, utilisez cette commande&nbsp;:</p>
+<a name="1076092"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /x {89C7A9F7-2C31-4739-842D-F037B6C9B674}
+</span></p>
+<a name="1076093"></a><p>Pour les stations de gestion, utilisez cette commande&nbsp;:</p>
+<a name="1076094"></a>
+<p class="screenindent"><span class="screen">msiexec.exe /x {6453394A-5BBE-4325-A854-1FD483612B8D}
+</span></p>
+<a name="1076087"></a><h4> Réalisation d'une désinstallation automatique du logiciel Managed System Software</h4>
+<a name="1059887"></a><p>Le CD <i>Dell PowerEdge Installation and Server Management</i> propose une procédure de désinstallation automatique. La désinstallation automatique vous permet de désinstaller le logiciel Managed Systems Software de plusieurs systèmes à la fois. Le progiciel de désinstallation automatique est distribué aux systèmes distants avec un outil de distribution de logiciel provenant d'un ISV. Quand le progiciel est distribué, le script de désinstallation s'exécute et désinstalle le logiciel.</p>
+<a name="1059891"></a><h5> Distribution du progiciel de désinstallation automatique</h5>
+<a name="1059892"></a><p>Le CD <i>Dell PowerEdge Installation and Server Management</i> est préconfiguré pour agir comme progiciel de désinstallation automatique. Pour distribuer le progiciel à un ou plusieurs systèmes, effectuez les étapes suivantes&nbsp;:</p>
+<ol type="1">
+
+<li value="1"><a name="1059894"></a>Configurez le logiciel de distribution ISV pour qu'il exécute le programme <b>msiexec.exe /x CD 
+Drive\srvadmin\windows\SystemsManagement\SysMgmt.msi /qb</b> après la 
+distribution du progiciel de désinstallation automatique 
+<br><br>
+
+<li value="2"><a name="1059896"></a>Utilisez le logiciel de distribution de logiciel ISV pour qu'il distribue le progiciel de désinstallation rapide aux systèmes distants.
+<br><br>
+ </ol>
+<a name="1059898"></a><p class="indent">Le programme <b>msiexec.exe /x CD Drive\srvadmin\windows\SystemsManagement\SysMgmt.msi /qb</b> s'exécute pour désinstaller Managed System Software sur chacun des systèmes distants.</p>
+<ol type="1">
+
+<li value="3"><a name="1059900"></a>Redémarrez tous les systèmes distants pour terminer la désinstallation.
+<br><br>
+ </ol>
+<a name="1059902"></a><h5> Paramètres de la ligne de commande de désinstallation automatique</h5>
+<a name="1059903"></a><p>Le <a href="instwin.htm#1060065">tableau 6-1 </a> illustre les paramètres de la ligne de commande de désinstallation automatique disponibles pour une désinstallation automatique. Tapez les paramètres facultatifs sur la ligne de commande après <span class="screen">msiexec.exe /x SysMgmt.msi</span> en mettant un espace entre chaque paramètre.</p>
+<a name="1059905"></a><p>Par exemple, l'exécution de <span class="screen">msiexec.exe /x SysMgmt.msi /qb</span> exécute la désinstallation automatique et affiche la condition d'installation automatique pendant son exécution.</p>
+<a name="1063162"></a><p>Le fait d'exécuter <span class="screen">msiexec.exe /x SysMgmt.msi /qn</span> exécute la désinstallation automatique, mais en arrière-plan (sans afficher de fenêtre).</p>
+<hr noshade size="1">
+<a name="1064678"></a><h2>Installation de Managed System Software avec un logiciel de déploiement d'une tierce partie</h2>
+
+
+<a name="1071513"></a><p>Vous pouvez utiliser un logiciel de déploiement d'une tierce partie, tel que Altiris Deployment Solution, pour installer Managed System Software sur des systèmes Dell pris en charge. Pour distribuer et installer Server Administrator avec Altiris, démarrez l'application Altiris et importez <b>OpenManage_Jobs.bin</b> à partir du CD <i>Dell PowerEdge Installation and Server Management</i> dans \<b>srvadmin\support\Altiris</b>. Spécifiez un dossier dans lequel l'importer. Il se peut que vous deviez modifier les tâches <b>Exécuter le script</b> et <b>Copier le </b><b>fichier </b>pour correspondre à votre environnement de déploiement. Lorsque vous avez terminé, vous pouvez alors planifier votre tâche pour qu'elle s'exécute sur les systèmes Dell pris en charge qui sont gérés à l'intérieur de votre solution de déploiement Altiris.</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">Retour à la page du sommaire</a></p>
+
+
+<p> </p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

@@ -1,0 +1,1067 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<title>Using Microsoft&#174; Active Directory&#174;: Dell OpenManage Version 5.0
+ Installation and Security User's Guide</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">Back to Contents Page</a> </p>
+<a name="1055432"></a><h1> Using Microsoft&#174; Active Directory&#174; </h1>
+<p class="title">Dell OpenManage&#153; Version 5.0
+ Installation and Security User's Guide</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1053465">Controlling Access to Your Network</A></P>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<A HREF="#1053721">Extending the Active Directory Schema</A></P>
+
+
+<br>
+<hr noshade size="1">
+<a name="1053465"></a><h2>Controlling Access to Your Network</h2>
+
+
+<a name="1055966"></a><p>If you use Active Directory service software, you can configure it to control access to your network. Dell has modified the Active Directory database to support remote management authentication and authorization. Dell OpenManage&#153; IT Assistant and Dell OpenManage Server Administrator, as well as Dell&#153; remote access controllers, can now interface with Active Directory. With this tool, you can add and control users and privileges from one central database.</p>
+<a name="1053471"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>Using Active Directory to recognize RAC, IT Assistant, or Server Administrator users is supported on 
+the Microsoft Windows&#174; 2000 and Windows Server&#153; 2003 operating systems.
+</td>
+  </tr>
+</table><a name="1053473"></a><h3> Active Directory Schema Extensions
+</h3>
+<a name="1053474"></a><p>The Active Directory data exists in a distributed database of <b>Attributes</b> and <b>Classes</b>. An example of a Active Directory <b>Class</b> is the <b>User</b> class. Some example <b>Attributes</b> of the user class might be the user's first name, last name, phone number, and so on. Every <b>Attribute</b> or <b>Class</b> that is added to an existing Active Directory schema must be defined with a unique ID. To maintain unique IDs throughout the industry, Microsoft maintains a database of Active Directory Object Identifiers (OIDs).</p>
+<a name="1053477"></a><p>The Active Directory schema defines the rules for what data can be included in the database. To extend the schema in Active Directory, Dell received unique OIDs, unique name extensions, and unique linked attribute IDs for the new attributes and classes in the directory service.</p>
+<a name="1053479"></a><p>Dell extension is: 	 dell</p>
+<a name="1053481"></a><p>Dell base OID is: 	 1.2.840.113556.1.8000.1280</p>
+<a name="1053483"></a><p>Dell LinkID range is:	 12070 to 12079</p>
+<a name="1053484"></a><p>The Active Directory OID database maintained by Microsoft can be viewed at <b>msdn.microsoft.com/certification/ADAcctInfo.asp</b> by entering our extension, <i>dell</i>.</p>
+<a name="1053485"></a><h4> Overview of the Active Directory Schema Extensions</h4>
+<a name="1053486"></a><p>Dell created Classes, or groups of objects, that can be configured by the user to meet their unique needs. New Classes in the schema include an Association, a Product, and a Privilege class. An Association object links the users or groups to a given set of privileges and to systems (Product&nbsp;Objects) in your network. This model gives an administrator control over the different combinations of users, privileges, and systems or RAC devices on the network, without adding&nbsp;complexity.</p>
+<a name="1053488"></a><h4> Active Directory Object Overview</h4>
+<a name="1053490"></a><p>For each of the systems that you want to integrate with Active Directory for authentication and authorization, there must be at least one Association Object and one Product Object. The Product Object represents the system. The Association Object links it with users and privileges. You can create as many Association Objects as you need. </p>
+<a name="1053494"></a><p>Each Association Object can be linked to as many users, groups of users, and Product Objects as desired. The users and Product Objects can be from any domain. However, each Association Object may only link to one Privilege Object. This behavior allows an Administrator to control which users have which rights on specific systems.</p>
+<a name="1053495"></a><p>The Product Object links the system to Active Directory for authentication and authorization queries. When a system is added to the network, the Administrator must configure the system and its product object with its Active Directory name so that users can perform authentication and authorization with Active Directory. The Administrator must also add the system to at least one Association Object in order for users to authenticate.</p>
+<a name="1053497"></a><p><a href="mad.htm#1053498">Figure&nbsp;8-1</a> illustrates that the Association Object provides the connection that is needed for all of the authentication and authorization.</p>
+<p class="FigureTableTitle"><a name="1053498"> </a>
+Figure 8-1.&#32; Typical Setup for Active Directory Objects
+</p>
+
+<a name="1053538"></a>
+<p><img src="mad6.jpg" height="563" width="577" align="center" border="0" hspace="0" vspace="0">
+</p><a name="1053540"></a><p>In addition, you can set up Active Directory objects in a single domain or in multiple domains. Setting up objects in a single domain does not vary, whether you are setting up RAC, Server Administrator, or IT Assistant objects. When multiple domains are involved, however, there are some&nbsp;differences. </p>
+<a name="1053542"></a><p>For example, you have two DRAC 4 cards (RAC1 and RAC2) and three existing Active Directory users (user1, user2, and user3). You want to give user1 and user2 an Administrator privilege on both DRAC 4 cards and give user3 a Login privilege on the RAC2 card. <a href="mad.htm#1053543">Figure&nbsp;8-2</a> shows how you set up the Active Directory objects in this scenario.</p>
+<p class="FigureTableTitle"><a name="1053543"> </a>
+Figure 8-2.&#32; Setting Up Active Directory Objects in a Single Domain
+</p>
+
+<a name="1053577"></a>
+<p><img src="mad14.jpg" height="366" width="577" align="center" border="0" hspace="0" vspace="0">
+</p><a name="1053578"></a><p>To set up the objects for the single domain scenario, perform the following tasks:</p>
+<ol type="1">
+
+<li value="1"><a name="1053579"></a>Create two Association Objects.
+<br><br>
+
+<li value="2"><a name="1053580"></a>Create two RAC Product Objects, RAC1 and RAC2, to represent the two DRAC 4 cards.
+<br><br>
+
+<li value="3"><a name="1053581"></a>Create two Privilege Objects, Priv1 and Priv2, in which Priv1 has all privileges (Administrator) and 
+Priv2 has Login privileges.
+<br><br>
+
+<li value="4"><a name="1053582"></a>Group User1 and User2 into Group1.
+<br><br>
+
+<li value="5"><a name="1061797"></a>Add Group1 as Members in Association Object 1 (AO1), Priv1 as Privilege Objects in AO1, and both 
+RAC1 and RAC2 as RAC Products in AO1.
+<br><br>
+
+<li value="6"><a name="1061798"></a>Add User3 as Members in Association Object 2 (AO2), Priv2 as Privilege Objects in AO2, and RAC2 as 
+RAC Products in AO2.
+<br><br>
+</ol>
+<a name="1053588"></a><p>See "<a href="mad.htm#1054443">Adding Users and Privileges to Active Directory</a>" for detailed instructions.</p>
+<a name="1053589"></a><p><a href="mad.htm#1053590">Figure&nbsp;8-3</a> shows how to setup the Active Directory objects in multiple domains for RAC. In this scenario, you have two DRAC 4 cards (RAC1 and RAC2) and three existing Active Directory users (User1, User2, and User3). User1 is in Domain1, but User2 and User3 are in Domain2. You want to give User1 and User2 Administrator privileges on both the RAC1 and the RAC2 card and give User3 a Login privilege on the RAC2 card.</p>
+<p class="FigureTableTitle"><a name="1053590"> </a>
+Figure 8-3.&#32; Setting Up RAC Active Directory Objects in Multiple Domains
+</p>
+
+<a name="1053631"></a>
+<p><img src="mad15.jpg" height="389" width="577" align="center" border="0" hspace="0" vspace="0">
+</p><a name="1053632"></a><p>To set up the objects for this multiple domain scenario, perform the following tasks:</p>
+<ol type="1">
+
+<li value="1"><a name="1053633"></a>Ensure that the domain forest function is in Native or Windows 2003 mode.
+<br><br>
+
+<li value="2"><a name="1053634"></a>Create two Association Objects, AO1 (of Universal scope) and AO2, in any domain. The figure shows 
+the objects in Domain2.
+<br><br>
+
+<li value="3"><a name="1053635"></a>Create two RAC Device Objects, RAC1 and RAC2, to represent the two remote systems.
+<br><br>
+
+<li value="4"><a name="1053636"></a>Create two Privilege Objects, Priv1 and Priv2, in which Priv1 has all privileges (Administrator) and 
+Priv2 has Login privileges.
+<br><br>
+
+<li value="5"><a name="1053637"></a>Group User1 and User2 into Group1. The group scope of Group1 must be Universal.
+<br><br>
+
+<li value="6"><a name="1053638"></a>Add Group1 as Members in Association Object 1 (AO1), Priv1 as Privilege Objects in AO1, and both 
+RAC1 and RAC2 as Products in AO1.
+<br><br>
+
+<li value="7"><a name="1053639"></a>Add User3 as Members in Association Object 2 (AO2), Priv2 as Privilege Objects in AO2, and RAC2 as 
+a Product in AO2.
+<br><br>
+</ol>
+<a name="1053640"></a><p>For Server Administrator or IT Assistant, on the other hand, the users in a single Association can be in separate domains without needing to be added to a universal group. The following is a very similar example to show how Server Administrator or IT Assistant <i>systems</i> in separate domains affect the setup of directory objects. Instead of RAC devices, you'll have two systems running Server Administrator (Server Administrator Products sys1 and sys2). Sys1 and sys2 are in different domains. You can use any existing Users or Groups that you have in Active Directory. <a href="mad.htm#1053643">Figure&nbsp;8-4</a> shows how to set up the Server Administrator Active Directory objects for this example.</p>
+<p class="FigureTableTitle"><a name="1053643"> </a>
+Figure 8-4.&#32; Setting Up Server Administrator Active Directory Objects in Multiple Domains
+</p>
+
+<a name="1053686"></a>
+<p><img src="mad16.jpg" height="348" width="577" align="center" border="0" hspace="0" vspace="0">
+</p><a name="1053687"></a><p>To set up the objects for this multiple domain scenario, perform the following tasks:</p>
+<ol type="1">
+
+<li value="1"><a name="1053688"></a>Ensure that the domain forest function is in Native or Windows 2003 mode.
+<br><br>
+
+<li value="2"><a name="1053689"></a>Create two Association Objects, AO1 and AO2, in any domain. The figure shows the objects in Domain1.
+<br><br>
+
+<li value="3"><a name="1053690"></a>Create two Server Administrator Products, sys1 and sys2, to represent the two systems. Sys1 is in 
+Domain1 and sys2 is in Domain2.
+<br><br>
+
+<li value="4"><a name="1053691"></a>Create two Privilege Objects, Priv1 and Priv2, in which Priv1 has all privileges (Administrator) and 
+Priv2 has Login privileges.
+<br><br>
+
+<li value="5"><a name="1053692"></a>Group sys2 into Group1. The group scope of Group1 must be universal.
+<br><br>
+
+<li value="6"><a name="1053693"></a>Add User1 and User2 as Members in Association Object 1 (AO1), Priv1 as Privilege Objects in AO1, 
+and both sys1 and Group1 as Products in AO1.
+<br><br>
+
+<li value="7"><a name="1053694"></a>Add User3 as a Member in Association Object 2 (AO2), Priv2 as a Privilege object in AO2, and Group1 
+as a Product in AO2.
+<br><br>
+</ol>
+<a name="1053695"></a><p>Note that neither of the Association objects needs to be of Universal scope in this case.</p>
+<a name="1053696"></a><h4> Configuring Active Directory to Access Your Systems</h4>
+<a name="1053698"></a><p>Before you can use Active Directory to access your systems, you must configure both the Active Directory software and the systems.</p>
+<ol type="1">
+
+<li value="1"><a name="1053702"></a>Extend the Active Directory schema (see "<a href="mad.htm#1053721">Extending the Active Directory Schema</a>").
+<br><br>
+
+<li value="2"><a name="1053705"></a>Extend the Active Directory Users and Computers Snap-in (see "<a href="mad.htm#1055982">Installing the Dell Extension to the 
+Active Directory Users and Computers Snap-In</a>").
+<br><br>
+
+<li value="3"><a name="1053709"></a>Add system users and their privileges to Active Directory (see "<a href="mad.htm#1054443">Adding Users and Privileges to Active 
+Directory</a>").
+<br><br>
+
+<li value="4"><a name="1053714"></a>For RAC systems only, enable SSL on each of your domain controllers (see "<a href="mad.htm#1054543">Enabling SSL on a 
+Domain Controller (RAC Only)</a>").
+<br><br>
+
+<li value="5"><a name="1053716"></a>Configure the system's Active Directory properties using either the Web-based interface or the CLI 
+(see "<a href="mad.htm#1054611">Configuring Your Systems or Devices</a>").
+<br><br>
+</ol>
+<hr noshade size="1">
+<a name="1053721"></a><h2>Extending the Active Directory Schema</h2>
+
+
+<a name="1053723"></a><p>RAC, Server Administrator, and IT Assistant schema extensions are available. You only need to extend the schema for software or hardware that you are using. Each extension must be applied individually to receive the benefit of its software-specific settings. Extending your Active Directory schema will add schema classes and attributes, example privileges and association objects, and a Dell organizational unit to the schema.</p>
+<a name="1053729"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>Before you extend the schema, you must have <b>Schema Admin</b> privileges on the Schema Master Flexible 
+Single Master Operation (FSMO) Role Owner of the domain forest.
+</td>
+  </tr>
+</table><a name="1053731"></a><p>You can extend your schema using two different methods. You can use the Dell Schema Extender utility, or you can use the Lightweight Directory Interchange Format (LDIF) script file.</p>
+<a name="1053738"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>The Dell organizational unit will not be added if you use the LDIF script file.
+</td>
+  </tr>
+</table><a name="1053739"></a><p>The LDIF script files and Dell Schema Extender are located on your <i>Dell PowerEdge&#153; Installation and Server Management </i>CD in the following respective directories:</p>
+<ul><li><a name="1053740"></a><b><i>CD drive</i></b><b>:\support\OMActiveDirectory Tools\</b><b><i>installation type</i></b><b>\LDIF Files</b><br><br></li>
+<li><a name="1061827"></a><b><i>CD drive</i></b><b>:\support\OMActiveDirectory Tools\</b><b><i>installation type</i></b><b>\Schema Extender</b><br><br></li>
+</ul><a name="1061828"></a><p><b><i>Installation type</i></b> will be either RAC4, RAC3, Server Administrator, or IT&nbsp;Assistant version&nbsp;7.0 or later, depending on your choice of schema extension.</p>
+<a name="1053743"></a><p>To use the LDIF files, see the instructions in the readme that is in the LDIF files directory. To use the Dell Schema Extender to extend the Active Directory Schema, perform the steps in "<a href="mad.htm#1053749">Using the Dell Schema Extender</a>."</p>
+<a name="1053747"></a><p>You can copy and run the Schema Extender or LDIF files from any location.</p>
+<a name="1053749"></a><h3> Using the Dell Schema Extender
+</h3>
+<a name="1053756"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="notice.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+   <span class="notes">
+    NOTICE: </span>  The Dell Schema Extender uses the <b>SchemaExtenderOem.ini </b>file. To ensure that the Dell&nbsp;Schema 
+Extender utility functions properly, do not modify the name or the contents of this file. 
+</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="1"><a name="1053757"></a>Click <b>Next on the Welcome screen.
+</b><br><br>
+
+<li value="2"><a name="1053758"></a>Read the warning and click <b>Next</b> again.
+<br><br>
+
+<li value="3"><a name="1053759"></a>Either select <b>Use Current Log In Credentials</b> or enter a user name and password with schema 
+administrator rights.
+<br><br>
+
+<li value="4"><a name="1053760"></a>Click <b>Next</b> to run the Dell Schema Extender.
+<br><br>
+
+<li value="5"><a name="1053761"></a>Click <b>Finish</b>.
+<br><br>
+</ol>
+<a name="1053762"></a><p class="indent">To verify the schema extension, use the Active Directory Schema Snap-in in the Microsoft Management Console (MMC) to verify the existence of the following classes (listed in <a href="mad.htm#1053811">Table&nbsp;8-1</a>, <a href="mad.htm#1054009">Table&nbsp;8-6</a>, <a href="mad.htm#1054037">Table&nbsp;8-7</a>, <a href="mad.htm#1054098">Table&nbsp;8-9</a>, <a href="mad.htm#1054127">Table&nbsp;8-10</a>, <a href="mad.htm#1054159">Table&nbsp;8-11</a>, and <a href="mad.htm#1054189">Table&nbsp;8-12</a>) and attributes (listed in <a href="mad.htm#1054233">Table&nbsp;8-13</a>, <a href="mad.htm#1054339">Table&nbsp;8-14</a>, and <a href="mad.htm#1054378">Table&nbsp;8-15</a>). See your Microsoft documentation for more information on how to enable and use the Active Directory Schema Snap-in in the MMC.</p>
+<a name="1053882"></a>
+<p><p class="FigureTableTitle"><a name="1053811"></a>Table 8-1.&#32; Class Definitions for Classes Added to the Active Directory Schema</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>Class Name</p></th><th valign="top" align="left"><p><a name="1053819"></a>Assigned Object Identification Number (OID)</p></th><th valign="top" align="left"><p><a name="1053821"></a>Class Type</p></th></tr>
+<tr><td valign="top" align="left"><p><a name="1053823"></a>dellRacDevice</p></td><td valign="top" align="left"><p><a name="1053825"></a>1.2.840.113556.1.8000.1280.1.1.1.1</p></td><td valign="top" align="left"><p><a name="1053827"></a>Structural Class</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053829"></a>dellAssociationObject</p></td><td valign="top" align="left"><p><a name="1053831"></a>1.2.840.113556.1.8000.1280.1.1.1.2</p></td><td valign="top" align="left"><p><a name="1053833"></a>Structural Class</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053835"></a>dellRAC4Privileges</p></td><td valign="top" align="left"><p><a name="1053837"></a>1.2.840.113556.1.8000.1280.1.1.1.3</p></td><td valign="top" align="left"><p><a name="1053839"></a>Auxiliary Class</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053841"></a>dellPrivileges</p></td><td valign="top" align="left"><p><a name="1053843"></a>1.2.840.113556.1.8000.1280.1.1.1.4</p></td><td valign="top" align="left"><p><a name="1053845"></a>Structural Class</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053847"></a>dellProduct</p></td><td valign="top" align="left"><p><a name="1053849"></a>1.2.840.113556.1.8000.1280.1.1.1.5</p></td><td valign="top" align="left"><p><a name="1053851"></a>Structural Class</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053853"></a>dellRAC3Privileges</p></td><td valign="top" align="left"><p><a name="1053855"></a>1.2.840.113556.1.8000.1280.1.1.1.6</p></td><td valign="top" align="left"><p><a name="1053857"></a>Auxiliary Class</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053859"></a>dellOmsa2AuxClass</p></td><td valign="top" align="left"><p><a name="1053861"></a>1.2.840.113556.1.8000.1280.1.2.1.1</p></td><td valign="top" align="left"><p><a name="1053863"></a>Auxiliary Class</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053865"></a>dellOmsaApplication</p></td><td valign="top" align="left"><p><a name="1053867"></a>1.2.840.113556.1.8000.1280.1.2.1.2</p></td><td valign="top" align="left"><p><a name="1053869"></a>Structural Class</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053871"></a>dellIta7AuxClass</p></td><td valign="top" align="left"><p><a name="1053873"></a>1.2.840.113556.1.8000.1280.1.3.1.1</p></td><td valign="top" align="left"><p><a name="1053875"></a>Auxiliary Class</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053877"></a>dellItaApplication</p></td><td valign="top" align="left"><p><a name="1053879"></a>1.2.840.113556.1.8000.1280.1.3.1.2</p></td><td valign="top" align="left"><p><a name="1053881"></a>Structural Class</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1053912"></a>
+<p><p class="FigureTableTitle"><a name="1053889"></a>Table 8-2.&#32; dellRacDevice Class&nbsp;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1053895"></a>1.2.840.113556.1.8000.1280.1.1.1.1</p></th></tr>
+<tr><td valign="top" align="left"><p>Description</p></td><td valign="top" align="left"><p><a name="1053899"></a>This class represents the Dell RAC device. The RAC Device must be configured as dellRacDevice in Active Directory. This configuration enables the DRAC 4 to send LDAP queries to Active Directory.</p></td></tr>
+<tr><td valign="top" align="left"><p>Class Type</p></td><td valign="top" align="left"><p><a name="1053903"></a>Structural Class</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1053907"></a>dellProduct</p></td></tr>
+<tr><td valign="top" align="left"><p>Attributes</p></td><td valign="top" align="left"><p><a name="1053911"></a><b>dellSchemaVersion</b></p><p><a name="1062769"></a><b>dellRacType</b></p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1053940"></a>
+<p><p class="FigureTableTitle"><a name="1053916"></a>Table 8-3.&#32; dellAssociationObject Class</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1053922"></a>1.2.840.113556.1.8000.1280.1.1.1.2</p></th></tr>
+<tr><td valign="top" align="left"><p>Description</p></td><td valign="top" align="left"><p><a name="1053926"></a>This class represents the Dell Association Object. The Association Object provides the connection between the users and the devices or products.</p></td></tr>
+<tr><td valign="top" align="left"><p>Class Type</p></td><td valign="top" align="left"><p><a name="1053930"></a>Structural Class</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1053934"></a>Group</p></td></tr>
+<tr><td valign="top" align="left"><p>Attributes</p></td><td valign="top" align="left"><p><a name="1053938"></a>dellProductMembers</p><p><a name="1062770"></a>dellPrivilegeMember</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1053975"></a>
+<p><p class="FigureTableTitle"><a name="1053944"></a>Table 8-4.&#32; dellRAC4Privileges Class&nbsp;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1053950"></a>1.2.840.113556.1.8000.1280.1.1.1.3</p></th></tr>
+<tr><td valign="top" align="left"><p>Description</p></td><td valign="top" align="left"><p><a name="1053954"></a>This class is used to define the privileges (Authorization Rights) for the DRAC&nbsp;4&nbsp;device.</p></td></tr>
+<tr><td valign="top" align="left"><p>Class Type</p></td><td valign="top" align="left"><p><a name="1053958"></a>Auxiliary Class</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1053962"></a>None</p></td></tr>
+<tr><td valign="top" align="left"><p>Attributes</p></td><td valign="top" align="left"><p><a name="1053966"></a>dellIsLoginUser</p><p><a name="1062771"></a>dellIsCardConfigAdmin</p><p><a name="1062772"></a>dellIsUserConfigAdmin</p><p><a name="1062773"></a>dellIsLogClearAdmin</p><p><a name="1062774"></a>dellIsServerResetUser</p><p><a name="1062775"></a>dellIsConsoleRedirectUser</p><p><a name="1062776"></a>dellIsVirtualMediaUser</p><p><a name="1062777"></a>dellIsTestAlertUser</p><p><a name="1062778"></a>dellIsDebugCommandAdmin</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054032"></a>
+<p><p class="FigureTableTitle"><a name="1053982"></a>Table 8-5.&#32; dellPrivileges Class&nbsp;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1053988"></a>1.2.840.113556.1.8000.1280.1.1.1.4</p></th></tr>
+<tr><td valign="top" align="left"><p>Description</p></td><td valign="top" align="left"><p><a name="1053992"></a>This class is used as a container Class for the Dell Privileges (Authorization&nbsp;Rights).</p></td></tr>
+<tr><td valign="top" align="left"><p>Class Type</p></td><td valign="top" align="left"><p><a name="1053996"></a>Structural Class</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1054000"></a>User</p></td></tr>
+<tr><td valign="top" align="left"><p>Attributes</p></td><td valign="top" align="left"><p><a name="1054004"></a>dellRAC4Privileges</p><p><a name="1062779"></a>dellRAC3Privileges</p><p><a name="1062780"></a>dellOmsaAuxClass</p><p><a name="1062781"></a>dellItaAuxClass</p></td></tr>
+
+</table>
+
+
+
+
+
+<p class="FigureTableTitle"><a name="1054009"></a>Table 8-6.&#32; dellProduct Class</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054015"></a>1.2.840.113556.1.8000.1280.1.1.1.5</p></th></tr>
+<tr><td valign="top" align="left"><p>Description</p></td><td valign="top" align="left"><p><a name="1054019"></a>This is the main class from which all Dell products are derived. </p></td></tr>
+<tr><td valign="top" align="left"><p>Class Type</p></td><td valign="top" align="left"><p><a name="1054023"></a>Structural Class</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1054027"></a>Computer</p></td></tr>
+<tr><td valign="top" align="left"><p>Attributes</p></td><td valign="top" align="left"><p><a name="1054031"></a>dellAssociationMembers</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054060"></a>
+<p><p class="FigureTableTitle"><a name="1054037"></a>Table 8-7.&#32; dellRAC3Privileges Class</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054043"></a>1.2.840.113556.1.8000.1280.1.1.1.6</p></th></tr>
+<tr><td valign="top" align="left"><p>Description</p></td><td valign="top" align="left"><p><a name="1054047"></a>This class is used to define the privileges (Authorization Rights) for the DRAC III, DRAC III/XT, ERA, ERA/O, and ERA/MC devices.</p></td></tr>
+<tr><td valign="top" align="left"><p>Class Type</p></td><td valign="top" align="left"><p><a name="1054051"></a>Auxiliary Class</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1054055"></a>None</p></td></tr>
+<tr><td valign="top" align="left"><p>Attributes</p></td><td valign="top" align="left"><p><a name="1054059"></a>dellIsLoginUser</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054093"></a>
+<p><p class="FigureTableTitle"><a name="1054068"></a>Table 8-8.&#32; dellOmsa2AuxClass Class&nbsp;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054074"></a>1.2.840.113556.1.8000.1280.1.2.1.1</p></th></tr>
+<tr><td valign="top" align="left"><p>Description</p></td><td valign="top" align="left"><p><a name="1054078"></a>This class is used to define the privileges (Authorization Rights) for Server&nbsp;Administrator.</p></td></tr>
+<tr><td valign="top" align="left"><p>Class Type</p></td><td valign="top" align="left"><p><a name="1054082"></a>Auxiliary Class</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1054086"></a>None</p></td></tr>
+<tr><td valign="top" align="left"><p>Attributes</p></td><td valign="top" align="left"><p><a name="1054090"></a>dellOmsaIsReadOnlyUser</p><p><a name="1062782"></a>dellOmsaIsReadWriteUser</p><p><a name="1062783"></a>dellOmsaIsAdminUser</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054122"></a>
+<p><p class="FigureTableTitle"><a name="1054098"></a>Table 8-9.&#32; dellOmsaApplication Class&nbsp;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054104"></a>1.2.840.113556.1.8000.1280.1.2.1.2</p></th></tr>
+<tr><td valign="top" align="left"><p>Description</p></td><td valign="top" align="left"><p><a name="1054108"></a>This class represents the Server Administrator application. Server Administrator must be configured as dellOmsaApplication in Active Directory. This configuration enables the Server Administrator application to send LDAP queries to Active Directory.</p></td></tr>
+<tr><td valign="top" align="left"><p>Class Type</p></td><td valign="top" align="left"><p><a name="1054113"></a>Structural Class</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1054117"></a>dellProduct</p></td></tr>
+<tr><td valign="top" align="left"><p>Attributes</p></td><td valign="top" align="left"><p><a name="1054121"></a>dellAssociationMembers</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054182"></a>
+<p><p class="FigureTableTitle"><a name="1054127"></a>Table 8-10.&#32; dellIta7AuxClass Class</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054133"></a>1.2.840.113556.1.8000.1280.1.3.1.1</p></th></tr>
+<tr><td valign="top" align="left"><p>Description</p></td><td valign="top" align="left"><p><a name="1054137"></a>This class is used to define the privileges (Authorization Rights) for IT Assistant.</p></td></tr>
+<tr><td valign="top" align="left"><p>Class Type</p></td><td valign="top" align="left"><p><a name="1054141"></a>Auxiliary Class</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1054145"></a>None</p></td></tr>
+<tr><td valign="top" align="left"><p>Attributes</p></td><td valign="top" align="left"><p><a name="1054149"></a>dellItaIsReadOnlyUser</p><p><a name="1062784"></a>dellItaIsReadWriteUser</p><p><a name="1062785"></a>dellItaIsAdminUser</p></td></tr>
+
+</table>
+
+
+
+
+
+<p class="FigureTableTitle"><a name="1054159"></a>Table 8-11.&#32; dellItaApplication Class&nbsp;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><p>OID</p></th><th valign="top" align="left"><p><a name="1054165"></a>1.2.840.113556.1.8000.1280.1.3.1.2</p></th></tr>
+<tr><td valign="top" align="left"><p>Description</p></td><td valign="top" align="left"><p><a name="1054169"></a>This class represents the IT Assistant application. IT Assistant must be configured as dellItaApplication in Active Directory. This configuration enables IT Assistant to send LDAP queries to Active Directory.</p></td></tr>
+<tr><td valign="top" align="left"><p>Class Type</p></td><td valign="top" align="left"><p><a name="1054173"></a>Structural Class</p></td></tr>
+<tr><td valign="top" align="left"><p>SuperClasses</p></td><td valign="top" align="left"><p><a name="1054177"></a>dellProduct</p></td></tr>
+<tr><td valign="top" align="left"><p>Attributes</p></td><td valign="top" align="left"><p><a name="1054181"></a>dellAssociationMembers</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054226"></a>
+<p><p class="FigureTableTitle"><a name="1054189"></a>Table 8-12.&#32; General Attributes Added to the Active Directory Schema&nbsp;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054195"> </a>
+<p><b>Attribute Name/Description</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054197"> </a>
+<p><b>Assigned OID/Syntax Object Identifier</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054199"> </a>
+<p><b>Single Valued</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054201"></a><b>dellPrivilegeMember</b></p><p><a name="1054202"></a>List of dellPrivilege Objects that belong to this Attribute.</p></td><td valign="top" align="left"><p><a name="1054204"></a>1.2.840.113556.1.8000.1280.1.1.2.1</p><p><a name="1054205"></a>Distinguished Name (LDAPTYPE_DN 1.3.6.1.4.1.1466.115.121.1.12)</p></td><td valign="top" align="left"><p><a name="1054207"></a>FALSE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054209"></a><b>dellProductMembers</b></p><p><a name="1054210"></a>List of dellRacDevices Objects that belong to this role. This attribute is the forward link to the dellAssociationMembers backward link.</p><p><a name="1054211"></a>Link ID: 12070</p></td><td valign="top" align="left"><p><a name="1054213"></a>1.2.840.113556.1.8000.1280.1.1.2.2</p><p><a name="1054214"></a>Distinguished Name (LDAPTYPE_DN 1.3.6.1.4.1.1466.115.121.1.12)</p></td><td valign="top" align="left"><p><a name="1054216"></a>FALSE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054218"></a><b>dellAssociationMembers</b></p><p><a name="1054219"></a>List of dellAssociationObjectMembers that belong to this Product. This attribute is the backward link to the dellProductMembers Linked attribute.</p><p><a name="1054220"></a>Link ID: 12071</p></td><td valign="top" align="left"><p><a name="1054222"></a>1.2.840.113556.1.8000.1280.1.1.2.14</p><p><a name="1054223"></a>Distinguished Name (LDAPTYPE_DN 1.3.6.1.4.1.1466.115.121.1.12)</p></td><td valign="top" align="left"><p><a name="1054225"></a>FALSE</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054332"></a>
+<p><p class="FigureTableTitle"><a name="1054233"></a>Table 8-13.&#32; RAC-specific Attributes Added to the Active Directory Schema&nbsp;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054239"> </a>
+<p><b>Attribute Name/Description</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054241"> </a>
+<p><b>Assigned OID/Syntax Object Identifier</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054243"> </a>
+<p><b>Single Valued</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054245"></a><b>dellIsLoginUser</b></p><p><a name="1054246"></a>TRUE if the User has Login rights on the device.</p></td><td valign="top" align="left"><p><a name="1054248"></a>1.2.840.113556.1.8000.1280.1.1.2.3</p><p><a name="1054249"></a>Boolean (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054251"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054253"></a><b>dellIsCardConfigAdmin</b></p><p><a name="1054254"></a>TRUE if the User has Card Configuration rights on the device.</p></td><td valign="top" align="left"><p><a name="1054256"></a>1.2.840.113556.1.8000.1280.1.1.2.4</p><p><a name="1054257"></a>Boolean (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054259"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054261"></a><b>dellIsUserConfigAdmin</b></p><p><a name="1054262"></a>TRUE if the User has User Configuration rights on the device.</p></td><td valign="top" align="left"><p><a name="1054264"></a>1.2.840.113556.1.8000.1280.1.1.2.5</p><p><a name="1054265"></a>Boolean (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054267"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054269"></a><b>delIsLogClearAdmin</b></p><p><a name="1054270"></a>TRUE if the User has Log Clearing rights on the device.</p></td><td valign="top" align="left"><p><a name="1054272"></a>1.2.840.113556.1.8000.1280.1.1.2.6</p><p><a name="1054273"></a>Boolean (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054275"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054277"></a><b>dellIsServerResetUser</b></p><p><a name="1054278"></a>TRUE if the User has Server Reset rights on the device.</p></td><td valign="top" align="left"><p><a name="1054280"></a>1.2.840.113556.1.8000.1280.1.1.2.7</p><p><a name="1054281"></a>Boolean (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054283"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054285"></a><b>dellIsConsoleRedirectUser</b></p><p><a name="1054286"></a>TRUE if the User has Console Redirection rights on the device.</p></td><td valign="top" align="left"><p><a name="1054288"></a>1.2.840.113556.1.8000.1280.1.1.2.8</p><p><a name="1054289"></a>Boolean (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054291"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054293"></a><b>dellIsVirtualMediaUser</b></p><p><a name="1054294"></a>TRUE if the User has Virtual Media rights on the device.</p></td><td valign="top" align="left"><p><a name="1054296"></a>1.2.840.113556.1.8000.1280.1.1.2.9</p><p><a name="1054297"></a>Boolean (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054299"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054301"></a><b>dellIsTestAlertUser</b></p><p><a name="1054302"></a>TRUE if the User has Test Alert User rights on the device.</p></td><td valign="top" align="left"><p><a name="1054304"></a>1.2.840.113556.1.8000.1280.1.1.2.10</p><p><a name="1054305"></a>Boolean (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054307"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054309"></a><b>dellIsDebugCommandAdmin</b></p><p><a name="1054310"></a>TRUE if the User has Debug Command Administrator rights on the&nbsp;device.</p></td><td valign="top" align="left"><p><a name="1054312"></a>1.2.840.113556.1.8000.1280.1.1.2.11</p><p><a name="1054313"></a>Boolean (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054315"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054317"></a><b>dellSchemaVersion</b></p><p><a name="1054318"></a>The Current Schema Version is used to update the schema.</p></td><td valign="top" align="left"><p><a name="1054320"></a>1.2.840.113556.1.8000.1280.1.1.2.12</p><p><a name="1054321"></a>Case Ignore String<br>(LDAPTYPE_CASEIGNORESTRING<br>1.2.840.113556.1.4.905)</p></td><td valign="top" align="left"><p><a name="1054323"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054325"></a><b>dellRacType</b></p><p><a name="1054326"></a>This attribute is the Current Rac Type for the dellRacDevice object and the backward link to the dellAssociationObjectMembers forward link.</p></td><td valign="top" align="left"><p><a name="1054328"></a>1.2.840.113556.1.8000.1280.1.1.2.13</p><p><a name="1054329"></a>Case Ignore String<br>(LDAPTYPE_CASEIGNORESTRING<br>1.2.840.113556.1.4.905)</p></td><td valign="top" align="left"><p><a name="1054331"></a>TRUE</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054374"></a>
+<p><p class="FigureTableTitle"><a name="1054339"></a>Table 8-14.&#32; Server Administrator-Specific Attributes Added to the Active Directory Schema&nbsp;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054345"> </a>
+<p><b>Attribute Name/Description</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054347"> </a>
+<p><b>Assigned OID/Syntax Object Identifier</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054349"> </a>
+<p><b>Single Valued</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054351"></a><b>dellOMSAIsReadOnlyUser</b></p><p><a name="1054352"></a>TRUE if the User has Read-Only rights in Server&nbsp;Administrator</p></td><td valign="top" align="left"><p><a name="1054354"></a>1.2.840.113556.1.8000.1280.1.2.2.1</p><p><a name="1054355"></a>Boolean (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054357"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054359"></a><b>dellOMSAIsReadWriteUser</b></p><p><a name="1054360"></a>TRUE if the User has Read-Write rights in Server Administrator</p></td><td valign="top" align="left"><p><a name="1054362"></a>1.2.840.113556.1.8000.1280.1.2.2.2</p><p><a name="1054363"></a>Boolean (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054365"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054367"></a><b>dellOMSAIsAdminUser</b></p><p><a name="1054368"></a>TRUE if the User has Administrator rights in Server Administrator</p></td><td valign="top" align="left"><p><a name="1054370"></a>1.2.840.113556.1.8000.1280.1.2.2.3</p><p><a name="1054371"></a>Boolean (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054373"></a>TRUE</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054413"></a>
+<p><p class="FigureTableTitle"><a name="1054378"></a>Table 8-15.&#32; IT Assistant-Specific Attributes Added to the Active Directory Schema</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054384"> </a>
+<p><b>Attribute Name/Description</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054386"> </a>
+<p><b>Assigned OID/Syntax Object Identifier</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054388"> </a>
+<p><b>Single Valued</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054390"></a><b>dellItaIsReadWriteUser</b></p><p><a name="1054391"></a>TRUE if the User has Read-Write rights in IT&nbsp;Assistant</p></td><td valign="top" align="left"><p><a name="1054393"></a>1.2.840.113556.1.8000.1280.1.3.2.1</p><p><a name="1054394"></a>Boolean (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054396"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054398"></a><b>dellItaIsAdminUser</b></p><p><a name="1054399"></a>TRUE if the User has Administrator rights in IT&nbsp;Assistant</p></td><td valign="top" align="left"><p><a name="1054401"></a>1.2.840.113556.1.8000.1280.1.3.2.2</p><p><a name="1054402"></a>Boolean (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054404"></a>TRUE</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054406"></a><b>dellItaIsReadOnlyUser</b></p><p><a name="1054407"></a>TRUE if the User has Read-Only rights in IT&nbsp;Assistant</p></td><td valign="top" align="left"><p><a name="1054409"></a>1.2.840.113556.1.8000.1280.1.3.2.3</p><p><a name="1054410"></a>Boolean (LDAPTYPE_BOOLEAN 1.3.6.1.4.1.1466.115.121.1.7)</p></td><td valign="top" align="left"><p><a name="1054412"></a>TRUE</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054416"></a><h3> Active Directory Users and Computers Snap-In
+</h3>
+<a name="1055982"></a><h4> Installing the Dell Extension to the Active Directory Users and Computers Snap-In</h4>
+<a name="1054417"></a><p>When you extend the schema in Active Directory, you must also extend the Active Directory Users and Computers snap-in so that the administrator can manage Products, Users and User Groups, Associations, and Privileges. You only need to extend the snap-in once, even if you have added more than one schema extension. You must install the snap-in on each system that you intend to use for managing these objects. The Dell Extension to the Active Directory Users and Computers Snap-In is an option that can be installed when you install your systems management software using the <i>Dell PowerEdge Installation and Server Management</i> CD. </p>
+<a name="1054424"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>You must install the Administrator Pack on each management station that is managing the new Active 
+Directory objects. The installation is described in the following section, "<a href="mad.htm#1054434">Opening the Active Directory Users and 
+Computers Snap-In</a>." If you do not install the Administrator Pack, then you cannot view the new object in 
+the&nbsp;container.
+</td>
+  </tr>
+</table><a name="1054432"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>For more information about the Active Directory Users and Computers snap-in, see your 
+Microsoft&nbsp;documentation.
+</td>
+  </tr>
+</table><a name="1054434"></a><h4> Opening the Active Directory Users and Computers Snap-In</h4>
+<a name="1054435"></a><p>To open the Active Directory Users and Computers snap-in, perform the following steps:</p>
+<ol type="1">
+
+<li value="1"><a name="1054436"></a>If you are on the domain controller, click <b>Start</b> <b>Admin Tools</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b>&nbsp; Active Directory Users and 
+Computers</b>. If you are not on the domain controller, you must have the appropriate Microsoft 
+administrator pack installed on your local system. To install this administrator pack, click <b>Start</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b>
+</b>&nbsp;<b>Run</b>, 
+type <span class="screen">MMC</span> and press&nbsp;<b>Enter</b>.
+<br><br>
+</ol>
+<a name="1054437"></a><p class="indent">The Microsoft Management Console (MMC) window opens.</p>
+<ol type="1">
+
+<li value="2"><a name="1054438"></a>Click <b>File</b> (or <b>Console</b> on systems running Windows 2000) in the <b>Console 1</b> window.
+<br><br>
+
+<li value="3"><a name="1054439"></a>Click <b>Add/Remove Snap-in</b>.
+<br><br>
+
+<li value="4"><a name="1054440"></a>Select the <b>Active Directory Users and Computers</b> snap-in and click <b>Add</b>.
+<br><br>
+
+<li value="5"><a name="1054441"></a>Click <b>Close</b> and click <b>OK</b>.
+<br><br>
+</ol>
+<a name="1054443"></a><h3> Adding Users and Privileges to Active Directory
+</h3>
+<a name="1054445"></a><p>The Dell-extended Active Directory Users and Computers snap-in allows you to add DRAC, Server Administrator, and IT Assistant users and privileges by creating RAC, Association, and Privilege objects. To add an object, perform the steps in the applicable subsection.</p>
+<a name="1054446"></a><h4> Creating a Product Object</h4>
+<a name="1054451"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>Server Administrator and IT Assistant users must use Universal-type Product Groups to span domains with 
+their product objects.
+</td>
+  </tr>
+</table><a name="1060590"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>When adding Universal-type Product Groups from separate domains, you have to create an Association 
+object with Universal scope. The default Association objects created by the Dell Schema Extender utility are 
+domain Local Groups and will not work with Universal-type Product Groups from other domains.
+</td>
+  </tr>
+</table><a name="1054453"></a><p>In the <b>Console Root</b> (MMC) window, right-click a container.</p>
+<ol type="1">
+
+<li value="1"><a name="1054454"></a>Select <b>New</b>.
+<br><br>
+
+<li value="2"><a name="1054456"></a>Select a RAC, Server Administrator, or IT Assistant object, depending on which you have installed.
+<br><br>
+</ol>
+<a name="1054457"></a><p class="indent">The <b>New Object</b> window opens.</p>
+<ol type="1">
+
+<li value="3"><a name="1054458"></a>Type in a name for the new object. This name must match the <b>Active Directory product name </b>as 
+discussed in "<a href="mad.htm#1054634">Configuring Active Directory Using CLI on Systems Running Server Administrator</a>", or 
+for a RAC device, the name that you will type in step 4 of "<a href="mad.htm#1054611">Configuring Your Systems or Devices</a>", or 
+for IT Assistant, the name discussed in "<a href="mad.htm#1054676">Configuring Active Directory on Systems Running IT 
+Assistant</a>."
+<br><br>
+
+<li value="4"><a name="1054468"></a>Select the appropriate <b>Product Object</b>.
+<br><br>
+
+<li value="5"><a name="1054469"></a>Click <b>OK</b>.
+<br><br>
+</ol>
+<a name="1054470"></a><h4> Creating a Privilege Object</h4>
+<a name="1054471"></a><p>Privilege Objects must be created in the same domain as the Association Object to which they are&nbsp;associated.</p>
+<ol type="1">
+
+<li value="1"><a name="1054472"></a>In the <b>Console Root</b> (MMC) window, right-click a container.
+<br><br>
+
+<li value="2"><a name="1054473"></a>Select <b>New</b>.
+<br><br>
+
+<li value="3"><a name="1054474"></a>Select a RAC, Server Administrator, or IT Assistant object, depending on which you have installed.
+<br><br>
+</ol>
+<a name="1054475"></a><p class="indent">The <b>New Object</b> window opens.</p>
+<ol type="1">
+
+<li value="4"><a name="1054476"></a>Type in a name for the new object.
+<br><br>
+
+<li value="5"><a name="1054477"></a>Select the appropriate <b>Privilege Object</b>.
+<br><br>
+
+<li value="6"><a name="1054478"></a>Click <b>OK</b>.
+<br><br>
+
+<li value="7"><a name="1054479"></a>Right-click the privilege object that you created and select <b>Properties</b>.
+<br><br>
+
+<li value="8"><a name="1054480"></a>Click the appropriate<b> Privileges</b> tab and select the privileges that you want the user to have (for more 
+information, see <a href="mad.htm#1053811">Table&nbsp;8-1</a> and <a href="mad.htm#1054127">Table&nbsp;8-10</a>).
+<br><br>
+</ol>
+<a name="1054490"></a><h4> Creating an Association Object</h4>
+<a name="1054493"></a><p>The Association Object is derived from a Group and must contain a group Type. The Association Scope specifies the Security Group Type for the Association Object. When you create an Association Object, you must choose the Association Scope that applies to the type of objects you intend to add. Selecting <b>Universal</b>, for example, means that Association Objects are only available when the Active Directory Domain is functioning in Native Mode or above. </p>
+<ol type="1">
+
+<li value="1"><a name="1054496"></a>In the <b>Console Root</b> (MMC) window, right-click a container.
+<br><br>
+
+<li value="2"><a name="1054497"></a>Select <b>New</b>.
+<br><br>
+
+<li value="3"><a name="1054499"></a>Select a RAC, Server Administrator, or IT Assistant object, depending on which you have installed.
+<br><br>
+</ol>
+<a name="1054500"></a><p class="indent">The <b>New Object</b> window opens.</p>
+<ol type="1">
+
+<li value="4"><a name="1054501"></a>Type in a name for the new object.
+<br><br>
+
+<li value="5"><a name="1054502"></a>Select <b>Association Object</b>.
+<br><br>
+
+<li value="6"><a name="1054504"></a>Select the scope for the <b>Association Object</b>.
+<br><br>
+
+<li value="7"><a name="1054505"></a>Click <b>OK</b>.
+<br><br>
+</ol>
+<a name="1054506"></a><h4> Adding Objects to an Association Object</h4>
+<a name="1054507"></a><p>By using the <b>Association Object Properties</b> window, you can associate users or user groups, privilege objects, systems, RAC devices, and system or device groups.</p>
+<a name="1054513"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>RAC users must use Universal Groups to span domains with their users or RAC objects.
+</td>
+  </tr>
+</table><a name="1054514"></a><p>You can add groups of Users and Products. You can create Dell-related groups in the same way that you created other groups.</p>
+<a name="1054515"></a><p>To add Users or User Groups:</p>
+<ol type="1">
+
+<li value="1"><a name="1054516"></a>Right-click the <b>Association Object</b> and select <b>Properties</b>.
+<br><br>
+
+<li value="2"><a name="1054517"></a>Select the <b>Users</b> tab and click <b>Add</b>.
+<br><br>
+
+<li value="3"><a name="1054518"></a>Type the User or User Group name or browse to select one and click <b>OK</b>.
+<br><br>
+</ol>
+<a name="1054520"></a><p>Click the <b>Privilege Object</b> tab to add the privilege object to the association that defines the user's or user group's privileges when authenticating to a system.</p>
+<a name="1054526"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>You can add only one Privilege Object to an association object.
+</td>
+  </tr>
+</table><a name="1054527"></a><p>To add a privilege:</p>
+<ol type="1">
+
+<li value="1"><a name="1054528"></a>Select the <b>Privileges Object</b> tab and click <b>Add</b>.
+<br><br>
+
+<li value="2"><a name="1054529"></a>Type the Privilege Object name or browse for one and click <b>OK</b>.
+<br><br>
+</ol>
+<a name="1054530"></a><p>Click the <b>Products</b> tab to add one or more systems or devices to the association. The associated objects specify the products connected to the network that are available for the defined users or user groups.</p>
+<a name="1054535"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>You can add multiple systems or RAC devices to an Association Object.
+</td>
+  </tr>
+</table><a name="1054536"></a><p>To add Products:</p>
+<ol type="1">
+
+<li value="1"><a name="1054537"></a>Select the <b>Products</b> tab and click <b>Add.
+</b><br><br>
+
+<li value="2"><a name="1054538"></a>Type the system, device, or group name and click <b>OK</b>.
+<br><br>
+
+<li value="3"><a name="1054539"></a>In the <b>Properties</b> window, click <b>Apply</b> and then <b>OK</b>.
+<br><br>
+</ol>
+<a name="1054543"></a><h4> Enabling SSL on a Domain Controller (RAC Only)</h4>
+<a name="1054545"></a><p>If you plan to use Microsoft Enterprise Root CA to automatically assign all your domain controllers SSL&nbsp;certificates, you must perform the following steps to enable SSL on each domain controller. 	 </p>
+<ol type="1">
+
+<li value="1"><a name="1054546"></a>Install a Microsoft Enterprise Root CA on a Domain Controller. 
+<br><br>
+  <ol type="a">
+
+<li value="1"><a name="1054547"></a>Select <b>Start</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b>
+</b>&nbsp;<b>Control Panel</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b>&nbsp; Add or Remove Programs</b>. 
+<br><br>
+  </ol>
+  <ol type="a">
+
+<li value="2"><a name="1054548"></a>Select <b>Add/Remove Windows Components</b>. 
+<br><br>
+
+<li value="3"><a name="1054549"></a>In the <b>Windows Components Wizard</b>, select the <b>Certificate Services </b>check box.
+<br><br>
+
+<li value="4"><a name="1054550"></a>Select <b>Enterprise root CA</b> as <b>CA Type </b>and click <b>Next</b>.
+<br><br>
+
+<li value="5"><a name="1054551"></a>Enter <b>Common name for this CA</b>, click <b>Next</b>, and click <b>Finish</b>.
+<br><br>
+  </ol>
+
+<li value="2"><a name="1054553"></a>	 Enable SSL on each of your domain controllers by installing the SSL certificate for each&nbsp;controller. 
+<br><br>
+  <ol type="a">
+
+<li value="1"><a name="1054554"></a>Click <b>Start</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b>&nbsp; Administrative Tools</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b>&nbsp; Domain Security Policy</b>. 
+<br><br>
+  </ol>
+  <ol type="a">
+
+<li value="2"><a name="1054555"></a>Expand the <b>Public Key Policies </b>folder, right-click <b>Automatic Certificate Request Settings </b>and 
+click <b>Automatic Certificate Request</b>.
+<br><br>
+
+<li value="3"><a name="1054556"></a>In the <b>Automatic Certificate Request Setup Wizard</b>, click <b>Next</b> and select <b>Domain&nbsp;Controller</b>.
+<br><br>
+
+<li value="4"><a name="1054557"></a>Click <b>Next</b> and click <b>Finish</b>.
+<br><br>
+  </ol>
+</ol>
+<a name="1054559"></a><h4> Exporting the Domain Controller Root CA Certificate (RAC Only)</h4>
+<a name="1054564"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>The following steps may vary slightly if you are using Windows 2000.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1054565"></a>	 Go to the domain controller on which you installed the Microsoft Enterprise CA service.
+<br><br>
+
+<li value="2"><a name="1054566"></a>Click <b>Start</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b>&nbsp; Run</b>.
+<br><br>
+
+<li value="3"><a name="1054568"></a>Type <span class="screen">mmc</span> and click <b>OK</b>.
+<br><br>
+
+<li value="4"><a name="1054570"></a>In the <b>Console 1 </b>(MMC) window, click <b>File (or Console on Windows 2000 systems) </b>and select 
+<b>Add/Remove Snap-in</b>.
+<br><br>
+
+<li value="5"><a name="1054571"></a>In the <b>Add/Remove Snap-in</b> window, click <b>Add</b>.
+<br><br>
+
+<li value="6"><a name="1054572"></a>In the <b>Standalone Snap-in</b> window, select <b>Certificates</b> and click <b>Add</b>.
+<br><br>
+
+<li value="7"><a name="1054573"></a>Select <b>Computer</b> account and click <b>Next</b>.
+<br><br>
+
+<li value="8"><a name="1054574"></a>Select <b>Local Computer </b>and click <b>Finish</b>.
+<br><br>
+
+<li value="9"><a name="1054575"></a>Click <b>OK</b>.
+<br><br>
+
+<li value="10"><a name="1054576"></a>In the <b>Console 1 </b>window, expand the <b>Certificates </b>folder, expand the <b>Personal</b> folder, and click the 
+<b>Certificates</b> folder.
+<br><br>
+
+<li value="11"><a name="1054577"></a>Locate and right-click the root CA certificate, select <b>All Tasks</b>, and click <b>Export</b>.
+<br><br>
+
+<li value="12"><a name="1054578"></a>In the <b>Certificate Export Wizard</b>, click <b>Next</b> and select <b>No do not export the private key</b>.
+<br><br>
+
+<li value="13"><a name="1054579"></a>Click <b>Next</b> and select <b>Base-64 encoded X.509 (.cer)</b> as the format.
+<br><br>
+
+<li value="14"><a name="1054580"></a>Click <b>Next</b> and save the certificate to a location of your choice. You will need to upload this certificate 
+to the DRAC 4. To do this, go to the <b>DRAC 4 Web-based interface</b><b>&rarr;</b><b> Configuration tab</b><b>&rarr;</b><b> Active 
+Directory page</b>. Or, you can use the <b>racadm</b> CLI commands (see "<a href="mad.htm#1054713">Configuring the DRAC 4 Active 
+Directory Settings Using the racadm CLI</a>"). 
+<br><br>
+
+<li value="15"><a name="1054585"></a>Click <b>Finish</b> and click <b>OK</b>.
+<br><br>
+</ol>
+<a name="1054588"></a><h4> Importing the DRAC 4 Firmware SSL Certificate to All Domain Controllers' Trusted Certificate Lists</h4>
+<a name="1054593"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>If the DRAC 4 firmware SSL certificate is signed by a well-known CA, you do not need to perform the steps 
+described in this section.
+</td>
+  </tr>
+</table><a name="1054598"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>The following steps may vary slightly if you are using Windows 2000.
+</td>
+  </tr>
+</table><ol type="1">
+
+<li value="1"><a name="1054600"></a>The DRAC 4 SSL certificate is the same certificate that is used for the DRAC 4 Web server. All DRAC 4 
+controllers are shipped with a default self-signed certificate. You can get this certificate from the 
+DRAC 4 by selecting <b>Download DRAC 4 Server Certificate </b>(see the DRAC 4 Web-based interface 
+<b>Configuration</b> tab and the <b>Active Directory</b> subtab).	 
+<br><br>
+
+<li value="2"><a name="1054601"></a>On the domain controller, open an <b>MMC Console </b>window and select <b>Certificates</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b>&nbsp;Trusted Root 
+Certification Authorities</b>.
+<br><br>
+
+<li value="3"><a name="1054602"></a>Right-click <b>Certificates</b>, select <b>All Tasks</b> and click <b>Import</b>.
+<br><br>
+
+<li value="4"><a name="1054603"></a>Click <b>Next</b> and browse to the SSL certificate file. 
+<br><br>
+
+<li value="5"><a name="1054604"></a>Install the RAC SSL Certificate in each domain controller's <b>Trusted Root Certification&nbsp;Authority</b>. 
+<br><br>
+</ol>
+<a name="1054607"></a><p class="indent">If you have installed your own certificate, ensure that the CA signing your certificate is in the <b>Trusted&nbsp;Root Certification Authority </b>list. If the CA is not in the list, you must install it on all your Domain Controllers.</p>
+<ol type="1">
+
+<li value="6"><a name="1054608"></a>Click <b>Next</b> and select whether you would like Windows to automatically select the certificate store 
+based on the type of certificate, or browse to a store of your choice.
+<br><br>
+
+<li value="7"><a name="1054609"></a>Click <b>Finish</b> and click <b>OK</b>.
+<br><br>
+</ol>
+<a name="1054611"></a><h3> Configuring Your Systems or Devices
+</h3>
+<a name="1054612"></a><p>For instructions on how to configure your Server Administrator or IT Assistant systems using CLI commands, see "<a href="mad.htm#1054634">Configuring Active Directory Using CLI on Systems Running Server Administrator</a>" and "<a href="mad.htm#1054676">Configuring Active Directory on Systems Running IT Assistant</a>." For DRAC users, there are two ways to configure DRAC 4. See either "<a href="mad.htm#1054692">Configuring the DRAC 4 Using the Web-Based Interface</a>" or "<a href="mad.htm#1054713">Configuring the DRAC 4 Active Directory Settings Using the racadm CLI</a>."</p>
+<a name="1054631"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>The systems on which Server Administrator and/or IT Assistant are installed must be a part of the Active 
+Directory domain and should also have computer accounts on the domain.
+</td>
+  </tr>
+</table><a name="1054634"></a><h4> Configuring Active Directory Using CLI on Systems Running Server Administrator </h4>
+<a name="1054636"></a><p>You can use the <b>omconfig preferences dirservice</b> command to configure the Active Directory service. The productoem.ini file is modified to reflect these changes. If the <b>adproductname</b> is not present in the product<b>oem.ini </b>file, a default name will be assigned. The default value will be system name-software-product name, where system name<i> </i>is the name of the system running Server Administrator, and software-product name refers to the name of the software product defined in <b>omprv32.ini (that is, </b>computerName<b>-omsa)</b>.</p>
+<a name="1054642"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>This command is applicable only on systems running the Windows operating system.
+</td>
+  </tr>
+</table><a name="1054647"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>Restart the Server Administrator service after you have configured Active Directory.
+</td>
+  </tr>
+</table><a name="1054648"></a><p><a href="mad.htm#1054652">Table&nbsp;8-16</a> shows the valid parameters for the command.</p>
+<a name="1054673"></a>
+<p><p class="FigureTableTitle"><a name="1054652"></a>Table 8-16.&#32; Active Directory Service Configuration Parameters</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054656"> </a>
+<p><b>name=value pair</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054658"> </a>
+<p><b>Description</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054661"></a>prodname=&lt;text&gt;</p></td><td valign="top" align="left"><p><a name="1054663"></a>Specifies the software product to which you want to apply the Active Directory configuration changes. <i>Prodname</i><b> </b>refers to the name of the product defined in <b>omprv32.ini</b>. For Server Administrator, it is <i>omsa</i>.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054665"></a>enable=&lt;true | false&gt;</p></td><td valign="top" align="left"><p><a name="1054667"></a><b>true:</b> Enables Active Directory service authentication support.</p><p><a name="1054668"></a><b>false:</b> Disables Active Directory service authentication support</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054670"></a>adprodname=&lt;text&gt;</p></td><td valign="top" align="left"><p><a name="1054672"></a>Specifies the name of the product as defined in the Active Directory service. This name links the product with the Active Directory privilege data for user authentication.</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054676"></a><h4> Configuring Active Directory on Systems Running IT Assistant</h4>
+<a name="1054677"></a><p>By default, the Active Directory product name corresponds to the <i>machinename</i>-ita, where <i>machinename</i> is the name of the system on which IT Assistant is installed. To configure a different name, locate the <b>itaoem.ini</b> file in your installation directory. Edit the file to add the line "adproductname=<i>text</i>" where <i>text</i> is the name of the product object that you created in Active Directory. For example, the <b>itaoem.ini </b>file will contain the following syntax if the Active Directory product name is configured to <b>mgmtStationITA</b>. </p>
+<a name="1054678"></a>
+<p class="screenindent">productname=IT Assistant<br>
+startmenu=Dell OpenManage Applications<br>
+autdbid=ita<br>
+accessmask=3<br>
+startlink=ITAUIServlet<br>
+adsupport=true<br>
+adproductname=mgmtStationITA
+</p>
+<a name="1054689"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">NOTE: </span>Restart the IT Assistant services after saving the <b>itaoem.ini</b> file to the disk.
+</td>
+  </tr>
+</table><a name="1054692"></a><h4> Configuring the DRAC 4 Using the Web-Based Interface</h4>
+<ol type="1">
+
+<li value="1"><a name="1054693"></a>	 Log in to the Web-based interface using the default user, root, and its password.
+<br><br>
+
+<li value="2"><a name="1054694"></a>Click the <b>Configuration</b> tab and select the <b>Active Directory</b>. 
+<br><br>
+
+<li value="3"><a name="1054695"></a>Select the <b>Enable Active Directory </b>check box.
+<br><br>
+
+<li value="4"><a name="1054696"></a>Type the <b>DRAC 4 Name</b>. This name must be the same as the common name of the RAC&nbsp;object you 
+created in your Domain Controller (see "<a href="mad.htm#1055982">Installing the Dell Extension to the Active Directory Users 
+and Computers Snap-In</a>").
+<br><br>
+
+<li value="5"><a name="1054700"></a>Type the <b>Root Domain Name</b>. The <b>Root Domain Name</b> is the fully qualified root domain name for 
+the forest.
+<br><br>
+
+<li value="6"><a name="1054701"></a>Type the <b>DRAC 4 Domain Name</b> (for example, <span class="screen">drac4.com</span>). Do not use the NetBIOS&nbsp;name. The 
+<b>DRAC 4 Domain Name </b>is the fully qualified domain name of the subdomain where the RAC Device 
+Object is located.
+<br><br>
+
+<li value="7"><a name="1054702"></a>Click <b>Apply</b> to save the Active Directory settings.
+<br><br>
+
+<li value="8"><a name="1054704"></a>Click <b>Upload Active Directory CA Certificat</b>e to upload your domain forest Root CA certificate into 
+the DRAC 4. Your domain forest domain controllers' SSL certificates need to have signed this root CA 
+certificate. Have the root CA certificate available on your local system (see "<a href="mad.htm#1054559">Exporting the Domain 
+Controller Root CA Certificate (RAC Only)</a>"). Specify the full path and filename of the root CA 
+certificate and click <b>Upload</b> to upload the root CA&nbsp;certificate to the DRAC 4 firmware. The DRAC 4 
+Web server automatically restarts after you click <b>Upload</b>. You must log in again to complete the DRAC 4 
+Active Directory feature&nbsp;configuration.
+<br><br>
+
+<li value="9"><a name="1054708"></a>Click the <b>Configuration</b> tab and select <b>Network</b>.
+<br><br>
+
+<li value="10"><a name="1054710"></a>	 If <b>DRAC 4 NIC DHCP</b> is enabled, place a check next to <b>Use DHCP to obtain DNS server address</b>. 
+If&nbsp;you want to input a DNS server IP address manually, remove the check next to <b>Use DHCP to obtain 
+DNS server address</b> and input your primary and alternate DNS Server IP&nbsp;addresses.
+<br><br>
+
+<li value="11"><a name="1054711"></a>Click <b>Apply</b> to complete the DRAC 4 Active Directory feature configuration.
+<br><br>
+</ol>
+<a name="1054713"></a><h4> Configuring the DRAC 4 Active Directory Settings Using the racadm CLI</h4>
+<a name="1054714"></a><p>Using the following commands to configure the DRAC 4 Active Directory feature using the racadm CLI instead of the Web-based interface.</p>
+<ol type="1">
+
+<li value="1"><a name="1054716"></a>Open a command prompt and type the following racadm commands:
+<br><br>
+</ol>
+<a name="1054717"></a><p class="indent"><span class="screen">racadm config -g cfgActiveDirectory -o cfgADEnable 1<br>racadm config -g cfgActiveDirectory -o cfgADRacDomain &lt;</span><span class="screen"><i>fully qualified rac domain name</i></span><span class="screen">&gt;<br>racadm config -g cfgActiveDirectory -o cfgADRootDomain &lt;</span><span class="screen"><i>fully qualified root domain name</i></span><span class="screen">&gt;<br>racadm config -g cfgActiveDirectory -o cfgADRacName &lt;</span><span class="screen"><i>RAC common name</i></span><span class="screen">&gt;<br>racadm sslcertupload -t 0x2 -f &lt;</span><span class="screen"><i>ADS root CA certificate</i></span><span class="screen">&gt;<br>racadm sslcertdownload -t 0x1 -f &lt;</span><span class="screen"><i>RAC SSL certificate</i></span><span class="screen">&gt;</span></p>
+<ol type="1">
+
+<li value="2"><a name="1054724"></a>If DHCP is enabled on the DRAC 4 and you want to use the DNS provided by the DHCP server, type 
+the following:
+<br><br>
+</ol>
+<a name="1054725"></a><p class="indent"><span class="screen">racadm config -g cfgLanNetworking -o cfgDNSServersFromDHCP 1</span></p>
+<ol type="1">
+
+<li value="3"><a name="1054726"></a>If DHCP is disabled on the DRAC 4, or you want manually to input your DNS IP address, type the 
+following commands:
+<br><br>
+</ol>
+<a name="1054727"></a><p class="indent"><span class="screen">racadm config -g cfgLanNetworking -o cfgDNSServersFromDHCP 0<br>racadm config -g cfgLanNetworking -o cfgDNSServer1 &lt;</span><span class="screen"><i>primary DNS IP address</i></span><span class="screen">&gt;<br>racadm config -g cfgLanNetworking -o cfgDNSServer2 </span><span class="screen"><i>&lt;secondary DNS IP address&gt;</i></span></p>
+<ol type="1">
+
+<li value="4"><a name="1054730"></a>Press <b>Enter</b> to complete the DRAC 4 Active Directory feature configuration.
+<br><br>
+</ol>
+<a name="1054731"></a><p>See the <i>Dell Remote Access Controller 4 User's Guide</i> for more information.</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">Back to Contents Page</a></p>
+
+
+<p>&nbsp;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

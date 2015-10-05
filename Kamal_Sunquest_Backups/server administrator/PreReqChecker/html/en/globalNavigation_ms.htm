@@ -1,0 +1,110 @@
+<!-- Content Description:  the bottom frame for globalNavigation.htm. -->
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+
+<script language="javascript" src="../js/globalNavigation.js"></script>
+
+<script language="JavaScript">
+<!--
+	function checkforenter(event, message)
+	{
+		var keycode = 0;
+
+		keycode = event.keyCode;
+		if ( keycode == 13 )
+		{
+			if ( message == "loadQIGpage" )
+			{
+				loadQIGpage();
+			}
+			else if  ( message == "loadInfoMSpage" )
+			{
+				loadInfoMSpage();
+			}
+			else if  ( message == "exitSysMgmtCD" )
+			{
+				exitSysMgmtCD();
+			}
+		}
+	}
+-->
+</script>
+
+<HTML>
+
+<HEAD>
+<TITLE>DSA Logo</TITLE>
+<link href="../oma.css" type="text/css" rel="stylesheet">
+
+</HEAD>
+<BODY background="../images/gnavbg.gif"  tabindex="-1">
+
+<table cellpadding="0" cellspacing="0" width="100%" border="0">
+<tr><td>
+
+<table cellpadding="0" cellspacing="0" width="100%" border="0">
+<tr>
+<td class="gnavbar-menu-item" valign="middle" align="left" id="productName">
+
+<!-- DO NOT TRANSLATE THE FOLLOWING LINE -->
+<a class="global-nav-bar-item" id="do_not_translate">&nbsp;&nbsp;Dell&nbsp;OpenManage Management Station Version 5.0.0</a>
+
+
+</td>
+<td valign="middle" align="right">
+
+<table cellpadding="0" cellspacing="0" width="100%" border="0">
+<tr>
+
+<td id="quickContact" class="gnavbar-menu-item" valign="middle" align="center" nowrap="true">
+&nbsp;
+<a class="global-nav-bar-item" href="#"
+	onmousedown="javascript:loadQIGpage()"
+	onKeyPress='checkforenter(event, "loadQIGpage")'
+	tabindex="1"
+	 id="qig_link">Quick Install Guide</a>
+	&nbsp;
+</td>
+
+<td id="quickContactBar" valign="middle" align="left" style="width: 6px;">
+<img style="height: 23px; width: 6px" src="../images/gnavsp.gif">
+</td>
+
+<td id="contact" class="gnavbar-menu-item" valign="middle" align="center" nowrap="true">
+&nbsp;
+<a class="global-nav-bar-item" href="#"
+	onmousedown="javascript:loadInfoMSpage()"
+	onKeyPress='checkforenter(event, "loadInfoMSpage")'
+	tabindex="2"
+	id="documentation_link">User Guide</a>&nbsp;
+</td>
+
+<td id="contactBar" valign="middle" align="left" style="width: 6px;">
+<img style="height: 23px; width: 6px" src="../images/gnavsp.gif">
+</td>
+
+<td id="exit" class="gnavbar-menu-item" valign="middle" align="center" nowrap="true">
+&nbsp;
+	<a class="global-nav-bar-item" href="#"
+	onmousedown="javascript:exitSysMgmtCD()"
+	onKeyPress='checkforenter(event, "exitSysMgmtCD")'
+	tabindex="3"
+	id="exit_link">Exit</a>&nbsp;
+</td>
+
+<td id="exitBar" valign="middle" align="left" style="width: 6px;" tabindex="-1">
+<img style="height: 23px; width: 6px" src="../images/gnavsp_invisible.gif">
+</td>
+
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+</table>
+
+</BODY>
+</HTML>

@@ -1,0 +1,445 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<title>Häufig gestellte Fragen: Dell OpenManage-Version 5.0: Installations- und Sicherheitsbenutzerhandbuch</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">Zurück zum Inhaltsverzeichnis</a> </p>
+<a name="1055187"></a><h1> Häufig gestellte Fragen </h1>
+<p class="title">Dell OpenManage&#8482;-Version 5.0: Installations- und Sicherheitsbenutzerhandbuch</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1055411">Allgemein</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1055947">Microsoft® Windows®</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&nbsp;&nbsp;<a href="#1055753">Red Hat® Enterprise Linux oder SUSE® Linux Enterprise Server</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1055411"></a><h2>Allgemein</h2>
+
+
+<a name="1055979"></a>
+<p><b>Ist die CD </b><i><b>Dell&#8482; PowerEdge&#8482; Installation and Server Management</b></i><b> eine startfähige CD?</b></p>
+<a name="1055194"></a><p>Ja, die CD ist startfähig. Sie startet standardmäßig zum Dell OpenManage&#8482; Server Assistant-Betriebssystem-Setup-Modus. Nachdem die Managed System Software installiert wurde, bekommen Sie die Option vom Betriebssystem zu starten, wenn vorhergehend ein Betriebsystem installiert war. Es wird empfohlen, dass Sie die CD auswerfen, um zu vermeiden, dass im Server Assistant-Setup-Modus gestartet wird.</p>
+<a name="1055197"></a><p><b>Wo kann ich die Schnellinstallationsanleitungen finden?</b></p>
+<a name="1055199"></a><p>Das <i>Schnellinstallationshandbuch</i> wird als eine kleine Broschüre mit dem CD-Kit mitgeliefert. Sie finden das Handbuch außerdem auf der Dell&#8482; Support-Internetseite unter <b>support.dell.com</b> und auf der CD <i>Dell PowerEdge Installation and Server Management </i>unter:</p>
+<a name="1055200"></a><p><b>\srvadmin\docs\language\OpenManage_QIG\QUICK_INSTALL_GUIDE.htm</b></p>
+<a name="1055202"></a><p>wobei Sprache das entsprechende Sprachverzeichnis ist.</p>
+<a name="1055458"></a><p><b>Wie installiert man Dell OpenManage Server Administrator nur mit den CLI-Funktionen?</b></p>
+<a name="1055455"></a><p>Indem Sie wählen, den Server Administrator Web Server nicht zu installieren, erhalten Sie nur CLI-Funktionen.</p>
+<a name="1055540"></a><p><b>Welche Schnittstellen verwenden Dell OpenManage-Anwendungen?</b></p>
+<a name="1055543"></a><p>Der von Server Administrator verwendete sichere Standardanschluss-Server ist 1311. Die Standardschnittstellen, die von Dell OpenManage IT Assistant verwendet werden, sind 2606 (für den Verbindungsdienst) und 2607 (für den Netzwerküberwachungsdienst). Diese Schnittstellen sind konfigurierbar. Weitere Details erhalten Sie unter <a href="security.htm#1064529">Tabelle 2-1</a> in diesem Handbuch.</p>
+<hr noshade size="1">
+<a name="1055947"></a><h2>Microsoft® Windows®</h2>
+
+
+<a name="1068853"></a><p><b>Wie behebe ich eine fehlerhafte Installation von Server Administrator?</b></p>
+<a name="1068854"></a><p>Sie können eine fehlerhafte Installation beheben, indem Sie eine Neuinstallation erzwingen und dann eine Deinstallation von Server Administrator ausführen. Eine Neuinstallation erzwingen:</p>
+<ul><li><a name="1068855"></a>Finden Sie heraus, welche Version von Server Administrator zuvor installiert wurde. <br><br></li>
+<li><a name="1068856"></a>Laden Sie das Installationspaket für diese Version von der Dell Support-Internetseite unter <b>support.dell.com </b>herunter. <br><br></li>
+<li><a name="1068857"></a>Gehen Sie zu <b>SysMgmt.msi</b> im Verzeichnis <b>srvadmin\windows\SystemsManagement </b>und geben Sie folgenden Befehl als Eingabeaufforderung zum Erzwingen einer Neuinstallation ein.<br><br></li>
+</ul><a name="1068858"></a>
+<p class="screenindent">msiexec /i SysMgmt.msi REINSTALL=ALL REINSTALLMODE=vomus
+</p>
+<ul><li><a name="1068859"></a>Wählen Sie <b>Benutzerdefiniertes Setup</b> und alle Funktionen, die ursprünglich installiert wurden. Wenn Sie nicht sicher sind, welche Funktionen installiert waren, wählen Sie sie alle aus und führen Sie die Installation aus. <br><br></li>
+</ul><a name="1068864"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+ANMERKUNG: </span> Wenn Sie Server Administrator nicht in einem Standardverzeichnis installiert haben, stellen Sie sicher, dass Sie dies auch unter <b>Benutzerdefiniertes
+Setup</b> ändern.
+</td>
+  </tr>
+</table>
+<a name="1056113"></a><p>Nachdem die Anwendung installiert ist, kann sie über <b>Software</b> deinstalliert werden.</p>
+<a name="1067948"></a><p><b>Wie führe ich ein unbeaufsichtigtes Upgrade von Dell OpenManage 4.</b><i>x</i><b> (wobei</b><i> x </i><b>&gt;=3) auf Dell OpenManage 5.0 aus?</b></p>
+<a name="1067950"></a><p>Verwenden Sie folgende Befehle für eine Management Station:</p>
+<a name="1068303"></a>
+<p class="screenindent">msiexec/i MgmtSt.msi/qn (für Neuinstallationen oder größere Upgrades. Zum Beispiel, ein Upgrade von Dell OpenManage Version 4.3 auf Version 5.0.)
+</p>
+<a name="1068304"></a>
+<p class="screenindent">msiexec/i MgmtSt.msi REINSTALL=ALL REINSTALLMODE=vomus/qn (für kleinere 
+Upgrades. Zum Beispiel, ein Upgrade von Dell OpenManage Version 4.3 auf Version 4.4.)
+</p>
+<a name="1068305"></a><p>Verwenden Sie für ein Managed System folgende Befehle:</p>
+<a name="1067974"></a>
+<p class="screenindent"><span class="screen">msiexec/i SysMgmt.msi/qn (für Neuinstallationen oder größere Upgrades.</span> Zum Beispiel, ein Upgrade von Dell OpenManage Version 4.3 auf Version 5.0.)
+</p>
+<a name="1068332"></a>
+<p class="screenindent">msiexec/i SysMgmt.msi REINSTALL=ALL REINSTALLMODE=vomus/qn (für kleinere 
+Upgrades. Zum Beispiel, ein Upgrade von Dell OpenManage Version 4.3 auf Version 4.4.)
+</p>
+<a name="1056881"></a><p><b>Wie vermeide ich einen Neustart des Systems, nach einer automatischen (unbeaufsichtigten) Installation/Deinstallation?</b></p>
+<a name="1056882"></a><p>Verwenden Sie den optionalen Befehlszeilenschalter:</p>
+<a name="1056883"></a>
+<p class="screenindent">	 <span class="screen">Reboot=ReallySuppress</span></p>
+<a name="1056884"></a><p>Hier ist eine Beispiel der Management Station:</p>
+<a name="1056885"></a>
+<p class="screenindent">msiexec /i SysMgmt.msi /qb Reboot=ReallySuppress<b></b>
+</p>
+<a name="1056863"></a><p><b>Was ist eine MSP-Service Pack-Datei? </b><b>Sollte ich meine Dell OpenManage 4.3-Version mit der MSP-Datei aktualisieren?</b></p>
+<a name="1067301"></a><p>Eine Microsoft Service Pack-Datei (MSP-Datei) speichert nur die Unterschiede zwischen einer alten Version und einer neuen Version. Sie ist viel kleiner als die Aktualisierungsdatei. Sie können entweder die MSP-Datei oder die neue MSI-Datei verwenden, um Dell OpenManage 4.3 zu aktualisieren. Verwendung der MSP-Datei ist eine gute Idee, das sie effizienter ist. </p>
+<a name="1067335"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">ANMERKUNG: </span>Sie können von der Software-Version Dell OpenManage 4.3 auf 5.0 nur mit einer vollständigen MSI-Installation erweitern. Sie 
+können nicht mit der MSP-Datei aus einem Service Pack erweitern.
+</td>
+  </tr>
+</table><a name="1056806"></a><p><b>Wo kann ich die MSI-Protokolldateien finden? </b></p>
+<a name="1056807"></a><p>Nach der Standardeinstellung sind die MSI-Protokolldateien in dem von der Umgebungsvariablen <b>%TEMP%</b> definierten Pfad gespeichert.</p>
+<a name="1056823"></a><p><b>Ich habe die Server Administrator-Dateien für Windows von der Dell-Support-Internetseite heruntergeladen und auf meine eigene CD kopiert. </b><b>Der Versuch die SysMgmt.msi-Datei zu starten war fehlerhaft. </b><b>Was stimmt nicht?</b></p>
+<a name="1056114"></a><p>MSI erfordert, dass alle Installer die Eigenschaft <b>MEDIAPACKAGEPATH</b> angeben, wenn sich die MSI-Datei nicht auf dem Stamm der CD befindet. </p>
+<a name="1056111"></a><p>Diese Eigenschaft ist für das Managed System Software-MSI-Paket auf <b>\srvadmin\windows\SystemsManagement</b> eingestellt. Wenn Sie beschließen, Ihre eigene CD herzustellen, müssen Sie sicher stellen, dass das CD-Layout gleicht bleibt. Die Datei <b>SysMgmt.msi</b> muss sich im Verzeichnis <b>\srvadmin\windows\SystemsManagement</b> auf der CD befinden. Weitere Informationen finden Sie unter <b>http://msdn.microsoft.com</b>, indem Sie nach der Eigenschaft MEDIAPACKAGEPATH suchen.</p>
+<a name="1056580"></a><p><b>Ich kann nicht von Dell OpenManage 4.2 zur der neuesten Version von Dell OpenManage erweitern, ohne zu deinstallieren und meine Managed System Software-Einstellungen zu verlieren. </b><b>Gibt es einen Weg, zu der neuesten Version zu erweitern und meine Managed System Software-Einstellungen beizubehalten?</b></p>
+<a name="1056124"></a><p>Ja, aber Sie müssen zuerst von Dell OpenManage Version 4.2 zu 4.3 erweitern, bevor Sie zu einer neueren Version von Dell OpenManage erweitern. Wenn Sie mit Windows Server&#8482; 2003 arbeiten, wenden Sie Service Pack 1 nicht an, bis Sie die Dell OpenManage-Aktualisierung abgeschlossen haben.</p>
+<a name="1055984"></a><p><b>Wie kann ich eine unbeaufsichtigte Betriebssysteminstallation mit der CD </b><b><i>Installation and Server Management </i></b><b>ausführen?</b></p>
+<a name="1055962"></a><p>Sie können ein Windows-Betriebssystem auf vielen Systemen unter Verwendung von identischen Einstellungen installieren, wodurch es konsistente Konfigurationen auf allen Systemen gibt. Für die Verwendung dieser Funktion ist eine identische Konfiguration der Dell PowerEdge-Zielsysteme mit den gleichen Hardware- und Betriebssystemkomponenten erforderlich.Jeder Konfigurationsunterschied macht die Replikationsfunktion unverwendbar.</p>
+<a name="1056024"></a><p>Um unbeaufsichtigte Installationen auszuführen, führen Sie die folgenden Schritte aus:</p>
+<ol type="1">
+
+<li value="1"><a name="1056012"></a>Auf dem ersten eingerichteten System, stellen Sie sicher dass das BIOS des Systems eingerichtet ist, von der CD zu starten. Legen Sie die CD <i>Dell PowerEdge Installation and Server Management</i> und starten Sie das System erneut. Folgen Sie dem Installationsinterview, welches die Einstellung von Datum und Uhrzeit, Konfiguration der RAID-Controller, Auswählen des Betriebssystems und Angeben dessen Einstellungen, Konfiguration der Festplatte, Eingabe der Netzwerkeinstellungen und Konfiguration von Windows beinhaltet. Wenn Informationen ausgelassen werden, kann eine unbeaufsichtigte Installation immer noch ausgeführt werden, jedoch fragt das System nach den fehlenden Informationen.
+
+<br><br>
+<li value="2"><a name="1056015"></a>Im Fenster <b>Installationszusammenfassung</b> wählen Sie <b>Skript der unbeaufsichtigten Installation speichern unter 
+
+C:\unattended.txt, C:\txtsetup.oem </b>und dann <b>Speichern des Profils zur Replikation in C:\replication. </b>Klicken Sie auf die Schaltfläche <b>Fortfahren</b>.
+
+<br><br>
+<li value="3"><a name="1056121"></a>Legen Sie die entsprechende Betriebssystem-CD ein und befolgen Sie die Anleitungen, um die Installation abzuschließen. 
+Starten Sie das System erneut, um die Installation abzuschließen.
+
+<br><br>
+<li value="4"><a name="1056067"></a>Wenn die Installation auf dem ersten Server abgeschlossen ist, kopieren Sie die Dateien vom Verzeichnis <b>C:\replication</b> 
+auf eine Diskette.
+
+<br><br>
+<li value="5"><a name="1056076"></a>Für jede folgende unbeaufsichtigte Installation, legen Sie die Diskette, die die Replikationsdatei enthält, in das Diskettenlaufwerk ein und starten Sie das System neu. Das Installationsinterview wird automatisch ausgeführt. Dann legen Sie die Betriebssystem-CD ein, um das Betriebssystem zu installieren und starten Sie das System neu, um die Installation abzuschließen.
+<br><br>
+</ol>
+<a name="1056585"></a><p><b>Wie kann man die Voraussetzungsprüfungsinformationen am besten verwenden? </b></p>
+<a name="1055466"></a><p>Die Voraussetzungsprüfung ist für Windows erhältlich. Detaillierte Informationen zur Verwendung der Voraussetzungsprüfung sind in der Infodatei <b>\srvadmin\windows\PreReqChecker\readme.txt</b> auf der CD <i>Dell PowerEdge Installation and Server Management </i>erhältlich.</p>
+<a name="1056998"></a>
+<p><b>Im Voraussetzungsprüfungsbildschirm erhalte ich die Meldung &quot;Ein Fehler ist während dem Versuch, ein Visual Basic Script auszuführen, aufgetreten. </b><b>Bitte bestätigen Sie, dass die Visual Basic-Dateien richtig installiert sind&quot;.</b> <b>Wie kann ich dieses Problem beheben?</b></p>
+<a name="1057023"></a><p>Dieser Fehler tritt auf, wenn die Voraussetzungsprüfung das Dell OpenManage-Skript <b>vbstest.vbs</b> (ein Visual Basic Script) anruft, um die Installationsumgebung zu bestätigen, und das Skript fehlerhaft ist. </p>
+<a name="1057095"></a><p>Mögliche Ursachen sind: </p>
+<ul><li><a name="1057102"></a>Fehlerhafte Internet Explorer-Sicherheitseinstellungen.<br><br></li>
+</ul><a name="1057031"></a><p class="indent">Stellen Sie sicher, dass <b>Hilfsprogramme</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> </b><b>Extras</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> </b><b>Sicherheit</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> </b><b>Stufe anpassen</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> </b><b>Scripting</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> </b><b>Active Scripting</b> auf <b>Aktiviert</b> eingestellt ist</p>
+<a name="1057033"></a><p class="indent">Stellen Sie sicher, dass <b>Hilfsprogramme</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> </b><b>Extras</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> </b><b>Sicherheit</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> </b><b>Stufe anpassen</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> </b><b>Scripting</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> </b><b>Scripting von Java Applet</b> auf <b>Aktiviert</b> eingestellt ist</p>
+<ul><li><a name="1057328"></a>Windows Scripting Host (WSH) hat die Ausführung von VBS-Skripts deaktiviert. WSH ist während der Betriebssysteminstallation standardmäßig installiert. WSH kann konfiguriert werden, um die Ausführung von Skripts mit einer <b>.VBS</b>-Erweiterung zu vermeiden.<br><br> </li>
+  <ol type="a">
+
+<li value="5"><a name="1057344"></a>Klicken Sie mit der rechten Maustaste auf <b>Arbeitsplatz</b> auf Ihrem Desktop und klicken Sie auf <b>Öffnen</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> </b><b>Hilfsprogramme</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> </b><b>Ordneroptionen</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span><b> 
+</b><b>Dateitypen</b>.
+
+<br><br>
+ <li value="6"><a name="1057354"></a>Suchen Sie nach der <b>VBS</b>-Dateierweiterung und stellen Sie sicher, dass <b>Dateitypen </b>auf <b>VBScript Script File</b> eingestellt ist.
+
+<br><br>
+ <li value="7"><a name="1057355"></a>Wenn nicht, klicken Sie auf <b>Ändern</b> und wählen Sie <b>Microsoft Windows Based Script Host</b> als diejenige 
+Anwendung, die aufgerufen wird, das Skript auszuführen.  
+<br><br>
+</ol>
+<li><a name="1057047"></a>WSH ist die falsche Version, beschädigt oder nicht installiert. WSH ist während der Betriebssysteminstallation standardmäßig installiert. Um den aktuellen WSH herunterzuladen, rufen Sie <b>http://</b><b>msdn.microsoft.com/downloads/list/webdev.asp</b> auf<br><br></li>
+</ul><a name="1057396"></a><p><b>Kann ich meine Installation starten ohne die Voraussetzungsprüfung auszuführen? </b><b>Wie mache ich dies?</b></p>
+<a name="1055988"></a><p>Ja, das können Sie. Sie können MSI direkt vom Ordner <b>\Windows\SystemsManagement</b> ausführen. Im Allgemeinen ist es keine gute Idee die Voraussetzungsinformationen zu umgehen, da diese wichtige Informationen enthalten.</p>
+<a name="1056223"></a><p><b>Wie weiss ich, welche Version der Systems Management Software auf dem System installiert ist?</b></p>
+<a name="1056232"></a><p>Gehen Sie zu <b>Start</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span> <b>Einstellungen</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span> <b>Systemsteuerung</b><span style="FONT-WEIGHT: normal; FONT-FAMILY: Symbol"><font face="symbol">®</font></span> <b>Software</b> und wählen Sie <b>Dell OpenManage Server Administrator</b>. Wählen Sie den Link für <b>Support-Informationen</b>.</p>
+<a name="1056178"></a><p><b>Wie heißen alle Dell OpenManage-Funktionen unter Windows?</b></p>
+<a name="1055773"></a><p>Die folgende Tabelle führt die Namen aller Dell OpenManage-Funktionen und ihre entsprechenden Namen in Windows auf.</p>
+<a name="1055912"></a>
+<p><p class="FigureTableTitle"><a name="1058070"></a>Tabelle  10-1.  Dell OpenManage-Funktionen unter Windows </p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1055848"> </a>
+<p><b>Funktion</b></p>
+
+
+</th><th valign="top" align="left"><a name="1055850"> </a>
+<p><b>Name in Windows</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1055853"></a><b>Managed System-Dienste</b></p></td><td valign="top" align="left"><p><a name="1055855"></a> </p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1055857"></a>Server Administrator Instrumentation Service</p></td><td valign="top" align="left"><p><a name="1067392"></a>DSM SA Data Manager</p><p><a name="1055860"></a>DSM SA Event Manager</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1056911"></a>Server Administrator</p></td><td valign="top" align="left"><p><a name="1055864"></a>DSM SA-Verbindungsdienst </p><p><a name="1055865"></a>DSM SA-Freigabedienste</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1055872"></a>Server Administrator Storage Management-Dienst</p></td><td valign="top" align="left"><p><a name="1055874"></a>Mr2kserv</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1055876"></a>Remote Access Controller-Konsole (DRAC III)</p></td><td valign="top" align="left"><p><a name="1055878"></a>Remote Access Controller (RAC)-Service</p><p><a name="1055879"></a>RAC Win VNC</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1055881"></a>Remote Access Controller-Konsole (DRAC 4)</p></td><td valign="top" align="left"><p><a name="1055883"></a>Remote Access Controller 4 (DRAC 4)</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1055886"></a><b>Management Station-Services</b></p></td><td valign="top" align="left"><p><a name="1055888"></a> </p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1055890"></a>IT Assistant</p></td><td valign="top" align="left"><p><a name="1055892"></a>IT Assistant-Netzwerküberwachungsdienst</p><p><a name="1055893"></a>IT Assistant-Verbindungsdienst</p><p><a name="1055894"></a>ITA OM Common Services</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1055896"></a>Baseboard-Verwaltungs-Controller (BMC)</p></td><td valign="top" align="left"><p><a name="1055898"></a>DSM BMU SOL-Proxy</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><hr noshade size="1">
+<a name="1055753"></a><h2>Red Hat® Enterprise Linux oder SUSE® Linux Enterprise Server</h2>
+
+
+<a name="1056253"></a><p><b>Wie kann ich eine unbeaufsichtigte Betriebssysteminstallation mit der CD </b><b><i>Installation and Server Management </i></b><b>ausführen?</b></p>
+<a name="1056239"></a><p>Sie können ein Red Hat Enterprise Linux- oder SUSE Linux Enterprise Server-Betriebssystem unter Verwendung identischer Einstellungen auf vielen Systemen installieren, welches als Kickstart bezeichnet wird, und so konsistente Konfigurationen auf allen Systemen erhalten.Um diese Funktion zu verwenden, müssen die PowerEdge-Systeme identisch mit den gleichen installierten Betriebssystemkomponenten konfiguriert werden.Jeder Konfigurationsunterschied macht die Replikationsfunktion unverwendbar.</p>
+<a name="1056240"></a><p>Um unbeaufsichtigte Installationen auszuführen, führen Sie die folgenden Schritte aus:</p>
+<ol type="1">
+
+<li value="1"><a name="1056241"></a>Auf dem ersten eingerichteten Server, stellen Sie sicher dass das Server-BIOS so eingerichtet ist, dass es von der CD startet. Legen Sie die CD <i>Installation and Server Management</i> und starten Sie den Server erneut. Folgen Sie dem Installationsdialog, der die Einstellung von Datum und Uhrzeit, Konfiguration der RAID-Controller, Auswahl des Betriebssystems und Festlegung der Einstellungen, Konfiguration der Festplatte, Eingabe der Netzwerkeinstellungen und Konfiguration von Red Hat Enterprise Linux oder SUSE Linux Enterprise Server beinhaltet. Wenn Informationen ausgelassen werden, kann eine unbeaufsichtigte Installation immer noch ausgeführt werden, jedoch fragt das System nach den fehlenden Informationen.
+
+<br><br>
+<li value="2"><a name="1056242"></a>Im Fenster <b>Installationszusammenfassung</b> wählen Sie <b>Skript der unbeaufsichtigten Installation speichern unter 
+/root/install-ks.cfg </b>und wählen Sie<b> Speichern des Profils zur Replikation in /root/replication. </b>Klicken Sie auf die Schaltfläche <b>Fortfahren</b>.
+
+<br><br>
+<li value="3"><a name="1056243"></a>Legen Sie die Installations-CD Red Hat Enterprise Linux oder SUSE Linux Enterprise Server ein und folgen Sie den 
+Anleitungen, um die Installation abzuschließen. Starten Sie das System erneut, um die Installation abzuschließen.
+
+<br><br>
+<li value="4"><a name="1056244"></a>Wenn die Installation auf dem ersten System abgeschlossen ist, kopieren Sie die Dateien vom Verzeichnis <b>root\replication</b> 
+auf eine Diskette.
+
+<br><br>
+<li value="5"><a name="1056245"></a>Für jede folgende unbeaufsichtigte Installation, legen Sie die Diskette, die die Replikationsdatei enthält, in das Diskettenlaufwerk ein und starten Sie das System neu. Das Installationsinterview wird automatisch ausgeführt. Legen Sie dann die Installations-CD Red Hat Enterprise Linux oder SUSE Linux Enterprise Server ein, um das Betriebssystem zu installieren und starten Sie das System neu, um die Installation abzuschließen.
+<br><br>
+</ol>
+<a name="1063435"></a><p><b>Ich habe das Betriebssystem Red Hat Enterprise Linux 4 - x86_64 oder SUSE Linux Enterprise Server 9 x86_64 manuell installiert und bekomme bei dem Versuch Server Administrator zu installieren RPM-Abhängigkeiten angezeigt. </b><b>Wo kann ich diese abhängigen RPM-Dateien finden?</b></p>
+<a name="1055213"></a><p>Für den Red Hat Enterprise Linux sind die abhängigen RPM-Dateien auf der Installations-CD zu Red Hat Enterprise Linux. Zur Bedienungserleichterung sind diese entsprechend einem unterstützten Red Hat Enterprise Linux-Betriebssystem in einem der folgenden Verzeichnisse enthalten:</p>
+<a name="1055214"></a><p><b>/srvadmin/linux/RPMS/RH3_i386</b></p>
+<a name="1055215"></a><p><b>	 /srvadmin/linux/RPMS/RH3_x86_64</b></p>
+<a name="1055216"></a><p><b>	 /srvadmin/linux/RPMS/RH4_i386</b></p>
+<a name="1055217"></a><p><b>/srvadmin/linux/RPMS/RH4_x86_64</b></p>
+<a name="1063441"></a><p>Für den SUSE Linux Enterprise Server sind die abhängigen RPM-Dateien im folgenden Verzeichnis erfasst:</p>
+<a name="1063439"></a><p><b>/srvadmin/linux/RPMS/SUSE9_x86_64</b></p>
+<a name="1055218"></a><p>Führen Sie zum Beispiel im Unterverzeichnis <b>RH4_x86_64</b> den folgenden Befehl aus, um alle abhängigen RPM-Dateien zu installieren oder zu aktualisieren:</p>
+<a name="1055219"></a>
+<p class="screenindent">	 rpm &#8211;Uvh /srvadmin/linux/RPMS/RH4_x86_64
+</p>
+<a name="1055220"></a><p>Dann können Sie mit der Server Administrator-Installation fortfahren.</p>
+<a name="1055235"></a><p><b>Warum erhalte ich während der Installation eine Warnung bezüglich des RPM-Paketschlüssels?</b></p>
+<a name="1055236"></a><p>Die RPM-Dateien sind mit einer Digitalsignatur unterschrieben. Um diese Warnung zu vermeiden, sollten Sie die CD oder das Paket laden und den Schlüssel mithilfe eines wie folgenden Befehls importieren: </p>
+<a name="1055237"></a>
+<p class="screenindent">	 rpm --import /mnt/cdrom/srvadmin/linux/RPM-GPG-KEY
+</p>
+<a name="1056279"></a><p><b>Warum ist die Voraussetzungsprüfung unter Red Hat Enterprise Linux und SUSE Linux Enterprise Server nicht verfügbar?</b></p>
+<a name="1056277"></a><p>Die Voraussetzungsprüfung ist in das RPM-Paket <b>omilcore</b> eingebaut. Die Prüfung verwendet eine Kombination von RPM-Abhängigkeitsprüfungen und Dell-Hardwareprüfungen.</p>
+<a name="1069496"></a><p><b>Wie heißen die Dell OpenManage-Funktionen unter Red Hat Enterprise Linux oder SUSE Linux Enterprise Server?</b></p>
+<a name="1069497"></a><p>Die folgende Tabelle führt alle Namen der Dell OpenManage-Funktionen und ihren entsprechenden init Skript-Namen unter Red Hat Enterprise Linux- und SUSE Linux Enterprise Server-Betriebssystemen auf:</p>
+<a name="1067855"></a>
+<p><p class="FigureTableTitle"><a name="1067771"></a>Tabelle  10-2.  Funktionen von Dell OpenManage unter Red Hat Enterprise Linux<br>und SUSE Linux Enterprise Server </p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1067778"> </a>
+<p><b>Funktion</b></p>
+
+
+</th><th valign="top" align="left"><a name="1067780"> </a>
+<p><b>Name in Red Hat Enterprise Linux und SUSE Linux Enterprise Server</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1067782"></a><b>Dienstfunktionen von Managed System</b></p></td><td valign="top" align="left"><p><a name="1067784"></a>Die Funktion init Skript-Name</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067789"></a>DSM SA-Gerätetreiber</p><p><a name="1070446"></a>DSM SA Data Engine-Dienst</p></td><td valign="top" align="left"><p><a name="1067792"></a>instsvcdrv</p><p><a name="1067793"></a>dataeng</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067796"></a>DSM SA-Freigabedienst</p><p><a name="1067797"></a>DSM SA-Verbindungsdienst</p></td><td valign="top" align="left"><p><a name="1067799"></a>dsm_om_shrsvc</p><p><a name="1067800"></a>dsm_om_connsvc</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067803"></a>DSM SM LSI-Manager</p></td><td valign="top" align="left"><p><a name="1067805"></a>mptctl</p></td></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1067809"></a>Remote Access Controller (DRAC III)</p></td></tr>
+<tr><td valign="top" align="left"><p class="tableindent"><a name="1067813"></a>RAC3-Ereignisdienst </p></td><td valign="top" align="left"><p><a name="1067815"></a>racsrvc</p></td></tr>
+<tr><td valign="top" align="left"><p class="tableindent"><a name="1067818"></a>RAC3 ppp-Daemon</p></td><td valign="top" align="left"><p><a name="1067820"></a>racser</p></td></tr>
+<tr><td valign="top" align="left"><p class="tableindent"><a name="1067823"></a>RAC3 VNC X-Server</p></td><td valign="top" align="left"><p><a name="1067825"></a>racvnc</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067828"></a>Remote Access Controller (DRAC 4)</p></td><td valign="top" align="left"><p><a name="1067832"></a>racsvc</p></td></tr>
+<tr><td valign="top" align="left">Remote Access Controller (DRAC 5)</td><td valign="top" align="left">
+	Keine</td></tr>
+<tr><td valign="top" align="left"><p><a name="1067834"></a><b>Management Station-Services</b></p></td><td valign="top" align="left"><p><a name="1067836"></a>Funktion init Skript-Name</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067842"></a>Baseboard-Verwaltungs-Controller (BMC)</p></td><td valign="top" align="left"><p><a name="1067845"></a>dsm_bmu_sol_proxy</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067847"></a><b>Keine Dell OpenManage-Funktionen</b></p></td><td valign="top" align="left"><p><a name="1067849"></a>Funktion init Skript-Name</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067851"></a>OpenIPMI</p></td><td valign="top" align="left"><p><a name="1067895"></a>ipmi (wenn nicht vorhanden: dsm_sa_ipmi) </p></td></tr>
+
+</table>
+
+
+
+
+
+	  </p><a name="1069152"></a><p><b>Was ist in den Verzeichnissen unter srvadmin/linux/custom enthalten?</b></p>
+<a name="1063731"></a><p>Die folgende Tabelle führt die Namen der Verzeichnisse im Verzeichnis <b>srvadmin/linux/custom</b> auf.</p>
+<a name="1066652"></a>
+<p><p class="FigureTableTitle"><a name="1066388"></a>Tabelle  10-3.  Namen der Verzeichnisse unter dem Verzeichnis srvadmin/linux/custom </p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1066394"> </a>
+<p><b>Name von RPM</b></p>
+
+
+</th><th valign="top" align="left"><a name="1066396"> </a>
+<p><b>Beschreibung</b></p>
+
+
+</th><th valign="top" align="left"><a name="1066398"> </a>
+<p><b><b>Andere Server Administrator-RPMs erforderlich</b></b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1070109"></a><b>srvadmin-base - </b>Das ist der Kerncode für Server Administrator. Er gibt Hauptplatinenwarnungen aus und enthält die CLI-Befehle, die eine Überwachung und Steuerung von Server Administrator ermöglichen, zum Beispiel: <span class="screen">omconfig</span>, <span class="screen">omdiag,</span> und <span class="screen">omreport</span>. Für alle Peripheriepakete, außer dem DRAC-Support, ist die Installation aller oder der meisten RPM in diesem Verzeichnis erforderlich.</p><a name="1070052"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">ANMERKUNG: </span>um eine ordnungsgemäße Funktionalität sicherzustellen, kann die Installation von IPMI-Treibern erforderlich sein.
+</td>
+  </tr>
+</table></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066406"></a>instsvc-Treiber</p></td><td valign="top" align="left"><p><a name="1066408"></a>Server Administrator-Gerätetreiber - die Gerätetreiber und Bibliotheken sind jetzt im Systems Management-Paket <b>srvadmin-hapi</b> enthalten. Dieser RPM ist für Legacy-Anwendungen des Server Administrator erforderlich.</p></td><td valign="top" align="left"><p><a name="1066410"></a>nicht zutreffend</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066412"></a>srvadmin-cm</p></td><td valign="top" align="left"><p><a name="1066414"></a>Server Administrator-Bestandsaufnahmensammler - Systems Management: Bestandsaufnahmensammler-Änderungsverwaltung. </p></td><td valign="top" align="left"><p><a name="1066416"></a>srvadmin-omilcore, srvadmin-deng und srvadmin-omacore. </p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066418"></a>srvadmin-deng</p></td><td valign="top" align="left"><p><a name="1066420"></a>Server Administrator Data Engine - Systems Management enthält ein Datenverwaltungs-Framework für Systems Management Software. </p></td><td valign="top" align="left"><p><a name="1066422"></a>srvadmin-omilcore</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066424"></a>srvadmin-hapi</p></td><td valign="top" align="left"><p><a name="1066426"></a>new
+Hardware-Anwendungsprogrammierschnittstelle von Server Administrator - Dieses Systems Management-Paket enthält die Gerätetreiber und Bibliotheken, die von der Systems Management Software zum Zugreifen auf Hardwareinformationen von unterstützten Systemen erforderlich ist. </p></td><td valign="top" align="left"><p><a name="1066428"></a>srvadmin-omilcore und srvadmin-ipmi</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066430"></a>srvadmin-isvc</p></td><td valign="top" align="left"><p><a name="1066432"></a>Server Administrator Instrumentation Service - Server Administrator enthält Systemverwaltungsinformationen, so dass im Netzwerk unterstützte Systeme fehlerfrei funktionieren. Server Administrator Instrumentation Service enthält Fehlerverwaltungsinformationen, Vorfehlerinformationen sowie Bestands- and Bestandsaufnahmeinformationen für Verwaltungsanwendungen. Der Instrumentation Service überwacht den Systemzustand und sorgt für einen schnellen Zugriff auf ausführliche Fehler- und Leistungsinformationen zu unterstützter Systemhardware. Für den Instrumentation Service ist die Installation von Systems Management-Gerätetreibern erforderlich. </p></td><td valign="top" align="left"><p><a name="1066434"></a> srvadmin-omilcore, srvadmin-deng und srvadmin-hapi</p><p><a name="1066435"></a></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066437"></a>srvadmin-jre</p></td><td valign="top" align="left"><p><a name="1066439"></a>Sun Java-Laufzeitumgebung von Server Administrator - verwalteter Knoten zur Java-Laufzeit von Systems Management. </p></td><td valign="top" align="left"><p><a name="1066441"></a>srvadmin-omilcore, srvadmin-deng und srvadmin-omacore</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066444"></a>srvadmin-odf</p></td><td valign="top" align="left"><p><a name="1066446"></a>Server Administrator: Allgemeine Online-Diagnosekomponenten - Online-Diagnoseframework von Systems Management. </p></td><td valign="top" align="left"><p><a name="1066448"></a>srvadmin-omilcore, srvadmin-deng und srvadmin-omacore</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066450"></a>srvadmin-omacore</p></td><td valign="top" align="left"><p><a name="1066452"></a>Server Administrator - Systems Management-Verwaltungsmodus: Kern und CLI. </p></td><td valign="top" align="left"><p><a name="1066454"></a>srvadmin-omilcore und srvadmin-deng</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066456"></a>srvadmin-omhip</p></td><td valign="top" align="left"><p><a name="1066458"></a>Server Administrator Instrumentation Service Integration Layer - Enthält Instrumentation-CLI. </p></td><td valign="top" align="left"><p><a name="1066460"></a>srvadmin-omilcore, srvadmin-deng, srvadmin-hapi, srvadmin-isvc und srvadmin-omacore</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066462"></a>srvadmin-omilcore</p></td><td valign="top" align="left"><p><a name="1066464"></a>Server Administrator-Installationskern - Dies ist das Kerninstallationspaket, welches die erforderlichen Hilfsprogramme für die restlichen Installationspakete von Systems Management enthält. Alle Server Administrator-RPMs benötigen diesen RPM.</p></td><td valign="top" align="left"><p><a name="1066466"></a> </p></td></tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1066468"></a><b>add-diagnostics - Software für die Onlinediagnose</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066474"></a>srvadmin-old</p></td><td valign="top" align="left"><p><a name="1066476"></a>Server Administrator Diagnostic Service - Enthält die Onlinediagnosekomponente zum Server Administrator. </p></td><td valign="top" align="left"><p><a name="1066478"></a>srvadmin-omilcore, srvadmin-deng, srvadmin-omacore, srvadmin-odf und srvadmin-jre</p></td></tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1066481"></a><b>add-RAC3 - Software für die Remote-Verwaltung von Remote Access Controllern der dritten Generation. <br></b><b>Zum Beispiel: DRAC III.</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066487"></a>srvadmin-rac3-Komponenten</p></td><td valign="top" align="left"><p><a name="1066489"></a>Remote Access Controller-Komponenten für die Datenbestückung der Remote-Zugriffskarte. </p></td><td valign="top" align="left"><p><a name="1066491"></a>srvadmin-omilcore, srvadmin-deng, srvadmin-hapi und srvadmin-racser</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066494"></a>srvadmin-racdrsc3</p></td><td valign="top" align="left"><p><a name="1066496"></a>DRAC III Integration Layer - Remote-Zugriff-CLI und Internet-Plugin für Server Administrator. </p></td><td valign="top" align="left"><p><a name="1066498"></a>srvadmin-omilcore, srvadmin-deng, srvadmin-omacore und srvadmin-rac3-Komponenten</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066500"></a>srvadmin-racser</p></td><td valign="top" align="left"><p><a name="1066502"></a>Verwalteter Knoten der Remote-Zugriffskarte - RAC-Dienste (Remote Access Controller) für die zentrale Verwaltung von Server-Clustern und Remote-Administration von verteilten Quellen. </p></td><td valign="top" align="left"><p><a name="1066504"></a>srvadmin-omilcore</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066506"></a>srvadmin-racser-devel</p></td><td valign="top" align="left"><p><a name="1066508"></a>Remote-Zugriffskarte: Hilfsprogramme - Die Hilfsprogramme und Bibliotheken, die für eine Verbindung mit der RAC-Platine erforderlich sind. Dies beinhaltet einen Serverdaemon des verwalteten Knotens, ein CLI-Hilfsprogramm mit dem Namen racadm und die freigegebene Bibliothek dieser erforderlichen Komponenten. </p></td><td valign="top" align="left"><p><a name="1066510"></a>srvadmin-omilcore und srvadmin-racser</p><p><a name="1066511"></a></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066513"></a>srvadmin-racvnc</p></td><td valign="top" align="left"><p><a name="1066515"></a>RAC VNC Remote-Dienst und Server-Agent für Remote-Dienste. </p></td><td valign="top" align="left"><p><a name="1066517"></a>srvadmin-omilcore und srvadmin-racser</p></td></tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1066519"></a><b>add-RAC4 - Software für die Remote-Verwaltung von Remote Access Controllern der vierten Generation. <br></b><b>Zum Beispiel: DRAC 4.</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066525"></a>srvadmin-rac4-Komponenten </p></td><td valign="top" align="left"><p><a name="1066527"></a>Datenbestückung der Remote-Zugriffskarte - Remote Access Controller-Komponenten. </p></td><td valign="top" align="left"><p><a name="1066529"></a>srvadmin-omilcore, srvadmin-deng, srvadmin-hapi und srvadmin-racsvc</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066531"></a>srvadmin-racadm4</p></td><td valign="top" align="left"><p><a name="1066533"></a>RAC-Befehlsschnittstelle - Die Befehlszeilen-Benutzerschnittstelle zum Remote Access Controller (RAC). </p></td><td valign="top" align="left"><p><a name="1066535"></a>srvadmin-omilcore</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066537"></a>srvadmin-racdrsc4</p></td><td valign="top" align="left"><p><a name="1066539"></a>DRAC 4 Integration Layer - Remote-Zugriff-CLI und Internet-Plugin für Server Administrator. </p></td><td valign="top" align="left"><p><a name="1066541"></a>srvadmin-omilcore, srvadmin-deng, srvadmin-rac4-Komponenten und srvadmin-omacore</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066543"></a>srvadmin-racsvc</p></td><td valign="top" align="left"><p><a name="1066545"></a>Verwalteter Knoten der Remote-Zugriffskarte - RAC-Dienste (Remote Access Controller), die die zentrale Verwaltung der Server-Cluster und die Remote-Verwaltung der verteilten Quellen unterstützt. </p></td><td valign="top" align="left"><p><a name="1066547"></a>srvadmin-omilcore</p><p><a name="1066548"></a></p></td></tr>
+<tr><td valign="top" align="left" colspan=3><b>add-RAC5 - Software für die Remote-Verwaltung von Remote Access Controllern der fünften Generation. <br></b><b>Zum Beispiel: DRAC 5.</b></td></tr>
+<tr>
+	<td valign="top" align="left">srvadmin-rac5-Komponenten</td><td valign="top" align="left">
+	Daten der Remote-Zugriffskarte, DRAC 5 und Remote Access Controller-
+	Komponenten, DRAC 5. </td><td valign="top" align="left">srvadmin-omilcore, 
+	srvadmin-deng und srvadmin-hapi</td>
+</tr>
+<tr>
+	<td valign="top" align="left">srvadmin-racadm5</td><td valign="top" align="left">RAC-Befehlsschnittstelle - Die Befehlszeilen-Benutzerschnittstelle zum Remote Access 
+	Controller (RAC). </td><td valign="top" align="left">srvadmin-omilcore und 
+	srvadmin-hapi</td>
+</tr>
+<tr>
+	<td valign="top" align="left">srvadmin-racdrsc5</td><td valign="top" align="left">DRAC 5 Integration Layer - Remote-Zugriff-CLI und Internet-Plugin für Server 
+Administrator</td><td valign="top" align="left">srvadmin-omilcore, 
+	srvadmin-deng, srvadmin-omacore und srvadmin-rac5-Komponenten</td>
+</tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1066574"></a><b>add-storageservices - RAID-Konfigurationsdienstprogramm von Storage Management und Storage-Warnsoftware</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066580"></a>Srvadmin-storage</p></td><td valign="top" align="left"><p><a name="1066582"></a>Storage Management - Enthält Storage Services von Systems Management. </p></td><td valign="top" align="left"><p><a name="1066584"></a>srvadmin-omilcore, srvadmin-deng, srvadmin-omacore und srvadmin-odf</p></td></tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1066586"></a><b>add-webserver - Ermöglicht den Internetzugang zur Verwaltung des Servers</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066592"></a>srvadmin-iws</p></td><td valign="top" align="left"><p><a name="1066594"></a>Sicherer Schnittstellenserver - Web-Serverpaket zum verwalteten Knoten des Systems Management. </p></td><td valign="top" align="left"><p><a name="1066596"></a>srvadmin-omilcore, srvadmin-deng, srvadmin-omacore und srvadmin-jre</p></td></tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1066599"></a><b>add-openipmi-RHEL3 - Ermöglicht OpenIPMI-Unterstützung für Red Hat Enterprise Linux (Version 3)</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066605"></a>dkms</p></td><td valign="top" align="left"><p><a name="1066607"></a>Framework des Dynamic Kernel Module Support - Dieses Paket enthält das Framework für die DKMS-Methode zum Installieren des RPMS-Moduls, wie es ursprünglich von dem Computerunternehmen Dell entwickelt wurde.</p></td><td valign="top" align="left"><p><a name="1066609"></a> </p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066611"></a>openipmi</p></td><td valign="top" align="left"><p><a name="1066613"></a>Openipmi XX.Y.RHEL3 dkms-Paket - Kernel-Module für openipmi XX.Y.RHEL3 in einem DKMS-Wrapper. </p></td><td valign="top" align="left"><p><a name="1066615"></a>dkms</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1070811"></a>srvadmin-ipmi</p></td><td valign="top" align="left"><p><a name="1070813"></a>Dieser RPM erzwingt die ordnungsgemäße Installationsreihenfolge für die DKMS-, openipmi XX.Y.RHEL3- und <b>srvadmin-hapi-</b>RPMs.</p></td><td valign="top" align="left"><p><a name="1070815"></a>openipmi XX.Y.RHEL3</p></td></tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1066617"></a><b>add-openipmi-RHEL4 - Bietet OpenIPMI Unterstützung für den Red Hat</b> <b>Unternehmen Linux (Version 4)</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066623"></a>dkms</p></td><td valign="top" align="left"><p><a name="1066625"></a>Framework des Dynamic Kernel Module Support - Dieses Paket enthält das Framework für die DKMS-Methode zum Installieren des RPMS-Moduls, wie es ursprünglich von dem Computerunternehmen Dell entwickelt wurde.</p></td><td valign="top" align="left"><p><a name="1066627"></a> </p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066629"></a>openipmi</p></td><td valign="top" align="left"><p><a name="1066631"></a>Openipmi XX.Y.RHEL4 dkms-Paket - Kernel-Module für openipmi XX.Y.RHEL3 in einem DKMS-Wrapper. </p></td><td valign="top" align="left"><p><a name="1066633"></a>dkms</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1070856"></a>srvadmin-ipmi</p></td><td valign="top" align="left"><p><a name="1070858"></a>Dieser RPM erzwingt die ordnungsgemäße Installationsreihenfolge für die DKMS-, openipmi XX.Y.RHEL4- und <b>srvadmin-hapi-</b>RPMs. </p></td><td valign="top" align="left"><p><a name="1070860"></a>openipmi XX.Y.RHEL4</p></td></tr>
+<tr><td valign="top" align="left" colspan=3 rowspan=1><p><a name="1066635"></a><b>add-openipmi-SLES9 - Ermöglicht OpenIPMI-Unterstützung für SUSE Linux Enterprise Server (Version 9)</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066641"></a>dkms</p></td><td valign="top" align="left"><p><a name="1066643"></a>Framework des Dynamic Kernel Module Support - Dieses Paket enthält das Framework für die DKMS-Methode zum Installieren des RPMS-Moduls, wie es ursprünglich von dem Computerunternehmen Dell entwickelt wurde.</p></td><td valign="top" align="left"><p><a name="1066645"></a> </p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1066647"></a>openipmi</p></td><td valign="top" align="left"><p><a name="1066649"></a>Openipmi XX.Y.SLES9 dkms-Paket - Kernel-Module für openipmi XX.Y.SLES9 in einem DKMS-Wrapper. </p></td><td valign="top" align="left"><p><a name="1066651"></a>dkms</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1070895"></a>srvadmin-ipmi</p></td><td valign="top" align="left"><p><a name="1070923"></a>Dieser RPM erzwingt die ordnungsgemäße Installationsreihenfolge für die DKMS-, openipmi XX.Y.SLES9- und <b>srvadmin-hapi-</b>RPMs.</p></td><td valign="top" align="left"><p><a name="1070937"></a>openipmi XX.Y.SLES9</p></td></tr>
+
+</table>
+
+
+
+
+
+ </p><a name="1066653"></a><p><b>Welche Daemons werden auf den Red Hat Enterprise Linux- und SUSE Linux Enterprise Server-Betriebssysteme ausgeführt, nachdem Server Administrator gestartet wurde</b>?</p>
+<a name="1063888"></a><p>Welche Daemons auf den Red Hat Enterprise Linux- und SUSE Linux Enterprise Server-Betriebssystemen ausgeführt werden, hängt davon ab, was installiert und aktiviert wurde. Die folgende Tabelle zeigt die Daemons, die normalerweise nach einer vollständigen Installation ausgeführt werden:</p>
+<a name="1063908"></a>
+<p><p class="FigureTableTitle"><a name="1063911"></a>Tabelle 10-4.  Daemons, die auf Red Hat Enterprise Linux und SUSE Linux Enterprise Server ausgeführt werden, sowie der Server Administrator gestartet wurde </p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1063915"> </a>
+<p><b>Daemon-Name </b></p>
+
+
+</th><th valign="top" align="left"><a name="1063917"> </a>
+<p><b>Name in Red Hat Enterprise Linux und SUSE Linux Enterprise Server</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1063919"></a><b>Für RPMs im Srvadmin-Basisverzeichnis</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1063923"></a>dsm_sa_datamgr32d</p></td><td valign="top" align="left"><p><a name="1063980"></a>DSM SA Data Manager - Der Data Manager-Daemon von Server Administrator wurde vom DSM SA Data Engine-Dienst gestartet.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1063927"></a>dsm_sa_eventmgr32d</p></td><td valign="top" align="left"><p><a name="1064010"></a>DSM SA Event Manager - Der Ereignis- und Anmelde-Daemon von Server Administrator wurde vom DSM SA Data Engine-Dienst gestartet.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1063931"></a>dsm_sa_snmp32d</p></td><td valign="top" align="left"><p><a name="1064041"></a>DSM SA SNMP-Daemon - Server Administrator SNMP-Daemon.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1063935"></a>dsm_om_shrsvc32d</p></td><td valign="top" align="left"><p><a name="1064072"></a>DSM SA-Freigabedienste - Server Administrator Core-Daemon.</p></td></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1063939"></a><b>Für RPMs im Verzeichnis add-webserver</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1063943"></a>dsm_om_connsvc32d</p></td><td valign="top" align="left"><p><a name="1064107"></a>DSM SA-Verbindungsdienste - Web-Server-Daemon von Server Administrator.</p></td></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1063947"></a><b>Für Systeme, die DRAC 4: add-RAC4 unterstützen</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064138"></a>racsvc </p></td><td valign="top" align="left"><p><a name="1064157"></a>DRAC 4 Administrator-Dämon</p></td></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1063955"></a><b>Für Systeme, die DRAC III: add-RAC3 unterstützen</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064168"></a>racser</p></td><td valign="top" align="left"><p><a name="1064170"></a>DRAC III Administrator-Dämon</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064176"></a>racvnc</p></td><td valign="top" align="left"><p><a name="1064178"></a>DRAC III virtueller Netzwerk-Dämon</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064172"></a>racsrvc</p></td><td valign="top" align="left"><p><a name="1064174"></a>DRAC III VNC X-Server</p></td></tr>
+
+</table>
+
+
+
+
+
+ </p><a name="1069156"></a><p><b>Welche Kernel-Module werden beim Start des Server Administrator geladen?</b></p>
+<a name="1064250"></a><p>Dies hängt vom System-Instrumentationstyp ab. Die folgende Tabelle zeigt die geladenen Kernel-Module, nachdem Server Administrator gestartet wurde.</p>
+<a name="1064262"></a>
+<p><p class="FigureTableTitle"><a name="1064265"></a>Tabelle 10-5.  Nach dem Start der Server Administrator-Dienste geladene Kernel-Module</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1064269"> </a>
+<p><b>Treibername</b></p>
+
+
+</th><th valign="top" align="left"><a name="1064271"> </a>
+<p><b>Beschreibung</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1064273"></a><b>Für ein System mit IPMI</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064277"></a>dell_rbu</p></td><td valign="top" align="left"><p><a name="1064279"></a>Dell BIOS-Aktualisierungstreiber</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064281"></a>ipmi_devintf</p></td><td valign="top" align="left"><p><a name="1067517"></a>IPMI-Gerätetreiber</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067530"></a>ipmi_msghandler</p></td><td valign="top" align="left"><p><a name="1067532"></a>IPMI-Gerätetreiber</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067526"></a>ipmi_si</p></td><td valign="top" align="left"><p><a name="1067528"></a>IPMI-Gerätetreiber - Für Systeme, auf denen Red Hat Enterprise Linux (Version 4) oder SUSE Linux Enterprise Server (Version 9) ausgeführt wird</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067522"></a>ipmi_si_drv</p></td><td valign="top" align="left"><p><a name="1067524"></a>IPMI-Gerätetreiber - Für Systeme, auf denen Red Hat Enterprise Linux (Version 3) ausgeführt wird </p></td></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1064285"></a><b>Für ein TVM-System</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064289"></a>dcdbas</p></td><td valign="top" align="left"><p><a name="1064291"></a>Dell Systems Management-Basistreiber</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064293"></a>dell_rbu</p></td><td valign="top" align="left"><p><a name="1064295"></a>Dell BIOS-Aktualisierungstreiber</p></td></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1064297"></a><b>Für ein ESM-System</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067470"></a>dcdbas</p></td><td valign="top" align="left"><p><a name="1067472"></a>Dell Systems Management-Basistreiber</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1067474"></a>dell_rbu</p></td><td valign="top" align="left"><p><a name="1067476"></a>Dell BIOS-Aktualisierungstreiber</p></td></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1064309"></a><b>Für den Support von Server Administrator-Speichersystemen</b></p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1064417"></a>mptctl</p></td><td valign="top" align="left"><p><a name="1064419"></a>Gerätetreiber für LSI RAID</p></td></tr>
+
+</table>
+
+
+
+
+
+</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">Zurück zum Inhaltsverzeichnis</a></p>
+
+
+<p> </p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

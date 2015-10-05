@@ -1,0 +1,212 @@
+b.cBold
+{
+  font-weight: bold
+}
+b.cBold_Italics
+{
+  font-weight: bold
+}
+em.cEmphasis
+{
+  font-style: italic
+}
+em.cItalics
+{
+  font-style: italic
+}
+sub.cSubscript
+{
+  vertical-align: sub
+}
+sup.cSuperscript
+{
+  vertical-align: super
+}
+u.cUnderline
+{
+  text-decoration: underline
+}
+
+div.pCellBody
+{
+  margin-bottom: 0em;
+  margin-top: 0em
+}
+div.pCellHeading
+{
+  font-weight: bold;
+  margin-bottom: 0em;
+  margin-top: 0em;
+  text-align: center
+}
+h2.pGroupTitlesIX
+{
+  color: #003366;
+  font-size: 18px;
+  font-weight: bold
+}
+p.pHead2TOC
+{
+  font-size: 15px;
+  margin-left: 2.5em
+}
+p.pHead2TOC_CPGFILTER
+{
+  font-size: 15px;
+  margin-left: 2.5em
+}
+p.pLevel1IX
+{
+  font-size: 13px;
+  margin-left: 2.5em
+}
+p.pLevel2IX
+{
+  font-size: 13px;
+  margin-left: 5em
+}
+p.pLevel3IX
+{
+  font-size: 13px;
+  margin-left: 7.5em
+}
+p.pLevel4IX
+{
+  font-size: 13px;
+  margin-left: 10em
+}
+p.pLevel5IX
+{
+  font-size: 13px;
+  margin-left: 12.5em
+}
+h2.pNewHTMLPage
+{
+  color: #003366;
+  font-size: 20px;
+  font-weight: bold
+}
+div.pPreformatted
+{
+  font-family: Courier New, Courier, mono;
+  font-size: 13px;
+  margin-bottom: 0em;
+  margin-top: 0em
+}
+div.pPreformattedRelative
+{
+  font-family: Courier New, Courier, mono;
+  font-size: 13px;
+  margin-bottom: 0em;
+  margin-top: 0em
+}
+h2.pTitle
+{
+  color: #003366;
+  font-size: 25px;
+  font-weight: bold
+}
+h2.pTOC1
+{
+  font-size: 17px;
+  font-weight: bold
+}
+p.pTOC2
+{
+  font-size: 15px;
+  margin-left: 2.5em
+}
+p.pTOC2_test
+{
+  font-size: 15px;
+  margin-left: 2.5em
+}
+p.pTOC3
+{
+  font-size: 13px;
+  margin-left: 5em
+}
+p.pTOC4
+{
+  font-size: 11px;
+  font-weight: bold;
+  margin-left: 7.5em
+}
+p.pTOC5
+{
+  font-size: 9px;
+  font-weight: bold;
+  margin-left: 10em
+}
+h1.pzHeading1
+{
+  font-family: Arial, Verdana, Helvetica, sans-serif
+}
+h3.pzHeading2
+{
+  color: #003366;
+  font-size: 18px
+}
+h4.pzHeading3
+{
+  color: #003366;
+  font-size: 14px;
+  font-weight: bold
+}
+h5.pzHeading4
+{
+  color: #003366;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: bold
+}
+p.pzIndented1
+{
+  margin-left: 2.5em
+}
+p.pzIndented2
+{
+  margin-left: 5em
+}
+p.pzIndented3
+{
+  margin-left: 7.5em
+}
+p.pzIndented4
+{
+  margin-left: 10em
+}
+p.pzIndented5
+{
+  margin-left: 12.5em
+}
+p.pzIndentedRelative
+{
+  margin-left: 2.5em
+}
+div.pzSmartList1
+{
+  margin-bottom: 12pt;
+  margin-top: 12pt
+}
+div.pzSmartList2
+{
+  margin-bottom: 6pt;
+  margin-top: 6pt
+}
+div.pzSmartList3
+{
+  margin-bottom: 6pt;
+  margin-top: 6pt
+}
+div.pzSmartList4
+{
+  margin-bottom: 6pt;
+  margin-top: 6pt
+}
+div.pzSmartList5
+{
+  margin-bottom: 6pt;
+  margin-top: 6pt
+}
+

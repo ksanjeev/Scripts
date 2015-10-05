@@ -1,0 +1,132 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<title>Vérification des prérequis - Guide de sécurité et d'installation de Dell OpenManage, version 5.0</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">Retour à la page du sommaire</a> </p>
+<a name="1053126"></a><h1> Vérification des prérequis </h1>
+<p class="title">Guide de sécurité et d'installation de Dell OpenManage&#8482;, version 5.0</p>
+<p class="minitoc"><img src="bullet.gif" border="0">  <a href="#1053464">Utilisation de la ligne de commande pour la vérification des prérequis
+</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1053464"></a><h2>Utilisation de la ligne de commande pour la vérification des prérequis</h2>
+
+
+<a name="1054236"></a><p>Vous pouvez exécuter la vérification des prérequis en arrière plan en lançant runprereqchecks.exe /s	  à partir du répertoire <b>windows\PreReqChecker</b>. Après l'exécution de la vérification des prérequis, un fichier html sera créé dans le répertoire <b>%Temp%</b>. Le fichier s'appelle <b>omprereq.htm</b> et contient les résultats de la vérification des prérequis. Le répertoire <b>Temp</b> n'est habituellement pas <b>X:\Temp</b>, mais <b>X:\Documents and Settings\nom d'utilisateur\Paramètres locaux\Temp</b>. Pour trouver <b>%TEMP%</b>, ouvrez une invite de ligne de commande et tapez <span class="screen">echo %TEMP%</span>.</p>
+<a name="1053465"></a><p>Les résultats de la vérification des prérequis sont écrits dans le registre sous la clé de registre de la station de gestion&nbsp;:</p>
+<a name="1053466"></a><p><b>HKEY_LOCAL_MACHINE\Software\Dell Computer Corporation\OpenManage\PreReqChecks\MS\</b></p>
+<a name="1054253"></a><p>Ils sont écrits sous la clé suivante pour un système géré&nbsp;:</p>
+<a name="1054254"></a><p><b>HKEY_LOCAL_MACHINE\Software\Dell Computer Corporation\OpenManage\PreReqChecks\MN\</b></p>
+<a name="1053467"></a><p>Lorsque la vérification des prérequis est exécutée en arrière-plan, le code de retour de <b>runprereqchecks</b> .exe est le nombre associé à la condition de sévérité la plus élevée pour tous les produits logiciels. Les nombres des codes de retour sont les mêmes que ceux utilisés dans le registre. Le <a href="prereqch.htm#1053477">tableau 9-1</a> détaille les codes qui sont renvoyés.</p>
+<a name="1053540"></a>
+<p><p class="FigureTableTitle"><a name="1053477"></a>Tableau 9-1.  Codes de retour lors de l'exécution de la vérification des prérequis en arrière plan </p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1053481"> </a>
+<p><b>Code de retour</b></p>
+
+
+</th><th valign="top" align="left"><a name="1053483"> </a>
+<p><b>Description</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1053485"></a>0</p></td><td valign="top" align="left"><p><a name="1053487"></a>Aucune condition n'est associée au logiciel.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053489"></a>1</p></td><td valign="top" align="left"><p><a name="1053491"></a>Des conditions informatives sont associées au logiciel. Cela n'empêche pas l'installation du logiciel.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053493"></a>2</p></td><td valign="top" align="left"><p><a name="1053495"></a>Des conditions d'avertissement sont associées au logiciel. Il est recommandé que vous résolviez les conditions provoquant l'avertissement avant de poursuivre l'installation du logiciel.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053497"></a>3</p></td><td valign="top" align="left"><p><a name="1053499"></a>Des conditions d'erreur sont associées au logiciel. Il faut que vous résolviez les conditions provoquant l'erreur avant de poursuivre l'installation de ce logiciel. Si vous ne résolvez pas les problèmes, le logiciel ne sera pas installé.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053501"></a>-1</p></td><td valign="top" align="left"><p><a name="1053503"></a>Erreur Microsoft® Windows® Script Host (WSH). La vérification des prérequis ne s'exécutera pas.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053505"></a>-2</p></td><td valign="top" align="left"><p><a name="1053507"></a>Le système d'exploitation n'est pas pris en charge. La vérification des prérequis ne s'exécutera pas.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053509"></a>-3</p></td><td valign="top" align="left"><p><a name="1053511"></a>L'utilisateur n'a pas de droits d'administrateur. La vérification des prérequis ne s'exécutera pas.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053513"></a>-4</p></td><td valign="top" align="left"><p><a name="1053515"></a>N'est pas un code de retour implémenté.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053517"></a>-5</p></td><td valign="top" align="left"><p><a name="1053519"></a>L'utilisateur n'a pas pu changer le répertoire utilisé en <b>%TEMP% </b>. La vérification des prérequis ne s'exécutera pas.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053521"></a>-6</p></td><td valign="top" align="left"><p><a name="1053523"></a>Le répertoire de destination n'existe pas. La vérification des prérequis ne s'exécutera pas.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053525"></a>-7</p></td><td valign="top" align="left"><p><a name="1053527"></a>Une erreur interne s'est produite. La vérification des prérequis ne s'exécutera pas.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053529"></a>-8</p></td><td valign="top" align="left"><p><a name="1053531"></a>Le logiciel est déjà en cours d'exécution. La vérification des prérequis ne s'exécutera pas.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053533"></a>-9</p></td><td valign="top" align="left"><p><a name="1053535"></a>Windows Script Host est corrompu, n'a pas la bonne version ou n'est pas installé. La vérification des prérequis ne s'exécutera pas.</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1053537"></a>-10</p></td><td valign="top" align="left"><p><a name="1053539"></a>Une erreur s'est produite avec l'environnement des scripts. La vérification des prérequis ne s'exécutera pas.</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054272"></a><p>Chaque produit logiciel a une valeur associée définie après l'exécution de la vérification des prérequis. Le <a href="prereqch.htm#1054118">tableau 9-2</a>  et le <a href="prereqch.htm#1054148">tableau 9-3</a> contient la liste des ID de composants de chaque composant logiciel. L'ID du composant se présente avec entre 2 et 5 caractères.</p>
+<a name="1054214"></a>
+<p><p class="FigureTableTitle"><a name="1054118"></a>Tableau 9-2.  ID des composants de Management Station</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054122"> </a>
+<p><b>ID du composant</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054124"> </a>
+<p><b>Description</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054126"></a>ADS</p></td><td valign="top" align="left"><p><a name="1054128"></a>Utilitaire snap-in Microsoft Active Directory®</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054134"></a>Contrôleur BMC</p></td><td valign="top" align="left"><p><a name="1054136"></a>Utilitaire de gestion du contrôleur de gestion de la carte mère</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054138"></a>ITA</p></td><td valign="top" align="left"><p><a name="1054140"></a>Dell OpenManage&#8482; IT Assistant</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054142"></a>RACMS</p></td><td valign="top" align="left"><p><a name="1054144"></a>Remote Access Controller </p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1054201"></a>
+<p><p class="FigureTableTitle"><a name="1054148"></a>Tableau 9-3.  ID des composants logiciels </p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1054152"> </a>
+<p><b>ID du composant</b></p>
+
+
+</th><th valign="top" align="left"><a name="1054154"> </a>
+<p><b>Description</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left"><p><a name="1054156"></a>ALL</p></td><td valign="top" align="left"><p><a name="1054158"></a>Tous les composants</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054164"></a>BRCM</p></td><td valign="top" align="left"><p><a name="1054166"></a>Agent du NIC Broadcom</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054168"></a>INTEL</p></td><td valign="top" align="left"><p><a name="1054170"></a>Agent du NIC Intel®</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054172"></a>IWS</p></td><td valign="top" align="left"><p><a name="1054174"></a>Dell OpenManage Server Administrator Web Server</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054176"></a>OLD</p></td><td valign="top" align="left"><p><a name="1054178"></a>Server Administrator Diagnostic Service</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054180"></a>OMSM</p></td><td valign="top" align="left"><p><a name="1054182"></a>Service Server Administrator Storage Management</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054184"></a>RAC3</p></td><td valign="top" align="left"><p><a name="1054186"></a>Remote Access Controller (DRAC III)</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1054188"></a>RAC4</p></td><td valign="top" align="left"><p><a name="1054190"></a>Remote Access Controller (DRAC 4)</p></td></tr>
+<tr><td valign="top" align="left">RAC5</td><td valign="top" align="left">Remote Access Controller (DRAC 5)</td></tr>
+
+<tr><td valign="top" align="left"><p><a name="1054192"></a>SA</p></td><td valign="top" align="left"><p><a name="1054194"></a>Server Administrator</p></td></tr>
+
+</table>
+
+
+
+
+
+</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">Retour à la page du sommaire</a></p>
+
+
+<p> </p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

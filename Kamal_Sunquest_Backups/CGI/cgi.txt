@@ -1,0 +1,12 @@
+Once your program is uploaded to the web server, you'll want to be sure to move it to your cgi-bin (or public_html directory — wherever your ISP has told you to put your CGI programs). Then you'll also need to change the permissions on the file so that it is "executable" (or runnable) by the system. The Unix shell command for this is: 
+
+chmod 755 filename 
+This sets the file permissions so that you can read, write, and execute the file, and all other users (including the webserver) can read and execute it. See Appendix A for a full description of chmod and its options. 
+
+#!/usr/bin/perl -wT
+print "Content-type: text/html\n\n";
+print "Hello, world!\n";
+
+
+/usr/HTTPServer/cgi-bin - The storage location of cgi scripts
+

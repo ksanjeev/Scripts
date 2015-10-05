@@ -1,0 +1,808 @@
+<!-- #include VIRTUAL="/includes/global_format.inc.asp" -->
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+<title>在  Red Hat&#174; Enterprise Linux 和 SUSE&#174; LINUX 操作系统上安装 Managed System 软件：Dell OpenManage 5.0 版安装和安全性用户指南</title>
+<link rel="stylesheet" type="text/css" href="pg-id.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<!-- #include VIRTUAL="/includes/global_header.inc.asp" -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<p><a href="index.htm">返回目录页</a> </p>
+<a name="1054425"></a><h1>在<br>Red Hat&#174; Enterprise Linux 和 SUSE&#174; Linux 操作系统上安装 Managed System Software</h1>
+<p class="title">Dell OpenManage&#8482; 5.0 版安装和安全性用户指南</p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1054423">概览
+</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1054408">开始之前</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1054608">安装要求</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1054645">安装步骤</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1070108">将 Dell OpenManage 与 VMware ESX Server Software 一起使用
+</a></p>
+<p class="minitoc"><img src="bullet.gif" border="0">&#160;&#160;<a href="#1072268">使用第三方部署软件进行 Managed System Software 安装
+</a></p>
+
+
+<br>
+<hr noshade size="1">
+<a name="1054423"></a><h2>概览</h2>
+
+
+<a name="1081730"></a><p>管理系统软件的安装方法有两种，可以采用其中一种方法进行安装。<i>Dell&#8482; PowerEdge&#8482; Installation and Server Management</i> CD 提供了安装脚本和 RPM 软件包，可用于在管理系统上安装、升级和卸载 Dell OpenManage&#8482; Server Administrator 和其它 Managed System 软件组件。此外，您还可以在无人值守的情况下，通过网络在多个系统上安装 Server Administrator。 </p>
+<a name="1081732"></a><p>第一种安装方法使用提供的自定义安装脚本 <b>srvadmin-install.sh</b>。此脚本允许执行无人值守快速安装和自定义、无人值守或交互安装。通过在 Linux 脚本中加入 <b>srvadmin-install.sh</b> 脚本，可以在一个或多个系统上以有人或无人值守模式本地或通过网络安装 Server Administrator。</p>
+<a name="1079984"></a><p>第二种安装方法使用自定义目录中提供的 Server Administrator RPM 软件包和 Linux <b>rpm</b> 命令。这种方法允许自定义交互安装。可以编写 Linux 脚本，由脚本以无人值守安装模式本地或通过网络在一个或多个系统上安装 Server Administrator。</p>
+<a name="1079990"></a><p>建议不要将两种安装方法组合使用，这样可能会需要使用 Linux <b>rpm</b> 命令手动安装自定义目录中提供的必需的 Server Administrator RPM 软件包。</p>
+<a name="1054440"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>请参阅 <i>Dell PowerEdge Installation and Server Management</i> CD 的 <b>readme_ins.txt</b> 文件了解目前所支持系统的列表。
+</td>
+  </tr>
+</table><a name="1054403"></a><h3> 无人值守和脚本化无提示安装
+ </h3>
+<a name="1054404"></a><p>可以使用 <i>Dell PowerEdge Installation and Server Management </i>CD 通过命令行（使用 RPM 软件包），在运行支持的 Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 操作系统的系统上以无人值守和脚本化无提示安装方式安装 Managed System Software。</p>
+<hr noshade size="1">
+<a name="1054408"></a><h2>开始之前</h2>
+
+
+<ul><li><a name="1054409"></a>阅读安装要求，以确保您的系统可满足或超出最低要求。<br><br> </li>
+<li><a name="1054410"></a>阅读<i>《Dell OpenManage Server Administrator 兼容性指南》</i>。此指南包含有关在运行支持的 Microsoft&#174; Windows&#174;、Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 操作系统的各种硬件平台上安装和运行 Server Administrator 的兼容性信息。</li>
+<li><a name="1054411"></a>请阅读 <i>Dell PowerEdge Installation and Server Management</i> CD 上的 Dell OpenManage 安装 <b>readme_ins.txt</b> 文件。 除有关已知问题的信息外，该文件还包含有关新功能、修复和硬件要求的最新信息。<br><br> </li>
+<li><a name="1054412"></a>阅读 <i>Dell PowerEdge Installation and Server Management </i>CD 上的 Server Administrator 自述文件。 除有关已知问题的信息外，该文件还包含有关软件、固件及驱动程序版本的最新信息。<br><br> </li>
+<li><a name="1054600"></a>阅读操作系统的安装说明。<br><br></li>
+</ul><hr noshade size="1">
+<a name="1054608"></a><h2>安装要求</h2>
+
+
+<a name="1054609"></a><p>以下各节介绍了 Managed System Software 的一般要求。 </p>
+<a name="1054613"></a><h3> 支持的操作系统版本
+ </h3>
+<a name="1054614"></a><p>Managed Systems Software 至少在以下各个操作系统上运行： </p>
+<ul><li><a name="1054617"></a>Red Hat Enterprise Linux AS、ES 和 WS（版本 3 ）x86 Update 6<br><br></li>
+<li><a name="1076383"></a>Red Hat Enterprise Linux AS、ES 和 WS（版本 3）for Intel&#174; Extended Memory 64 Technology (Intel EM64T) Update 6</li>
+<li><a name="1066212"></a>Red Hat Enterprise Linux AS、ES 和 WS（版本 4）for Intel x86<br><br></li>
+<li><a name="1066210"></a>Red Hat Enterprise Linux AS、ES 和 WS（版本 4）for Intel EM64T<br><br></li>
+<li><a name="1074925"></a>SUSE Linux Enterprise Server（版本 9）SP3 for Intel EM64T<br></li>
+</ul><a name="1054728"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>请参阅 <i>Dell PowerEdge Installation and Server Management</i> CD 
+上的 Server Administrator 自述文件或 <i>Documentation</i> CD 上的<i>《Dell OpenManage Server Administrator 兼容性指南》</i>，以了解每种支持的操作系统上支持的 Server Administrator 服务的最新详细列表。</td>
+  </tr>
+</table><a name="1054622"></a><h3> 系统要求
+ </h3>
+<a name="1054623"></a><p>Managed System Software 必须安装在每个要管理的系统上。 随后可以通过支持的 Web 浏览器在本地或远程管理运行 Managed System Software 的各个系统。</p>
+<a name="1054627"></a><h4> 管理系统要求</h4>
+<ul><li><a name="1054628"></a>一个支持的操作系统版本。<br><br> </li>
+<li><a name="1054629"></a>至少 64 MB RAM。<br><br> </li>
+<li><a name="1054630"></a>至少 256 MB 可用硬盘驱动器空间。<br><br> </li>
+<li><a name="1084236"></a>管理员权限。<br><br> </li>
+<li><a name="1084237"></a>监测的系统和远程系统间的 TCP/IP 连接，以便于远程系统管理。<br><br> </li>
+<li><a name="1054633"></a>简单网络管理协议 (SNMP)。<br><br> </li>
+<li><a name="1054634"></a>鼠标、键盘和显示器，用于在本地管理系统。 显示器要求屏幕分辨率最低为 800 x 600。 建议的屏幕分辨率设置为 1024 x 768。<br><br> </li>
+<li><a name="1054635"></a>Server Administrator Remote Access Service 要求在要管理的系统上安装 Remote Access Controller (RAC)。<br><br> </li>
+</ul><a name="1076501"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">    
+注：</span>请参阅<i>《Dell Remote Access Controller 4 用户指南》、</i><i>《Dell Remote Access Controller 5 用户指南》</i>或<i>《Dell Embedded Remote Access Controller/MC 用户指南》</i>，以了解详细的软件和硬件要求。</td>
+  </tr>
+</table>
+<ul><li><a name="1054636"></a>Server Administrator Storage Management Service 要求将 Dell OpenManage Storage Management 安装在系统上才能正确管理。 请参阅<i>《Dell OpenManage Server Administrator 用户指南》</i>了解软件和硬件的完整要求。<br><br> </li>
+</ul><a name="1054638"></a><h4> 支持的系统管理协议标准</h4>
+<a name="1054785"></a><p>安装 Server Administrator 之前，管理系统中必须已安装支持的系统管理协议标准。 在支持的 Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 操作系统中，Server Administrator 仅支持 SNMP 系统管理标准。您必须安装操作系统附带的 SNMP 软件包。 CIM 和 WMI 不可用。</p>
+<a name="1054761"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>有关在管理型系统中安装支持的系统管理协议标准的信息，请参阅操作系统说明文件。
+ </td>
+  </tr>
+</table><hr noshade size="1">
+<a name="1054645"></a><h2>安装步骤</h2>
+
+
+<a name="1054809"></a><p>本节介绍如何在运行支持的 Red Hat Enterprise Linux 或 SUSE Linux Enterprise Server 操作系统的系统上安装、升级和卸载 Server Administrator。Server Administrator 可以使用脚本或 RPM 命令从 <i>Dell PowerEdge Installation and Server Management</i> CD 安装和升级。</p>
+<a name="1054811"></a><p>此外，Server Administrator 包括了动态内核支持 (DKS)，这是一种在 Server Administrator 检测到其预建的设备驱动程序都不支持该内核时自动为运行内核建立设备驱动程序的功能。 本节包括以下主题： </p>
+<ul><li><a name="1054813"></a>动态内核支持 (DKS)<br><br></li>
+<li><a name="1081263"></a>OpenIPMI 设备驱动程序</li>
+<li><a name="1081265"></a>安装和升级 Managed System Software<br><br> </li>
+<li><a name="1054815"></a>执行 Managed System Software 的无人值守安装<br><br> </li>
+<li><a name="1081992"></a>从以前的版本升级</li>
+<li><a name="1054816"></a>卸载 Server Administrator<br><br> </li>
+</ul><a name="1054826"></a><h4> 软件许可协议</h4>
+<a name="1084240"></a><p>Red Hat Enterprise Linux 和 SUSE Linux Enterprise Server 版本的 Dell OpenManage 软件的软件许可证位于 CD 的根目录上。请阅读 <b>license.htm</b> 文件。 安装或复制此 CD 上的任何文件，就表示您同意此文件中的条款。 此文件也会被复制到软件树的根目录（选择在其上安装 Dell OpenManage 软件）。</p>
+<a name="1054829"></a><h3> 动态内核支持 (DKS)
+</h3>
+<a name="1054830"></a><p>Server Administrator 为 <i>Dell PowerEdge Installation and Server Management </i>CD 上 Server Administrator 自述文件中列出的预编译内核提供了预编译设备驱动程序。 如果运行的内核不为自述文件中列出的预编译内核之一，或者在没有预编译 Server Administrator 设备驱动程序支持重新编译内核的情况下重新配置和重新编译了所运行的内核，则 Server Administrator 可能需要使用其 DKS 功能支持运行的内核。 </p>
+<a name="1061078"></a><p>如果在 Server Administrator 设备驱动程序启动期间看到以下信息，Server Administrator 就会尝试使用其 DKS 功能，但是由于不满足某些前提条件而不能使用此功能：</p>
+<a name="1054838"></a>
+<p class="screenindent"><span class="screen">Building &lt;<i>driver</i>&gt; using DKS... [FAILED] 
+</span></p>
+<a name="1078931"></a><p class="indent">where <span class="screen">&lt;<i>driver</i>&gt;</span> is <span class="screen">dcdbas</span> or <span class="screen">dell_rbu</span></p>
+<p class="screenindent"><span class="screen">（正在使用 DKS 建立&lt;<i>驱动程序</i>&gt;... [失败]</span></p>
+<a name="1078931"></a><p class="indent">其中<span class="screen">&lt;<i>驱动程序</i>&gt;</span>是 <span class="screen">dcdbas</span> 或 <span class="screen">dell_rbu）</span></p>
+<a name="1068647"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>Server Administrator 将信息记录到 <b>/var/log/messages</b> 日志文件中。
+ </td>
+  </tr>
+</table><a name="1068649"></a><p>要使用 DKS，应标识正在运行的内核，然后检查是否满足 DKS 前提条件。</p>
+<a name="1057063"></a><h4> 确定运行的内核</h4>
+<ol type="1">
+
+<li value="1"><a name="1054846"></a>以 <span class="screen">root</span> 身份登录。
+
+<br><br>
+ <li value="2"><a name="1054848"></a>在控制台上键入以下命令并按 &lt;Enter&gt;：</ol>
+<a name="1083403"></a>
+<p class="screenindent"><span class="screen">uname -r</span></p>
+<a name="1054852"></a><p>系统会显示标识运行内核的信息。 如果不是 Managed System Software 自述文件中列出的，则 Managed System Software 可能需要使用 DKS 支持它。 </p>
+<a name="1054858"></a><h4> 动态内核支持前提条件</h4>
+<a name="1066532"></a><p>要使 Managed System Software 使用 DKS，必须符合以下相关性才能启动 Server Administrator。 </p>
+<ul><li><a name="1066534"></a>运行的内核必须已启用可载入模块支持。<br><br> </li>
+<li><a name="1066631"></a><b>/lib/modules/`uname –r`/build </b>中必须有用于为运行内核建立内核模块的源。 在运行 Red Hat Enterprise Linux（版本 3）和 SUSE Linux Enterprise Server（版本 9）的系统上，<b>kernel-source</b> RPM 提供了必要的内核源代码。在运行 Red Hat Enterprise Linux（版本 4）的系统上，<b>kernel*-devel</b> RPM 提供了用于构建内核模块所需的内核源。<br><br> </li>
+<li><a name="1054864"></a>必须安装 GNU make 公用程序。 <b>make</b> RPM 提供该公用程序。<br><br> </li>
+<li><a name="1054865"></a>必须安装 GNU C 编译器 (gcc)。 <b>gcc</b> RPM 提供该编译器。<br><br> </li>
+<li><a name="1054866"></a>必须安装 GNU 链接器 (ld)。 <b>binutils</b> RPM 提供该链接器。<br><br> </li>
+</ul><a name="1054867"></a><p>满足这些前提条件后，DKS 就会在 Server Administrator 启动期间根据需要自动建立设备驱动程序。 </p>
+<a name="1055373"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span><i>不支持的内核</i>是预编译设备驱动程序不支持的内核。 如果正在运行支持的内核，请参阅“<a href="instlx.htm#1080745">安装和升级 Managed System Software</a>”。
+</td>
+  </tr>
+</table><a name="1054875"></a><h4> 在安装 Server Administrator 后使用动态内核支持</h4>
+<a name="1054876"></a><p>要启用 Server Administrator 以支持预编译设备驱动程序不支持且在 Server Administrator 安装后载入的内核，请执行以下步骤： </p>
+<ol type="1">
+
+<li value="1"><a name="1054878"></a>确保在要管理的系统上满足 DKS 前提条件。
+
+<br><br>
+ <li value="2"><a name="1054880"></a>引导系统中的新内核。
+<br><br>
+ </ol>
+<a name="1054882"></a><p>Server Administrator 在载入内核后首次启动时将为系统中运行的内核建立设备驱动程序。 默认情况下，Server Administrator 将在系统启动期间启动。</p>
+<a name="1079009"></a><h4> 将动态建立的设备驱动程序复制到运行相同内核的系统</h4>
+<a name="1079010"></a><p>Server Administrator 为运行的内核动态建立设备驱动程序时，会将设备驱动程序安装到 <b>/lib/modules/</b><b><i>&lt;内核&gt;</i></b><b>/kernel/drivers/firmware </b>目录，其中<b><i>&lt;内核&gt;</i></b>是内核名称（通过键入 <span class="screen">uname -r</span> 返回）。如果系统运行着为其建立设备驱动程序的内核，则可以将新建立的设备驱动程序复制到其它系统的 <b>/var/omsa/dks/</b><b><i>&lt;内核&gt;</i></b><b> </b>目录，以供 Server Administrator 使用。此操作使 Server Administrator 能够在多个系统上使用 DKS，而不用在各个系统上安装内核源。</p>
+<a name="1054887"></a><p>以下情况就是一个示例：系统 A 正在运行一个内核，但其中一个 Server Administrator 预编译设备驱动程序不支持该内核。 系统 B 正在运行相同的内核。 要在系统 A 中建立设备驱动程序并将其复制到系统 B 以供 Server Administrator 使用，请执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1054889"></a>确保在系统 A 上满足 DKS 前提条件。
+
+<br><br>
+ <li value="2"><a name="1054891"></a>在系统 A 中启动 Server Administrator。
+<br><br>
+</ol>
+<a name="1064947"></a><p class="indent">在启动期间，Server Administrator 将为系统 A 中运行的内核建立设备驱动程序。 </p>
+<ol type="1">
+
+<li value="3"><a name="1066669"></a>在系统 A 上键入 <span class="screen">uname -r</span> 以确定运行内核的名称。
+
+<br><br>
+ <li value="4"><a name="1066670"></a>将系统 A <b>/lib/modules/</b><b><i>&lt;内核&gt;</i></b><b>/</b><b>kernel/drivers/firmware</b> 目录下的 <b>dcdbas.*</b> 或 <b>dell_rbu.*</b> 文件复制到系统 B <b>/var/omsa/dks/</b><b><i>&lt;内核&gt;</i></b>目录，其中<b><i>&lt;内核&gt;</i></b>是在步骤 3 中通过键入 <span class="screen">uname -r </span> 返回的内核名称。</ol>
+<a name="1079039"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span><b>/lib/modules/</b><b><i>&lt;内核&gt;</i></b><b>/kernel/drivers/firmware</b> 目录可能包含一个或多个以下文件：<b>dcdbas.*</b> 或<b> dell_rbu.*
+</b></td>
+  </tr>
+</table>
+<a name="1054900"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>可能需要在系统 B 上创建 <b>/var/omsa/dks/</b><b><i>&lt;内核&gt;</i></b><b> </b>目录。例如，如果内核名称是 1.2.3-4smp，则可以通过键入以下命令创建目录：<span class="screen">mkdir&#160;-p&#160;/var/omsa/dks/1.2.3-4smp</span></td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="5"><a name="1054903"></a>在系统 B 中启动 Server Administrator。
+<br><br>
+</ol>
+<a name="1057710"></a><p class="indent">Server Administrator 会检测到已经复制到 <b>/var/omsa/dks/</b><b><i>&lt;内核&gt;</i></b> 目录的设备驱动程序支持运行的内核，并使用该设备驱动程序。</p>
+<a name="1054908"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>升级 Server Administrator 时，如果新版本的 Server Administrator 不支持带有预编译设备驱动程序的运行内核，也可使用此过程。
+ </td>
+  </tr>
+</table>
+<a name="1077096"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>从系统 B 上卸载 Server Administrator 后，<b>/var/omsa/dks/</b><b><i>&lt;内核&gt;</i></b>/*<b>.</b>文件，即复制到系统 B 的文件，将不会删除。如果不再需要，则必须删除这些文件。
+ </td>
+  </tr>
+</table>
+<a name="1079430"></a><h4>内核受到污染时在 Red Hat Enterprise Linux Update 版本上强制启用动态内核支持</h4>
+<a name="1079436"></a><p>Server Administrator 为支持的 Red Hat Enterprise Linux 操作系统的“Gold”版本提供预编译的设备驱动程序。Red Hat Enterprise Linux 支持在 Update 版本上载入为“Gold”版本建立的设备驱动程序。这意味着 Server Administrator 不必为每个 Red Hat Enterprise Linux Update 版本提供预编译的设备驱动程序。在每个运行 Red Hat Enterprise Linux Update 版本的系统上，用户也不需要必须使用 DKS，才能运行 Server Administrator。然而，在 Update 版本上载入为“Gold”版本 Red Hat Enterprise Linux（版本 3）建立的设备驱动程序可能会污染内核。如果运行 Red Hat Enterprise Linux（版本 3）Update 版本的系统上的内核受到此设备驱动程序载入过程的污染，可以使用 Server Administrator 的初始化脚本命令 <b>restart-forcekernelmatch</b> 强制启用 DKS。DKS 将建立不会污染运行的内核的设备驱动程序。</p>
+<a name="1079475"></a><h5>确定运行的内核是否受到污染</h5>
+<a name="1079477"></a><p>启动 Server Administrator 服务后，请在 Red Hat Enterprise Linux Update 版本上执行以下步骤确定内核是否已经受到污染：</p>
+<ol type="1">
+
+<li value="1"><a name="1079481"></a>以 <span class="screen">root</span> 身份登录。
+
+<br><br>
+<li value="2"><a name="1079483"></a>执行以下命令：</ol>
+<a name="1079485"></a>
+<p class="screenindent">lsmod</p>
+<a name="1079610"></a><p>如果如以下信息所示在输出信息的第一行中看到“Tainted: GF”字样，则说明运行的内核已经受到污染：</p>
+<a name="1079611"></a><p class="indent"><span class="screen">Module 	 	 	  Size Used by    Tainted: GF<br><br>（模块 	 	 	  使用的大小    受污染: GF）</span></p>
+<a name="1079612"></a><p>“tainted”状态可能是由 Server Administrator 设备驱动程序载入过程造成的。</p>
+<a name="1079646"></a><h5>在 Red Hat Enterprise Linux Update 版本上强制启用动态内核支持</h5>
+<a name="1079648"></a><p>安装 Server Administrator 后，请执行以下步骤在 Red Hat Enterprise Linux Update 版本上强制启用 DKS，为运行的内核建立设备驱动程序（如果有必要），以便设备驱动程序不污染内核：</p>
+<ol type="1">
+
+<li value="1"><a name="1079652"></a>确保满足启用 DKS 的前提条件。<li value="2"><a name="1079654"></a>执行以下命令：</ol>
+<a name="1079656"></a>
+<p class="screenindent">/etc/init.d/instsvcdrv restart-forcekernelmatch</p>
+<a name="1079658"></a><p>此命令将首先停止 Server Administrator 设备驱动程序。然后，通过检查是否存在专门为与运行内核的完全同名的内核建立的预编译设备驱动程序，搜索供载入的预编译的设备驱动程序。如果找不到，它将使用 DKS 为运行的内核建立设备驱动程序。最后，该命令将重新启动 Server Administrator 设备驱动程序。</p>
+<a name="1079748"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>必须重新引导系统，清除内核的“tainted”状态。</td>
+  </tr>
+</table><a name="1079432"></a><h3>OpenIPMI 设备驱动程序</h3>
+<a name="1077108"></a><p>Server Administrator 的 Server Administrator Instrumentation Service 需要具有 OpenIPMI 设备驱动程序，才能提供基于 IPMI 的信息和功能。它同时要求 OpenIPMI 设备驱动程序不能低于某个版本。要求的最低版本是根据 Red Hat Enterprise Linux 或 SUSE Linux Enterprise Server 操作系统确定的。</p>
+<a name="1077109"></a><p>Server Administrator 会在三种情况下检查是否符合这一要求并强制要求满足这一要求。两次是在安装期间，一次是在运行时。这些情况为：</p>
+<ul><li><a name="1077110"></a>使用 <b>srvadmin-install.sh </b>外壳脚本自定义安装 Server Administrator 期间。</li>
+<li><a name="1077111"></a>使用 RPM 安装 Server Administrator 期间。</li>
+<li><a name="1077112"></a>启动 Server Administrator Instrumentation Service 时运行时间。</li>
+</ul><a name="1077113"></a><h4>使用 srvadmin-install.sh 外壳脚本自定义安装 Server Administrator 期间出现错误</h4>
+<a name="1077114"></a><p>使用 <b>srvadmin-install.sh </b>外壳脚本自定义安装 Server Administrator 期间，脚本会自动调用另一个名为 <b>srvadmin-openipmi.sh</b> 的外壳脚本，以确保系统上目前安装版本足够高的 OpenIPMI 设备驱动程序（例如，与 Server Administrator Instrumentation Service 要求的 OpenIPMI 设备驱动程序最低版本相同的版本或更高的版本）。如果找不到足够高的版本，<b>srvadmin-install.sh </b>外壳脚本会再次调用 <b>srvadmin-openipmi.sh</b> 外壳脚本，尝试安装足够高的版本。如果由于某种原因安装尝试失败，则会出现适当的错误信息，其中有如何消除该错误的说明。如果有错误，必须先消除错误，然后再重新运行 <b>srvadmin-install.sh </b>外壳<b></b>脚本安装 Server Administrator。</p>
+<a name="1077115"></a><h4>使用 RPM 安装 Server Administrator 期间出现错误</h4>
+<a name="1084843"></a><p>为使 RPM 安装按正确顺序进行，<b>srvadmin-hapi</b> RPM 需要有一个 <b>srvadmin-ipmi</b> RPM 协助。每个 <b>srvadmin-ipmi</b> RPM 均用于特定的分发任务，依赖一个用于特定分发任务的 OpenIPMI RPM。除非符合 RPM 相关性，否则 <b>srvadmin-hapi</b> RPM 将不会安装。</p>
+<a name="1084841"></a><p>在使用 RPM 安装 Server Administrator 期间，<b> srvadmin-hapi</b> RPM 将检查系统上目前是否安装版本足够高的 OpenIPMI 设备驱动程序。如果找不到足够高的版本，<b> srvadmin-hapi</b> RPM 将无法安装，并显示错误信息，提示必须安装/升级 OpenIPMI 设备驱动程序。在这种情况下，依赖 <b>srvadmin-hapi</b> RPM 的 RPM 也将无法安装。这时，必须再执行以下一些步骤安装/升级 OpenIPMI 驱动程序：</p>
+<ol type="1">
+
+<li value="1"><a name="1077118"></a>浏览至<b> srvadmin/linux/supportscripts</b> 目录。<li value="2"><a name="1077120"></a>运行以下 <b>srvadmin-openipmi.sh</b> 外壳脚本：</ol>
+<a name="1077121"></a>
+<p class="screenindent"><span class="screen">sh srvadmin-openipmi.sh install
+</span></p>
+<a name="1077236"></a><p>重新尝试安装 <b>srvadmin-hapi</b> RPM 和任何其它由于依赖 <b>srvadmin-hapi </b>RPM 而无法安装的 RPM。请执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1077237"></a>浏览至以前所在的 <b>srvadmin/linux/custom/*</b> 目录。<li value="2"><a name="1077126"></a>运行以下命令查看以前成功安装的 Server Administrator 软件包。</ol>
+<a name="1077127"></a>
+<p class="screenindent"><span class="screen">rpm -qa | grep srvadmin</span></p>
+<a name="1077128"></a><p class="indent">该查询操作会显示所有已经安装的 Server Administrator 软件包列表。</p>
+<ol type="1">
+
+<li value="3"><a name="1077130"></a>运行以下命令，安装目录中以前没有安装的所有 RPM，因为这些 RPM 依赖以前无法安装的 <b>srvadmin-
+hapi</b> RPM：</ol>
+<a name="1077131"></a>
+<p class="screenindent"><span class="screen">rpm –ihv srvadmin-hapi*.rpm srvadmin-isvc*.rpm srvadmin-omhip*.rpm 
+srvadmin-&lt;any-other-packages&gt;*.rpm</span></p>
+<a name="1077132"></a><p>另外，在使用 RPM 安装 <b>srvadmin-hapi</b> RPM 期间，如果系统上目前已经安装针对某个版本的 OpenIPMI 驱动程序的 OpenIPMI RPM 且该驱动程序符合 Server Administrator 要求的 OpenIPMI 的驱动程序最低版本，但是，因为要求 <b>kernel-source</b> RPM 而目前没有安装，仍没有为给定版本的 OpenIPMI 驱动程序建立并安装 OpenIPMI 驱动程序模块，<b>srvadmin-hapi</b> RPM 将无法安装，并将显示错误信息。该错误信息将提示需要安装 <b>kernel-source</b> RPM 和建立 OpenIPMI 驱动程序。在这种情况下，依赖 <b>srvadmin-hapi</b> RPM 的任何 RPM 也将无法安装。此时，必须再执行以下一些步骤，安装 <b>kernel-source</b> RPM，并建立和安装 OpenIPMI 驱动程序模块：</p>
+<ol type="1">
+
+<li value="1"><a name="1077134"></a>对于运行 Red Hat Enterprise Linux（版本 3）的系统，从操作系统安装 CD（或者从其它一些来源）安装一份用于运行内核的适当的 <b>kernel-source</b> RPM。</ol>
+<a name="1078269"></a><p class="indent">在运行 Red Hat Enterprise Linux（版本 4）和 SUSE Linux Enterprise Server 的系统上，<b>kernel*-devel</b> RPM 提供了用于建立内核模块所需的源代码。</p>
+<ol type="1">
+
+<li value="2"><a name="1077281"></a>通过运行以下命令从找到或复制 RPM 的位置安装 <b>kernel-source </b>RPM 或 <b>kernel*-devel</b> RPM：</ol>
+<a name="1077282"></a>
+<p class="screenindent"><span class="screen">rpm –ihv kernel*.rpm</span></p>
+<ol type="1">
+
+<li value="3"><a name="1077283"></a>浏览至<b> srvadmin/linux/supportscripts</b> 目录。<li value="4"><a name="1077140"></a>如下所示，运行 <b>srvadmin-openipmi.sh </b>外壳脚本。这将建立并安装 OpenIPMI 驱动程序模块。</ol>
+<a name="1077141"></a>
+<p class="screenindent">sh srvadmin-openipmi.sh install</p>
+<a name="1077142"></a><p>重新尝试安装 <b>srvadmin-hapi</b> RPM 和由于依赖 <b>srvadmin-hapi</b> RPM 而无法安装的 RPM。</p>
+<a name="1077143"></a><h4>启动 Server Administrator Instrumentation Service 之后功能下降</h4>
+<a name="1077144"></a><p>安装 Server Administrator 之后，无论何时启动 Server Administrator Instrumentation Service，它均会执行一次 OpenIPMI 设备驱动程序运行时检查。无论何时运行<span class="screen"> </span>srvadmin-services.sh start 或 srvadmin-services.sh restart 命令，或者重新启动系统（在此期间会启动 Server Administrator Instrumentation Service），均会启动 Server Administrator Instrumentation Service。</p>
+<a name="1077145"></a><p>尽管在目前没有安装版本足够高的 OpenIPMI 设备驱动程序的情况下，Server Administrator 安装程序将阻止 Server Administrator 的安装，但是仍然存在一种可能（虽然不常见），即在安装 Server Administrator 之后，用户能够卸载或替换版本足够高的 OpenIPMI 设备驱动程序。Server Administrator 不能防止这种情况的发生。</p>
+<a name="1077146"></a><p>考虑到在安装 Server Administrator 之后用户可能会卸载或替换版本足够高的 OpenIPMI 设备驱动程序，无论何时 Server Administrator Instrumentation Service 在启动时，均会检查 OpenIPMI 设备驱动程序的版本。如果找不到版本足够高的 OpenIPMI 设备驱动程序，Server Administrator Instrumentation Service 将会降低自己的功能，不提供任何其基于 IPMI 的信息或功能。主要来讲，这意味着它将不提供任何探测器数据（例如风扇、温度或电压探测器数据）。</p>
+<a name="1077147"></a><p>如果知道或怀疑系统上的 OpenIPMI 设备驱动程序版本不够高，可以执行以下步骤，运行 <i>Dell PowerEdge Installation and Server Management</i> CD 上的 <b>srvadmin-openipmi.sh </b>外壳脚本安装版本足够高的设备驱动程序：</p>
+<ol type="1">
+
+<li value="1"><a name="1077148"></a>浏览至<b> srvadmin/linux/supportscripts</b> 目录。<li value="2"><a name="1077150"></a>如下所示，运行 <b>srvadmin-openipmi.sh </b>外壳脚本。</ol>
+<a name="1077151"></a>
+<p class="screenindent">sh srvadmin-openipmi.sh install</p>
+<a name="1077152"></a><p>如果不清楚系统上的 OpenIPMI 设备驱动程序的版本是否足够高，请运行 <b>srvadmin-openipmi.sh status</b> 命令。与 <b>srvadmin-openipmi.sh install </b>命令不同，<b>srvadmin-openipmi.sh install </b>是用于在必要的情况下尝试安装或升级 OpenIPMI 设备驱动程序的命令，<b>而 srvadmin-openipmi.sh status</b> 命令则用于显示信息，告诉您系统上的 OpenIPMI 设备驱动程序的版本是否足够高。在运行 <b>srvadmin-openipmi.sh</b> status 命令后，就可以决定是否需要或希望运行<b> srvadmin-openipmi.sh install </b>命令。</p>
+<a name="1080745"></a><h3> 安装和升级 Managed System Software
+</h3>
+<a name="1083520"></a><p>本节解释如何使用以下安装选项安装和升级 Managed System Software：</p>
+<ul><li><a name="1083521"></a>使用 <b>srvadmin-install.sh</b> 外壳脚本以交互或无人值守模式执行快速安装或自定义安装</li>
+<li><a name="1054922"></a>使用 RPM 命令以交互或无人值守模式执行自定义安装。</li>
+</ul><a name="1054923"></a><h4> 安装 Managed System Software 的前提条件</h4>
+<ul><li><a name="1054924"></a>必须作为 <span class="screen">root</span> 登录。<br><br> </li>
+<li><a name="1054925"></a>运行的内核必须已启用可载入模块支持。<br><br> </li>
+<li><a name="1054926"></a><b>/opt</b> 目录必须至少有 250 MB 可用空间，而 <b>/tmp</b> 和 <b>/var</b> 目录必须分别至少有 20 MB 可用空间。如果选择使用非默认的安装目录，则该目录也必须至少有 250 MB 可用空间。</li>
+<li><a name="1054927"></a>如果使用 SNMP 管理服务器，则必须安装操作系统附带的 <b>ucd-snmp</b> 或 <b>net-snmp</b> 软件包。如果要使用 <b>ucd-snmp</b> 或 <b>net-snmp</b> 代理的支持代理，则必须安装 Server Administrator 之前安装支持 SNMP 标准的操作系统。有关安装 SNMP 的详细信息，请参阅系统中运行的操作系统的安装说明。<br><br> </li>
+</ul><a name="1084286"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>在 Red Hat Enterprise Linux 或 SUSE Linux Enterprise Server 中安装 RPM 软件包时，为避免出现有关 RPM–GPG 密钥的警告，要使用类似以下的命令导入密钥：</td>
+  </tr>
+</table>
+<a name="1084289"></a>
+<p class="screenindent"><span class="screen">rpm --import /mnt/cdrom/srvadmin/linux/RPM-GPG-KEY</span></p>
+<ul><li><a name="1075567"></a>必须安装所有必需的 RPM 才能成功进行安装。<br><br></li>
+</ul><a name="1075568"></a><p class="indent">如果系统附带出厂时安装的 Red Hat Enterprise Linux（版本 3 和 4）或 SUSE Linux Enterprise Server（版本 9）操作系统，请参阅 <i>Dell PowerEdge Installation and Server Management</i> CD 上的 Server Administrator 安装自述文件 (readme_ins.txt) ，以了解有关在安装 Managed System Software 之前需要手动安装的任何 RPM 的信息。在大多数情况下，均不需要手动安装 RPM。为确定起见，请参阅自述文件。</p>
+<a name="1084531"></a><p class="indent">如果系统没有附带出厂时安装的 Linux 操作系统，而且没有使用 Server Assistant 安装 Red Hat Enterprise Linux（版本 3 和 4）或 SUSE Linux Enterprise Server（版本 9）操作系统，则在安装 Managed System Software 之前需要手动安装必要的 RPM。为方便起见，<i>Dell PowerEdge Installation and Server Management</i> CD 或软件包中均已提供这些 RPM 文件。在安装 Managed System Software 之前，请浏览至适当的 <b>/srvadmin/linux/RPMS/</b><b><i>操作系统</i></b>子文件夹，找到特定的 Red Hat Enterprise Linux（版本 3 和 4）或 SUSE Linux Enterprise Server（版本 9）操作系统，并运行<br><span class="screen">rpm -Uvh * </span>安装这些 RPM 文件。</p>
+<a name="1075563"></a><h4> 使用 Dell PowerEdge Installation and Server Management&#160;CD 安装 Managed System Software</h4>
+<a name="1069113"></a><p><i>Dell PowerEdge Installation and Server Management </i>CD 使用 RPM 安装每个组件。 该&#160;CD 分成多个子目录，十分方便自定义安装。</p>
+<a name="1062171"></a><p>如果安装前希望查看软件，请执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1061638"></a>将 <i>Dell PowerEdge Installation and Server Management </i>CD 载入系统的 CD 驱动器中。
+
+<br><br>
+ <li value="2"><a name="1061773"></a>如果有必要，请通过命令行使用如下命令加载 CD：<span class="screen">mount /dev/cdrom /mnt/cdrom</span><li value="3"><a name="1070750"></a>加载 CD 后，可使用 <span class="screen">cd /mnt/cdrom/srvadmin/linux/ 
+</span><br>
+浏览到 CD
+
+<br><br><li value="4"><a name="1061774"></a>使用<span class="screen"> ls</span> 获得目录列表。
+<br><br>
+ </ol>
+<a name="1061710"></a><p class="indent">CD 上属于 Red Hat Enterprise Linux 的目录如下：</p>
+<a name="1061671"></a>
+<p class="screenindent">srvadmin/linux
+</p>
+<a name="1061674"></a>
+<p class="screenindent">srvadmin/linux/custom
+</p>
+<a name="1061675"></a>
+<p class="screenindent">srvadmin/linux/RPMS
+</p>
+<a name="1061676"></a>
+<p class="screenindent">srvadmin/linux/supportscripts
+</p>
+<a name="1054987"></a><h5> 快速安装</h5>
+<a name="1075485"></a><p>使用提供的外壳脚本以无提示和无人值守模式执行快速安装。</p>
+<ol type="1">
+
+<li value="1"><a name="1063351"></a>作为 <span class="screen">root</span> 登录到运行支持的 Red Hat Enterprise Linux 或 SUSE Linux 
+Enterprise Server 操作系统的系统，即要安装管理系统组件的系统。<li value="2"><a name="1061819"></a>将 <i>Dell PowerEdge Installation and Server Management </i>CD 插入 CD 驱动器中。
+
+<br><br>
+<li value="3"><a name="1061824"></a>如果有必要，请通过命令行使用如下命令加载 CD：<span class="screen">mount /dev/cdrom /mnt/cdrom</span><li value="4"><a name="1061826"></a>浏览至<span class="screen"> srvadmin/linux/supportscripts</span> 目录。
+
+<br><br>
+<li value="5"><a name="1061828"></a>如下所示运行 <b>srvadmin-install.sh</b> 外壳脚本，这会执行无提示和无人值守的快速安装。 这样将安装包括任何适用的 remote access controller（DRAC&#160;III、DRAC 4 或 DRAC 5）软件组件在内的所有组件。</ol>
+<a name="1061832"></a><p class="indent"><span class="screen">sh srvadmin-install.sh --express</span></p>
+<a name="1061833"></a><p class="indent">或</p>
+<a name="1061834"></a><p class="indent"><span class="screen">sh srvadmin-install.sh -x</span></p>
+<a name="1075627"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>在安装 Server Administrator RPM 之前，<b>srvadmin-install.sh</b> 外壳脚本会自动调用 <b>srvadmin-openipmi.sh</b> 外壳脚本，以确保系统目前安装版本足够高的 OpenIPMI 驱动程序。如果找不到足够高的版本，<b>srvadmin-install.sh</b> 外壳
+脚本会调用 <b>srvadmin-openipmi.sh</b> 外壳脚本尝试安装足够高的版本。如果由于某种原因安装尝试失败，则会出现适当的错误信息，其中有如何消除该错误的说明。消除错误之后，应该重新运行 <b>srvadmin-install.sh</b> 外壳脚本安装
+管理系统组件。</td>
+  </tr>
+</table>
+<a name="1075628"></a><p class="indent">Server Administrator 服务不会自动启动。</p>
+<ol type="1">
+
+<li value="6"><a name="1065112"></a>请在安装后使用 <b>srvadmin-services.sh</b> 脚本启动 Server Administrator 服务，方法是使用 <b>sh srvadmin-services start</b> 命令。
+<br><br>
+</ol>
+<a name="1054995"></a><h5> 自定义安装</h5>
+<a name="1071112"></a><p>Managed System Software 提供了两种自定义安装方法。 一种是基于 RPM 的，使用预配置的自定义目录，而另一种是基于外壳脚本的。</p>
+<a name="1071116"></a><p>使用<b>“Pre-configured Custom Directories”（预配置的自定义目录）</b>执行自定义安装</p>
+<a name="1073410"></a><p>请参阅<a href="instlx.htm#1077561">表&#160;7-1</a> 详细了解有关通过预配置的自定义目录使用 RPM 执行自定义安装。</p>
+<a name="1077619"></a>
+<p><p class="FigureTableTitle"><a name="1077561"></a>表 7-1.  使用预配置的目录进行自定义安装&#160;</p>
+<table border=1 cellspacing="0" cellpadding="4">
+<tr><th valign="top" align="left"><a name="1077565"> </a>
+<p><b>目录</b></p>
+
+
+</th><th valign="top" align="left"><a name="1077567"> </a>
+<p><b>详情</b></p>
+
+
+</th></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1077571"></a>要进行基于 RPM 的自定义安装，添加以下目录的 RPM：</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077575"></a><b>/srvadmin/linux/custom/srvadmin-base</b></p></td><td valign="top" align="left"><p><a name="1077577"></a>包含带有命令行界面的基础 Server Administrator</p></td></tr>
+<tr><td valign="top" align="left" colspan=2 rowspan=1><p><a name="1077580"></a>然后通过添加以下目录的 RPM 进行自定义安装：</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077584"></a><b>/srvadmin/linux/custom/add-diagnostics</b></p></td><td valign="top" align="left"><p><a name="1077586"></a>诊断程序组件软件包</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077588"></a><b>/srvadmin/linux/custom/add-RAC3</b></p></td><td valign="top" align="left"><p><a name="1077590"></a>DRAC III 组件软件包</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077592"></a><b>/srvadmin/linux/custom/add-RAC4</b></p></td><td valign="top" align="left"><p><a name="1077594"></a>DRAC 4 组件软件包</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1084709"></a><b>/srvadmin/linux/custom/add-RAC5</b></p></td><td valign="top" align="left"><p><a name="1084711"></a>DRAC 5 组件软件包</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077600"></a><b>/srvadmin/linux/custom/add-storageservices</b></p></td><td valign="top" align="left"><p><a name="1077602"></a>Storage Management 组件软件包</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077604"></a><b>/srvadmin/linux/custom/add-webserver</b></p></td><td valign="top" align="left"><p><a name="1077606"></a>Web Server 组件软件包</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077608"></a><b>/srvadmin/linux/custom/add-openipmi-RHEL3</b></p></td><td valign="top" align="left"><p><a name="1077610"></a>用于 Red Hat Enterprise Linux（版本 3）的 IPMI RPM 软件包</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077612"></a><b>/srvadmin/linux/custom/add-openipmi-RHEL4</b></p></td><td valign="top" align="left"><p><a name="1077614"></a>用于 Red Hat Enterprise Linux（版本 4）的 IPMI RPM 软件包</p></td></tr>
+<tr><td valign="top" align="left"><p><a name="1077616"></a><b>	 	 /srvadmin/linux/custom/add-openipmi-SLES9</b></p></td><td valign="top" align="left"><p><a name="1077618"></a>用于 SUSE Linux Enterprise Server（版本 9）的 IPMI RPM 软件包</p></td></tr>
+
+</table>
+
+
+
+
+
+</p><a name="1077620"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span><b>add-RAC3</b>、<b> add-RAC4</b>、<b> </b>和<b> add-RAC5 </b>软件包是相互排他的。</td>
+  </tr>
+</table><a name="1077621"></a><p>以下是 Server Administrator 基于 RPM 的自定义安装的示例，其中包括安装 Storage Management Service 和 Diagnostics Service 组件。</p>
+<ol type="1">
+
+<li value="1"><a name="1062303"></a>作为 <span class="screen">root</span> 登录到运行支持的 Red Hat Enterprise Linux 或 SUSE Linux 
+Enterprise Server 操作系统的系统，即要安装管理系统组件的系统。<li value="2"><a name="1062306"></a>将 <i>Dell PowerEdge Installation and Server Management </i>CD 插入 CD 驱动器中。
+
+<br><br>
+<li value="3"><a name="1062311"></a>如果有必要，请使用如下命令加载 CD：<span class="screen">mount /dev/cdrom /mnt/cdrom</span>。<li value="4"><a name="1062313"></a>浏览至<span class="screen"> srvadmin/linux/custom</span> 目录。
+
+<br><br>
+<li value="5"><a name="1062315"></a>键入以下命令。
+<br><br>
+</ol>
+<a name="1062317"></a>
+<p class="screenindent"><span class="screen">rpm -ihv srvadmin-base/*.rpm add-diagnostics/*.rpm add-storageservices/*.rpm</span></p>
+<a name="1062323"></a><p class="indent">Server Administrator 服务不会自动启动。</p>
+<ol type="1">
+
+<li value="6"><a name="1067259"></a>安装后使用以下命令启动 Server Administrator 服务：</ol>
+<a name="1081488"></a>
+<p class="screenindent"><span class="screen">sh&#160;srvadmin-services start</span></p>
+<a name="1081491"></a><p><b>使用外壳脚本执行自定义安装</b> </p>
+<a name="1063103"></a><p>可以采用交互模式或无提示和无人值守模式运行 Server Administrator 自定义安装脚本。</p>
+<a name="1062331"></a><p>此脚本的基本用法如下： </p>
+<a name="1063123"></a>
+<p class="screenindent">srvadmin-install.sh [OPTION]...
+</p>
+<a name="1062332"></a><p>Server Administrator 自定义安装公用程序</p>
+<a name="1062333"></a><p>如果不指定任何选项，此公用程序将以交互模式运行；如果提供一个或多个选项，则以无提示方式运行。</p>
+<a name="1062336"></a><p>选项包括：</p>
+<a name="1062337"></a><p><b>[-x|--express]</b> 安装所有组件，包括 RAC。 将忽略任何未选的其它选项。</p>
+<a name="1062339"></a><p><b>[-b|--base]</b> 安装 Base 组件。</p>
+<a name="1062340"></a><p><b>[-d|--diags]</b> 安装 Diagnostics 组件，包括 Base。</p>
+<a name="1062341"></a><p><b>[-s|--storage]</b> 安装 Storage 组件，包括 Base。</p>
+<a name="1067622"></a><p><b>[-r|--rac]</b><span class="screen"> </span>安装可应用的 RAC 组件，包括 Base。</p>
+<a name="1076617"></a><p><b>[-w|--web]</b> 安装 Web Server 组件，包括 Base。</p>
+<a name="1076618"></a><p>[<b>--prefix PATH</b>] 将选定的组件安装到指定的“路径”。此选项不适用于 OpenIPMI RPM，因为它们不能改变位置。</p>
+<a name="1076619"></a><p><b>使用自定义安装脚本以无提示和无人值守模式运行</b></p>
+<a name="1063579"></a><p>以下是使用 <b>srvadmin-install.sh</b> 外壳脚本r执行无提示和无人值守自定义安装的示例。</p>
+<ol type="1">
+
+<li value="1"><a name="1062349"></a>作为 <span class="screen">root</span> 登录到运行支持的 Red Hat Enterprise Linux 或 SUSE Linux 
+Enterprise Server 操作系统，即要安装管理系统组件的系统。<li value="2"><a name="1062352"></a>将 <i>Dell PowerEdge Installation and Server Management </i>CD 插入 CD 驱动器中。
+
+<br><br>
+<li value="3"><a name="1062357"></a>如果有必要，请使用如下命令加载 CD：<span class="screen">mount /dev/cdrom /mnt/cdrom</span>。<li value="4"><a name="1062359"></a>浏览至<span class="screen"> srvadmin/linux/supportscripts</span> 目录。
+
+<br><br>
+<li value="5"><a name="1062361"></a>要安装 Diagnostic Service 和 Storage Management Service 组件，键入以下命令。
+<br><br>
+</ol>
+<a name="1062364"></a><p class="indent"><span class="screen">sh srvadmin-install.sh --diags --storage</span>（这些是长选项）</p>
+<a name="1062365"></a><p class="indent">或</p>
+<a name="1062366"></a><p class="indent"><span class="screen">sh srvadmin-install.sh -ds</span>（这些是短选项）</p>
+<a name="1062368"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>长选项可与短选项组合使用，反之亦然。
+</td>
+  </tr>
+</table>
+<a name="1075728"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>在安装 Server Administrator RPM 之前，<b>srvadmin-install.sh</b> 外壳脚本会自动调用 <b>srvadmin-openipmi.sh</b> 外壳脚本，以确保系统目前安装版本足够高的 OpenIPMI 驱动程序。如果找不到足够高的版本，<b>srvadmin-install.sh</b> shell 
+脚本会调用 <b>srvadmin-openipmi.sh</b> 外壳脚本尝试安装足够高的版本。如果由于某种原因安装尝试失败，则会出现适当的错误信息，其中有如何消除该错误的说明。消除错误之后，应该重新运行 <b>srvadmin-install.sh</b> 外壳脚本安装
+管理系统组件。</td>
+  </tr>
+</table>
+<a name="1062370"></a><p class="indent">Server Administrator 服务不会自动启动。</p>
+<ol type="1">
+
+<li value="6"><a name="1065139"></a>安装后使用以下命令启动 Server Administrator 服务：</ol>
+<a name="1083419"></a>
+<p class="screenindent"><span class="screen">sh srvadmin-services start</span></p>
+<a name="1075040"></a><p><b>使用外壳脚本以交互模式执行自定义安装</b></p>
+<a name="1064030"></a><p>此过程使用安装外壳脚本在安装过程中提示安装特定组件。</p>
+<ol type="1">
+
+<li value="1"><a name="1062377"></a>作为 <span class="screen">root</span> 登录到运行支持的 Red Hat Enterprise Linux 或 SUSE Linux 
+Enterprise Server 操作系统的系统，即要安装管理系统组件的系统。<li value="2"><a name="1062380"></a>将 <i>Dell PowerEdge Installation and Server Management </i>CD 插入 CD 驱动器中。
+
+<br><br>
+<li value="3"><a name="1062385"></a>如果有必要，请使用<span class="screen"> mount /dev/cdrom /mnt/cdrom </span>命令加载 CD。<li value="4"><a name="1062387"></a>浏览至<span class="screen"> srvadmin/linux/supportscripts</span> 目录。
+
+<br><br>
+<li value="5"><a name="1062389"></a>使用 <b>sh srvadmin-install.sh</b> 命令执行脚本，显示组件选项列表。 如果已经安装了任何组件，则这些组件会分别列出，旁边带有复选标记。 Server Administrator 自定义安装选项将会显示。
+
+<br><br>
+<li value="6"><a name="1062394"></a>选择 <b>C </b>复制，<b>I </b>安装，<b>R </b>重设并从头开始，或者 <b>Q </b>退出。
+<br><br>
+<ul>
+<li type="disc"><a name="1062396"></a>如果选择 <b>C</b>，则提示输入绝对目标路径。<br><br></li>
+<li type="disc"><a name="1062398"></a>如果选择 <b>I</b>，则显示信息说明将 RPM 安装到 <b>/opt/dell/srvadmin</b> 目录。 然后可选择 <b>Y</b> 进行更改，或按 &lt;Enter&gt; 使用默认安装路径。<br><br></li>
+</ul>
+</ol>
+<a name="1062402"></a><p class="indent">安装完成后，脚本将具有启动服务的选项。</p>
+<a name="1075790"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left">
+<span class="notes">注：</span>在安装 Server Administrator RPM 之前，<b>srvadmin-install.sh</b> 外壳脚本会自动调用 <b>srvadmin-openipmi.sh</b> 外壳脚本，以确保系统目前安装版本足够高的 OpenIPMI 驱动程序。如果找不到足够高的版本，<b>srvadmin-install.sh</b> 外壳脚本会调用 <b>srvadmin-openipmi.sh</b> 外壳脚本尝试安装足够高的版本。如果由于某种原因安装尝试失败，则会出现适当的错误信息，其中有如何消除该错误的说明。消除错误之后，应该重新运行 <b>srvadmin-install.sh</b> 外壳脚本安装
+管理系统组件。</td>
+  </tr>
+</table>
+<ol type="1">
+
+<li value="7"><a name="1065257"></a>选择 <b>N </b>手动启动服务。
+<br><br>
+</ol>
+<a name="1055038"></a><h3> 执行 Managed System Software 的无人值守安装
+ </h3>
+<a name="1055039"></a><p>可对无人值守安装过程使用 <i>Dell PowerEdge Installation and Server Management</i> CD 的<b>“Express Install”（快速安装）</b>和<b>“Custom Install”（自定义安装）</b>选项。</p>
+<a name="1055041"></a><p>无人值守安装使您可以在多个系统上同时安装 Server Administrator。 您可以通过创建包含所有必需的 Managed System Software 文件的无人值守安装软件包来执行无人值守安装。</p>
+<a name="1078723"></a><p>无人值守安装软件包使用 ISV 软件分发工具分发至远程系统。 分发软件包后，RPM 会安装该软件。 </p>
+<a name="1078725"></a><p>自定义无人值守安装软件包位于创建的目录内，详见“<a href="instlx.htm#1075040">使用外壳脚本以交互模式执行自定义安装</a>”一节。此目录包含用于要分发的 Managed System Software 组件的所有 RPM。</p>
+<ol type="1">
+
+<li value="1"><a name="1076714"></a>分发无人值守安装软件包之后，请配置 ISV 软件分发软件以执行 <span class="screen">rpm –i *.rpm</span>。
+
+<br><br>
+<li value="2"><a name="1076716"></a>使用 ISV 分发软件将无人值守安装软件包分发至远程系统。 RPM 命令在每个远程系统上安装 Server Administrator。
+<br><br>
+</ol>
+<a name="1076719"></a><h4> 相关性检查</h4>
+<a name="1076778"></a><p>RPM 具有检测功能，无需实际安装任何软件就可以验证软件相关性。 要执行此相关性检查，键入 <span class="screen">rpm –ihv *.rpm –-test</span>。 此命令对所有安装类型均有效。</p>
+<a name="1076814"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span> rpm 命令的 <span class="screen">–-test</span> 功能不执行任何硬件验证。 它仅检查 RPM 软件相关性。
+</td>
+  </tr>
+</table><a name="1076827"></a><h4> 创建和分发快速无人值守安装软件包</h4>
+<a name="1055046"></a><p><b>“Express Install”</b><b>（快速安装）</b>无人值守安装选项使用 <i>Dell PowerEdge Installation and Server Management</i> CD 的 <b>/srvadmin/linux/supportscripts</b> 和 <b>/srvadmin/linux/RPMS</b> 子目录作为无人值守安装软件包。RPM 使用 <i>Dell PowerEdge Installation and Server Management </i>CD 在所选的远程系统上安装所需的 Server Administrator 组件。 </p>
+<a name="1055050"></a><h5> 将快速安装子目录分发为快速无人值守安装软件包</h5>
+<ol type="1">
+
+<li value="1"><a name="1055051"></a>将 <i>Dell PowerEdge Installation and Server Management</i> CD 的	<b>/srvadmin/linux/supportscripts</b><b> </b>和<b> </b><b>/srvadmin/linux/RPMS</b> 子目录分发到目标系统。<li value="2"><a name="1055053"></a>配置 ISV 软件分发软件从 <b>supportscripts</b> 子目录执行 <span class="screen">sh srvadmin-install.sh -x</span>。</ol>
+<a name="1055055"></a><p class="indent">ISV 软件运行时，执行 RPM 在每个远程系统上安装 Server Administrator。 </p>
+<a name="1077662"></a>
+<table class="indent" border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>如果远程系统目前没有安装版本足够高的 OpenIPMI 驱动程序，<b>srvadmin-hapi</b> RPM 将无法安装，并显示错误信息，提示必须安装/升级 OpenIPMI 驱动程序。在这种情况下，依赖 s<b>rvadmin-hapi </b>RPM 的 RPM 也将无法安装。这时，还应该分发与操作系统对应的 <b>srvadmin/linux/custom/add-
+openipmi</b>-operating-system<b> </b>子目录中与 OpenIPMI 有关的 RPM 文件。将 RPM 从相应的 OpenIPMI 子目录复制到目标系统上相同的目录，该目录即为用于分发自定义无人值守安装软件包的目录。</td>
+  </tr>
+</table>
+<a name="1077656"></a><h4> 创建和分发自定义无人值守安装软件包</h4>
+<a name="1077708"></a><p><b>“Custom Install”（自定义安装）</b>无人值守安装选项会在系统硬盘驱动器上的目录中创建无人值守安装软件包。 要创建无人值守安装软件包，请使用“<a href="instlx.htm#1075040">使用外壳脚本以交互模式执行自定义安装</a>”一节所述的复制功能创建一个用于存放要安装的 RPM 的自定义目录。此目录即是无人值守安装目录。将相应的 OpenIPMI 子目录中的 RPM 复制到目标系统上相同的目录，该目录即为用于分发自定义无人值守安装软件包的目录。</p>
+<a name="1077704"></a><h5> 分发无人值守安装软件包</h5>
+<a name="1084537"></a><p>自定义无人值守安装包位于上面自定义安装第 6 步中创建的目录中（请参阅“<a href="instlx.htm#1054995">自定义安装</a>”）。 此目录包含用于要分发的 Managed System Software 组件的所有 RPM。.</p>
+<ol type="1">
+
+<li value="1"><a name="1055063"></a>分发无人值守安装软件包之后，请配置 ISV 软件分发软件以执行 <span class="screen">rpm –i *.rpm</span>。
+
+<br><br>
+ <li value="2"><a name="1055065"></a>使用 ISV 分发软件将无人值守安装软件包分发至远程系统。 RPM 命令在每个远程系统上安装 Server Administrator。
+<br><br>
+</ol>
+<a name="1067145"></a><h3> 从以前的版本升级
+</h3>
+<a name="1067146"></a><p>如果系统正在运行 4.2 版以前的 Dell OpenManage 软件，则在尝试安装新版本前卸载当前版本。</p>
+<a name="1067147"></a><h4> 从 4.3 和更高版本升级</h4>
+<a name="1067957"></a><p>对于 Dell OpenManage 软件 4.3 或更高版本，可以使用 RPM 命令或 <span class="screen">srvadmin-install.sh</span> 外壳脚本升级系统。执行任何程序时均应确保升级所有安装的组件。</p>
+<a name="1076539"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>建议使用安装脚本 <b>srvadmin-install.sh</b>。</td>
+  </tr>
+</table><a name="1067150"></a><h5> 使用 RPM</h5>
+<ol type="1">
+
+<li value="1"><a name="1067151"></a>作为 <span class="screen">root</span> 登录到运行 Red Hat Enterprise Linux 或 SUSE Linux Enterprise Server 且要求升级的管理系统组件的系统。<li value="2"><a name="1067152"></a>将 <i>Dell PowerEdge Installation and Server Management</i> CD 插入系统上的 CD 驱动器中。
+<br><br>
+ </ol>
+<a name="1067969"></a><p class="indent">如果 CD 没有自动安装，请使用如下的命令：</p>
+<a name="1070024"></a>
+<p class="screenindent"><span class="screen">	 	 	 	 	 mount /dev/cdrom /mnt/cdrom</span></p>
+<a name="1070045"></a>
+<p class="screenindent"><span class="screen">mount /dev/cdrom /media/cdrom</span></p>
+<ol type="1">
+
+<li value="3"><a name="1067153"></a>加载 CD 后，通过使用类似以下的命令浏览至 <b>RPMS</b> 目录：</ol>
+<a name="1067976"></a><p class="indent"><span class="screen">cd /mnt/cdrom/srvadmin/linux/RPMS</span></p>
+<a name="1070044"></a><p class="indent"><span class="screen">cd /media/cdrom /srvadmin/linux/RPMS</span></p>
+<ol type="1">
+
+<li value="4"><a name="1068392"></a>使用单一长命令或单个 RPM 升级 Red Hat Enterprise Linux 或 SUSE Linux Enterprise Server 系统。单一长命令是 RPM 的组合，可以通过只键入一个命令来执行。
+<br><br>
+</ol>
+<a name="1068393"></a><p class="indent">要使用一个命令升级以前安装的所有软件包，应键入： </p>
+<a name="1067156"></a><p class="indent"><span class="screen">rpm -Uhv `rpm -q --queryformat &quot;%{NAME}* &quot; \`rpm -qa | grep srvadmin\``</span></p>
+<a name="1067157"></a><p class="indent">要使用各个 RPM 升级所有以前安装的软件包，执行下列步骤：</p>
+<ol type="a">  <ol type="a">
+
+<li value="1"><a name="1067158"></a>通过键入以下命令查询 rpm 数据库寻找所有安装的 srvadmin 软件包：  
+<br><br>
+</ol>
+</ol><a name="1068002"></a><p class="Indentsub"><span class="screen">rpm -qa | grep srvadmin</span></p>
+<a name="1068012"></a><p class="Indentsub">该查询会显示所有安装的软件包的列表，其中包括所有现有的或较早的版本。</p>
+<a name="1068056"></a><p class="Indentsub">例如：</p>
+<a name="1068015"></a><p class="Indentsub"><span class="screen">srvadmin-omilcore-4.3.0-1.386.rpm<br>srvadmin-hapi-4.3.0-1.386.rpm<br>srvadmin-deng-4.3.0-1.386.rpm<br>srvadmin-isvc-4.3.0-1.386.rpm<br>...</span></p>
+<ol type="1">
+  <ol type="a">
+
+<li value="2"><a name="1067159"></a>键入 RPM 升级命令，包括<a href="instlx.htm#1067158">步骤&#160;a</a> 中返回的软件包。 此命令会更新所装的 Dell OpenManage 软件组件。  
+<br><br>
+</ol>
+</ol>
+<a name="1068025"></a><p class="Indentsub">例如：</p>
+<a name="1083627"></a><p class="Indentsub"><span class="screen">rpm -Uhv srvadmin-omilcore-4.3.0-1.386.rpm srvadmin-hapi-4.3.0-1.386.rpm srvadmin-deng-4.3.0-1.386.rpm srvadmin-isvc-4.3.0-1.386.rpm</span></p>
+<a name="1083628"></a><p>如果系统上目前没有安装 OpenIPMI 驱动程序，或者系统上安装的 OpenIPMI 驱动程序的版本低于 Server Administrator 要求的最低版本，<b>srvadmin-hapi </b>RPM 将无法升级，并将显示错误信息，提示必须安装/升级 OpenIPMI 驱动程序。在这种情况下，依赖<b> srvadmin-hapi</b> RPM 的 RPM 也将无法升级。这时，必须再执行以下一些步骤安装/升级 OpenIPMI 驱动程序：</p>
+<ol type="1">
+
+<li value="1"><a name="1075956"></a>浏览至<b> srvadmin/linux/supportscripts</b> 目录。<li value="2"><a name="1075958"></a>如下所示，运行 <b>srvadmin-openipmi.sh</b> 外壳脚本。</ol>
+<a name="1075959"></a><p class="indent"><span class="screen">sh srvadmin-openipmi.sh install</span></p>
+<a name="1078763"></a><p>重新尝试升级 <b>srvadmin-hapi</b> RPM 和任何其它由于依赖 <b>srvadmin-hapi</b> RPM 而无法升级的 RPM。请执行以下步骤：</p>
+<ol type="1">
+
+<li value="1"><a name="1084340"></a>返回至刚才使用的目录。<li value="2"><a name="1084341"></a>运行以下命令查看以前成功升级的 Server Administrator 软件包。
+<br><br>
+</ol>
+<a name="1075965"></a>
+<p class="screenindent">rpm -qa | grep srvadmin
+</p>
+<a name="1075966"></a><p class="indent">该查询操作会显示所有已经安装的 Server Administrator 软件包列表。已经升级的软件包将显示新版本号。尚未升级的软件包将显示旧版本号。</p>
+<ol type="1">
+
+<li value="3"><a name="1075968"></a>运行以下命令，升级目录中因为 <b>srvadmin-hapi 
+</b>RPM<b> </b>以前无法升级而没有升级的所有 RPM：</ol>
+<a name="1075969"></a>
+<p class="screenindent">rpm -Uhv srvadmin-hapi*.rpm srvadmin-isvc*.rpm srvadmin-omhip*.rpm 
+srvadmin-&lt;任何其它软件包&gt;*.rpm</p>
+<a name="1076147"></a><p>如果系统上目前已经安装针对某个版本的 OpenIPMI 驱动程序的 OpenIPMI RPM 且该驱动程序符合 Server Administrator 要求的 OpenIPMI 驱动程序最低版本，但是，因为要求 <b> kernel-source</b> RPM 而目前没有安装，仍没有为给定版本的 OpenIPMI 驱动程序建立并安装 OpenIPMI 驱动程序模块，<b>srvadmin-hapi</b> RPM 将无法升级，并将显示错误信息。该错误信息将提示需要安装 <b>kernel-source</b> RPM 和建立 OpenIPMI 驱动程序。在这种情况下，依赖<b> srvadmin-hapi</b> RPM 的 RPM 也将无法升级。必须再执行以下一些步骤，安装 <b>kernel-source</b> RPM，并建立和安装 OpenIPMI 驱动程序模块：</p>
+<ol type="1">
+
+<li value="1"><a name="1076153"></a>对于运行 Red Hat Enterprise Linux（版本 3）的系统，从操作系统安装 CD（或者从其它一些来源）安装一份适合目前运行的内核的 <b>kernel-source</b> RPM。在运行 Red Hat Enterprise Linux（版本 4）和 SUSE Linux Enterprise Server 的系统上，<b>kernel*-devel</b> RPM 提供了用于建立内核模块所需的源代码。<li value="2"><a name="1076171"></a>通过运行以下命令从找到或复制 RPM 的位置安装 <b>kernel-source </b>RPM 或 <b>kernel*-devel</b> RPM：</ol>
+<a name="1076172"></a>
+<p class="screenindent">rpm -ihv kernel*.rpm</p>
+<ol type="1">
+
+<li value="3"><a name="1076173"></a>浏览至<b> srvadmin/linux/supportscripts</b> 目录。<li value="4"><a name="1076159"></a>如下所示，运行 <b>srvadmin-openipmi.sh</b> 外壳脚本。这将建立并安装 OpenIPMI 驱动程序模块。</ol>
+<a name="1076160"></a>
+<p class="screenindent">sh srvadmin-openipmi.sh install</p>
+<a name="1076339"></a><p>重新尝试升级 <b>srvadmin-hapi</b> RPM 和任何其它由于依赖  <b>srvadmin-hapi</b> RPM 而无法升级的 RPM。请执行<a href="instlx.htm#1075956">本节</a>所说明的步骤。</p>
+<a name="1076149"></a><h5> 使用 srvadmin-install 外壳脚本</h5>
+<ol type="1">
+
+<li value="1"><a name="1067162"></a>作为 <span class="screen">root</span> 登录到要求升级的运行 Red Hat Enterprise Linux 的系统。
+
+<br><br>
+<li value="2"><a name="1067163"></a>将 <i>Dell PowerEdge Installation and Server Management</i> CD 插入系统上的 CD 驱动器中。 如果 CD 不自动加载，请键入 <span class="screen">mount /dev/cdrom /mnt/cdrom。</span><br><br>
+
+<li value="3"><a name="1067165"></a>加载 CD 后，通过键入以下某个命令浏览到 CD 上包含外壳脚本的子目录：</ol>
+<a name="1068080"></a><p class="indent"><span class="screen">cd /mnt/cdrom/srvadmin/linux/supportscripts<br>cd /media/cdrom/srvadmin/linux/supportscripts</span>. </p>
+<ol type="1">
+
+<li value="4"><a name="1067166"></a>运行以下脚本：
+<br><br>
+</ol>
+<a name="1067167"></a><p class="indent"><span class="screen">sh srvadmin-install.sh</span></p>
+<a name="1067168"></a><p class="indent">脚本会检测 Server Administrator 的所有以前的版本。 如果装有以前的版本，会显示一条信息，指出当前的版本和所装的组件。</p>
+<a name="1068092"></a><p class="indent">例如：</p>
+<a name="1067170"></a><p class="indent"><span class="screen">目前已经安装 Server Administrator 4.4.0 版。安装的组件包括；<br>- srvadmin-omilcore<br>- srvadmin-hapi<br>- srvadmin-deng<br>- srvadmin-isvc</span></p>
+<a name="1082828"></a><p class="indent">接着，脚本会显示以下信息提示您：</p>
+<a name="1067177"></a><p class="indent"><span class="screen">Do you want to upgrade Server Administrator to 5.0?<br>Press ('y' for yes | 'Enter' to exit):<br><br>（是否要将 Server Administrator 升级到 5.0？按（'y' 表示是 | 'Enter' 退出）：）</span></p>
+<ol type="1">
+
+<li value="5"><a name="1067143"></a>选择 <b>y</b> 升级系统。
+<br><br>
+</ol>
+<a name="1068129"></a><p class="indent">Server Administrator 会升级到版本 5.0。 </p>
+<a name="1076246"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>在升级 Server Administrator RPM 之前，<b>srvadmin-install.sh</b> 外壳脚本会自动调用 <b>srvadmin-openipmi.sh</b> 外壳脚本，以确保系统目前安装版本足够高的 OpenIPMI 驱动程序。如果找不到足够高的版本，<b>srvadmin-install.sh</b> shell 
+脚本会调用 <b>srvadmin-openipmi.sh</b> 外壳脚本尝试安装足够高的版本。 如果由于某种原因安装尝试失败，则会出现适当的错误信息，其中有如何消除该错误的说明。 消除错误之后，应该重新运行 <b>srvadmin-install.sh</b> 外壳脚本升级
+管理系统组件。
+</td>
+  </tr>
+</table><a name="1076247"></a><h3> 卸载 Managed System Software
+ </h3>
+<a name="1055077"></a><p>可以从 Red Hat Enterprise Linux 或 SUSE Linux Enterprise Server 命令行卸载 Managed System Software。此外，您还可以在多个系统上同时执行无人值守卸载。 </p>
+<a name="1055079"></a><h4> 卸载 Managed System Software 的前提条件</h4>
+<a name="1055080"></a><p>必须作为 <span class="screen">root</span> 登录。</p>
+<a name="1070127"></a><h4>从 Red Hat Enterprise Linux 或 SUSE Linux Enterprise Server 命令行卸载 Managed System Software</h4>
+<a name="1055083"></a><p>安装 Server Administrator 时已经安装卸载脚本。可以通过键入 <span class="screen">srvadmin-uninstall.sh</span> 然后按 &lt;Enter&gt; 执行脚本。</p>
+<a name="1076435"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>执行时，<b>srvadmin-uninstall.sh</b> 将不会尝试卸载 OpenIPMI 驱动程序，即使在上次执行 <b>srvadmin-install.sh</b> 脚本或 
+<b>srvadmin-openipmi.sh</b> 脚本期间已经安装或升级 OpenIPMI 驱动程序。</td>
+  </tr>
+</table><a name="1056679"></a><h4> 自定义卸载特定组件</h4>
+<a name="1064162"></a><p>可卸载 Dell OpenManage 一些个别组件而无需卸载全部 Dell OpenManage。 示例如下：</p>
+<a name="1064173"></a><p>要只卸载 Web Server，使用此命令：</p>
+<a name="1064174"></a>
+<p class="screenindent"><span class="screen">rpm –e `rpm -qa | grep srvadmin-iws`</span></p>
+<a name="1064178"></a><p>要卸载诊断程序，使用此命令：</p>
+<a name="1064179"></a>
+<p class="screenindent"><span class="screen">rpm –e `rpm -qa | grep srvadmin-old`</span></p>
+<a name="1064180"></a><p>要卸载存储，使用此命令：</p>
+<a name="1069022"></a>
+<p class="screenindent"><span class="screen">rpm –e `rpm -qa | grep srvadmin-storage`</span></p>
+<hr noshade size="1">
+<a name="1070108"></a><h2>将 Dell OpenManage 与 VMware ESX Server&#8482; 软件一起使用</h2>
+
+
+<a name="1070113"></a>
+<table border=0 cellpadding="4">
+  <tr>
+    <td valign="top" align="left" width="20"><img src="note.gif" 
+    align="top"></td>
+    <td valign="top" align="left"><span class="notes">注：</span>Dell OpenManage 与 VMware ESX Server 软件安装在一起需要特别的步骤。 这些步骤会根据 Dell OpenManage 和 ESX Server 的版本而有所不同；只支持有限的一些组合。
+</td>
+  </tr>
+</table><a name="1070104"></a><p>请参阅位于资源中心 <b>www.dell.com/vmware</b> 的<i>《VMware 系统兼容性指南》</i>来确定与此版 Dell OpenManage 兼容的 ESX Server 软件版本。每个 Dell ESX Server 版本都有相关的 Dell VMware ESX Server <i>部署指南</i>，也在该 Web 位置发布。有关安装与 ESX Server 版本对应的所支持 Dell OpenManage 版本的说明均可以在该 ESX Server 版本的<i>部署指南</i>中找到。有关安装以后发布的所支持 Dell OpenManage 版本的说明会单独以一个明确标明的文档公布在同一位置。</p>
+<hr noshade size="1">
+<a name="1072268"></a><h2>使用第三方部署软件进行 Managed System Software 安装</h2>
+
+
+<a name="1064685"></a><p>可以使用第三方部署软件，比如 Altiris Deployment Solution，来将 Managed System Software 安装到所支持的 Dell 服务器上。 要使用 Altiris 分发和安装 Managed System Software，请启动 Altiris 应用程序并导入 <i>Dell&#160;PowerEdge Installation and Server Management</i> CD 的 <b>\srvadmin\support\Altiris</b> 目录下的 <b>OpenManage_Jobs.bin</b>。指定要用于导入的目标工作文件夹。可能需要修改<b>“Run Script”（运行脚本）</b>和<b>“Copy File”（复制文件）</b>任务来与部署环境相匹配。完成后，可以安排工作在 Altiris Deployment Solution 管理的支持的 Dell 系统上运行。</p>
+
+<hr noshade size="1">
+
+<p><a href="index.htm">返回目录页</a></p>
+
+
+<p>&#160;</p>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- #include VIRTUAL="/includes/global_footer.inc.asp" -->
+</body>
+</html>

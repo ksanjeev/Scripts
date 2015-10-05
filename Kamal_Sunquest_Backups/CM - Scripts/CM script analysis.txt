@@ -1,0 +1,130 @@
+CC_Pre_Bld_Process.Pl script
+-----------------------------
+
+
+
+To create a View
+----------------
+
+'cleartool mkview -stream '.$CC_BUILD.'@\\'.$product_vob.' -tag '.$product_build_view.' '.$Storage_Location.$product_build_view.'.vws';
+'cleartool mkview -stream '.$int_stream.'@\\'.$product_vob.' -tag '.$View_Name.' '.$Storage_Location.$View_Name.'.vws';
+
+To remove a View
+----------------
+
+'cleartool rmview -force -tag '.$View_Name;
+
+To end a view
+--------------
+
+'cleartool endview '.$View_Name;
+
+
+
+To Unmount a VOB
+----------------
+
+'cleartool umount -all';
+
+To mount all VOB's
+------------------
+
+'cleartool mount \\'.$mount_VOBs[$ndx];
+
+
+
+To create a stream
+------------------
+
+'cleartool mkstream -in '.$int_stream.'@\\'.$product_vob.' -baseline '.$Product_Baseline.'@\\'.$product_vob.' -readonly '.$CC_BUILD.'@\\'.$product_vob;
+
+To remove a stream
+------------------
+
+'cleartool rmstream -force '.$CC_BUILD.'@\\'.$product_vob;
+
+
+
+To make a baseline
+------------------
+
+'cleartool mkbl -c '.$build_no1.' -view '.$View_Name.' '.$build_no;
+
+
+
+To copy M: to C: using Xcopy based on product_build or view_name
+-----------------------------------------------------------------
+
+'xcopy /E /Y /I M:\\'.$product_build_view.' '.$working_directory.$product_build_view;
+
+
+
+
+
+MUMPS_BUILD.pl SCRIPT
+---------------------
+
+Create a Build Directory
+------------------------
+
+mkdir($cfg{'blddir'} . $cfg{'MUMPS_Folder'});
+
+Copy a file to another directory
+--------------------------------
+
+$command_line = 'copy /Y '.$file_from_path.' '.$to_path;
+
+
+
+
+GUI_BUILD.pl SCRIPT
+-------------------
+
+To omake data
+-------------
+
+'omake -f '.$data[$i][2].' -b " " -d -v';
+
+To copy data
+------------
+
+'xcopy /H /Y /R /K "'.$source_file.'" "'.$target_file.'"'
+
+To Xcopy data
+-------------
+
+'xcopy /E /Y /I /C /H /R /K /F "'.$source_file.'" "'.$target_file.'"'
+
+To unregister data
+------------------
+
+'"'.$data[$i][1]. $data[$i][2]. '" /UnRegServer'
+
+'regsvr32.exe /u /s "'. $data[$i][1]. $data[$i][2].'"'
+
+To register data
+----------------
+
+'"'.$data[$i][1]. $data[$i][2]. '" /RegServer'
+
+'regsvr32.exe /s "'. $data[$i][1]. $data[$i][2].'"'
+
+To compile Java Components using JAVAC
+--------------------------------------
+
+'javac -classpath "'.$data[$i][1].'" '.$target_file;
+
+To jar the java class files
+---------------------------
+
+'jar '.$data[$i][1].' '.$source_file.' '.$target_file
+
+To zip the files
+----------------
+
+'wzzip -rp '.$source_file
+
+
+
+
+

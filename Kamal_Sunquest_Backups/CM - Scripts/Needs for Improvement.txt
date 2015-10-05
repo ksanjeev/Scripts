@@ -1,0 +1,6 @@
+Requirements Wish-list
+----------------------
+
+1) Defect Number generated and not saved by ClearQuest should be reusable
+2) making a baseline should be restricted
+

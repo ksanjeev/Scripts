@@ -1,0 +1,1516 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0060)http://www.ibm.com/developerworks/rational/library/4114.html -->
+<HTML lang=en xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>IBM Rational ClearQuest FAQs: working with databases and schemas</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META http-equiv=PICS-Label 
+content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))'><LINK 
+href="http://purl.org/DC/elements/1.0/" rel=schema.DC><LINK 
+href="http://www.ibm.com/favicon.ico" rel="SHORTCUT ICON">
+<META content="dW Information/Raleigh/IBM" name=Owner>
+<META scheme=rfc1766 content=en name=DC.Language>
+<META content=ZZ name=IBM.Country>
+<META content=Public name=Security>
+<META content=SP001 name=IBM.SpecialPurpose>
+<META content=sid=1003 name=IBM.PageAttributes>
+<META content="Based on v15 Template Generator, Template 15" name=Source>
+<META 
+content="A useful FAQ for IBM(R) Rational(R) ClearQuest(R) administrators." 
+name=Abstract>
+<META 
+content="A useful FAQ for IBM(R) Rational(R) ClearQuest(R) administrators." 
+name=Description>
+<META 
+content="rational, Tech Notes, Change Management, ClearQuest, database, setup, administration, dddrca" 
+name=Keywords>
+<META scheme=iso8601 content=2004-05-13 name=DC.Date>
+<META scheme=IBM_ContentClassTaxonomy content=CT316 name=DC.Type>
+<META scheme=IBM_SubjectTaxonomy content=BA.007D name=DC.Subject>
+<META content="Copyright (c) 2004 by IBM Corporation" name=DC.Rights>
+<META content=index,follow name=Robots>
+<META scheme=W3CDTF content=2004-05-13 name=IBM.Effective>
+<META content=04102008rhalden@us.ibm.com name="Last update"><!-- STYLESHEETS/SCRIPTS --><!-- for tables --><LINK 
+media=screen,print 
+href="IBM Rational ClearQuest FAQs working with databases and schemas_files/table.css" 
+type=text/css rel=stylesheet><!-- end for tables -->
+<SCRIPT language=JavaScript 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/dwcss14.js" 
+type=text/javascript></SCRIPT>
+<LINK 
+href="IBM Rational ClearQuest FAQs working with databases and schemas_files/main.css" 
+type=text/css rel=stylesheet><LINK media=all 
+href="IBM Rational ClearQuest FAQs working with databases and schemas_files/screen.css" 
+type=text/css rel=stylesheet><LINK media=print 
+href="IBM Rational ClearQuest FAQs working with databases and schemas_files/print.css" 
+type=text/css rel=stylesheet>
+<SCRIPT language=JavaScript 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/detection.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/ibmcommon.js" 
+type=text/javascript>//</SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/dynamicnav.js" 
+type=text/javascript>//</SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/dropdown.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/grabtitle.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/emailfriend2.js" 
+type=text/javascript></SCRIPT>
+<!--START RESERVED FOR FUTURE USE INCLUDE FILES-->
+<SCRIPT language=javascript 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/ajax1.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=javascript 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/search_counter.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=javascript 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/request_referer_capture.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=javascript 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/summaries_switcher.js" 
+type=text/javascript></SCRIPT>
+<!--END RESERVED FOR FUTURE USE INCLUDE FILES-->
+<SCRIPT language=JavaScript type=text/javascript>var emailAbstract = "A useful FAQ for IBM(R) Rational(R) ClearQuest(R) administrators."; </SCRIPT>
+
+<META content="MSHTML 6.00.2600.0" name=GENERATOR></HEAD>
+<BODY><!--MASTHEAD_BEGIN-->
+<DIV class=ibm-liquid id=ibm-top>
+<DIV class=ibm-access><A 
+href="http://www.ibm.com/developerworks/rational/library/4114.html#main">Skip to 
+main content</A></DIV>
+<DIV id=ibm-masthead>
+<DIV id=ibm-logo><A href="http://www.ibm.com/"><IMG height=50 alt=IBM® 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/ibm-logo.gif" 
+width=110></A></DIV>
+<UL id=ibm-geo>
+  <LI class=ibm-first id=ibm-country>Country/region </LI>
+  <LI id=ibm-change-country>[ <A 
+  href="http://www.ibm.com/developerworks/country/">select</A> ] </LI></UL>
+<FORM id=ibm-search-form name=form1 
+action=//www.ibm.com/developerworks/search/searchResults.jsp method=get><INPUT 
+type=hidden value=1 name=searchType><INPUT type=hidden value=dW name=searchSite>
+<P><SPAN id=ibm-search-scope><LABEL for=sn><IMG height=1 alt="Search in:" 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+width=1></LABEL> <SELECT class=input-local id=sn size=1 name=searchScope> 
+  <OPTION value=dW selected>All of dW</OPTION> <OPTION 
+  value=dW>-----------------</OPTION> <OPTION value=aixunix>&nbsp;&nbsp;AIX and 
+  UNIX</OPTION> <OPTION value=db2>&nbsp;&nbsp;Information Mgmt</OPTION> <OPTION 
+  value=lotus>&nbsp;&nbsp;Lotus</OPTION> <OPTION 
+  value=rdd>&nbsp;&nbsp;Rational</OPTION> <OPTION 
+  value=tivoli>&nbsp;&nbsp;Tivoli</OPTION> <OPTION 
+  value=WSDD>&nbsp;&nbsp;WebSphere</OPTION> <OPTION 
+  value=dW>-----------------</OPTION> <OPTION 
+  value=archZ>&nbsp;&nbsp;Architecture</OPTION> <OPTION 
+  value=acZ>&nbsp;&nbsp;Autonomic computing</OPTION> <OPTION 
+  value=javaZ>&nbsp;&nbsp;Java technology</OPTION> <OPTION 
+  value=linuxZ>&nbsp;&nbsp;Linux</OPTION> <OPTION 
+  value=paZ>&nbsp;&nbsp;Multicore acceleration</OPTION> <OPTION 
+  value=opensrcZ>&nbsp;&nbsp;Open source</OPTION> <OPTION 
+  value=webservZ>&nbsp;&nbsp;SOA &amp; Web services</OPTION> <OPTION 
+  value=webarchZ>&nbsp;&nbsp;Web development</OPTION> <OPTION 
+  value=xmlZ>&nbsp;&nbsp;XML</OPTION> <OPTION 
+  value=dW>-----------------</OPTION> <OPTION value=forums>&nbsp;&nbsp;dW 
+  forums</OPTION> <OPTION value=dW>-----------------</OPTION> <OPTION 
+  value=aW>alphaWorks</OPTION> <OPTION value=dW>-----------------</OPTION> 
+  <OPTION value=all>All of IBM</OPTION></SELECT> </SPAN><LABEL for=q><IMG height=1 
+alt="Search for:" 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+width=1></LABEL><INPUT id=q maxLength=100 name=query><INPUT class=ibm-btn-search id=ibm-search type=submit value=Search name=Search></P></FORM>
+<DIV id=ibm-site-name><!-- IBM site name container --></DIV>
+<DIV id=ibm-universal-nav>
+<UL>
+  <LI class=ibm-first id=ibm-unav-home><A href="http://www.ibm.com/">Home</A> 
+  </LI>
+  <LI id=ibm-unav-solutions><A 
+  href="http://www.ibm.com/businesssolutions/">Business solutions</A> </LI>
+  <LI id=ibm-unav-services><A href="http://www.ibm.com/technologyservices/">IT 
+  services</A> </LI>
+  <LI id=ibm-unav-products><A href="http://www.ibm.com/products/">Products</A> 
+  </LI>
+  <LI id=ibm-unav-support><A href="http://www.ibm.com/support/">Support &amp; 
+  downloads</A> </LI>
+  <LI id=ibm-unav-myibm><A href="http://www.ibm.com/account/">My IBM</A> 
+</LI></UL></DIV></DIV>
+<SCRIPT language=JavaScript 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/pmh.js" 
+type=text/javascript>
+</SCRIPT>
+<!--MASTHEAD_END--><!-- CMA ID: 4114 --><!-- Site ID: 1 -->
+<TABLE id=v14-body-table cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR vAlign=top><!--LEFTNAV_BEGIN-->
+    <TD id=navigation width=150>
+      <TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+        <TBODY>
+        <TR>
+          <TD class=left-nav-spacer><A class=left-nav-overview 
+            href="http://www.ibm.com/developerworks">&nbsp;</A></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+        <TBODY>
+        <TR>
+          <TD class=left-nav-overview colSpan=2><A class=left-nav-overview 
+            href="http://www.ibm.com/developerworks">developerWorks</A></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+        <TBODY>
+        <TR>
+          <TD class=left-nav-highlight colSpan=2><A class=left-nav 
+            href="http://www.ibm.com/developerworks/rational/library/4114.html#">In 
+            this article:</A></TD></TR>
+        <TR class=left-nav-child-highlight>
+          <TD><IMG height=8 alt="" 
+            src="IBM Rational ClearQuest FAQs working with databases and schemas_files/cl-bullet.gif" 
+            width=2></TD>
+          <TD><A class=left-nav-child 
+            href="http://www.ibm.com/developerworks/rational/library/4114.html#N1008C">Section 
+            1. Creating and managing databases </A></TD></TR>
+        <TR class=left-nav-child-highlight>
+          <TD><IMG height=8 alt="" 
+            src="IBM Rational ClearQuest FAQs working with databases and schemas_files/cl-bullet.gif" 
+            width=2></TD>
+          <TD><A class=left-nav-child 
+            href="http://www.ibm.com/developerworks/rational/library/4114.html#N10275">Section 
+            2. Importing and exporting data</A></TD></TR>
+        <TR class=left-nav-child-highlight>
+          <TD><IMG height=8 alt="" 
+            src="IBM Rational ClearQuest FAQs working with databases and schemas_files/cl-bullet.gif" 
+            width=2></TD>
+          <TD><A class=left-nav-child 
+            href="http://www.ibm.com/developerworks/rational/library/4114.html#N10387">Section 
+            3. Working with schemas</A></TD></TR>
+        <TR class=left-nav-child-highlight>
+          <TD><IMG height=8 alt="" 
+            src="IBM Rational ClearQuest FAQs working with databases and schemas_files/cl-bullet.gif" 
+            width=2></TD>
+          <TD><A class=left-nav-child 
+            href="http://www.ibm.com/developerworks/rational/library/4114.html#N1054B">Section 
+            4. Working with forms and fields</A></TD></TR>
+        <TR class=left-nav-child-highlight>
+          <TD><IMG height=8 alt="" 
+            src="IBM Rational ClearQuest FAQs working with databases and schemas_files/cl-bullet.gif" 
+            width=2></TD>
+          <TD><A class=left-nav-child 
+            href="http://www.ibm.com/developerworks/rational/library/4114.html#author">About 
+            the author</A></TD></TR>
+        <TR class=left-nav-child-highlight>
+          <TD><IMG height=8 alt="" 
+            src="IBM Rational ClearQuest FAQs working with databases and schemas_files/cl-bullet.gif" 
+            width=2></TD>
+          <TD><A class=left-nav-child 
+            href="http://www.ibm.com/developerworks/rational/library/4114.html#rate">Rate 
+            this page</A></TD></TR>
+        <TR class=left-nav-last>
+          <TD width=14><IMG class=display-img height=1 alt="" 
+            src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+            width=14></TD>
+          <TD width=136><IMG class=display-img height=19 alt="" 
+            src="IBM Rational ClearQuest FAQs working with databases and schemas_files/left-nav-corner.gif" 
+            width=136></TD></TR></TBODY></TABLE><BR>
+      <TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+        <TBODY>
+        <TR>
+          <TD class=related colSpan=2><B class=related>Related links</B></TD></TR>
+        <TR class=rlinks>
+          <TD><IMG height=8 alt="" 
+            src="IBM Rational ClearQuest FAQs working with databases and schemas_files/rl-bullet.gif" 
+            width=2></TD>
+          <TD><A class=rlinks 
+            href="http://www.ibm.com/developerworks/views/rational/library.jsp">Rational 
+            technical library</A></TD></TR>
+        <TR class=rlinks>
+          <TD><IMG height=8 alt="" 
+            src="IBM Rational ClearQuest FAQs working with databases and schemas_files/rl-bullet.gif" 
+            width=2></TD>
+          <TD><A class=rlinks 
+            href="http://www.ibm.com/developerworks/rational/rationaledge/">The 
+            Rational Edge</A></TD></TR><!--START RESERVED FOR FUTURE USE INCLUDE FILES--><!-- No content currently --><!--END RESERVED FOR FUTURE USE INCLUDE FILES-->
+        <TR>
+          <TD width=14><IMG class=display-img height=1 alt="" 
+            src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+            width=14></TD>
+          <TD width=136><IMG class=display-img height=19 alt="" 
+            src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+            width=136></TD></TR></TBODY></TABLE><!--START RESERVED FOR FUTURE USE INCLUDE FILES--><!-- Next Steps Area:  Start --><!-- Call Next Steps Servlet -->
+      <SCRIPT language=JavaScript type=text/javascript>
+<!--
+/*
+ * ajaxInclude makes a call to the url and render the results in the div tag specified in divId
+ */
+function ajaxInclude(url, divId) { 
+ var req = newXMLHttpRequest(); 
+ if (req) { 
+   req.onreadystatechange = getReadyStateHandler(req, 
+	function (result) {  
+           var contents = document.getElementById(divId);  
+           if (result != null && result.length > 0 && contents != null) {
+	     contents.innerHTML = result;  
+           }
+        }); 
+   req.open("GET", url, true);
+   req.send("");
+ }
+}
+//-->
+</SCRIPT>
+<!-- Display Next Steps Result -->
+      <DIV id=nextsteps></DIV><!-- Initiate Next Steps Call -->
+      <SCRIPT language=JavaScript type=text/javascript>
+<!-- 
+ ajaxInclude("/developerworks/niagara/jsp/getNiagaraContent.jsp?url="+window.location.href,"nextsteps");
+//-->
+</SCRIPT>
+<!-- Next Steps Area:  End --><!--END RESERVED FOR FUTURE USE INCLUDE FILES--></TD><!--LEFTNAV_END-->
+    <TD width="100%">
+      <TABLE id=content-table cellSpacing=0 cellPadding=0 width="100%" 
+        border=0><TBODY>
+        <TR vAlign=top>
+          <TD width="100%">
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD><A name=main><IMG height=1 alt="skip to main content" 
+                  src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                  width=592 border=0></A></TD></TR></TBODY></TABLE>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD width=10 height=18><IMG height=18 alt="" 
+                  src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                  width=10></TD>
+                <TD width="100%"><IMG height=6 alt="" 
+                  src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                  width=1><BR><A class=bctl 
+                  href="http://www.ibm.com/developerworks/">developerWorks</A><SPAN 
+                  class=bct>&nbsp;&nbsp;&gt;&nbsp;&nbsp;</SPAN><A class=bctl 
+                  href="http://www.ibm.com/developerworks/rational/">Rational</A><SPAN 
+                  class=bct>&nbsp;&nbsp;&gt;</SPAN><IMG height=1 alt="" 
+                  src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                  width=1><BR>
+                  <H1>IBM Rational ClearQuest FAQs: working with databases and 
+                  schemas</H1><IMG class=display-img height=6 alt="" 
+                  src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                  width=1></TD>
+                <TD class=no-print width=192><A 
+                  href="http://www.ibm.com/developerworks/"><IMG height=18 
+                  alt=developerWorks 
+                  src="IBM Rational ClearQuest FAQs working with databases and schemas_files/dw.gif" 
+                  width=192 
+border=0></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD width=10><IMG height=1 alt="" 
+            src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+            width=10></TD>
+          <TD width="100%">
+            <TABLE class=no-print cellSpacing=0 cellPadding=0 width=160 
+            align=right border=0>
+              <TBODY>
+              <TR>
+                <TD width=10><IMG height=1 alt="" 
+                  src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                  width=10></TD>
+                <TD>
+                  <TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=v14-header-1-small>Document 
+                    options</TD></TR></TBODY></TABLE>
+                  <TABLE class=v14-gray-table-border cellSpacing=0 cellPadding=0 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=no-padding width=150>
+                        <TABLE cellSpacing=0 cellPadding=0 width=143 border=0>
+                          <SCRIPT language=JavaScript type=text/javascript>
+<!--
+document.write('<tr valign="top"><td width="8"><img src="//www.ibm.com/i/c.gif" width="8" height="1" alt=""/></td><td width="16"><img alt="Set printer orientation to landscape mode" height="16" src="//www.ibm.com/i/v14/icons/printer.gif" width="16" vspace="3" /></td><td width="122"><p><b><a class="smallplainlink" href="javascript:print()">Print this page</a></b></p></td></tr>');
+//-->
+</SCRIPT>
+                          <NOSCRIPT></NOSCRIPT>
+                          <SCRIPT language=JavaScript type=text/javascript>
+<!-- 5.6 10/24 llk: added cdata around the subdirectory path of email gif-->
+<!--
+document.write('<tr valign="top"><td width="8"><img src="//www.ibm.com/i/c.gif" width="8" height="1" alt=""/></td><td width="16"><img src="//www.ibm.com/i/v14/icons/em.gif" height="16" width="16" vspace="3" alt="Email this page" /></td><td width="122"><p><a class="smallplainlink" href="javascript:void newWindow()"><b>E-mail this page</b></a></p></td></tr>');
+//-->
+</SCRIPT>
+                          <NOSCRIPT>
+                          <TBODY>
+                          <TR vAlign=top>
+                            <TD width=8><IMG height=1 alt="" 
+                              src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                              width=8></TD>
+                            <TD width=16><IMG height=16 alt="" 
+                              src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                              width=16></TD>
+                            <TD class=small width=122>
+                              <P><SPAN class=ast>Document options requiring 
+                              JavaScript are not 
+                          displayed</SPAN></P></TD></TR></NOSCRIPT></TBODY></TABLE></TD></TR></TBODY></TABLE><!--START RESERVED FOR FUTURE USE INCLUDE FILES--><!--Updated 12/04/08 by gem--><BR>
+                  <TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=v14-header-2-small>Hey there! developerWorks 
+                        is using Twitter</TD></TR></TBODY></TABLE>
+                  <TABLE class=v14-gray-table-border cellSpacing=0 cellPadding=0 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=no-padding width=150>
+                        <TABLE cellSpacing=0 cellPadding=0 width=143 border=0>
+                          <TBODY>
+                          <TR vAlign=top>
+                            <TD width=8><IMG height=1 alt="" 
+                              src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                              width=8></TD>
+                            <TD><IMG height=16 alt="" 
+                              src="IBM Rational ClearQuest FAQs working with databases and schemas_files/fw_bold.gif" 
+                              width=16 vspace=3 border=0></TD>
+                            <TD width=125>
+                              <P><A class=smallplainlink 
+                              href="http://www.twitter.com/developerworks/?S_TACT=105AGX01&amp;S_CMP=nsf">Follow 
+                              us</A></P></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!--END RESERVED FOR FUTURE USE INCLUDE FILES--><BR>
+                  <TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=v14-header-2-small>Rate this 
+                  page</TD></TR></TBODY></TABLE>
+                  <TABLE class=v14-gray-table-border cellSpacing=0 cellPadding=0 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=no-padding width=150>
+                        <TABLE cellSpacing=0 cellPadding=0 width=143 border=0>
+                          <TBODY>
+                          <TR vAlign=top>
+                            <TD width=8><IMG height=1 alt="" 
+                              src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                              width=8></TD>
+                            <TD><IMG height=16 alt="" 
+                              src="IBM Rational ClearQuest FAQs working with databases and schemas_files/d_bold.gif" 
+                              width=16 vspace=3 border=0></TD>
+                            <TD width=125>
+                              <P><A class=smallplainlink 
+                              href="http://www.ibm.com/developerworks/rational/library/4114.html#rate"><B>Help 
+                              us improve this 
+                        content</B></A></P></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR></TD></TR></TBODY></TABLE>
+            <P>Level: Introductory</P>
+            <P><A 
+            href="http://www.ibm.com/developerworks/rational/library/4114.html#author">Rational 
+            staff</A> (<A 
+            href="mailto:rust@us.ibm.com?subject=IBM Rational ClearQuest FAQs: working with databases and schemas">mailto:rust@us.ibm.com?subject=IBM 
+            Rational ClearQuest FAQs: working with databases and 
+            schemas</A>)IBM<BR></P>
+            <P>13 May 2004</P>
+            <BLOCKQUOTE>A useful FAQ for IBM® Rational® ClearQuest® 
+              administrators.</BLOCKQUOTE><!--START RESERVED FOR FUTURE USE INCLUDE FILES-->
+            <SCRIPT language=javascript type=text/javascript>
+	     // <![CDATA[
+			capture_referrer();
+		 // ]]>
+</SCRIPT>
+<!--  START : HTML FOR SEARCH REFERRER -->
+            <DIV id=search_referrer_results style="DISPLAY: none"><!--  START : HTML FOR ARTICLE SEARCH -->
+            <DIV id=article_results style="DISPLAY: block"></DIV><!--  END : HTML FOR ARTICLE SEARCH --><!--  START : HTML FOR CODE SEARCH -->
+            <DIV id=code_results style="DISPLAY: block"></DIV><!--  END : HTML FOR CODE SEARCH --><BR><BR></DIV><!--  END : HTML FOR SEARCH REFERRER --><!--END RESERVED FOR FUTURE USE INCLUDE FILES-->
+            <P><I>This item was originally published in June, 2001.</I> </P>
+            <P>The IBM® Rational® ClearQuest® administrator manages the required 
+            databases and works with the schemas that define the process for 
+            working with records in ClearQuest. If you have a question about 
+            some aspect of working with databases and schemas, you may find it 
+            answered here. These FAQs were compiled from <A 
+            href="http://www.ibm.com/software/rational/support/" target=new>Tech 
+            Notes</A>. </P>
+            <P>You may also want to refer to the <I>Administering Rational 
+            ClearQuest</I> guide and to the ClearQuest Designer online Help. The 
+            online Help is divided into topics, which are grouped into books. 
+            You can print a topic or an entire book. To print a specific topic, 
+            right-click in the topic and choose Print or Print Topic from the 
+            shortcut menu. To print all the topics in a book, choose a book in 
+            the Contents tab in the Help Topics window and then click Print.</P>
+            <P>For more information, contact <A 
+            href="http://www.ibm.com/software/rational/support/contact.html" 
+            target=new>Technical Support</A>.</P>
+            <P><A 
+            href="http://www.ibm.com/developerworks/rational/library/4114.html#section1">Section 
+            1. Creating and managing databases</A> </P>
+            <P>
+            <P><A 
+            href="http://www.ibm.com/developerworks/rational/library/4114.html#section2">Section 
+            2. Importing and exporting data</A> </P>
+            <P>
+            <P><A 
+            href="http://www.ibm.com/developerworks/rational/library/4114.html#section3">Section 
+            3. Working with schemas</A> </P>
+            <P>
+            <P><A 
+            href="http://www.ibm.com/developerworks/rational/library/4114.html#section4">Section 
+            4. Working with forms and fields</A> </P>
+            <P><A name=section1>
+            <P><A name=N1008C><SPAN class=atitle>Section 1. Creating and 
+            managing databases </SPAN></A></P>
+            <P>
+            <OL>
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#11">Which 
+              database is recommended for use with ClearQuest?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#12">How 
+              do I set up SQL Server 7 databases with ClearQuest?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#13">How 
+              do I create an empty SQL Server 7 database?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#14">How 
+              do I do a ClearQuest-specific upgrade from SQL Server 6.5 to SQL 
+              Server 7?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#15">How 
+              do I set up an SQL Anywhere database with ClearQuest?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#16">How 
+              do I move my SQL Anywhere database to a new server and a new 
+              service?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#17">How 
+              do I create tablespaces in Oracle?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#18">How 
+              do I create a new DB2 database?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#19">Do 
+              I need a "test" user database?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#110">Can 
+              I install SQL Server and Internet Information Server on the same 
+              machine?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#111">How 
+              do I access an SQL Server database in another domain?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#112">How 
+              do I move ClearQuest databases or convert between database 
+              vendors? </A>
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#113">How 
+              do I delete records from my database?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#114">How 
+              do I undelete a record set to the Delete action state?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#115">How 
+              do I remove references to deleted repositories/projects from my 
+              ClearQuest database?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#116">Will 
+              creating indexes on some tables in my database positively affect 
+              performance?</A> </LI></OL>
+            <P><A name=11>
+            <P><A name=N1010E><SPAN class=smalltitle>1.1. Which database is 
+            recommended for use with ClearQuest?</SPAN></A></P>
+            <P>ClearQuest supports Microsoft Access and Sybase SQL Anywhere 
+            (both supplied with ClearQuest), as well as Microsoft SQL Server and 
+            Oracle (NT and UNIX). For specific supported versions, refer to the 
+            ClearQuest Release Notes in 
+            <CODE>\Rational\doc\clearquest_readme.htm.</CODE> </P>
+            <P>Use these general guidelines to decide which database vendor to 
+            use:</P>
+            <UL>
+              <LI>For initial testing and evaluation or for small groups (fewer 
+              than five users), use the entry-level database, Microsoft Access. 
+              <LI>For small- to medium-size groups (five to twenty users), use 
+              the mid-level database, SQL Anywhere. 
+              <LI>For larger groups (more than twenty users), large amounts of 
+              data, or to achieve better performance, use one of the high-end 
+              databases, SQL Server or Oracle. </LI></UL>
+            <P>You can use more than one: for example, you might want to use 
+            high-end databases for your schema repository and user databases, 
+            and an entry-level or mid-level database for your test database.</P>
+            <P>Note that it makes no difference which edition of SQL Server 
+            (Enterprise or Standard) you use: ClearQuest will run with either of 
+            these. </P>
+            <UL>
+              <LI>Enterprise is the version to get if you're planning to run it 
+              on Windows NT Server Enterprise Edition. 
+              <LI>Standard is the version to get if you're planning to run it on 
+              Windows NT Server (the regular version). </LI></UL><A name=12>
+            <P><A name=N1013E><SPAN class=smalltitle>1.2. How do I set up SQL 
+            Server 7 databases with ClearQuest?</SPAN></A></P>
+            <P>ClearQuest requires at least two databases:</P>
+            <UL>
+              <LI>the schema repository or master database, where ClearQuest 
+              stores schemas 
+              <LI>one or more user databases to contain the data entered into 
+              the system by the users of ClearQuest and ClearQuest Web </LI></UL>
+            <P>To use SQL Server 7 with ClearQuest, you must first do the 
+            following:</P>
+            <UL>
+              <LI>Have the SQL Server 7 ODBC driver on your machine. The driver 
+              is normally installed automatically with ClearQuest. 
+              <LI>Create an empty database in SQL Server for each ClearQuest 
+              database desired. (See the next question for details.) </LI></UL>
+            <P>You create the master database first, using the ClearQuest 
+            Maintenance Tool, option 2. The tool will prompt for three logins, 
+            for backward compatibility with SQL Server 6.5. With SQL Server 7, 
+            just specify your one login three times (and then similarly two 
+            times when creating each user database). Then you log in to the 
+            master database with ClearQuest Designer, decide which schema to 
+            base your user database on, and choose Database &gt; New Database to 
+            create the client user database.</P><A name=13>
+            <P><A name=N10164><SPAN class=smalltitle>1.3. How do I create an 
+            empty SQL Server 7 database?</SPAN></A></P>
+            <P>If you select SQL Server as a database vendor, every ClearQuest 
+            schema repository and client user database (such as the optional 
+            SAMPL database) must have its equivalent empty database set up in 
+            SQL Server 7. The steps to set up SQL Server databases are outlined 
+            in the doucumentation found in the <A 
+            href="http://publib.boulder.ibm.com/infocenter/cqhelp/v7r0m0/index.jsp">ClearQuest 
+            Information Center</A>.</P><A name=14>
+            <P><A name=N10176><SPAN class=smalltitle>1.4. How do I do a 
+            ClearQuest-specific upgrade from SQL Server 6.5 to SQL Server 
+            7?</SPAN></A></P>
+            <P>When ClearQuest databases for SQL Server 6.5 were created, they 
+            were designed using three "system" passwords (admin user, read/write 
+            user, and read-only user). When Microsoft developed SQL Server 7, 
+            their security methodology changed to an Oracle-like database owner 
+            login. Since this is the case, these steps must be followed when you 
+            perform an SQL Server upgrade:</P>
+            <OL>
+              <LI>Install SQL Server 7 on a separate machine from the current 
+              ClearQuest server. 
+              <LI>Create an empty database for the schema repository and for 
+              each user database. (See the previous question for details.) 
+              <LI>Use the ClearQuest Maintenance Tool to move the schema 
+              repository to the new server. 
+              <LI>Use ClearQuest Designer to move the user databases to their 
+              new location. </LI></OL><A name=15>
+            <P><A name=N10193><SPAN class=smalltitle>1.5. How do I set up an SQL 
+            Anywhere database with ClearQuest?</SPAN></A></P>
+            <P>The SQL Anywhere client and server software from Sybase are 
+            included on the Rational CD. The client component is installed 
+            automatically when you install ClearQuest, while the server software 
+            must be installed separately, from the CD, by choosing the Sybase 
+            server component. The server software can be installed on a machine 
+            separate from ClearQuest and doesn't require a ClearQuest license to 
+            run. SQL Anywhere implements individual databases as NT files having 
+            a .db file extension, located on the machines/directories of your 
+            choice. </P>
+            <P>Detailed instructions on setting up an SQL Anywhere database are 
+            given in <A href="http://www.ibm.com/software/rational/support/" 
+            target=new>Tech Note #10773</A>.</P><A name=16>
+            <P><A name=N101A9><SPAN class=smalltitle>1.6. How do I move my SQL 
+            Anywhere database to a new server and a new service?</SPAN></A></P>
+            <P>For step-by-step instructions on how to move an SQL Anywhere 
+            database to a new server and a new service, see <A 
+            href="http://www.ibm.com/software/rational/support/" target=new>Tech 
+            Note #13911</A>.</P><A name=17>
+            <P><A name=N101BC><SPAN class=smalltitle>1.7. How do I create 
+            tablespaces in Oracle?</SPAN></A></P>
+            <P>A tablespace is an area of the disk comprised of one or more 
+            files where Oracle keeps the tables, indexes, and clusters that have 
+            been defined. An empty tablespace must be created for each database 
+            that you want to set up in Oracle. For step-by-step instructions on 
+            how to use the SQL Plus Builder tool that comes with Oracle in order 
+            to create these tablespaces, see <A 
+            href="http://www.ibm.com/software/rational/support/" target=new>Tech 
+            Note #14957</A> and <A 
+            href="http://www.ibm.com/software/rational/support/" target=new>Tech 
+            Note #15496</A>.</P><A name=18>
+            <P><A name=N101D4><SPAN class=smalltitle>1.8. How do I create a new 
+            DB2 database?</SPAN></A></P>
+            <P>You need to set up one empty DB2 database for the ClearQuest 
+            schema repository and one empty DB2 database for each ClearQuest 
+            user database (such as the optional SAMPL database). Step-by-step 
+            instructions on how to create a DB2 database are given in <A 
+            href="http://www.ibm.com/software/rational/support/" target=new>Tech 
+            Note #14972</A>.</P><A name=19>
+            <P><A name=N101E7><SPAN class=smalltitle>1.9. Do I need a "test" 
+            user database?</SPAN></A></P>
+            <P>Yes! When developing and testing schema changes, it's vitally 
+            important to have at least two user databases:</P>
+            <UL>
+              <LI>A production database, into which your users enter real data 
+              such as defect records. This database remains associated with the 
+              latest version of the schema that's known to be good and has 
+              passed some kind of acceptance testing. 
+              <LI>A "test" user database, which may be associated with later 
+              versions of the schema (versions that are actively under 
+              development/testing). </LI></UL>
+            <P>Schema changes should never be tested using your production 
+            database. </P><A name=110>
+            <P><A name=N10201><SPAN class=smalltitle>1.10. Can I install SQL 
+            Server and Internet Information Server on the same 
+            machine?</SPAN></A></P>
+            <P>The ClearQuest installation documentation recommends installing 
+            the IIS server on a separate machine from the database server but 
+            doesn't say why. The first reason is that it's impossible to obtain 
+            acceptable performance with these two servers running on the same 
+            machine. The second reason is that due to an anomaly in the 
+            Microsoft installation programs, unpredictable problems may result 
+            when IIS, SQL Server, and SQL Server Service Packs are installed on 
+            the same machine. If you have such problems and you absolutely have 
+            to install the two servers on the same machine, you may be able to 
+            rectify the problems by reinstalling the current SQL Server Service 
+            Pack after all other products are installed.</P><A name=111>
+            <P><A name=N1020F><SPAN class=smalltitle>1.11. How do I access an 
+            SQL Server database in another domain?</SPAN></A></P>
+            <P>If your ClearQuest schema repository or user databases are on an 
+            SQL Server on a machine in a different Windows NT domain from the 
+            machine on which you've installed the ClearQuest software, you'll 
+            get errors when trying to create or connect to the databases. There 
+            are a variety of workarounds for this issue, each of which requires 
+            some effort to implement, and one of which will be more appropriate 
+            than the others given your circumstances. For a full discussion of 
+            this issue and the workarounds, see <A 
+            href="http://www.ibm.com/software/rational/support/" target=new>Tech 
+            Note #8148</A>.</P><A name=112>
+            <P><A name=N10222><SPAN class=smalltitle>1.12. How do I move 
+            ClearQuest databases or convert between database 
+            vendors?</SPAN></A></P>
+            <P>Be sure to back up your current schema repository and user 
+            databases before moving them. To move the schema repository (master) 
+            database or convert it between database vendors, you use the 
+            ClearQuest Maintenance Tool. Select the "Move an existing schema 
+            repository" option and follow the dialogs, specifying the properties 
+            of the new database location. If you're using SQL Server or Oracle, 
+            you'll need to create an empty target database first, as the 
+            destination of the move. After the move, tell ClearQuest client 
+            users the new schema repository information so they can connect to 
+            the new schema repository. All logins remain the same.</P>
+            <P>To move a user database or convert it between database vendors, 
+            open ClearQuest Designer and choose Database &gt; Database 
+            Properties. Select the user database to move and follow the dialogs, 
+            changing the existing database properties to the target database 
+            properties. When asked if you'd like ClearQuest to move the 
+            database, say yes. If you're using SQL Server or Oracle, you'll need 
+            to create an empty target database first, as the destination of the 
+            move.</P><A name=113>
+            <P><A name=N10233><SPAN class=smalltitle>1.13. How do I delete 
+            records from my database?</SPAN></A></P>
+            <P>Customers frequently ask how to remove records from the 
+            ClearQuest database. For a detailed discussion of the considerations 
+            involved and the mechanism for doing that, see <A 
+            href="http://www.ibm.com/software/rational/support/" target=new>Tech 
+            Note #8817</A>. For step-by-step instructions on how to manually 
+            delete a record from an SQL Server 7 user database, see <A 
+            href="http://www.ibm.com/software/rational/support/" target=new>Tech 
+            Note #14907</A>.</P><A name=114>
+            <P><A name=N1024B><SPAN class=smalltitle>1.14. How do I undelete a 
+            record set to the Delete action state?</SPAN></A></P>
+            <P>The Delete action is a true delete. There's no way to undelete 
+            this record, as this action deletes the record from the 
+            database.</P><A name=115>
+            <P><A name=N10259><SPAN class=smalltitle>1.15. How do I remove 
+            references to deleted repositories/projects from my ClearQuest 
+            database?</SPAN></A></P>
+            <P>Unfortunately, you can't remove references to deleted 
+            repositories and projects from a ClearQuest database. This is a 
+            known bug and has been filed under the number RATL00015916.</P><A 
+            name=116>
+            <P><A name=N10267><SPAN class=smalltitle>1.16. Will creating indexes 
+            on some tables in my database positively affect 
+            performance?</SPAN></A></P>
+            <P>We already put indexes on the most important tables in the 
+            database to improve performance. You're free to create indexes on 
+            other tables, but the performance gain will be negligible and these 
+            settings will be lost every time you perform a database 
+            upgrade.</P><A name=section2><BR>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD><IMG height=1 alt="" 
+                  src="IBM Rational ClearQuest FAQs working with databases and schemas_files/blue_rule.gif" 
+                  width="100%"></TD></TR></TBODY></TABLE>
+            <TABLE class=no-print cellSpacing=0 cellPadding=0 align=right>
+              <TBODY>
+              <TR align=right>
+                <TD>
+                  <TABLE cellSpacing=0 cellPadding=0 border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=center><IMG height=16 alt="" 
+                        src="IBM Rational ClearQuest FAQs working with databases and schemas_files/u_bold.gif" 
+                        width=16 border=0><BR></TD>
+                      <TD vAlign=top align=right><A class=fbox 
+                        href="http://www.ibm.com/developerworks/rational/library/4114.html#main"><B>Back 
+                        to 
+            top</B></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+            <P><A name=N10275><SPAN class=atitle>Section 2. Importing and 
+            exporting data</SPAN></A></P>
+            <OL>
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#21">How 
+              do I export SQL Anywhere data into Access format?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#22">How 
+              do I import my defect records?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#23">How 
+              do I import my defect record history?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#24">How 
+              do I export my defect records?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#25">Is 
+              it possible to reuse existing reports, queries, and charts in 
+              multiple databases?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#26">Can 
+              data, forms, and state transitions be imported from Rational DDTS 
+              product?</A> </LI></OL><A name=21>
+            <P><A name=N102AD><SPAN class=smalltitle>2.1. How do I export SQL 
+            Anywhere data into Access format?</SPAN></A></P>
+            <P>Copying ClearQuest-related tables from a caller's SQL Anywhere 
+            database over to an Access database involves two steps:</P>
+            <OL>
+              <LI>Creating a DSN within the ODBC Machine Datasources of the 
+              user's operating system 
+              <LI>Importing the data from this DSN into a blank Access database 
+              </LI></OL>
+            <P>See <A href="http://www.ibm.com/software/rational/support/" 
+            target=new>Tech Note #11582</A> for detailed instructions on 
+            performing these steps.</P><A name=22>
+            <P><A name=N102CC><SPAN class=smalltitle>2.2. How do I import my 
+            defect records?</SPAN></A></P>
+            <P>Here's the procedure for importing your defect records, using the 
+            ClearQuest 2.0 Defect record type as an example:</P>
+            <OL>
+              <LI>Invoke the ClearQuest Import Tool. Select Defect as the 
+              destination record type. 
+              <LI>Select the State field to match the "Imported field with State 
+              information:" requested. 
+              <LI>Select the old_id field to match the "ClearQuest field 
+              containing original id:" field that the Import Tool asks for. (If 
+              you have an alternate field in your target defect database that 
+              you're using to hold original IDs, use that field instead.) 
+              <LI>Click Next once and change the mapping so that the destination 
+              field stays old_id, but the source field needs to be id. The 
+              default mapping has old_id for both. 
+              <LI>Click the Import button. This will complete with no errors. 
+              <LI>Exit the ClearQuest Import Tool. Enter the ClearQuest Windows 
+              client. 
+              <LI>Log in to the target database as a user. Create a query with 
+              "old_id," "id," and "Headline." You'll now see your old defects 
+              under the new defect ID, matched with the old_id field. </LI></OL><A 
+            name=23>
+            <P><A name=N102F2><SPAN class=smalltitle>2.3. How do I import my 
+            defect record history?</SPAN></A></P>
+            <P>You must first import your defect records, as described above. 
+            Here's the procedure for importing your history records, using the 
+            ClearQuest 2.0 Defect record type as an example:</P>
+            <OL>
+              <LI>Invoke the ClearQuest Import Tool. Browse to the file where 
+              your history.txt file (or wherever you stored your defect history) 
+              is located. Click Next. 
+              <LI>Select Defect as the destination record type. 
+              <LI>Select the History field to match the Import information 
+              requested. 
+              <LI>Select the old_id field to match the "ClearQuest field 
+              containing original id:" field that the Import Tool asks for. (If 
+              you have an alternate field in your target defect database that 
+              you're using to hold original IDs, use that field instead.) 
+              <LI>Click Next once and change the mapping. The history file will 
+              map the defect ID to the display_name field. This is the value to 
+              be used in the Source Field Label field. The Target Field Label 
+              field should display the old_id field. Click Next again. 
+              <LI>Click the Import button. This will complete with no errors. 
+              <LI>Exit the ClearQuest Import Tool. Enter the ClearQuest Windows 
+              client. 
+              <LI>Log in to the target database as a user. Create a query with 
+              "old_id," "id," and "Headline." You'll now see your old defects 
+              under the new defect ID, matched with the old_id field. </LI></OL><A 
+            name=24>
+            <P><A name=N1031B><SPAN class=smalltitle>2.4. How do I export my 
+            defect records?</SPAN></A></P>
+            <P>Here's the procedure for exporting your defect records, using the 
+            ClearQuest 2.0 Defect record type as an example:</P>
+            <OL>
+              <LI>Using the ClearQuest Export Tool, run the export for the 
+              Defect record type. Click the radio button "Export all records." 
+              <LI>When prompted for the fields to export records, select Add All 
+              &gt;&gt;. 
+              <LI>Select the defaults for the names of the files in which the 
+              defect records are to be stored. 
+              <LI>Click Next and take the defaults to select all records in a 
+              comma-delimited text file. Click Finish to execute the export 
+              operation. 
+              <LI>Invoke the ClearQuest Import Tool. Select Defect as the 
+              destination record type. 
+              <LI>Select the State field to match the "Imported field with State 
+              information:" requested. 
+              <LI>Select the old_id field to match the "ClearQuest field 
+              containing original id:" field that the Import Tool asks for. (If 
+              you have an alternate field in your target defect database that 
+              you're using to hold original IDs, use that field instead.) 
+              <LI>Click Next twice. The default mapping is OK. 
+              <LI>Click the Import button. This will complete with no errors. 
+              <LI>Exit the ClearQuest Import Tool. Enter the ClearQuest Windows 
+              client. 
+              <LI>Log in to the target database as a user. Create a query with 
+              "old_id," "id," and "Headline." You'll now see your old defects 
+              under the new defect ID, matched with the old_id field. </LI></OL><A 
+            name=25>
+            <P><A name=N1034D><SPAN class=smalltitle>2.5. Is it possible to 
+            reuse existing reports, queries, and charts in multiple 
+            databases?</SPAN></A></P>
+            <P>Yes. Queries, reports, and report formats can be reused to save 
+            time in the development, maintenance, and use of multiple databases. 
+            The user databases need to have been built from the same schema 
+            (ideally, the same version of the same schema), however. Given that 
+            this is true, here are the steps:</P>
+            <OL>
+              <LI>Open the source database from the ClearQuest client. 
+              <LI>Select a query, report, or report format to move and choose 
+              the corresponding Export option from the drop-down menu. Save the 
+              results. 
+              <LI>Repeat step 2 for all desired components. 
+              <LI>Open the target database. 
+              <LI>Select the folder you want the component placed in. 
+              <LI>Right-click and choose Import Query, then select the file that 
+              the query was saved as. If you exported reports or report formats, 
+              you'll need to change the Files of Type window to select those 
+              formats. Import Report won't appear on the drop-down menu. 
+              <LI>Repeat steps 5 and 6 for all desired components. </LI></OL>
+            <P>Charts can be transferred using this method, though they're seen 
+            as queries for import and export. </P><A name=26>
+            <P><A name=N10376><SPAN class=smalltitle>2.6. Can data, forms, and 
+            state transitions be imported from Rational DDTS 
+            product?</SPAN></A></P>
+            <P>Only data can be imported into ClearQuest from DDTS. This is done 
+            by creating an import file format that the ClearQuest Import Tool 
+            understands, such as the comma-separated format, where all field 
+            values must be enclosed by double quotes. The Import Tool also 
+            recognizes other delimiters, such as the colon or tab.</P>
+            <P>Forms and state transitions must be created manually in 
+            ClearQuest Designer.</P><A name=section3><BR>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD><IMG height=1 alt="" 
+                  src="IBM Rational ClearQuest FAQs working with databases and schemas_files/blue_rule.gif" 
+                  width="100%"></TD></TR></TBODY></TABLE>
+            <TABLE class=no-print cellSpacing=0 cellPadding=0 align=right>
+              <TBODY>
+              <TR align=right>
+                <TD>
+                  <TABLE cellSpacing=0 cellPadding=0 border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=center><IMG height=16 alt="" 
+                        src="IBM Rational ClearQuest FAQs working with databases and schemas_files/u_bold.gif" 
+                        width=16 border=0><BR></TD>
+                      <TD vAlign=top align=right><A class=fbox 
+                        href="http://www.ibm.com/developerworks/rational/library/4114.html#main"><B>Back 
+                        to 
+            top</B></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+            <P><A name=N10387><SPAN class=atitle>Section 3. Working with 
+            schemas</SPAN></A></P>
+            <OL>
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#31">How 
+              do I register or install packages in the schema repository?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#32">How 
+              do I make packages visible in the Package Wizard list?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#33">How 
+              do I import the Defect Tracking Schema template from a newer 
+              version of ClearQuest?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#34">How 
+              can I view parent records from a child record?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#35">How 
+              do I create an API hook including a parent-child relationship and 
+              a stateless record type?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#36">How 
+              do I debug my ClearQuest hooks?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#37">Can 
+              I copy forms from one schema to another or from one record type to 
+              another?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#38">What 
+              is the Test Work feature and how do I use it?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#39">How 
+              do I manually undo a schema checkout?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#310">How 
+              do I export or import my schemas?</A> </LI></OL><A name=31>
+            <P><A name=N103DB><SPAN class=smalltitle>3.1. How do I register or 
+            install packages in the schema repository?</SPAN></A></P>
+            <P>To make a package available from the list of packages in 
+            ClearQuest Designer, you need to add it to the schema repository. 
+            You do this manually via the <CODE>packageutil 
+            installintoschemarepo</CODE> utility, with this string of 
+            commands:</P>
+            <P><CODE>packageutil installintoschemarepo \[-help\] \[-dbset 
+            dbset-name\] clearquest-login clearquest-password package-name 
+            package-version | package-folder-path \[-checkin | 
+            -nocheckin\]</CODE> </P>
+            <P>You'll find a list of packages, including names and versions, 
+            under the ClearQuest installation folder / packages. </P><A name=32>
+            <P><A name=N103F7><SPAN class=smalltitle>3.2. How do I make packages 
+            visible in the Package Wizard list?</SPAN></A></P>
+            <P>Follow these steps to make a package visible in the Package 
+            Wizard list:</P>
+            <OL>
+              <LI>In the Registry Editor, choose Start &gt; Run and type in 
+              <CODE>regedit32</CODE>. 
+              <LI>Opening up <CODE>HKEY_LOCAL_MACHINE\Software\ Rational 
+              Software\ClearQuest Packages</CODE>, locate the package to be 
+              installed and find the appropriate version of the package. 
+              <LI>Open the version folder, choose Keywords, and remove the 
+              keyword <CODE>Hide_me</CODE>. </LI></OL>
+            <P>The package should now be visible when you choose the More 
+            Packages option in the Package Wizard. If not, run the following 
+            command from the DOS prompt:</P>
+            <P><CODE>packageutil installpackage clearquest-login 
+            clearquest-password package-name package-version 
+            package-folder-path</CODE> </P><A name=33>
+            <P><A name=N10427><SPAN class=smalltitle>3.3. How do I import the 
+            Defect Tracking Schema template from a newer version of 
+            ClearQuest?</SPAN></A></P>
+            <P>You want to import the Defect Tracking Schema template from a 
+            newer version of ClearQuest into a version of the master schema 
+            that's been upgraded from an older version. You first need to make 
+            sure that you don't already have a schema called Defect Tracking, or 
+            the import will fail. Then you need to run <CODE>cqload 
+            importschema</CODE> on the <CODE>DefectTracking.schema</CODE> in the 
+            schema subdirectory off of ClearQuest home.</P>
+            <P><CODE>cqload importschema clearquest-login clearquest-password 
+            path-to-import.txt</CODE> </P>
+            <P>You'll likely get errors complaining about missing packages, and 
+            you'll be able to add most of these packages into the schema using 
+            the Package Wizard. If you get an error about the 
+            <CODE>defecttrackingsetup</CODE> package, run the following command 
+            from ClearQuest home to get around it:</P>
+            <P><CODE>packageutil installpackage admin password 
+            defecttrackingsetup 1.0 cqhome\packages\defecttrackingsetup</CODE> 
+            </P><A name=34>
+            <P><A name=N10452><SPAN class=smalltitle>3.4. How can I view parent 
+            records from a child record?</SPAN></A></P>
+            <P>To view parent records from a child record, do the following:</P>
+            <OL>
+              <LI>In ClearQuest Designer, choose the <CODE>REFERENCE_LIST</CODE> 
+              type of field and right-click on Field Properties. 
+              <LI>In the Back Reference Field box, type the name of a 
+              back-referencing field. 
+              <LI>From the Field list, drag and drop the 
+              <CODE>REFERENCE_LIST</CODE> onto the child form. </LI></OL><A 
+            name=35>
+            <P><A name=N10474><SPAN class=smalltitle>3.5. How do I create an API 
+            hook including a parent-child relationship and a stateless record 
+            type?</SPAN></A></P>
+            <P>For a detailed example with instructions, see <A 
+            href="http://www.ibm.com/software/rational/support/" target=new>Tech 
+            Note #15286</A>.</P><A name=36>
+            <P><A name=N10487><SPAN class=smalltitle>3.6. How do I debug my 
+            ClearQuest hooks?</SPAN></A></P>
+            <P>When you start writing your own hooks, there are several methods 
+            of debugging them. The ClearQuest API method 
+            <CODE>OutputDebugString</CODE> can be used to create a message that 
+            can be displayed in a debugger or similar tool. 
+            <CODE>Dbwin32.exe</CODE>, included in the ClearQuest installation, 
+            is one tool capable of displaying these messages. ( 
+            <CODE>Dbwin32.exe</CODE> doesn't display debugging information on 
+            Windows 95 or 98.) If you use Internet Explorer 4.0, the Microsoft 
+            Script Debugger (available for <A 
+            href="http://msdn.microsoft.com/library/default.asp?url=/nhp/Default.asp?contentid=28001169" 
+            target=new>downloading</A>) can also be used to debug hooks. If you 
+            place a "stop" statement in ClearQuest hook code, the debugger will 
+            be invoked when the "stop" command is seen.</P><A name=37>
+            <P><A name=N104A6><SPAN class=smalltitle>3.7. Can I copy forms from 
+            one schema to another or from one record type to 
+            another?</SPAN></A></P>
+            <P>It's functionally possible to copy forms from one schema to 
+            another or from one record type to another within a schema, but 
+            certain conditions must be met for the form to work correctly with 
+            the new schema or record type. Since a form contains references to 
+            ClearQuest fields (by name and by specific characteristics such as 
+            type and length), these factors must be the same between the two 
+            schemas or record types. Failure to work within this constraint will 
+            result in various runtime difficulties when trying to use the form 
+            in the new schema or record type.</P>
+            <P>That said, here's how to copy a form from one schema to 
+            another:</P>
+            <OL>
+              <LI>In ClearQuest Designer, with the first schema checked out, 
+              expand the workspace view to show the form. 
+              <LI>Right-click the form and choose Export Form. Specify a 
+              filename. 
+              <LI>Check out the second schema, navigate to the Forms folder 
+              under the desired record type, right-click, and choose Import 
+              Form. Navigate to the file you created in step 2. </LI></OL>
+            <P>For a discussion of form-copying scenarios that will and will not 
+            work, see <A href="http://www.ibm.com/software/rational/support/" 
+            target=new>Tech Note #8314</A>.</P><A name=38>
+            <P><A name=N104CB><SPAN class=smalltitle>3.8. What is the Test Work 
+            feature and how do I use it?</SPAN></A></P>
+            <P>The Test Work feature provides an easy and efficient way to make 
+            schema changes and test them. When used correctly, the feature can 
+            speed up schema development and facilitate the maintenance of schema 
+            versions. On the other hand, when used incorrectly, the feature can 
+            corrupt your production database and cause downtime for ClearQuest 
+            users. For complete instructions on how to develop schemas using the 
+            Test Work feature, see <A 
+            href="http://www.ibm.com/software/rational/support/" target=new>Tech 
+            Note #8270</A>.</P><A name=39>
+            <P><A name=N104DE><SPAN class=smalltitle>3.9. How do I manually undo 
+            a schema checkout?</SPAN></A></P>
+            <P>If a schema version becomes corrupt/unusable and you want to 
+            delete it and revert to an earlier schema version, you won't be able 
+            to do this in ClearQuest Designer if someone has the schema checked 
+            out. In this case, you may want to manually undo the schema 
+            checkout. But be forewarned that you should only do this as a 
+            prelude to deleting a schema version, and you should back up all 
+            your databases (both schema and user data) before attempting it.</P>
+            <P>After backing up your databases, connect to the schema repository 
+            using either your database vendor's native SQL facility or the 
+            ClearQuest <CODE>pdsql</CODE> command. Then execute the following 
+            SQL command:</P>
+            <P><CODE>update master_schemas &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+            <BR><BR>set status=1,checked_out_rev_dbid=0,check_out_login=null 
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;where name=schema-name;</CODE> 
+</P>
+            <P>Then invoke ClearQuest Designer and delete the problematic schema 
+            version.</P><A name=310>
+            <P><A name=N10515><SPAN class=smalltitle>3.10. How do I export or 
+            import my schemas?</SPAN></A></P>
+            <P>ClearQuest's command-line utility <CODE>cqload</CODE> enables you 
+            to export or import an entire schema from or into your schema 
+            repository. To use <CODE>cqload</CODE>, you must be at the command 
+            prompt in the ClearQuest directory. In addition, the schema to be 
+            exported must not be checked out. Also, if you run 
+            <CODE>cqload</CODE> while ClearQuest Designer is running, you'll 
+            need to exit Designer and log in again to see your changes.</P>
+            <P>Use the <CODE>exportschema</CODE> subcommand to export an entire 
+            schema to a text file. This can be used to create files that can be 
+            used by <CODE>importschema</CODE>. The syntax is as 
+            follows:</P><CODE>&gt;cqload exportschema <I>cq-login cq-password 
+            schema-name schema-path</I> </CODE>
+            <P>Use the importschema subcommand to import an entire schema from a 
+            textual representation and add it to your schema repository. It can 
+            be useful if you want to share entire schemas with sites that can't 
+            access your schema repository or that have a different schema 
+            repository. The syntax is as follows:</P><CODE>&gt;cqload 
+            importschema <I>cq-login cq-password schema-path</I> </CODE><A 
+            name=section4><BR>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD><IMG height=1 alt="" 
+                  src="IBM Rational ClearQuest FAQs working with databases and schemas_files/blue_rule.gif" 
+                  width="100%"></TD></TR></TBODY></TABLE>
+            <TABLE class=no-print cellSpacing=0 cellPadding=0 align=right>
+              <TBODY>
+              <TR align=right>
+                <TD>
+                  <TABLE cellSpacing=0 cellPadding=0 border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=center><IMG height=16 alt="" 
+                        src="IBM Rational ClearQuest FAQs working with databases and schemas_files/u_bold.gif" 
+                        width=16 border=0><BR></TD>
+                      <TD vAlign=top align=right><A class=fbox 
+                        href="http://www.ibm.com/developerworks/rational/library/4114.html#main"><B>Back 
+                        to 
+            top</B></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+            <P><A name=N1054B><SPAN class=atitle>Section 4. Working with forms 
+            and fields</SPAN></A></P>
+            <P>
+            <OL>
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#41">How 
+              do I create dynamic pick lists?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#42">How 
+              do I refresh a dynamic pick list if I change the value of the 
+              field that the list depends on?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#43">How 
+              do I create a list box where several objects from a constant list 
+              can be selected?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#44">How 
+              do I display a constant list in the order in which I entered the 
+              list rather than in ascending order?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#45">How 
+              do I eliminate the time component from the DATE_TIME field?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#46">How 
+              do I get the button on my form to output the value of one of the 
+              fields on my form to the Debug Window?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#47">How 
+              do I change the tab order of fields on a form?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#48">How 
+              do I set the tab index on a form?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#49">How 
+              do I set permissions on a particular field in the ClearQuest 
+              schema?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#410">Is 
+              it possible to modify a form's contents via VBScript?</A> 
+              <LI><A 
+              href="http://www.ibm.com/developerworks/rational/library/4114.html#411">Can 
+              I set default field values on a per-user basis? Per project? Per 
+              group?</A> </LI></OL>
+            <P><A name=41>
+            <P><A name=N105AA><SPAN class=smalltitle>4.1. How do I create 
+            dynamic pick lists?</SPAN></A></P>
+            <P>Dynamic lists are helpful when you want to add values to a list 
+            without editing the schema. If you have administrative privileges, 
+            you can add values to a dynamic choice list from the ClearQuest 
+            client. For instructions on how to do this, see <A 
+            href="http://www.ibm.com/software/rational/support/" target=new>Tech 
+            Note #13115</A>.</P><A name=42>
+            <P><A name=N105BD><SPAN class=smalltitle>4.2. How do I refresh a 
+            dynamic pick list if I change the value of the field that the list 
+            depends on?</SPAN></A></P>
+            <P>If you're creating the choice list for the first time, make sure 
+            you check the "Recalculate choice list" box. If you have an existing 
+            choice list and it's not refreshing, reselect the type from the 
+            choice list pulldown and it will give you the opportunity to check 
+            the "Recalculate choice list" box.</P><A name=43>
+            <P><A name=N105CB><SPAN class=smalltitle>4.3. How do I create a list 
+            box where several objects from a constant list can be 
+            selected?</SPAN></A></P>
+            <P>To create a list box where several objects from a constant list 
+            can be selected, start with a field of the multiline text string 
+            type. Then drag a List Box control onto the form and set it to your 
+            new field.</P><A name=44>
+            <P><A name=N105D9><SPAN class=smalltitle>4.4. How do I display a 
+            constant list in the order in which I entered the list rather than 
+            in ascending order?</SPAN></A></P>
+            <P>This is controlled by the properties of the list box on the form. 
+            Go to the form and right-click. Choose Properties &gt; Extended tab 
+            and uncheck "Auto Sort." Your selections should now appear in the 
+            order in which they were entered.</P><A name=45>
+            <P><A name=N105E7><SPAN class=smalltitle>4.5. How do I eliminate the 
+            time component from the DATE_TIME field?</SPAN></A></P>
+            <P>In the ClearQuest GUI, the <CODE>DATE_TIME</CODE> field always 
+            displays the date and time by default. You can change this to 
+            display only the date by changing the field properties on the form. 
+            On the Submit/Record form for the property sheet, right-click on the 
+            <CODE>DATE_TIME</CODE> field and then in the <CODE>DATE_TIME</CODE> 
+            tab, and uncheck the Time check box.</P><A name=46>
+            <P><A name=N10601><SPAN class=smalltitle>4.6. How do I get the 
+            button on my form to output the value of one of the fields on my 
+            form to the Debug Window?</SPAN></A></P>
+            <P>For step-by-step instructions on how to do this, see <A 
+            href="http://www.ibm.com/software/rational/support/" target=new>Tech 
+            Note #16174</A>.</P><A name=47>
+            <P><A name=N10614><SPAN class=smalltitle>4.7. How do I change the 
+            tab order of fields on a form?</SPAN></A></P>
+            <P>Follow these steps:</P>
+            <OL>
+              <LI>Check out the desired schema and open the form in ClearQuest 
+              Designer. 
+              <LI>Choose Form Layout &gt; Set Tab Order. You'll be shown how the 
+              form is currently ordered. 
+              <LI>Click the field that you'd like to tab to first. This field 
+              will now be labeled as 1. 
+              <LI>Click the field that you'd like to tab to second, then the one 
+              you'd like to tab to third, and so on. If you make a mistake in 
+              the process, start again at step 1. 
+              <LI>Save the changes and test your work to make sure that the tabs 
+              are now working as desired. 
+              <LI>Check in the schema and choose Database &gt; Upgrade Database 
+              to save the changes to your production database. </LI></OL>
+            <P><A name=48>
+            <P><A name=N10639><SPAN class=smalltitle>4.8. How do I set the tab 
+            index on a form?</SPAN></A></P>
+            <P>Follow these steps:</P>
+            <OL>
+              <LI>Open the form in ClearQuest Designer, choosing the tab whose 
+              order you want to change. Then open Tab Properties by either 
+              double-clicking the tab or right-clicking and choosing Tab 
+              Properties. 
+              <LI>From Tab Properties, select a new index number (0 indicates 
+              the first tab) reflecting the order in which you want the tab to 
+              open. Then close the form and reopen it. You'll see that the tab 
+              you selected has moved to its new position. 
+              <LI>Repeat this procedure for any other tab(s) whose order you 
+              want to change. </LI></OL><A name=49>
+            <P><A name=N10653><SPAN class=smalltitle>4.9. How do I set 
+            permissions on a particular field in the ClearQuest 
+            schema?</SPAN></A></P>
+            <P>If you want to set field behavior with a permission hook, you 
+            need to do two things:</P>
+            <OL>
+              <LI>In the Permission column of the Fields grid, select BASIC, and 
+              write the hook that returns the desired permission in the hook 
+              function name. 
+              <LI>In the Behaviors grid, set the behavior for the field to 
+              USE_HOOK for the desired states. </LI></OL>
+            <P>After you write the hook (1), you need to tell ClearQuest where 
+            to use it (2). </P><A name=410>
+            <P><A name=N1066D><SPAN class=smalltitle>4.10. Is it possible to 
+            modify a form's contents via VBScript?</SPAN></A></P>
+            <P>The physical layout of a form (number of tabs, the fields that 
+            appear in a tab, and such) can't be altered via VBScript. However, 
+            if you're trying to limit tab visibility, you can do this in the Tab 
+            Properties dialog. See "Adding tab-level access" in the ClearQuest 
+            Designer online Help.</P>
+            <P>If you're trying to dynamically alter a field's behavior (for 
+            example, by making it mandatory or read-only on a per-user or 
+            per-group basis), you can do it with VB Script using the Field 
+            Permission hook. The contents of a field can also be altered 
+            dynamically via hooks. This is typically done in the Default Value 
+            hook. </P><A name=411>
+            <P><A name=N1067E><SPAN class=smalltitle>4.11. Can I set default 
+            field values on a per-user basis? Per project? Per 
+            group?</SPAN></A></P>
+            <P>Yes. This can be done in the Field Default Value hook, which sets 
+            the initial value of the field during a Submit action. You can 
+            either use VBScript or SQL, or supply a Constant value. You can set 
+            initial field values during the initialization of any other action 
+            as well, using the Action Initialization hook, with a call to the 
+            <CODE>SetFieldValue()</CODE> method. A typical Default Value hook 
+            might look something like this:</P>
+            <P><CODE>Dim submitter Dim session Set session = GetSession 
+            submitter = session.GetUserLoginName() If 
+            submitter="reviewer1"<BR>then &nbsp; &nbsp; &nbsp; &nbsp; 
+            &nbsp;SetFieldValue("assign_to", "reviewer2"<BR><BR>) Else &nbsp; 
+            &nbsp; &nbsp; &nbsp; &nbsp;SetFieldValue("assign_to", 
+            "reviewer1"<BR>) End if </CODE></P>
+            <P><BR><BR>
+            <P><A name=author><SPAN class=atitle>About the author</SPAN></A></P>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD colSpan=3><IMG height=5 alt="" 
+                  src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                  width="100%"></TD></TR>
+              <TR vAlign=top align=left>
+                <TD>
+                  <P></P></TD>
+                <TD><IMG height=5 alt="" 
+                  src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                  width=4></TD>
+                <TD width="100%">
+                  <P>This article is brought to you by the Rational staff at 
+                  developerWorks.</P></TD></TR></TBODY></TABLE><BR><BR><BR>
+            <P class=no-print><SPAN class=atitle><A name=rate>Rate this 
+            page</A></SPAN></P><SPAN class=no-print>
+            <FORM 
+            action=http://www-128.ibm.com/developerworks/utils/RatingsHandler 
+            method=post><INPUT type=hidden value=1 name=SITE_ID><INPUT 
+            type=hidden 
+            value="IBM Rational ClearQuest FAQs: working with databases and schemas" 
+            name=ArticleTitle><INPUT type=hidden value=Rational name=Zone><INPUT 
+            type=hidden 
+            value=http://www.ibm.com/developerworks/thankyou/feedback-thankyou.html 
+            name=RedirectURL><INPUT type=hidden value=4114 name=ArticleID><INPUT 
+            type=hidden value=05132004 name=publish-date><INPUT type=hidden 
+            value=rust@us.ibm.com name=author1-email><INPUT type=hidden 
+            name=author1-email-cc>
+            <SCRIPT language=javascript type=text/javascript>document.write('<input type="hidden" name="url" value="'+location.href+'" />');</SCRIPT>
+            <IMG height=1 alt="" 
+            src="IBM Rational ClearQuest FAQs working with databases and schemas_files/gray_rule.gif" 
+            width="100%"><BR>
+            <TABLE class=v14-gray-table-border cellSpacing=0 cellPadding=0 
+            width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD colSpan=3>
+                        <P>Please take a moment to complete this form to help us 
+                        better serve you.</P></TD></TR>
+                    <TR vAlign=top>
+                      <TD width=140><IMG height=1 alt="" 
+                        src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                        width=140><BR>
+                        <P><LABEL for=Goal>Did the information help you to 
+                        achieve your goal?</LABEL></P></TD>
+                      <TD width=303><IMG height=6 alt="" 
+                        src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                        width=303><BR>
+                        <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD><INPUT id=goal-yes type=radio value=Yes 
+                              name=goal><LABEL for=goal-yes>Yes</LABEL></TD>
+                            <TD><INPUT id=goal-no type=radio value=No 
+                              name=goal><LABEL for=goal-no>No</LABEL></TD>
+                            <TD><INPUT id=goal-undecided type=radio 
+                              value="Don't know" name=goal><LABEL 
+                              for=goal-undecided>Don't 
+                        know</LABEL></TD></TR></TBODY></TABLE></TD>
+                      <TD width="100%">&nbsp;</TD></TR>
+                    <TR>
+                      <TD colSpan=3><IMG height=12 alt="" 
+                        src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                        width=8></TD></TR>
+                    <TR vAlign=top>
+                      <TD width=140><IMG height=1 alt="" 
+                        src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                        width=140><BR>
+                        <P><LABEL for=Comments>Please provide us with comments 
+                        to help improve this page:</LABEL></P></TD>
+                      <TD width=303><IMG height=6 alt="" 
+                        src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                        width=303><BR>
+                        <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD><TEXTAREA class=iform id=Comments name=Comments rows=5 wrap=virtual cols=35>&nbsp;</TEXTAREA></TD></TR></TBODY></TABLE></TD>
+                      <TD width="100%">&nbsp;</TD></TR>
+                    <TR>
+                      <TD colSpan=3><IMG height=12 alt="" 
+                        src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                        width=8></TD></TR>
+                    <TR vAlign=top>
+                      <TD width=140><IMG height=1 alt="" 
+                        src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                        width=140><BR>
+                        <P><LABEL for=Rating>How useful is the 
+                        information?</LABEL></P></TD>
+                      <TD width=303><IMG height=6 alt="" 
+                        src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                        width=303><BR>
+                        <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD align=left width=58><INPUT id=Rating1 
+                              type=radio value=1 name=Rating><LABEL 
+                              for=Rating1>1</LABEL></TD>
+                            <TD align=left width=58><INPUT id=Rating2 
+                              type=radio value=2 name=Rating><LABEL 
+                              for=Rating2>2</LABEL></TD>
+                            <TD align=left width=58><INPUT id=Rating3 
+                              type=radio value=3 name=Rating><LABEL 
+                              for=Rating3>3</LABEL></TD>
+                            <TD align=left width=58><INPUT id=Rating4 
+                              type=radio value=4 name=Rating><LABEL 
+                              for=Rating4>4</LABEL></TD>
+                            <TD align=left width=61><INPUT id=Rating5 
+                              type=radio value=5 name=Rating><LABEL 
+                              for=Rating5>5</LABEL></TD></TR>
+                          <TR>
+                            <TD align=left width=60><SPAN 
+                              class=greytext>Not</SPAN><BR><SPAN 
+                              class=greytext>useful</SPAN></TD>
+                            <TD align=left width=60><IMG height=1 alt="" 
+                              src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                              width=1></TD>
+                            <TD align=left width=60><IMG height=1 alt="" 
+                              src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                              width=1></TD>
+                            <TD align=left width=60><IMG height=1 alt="" 
+                              src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                              width=1></TD>
+                            <TD align=left width=63><SPAN 
+                              class=greytext>Extremely<BR>useful</SPAN></TD></TR></TBODY></TABLE></TD>
+                      <TD 
+            width="100%">&nbsp;</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+            <TABLE class=v14-gray-table-border cellSpacing=0 cellPadding=0 
+            width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD colSpan=3><IMG height=8 alt="" 
+                  src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                  width=8></TD></TR>
+              <TR>
+                <TD width=8><IMG height=1 alt="" 
+                  src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                  width=8></TD>
+                <TD colSpan=3><INPUT type=image height=21 alt=Submit width=120 
+                  src="IBM Rational ClearQuest FAQs working with databases and schemas_files/submit.gif" 
+                  border=0></TD></TR>
+              <TR>
+                <TD colSpan=3><IMG height=8 alt="" 
+                  src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                  width=8></TD></TR></TBODY></TABLE></FORM><BR></SPAN><BR>
+            <P>
+            <TABLE cellSpacing=0 cellPadding=5 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD><SPAN class=atitle>Share this.... </SPAN>
+                  <P>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR vAlign=top align=left>
+                      <TD width=21><A 
+                        href="javascript:location.href='http://digg.com/submit?phase=2&amp;url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title)"><IMG 
+                        height=10 alt=digg 
+                        src="IBM Rational ClearQuest FAQs working with databases and schemas_files/10x10-digg-thumb.gif" 
+                        width=10 border=0></A></TD>
+                      <TD width=120><A 
+                        href="javascript:location.href='http://digg.com/submit?phase=2&amp;url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title)"><SPAN>Digg 
+                        this story</SPAN></A></TD><!--<td width="8"><img alt="" height="1" width="8" src="//www.ibm.com/i/c.gif"/></td>-->
+                      <TD width=21><IMG height=16 alt=del.icio.us 
+                        src="IBM Rational ClearQuest FAQs working with databases and schemas_files/icon_delicious.gif" 
+                        width=16 border=0> </TD>
+                      <TD width=100><A class=fbox 
+                        onclick="window.open('http://del.icio.us/post?v=4&amp;noui&amp;jump=close&amp;url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title), 'delicious','toolbar=no,width=700,height=400'); return false;" 
+                        href="http://del.icio.us/post"><SPAN>del.icio.us</SPAN></A></TD><!--<td width="8"><img alt="" height="1" width="8" src="//www.ibm.com/i/c.gif"/></td>-->
+                      <TD width=21><!-- start Slashdot it link --><A 
+                        href="javascript:location.href='http://slashdot.org/bookmark.pl?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title)"><IMG 
+                        height=16 alt=Slashdot 
+                        src="IBM Rational ClearQuest FAQs working with databases and schemas_files/slashdot-favicon.gif" 
+                        width=16 border=0></A></TD>
+                      <TD width=120><A 
+                        href="javascript:location.href='http://slashdot.org/bookmark.pl?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title)">Slashdot 
+                        it!</A></TD><!--<td width="8"><img alt="" height="1" width="8" src="//www.ibm.com/i/c.gif"/></td>-->
+                      <TD><IMG height=5 alt="" 
+                        src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+                        width=8></TD></TR></TBODY></TABLE></P></TD></TR></TBODY></TABLE></P><!--START RESERVED FOR FUTURE USE INCLUDE FILES--><!-- NO RESERVED CONTENT --><!--END RESERVED FOR FUTURE USE INCLUDE FILES--><BR><SPAN 
+            class=no-print>
+            <TABLE cellSpacing=0 cellPadding=0 align=right>
+              <TBODY>
+              <TR align=right>
+                <TD>
+                  <TABLE cellSpacing=0 cellPadding=0 border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=center><IMG height=16 alt="" 
+                        src="IBM Rational ClearQuest FAQs working with databases and schemas_files/u_bold.gif" 
+                        width=16 border=0><BR></TD>
+                      <TD vAlign=top align=right><A class=fbox 
+                        href="http://www.ibm.com/developerworks/rational/library/4114.html#main"><B>Back 
+                        to 
+            top</B></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR></SPAN></TD>
+          <TD width=10><IMG height=1 alt="" 
+            src="IBM Rational ClearQuest FAQs working with databases and schemas_files/c.gif" 
+            width=10></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!--FOOTER_BEGIN-->
+<DIV id=ibm-page-tools><!-- IBM page tools --></DIV>
+<DIV id=ibm-footer>
+<UL>
+  <LI class=ibm-first><A href="http://www.ibm.com/ibm/">About IBM</A> </LI>
+  <LI><A href="http://www.ibm.com/privacy/">Privacy</A> </LI>
+  <LI><A href="http://www.ibm.com/contact/">Contact</A> </LI>
+  <LI><A href="http://www.ibm.com/legal/">Terms of use</A> </LI></UL></DIV></DIV>
+<SCRIPT language=JavaScript1.2 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/stats.js" 
+type=text/javascript></SCRIPT>
+<NOSCRIPT><IMG height=1 alt="" 
+src="C:\Documents and Settings\Administrator\Desktop\Eric\IBM Rational ClearQuest FAQs working with databases and schemas_files\c(1).gif" 
+width=1 border=0></NOSCRIPT>
+<SCRIPT language=JavaScript 
+src="IBM Rational ClearQuest FAQs working with databases and schemas_files/ratingsposttoget.js" 
+type=text/javascript></SCRIPT>
+ <!--FOOTER_END--><!--XSLT stylesheet used to transform this file:  dw-document-html-5.10.xsl--></BODY></HTML>

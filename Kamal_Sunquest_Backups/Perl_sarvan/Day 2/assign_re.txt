@@ -1,0 +1,124 @@
+Assignment 2
+Course : PERL
+
+
+
+Regular Expressions :
+
+0.Experiment.
+   $_ = "I have 2 numbers: 53147";
+    @pats = qw{
+        (.*)(\d*)
+        (.*)(\d+)
+        (.*?)(\d*)
+        (.*?)(\d+)
+        (.*)(\d+)$
+        (.*?)(\d+)$
+        (.*)\b(\d+)$
+        (.*\D)(\d+)$
+    };
+
+    for $pat (@pats) {
+        printf "%-12s ", $pat;
+        if ( /$pat/ ) {
+            print "<$1> <$2>\n";
+        } else {
+            print "FAIL\n";
+        }
+    }
+
+
+
+1. Write a regular expression to check whether a char repeats anywhere in the string.
+
+2. Remove all tags from a HTML file.
+
+3. Remove comments from a Perl program.
+
+4. Check whether a given string is a valid email-id or not.
+
+5. Write a regular expression for the following and check them.
+   a) Floating point number in fixed form.
+   b) Floating point number in exponential form.
+
+6. Given a set of filenames, print the primary name and extension separately.
+
+7. Swap first two words using regular expression.
+
+8. Write a regular expression to find first doubled character.
+
+9. Construct a regular expression that matches:
+
+   a) at least one a followed by any number of b's (might be zero)
+   b) any number of backslashes followed by any number of asterisks (any
+      number might be zero)
+   c) three consecutive copies of whatever is contained in $whatever
+   d) any five characters, including newline
+
+10. Write a program that accepts a list of words on STDIN and looks for a line containing all 
+   five vowels (a, e, i, o, and u).
+
+
+11. Modify the program so that the five vowels have to be in order and intervening 
+   letters don't matter.
+
+12. Using the test program from the previous chapter, make a pattern that matches only lines     containing either the word fred or wilma, followed by some whitespace, and then the word     flintstone. So it should match the string I am fred flintstone (with one or more spaces 
+    or tabs between the names). 
+
+13. Here, we give you the answer; you decide what problem it's trying to solve. 
+    What do these real-world patterns match? What might they be used for? 
+
+    /"([^"]*)"/
+    /^0?[0-3]?[0-7]{1,2}$/
+    /^\b[\w.]{1,12}\b$/
+
+
+    Try each of them in the test program. It may help to find some strings that 
+    match (and that fail to match) each one. 
+
+14. Make a pattern that will match a string containing nothing but a scalar variable's name 
+    (not its value!), like $fred, $barney, or $_ (but you shouldn't match special variables 
+    like $0). That is, if the line of input has the six characters $wilma, the pattern should
+     match. If the input says wilma, it should not match. 
+
+15. Make a pattern that matches any line of input that has the same word repeated two or more 
+    times in a row. Words in this problem can be considered to be sequences of letters a to z or 
+    A to Z, digits, and underscores. Whitespace between words may differ. For example, the 
+    classic observation-test string Paris in the the spring should match, since it has a 
+    doubled word. Also, I think that that is the problem should match, even though that may be 
+    a correct use of a doubled word. Does your pattern match all three words in I think that 
+    that that is the problem (with extra spaces between only some of the words)? Does it match
+    This is a test? How about This shouldn't match, according to the theory of regular
+    expressions? 
+
+
+16. Make a pattern that will match three consecutive copies of whatever is currently contained 
+    in $what. That is, if $what is fred, your pattern should match fredfredfred. If $what is
+    fred|barney, your pattern should match fredfredbarney or barneyfredfred or 
+    barneybarneybarney or many other variations. (Hint: You should set $what at the top of the
+    pattern test program with a statement like my $what = 'fred|barney';.) 
+
+17. Write a program that looks through the perlfunc.pod file for lines that start with =item 
+   and some whitespace, followed by a Perl identifier name (made of letters, digits, and 
+   underscores, but never starting with a digit), like the lines below. (There may be more 
+   text on the line after the identifier name; just ignore it.) You can locate the 
+   perlfunc.pod file on your system with the command perldoc -l perlfunc, or ask your local
+   expert. (Hint: You'll need the diamond operator to open this file. How will it get the 
+   filename?) Have the program print each identifier name as it finds it; there will be 
+   hundreds of them, and many will appear more than once in the file. 
+
+   As an example, the following lines of input resemble what you'll find in perlfunc.pod. 
+   For the first line, the program should print wilma. For the second, it should print 
+   fred (ignoring the word flintstone, since we're interested only in the identifier name): 
+
+   =item wilma 
+   =item fred flintstone
+
+
+18. Modify the previous program to list only the identifier names that appear more than twice 
+    on those =item lines, and tell how many times each one appeared. (That is, we want to know 
+    which identifier names appear on at least three separate =item lines in the file.) There 
+    should be a couple of dozen, depending upon your version of Perl. 
+
+
+
